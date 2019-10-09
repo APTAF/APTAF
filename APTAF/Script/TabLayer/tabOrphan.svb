@@ -1,0 +1,152 @@
+﻿'USEUNIT Main
+'------------------------------------------------------------------------------------**/
+' Summary: dlgImportCeaserII dialog.     
+' Remarks:
+' Actions:
+'              
+'           Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ImportCeaserII(TestData)
+	'Log.PopLogFolder
+	AppendLogFolder("Import Ceaser II Dialog")
+      Dim strTableName: strTableName = "tblImportCaesarII"        'TableName in Input DB 
+      Dim strHotKey: strHotKey = ""                                   'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Orphan.ImportCaesarII"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgImportCaesarII"                       'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: dlgImportCeaserII dialog.     
+' Remarks:
+' Actions:
+'              
+'           Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub CaesarIIImportFlangeSettings(TestData)
+	'Log.PopLogFolder
+	AppendLogFolder("CaesarIIImportFlangeSettings Dialog")
+      Dim strTableName: strTableName = "tblCaesarIIImportFlangeSettings"        'TableName in Input DB 
+      Dim strHotKey: strHotKey = ""                                   'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Orphan.CaesarIIImportFlangeSettings"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgCaesarIIImportFlangeSettings"                       'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+Sub InsertDATPaste(TestData)
+	
+	AppendLogFolder("Insert model Paste dialog")
+      Dim strTableName: strTableName = "tblInsertDATPaste"        'TableName in Input DB 
+      Dim strHotKey: strHotKey = ""                                   'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Orphan.InsertDATPaste"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgPaste"                       'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+  PopLogFolder  
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: dlg Import OpenPlant Modeler/AutoPlant dialog.     
+' Remarks:
+' Actions:
+'              
+'           Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Bilal.Tahir
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ImportOpenPlantModeler(TestData)
+	'Log.PopLogFolder
+	AppendLogFolder("Import OpenPlant Modeler/AutoPLNT Dialog")
+      Dim strTableName: strTableName = "tblImportPXFOPM"        'TableName in Input DB 
+      Dim strHotKey: strHotKey = ""                                   'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Orphan.ImportOpenPlantModeler"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgImportOpenPlantModeler"                       'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: dlg Export OpenPlant Modeler/AutoPlant dialog.     
+' Remarks:
+' Actions:
+'              
+'           Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Bilal.Tahir
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ExportPXFBatchResult(TestData)
+              strTableName = "tblExportPXFBatchResult"
+              strHotKey = ""                                                    'Dialog Shortcut Key
+              strUIMethod = "Orphan.PXFBatchResult"                                                  'DialogUIMethod
+              strDlgNameMap = "dlgPXFBatchResult"
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Select Base Point with given value.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              String Value  - Value of that specific Point name as input              E-g Point("A01")
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub BasePoint(strBasePointName)
+   
+
+      Set objNameMapping = Aliases.autopipe
+
+       
+      if(objNameMapping.WaitAliasChild("dlgSelectPoint", 60).WaitProperty("Exists", true, 10)) Then 
+        'objNameMapping.dlgSelectPoint.fldPoint.DblClick()
+        objNameMapping.dlgSelectPoint.fldPoint.Keys(strBasePointName)
+        objNameMapping.dlgSelectPoint.btnOK.Click()
+        Log.Message("Base Point '" & strBasePointName & "' selected")
+    End If
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: dlg Import OpenPlant Modeler/AutoPlant dialog.     
+' Remarks:
+' Actions:
+'              
+'           Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Bilal.Tahir
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ImportPXFOPMMapping(TestData)
+	'Log.PopLogFolder
+	AppendLogFolder("Import OpenPlant Modeler/AutoPLNT Mapping Dialog")
+      Dim strTableName: strTableName = "tblImportPXFOPMMapping"        'TableName in Input DB 
+      Dim strHotKey: strHotKey = ""                                   'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Orphan.ImportPXFOPMMapping"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgOPMMapping"                       'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub

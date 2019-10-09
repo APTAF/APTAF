@@ -1,0 +1,811 @@
+﻿'USEUNIT App_Common
+'USEUNIT DatabaseFunctions
+'USEUNIT FSO_Functions
+'USEUNIT ImportExport
+'USEUNIT Model
+'USEUNIT Orphan
+'USEUNIT PipingComponents
+'USEUNIT Reports
+'USEUNIT Save
+'USEUNIT Supports
+'USEUNIT tabOrphan
+'USEUNIT UIEngine
+'USEUNIT XtraData
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Actions would perform depending on the TestData.   
+' Remarks:
+' Actions:
+'              TestData->           Table row number
+'              strTableName ->      Table Name
+'              strHotKey ->         Dialog shortcut key
+'              strScriptFile ->     Script file to call     
+'              strUIMethod ->  Procedure to execute
+'              strDlgNameMap ->     Dialog name mapping            
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Test Data Cases -> "0" , "All" , ">0" , "Range" , "SelectiveRows" , "SelectiveRange"
+'             "0" -> Execute dialog with default values. Press OK  
+'           "All" -> Execute all test cases
+'            ">0" -> Execute dialog with specific row
+'         "Range" -> Execute dialog with in the given range values e-g "2-7"
+' "SelectiveRows" -> Execute dialog with in the given multiple row number values e-g 2,5,3,7
+'"SelectiveRange" -> Execute dialog with in the given multiple range and given row number values e-g 2-7,11-15
+                    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'Option Explicit
+Sub TAFMain(TestData, strTableName, strHotKey, strUIMethod , strDlgNameMap, isDlgVerification, isDlgNegativeTest)
+      Dim intTableRow : intTableRow = 0     
+      Dim strTestData
+      Dim intTestData : intTestData = -1
+      
+      Dim ObjNameMapping: 
+      If strDlgNameMap <> "dlgPCFTranslator" Then
+        Set ObjNameMapping = Aliases.autopipe
+      Else 
+       Set ObjNameMapping = Aliases.PCFTranslator 'PCF Translator
+      End If
+      
+      Dim strOpenDialog: strOpenDialog = Project.Variables.strOpenDialog   ' dialog opening method -> Shortcut or Ribbon
+      Dim ObjRow
+      Dim  CallUIMethod
+      
+'Sub Main(objNameMapping,ByVal objRow, strOpenDialog, strHotKey, strDlgNameMap, strUIMethod)         
+'      CallUIMethod = "Call " & strUIMethod & "(ObjNameMapping, ObjRow, strOpenDialog,strDlgNameMap,strUIMethod, strHotKey)"   ' Call Model.Open(ObjNameMapping, ObjRow, strOpenDialog, strHotKey)
+      CallUIMethod = "Call UIEngineMain(ObjNameMapping, ObjRow, strOpenDialog, strHotKey, strDlgNameMap,strUIMethod, strTableName, isDlgVerification, isDlgNegativeTest)"   ' Call Model.Open(ObjNameMapping, ObjRow, strOpenDialog, strHotKey)
+      If Instr(TestData,",") Then
+          If Instr(TestData,"-")Then
+              strTestData = "SelectiveRange"
+          Else
+              strTestData = "SelectiveRows"
+          End If
+      ElseIf Instr(TestData,"-") Then
+            strTestData = "Range"
+      ElseIf (TestData = "All" or TestData = "all" or TestData = "ALL")Then
+            strTestData = "All"
+      Else
+            If IsNumeric(TestData)Then
+                strTestData = "SingleRow"
+                intTestData = CInt(TestData)
+            End If
+      End If
+ 
+      Select Case strTestData
+      Case  "SingleRow"
+            If(TestData = 0)Then
+                If strOpenDialog = "Shortcut" Then
+                    Delay("1000")
+                    ObjNameMapping.wndAutoPIPE.Keys(strHotKey)
+                    
+                    Call PopupsClose(objNameMapping) 'Close any type of popup dialog e-g error,confirm etc
+                    If(objNameMapping.WaitAliasChild("dlgConfirm", 2000).WaitProperty("Exists", true, 10)) Then
+                       ObjNameMapping.dlgConfirm.btnNo.Click()
+                    End If
+'                    
+                    Execute "ObjNameMapping."&strDlgNameMap&".btnOK.Click()"
+                   
+                    'Log.PopLogFolder
+                    Log.Message("Using the '"&strUIMethod&"' dialog with default values")
+                Else 
+                    ' Ribbon is not accessable 
+                    msgbox " Ribbon Functionality not available"
+                End If
+            ElseIf (TestData>0) Then
+                Set ObjRow = GetRow(intTestData, strTableName)
+                'If (objRow.Item("TestCase") <> null OR objRow.Item("TestCase") <> "" )Then
+                 If (TestData <> null OR TestData <> "" ) Then
+                  Execute CallUIMethod
+                End If
+'                ' Negative Test: Handle Error Or Warning Dialog
+'                'If(Aliases.autopipe.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) OR (Aliases.autopipe.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+'                  'call Main.NegativeTest
+'                'End If 
+               
+                
+            End If
+
+      Case "All"
+            Dim intTotalRows: intTotalRows = GetTotalRows(strTableName)
+            For intTableRow = 1 to intTotalRows
+                Set ObjRow = GetRow(intTableRow, strTableName)
+                 If (objRow.Item("TestCase")<>null OR objRow.Item("TestCase")<>"" )Then
+                
+                  Execute CallUIMethod
+                End If
+                ' Negative Test: Handle Error Or Warning Dialog
+'                If(Aliases.autopipe.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) OR (Aliases.autopipe.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+'                  call Main.NegativeTest
+'                End If  
+            Next   
+          
+      Case "Range"
+            Dim intStart:intStart = Mid(TestData,1,Instr(TestData,"-")-1)
+            Dim intEnd:intEnd = Mid(TestData,Instr(TestData,"-")+1)
+            For intTableRow = intStart to intEnd
+              Set ObjRow = GetRow(CINT(intTableRow), strTableName)
+              If (objRow.Item("TestCase")<>null OR objRow.Item("TestCase")<>"" )Then
+                'AppendLogFolder("TestCase: Row# " & intTableRow)
+
+                Execute CallUIMethod
+                'PopLogFolder
+              End If
+            Next
+      Case "SelectiveRows"
+            TestCaseList =  Split(TestData,",")
+            intEnd  = Ubound(TestCaseList)
+            For intTableRow = 0 to intEnd
+              RowNum = TestCaseList(intTableRow)
+              Set ObjRow = GetRow(CINT(RowNum), strTableName)
+              If (objRow.Item("TestCase")<>null OR objRow.Item("TestCase")<>"" )Then
+
+                Execute CallUIMethod
+              End If
+            Next
+      Case "SelectiveRange"
+              TestCaseList =  Split(TestData,",")
+              intEnd  = Ubound(TestCaseList)
+              For intTableRow = 0 to intEnd
+                  RowNum = TestCaseList(intTableRow)
+                  If(Instr(RowNum,"-"))Then
+                      Dim intRStart:intRStart = Mid(RowNum,1,Instr(RowNum,"-")-1)
+                      Dim intREnd:intREnd     = Mid(RowNum,Instr(RowNum,"-")+1)
+                      For intSelectiveRow     = intRStart to intREnd
+                        Set ObjRow = GetRow(CINT(intSelectiveRow), strTableName)
+                        If (objRow.Item("TestCase")<>null OR objRow.Item("TestCase")<>"" )Then
+
+                          Execute CallUIMethod
+                        End if
+'                        If(Aliases.autopipe.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) OR (Aliases.autopipe.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+'                          call Main.NegativeTest
+'                        End If  
+                      Next
+                      Else 
+                      Set ObjRow = GetRow(CINT(RowNum), strTableName)
+                      If (objRow.Item("TestCase")<>null OR objRow.Item("TestCase")<>"" )Then
+                         Execute CallUIMethod
+                      End If
+                  End If
+              Next
+      End Select      
+      
+End Sub
+
+Function GetTestDataType(TestData)
+
+    If Instr(TestData,",") Then
+       If Instr(TestData,"-")Then
+          TestDataType = "SelectiveRange"
+       Else
+          TestDataType = "SelectiveRows"
+       End If
+    ElseIf Instr(TestData,"-") Then
+       TestDataType = "Range"
+    ElseIf (TestData = "All" or TestData = "all" or TestData = "ALL")Then
+       TestDataType = "All"
+       Else
+       If IsNumeric(TestData)Then
+          TestDataType = "SingleRow"
+          intTestData = CInt(TestData)
+       End If
+     End If
+End Function
+'------------------------------------------------------------------------------------**/
+' Summary: Get row object.   
+' Remarks:
+' Actions:
+'              intTestData    ->      Table row number
+'              strTableName   ->      Table Name
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function GetRow(intTestData, strTableName)
+      intTestData = CInt(intTestData)
+      Dim strInputDBType: strInputDBType = Project.Variables.strInputDBType               ' Excel or SQLite 
+      Dim strOpenDialog : strOpenDialog  = Project.Variables.strOpenDialog   ' dialog opening method -> Shortcut or Ribbon
+      Dim strInputDBName: strInputDBName = GetInputDBName
+      Set GetRow = Datatable(strInputDBType,strTableName,intTestData, null,strInputDBName)
+ 
+End Function
+'------------------------------------------------------------------------------------**/
+' Summary: Get DB table rows   
+' Remarks:
+' Actions:
+'           strTableName ->      Table Name
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function GetTotalRows(strTableName)
+      Dim strInputDBType: strInputDBType = Project.Variables.strInputDBType               ' Excel or SQLite 
+      'Dim strOpenDialog : strOpenDialog  = Project.Variables.strOpenDialog   ' dialog opening method -> Shortcut or Ribbon
+      Dim strInputDBName: strInputDBName = GetInputDBName
+      GetTotalRows = Datatable_Get_Row_Count(strInputDBType,strTableName,strInputDBName)
+'Datatable_Get_Row_Count(sType,sQuery,locDatatable)
+End Function
+'------------------------------------------------------------------------------------**/
+' Summary: Generate Comparison Report 
+' Remarks:
+' Actions:
+'           strModelName      -> 
+'           strBenchFileName  -> 
+'           strLogName        -> 
+' Author:   Bilal.Tahir   
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function GenerateReport(strModelName,strBenchFileName,strLogName)
+      
+      'On Error Resume Next
+      Dim strWorkDir         : strWorkDir          = aqEnvironment.GetEnvironmentVariable("TEMP")
+      Dim strReportFolderPath: strReportFolderPath = Project.Variables.strReportFolderPath
+      Dim strFileName        : strFileName         = strWorkDir & strModelName & "."& strModelNameExtension
+      Dim strBenchmarkFile   : strBenchmarkFile    = strBenchFileName
+      
+      GenerateReport = CheckText(strBenchmarkFile,strFileName,"Diff")
+End Function
+'------------------------------------------------------------------------------------**/
+' Summary: Verify by comparing Benchmark against Actual file
+' Remarks:
+' Actions:
+'           strActualFileName -> File created after executing the model 
+'           strBenchmark      -> Name of the Benchmark file in "Stores"
+' Author:   Bilal.Tahir   
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function VerifyResult(strActualFileName,strBenchFileName)
+    'On Error Resume Next
+      
+    strActualFileName = LCase(strActualFileName)
+    If InStr(1,strActualFileName,"%temp%") Then
+      tempPath = aqEnvironment.GetEnvironmentVariable("TEMP")
+      strActualFileName = Replace(strActualFileName,"%temp%",tempPath)
+     
+    End If
+    arrRemoveText = Array("Academic","BENTLEY","AutoPIPE Nuclear","Version","REVISION","Time","JOB")
+    BenchFileName = Files.FileNameByName(strBenchFileName)
+    Call RemoveText(strActualFileName,arrRemoveText)
+    Call RemoveText(BenchFileName,arrRemoveText)
+    VerifyResult = CheckText(strBenchFileName,strActualFileName,"Diff")
+End Function
+'------------------------------------------------------------------------------------**/
+' Summary: Verify GUI
+' Remarks:
+' Actions:
+'           
+' Author:   Bilal.Tahir   
+' Date:     8/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function VerifyGUI(strBenchmarkPicName, strDialogMappedName)
+  
+  If Not Region.Compare(strBenchmarkPicName, strDialogMappedName) Then
+    VerifyGUI = "Fail"
+  End If
+  
+  VerifyGUI = "Pass"
+End Function
+'------------------------------------------------------------------------------------**/
+' Summary: Get Benchmark folder
+' Author:   Bilal.Tahir   
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function GetBenchmarkFolder
+'Project.Variables.strTPFolderPath
+  'Dim strTPFolderPath :  strTPFolderPath = Project.Variables.strTPFolderPath & "\Benchmark\"
+  'Dim strTPFolderPath :  strTPFolderPath = Project.Variables.strTPFolderPath & "/Benchmark/"
+  'Dim strBenchmarkFolder :  strBenchmarkFolder = aqFileSystem.ExpandFileName(strTPFolderPath)
+  'Dim strBenchmarkFolder :  strBenchmarkFolder = Project.Variables.strTPFolderPath & "\Benchmark\"
+  'return 
+  GetBenchmarkFolder = Project.Variables.strTPFolderPath & "\Benchmark\"
+End Function
+'
+'---------------Get DB Name-------------------------------------------------------------
+' Summary: Get Input DB Name name and path
+' Remarks:
+' Actions:
+' Author:   Bilal.Tahir   
+' Date:     8/2017
+'---------------------------------------------------------------------------------------
+Function GetInputDBName
+  'Dim strTPFolderPath : strTPFolderPath = Project.Variables.strTPFolderPath
+  'aqUtils.Delay(500)
+  'Dim strTPFolderPath : strTPFolderPath = aqFileSystem.ExpandFileName(Project.Variables.strTPFolderPath)
+  Dim strTPFolderPath : strTPFolderPath = Project.Variables.strTPFolderPath
+  Dim strInputDBName  : strInputDBName  = Project.Variables.strInputDBName
+  
+  'aqUtils.Delay(500)
+  'Dim strInputDB      : strInputDB      = aqFileSystem.ExpandFileName(strTPFolderPath) & "\InputDB\" & strInputDBName
+  Dim strInputDB      : strInputDB      = strTPFolderPath & "\InputDB\" & strInputDBName
+
+  GetInputDBName = strInputDB
+End Function
+'------------------------------------------------------------------------------------
+' Summary: Handle the Error and Warning Dialog
+' Remarks:
+' Actions:
+'         In case Error or Warning dialog appears. Press OK button and cancel the dialog on which
+'         error or warning dialog appeared.  
+' Author:   Bilal.Tahir   
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub NegativeTest(objNameMapping) 
+    'Set objNameMapping = Aliases.autopipe
+    If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Then
+        objNameMapping.dlgError.SetFocus
+       objNameMapping.dlgError.btnOK.Click()
+        '' Add Log
+        Log.Message("Error dialog prompted.'" & dlgName & "' Dialog Closed.")
+    ElseIf(objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+        Dim WarningMsg: WarningMsg = objNameMapping.dlgWarning.lblWarningMessage.WndCaption
+        'Close Warning message
+        objNameMapping.dlgWarning.SetFocus
+        objNameMapping.dlgWarning.btnOK.Click()
+        ' Add Log
+        Log.Warning(WarningMsg)
+    End If
+End Sub
+'---------------------------------------------------------------------------------**/
+' Summary: Log functions
+' Remarks:
+' Actions:
+'           FolderName -> Name of the report
+'           FolderID  -> Name of the Benchmark file in "Stores"
+'           
+' Author:     
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub AppendLogFolder(FolderName)
+  Log.AppendFolder(FolderName)
+  intLogLevel = intLogLevel + 1
+End Sub
+Sub PushLogFolder(FolderID)
+  Log.PushLogFolder(FolderID)
+  intLogLevel = intLogLevel + 1
+End Sub
+Sub PopLogFolder
+  Log.PopLogFolder
+  intLogLevel = intLogLevel - 1
+End Sub
+Sub ActivateRootFolder
+  Do While intLogLevel > 0
+    PopLogFolder
+  Loop
+End Sub
+'-----------------LOG Section End----------------------------------------------------
+'-Write to Test Plan function-----------------------------------------
+' Summary: Write to Test Plan function
+' Remarks:
+' Actions:
+'           FolderName -> Name of the report
+'           FolderID  -> Name of the Benchmark file in "Stores"
+'           
+' Author:     
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub WriteToExcelReport(strTestPlanName,strSheetName,arrHeaderValues(),strDirection,intStartCol,intStartRow)
+
+  Dim Excelapp, objTestPlan, objSheet
+  Dim intArrLength:intArrLength = UBound(arrHeaderValues)+1
+   
+  Set Excelapp = Sys.OleObject("Excel.Application")
+  Set objTestPlan = Excelapp.Workbooks.Open(strTestPlanName)
+  Set objSheet = objTestPlan.Sheets(strSheetName)
+  Excelapp.DisplayAlerts = False
+  
+
+  Dim i : i = 0
+  
+  Select Case strDirection
+  
+  Case "vertical*2"
+       For k=0 To  intArrLength -1 
+          objSheet.Cells(intStartRow, intStartCol) = arrHeaderValues(k)
+          intStartRow = intStartRow + 2
+       Next
+       
+   Case "vertical"
+       For k=0 To  intArrLength-1
+          objSheet.Cells(intStartRow, intStartCol) = arrHeaderValues(k)
+          intStartRow = intStartRow + 1
+       Next
+       
+  Case "horizontal"
+      For k=0 To  intArrLength-1
+        objSheet.Cells(intStartRow, intStartCol) = arrHeaderValues(k)
+        intStartCol = intStartCol + 1 
+      Next 
+
+ End Select 
+  
+  Call objTestPlan.Save
+  Call objTestPlan.Close
+  Call Excelapp.Quit
+
+      set Excelapp = Nothing
+      set objTestPlan = nothing
+End Sub
+'------------------Get Record From DB------------------------------------------------
+' Summary: Database function
+' Remarks:
+' Actions:
+'           strQuery      -> SQL Query e-g "Select FieldName from TableName"
+'           strTableName  -> DB table Name
+'           
+' Author:     
+' Date:     11/2017
+'/*--------------+---------------+---------------+---------------+---------------+------
+Function GetDBRecord(strQuery)
+'handle errors
+  'On Error Resume Next
+  
+'Create connection object
+  Dim strDBName:strDBName = GetInputDBName
+  Dim strDBType: strDBType = LCase(Project.Variables.strInputDBType)
+  Set objCon = GetConn(strDBType,strDBName)
+
+'Create record set object
+  Dim objRS
+    set objRS = CreateObject("ADODB.RecordSet")
+
+'DataBase type : Excel & SQLITE
+  Select Case strDBType
+      'Excel
+      Case "excel"
+          'Create recordset
+          objRS.CursorType = adOpenKeySet
+          objRS.LockType = 2
+          objRS.open strQuery, objCon
+  
+          'Pass errors to event handler
+          If err.Number <> 0 Then
+              Call log.Error(Err.Description)
+              Exit Function
+          End If
+      'SQLite
+      Case "sqlite"
+          'Create recordset
+          objRS.open strQuery, objCon
+          'Pass errors to event handler
+          If err.Number <> 0 Then
+              Call log.Error(Err.Description)
+              'Exit
+              Exit Function
+          End If
+  End Select
+  
+  'Dim intRecNo:intRecNo = 0 
+  Dim intRecNo:intRecNo = 1
+  GetDBRecord = objRS.GetRows(objRS.RecordCount,intRecNo)
+  'Close record set
+  objRS.close
+  'Close connection
+  objCon.close
+  'Destroy object
+  Set objCon = Nothing
+  'Destroy Objects
+  set objRS = Nothing
+End Function
+'----------------Verification--------------------------------------------------------
+' Summary: Verification of the Test . 
+' Remarks:
+' Actions:
+'           strVerificationType    -> OUT, RPT, NTL etc
+'           strActualFileName      -> File path to verify
+'           strBenchmarkFileName   -> Benchmark file path against which the actual file to verify
+Function Verification(strVerificationType, strActualFileName,strBenchmarkFileName)
+  Dim strTestResult 
+  Select Case strVerificationType
+    Case "positive" ,"negative"
+        ' OUT Report
+        'AppendLogFolder("Positive Test")
+        'Log.Message("Verification done on dialog's data")
+       ' PopLogFolder
+        PopLogFolder
+        Verification = Project.Variables.strTestResult
+
+  Case "positive+report", "report" 
+        ' Positive Test both with field and Report verification
+        AppendLogFolder("Positive test with Report Verificatoin")
+        strTestResult = Main.VerifyResult(strActualFileName,strBenchmarkFileName)
+        ' If strTestResult equals to 'TRUE' means the files matched and the test is passed.
+        IF  strTestResult = "True" Then
+            strTestResult = "Pass"
+        Else
+            Call GetDiscrepencyFiles (strActualFileName, strBenchmarkFileName)
+            strTestResult = "Fail"
+            
+        End IF
+        PopLogFolder
+        PopLogFolder
+        Verification = strTestResult
+ 
+  Case "image"
+        AppendLogFolder("Image Verificatoin")
+        If Not Regions.Compare(strActualFileName, Aliases.autopipe.wndAutoPIPE.mainGUI) Then 'Compare benchmark snap against the object open on screen
+          Log.Error("Main GUI comparison Failed")
+          Verification = "Fail"                                          'Set global test variable to Fail
+        Else
+          Log.Message ("Main GUI comparison Passed")
+        End If
+        'Execute  dlgName&".btnCancel.Click()"
+        Log.Message("Image verification done on Model")
+        PopLogFolder
+        PopLogFolder
+        tabFile.Close("No") 'Close the Model
+        Verification = Project.Variables.strTestResult
+  End Select
+
+End Function
+
+'---Summary: Get all files from a folder and place it in Store's FILE as benchmark---
+' Remarks:
+' Actions:
+'          sPath 
+' Author:     
+' Date:     1/2018
+'------------+---------------+---------------+---------------+---------------+------
+Sub AddFilesToStore
+  AppendLogFolder("Benchmark Files added to Store")
+  strBenchmarkFolder = GetBenchmarkFolder
+
+  Set objFileCollection = GetFileCollection(strBenchmarkFolder)
+  For each file in objFileCollection
+      ' Verify that StoredItemName is not taken
+    If Files.Contains(file.Name) Then
+         Log.Message (file.Name&" file exists in the store.")
+    End If
+ 
+    If Files.Add(strBenchmarkFolder&"\"&file.Name,file.Name) Then
+        Log.Message (file.Name&" file has been successfully added in Store.")
+     Else
+        Log.Message (Files.LastError)
+    End If
+
+  Next
+  PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------
+' Summary: Clear all Files from store . 
+' Remarks:
+' Actions:
+'           
+' Author:     
+' Date:     1/2018
+'------------+---------------+---------------+---------------+---------------+------
+Sub EmptyStore
+    AppendLogFolder("Files removed from the Store")
+      StoreCleanup("Files")
+      Log.Message ("All Files removed")
+    PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Get DTP name
+' Author:   Bilal.Tahir   
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function GetTestPlanName
+  Dim strTPFolderPath : strTPFolderPath = Project.Variables.strTPFolderPath
+  Dim strTPReportName:  strTPReportName = Project.Variables.strTPReportName 
+  strTestPlan     = strTPFolderPath & "\Report\" & strTPReportName
+  GetTestPlanName = strTestPlan
+End Function
+
+'------------------------------------------------------------------------------------**/
+' Summary: Close Error Popups e-g Error, Confirm, Warning
+' Author:   Bilal.Tahir   
+' Date:     8/2019
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ErrorPopupsClose(objNameMapping)
+Do While (objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10))
+  objNameMapping.dlgError.btnOK.ClickButton()
+  Delay(200)
+  Loop
+End sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Close all popeup dialogs e-g Error, Confirm, Warning
+' Author:   Bilal.Tahir   
+' Date:     8/2019
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'Sub PopupsClose(objNameMapping)
+'
+'  Do While (Aliases.AutoPIPE.WaitAliasChild("dlgNote", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgConfirmSaveAs", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgConfirm", 60).WaitProperty("Exists", true, 10))Or (Aliases.AutoPIPE.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10))
+'  
+'    Flag = 0
+'    dlgName = Sys.Process("autopipe").Window("#32770", "*", 1).WndCaption
+'
+'    Select Case dlgName
+'  
+'    Case "Confirm"
+'     If (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = " Database (*.dat) already exists. Do you want to replace it during conversion? ") Then
+'        Aliases.autopipe.dlgConfirm.btnOK.Click()
+'        Flag = 1
+'        Log.Message("The Confirm dialog closed on pressing 'YES'. Confirm dialog MESSAGE - Database (*.dat) already exists. Do you want to replace it during conversion? ")
+'      ElseIf (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = " The model is already opened. Do you want to re-open it?") Then
+'        Aliases.autopipe.dlgConfirm.btnOK.Click()
+'        Flag = 1
+'        Log.Message("The Confirm dialog closed on pressing 'YES'. Confirm dialog MESSAGE - Database (*.dat) already exists. Do you want to replace it during conversion?")
+'      ElseIf (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = " Import process successful. Review warning messages :") Then
+'       Aliases.autopipe.dlgConfirm.btnNo.Click()
+'       Flag = 1
+'       Log.Message("The Confirm dialog closed on pressing 'NO'. Confirm dialog MESSAGE - Review consistency check warning messages.  ")
+'      ElseIf (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = " Review consistency check warning messages :") Then
+'       Aliases.autopipe.dlgConfirm.btnNo.Click()
+'       Flag = 1
+'       Log.Message("The Confirm dialog closed on pressing 'NO'. Confirm dialog MESSAGE - Review consistency check warning messages.   ")
+'      ElseIf (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = " Review consistency check warning messages :") Then
+'       Aliases.autopipe.dlgConfirm.btnNo.Click()
+'       Flag = 1
+'       Log.Message("The Confirm dialog closed on pressing 'NO'. Confirm dialog MESSAGE - Review consistency check warning messages.   ")
+'
+'      ElseIf (objNameMapping.dlgConfirm.lblConfirmTxt.WndCaption = " ") Then
+'       Aliases.autopipe.dlgConfirm.btnNo.Click()
+'       Flag = 1
+'       Log.Message("Critical error message dialog closed - Message: " & objNameMapping.dlgConfirm.lblConfirmTxt.WndCaption)
+'      
+'       
+'       
+'      End If
+'
+'      
+'    Case "Warning"
+'      Aliases.autopipe.dlgWarning.btnOK
+'      Flag = 1
+'        
+'    Case "Error"
+'     If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Then
+'       Log.Message("ERROR dialog closed. Message :" & objNameMapping.dlgError.lblError.WndCaption)
+'       Aliases.autopipe.dlgError.btnOK.ClickButton()
+'     End If 
+'     Flag = 1
+'      
+'     Case "Confirm Save As" 
+'     If(objNameMapping.WaitAliasChild("dlgConfirmSaveAs", 60).WaitProperty("Exists", true, 10)) Then
+'      Aliases.autopipe.dlgConfirmSaveAs.CtrlNotifySink.CtrlNotifySink.btnYes.ClickButton
+'      Log.Message("Model replaced")
+'     End If 
+'     Flag = 1
+'     
+'     Case "Note"
+'     If(objNameMapping.WaitAliasChild("dlgNote", 60).WaitProperty("Exists", true, 10)) Then
+'       Log.Message("Note dialog closed. Message: "& objNameMapping.dlgNote.lblTitle.WndCaption)
+'       objNameMapping.dlgNote.btnOK.Click()
+'     End If
+' 
+'      
+'    End Select
+'
+'
+'    
+'    
+''        'Aliases.autopipe.dlgError
+''        If(objNameMapping.WaitAliasChild("dlgNote", 60).WaitProperty("Exists", true, 10)) Then
+''          Log.Message("Note dialog closed. Message: "& objNameMapping.dlgNote.lblTitle.WndCaption)
+''          objNameMapping.dlgNote.btnOK.Click()
+''        End If
+''        If(objNameMapping.WaitAliasChild("dlgConfirm", 60).WaitProperty("Exists", true, 10)) Then
+''          Log.Message("Confirm dialog closed with 'No' button. Message- "& objNameMapping.dlgNote.lblTitle.WndCaption)
+''          objNameMapping.dlgConfirm.btnOK.Click()
+''        End If
+'
+' 
+'    
+'  'End IF
+'  Delay(2000)
+'  Loop
+''End IF
+'  If Flag = 0 Then
+'  Log.Message("No dialog found")
+'  End If
+'End Sub
+''....................................................
+
+
+Sub PopupsClose(objNameMapping)
+Delay("2000")
+  Do While (Aliases.AutoPIPE.WaitAliasChild("dlgNote", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgConfirmSaveAs", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgConfirm", 60).WaitProperty("Exists", true, 10))Or (Aliases.AutoPIPE.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10))
+  
+    Flag = 0
+    dlgName = Sys.Process("autopipe").Window("#32770", "*", 1).WndCaption
+
+    Select Case dlgName
+  
+    Case "Confirm"
+    Dim strConfirmMessage : strConfirmMessage = objNameMapping.dlgConfirm.lblConfirmTxt.WndCaption
+    
+    
+     If (strConfirmMessage = " Database (*.dat) already exists. Do you want to replace it during conversion? ") OR (strConfirmMessage = " The model is already opened. Do you want to re-open it?") OR (strConfirmMessage = " Apply to all selected points, please confirm :")  Then
+        Aliases.autopipe.dlgConfirm.btnOK.Click()
+        Flag = 1
+        Log.Message("The Confirm dialog closed MESSAGE - " & strConfirmMessage)
+
+      Else
+       
+       Aliases.autopipe.dlgConfirm.btnNo.Click()
+       Flag = 1
+       Log.Message("The Confirm dialog closed MESSAGE - " & strConfirmMessage)
+  
+       
+      End If
+
+      
+    Case "Warning"
+      Aliases.autopipe.dlgWarning.btnOK.Click()
+      Flag = 1
+     If(objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+       Log.Message("Warning dialog closed. Message :" )'& objNameMapping.dlgWarning.lblError.WndCaption)
+       Aliases.autopipe.dlgWarning.btnOK.Click()
+     End If 
+     Flag = 1
+        
+    Case "Error"
+     If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Then
+       Log.Message("ERROR dialog closed. Message :" & objNameMapping.dlgError.lblError.WndCaption)
+       Aliases.autopipe.dlgError.btnOK.ClickButton()
+     End If 
+     Flag = 1
+      
+     Case "Confirm Save As" 
+     If(objNameMapping.WaitAliasChild("dlgConfirmSaveAs", 60).WaitProperty("Exists", true, 10)) Then
+      Aliases.autopipe.dlgConfirmSaveAs.CtrlNotifySink.CtrlNotifySink.btnYes.ClickButton
+      Log.Message("Model replaced")
+     End If 
+     Flag = 1
+     
+     Case "Note"
+     If(objNameMapping.WaitAliasChild("dlgNote", 60).WaitProperty("Exists", true, 10)) Then
+       If (objNameMapping.dlgNote.WaitAliasChild("lblTitle", 60).WaitProperty("Exists", true, 10)) Then
+        Log.Message("Note dialog closed. Message: "& objNameMapping.dlgNote.lblTitle.WndCaption)
+       Else 
+        Log.Message("Note dialog closed. Message: PXF Export operation completed") 
+       End IF
+     
+		objNameMapping.dlgNote.btnOK.Click()
+	 End If
+    End Select
+
+
+    
+    
+'        'Aliases.autopipe.dlgError
+'        If(objNameMapping.WaitAliasChild("dlgNote", 60).WaitProperty("Exists", true, 10)) Then
+'          Log.Message("Note dialog closed. Message: "& objNameMapping.dlgNote.lblTitle.WndCaption)
+'          objNameMapping.dlgNote.btnOK.Click()
+'        End If
+'        If(objNameMapping.WaitAliasChild("dlgConfirm", 60).WaitProperty("Exists", true, 10)) Then
+'          Log.Message("Confirm dialog closed with 'No' button. Message- "& objNameMapping.dlgNote.lblTitle.WndCaption)
+'          objNameMapping.dlgConfirm.btnOK.Click()
+'        End If
+
+ 
+    
+  'End IF
+  Delay(2000)
+  Loop
+'End IF
+  If Flag = 0 Then
+  Log.Message("No dialog found")
+  End If
+End Sub
+'....................................................
+Sub GetDiscrepencyFiles (actualFile,benchmarkFile) 
+   Dim exists 
+   Dim tempPath : tempPath = aqEnvironment.GetEnvironmentVariable("TEMP") & "\"
+   Dim curDate : curDate =  Month(Date) & "_" & Day(Date) & "_" & Year(Date)
+   Dim DestinationTPFolder: DestinationTPFolder = tempPath   & "Discrepancies" & curDate & "\" & Project.Variables.strTPFolderName & "\"
+   Dim ActualFolder : ActualFolder = DestinationTPFolder  & "\" & "Actual" & "\" 
+   Dim BenchmarkFolder : BenchmarkFolder = DestinationTPFolder & "\" & "Benchmark" & "\" 
+   exists = FSO_Functions.FSOFolderExists(DestinationTPFolder)
+    
+    If exists <> True Then
+      FSO_Functions.FSOCreateFolder(DestinationTPFolder)  
+      FSO_Functions.FSOCreateFolder(ActualFolder)
+      FSO_Functions.FSOCreateFolder(BenchmarkFolder) 
+    End if   
+    Dim benchmarkFileName : benchmarkFileName = Project.Variables.strTPFolderPath & "\" & "Benchmark" & "\" & benchmarkFile
+    Call FSO_Functions.FSOCopyFile(actualFile,ActualFolder)
+    Call FSO_Functions.FSOCopyFile(benchmarkFileName,BenchmarkFolder)
+End Sub

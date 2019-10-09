@@ -1,0 +1,844 @@
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                                         BENTLEY                      
+03:56 PM                                                                           AutoPIPE Nuclear 11.00.00.14 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.14                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                                         BENTLEY                      
+03:56 PM                                                                           AutoPIPE Nuclear 11.00.00.14 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA326C                                          
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                             0                   
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.3              
+ 
+          YEAR                   : 2014                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B313-14 
+ 
+          MODEL REVISION NUMBER  :     3
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                                         BENTLEY                      
+03:56 PM                                                                           AutoPIPE Nuclear 11.00.00.14 
+----------------------------------------------------------------------------------------------------------------
+
+                              D E S C R I P T I O N                                                             
+                              ---------------------                                                             
+                                                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                                         BENTLEY                      
+03:56 PM                                                                           AutoPIPE Nuclear 11.00.00.14 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    2                      
+     Segment Data....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+     Support.........................................................................    8                      
+     Bend............................................................................    9                      
+     Tee.............................................................................   10                      
+     Center of Gravity...............................................................   11                      
+     Load Case Description...........................................................   12                      
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DY= 0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A00):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Material= HC, Composition= Carbon Steel, Poisson= 0.300, Nom Size= 6 in, OD= 6.625 inch,       
+   Sch= STD, Wall Thk= 0.280 inch, Mill= 0.035 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 0.890, Content Unit Wgt= 11.14 lb/ft, Insul Thk= 0 inch,          
+   Cladding Thickness = 0 inch, Lining Thk= 0 inch, Long Weld E factor= 1.00, Long Modulus= 29.30000 E6 psi,    
+   Hoop Modulus= 29.30000 E6 psi, Shear Modulus= 11.26923 E6 psi, Sc= 15000.0 psi, Syc= 40000.0 psi             
+ 
+ OPERATING DATA:                                                                
+   P1= 150.00 psi, T1= 170.00 deg F, Exp1= 0.76923 in/100ft, E1= 28.76154 E6 psi, Sh1= 15000.00 psi,            
+   Sy1= 40000.00 psi                                                            
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DY= 4.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 0.00 ft, Y= 0.47 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DX= 4.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= A02, Near= A02 N, Far= A02 F):                      
+   Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 1.87, SIFO= 1.56         
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 0.00 ft, Y= 4.47 ft, Z= 0.00 ft                         
+   A02 N, Coordinates, X= 0.00 ft, Y= 3.47 ft, Z= 0.00 ft                       
+   A02 F, Coordinates, X= 1.00 ft, Y= 4.47 ft, Z= 0.00 ft                       
+   A03, Coordinates, X= 4.00 ft, Y= 4.47 ft, Z= 0.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   A03, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From B00 to B01, DY= -4.00 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 0.890, Content Unit Wgt= 11.14 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   B00, Coordinates, X= 0.00 ft, Y= 4.00 ft, Z= 7.47 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   B00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From B01 to B02, DZ= -4.00 ft                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= B01, Near= B01 N, Far= B01 F):                      
+   Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 1.87, SIFO= 1.56         
+ 
+ POINT DATA:                                                                    
+   B01, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 7.47 ft                         
+   B01 N, Coordinates, X= 0.00 ft, Y= 1.00 ft, Z= 7.47 ft                       
+   B01 F, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 6.47 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From B02 to B03, DZ= -3.00 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   B02, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 3.47 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From B03 to A00, DZ= -0.47 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   B03, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.47 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A00 to B04, DZ= -0.47 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A00):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From B04 to B05, DZ= -3.00 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   B04, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -0.47 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From B05 to B06, DZ= -0.47 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   B05, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -3.47 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From B06 to B07, DZ= -0.47 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= B06):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   B06, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -3.94 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From B07 to B08, DZ= -5.12 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   B07, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -4.40 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From B08 to B09, DZ= -0.88 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   B08, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -9.52 ft                        
+   B09, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -10.41 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   B08, V-Stop, Support Id= B08  1, Connected to Ground, Mark= SUPAB-6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+   B09, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From B06 to C01, DX= -0.47 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= B06):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 0.890, Content Unit Wgt= 11.14 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   B06, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -3.94 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From C01 to C02, DX= -0.85 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   C01, Coordinates, X= -0.47 ft, Y= 0.00 ft, Z= -3.94 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From C02 to C03, DX= -1.23 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   C02, Coordinates, X= -1.31 ft, Y= 0.00 ft, Z= -3.94 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   C02, V-Stop, Support Id= C02  1, Connected to Ground, Mark= SUPSH-6, Tag No.= Undefined, CompID= Undefined,  
+   1 hanger(s), Comp.Wt = 0.000 lb                                              
+ 
+ -------------------------------------------------------------------------------
+ From C03 to C04, DX= -1.67 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   C03, Coordinates, X= -2.55 ft, Y= 0.00 ft, Z= -3.94 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   C03, V-Stop, Support Id= C03  1, Connected to Ground, Mark= SUPB--6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+ 
+ -------------------------------------------------------------------------------
+ From C04 to C05, DZ= 4.75 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= C04, Near= C04 N, Mid= C04 M, Far= C04 F):          
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,
+   SIFI= 2.27, SIFO= 1.89                                                       
+ 
+ POINT DATA:                                                                    
+   C04, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= -3.94 ft                       
+   C04 N, Coordinates, X= -3.47 ft, Y= 0.00 ft, Z= -3.94 ft                     
+   C04 M, Coordinates, X= -4.00 ft, Y= 0.00 ft, Z= -3.72 ft                     
+   C04 F, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= -3.19 ft                     
+ 
+ SUPPORT DATA:                                                                  
+   C04 M, V-Stop, Support Id= C04 M1, Connected to Ground, Mark= Undefined, Tag No.= Undefined,                 
+   CompID= Undefined, Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35,        
+   Gaps setting= Weightless                                                     
+ 
+ -------------------------------------------------------------------------------
+ From C05 to C06, DZ= 0.47 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C05, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 0.81 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   C05, V-Stop, Support Id= C05  1, Connected to Ground, Mark= SUPTS-6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+ 
+ -------------------------------------------------------------------------------
+ From C06 to C07, DZ= 0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= C06):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   C06, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 1.28 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From C07 to C08, DZ= 3.75 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C07, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 1.75 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From C08 to C09, DX= -4.06 ft                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= C08, Near= C08 N, Far= C08 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ POINT DATA:                                                                    
+   C08, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 5.50 ft                        
+   C08 N, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 4.75 ft                      
+   C08 F, Coordinates, X= -4.97 ft, Y= 0.00 ft, Z= 5.50 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From C09 to C10, DX= -0.69 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   C09, Coordinates, X= -8.28 ft, Y= 0.00 ft, Z= 5.50 ft                        
+   C10, Coordinates, X= -8.97 ft, Y= 0.00 ft, Z= 5.50 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   C09, Guide, Support Id= C09  1, Connected to Ground, Mark= SUPUB-6, Tag No.= Undefined, CompID= Undefined,   
+   Comp.Wt = 0.000 lb, Stiffness= RIGID, Gap-Down= 0.00 inch, Gap-Above= 0.00 inch, Gap-Left= 0.00 inch,        
+   Gap-Right= 0.00 inch, Friction= 0.35, Gaps setting= Weightless               
+   C10, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT D , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From C06 to D01, DY= 0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= C06):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 0.890, Content Unit Wgt= 11.14 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   C06, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 1.28 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From D01 to D02, DY= 3.75 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D01, Coordinates, X= -4.22 ft, Y= 0.47 ft, Z= 1.28 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From D02 to D03, DX= 3.25 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= D02, Near= D02 N, Far= D02 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ POINT DATA:                                                                    
+   D02, Coordinates, X= -4.22 ft, Y= 4.22 ft, Z= 1.28 ft                        
+   D02 N, Coordinates, X= -4.22 ft, Y= 3.47 ft, Z= 1.28 ft                      
+   D02 F, Coordinates, X= -3.47 ft, Y= 4.22 ft, Z= 1.28 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From D03 to D04, DZ= 1.99 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= D03, Near= D03 N, Far= D03 F):                      
+   Short Elbow, Radius= 6.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.97, SIFO= 2.47    
+ 
+ POINT DATA:                                                                    
+   D03, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 1.28 ft                        
+   D03 N, Coordinates, X= -1.47 ft, Y= 4.22 ft, Z= 1.28 ft                      
+   D03 F, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 1.78 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From D04 to D05, DZ= 2.51 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D04, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 3.27 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   D04, V-Stop, Support Id= D04  1, Connected to Ground, Mark= SUPRH-6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+ 
+ -------------------------------------------------------------------------------
+ From D05 to D06, DZ= 0.47 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D05, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 5.78 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From D06 to D07, DZ= 0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= D06):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   D06, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 6.25 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From D07 to D08, DZ= 3.31 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D07, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 6.72 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From D08 to D09, DZ= 2.69 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D08, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 10.02 ft                       
+   D09, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 12.72 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   D08, V-Stop, Support Id= D08  1, Connected to Ground, Mark= SUPCS-6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+   D09, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT E , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From D06 to E01, DX= -0.47 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= D06):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 0.890, Content Unit Wgt= 11.14 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   D06, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 6.25 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E01 to E02, DX= -3.46 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   E01, Coordinates, X= -1.44 ft, Y= 4.22 ft, Z= 6.25 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E02 to E03, DX= -0.54 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   E02, Coordinates, X= -4.90 ft, Y= 4.22 ft, Z= 6.25 ft                        
+   E03, Coordinates, X= -5.44 ft, Y= 4.22 ft, Z= 6.25 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   E02, Guide, Support Id= E02  1, Connected to Ground, Mark= SUPAG-6, Tag No.= Undefined, CompID= Undefined,   
+   Comp.Wt = 0.000 lb, Stiffness= RIGID, Gap-Down= 0.00 inch, Gap-Above= 0.00 inch, Gap-Left= 0.00 inch,        
+   Gap-Right= 0.00 inch, Friction= 0.35, Gaps setting= Weightless               
+   E03, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 59 + 0 + 0 = 59          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         1328.3 lb     +       780.8 lb     =        2109.1 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A , LINE # L100                                                    
+ A00            0.00        0.00        0.00                                    
+ A01            0.00        0.47        0.00                                    
+ A02 N          0.00        3.47        0.00                                    
+ A02            0.00        4.47        0.00                                    
+ A02 F          1.00        4.47        0.00                                    
+ A03            4.00        4.47        0.00                                    
+ 
+ *** SEGMENT B , LINE # L100                                                    
+ B00            0.00        4.00        7.47                                    
+ B01 N          0.00        1.00        7.47                                    
+ B01            0.00        0.00        7.47                                    
+ B01 F          0.00        0.00        6.47                                    
+ B02            0.00        0.00        3.47                                    
+ B03            0.00        0.00        0.47                                    
+ A00            0.00        0.00        0.00                                    
+ B04            0.00        0.00       -0.47                                    
+ B05            0.00        0.00       -3.47                                    
+ B06            0.00        0.00       -3.94                                    
+ B07            0.00        0.00       -4.40                                    
+ B08            0.00        0.00       -9.52                                    
+ B09            0.00        0.00      -10.41                                    
+ 
+ *** SEGMENT C , LINE # L100                                                    
+ B06            0.00        0.00       -3.94                                    
+ C01           -0.47        0.00       -3.94                                    
+ C02           -1.31        0.00       -3.94                                    
+ C03           -2.55        0.00       -3.94                                    
+ C04 N         -3.47        0.00       -3.94                                    
+ C04           -4.22        0.00       -3.94                                    
+ C04 M         -4.00        0.00       -3.72                                    
+ C04 F         -4.22        0.00       -3.19                                    
+ C05           -4.22        0.00        0.81                                    
+ C06           -4.22        0.00        1.28                                    
+ C07           -4.22        0.00        1.75                                    
+ C08 N         -4.22        0.00        4.75                                    
+ C08           -4.22        0.00        5.50                                    
+ C08 F         -4.97        0.00        5.50                                    
+ C09           -8.28        0.00        5.50                                    
+ C10           -8.97        0.00        5.50                                    
+ 
+ *** SEGMENT D , LINE # L100                                                    
+ C06           -4.22        0.00        1.28                                    
+ D01           -4.22        0.47        1.28                                    
+ D02 N         -4.22        3.47        1.28                                    
+ D02           -4.22        4.22        1.28                                    
+ D02 F         -3.47        4.22        1.28                                    
+ D03 N         -1.47        4.22        1.28                                    
+ D03           -0.97        4.22        1.28                                    
+ D03 F         -0.97        4.22        1.78                                    
+ D04           -0.97        4.22        3.27                                    
+ D05           -0.97        4.22        5.78                                    
+ D06           -0.97        4.22        6.25                                    
+ D07           -0.97        4.22        6.72                                    
+ D08           -0.97        4.22       10.02                                    
+ D09           -0.97        4.22       12.72                                    
+ 
+ *** SEGMENT E , LINE # L100                                                    
+ D06           -0.97        4.22        6.25                                    
+ E01           -1.44        4.22        6.25                                    
+ E02           -4.90        4.22        6.25                                    
+ E03           -5.44        4.22        6.25                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A  T A   L I S T I N G                                                    
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       A00    A03    L100                           No    No     No           
+ B       B00    B09    L100                           No    No     No           
+ C       B06    C10    L100                           No    No     No           
+ D       C06    D09    L100                           No    No     No           
+ E       D06    E03    L100                           No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    E/  Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  W/  Steel Group/          
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f   Tcr                   
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 6P1            6  6.625 0.280    0 0.04    0    0  0.89    0.000  18.95     0 30.10 1.00 Carbon Steel          
+ HC           STD                                           0.000  11.14     0       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ HC          6P1         489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Ultimate Weld Reduction Factor                                  
+    Name     Pipe ID  deg F   psi      psi                        W                                             
+------------ -------- ------- -------- -------- -------- ---------------------                                  
+ HC          6P1         70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW     YIELD                                              
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS    STRESS                                             
+ ----  ----  ------ ------  --------    -------    ------    ------                                             
+ 
+ *** SEGMENT A , LINE # L100                          
+ A00   T1       150    170     0.769     28.762     15000*    40000*          
+ A03    Same as previous point.          
+ 
+ *** SEGMENT B , LINE # L100                          
+ B00   T1       150    170     0.769     28.762     15000*    40000*          
+ B09    Same as previous point.          
+ 
+ *** SEGMENT C , LINE # L100                          
+ B06   T1       150    170     0.769     28.762     15000*    40000*          
+ C10    Same as previous point.          
+ 
+ *** SEGMENT D , LINE # L100                          
+ C06   T1       150    170     0.769     28.762     15000*    40000*          
+ D09    Same as previous point.          
+ 
+ *** SEGMENT E , LINE # L100                          
+ D06   T1       150    170     0.769     28.762     15000*    40000*          
+ E03    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+                               S U P P O R T   D A T A   L I S T I N G                                          
+                                                                                                                
+ Point Support  Support Conn.to Comp.Wt  Stiff.     Gap 1   Gap 2  Fric. GapSet Preload Ld.Var Size    Figure   
+ Name   Type      ID     /Dir    (lb)               (in)    (in)   Fact. /#hgr   (lbf)                          
+ ----- -------- ------- ------- ------- ---------- ------- ------- ----- ------ ------- ------ ---- ------------
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ B08   Shoe     B08  1  Ground    0.000 Rigid        0.000 1000.00  0.35  Weightless                            
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ C02   V-stop   C02  1  Ground    0.000 Rigid        0.000   0.000  0.00        
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ C03   Shoe     C03  1  Ground    0.000 Rigid        0.000 1000.00  0.35  Weightless                            
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ C04 M Shoe     C04 M1  Ground    0.000 Rigid        0.000 1000.00  0.35  Weightless                            
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ C05   Shoe     C05  1  Ground    0.000 Rigid        0.000 1000.00  0.35  Weightless                            
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ C09   Guide-V  C09  1  Ground    0.000 Rigid        0.000   0.000  0.35        
+       Guide-H  C09  1  Ground    0.000 Rigid        0.000   0.000  0.35        
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ D04   Rod Hgr  D04  1  Ground    0.000 Rigid        0.000 1000.00  0.35  Weightless                            
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ D08   Shoe     D08  1  Ground    0.000 Rigid        0.000 1000.00  0.35  Weightless                            
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ E02   Guide-V  E02  1  Ground    0.000 Rigid        0.000   0.000  0.35        
+       Guide-H  E02  1  Ground    0.000 Rigid        0.000   0.000  0.35        
+ 
+ 
+ Spring Manufacturer: Anvil/Grinnell                                            
+ NOTE 1: No soil supports present in the system.                                
+ Gap 1 : V-stop,Guide-V=down, Linestop,Incline,Tie/link=backward, Guide-H=Left  
+ Gap 2 : V-stop,Guide-V=Up  , Linestop,Incline,Tie/link=forward , Guide-H=Right 
+ Stiffness units for rotation support: ft-lb/deg, all others: lb/in             
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (in)   (deg)   (in)   (in)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+ A02   Elbow  12.00   90.0   6.625  0.280 HC           0/0  1.87   1.56    1           4.94     None            
+ B01   Elbow  12.00   90.0   6.625  0.280 HC           0/0  1.87   1.56    1           4.94     None            
+ C04  *Elbow   9.00L  90.0   6.625  0.280 HC           0/0  2.27   1.89    1           6.59     None            
+ C08   Elbow   9.00L  90.0   6.625  0.280 HC           0/0  2.27   1.89    1           6.59     None            
+ D02   Elbow   9.00L  90.0   6.625  0.280 HC           0/0  2.27   1.89    1           6.59     None            
+ D03   Elbow   6.00S  90.0   6.625  0.280 HC           0/0  2.97   2.47    1           9.89     None            
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+ * = Mid-point present                                                          
+ L = Long radius                                                                
+ S = Short radius                                                               
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (in)    (in)               Type     (in)   (in)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ A00   B-Header  6.625  0.280  HC          Welding                  1.85   2.14 
+       A-Branch  6.625  0.280  HC                                               
+                                                                                
+ B06   B-Header  6.625  0.280  HC          Welding                  1.85   2.14 
+       C-Branch  6.625  0.280  HC                                               
+                                                                                
+ C06   C-Header  6.625  0.280  HC          Welding                  1.85   2.14 
+       D-Branch  6.625  0.280  HC                                               
+                                                                                
+ D06   D-Header  6.625  0.280  HC          Welding                  1.85   2.14 
+       E-Branch  6.625  0.280  HC                                               
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+                        C E N T E R    O F    G R A V I T Y    R E P O R T                                      
+                                                                                                                
+  Description                                                   Weight       X CoG       Y CoG       Z CoG      
+                                                                  (lb)        (ft)        (ft)        (ft)      
+  -----------                                                ---------   ---------   ---------   ---------      
+  Valve                                                  :        0.00        0.00        0.00        0.00      
+  Support                                                :        0.00        0.00        0.00        0.00      
+  Flange                                                 :        0.00        0.00        0.00        0.00      
+  Flexible Joint                                         :        0.00        0.00        0.00        0.00      
+  Additional Weight                                      :        0.00        0.00        0.00        0.00      
+  Pipes (Run, Bend, Tee, Reducer)                        :     1328.27       -1.70        1.73        1.91      
+ 
+  PipeTot (Valve+Support+Flange+Flex. Jt.+Add. Wt.+Pipes):     1328.27       -1.70        1.73        1.91      
+ 
+  Insulation                                             :        0.00        0.00        0.00        0.00      
+  Cladding                                               :        0.00        0.00        0.00        0.00      
+  Lining                                                 :        0.00        0.00        0.00        0.00      
+  Contents                                               :      780.85       -1.70        1.73        1.91      
+  Beam                                                   :        0.00        0.00        0.00        0.00      
+ 
+  PipeTot + Ins.                                         :     1328.27       -1.70        1.73        1.91      
+  PipeTot + Ins. + Clad.                                 :     1328.27       -1.70        1.73        1.91      
+  PipeTot + Ins. + Clad. + Lin.                          :     1328.27       -1.70        1.73        1.91      
+  PipeTot + Ins. + Clad. + Lin. + Cont.                  :     2109.12       -1.70        1.73        1.91      
+ 
+  PipeTot + Beam                                         :     1328.27       -1.70        1.73        1.91      
+  PipeTot + Ins. + Beam                                  :     1328.27       -1.70        1.73        1.91      
+  PipeTot + Ins. + Clad. + Beam                          :     1328.27       -1.70        1.73        1.91      
+  PipeTot + Ins. + Clad. + Lin. + Beam                   :     1328.27       -1.70        1.73        1.91      
+  PipeTot + Ins. + Clad. + Lin. + Cont. + Beam           :     2109.12       -1.70        1.73        1.91      
+ 
+  NOTE: COG report only includes the currently visible beams and segments.      
+  All pipe segments are included.                                               
+  No beams present in the model.                                                
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+03:56 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+          L O A D    C A S E    D E S C R I P T I O N                                                           
+                                                                                                                
+  Load Case     Load Case Name     Description                                                                  
+  ---------     --------------     -----------------------------------------------------------------------------
+  GR            Gravity                                                                                         
+  T1            Thermal 1                                                                                       
+  P1            Press 1                                                                                         
+

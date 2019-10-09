@@ -1,0 +1,814 @@
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                                        BENTLEY                      
+04:13 PM   CODE STRESS CALCULATIONS                                                AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.12                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                                        BENTLEY                      
+04:13 PM   CODE STRESS CALCULATIONS                                                AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA321D                                          
+ 
+ 
+          PROJECT ID  : CHECK OF BS 7159                        
+                        CODE STRESS CALCULATIONS                
+ 
+ 
+          PREPARED BY  : ______________________________
+                         VH                      
+ 
+          CHECKED BY   : ______________________________
+                         VH                      
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : BS 7159                 
+ 
+          YEAR                   : 1989                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :    0.0 deg C    
+ 
+          COMPONENT LIBRARY      : AUTOGRPP
+ 
+          MATERIAL LIBRARY       : AUTOGRPM
+ 
+          MODEL REVISION NUMBER  :     1
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                                        BENTLEY                      
+04:13 PM   CODE STRESS CALCULATIONS                                                AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    7                      
+     Pipe Properties.................................................................    9                      
+     Material Properties.............................................................   10                      
+     Temperature and Pressure........................................................   11                      
+     Loads Summary...................................................................   12                      
+     Support.........................................................................   14                      
+     Bend............................................................................   15                      
+     Tee.............................................................................   16                      
+     Reducer.........................................................................   17                      
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 4000.00 mm                                            Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE01, Material= NS, Long Poisson= 0.300, Circ Poisson= 0.412, Nom Size= 500 mm,                   
+   Actual ID= 500.00 mm, Lam Type= 3, Lam Ref= NS, Design Thk= 10.600 mm, Cor= 4.000 mm,                        
+   Pipe Density= 1329.00 kg/m3, Pipe Unit Wgt= 307.62 N/m, Insul Thk= 0 mm, Cladding Thickness = 0 mm,          
+   Lining Thk= 0 mm, Long Weld factor= 1.00, Circ Weld factor= 1.00, Long Modulus= 0.00550 E6 N/mm2,            
+   Circ Modulus= 0.00400 E6 N/mm2, Shear Modulus= 0.00212 E6 N/mm2, Strain= 0.00150                             
+ 
+ OPERATING DATA:                                                                
+   P1= 0.0800 N/mm2, T1= 40.00 deg C, Exp1= 0.96000 mm/m, Pres Exp1= 0.031 mm/m, E1= 0.00550 E6 N/mm2,          
+   Kfac1= 0.850, Strain1= 0.00150                                               
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 mm, Y= 0.00 mm, Z= 0.00 mm                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DX= 2000.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 4000.00 mm, Y= 0.00 mm, Z= 0.00 mm                      
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DX= 2000.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 6000.00 mm, Y= 0.00 mm, Z= 0.00 mm                      
+ 
+ SUPPORT DATA:                                                                  
+   A02, V-Stop, Support Id= A02  1, Connected to Ground, Comp.Wt = 0.000 kg     
+ 
+ -------------------------------------------------------------------------------
+ From A03 to A04, DX= 4000.00 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A03):                                      
+   Moulded tee, SIFI= 2.73, SIFO= 2.73                                          
+ 
+ POINT DATA:                                                                    
+   A03, Coordinates, X= 8000.00 mm, Y= 0.00 mm, Z= 0.00 mm                      
+ 
+ -------------------------------------------------------------------------------
+ From A04 to A05, DX= 4000.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= 12000.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ -------------------------------------------------------------------------------
+ From A05 to A06, DX= 4000.00 mm                                            Run 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT DATA:                                                                    
+   A05, Coordinates, X= 16000.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ SUPPORT DATA:                                                                  
+   A05, Guide, Support Id= A05  1, Connected to Ground, Comp.Wt = 0.000 kg, Stiffness= RIGID                    
+ 
+ -------------------------------------------------------------------------------
+ From A06 to A07, DX= 500.00 mm                                             Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 500.00 mm, SIF= 1.00                                                 
+ 
+ POINT DATA:                                                                    
+   A06, Coordinates, X= 20000.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ -------------------------------------------------------------------------------
+ From A07 to A08, DX= 3000.00 mm                                            Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE04, Material= L40, Nom Size= 300 mm, Actual ID= 300.00 mm, Lam Type= 2, Lam Ref= L40,           
+   Design Thk= 6.000 mm, Cor= 2.000 mm, Pipe Density= 1329.50 kg/m3, Pipe Unit Wgt= 100.93 N/m,                 
+   Long Modulus= 0.00700 E6 N/mm2, Circ Modulus= 0.00700 E6 N/mm2, Shear Modulus= 0.00269 E6 N/mm2,             
+   Strain= 0.00180                                                              
+ 
+ OPERATING DATA:                                                                
+   P1= 0.0600 N/mm2, T1= 60.00 deg C, Exp1= 1.53000 mm/m, Pres Exp1= 0.044 mm/m, E1= 0.00700 E6 N/mm2           
+ 
+ POINT DATA:                                                                    
+   A07, Coordinates, X= 20500.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ -------------------------------------------------------------------------------
+ From A08 to A09, DX= 3500.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= 23500.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ -------------------------------------------------------------------------------
+ From A09 to A10, DX= 2000.00 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A09):                                      
+   Fabricated tee, SIFI= 2.86, SIFO= 2.86                                       
+ 
+ POINT DATA:                                                                    
+   A09, Coordinates, X= 27000.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ -------------------------------------------------------------------------------
+ From A10 to A11, DX= 4000.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A10, Coordinates, X= 29000.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ SUPPORT DATA:                                                                  
+   A10, V-Stop, Support Id= A10  1, Connected to Ground, Comp.Wt = 0.000 kg     
+ 
+ -------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ From A11 to A12, DX= 2000.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A11, Coordinates, X= 33000.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ -------------------------------------------------------------------------------
+ From A12 to A13, DZ= -2000.00 mm                                           Bend
+ 
+ COMPONENT DATA (Bend, TIP= A12, Near= A12 N, Mid= A12 M, Far= A12 F):          
+   Short Elbow, Radius= 300.00 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0,           
+   Flex= Auto, SIFI Circ= 7.11, SIFO Circ= 6.31, SIFI Long= 4.27, SIFO Long= 4.58                               
+ 
+ POINT DATA:                                                                    
+   A12, Coordinates, X= 35000.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+   A12 N, Coordinates, X= 34700.00 mm, Y= 0.00 mm, Z= 0.00 mm                   
+   A12 M, Coordinates, X= 34912.14 mm, Y= 0.00 mm, Z= -87.87 mm                 
+   A12 F, Coordinates, X= 35000.00 mm, Y= 0.00 mm, Z= -300.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A13 to A14, DZ= -2000.00 mm                                           Run 
+ 
+ POINT DATA:                                                                    
+   A13, Coordinates, X= 35000.00 mm, Y= 0.00 mm, Z= -2000.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From A14 to A15, DZ= -2000.00 mm                                           Run 
+ 
+ POINT DATA:                                                                    
+   A14, Coordinates, X= 35000.00 mm, Y= 0.00 mm, Z= -4000.00 mm                 
+ 
+ SUPPORT DATA:                                                                  
+   A14, V-Stop, Support Id= A14  1, Connected to Ground, Comp.Wt = 0.000 kg     
+ 
+ -------------------------------------------------------------------------------
+ From A15 to A16, DZ= -2000.00 mm                                           Run 
+ 
+ POINT DATA:                                                                    
+   A15, Coordinates, X= 35000.00 mm, Y= 0.00 mm, Z= -6000.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From A16 to A17, DX= 2000.00 mm, DZ= -2000.00 mm, L= 2828.43 mm            Bend
+ 
+ COMPONENT DATA (Bend, TIP= A16, Near= A16 N, Mid= A16 M, Far= A16 F):          
+   Wide, Radius= 1000.00 mm, Bend angle= 45.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI Circ= 2.73, SIFO Circ= 2.79, SIFI Long= 1.37, SIFO Long= 1.71           
+ 
+ POINT DATA:                                                                    
+   A16, Coordinates, X= 35000.00 mm, Y= 0.00 mm, Z= -8000.00 mm                 
+   A16 N, Coordinates, X= 35000.00 mm, Y= 0.00 mm, Z= -7585.79 mm               
+   A16 M, Coordinates, X= 35076.12 mm, Y= 0.00 mm, Z= -7968.47 mm               
+   A16 F, Coordinates, X= 35292.89 mm, Y= 0.00 mm, Z= -8292.89 mm               
+ 
+ -------------------------------------------------------------------------------
+ From A17 to A18, DX= 2000.00 mm, DZ= -2000.00 mm, L= 2828.43 mm            Run 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT DATA:                                                                    
+   A17, Coordinates, X= 37000.00 mm, Y= 0.00 mm, Z= -10000.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A18 to A19, DY= -4000.00 mm                                           Bend
+ 
+ COMPONENT DATA (Bend, TIP= A18, Near= A18 N, Mid= A18 M, Far= A18 F):          
+   Close, Radius= 600.00 mm, Number of cuts= 6, Bend angle= 90.00 deg, Mid point at 50.00 percent,              
+   End flanges= 0, Flex= Auto, SIFI Circ= 3.84, SIFO Circ= 3.92, SIFI Long= 1.93, SIFO Long= 2.41               
+ 
+ POINT DATA:                                                                    
+   A18, Coordinates, X= 39000.00 mm, Y= 0.00 mm, Z= -12000.00 mm                
+   A18 N, Coordinates, X= 38575.73 mm, Y= 0.00 mm, Z= -11575.74 mm              
+   A18 M, Coordinates, X= 38875.73 mm, Y= -175.74 mm, Z= -11875.74 mm           
+   A18 F, Coordinates, X= 39000.00 mm, Y= -600.00 mm, Z= -12000.00 mm           
+ 
+ -------------------------------------------------------------------------------
+ From A19 to A20, DY= -4000.00 mm                                           Run 
+ 
+ POINT DATA:                                                                    
+   A19, Coordinates, X= 39000.00 mm, Y= -4000.00 mm, Z= -12000.00 mm            
+   A20, Coordinates, X= 39000.00 mm, Y= -8000.00 mm, Z= -12000.00 mm            
+ 
+ SUPPORT DATA:                                                                  
+   A20, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A03 to B01, DZ= -2000.00 mm                                           Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A03):                                      
+   Moulded tee, SIFI= 2.73, SIFO= 2.73                                          
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE02, Lam Type= 1, Design Thk= 7.600 mm, Cor= 2.500 mm, Pipe Density= 1329.50 kg/m3,              
+   Pipe Unit Wgt= 128.29 N/m, Long Modulus= 0.00553 E6 N/mm2, Circ Modulus= 0.00553 E6 N/mm2,                   
+   Shear Modulus= 0.00213 E6 N/mm2, Strain= 0.00150                             
+ 
+ OPERATING DATA:                                                                
+   P1= 0.0800 N/mm2, T1= 40.00 deg C, Exp1= 1.02000 mm/m, Pres Exp1= 0.059 mm/m, E1= 0.00553 E6 N/mm2           
+ 
+ POINT DATA:                                                                    
+   A03, Coordinates, X= 8000.00 mm, Y= 0.00 mm, Z= 0.00 mm                      
+ 
+ -------------------------------------------------------------------------------
+ From B01 to B02, DZ= -4000.00 mm                                           Run 
+ 
+ POINT DATA:                                                                    
+   B01, Coordinates, X= 8000.00 mm, Y= 0.00 mm, Z= -2000.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From B02 to B03, DZ= -4000.00 mm                                           Run 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT DATA:                                                                    
+   B02, Coordinates, X= 8000.00 mm, Y= 0.00 mm, Z= -6000.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   B02, V-Stop, Support Id= B02  1, Connected to Ground, Comp.Wt = 0.000 kg     
+ 
+ -------------------------------------------------------------------------------
+ From B03 to B04, DY= -4000.00 mm                                           Bend
+ 
+ COMPONENT DATA (Bend, TIP= B03, Near= B03 N, Mid= B03 M, Far= B03 F):          
+   Short Elbow, Radius= 300.00 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0,           
+   Flex= Auto, SIFI Circ= 7.00, SIFO Circ= 6.85, SIFI Long= 3.65, SIFO Long= 4.19                               
+ 
+ POINT DATA:                                                                    
+   B03, Coordinates, X= 8000.00 mm, Y= 0.00 mm, Z= -10000.00 mm                 
+   B03 N, Coordinates, X= 8000.00 mm, Y= 0.00 mm, Z= -9700.00 mm                
+   B03 M, Coordinates, X= 8000.00 mm, Y= -87.87 mm, Z= -9912.13 mm              
+   B03 F, Coordinates, X= 8000.00 mm, Y= -300.00 mm, Z= -10000.00 mm            
+ 
+ -------------------------------------------------------------------------------
+ From B04 to B05, DY= -2000.00 mm                                           Run 
+ 
+ POINT DATA:                                                                    
+   B04, Coordinates, X= 8000.00 mm, Y= -4000.00 mm, Z= -10000.00 mm             
+   B05, Coordinates, X= 8000.00 mm, Y= -6000.00 mm, Z= -10000.00 mm             
+ 
+ SUPPORT DATA:                                                                  
+   B05, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A09 to C01, DZ= 4000.00 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A09):                                      
+   Fabricated tee, SIFI= 2.86, SIFO= 2.86                                       
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE03, Material= L25, Nom Size= 200 mm, Actual ID= 200.00 mm, Lam Type= 2, Lam Ref= L25,           
+   Design Thk= 4.500 mm, Cor= 0.500 mm, Pipe Density= 1329.50 kg/m3, Pipe Unit Wgt= 41.98 N/m,                  
+   Long Modulus= 0.00556 E6 N/mm2, Circ Modulus= 0.00556 E6 N/mm2, Shear Modulus= 0.00214 E6 N/mm2,             
+   Strain= 0.00180                                                              
+ 
+ OPERATING DATA:                                                                
+   P1= 0.0600 N/mm2, T1= 60.00 deg C, Exp1= 1.53000 mm/m, Pres Exp1= 0.049 mm/m 
+ 
+ POINT DATA:                                                                    
+   A09, Coordinates, X= 27000.00 mm, Y= 0.00 mm, Z= 0.00 mm                     
+ 
+ -------------------------------------------------------------------------------
+ From C01 to C02, DZ= 4000.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   C01, Coordinates, X= 27000.00 mm, Y= 0.00 mm, Z= 4000.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From C02 to C03, DZ= 4000.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   C02, Coordinates, X= 27000.00 mm, Y= 0.00 mm, Z= 8000.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   C02, V-Stop, Support Id= C02  1, Connected to Ground, Comp.Wt = 0.000 kg     
+ 
+ -------------------------------------------------------------------------------
+ From C03 to C04, DY= -4000.00 mm                                           Bend
+ 
+ COMPONENT DATA (Bend, TIP= C03, Near= C03 N, Mid= C03 M, Far= C03 F):          
+   Short Elbow, Radius= 200.00 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0,           
+   Flex= Auto, SIFI Circ= 7.43, SIFO Circ= 6.59, SIFI Long= 4.46, SIFO Long= 4.78                               
+ 
+ POINT DATA:                                                                    
+   C03, Coordinates, X= 27000.00 mm, Y= 0.00 mm, Z= 12000.00 mm                 
+   C03 N, Coordinates, X= 27000.00 mm, Y= 0.00 mm, Z= 11800.00 mm               
+   C03 M, Coordinates, X= 27000.00 mm, Y= -58.58 mm, Z= 11941.42 mm             
+   C03 F, Coordinates, X= 27000.00 mm, Y= -200.00 mm, Z= 12000.00 mm            
+ 
+ -------------------------------------------------------------------------------
+ From C04 to C05, DY= -4000.00 mm                                           Run 
+ 
+ POINT DATA:                                                                    
+   C04, Coordinates, X= 27000.00 mm, Y= -4000.00 mm, Z= 12000.00 mm             
+   C05, Coordinates, X= 27000.00 mm, Y= -8000.00 mm, Z= 12000.00 mm             
+ 
+ SUPPORT DATA:                                                                  
+   C05, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 53 + 0 + 0 = 53          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         1298.4 kg     +         0.0 kg     =        1298.4 kg                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (mm   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ A00            0.00        0.00        0.00                                    
+ A01         4000.00        0.00        0.00                                    
+ A02         6000.00        0.00        0.00                                    
+ A03         8000.00        0.00        0.00                                    
+ A04        12000.00        0.00        0.00                                    
+ A05        16000.00        0.00        0.00                                    
+ A06        20000.00        0.00        0.00                                    
+ A07        20500.00        0.00        0.00                                    
+ A08        23500.00        0.00        0.00                                    
+ A09        27000.00        0.00        0.00                                    
+ A10        29000.00        0.00        0.00                                    
+ A11        33000.00        0.00        0.00                                    
+ A12 N      34700.00        0.00        0.00                                    
+ A12        35000.00        0.00        0.00                                    
+ A12 M      34912.14        0.00      -87.87                                    
+ A12 F      35000.00        0.00     -300.00                                    
+ A13        35000.00        0.00    -2000.00                                    
+ A14        35000.00        0.00    -4000.00                                    
+ A15        35000.00        0.00    -6000.00                                    
+ A16 N      35000.00        0.00    -7585.79                                    
+ A16        35000.00        0.00    -8000.00                                    
+ A16 M      35076.12        0.00    -7968.47                                    
+ A16 F      35292.89        0.00    -8292.89                                    
+ A17        37000.00        0.00   -10000.00                                    
+ A18 N      38575.73        0.00   -11575.74                                    
+ A18        39000.00        0.00   -12000.00                                    
+ A18 M      38875.73     -175.74   -11875.74                                    
+ A18 F      39000.00     -600.00   -12000.00                                    
+ A19        39000.00    -4000.00   -12000.00                                    
+ A20        39000.00    -8000.00   -12000.00                                    
+ 
+ *** SEGMENT B                                                                  
+ A03         8000.00        0.00        0.00                                    
+ B01         8000.00        0.00    -2000.00                                    
+ B02         8000.00        0.00    -6000.00                                    
+ B03 N       8000.00        0.00    -9700.00                                    
+ B03         8000.00        0.00   -10000.00                                    
+ B03 M       8000.00      -87.87    -9912.13                                    
+ B03 F       8000.00     -300.00   -10000.00                                    
+ B04         8000.00    -4000.00   -10000.00                                    
+ B05         8000.00    -6000.00   -10000.00                                    
+ 
+ *** SEGMENT C                                                                  
+ A09        27000.00        0.00        0.00                                    
+ C01        27000.00        0.00     4000.00                                    
+ C02        27000.00        0.00     8000.00                                    
+ C03 N      27000.00        0.00    11800.00                                    
+ C03        27000.00        0.00    12000.00                                    
+ C03 M      27000.00      -58.58    11941.42                                    
+ C03 F      27000.00     -200.00    12000.00                                    
+ C04        27000.00    -4000.00    12000.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (mm   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ C05        27000.00    -8000.00    12000.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ I.D.  -----Thickness(mm  )----- Spec  InsuDen/   Weight(N/m   )    ZL/ Composition/          
+ Material     Sch  mm    W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC                        
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/                                  
+ ---Line Class---                                        kg/m3           Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ PIPE01       500 500.00 10.60 4.00         0    0     0    0.000    308     0   308 1.00                       
+ NS           NS                                            0.000      0     0       1.00                       
+                             0                              0.000            0                                  
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE04       300 300.00 6.000 2.00         0    0     0    0.000    101     0   101 1.00                       
+ L40          L40                                           0.000      0     0       1.00                       
+                             0                              0.000            0                                  
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE02       300 300.00 7.600 2.50         0    0     0    0.000    128     0   128 1.00                       
+ L40          L40                                           0.000      0     0       1.00                       
+                             0                              0.000            0                                  
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE03       200 200.00 4.500 0.50         0    0     0    0.000  41.98     0 41.98 1.00                       
+ L25          L25                                           0.000      0     0       1.00                       
+                             0                              0.000            0                                  
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Lam Density  Pois.  E         Temp.  Expans.        Design                                
+    Name     Pipe ID  Typ  kg/m3   Ratio  E6 N/mm2  deg C  mm/m     K-fac Strain                                
+------------ -------- --- -------- ------ --------- ------ -------- ----- ------                                
+ NS          PIPE01    3   1329.00 L 0.30 L  0.0055    0.0                0.0015
+                                   C 0.41 C  0.0040
+                                                      40.0    0.960  0.85 0.0015
+ 
+ L40         PIPE04    2   1329.50 L 0.30 L  0.0070    0.0                0.0018
+                                   C 0.30 C  0.0070
+                                                      60.0    1.530  0.85 0.0015
+ 
+ L40         PIPE02    1   1329.50 L 0.30 L  0.0055    0.0                0.0015
+                                   C 0.30 C  0.0055
+                                                      40.0    1.020  0.85 0.0015
+ 
+ L25         PIPE03    2   1329.50 L 0.30 L  0.0056    0.0                0.0018
+                                   C 0.30 C  0.0056
+                                                      60.0    1.530  0.85 0.0015
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN N/mm2                                                                           
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS              DESIGN                                             
+ NAME  CASE  N/mm2  deg C   mm/m        E6 N/mm    K-FAC     STRAIN                                             
+ ----  ----  ------ ------  --------    -------    ------    ------                                             
+ 
+ *** SEGMENT A 
+ A00   T1    0.0800  40.00     0.960*   0.00550*     0.85*   0.0015*          
+                               0.031p
+ A07   T1    0.0600  60.00     1.530    0.00700      0.85*   0.0015*          
+                               0.044p
+ A20    Same as previous point.          
+ 
+ *** SEGMENT B 
+ A03   T1    0.0800  40.00     1.020    0.00553      0.85*   0.0015*          
+                               0.059p
+ B05    Same as previous point.          
+ 
+ *** SEGMENT C 
+ A09   T1    0.0600  60.00     1.530    0.00556      0.85*   0.0015*          
+                               0.049p
+ C05    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+p  Expansion due to pressure                                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     WIND LOAD CASES :
+     -----------------
+
+     Number of load cases :  1
+
+     Ground elevation for wind :       0.00 mm       
+
+     Wind shape factor multiplier :  1.000
+
+     Exposure factor for buried pipes :  0.000
+
+     Exposure factor for submerged pipes :  0.000
+
+     Exposed Segments -  A  B  C 
+
+     Wind application method : Normal 
+ 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     Load case 1  -  W1 
+
+     Direction  -      X=   0.000     Y=   0.000     Z=   1.000
+
+     User defined wind profile
+
+              Height (mm)    Press (N/m2  )
+              -----------    --------------
+     From :      Ground
+       to :     Highest             50.03
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+                               S U P P O R T   D A T A   L I S T I N G                                          
+                                                                                                                
+ Point Support  Support Conn.to Comp.Wt  Stiff.     Gap 1   Gap 2  Fric. GapSet Preload Ld.Var Size    Figure   
+ Name   Type      ID     /Dir    (kg)               (mm)    (mm)   Fact. /#hgr   (N  )                          
+ ----- -------- ------- ------- ------- ---------- ------- ------- ----- ------ ------- ------ ---- ------------
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ A02   V-stop   A02  1  Ground    0.000 Rigid          0.0     0.0  0.00        
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ A05   Guide-V  A05  1  Ground    0.000 Rigid          0.0     0.0  0.00        
+       Guide-H  A05  1  Ground    0.000 Rigid          0.0     0.0  0.00        
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ A10   V-stop   A10  1  Ground    0.000 Rigid          0.0     0.0  0.00        
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ A14   V-stop   A14  1  Ground    0.000 Rigid          0.0     0.0  0.00        
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ B02   V-stop   B02  1  Ground    0.000 Rigid          0.0     0.0  0.00        
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ C02   V-stop   C02  1  Ground    0.000 Rigid          0.0     0.0  0.00        
+ 
+ 
+ Spring Manufacturer:                                                           
+ NOTE 1: No soil supports present in the system.                                
+ Gap 1 : V-stop,Guide-V=down, Linestop,Incline,Tie/link=backward, Guide-H=Left  
+ Gap 2 : V-stop,Guide-V=Up  , Linestop,Incline,Tie/link=forward , Guide-H=Right 
+ Stiffness units for rotation support: N.m/deg  , all others: N/mm              
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (mm)   (deg)   (mm)   (mm)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+ A12  *Elbow    300S  90.0   316.0    8.0 L40          0/0  5.67   5.03    1           7.29     P1              
+                                          Longitudinal SIF  3.32   3.56         
+ A16  *Wide    1000   45.0   316.0    8.0 L40          0/1  1.74   1.78    1           1.49     P1              
+                                          Longitudinal SIF  1.00   1.20         
+ A18  *Close    600   90.0   316.0    8.0 L40          0/6  2.73   2.79    1           2.39     P1              
+                                          Longitudinal SIF  1.42   1.77         
+ B03  *Elbow    300S  90.0   320.2   10.1 L40          0/0  6.09   5.96    1           6.32     P1              
+                                          Longitudinal SIF  3.11   3.56         
+ C03  *Elbow    200S  90.0   210.0    5.0 L25          0/0  5.80   5.14    1           7.62     P1              
+                                          Longitudinal SIF  3.40   3.65         
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+ * = Mid-point present                                                          
+ S = Short radius                                                               
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (mm)    (mm)               Type     (mm)   (mm)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ A03   A-Header  529.2   14.6  NS          Moulded                  2.73   2.73 
+       B-Branch  320.2   10.1  L40                                              
+                                                                                
+ A09   A-Header  316.0    8.0  L40         Fabricat                 2.86   2.86 
+       C-Branch  210.0    5.0  L25                                              
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+
+----------------------------------------------------------------------------------------------------------------
+QA321D                                                                                                          
+11/16/2016 CHECK OF BS 7159                                       BENTLEY                                       
+04:13 PM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  17
+----------------------------------------------------------------------------------------------------------------
+
+                R E D U C E R   D A T A   L I S T I N G                                                         
+                        OD      OD     Thk    Thk                 Cone                                          
+ From  To     Length   From     To     From   To     From         Angle  SIF                                    
+ Point Point   (mm)    (mm)    (mm)    (mm)   (mm)  Material      (deg)                                         
+ ----- ----- ------- ------- -------  -----  -----  ------------  ----- ------                                  
+ A06   A07    500.00   529.2   316.0   14.6    8.0  NS                    1.00  
+                                      To Material = L40                         
+ 
+                                                                                
+

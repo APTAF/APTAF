@@ -1,0 +1,151 @@
+----------------------------------------------------------------------------------------------------------------
+CAT1TS1TC1                                                                                                      
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+<IGNORE>
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+<IGNORE>
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+CAT1TS1TC1                                                                                                      
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : CAT1TS1TC1                                      
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2016                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-16 
+ 
+<IGNORE>
+
+----------------------------------------------------------------------------------------------------------------
+CAT1TS1TC1                                                                                                      
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                              D E S C R I P T I O N                                                             
+                              ---------------------                                                             
+                                                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+CAT1TS1TC1                                                                                                      
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+
+----------------------------------------------------------------------------------------------------------------
+CAT1TS1TC1                                                                                                      
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 2.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12, Material= A106-A, Poisson= 0.300, Nom Size= 12 in, OD= 12.750 inch, Sch= STD,                   
+   Wall Thk= 0.375 inch, Mill= 0.047 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                          
+   Pipe Unit Wgt= 49.51 lb/ft, Insul Thk= 0 inch, Cladding Thickness = 0 inch, Lining Thk= 0 inch,              
+   Long Weld E factor= 1.00, Long Weld W factor= 1.00, Long Modulus= 29.40000 E6 psi,                           
+   Hoop Modulus= 29.40000 E6 psi, Shear Modulus= 11.30769 E6 psi, Sc= 13700.0 psi, Syc= 30000.0 psi             
+ 
+ OPERATING DATA:                                                                
+   P1= 5.00 psi, T1= 70.00 deg F, Exp1= 0 in/100ft, E1= 29.40000 E6 psi, Sh1= 13700.00 psi                      
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A00, Dist Load= GR, Id= 335, DLX= 1 lb/ft, DLY= 2 lb/ft, DLZ= 3 lb/ft        
+   A01, Coordinates, X= 2.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A01, Dist Load= GR, Id= 335, DLX= 4 lb/ft, DLY= 5 lb/ft, DLZ= 6 lb/ft        
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 2 + 0 + 0 = 2            
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+           99.0 lb     +         0.0 lb     =          99.0 lb                  
+

@@ -1,0 +1,383 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT tabInsert
+'USEUNIT Main
+'
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "SoilProperties" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         SoilProperties table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     9/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub SoilProperties (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgSoilProperties = objNameMapping.dlgSoilProperties
+
+Dim cmbboxSoilID : cmbboxSoilID =objRow.Item("cmbboxSoilID")
+Dim intMaxSpacing :intMaxSpacing =objRow.Item("intMaxSpacing")
+Dim radioLow : radioLow  =objRow.Item("radioLow")
+Dim radioHigh : radioHigh =objRow.Item("radioHigh")
+Dim radioAverage : radioAverage =objRow.Item("radioAverage")
+Dim chkboxHorizAutok1 : chkboxHorizAutok1 =objRow.Item("chkboxHorizAutok1")
+Dim intHorizonk1 :intHorizonk1 =objRow.Item("intHorizonk1")
+Dim chkboxHorizonAutop1 : chkboxHorizonAutop1 =objRow.Item("chkboxHorizonAutop1")
+Dim intHorizonp1 : intHorizonp1 =objRow.Item("intHorizonp1")
+Dim intHorizonk2 : intHorizonk2 =objRow.Item("intHorizonk2")
+Dim intHorizonDisp : intHorizonDisp = objRow.Item("intHorizonDisp")
+Dim chkboxLongAutok1 : chkboxLongAutok1 =objRow.Item("chkboxLongAutok1")
+Dim intLongk1 : intLongk1 =objRow.Item("intLongk1")
+Dim chkboxLongAutop1 : chkboxLongAutop1 =objRow.Item("chkboxLongAutop1")
+Dim intLongp1 : intLongp1 =objRow.Item("intLongp1")
+Dim intLongk2 : intLongk2 =objRow.Item("intLongk2")
+Dim intLongDisp : intLongDisp =objRow.Item("intLongDisp")
+Dim chkboxUpAutok1 : chkboxUpAutok1 =objRow.Item("chkboxUpAutok1")
+Dim intUpk1 : intUpk1 =objRow.Item("intUpk1")
+Dim intUpp1 : intUpp1 =objRow.Item("intUpp1")
+Dim intUpk2 : intUpk2 =objRow.Item("intUpk2")
+Dim intUpDisp : intUpDisp =objRow.Item("intUpDisp")
+Dim chkboxDnAutok1 : chkboxDnAutok1 =objRow.Item("chkboxDnAutok1")
+Dim intDnk1 : intDnk1 =objRow.Item("intDnk1")
+Dim chkboxDnAutop1 : chkboxDnAutop1 =objRow.Item("chkboxDnAutop1")
+Dim intDnp1 : intDnp1 =objRow.Item("intDnp1")
+Dim intDnk2 : intDnk2 =objRow.Item("intDnk2")
+Dim intDnDisp : intDnDisp =objRow.Item("intDnDisp")
+Dim intLm : intLm =objRow.Item("intLm")
+Dim intLa : intLa =objRow.Item("intLa")
+Dim intLb : intLb =objRow.Item("intLb")
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+     
+    '''' cmbboxSoilID
+If(cmbboxSoilID <> "NA") Then
+  if(objNameMapping.dlgSoilProperties.cmbboxSoilID.Enabled) Then
+   dlgSoilProperties.cmbboxSoilID.fldSoilID.Keys(cmbboxSoilID)
+    dlgSoilProperties.cmbboxSoilID.fldSoilID.Keys("[Tab]")
+          Log.Message("Entered " & cmbboxSoilID & " in field")
+    End If
+End If
+
+''' intMaxSpacing 
+If (intMaxSpacing  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldMaxSpacing.Keys(intMaxSpacing)
+          dlgSoilProperties.fldMaxSpacing.Keys("[Tab]")
+          Log.Message("Entered  intMaxSpacing in the field")
+  End If
+End If     
+     
+'''' radioLow 
+If(radioLow  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.radioLow.Click()
+          Log.Message("Set 'radioLow' checkbox")
+  End If
+End If
+ 
+
+'''' radioHigh 
+If(radioHigh  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.radioHigh.Click()
+          Log.Message("Set 'radioHigh' checkbox")
+  End If
+End If  
+
+'''' radioAverage 
+If(radioAverage  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.radioAverage.Click()
+          Log.Message("Set 'radioAverage' checkbox")
+  End If
+End If  
+        
+        
+''' chkboxHorizAutok1 
+If(chkboxHorizAutok1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.chkboxHorizAutok1.Click()
+          Log.Message("Set 'chkboxHorizAutok1' checkbox")
+  End If
+End If 
+        
+
+'''' intHorizonk1
+If (intHorizonk1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldHorizonk1.Keys(intHorizonk1)
+          dlgSoilProperties.fldHorizonk1.Keys("[Tab]")
+          Log.Message("Entered  intHorizonk1 in the field")
+    End If 
+End If
+
+'''' chkboxHorizonAutop1
+If(chkboxHorizonAutop1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.chkboxHorizonAutop1.Click()
+          Log.Message("Set 'chkboxHorizonAutop1' checkbox")
+   End If
+End If
+        
+''' intHorizonk1 
+If (intHorizonk1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldHorizonk1.Keys(intHorizonk1)
+          dlgSoilProperties.fldHorizonk1.Keys("[Tab]")
+          Log.Message("Entered  intHorizonk1 in the field")
+    End If 
+End If    
+
+''' intHorizonp1
+If (intHorizonp1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldHorizonp1.Keys(intHorizonp1)
+          dlgSoilProperties.fldHorizonp1.Keys("[Tab]")
+          Log.Message("Entered  intHorizonp1 in the field")
+    End If 
+End If    
+
+''' intHorizonk2 
+If (intHorizonk2  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldHorizonk2.Keys(intHorizonk2)
+          dlgSoilProperties.fldHorizonk2.Keys("[Tab]")
+          Log.Message("Entered  intHorizonk2 in the field")
+   End If 
+End If   
+
+'''' intHorizonDisp
+If (intHorizonDisp  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldHorizonDisp.Keys(intHorizonDisp)
+          dlgSoilProperties.fldHorizonDisp.Keys("[Tab]")
+          Log.Message("Entered  intHorizonDisp in the field")
+    End If 
+End If 
+
+'''' chkboxLongAutok1
+If(chkboxLongAutok1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.chkboxLongAutok1.Click()
+          Log.Message("Set 'chkboxLongAutok1' checkbox")
+   End If
+End If
+
+'Dim intLongk1 
+If (intLongk1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldLongk1.Keys(intLongk1)
+          dlgSoilProperties.fldLongk1.Keys("[Tab]")
+          Log.Message("Entered  intLongk1 in the field")
+    End If 
+End If 
+
+''' chkboxLongAutop1 
+If(chkboxLongAutop1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.chkboxLongAutop1.Click()
+          Log.Message("Set 'chkboxLongAutop1' checkbox")
+   End If
+End If
+
+''' intLongp1 
+If (intLongp1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldLongp1.Keys(intLongp1)
+          dlgSoilProperties.fldLongp1.Keys("[Tab]")
+          Log.Message("Entered  intLongp1 in the field")
+    End If 
+End If 
+
+'''' intLongk2 
+If (intLongk2  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldLongk2.Keys(intLongk2)
+          dlgSoilProperties.fldLongk2.Keys("[Tab]")
+          Log.Message("Entered  intLongk2 in the field")
+    End If 
+End If 
+
+''' intLongDisp
+If (intLongDisp  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldLongDisp.Keys(intLongDisp)
+          dlgSoilProperties.fldLongDisp.Keys("[Tab]")
+          Log.Message("Entered  intLongDisp in the field")
+    End If 
+End If 
+
+''' chkboxUpAutok1
+If(chkboxUpAutok1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.chkboxUpAutok1.Click()
+          Log.Message("Set 'chkboxUpAutok1' checkbox")
+   End If
+End If
+
+''' intUpk1
+If (intUpk1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldUpk1.Keys(intUpk1)
+          dlgSoilProperties.fldUpk1.Keys("[Tab]")
+          Log.Message("Entered  intLongDisp in the field")
+    End If 
+End If 
+
+'Dim intUpp1
+If (intUpp1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldUpp1.Keys(intUpp1)
+          dlgSoilProperties.fldUpp1.Keys("[Tab]")
+          Log.Message("Entered  intUpp1 in the field")
+    End If 
+End If 
+
+'Dim intUpk2 
+If (intUpk2  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldUpk2.Keys(intUpk2)
+          dlgSoilProperties.fldUpk2.Keys("[Tab]")
+          Log.Message("Entered  intUpk2 in the field")
+    End If 
+End If 
+
+'''' intUpDisp 
+If (intUpDisp  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldUpDisp.Keys(intUpDisp)
+          dlgSoilProperties.fldUpDisp.Keys("[Tab]")
+          Log.Message("Entered  intUpDisp in the field")
+    End If 
+End If 
+
+'''' chkboxDnAutok1
+If(chkboxDnAutok1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.chkboxDnAutok1.Click()
+          Log.Message("Set 'chkboxDnAutok1' checkbox")
+   End If
+End If
+
+'Dim intDnk1 
+If (intDnk1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldDnk1.Keys(intDnk1)
+          dlgSoilProperties.fldDnk1.Keys("[Tab]")
+          Log.Message("Entered  intDnk1 in the field")
+    End If 
+End If 
+
+'''chkboxDnAutop1 
+If(chkboxDnAutop1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.chkboxDnAutop1.Click()
+          Log.Message("Set 'chkboxDnAutop1' checkbox")
+   End If
+End If
+
+'Dim intDnp1
+If (intDnp1  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldDnp1.Keys(intDnp1)
+          dlgSoilProperties.fldDnp1.Keys("[Tab]")
+          Log.Message("Entered  fldDnp1 in the field")
+    End If 
+End If 
+
+''' intDnk2 
+If (intDnk2  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldDnk2.Keys(intDnk2)
+          dlgSoilProperties.fldDnk2.Keys("[Tab]")
+          Log.Message("Entered  intDnk2 in the field")
+    End If 
+End If 
+
+'Dim intDnDisp
+If (intDnDisp  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldDnDisp.Keys(intDnDisp)
+          dlgSoilProperties.fldDnDisp.Keys("[Tab]")
+          Log.Message("Entered  intDnDisp in the field")
+    End If 
+End If 
+
+''' intLm
+If (intLm  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldLm.Keys(intLm)
+          dlgSoilProperties.fldLm.Keys("[Tab]")
+          Log.Message("Entered  intLm in the field")
+    End If 
+End If 
+
+''' intLa 
+If (intLa  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldLa.Keys(intLa)
+          dlgSoilProperties.fldLa.Keys("[Tab]")
+          Log.Message("Entered  fldLa in the field")
+    End If 
+End If 
+
+''' intLb
+  If (intLb  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSoilProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSoilProperties.fldLb.Keys(intLb)
+          dlgSoilProperties.fldLb.Keys("[Tab]")
+          Log.Message("Entered  intLb in the field")
+    End If 
+End If 
+
+  
+    aqUtils.Delay(2000)
+dlgSoilProperties.btnOK.Click()
+
+End Sub

@@ -1,0 +1,561 @@
+﻿'USEUNIT FSO_Functions
+'USEUNIT Main
+'USEUNIT SmokeTest_ActionScript
+'USEUNIT DTP
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                            Test Plan Configuration                                '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Global variables. 
+' Remarks:
+' Actions:
+'           
+' Author:     
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+'Sub Configuration
+''' Global Variables
+'    Dim strTestPlanFolderName: strTestPlanFolderName = "SmokeTest"  'Update
+'    
+'    Project.Variables.strOpenDialog     = "Shortcut"
+'    Project.Variables.RoundingTolerance = 0
+'    Project.Variables.strInputDBType    = "Excel"
+'    Project.Variables.strInputDBName    = "TestData.xlsx"  
+'    Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+'    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+'    
+'    Log.Message( Project.Variables.strTPFolderPath)
+'    
+'    Call DTPMain
+'End Sub
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                            Test Plan Main                                         ''
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'Sub DTPMain
+'
+'    StartTime = Timer()                               'To monitor execution time
+'    TestedApps.autopipe.Run                           ' To Launch AutoPIPE
+'    Call Configuration                                ' Set Global variables
+'    Call RemoveFromStore
+'    Call AddToStore()
+'    Call DeleteSheets                                 'Delete sheets of the TestPlan except Introduction and Template
+'    Call TPCreateIntroductionSheet                    'Create TestPlan Introduction Sheet
+'' Get Categories     
+'    Dim arrCategories: arrCategories = GetCategories  
+'    For i = 0 to UBound(arrCategories)-1
+'    Dim boolCatOnOff : boolCatOnOff    = arrCategories(i,0)
+'    If (boolCatOnOff = "1") Then
+'        Dim strCatID : strCatID     = arrCategories(i,1)
+'        Dim strSheetName: strSheetName = arrCategories(i,2)
+'        Dim strCatTitle : strCatTitle  = arrCategories(i,3)
+'        ' Create Sheet             
+'        TPCreateSheet(strSheetName)
+'        ' Write to TP  
+'        Call WriteReport(strSheetName,strCatID,strCatTitle,null,null,null,null)  'Write to Report
+'' Get Test Scenarios
+'             arrTestScenarios = GetScenarios(strSheetName,strCatID)  
+'             For n=0 to UBound(arrTestScenarios,2)
+'                  Dim boolTSOnOff       : boolTSOnOff   = arrTestScenarios(0,n) 'Get Scenario execution switch
+'                  If(boolTSOnOff = "1") Then            ' Ignore Scenario if switch = 0 or Empty
+'                      Dim strTSID       : strTSID       = arrTestScenarios(1,n)
+'                      Dim strTSComments : strTSComments = arrTestScenarios(3,n)
+'                      Dim strTSTitle    : strTSTitle    = arrTestScenarios(4,n)
+'                    
+'                      Call WriteReport(strSheetName,strCatID&strTSID,strTSTitle,null,strTSComments,null,null)
+'' Get Test Cases                      
+'                      arrTestCases = GetCases(strSheetName, strTSID, strCatID)
+'                      For k = 0 to UBound(arrTestCases,2)
+'                          Dim boolTCOnOff : boolTCOnOff = arrTestCases(0,k)
+'                          If (boolTCOnOff = "1")Then
+'                              Dim strTCID              : strTCID              = arrTestCases(1,k)
+'                              Dim strTCComments        : strTCComments        = arrTestCases(4,k)
+'                              Dim strBenchmarkFileName : strBenchmarkFileName = arrTestCases(5,k)
+'                              Dim strActualFileName    : strActualFileName    = arrTestCases(6,k)
+'                              Dim strVerificationType  : strVerificationType  = arrTestCases(7,k)
+'                              Dim strTCTitle           : strTCTitle           =  arrTestCases(8,k)
+'                              Dim strTCAction          : strTCAction          =  strCatID&strTSID&strTCID 'Cat1TS1TC1
+'                              Dim strLogFile           : strLogFile           = aqFileSystem.ExpandFileName(Project.Variables.strTPFolderPath) & "\Report\Logs\" & strCatID&strTSID&strTCID & ".mht"
+'' Execute TestCase                             
+'                              strTestResult =  TestCaseExecution(strTCAction,strCatID&strTSID&strTCID,strBenchmarkFileName,strActualFileName, strVerificationType,strLogFile)
+'' Write to Report                              
+'                              Call WriteReport(strSheetName,strCatID&strTSID&strTCID,null,strTCTitle,strTCComments,strLogFile,strTestResult)
+'                          End If    
+'                      Next
+'                    End If
+'              Next
+'          End If
+'    Next
+'   Call RemoveFromStore
+'   EndTime = Timer()
+'   Log.Message("Seconds to 2 decimal places: " & FormatNumber(EndTime - StartTime, 2)) 
+'End Sub
+'
+''------------------------------------------------------------------------------------**/
+'' Summary: Function to execute test cases . 
+'' Remarks:
+'' Actions:
+''           strTCAction   -> 
+''           strTCID  ->  
+''           strBenchmarkFileName ->
+''           strActualFileName ->
+''           strVerificationType ->
+''           strLogFile ->
+''
+'' Author:     
+'' Date:     12/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'Function TestCaseExecution(strTCAction,strTCID,strBenchmarkFileName,strActualFileName, strVerificationType,strLogFile)
+'' Get TestPlan Name 
+'Log.Message("Test Case Execution ")           
+'           Dim strTestPlanName:strTestPlanName = Main.GetTestPlanName
+'' Add to Log
+'           AppendLogFolder(strTCID) 
+'           AppendLogFolder("Actions")         
+'' Call Test Script           
+'           CallTestCase = "Call " & strTCAction 'Call CAT1TS1TC1'
+'           Execute CallTestCase
+'' Add to Log
+'           PopLogFolder
+'           AppendLogFolder("Verification")
+'' Verification of test
+'           strVerificationResult = Main.Verification(LCase(strVerificationType),strActualFileName,strBenchmarkFileName)
+'' Save Log file
+'           Call Log.SaveResultsAs(strLogFile, lsMHT)    '2 is MHT format   
+'' Log   
+'           PopLogFolder
+'           PopLogFolder
+'' Return Verification result            
+'          TestCaseExecution = strVerificationResult
+'End Function
+''------------------------------------------------------------------------------------**/
+'' Summary: Get test cases record from the DB where Test Scenario is strTSID  . 
+'' Remarks:
+'' Actions:
+''           strSheetName   -> 
+''           strTSID  ->  
+''           strCatID ->
+''
+'' Author:     
+'' Date:     12/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'Function GetCases(strSheetName, strTSID, strCatID)
+'    Dim tblName :tblName  = "tpTestCase"
+'    Dim strQuery:strQuery = "Select OnOff,TCID,TSID,CatID,strTCComments,strBenchmarkFileName,strActualFileName,strVerificationType,strTCTitle from "& tblName &" WHERE CatID ='"&strCatID &"' And TSID = '"&strTSID&"'"
+'    arrTestCases          = GetDBRecord(strQuery)
+'    GetCases              = arrTestCases
+'End Function
+''------------------------------------------------------------------------------------**/
+'' Summary: Get Test Scenarios record from the DB where Category is strCatID  . 
+'' Remarks:
+'' Actions:
+''           strSheetName   -> 
+''           strTSID  ->  
+''           strCatID ->
+''
+'' Author:     
+'' Date:     12/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'Function GetScenarios(strSheetName,strCatID)
+'    Dim tblName  : tblName  = "tpTestScenario"
+'    Dim strField : strField = "TSID,CatID,TSComments"
+'    Dim strQuery : strQuery = "Select OnOff,TSID,CatID,strTSComments, strTSTitle from "& tblName &" WHERE CatID ='"& strCatID &"'"
+'    arrTestScenarios        = GetDBRecord(strQuery)
+'    GetScenarios            = arrTestScenarios
+'End Function
+''------------------------------------------------------------------------------------**/
+'' Summary: Create Sheet if not exists 
+'' Remarks:
+'' Actions:
+''           strSheetName   -> 
+''           strTSID  ->  
+''           strCatID ->
+''
+'' Author:     
+'' Date:     12/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'Sub TPCreateSheet(strSheetName)
+'  SheetExists =  ExcelSheetExists(strSheetName) ' Check sheet already exists
+'  
+'  If Not SheetExists  Then
+'      'intRowCounter = 15                              ' First row of the report
+'      Dim strCopySheet : strCopySheet = "Template"
+'      Dim strRenamedTo : strRenamedTo = strSheetName
+'      Call CreateSheet(strRenamedTo,strCopySheet)' Create copy of the 'Template' sheet and rename to strSheetName
+'      Call WriteSheetHeader(strSheetName)                 ' Insert header in the created sheet
+'      Call WriteSheetHeaderData(strSheetName)             ' Insert Data in the sheet
+'   End If  
+'   
+'   
+'End Sub
+''------------------------------------------------------------------------------------**/
+'' Summary: Create a copy of template Sheet and rename it. 
+'' Remarks:
+'' Actions:
+''           strRenameTo   -> Rename the copied sheet to
+''           strCopySheet  -> Name of the sheet to create copy of 
+''           
+'' Author:     
+'' Date:     8/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'sub CreateSheet(strRenameTo,strCopySheet)
+'  Dim objExcel,objSheet, objTestPlan
+'  Log.Message("Create Sheet")
+'  Dim strTestPlanName: strTestPlanName = Main.GetTestPlanName ' Get TestPlan Name
+'Log.Message("Create Sheet : " & strTestPlanName)
+'  Set objExcel = Sys.OleObject("Excel.Application")
+'  'objExcel.Visible = True
+'  set objTestPlan = objExcel.Workbooks.Open(strTestPlanName)
+'  Set objWorkSheet = objTestPlan.sheets(strCopySheet)
+'  Set objAfterSheet = objTestPlan.WorkSheets(strCopySheet)
+'
+'  objWorkSheet.Copy, objAfterSheet
+'  Set objWorkSheet = objTestPlan.sheets(strCopySheet&" (2)")
+'  objWorkSheet.Name = strRenameTo
+'  call objTestPlan.save
+'  Call objTestPlan.Close
+'  Call objExcel.Quit
+'  set objExcel = Nothing
+'  set objTestPlan = nothing
+'End Sub
+'
+''------------------------------------------------------------------------------------**/
+'' Summary: Get TestPlan categories information from InputDB(TestData.xlsx) sheet 'TPDetails'. 
+'' Remarks:
+'' Actions:
+''           
+''          
+'' Author:     
+'' Date:     11/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'Function GetCategories
+'  Dim strTableName:strTableName = "tpCategory"
+'  Dim j:j = 0
+'  Dim arrCategories()
+'  Dim intRowCount:intRowCount = GetTotalRows(strTableName) ' Get Rows count
+'  ReDim arrCategories(intRowCount,4)
+'  
+'  For i=1 to intRowCount
+'        Set ObjRow = GetRow(i, strTableName)
+'        If objRow.Item("OnOff") <> "" Then
+'            arrCategories(j,0) = objRow.Item("OnOff")
+'            arrCategories(j,1) = objRow.Item("strCatID")
+'            arrCategories(j,2) = objRow.Item("strSheetName")
+'            arrCategories(j,3) = objRow.Item("strCatTitle")
+'            j = j+1
+'        End If
+'  Next
+'  GetCategories =  arrCategories
+'End Function
+'
+'Sub TPGetIntroSheetData
+'  Dim strIntroduction
+'  Dim strTestScope
+'  Dim strPlatforms
+'  Dim RevisionNo
+'  Dim PreparedBy
+'  Dim ReviewedBy
+'  Dim ApprovedBy
+'  Dim ProjectVersion
+'  Dim AlphBuild
+'  Dim Description
+'  Dim strDate
+'  Dim strTime
+'  Dim Signature
+'  Dim strTableName
+'  Dim strDirection,intStartCol,intStartRow
+'  Log.Message("TP GET Intro Sheet Data")
+'  Dim strTestPlanName: strTestPlanName = Main.GetTestPlanName
+'  Dim strSheetName:strSheetName       = "Introduction" 
+'
+'  ' ------------------------ TestPlan Data ----------------------------------------------   
+'  Dim arrTPIntro(3)
+'  strTableName = "tpDetails"
+'  
+'  For i=1 to 4
+'    Set ObjRow = GetRow(i, strTableName)
+'    Dim j:j = i
+'    j=j-1
+'    arrTPIntro(j) = objRow.Item("Details")
+'  Next
+'  
+'  strDirection = "vertical*2" 'Write in Vertical direction
+'  intStartCol = 1           ' Start writing from Column
+'  intStartRow = 2           ' Start writing from Row
+'  'Call WriteTP(strTestPlanName,strSheetName,arrTPIntro,LCase(strDirection),intStartCol,intStartRow)
+'  Call WriteToExcelReport(strTestPlanName,strSheetName,arrTPIntro,LCase(strDirection),intStartCol,intStartRow)
+' ' -------------------------------------- Revision History --------------------------- 
+'  Dim arrTPRevision(10)
+'  ''''''''''''''''''' Rev 01 '''''''''''''''''''''''''''''
+'  strTableName = "TPRevisionHistory"
+'  Dim intTotalRows: intTotalRows = GetTotalRows(strTableName)
+'  For i=1 to intTotalRows
+'      Set ObjRow = GetRow(i, strTableName)
+'      IF objRow.Item("PreparedBy") <> "" OR objRow.Item("PreparedBy") <> "NA" Then
+'          arrTPRevision(0) = objRow.Item("RevNo")
+'          arrTPRevision(1) = objRow.Item("PreparedBy")
+'          arrTPRevision(2) = objRow.Item("Reviewed/Checkedby")
+'          arrTPRevision(3) = objRow.Item("ApprovedBy")
+'          arrTPRevision(4) = objRow.Item("ProjectVersion")
+'          arrTPRevision(5) = objRow.Item("AlphaBuild")
+'          arrTPRevision(6) = objRow.Item("Description")
+'          arrTPRevision(7) = objRow.Item("Date")
+'          arrTPRevision(8) = objRow.Item("Time(hrs)")
+'          arrTPRevision(9) = objRow.Item("Signature")
+'
+'          strDirection = "horizontal"
+'          intStartCol = 1
+'          intStartRow = 10+i
+'          'Call WriteTP(strTestPlanName, strSheetName,arrTPRevision, LCase(strDirection),intStartCol,intStartRow)
+'          Call WriteToExcelReport(strTestPlanName,strSheetName,arrTPRevision,LCase(strDirection),intStartCol,intStartRow)
+'      End If 
+'  Next
+'End Sub
+'
+''------------------------------------------------------------------------------------**/
+'' Summary: Create Test Plan "Introduction" Sheet
+'' Remarks:
+'' Actions:
+''           
+''           
+''           
+'' Author:     
+'' Date:     8/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'Sub TPCreateIntroductionSheet
+'Log.Message("Create Introduction Sheet")
+'  Dim strInputDBName: strInputDBName = Main.GetInputDBName
+'Log.Message("Create Introduction Sheet - DB Name : " & strInputDBName )  
+'  Set GetRows = GetRow(1,"tpRewrite")
+'  strRewrite = GetRows.Item("tpRewrite")
+'  Select Case strRewrite
+'    Case "Yes"
+'        TPGetIntroSheetData
+'        TPWriteIntroSheetData
+'        Dim arrTPIntro(0)
+'        arrTPIntro(0) = "No"
+'        strDirection = "vertical"
+'        intStartCol = 2
+'        intStartRow = 3
+'        'Call WriteTP(strInputDBName,"TPDetails",arrTPIntro,strDirection,intStartCol,intStartRow)
+'        Call WriteToExcelReport(strInputDBName,"TPDetails",arrTPIntro,strDirection,intStartCol,intStartRow)
+'    Case "No"
+'        Exit Sub
+'  End Select
+'End Sub
+'Sub TPWriteIntroSheetData
+'  Dim strDirection,intStartCol,intStartRow
+'  Log.Message("Write Intro Sheet Data :")
+'  Dim strTestPlanName: strTestPlanName = Main.GetTestPlanName
+'  Dim strSheetName:strSheetName       = "Introduction"  ' Update: Excel(Test Plan) Sheet Name having header
+'
+'  Dim arrTPIntro(5)
+'  arrTPIntro(0) = "TEST PLAN NAME"
+'  arrTPIntro(1) = "INTRODUCTION"
+'  arrTPIntro(2) = "TEST SCOPE"
+'  arrTPIntro(3) = "PLATFORMS"
+'  arrTPIntro(4) = "REVISION HISTORY"
+'  
+'  strDirection = "vertical*2"
+'  intStartCol = 1
+'  intStartRow = 1
+'  'Call WriteTP(strTestPlanName,strSheetName,arrTPIntro,LCase(strDirection),intStartCol,intStartRow)
+'  Call WriteToExcelReport(strTestPlanName,strSheetName,arrTPIntro,LCase(strDirection),intStartCol,intStartRow)
+'  
+'  Dim arrTPRevision(10)
+'  arrTPRevision(0) = "Rev.No"
+'  arrTPRevision(1) = "Prepared By"
+'  arrTPRevision(2) = "Reviewed/Checked by"
+'  arrTPRevision(3) = "Approved by"
+'  arrTPRevision(4) = "Project version"
+'  arrTPRevision(5) = "Alpha build"
+'  arrTPRevision(6) = "Description"
+'  arrTPRevision(7) = "Date"
+'  arrTPRevision(8) = "Time"
+'  arrTPRevision(9) = "Signature"
+'  
+'  strDirection = "horizontal"
+'  intStartCol = 1
+'  intStartRow = 10
+'  'Call WriteTP(strTestPlanName, strSheetName,arrTPRevision, LCase(strDirection),intStartCol,intStartRow)
+'  Call WriteToExcelReport(strTestPlanName,strSheetName,arrTPRevision,LCase(strDirection),intStartCol,intStartRow)
+'End Sub
+''------------------------------------------------------------------------------------
+'' Summary: Write sheet headers. 
+'' Remarks:
+'' Actions:
+''           strSheetName -> Excel sheet name
+''          
+'' Author:     
+'' Date:     11/2017
+''--------------+---------------+---------------+---------------+---------------+------
+'Sub WriteSheetHeader(strSheetName)
+'  Dim strDirection,intStartCol,intStartRow
+'  Log.Message("Write Sheet Header")
+'  Dim strTestPlanName: strTestPlanName = Main.GetTestPlanName
+'  Dim arrTPSheetHeader(10)
+'  arrTPSheetHeader(0) = "Test Plan"
+'  arrTPSheetHeader(1) = "TestPlan Name"
+'  arrTPSheetHeader(2) = "Application"
+'  arrTPSheetHeader(3) = "AutoPIPE Build#"
+'  arrTPSheetHeader(4) = "PW Explorer Build"
+'  arrTPSheetHeader(5)=  "STAADPro Build"
+'  arrTPSheetHeader(6) = "Operating System"
+'  arrTPSheetHeader(7) = ""
+'  arrTPSheetHeader(8) = "Percent Pass"
+'  arrTPSheetHeader(9) = "Precent Fail"
+'  
+'  strDirection = "vertical"
+'  intStartCol = 1
+'  intStartRow = 1
+'  'Call WriteTP(strTestPlanName,strSheetName,arrTPSheetHeader,LCase(strDirection),intStartCol,intStartRow)
+'  Call WriteToExcelReport(strTestPlanName,strSheetName,arrTPSheetHeader,LCase(strDirection),intStartCol,intStartRow)
+'  
+'  Dim arrTPSheetHeader2(6)
+'  arrTPSheetHeader2(0) = "TestCase No."
+'  arrTPSheetHeader2(1) = "Test Scenario"
+'  arrTPSheetHeader2(2) = "Test Case"
+'  arrTPSheetHeader2(3) = "Action"
+'  arrTPSheetHeader2(4) = "Result"
+'  arrTPSheetHeader2(5) = "Comments"
+'  
+'  strDirection = "horizontal"
+'  intStartCol = 1
+'  intStartRow = 14
+'  'Call WriteTP(strTestPlanName, strSheetName,arrTPSheetHeader2, LCase(strDirection),intStartCol,intStartRow)
+'  Call WriteToExcelReport(strTestPlanName,strSheetName,arrTPSheetHeader2,LCase(strDirection),intStartCol,intStartRow)
+'End Sub
+''------------------------------------------------------------------------------------
+'' Summary: Write sheet header Data. 
+'' Remarks:
+'' Actions:
+''           strSheetName -> Excel sheet name
+''          
+'' Author:     
+'' Date:     11/2017
+''--------------+---------------+---------------+---------------+---------------+------
+'Sub WriteSheetHeaderData(strSheetName)
+'  Set ObjRowTPAppName = GetRow(7, "tpDetails")
+'  Set ObjRowTPRegPath = GetRow(8, "tpDetails")    
+'
+'  Dim ApplicationName : ApplicationName  = ObjRowTPAppName.Item("Details")    ' Application Name
+'  Dim strRegistery    : strRegistery     = ObjRowTPRegPath.Item("Details")    ' Application Registery Path e-g "Software\Wow6432Node\Bentley\AutoPIPE\CONNECT QAR v11" 
+'  Dim TPName          : TPName           = Project.Variables.strTPReportName  ' Test Plan Name
+'  Dim STAADProBuild   : STAADProBuild	   = "NA"                               ' STAAD-Pro Build#
+'  Dim PWExplorerBuild : PWExplorerBuild  = "NA"                               ' PW-Explorer Build Number
+'  
+'  Set Key = Storages.Registry(strRegistery,HKEY_LOCAL_MACHINE, 0, True)       'Application Registery
+'  Log.Message("Write Sheet Header Data")
+'  Dim strTestPlanName : strTestPlanName = Main.GetTestPlanName 
+'  Dim APBuild         : APBuild         = Key.GetOption("Version","AutoPIPEVer")
+'  Dim OperatingSystem : OperatingSystem	= Sys.OSInfo.FullName                 ' System Operating System
+'  
+'  Dim arrData(6)                      'Array
+'  arrData(0) = TPName
+'  arrData(1) = ApplicationName
+'  arrData(2) = APBuild
+'  arrData(3) = PWExplorerBuild
+'  arrData(4) = STAADProBuild
+'  arrData(5) = OperatingSystem
+'  
+'  strDirection = "vertical" 'Write in Vertical direction
+'  intStartCol = 3          ' Start writing from Column
+'  intStartRow = 2          ' Start writing from Row
+'  
+'  'Call WriteTP(strTestPlanName,strSheetName,arrData,LCase(strDirection),intStartCol,intStartRow)
+'  Call WriteToExcelReport(strTestPlanName,strSheetName,arrData,LCase(strDirection),intStartCol,intStartRow)
+'End Sub
+'
+''------------------------------------------------------------------------------------**/
+'' Summary: Function to execute test cases . 
+'' Remarks:
+'' Actions:
+''           strSheetName  -> Sheet name 
+''           strID         -> ID 
+''           strTSTitle    -> Test scenario title
+''           strTCTitle    ->  Test Case title
+''           strComments   ->  Comments
+''           strLogFile    ->  Log file path
+''           strTestResult ->  Verification result
+'' Author:     
+'' Date:     12/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'Sub WriteReport(strSheetName,strID,strTSTitle,strTCTitle,strComments,strLogFile, strTestResult)
+'    Dim strTestPlanName
+'' Create Hyperlink of the Log file path
+'    If strLogFile <> "" Then 
+'          strLogFileLink =  "=HYPERLINK(""" & strLogFile & """,""Actions"")"
+'    Else
+'          strLogFileLink = ""
+'    End IF
+'    Log.Message("Write Report: ")
+'    strTestPlanName = Main.GetTestPlanName  'Get TestPlan Name
+'' Write to Excel table - TestPlan
+'    Dim arrData(6)
+'      arrData(0) = strID
+'      arrData(1) = strTSTitle
+'      arrData(2) = strTCTitle
+'      arrData(3) = strLogFileLink
+'      arrData(4) = strTestResult
+'      arrData(5) = strComments
+'    strDirection = "horizontal"     'Write in Vertical direction
+'    intStartCol = 1                 ' Start writing from Column
+'    
+'    intStartRow = GetStartRow(strTestPlanName,strSheetName)
+'    
+'    'Call WriteTP(strTestPlanName,strSheetName,arrData,LCase(strDirection),intStartCol,intStartRow)
+'    Call WriteToExcelReport(strTestPlanName,strSheetName,arrData,LCase(strDirection),intStartCol,intStartRow)
+'    
+'End Sub
+'
+'Function GetStartRow(strTestPlanName,strSheetName)
+'
+'  Set Excelapp = Sys.OleObject("Excel.Application")
+'  Set objTestPlan = Excelapp.Workbooks.Open(strTestPlanName)
+'  Set objSheet = objTestPlan.Sheets(strSheetName)
+'    For currentRow = 15 To 100
+'      currentRowValue = objSheet.Cells(currentRow,1).Value
+'      If IsEmpty(currentRowValue) Or currentRowValue = "" Then
+'        intStartRow = currentRow
+'        Exit For
+'      End If
+'    Next  
+'  GetStartRow = intStartRow
+'  Call objTestPlan.Save
+'  Call objTestPlan.Close
+'  Call Excelapp.Quit
+'
+'  set Excelapp = Nothing
+'  set objTestPlan = nothing
+'End Function
+'
+'
+'Sub DeleteSheets
+'Log.Message("Delete Sheets")
+'Dim strTestPlanName:strTestPlanName = Main.GetTestPlanName
+'Log.Message("Delete Sheets - Test Plan name : " & strTestPlanName)
+'  Set objExcel = CreateObject("Excel.Application")
+'  Set objTestPlan = objExcel.Workbooks.Open(strTestPlanName)
+'  objExcel.DisplayAlerts = False
+'  For each Sheet in objTestPlan.Worksheets
+'      If Sheet.Name <> "Introduction" And Sheet.Name <> "Template" Then
+'          Sheet.Select
+'          Sheet.Delete
+'      End If
+'  Next
+'  objExcel.DisplayAlerts = True
+'  Call objTestPlan.Save
+'  Call objTestPlan.Close
+'  Call objExcel.Quit
+'
+'  set objExcel = Nothing
+'  set objTestPlan = nothing
+'
+'End Sub

@@ -1,0 +1,43 @@
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+09/26/2019                                                        BENTLEY                                       
+02:51 AM                                                          AutoPIPE Nuclear 12.02.00.12   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2164-21: Flanges of inconsistent type found at following point(s)         
+                                                                                
+     O4, P6                                                                     
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-10:  User SIF required at junction  at following point(s)             
+                                                                                
+     G4, L5                                                                     
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-7:   Pipe diameter change without a reducer at following point(s)     
+                                                                                
+     P6                                                                         
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-93:  Zero weight flange found at following point(s)                   
+                                                                                
+     D4, O4, O5, P6                                                             
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-94:  Zero weight valve found at following point(s)                    
+                                                                                
+     L4, L6, M1, M2, N4, N5                                                     
+ 
+ 
+  No error    15 Warning(s)                                                     
+ 
+

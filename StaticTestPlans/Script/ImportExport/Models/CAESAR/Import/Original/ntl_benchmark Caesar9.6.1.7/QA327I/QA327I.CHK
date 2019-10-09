@@ -1,0 +1,33 @@
+----------------------------------------------------------------------------------------------------------------
+QA327I                                                                                                          
+08/26/2014 PROJECT:                                                   BENTLEY                                   
+04:48 PM                                                              AutoPIPE Nuclear 9.6.1.07  CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-37: Expansion at T1  is outside of temperature                        
+             range at point 60    for material CS                               
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2143-42:Undefined case referenced for imposed displacement found at point  at following point(s)          
+                                                                                
+     30  F, 30  F, 120, 120, 130, 130, 145, 145, 170, 170, 200, 200, 230, 230, 240, 240,                        
+     270, 270, 360, 360, 430, 430, 520, 520, 530, 530, 590, 590, 660, 660, 840, 840,                            
+     880, 880, 960, 960, 1190, 1190, 1470, 1470, 1540, 1540, 1660, 1660, 1710, 1710, 1850, 1850                 
+                                                                                
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-6:  Near zero length element at following point(s)                    
+                                                                                
+     20, 20, 250 F                                                              
+ 
+ 
+  No error    52 Warning(s)                                                     
+ 
+

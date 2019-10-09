@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{DA6D7EF7-5B05-4735-AAF0-A85E47D47989}" version="14.0">
+	<children>
+		<child name="dlgRun" key="{E3BDB04F-9568-4B90-BFAA-6E71A26557EC}">
+			<data signature="{1FD256C1-604C-48A1-9990-9A9329139EC4}" version="14.0" caption="dlgRun" ID="{E3BDB04F-9568-4B90-BFAA-6E71A26557EC}" FileName="Regions\dlgRun.png" Update="False" />
+		</child>
+		<child name="Cat6TS2TC2" key="{BB5A747E-2D05-482F-9A99-C232DD957EB1}">
+			<data signature="{1FD256C1-604C-48A1-9990-9A9329139EC4}" version="14.0" caption="Cat6TS2TC2" ID="{BB5A747E-2D05-482F-9A99-C232DD957EB1}" FileName="Regions\Cat6TS2TC2.png" Update="False" />
+		</child>
+	</children>
+</Root>

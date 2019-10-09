@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Common">
+			<child name="APP_Common" key="{671E36F0-5072-486D-96FA-F1F4A3B19A9C}" path="..\..\APTAF\Script\Library\APP_Common.svb" />
+			<child name="DatabaseFunctions" key="{FAF404C1-9DE3-4FF2-BCBF-40F113A51D92}" path="..\..\APTAF\Script\Library\DatabaseFunctions.svb" />
+			<child name="FSO_Functions" key="{D6A0B151-F80B-4EAF-A4A7-5A61F067638F}" path="..\..\APTAF\Script\Library\FSO_Functions.svb" />
+			<child name="GEN_Common" key="{DF1FE3CF-9E52-4D5D-B061-24918A35C3A0}" path="..\..\APTAF\Script\Library\GEN_Common.svb" />
+			<child name="GlobalConstants" key="{FBF9719D-14D1-4DD6-9158-FE1CAB3D9F82}" path="..\..\APTAF\Script\Library\GlobalConstants.svb" />
+			<child name="Maxsurf_Common" key="{7A1E7EF5-EDF6-4B26-BBD1-F74326ED5535}" path="..\..\APTAF\Script\Library\Maxsurf_Common.svb" />
+			<child name="Microstation_Common" key="{7BF375FF-DB5F-4DE7-8499-F0E48680887E}" path="..\..\APTAF\Script\Library\Microstation_Common.svb" />
+			<child name="Ribbon_Common" key="{DBEFB212-F569-465B-8900-D29D35F6429B}" path="..\..\APTAF\Script\Library\Ribbon_Common.svb" />
+			<child name="SelfService" key="{3580CCBF-27AB-44B4-8046-560D0D492E81}" path="..\..\APTAF\Script\Library\SelfService.svb" />
+		</folder>
+		<folder name="AutoPIPE">
+			<child name="Comparison" key="{53A89655-2B32-43CE-9A95-81284A86141E}" path="Comparison.svb" />
+		</folder>
+	</children>
+</Root>

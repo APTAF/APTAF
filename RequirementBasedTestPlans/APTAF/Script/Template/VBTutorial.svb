@@ -1,0 +1,312 @@
+﻿Sub IB
+
+msgbox WeekdayName(weekday(noW))
+
+End Sub
+
+
+Sub VB
+Dim x: x = 1
+X = "Bilal"
+msgbox(IsLong(x))
+
+
+End Sub
+
+Function VB1
+
+Dim x: x = 1
+msgbox(x)
+
+End Function
+
+Sub ArtOper
+
+Dim x: x = 10
+Dim y: y = 5
+Dim z
+
+z = x + y
+msgbox("Addition Result: " & z)
+z = x - y
+msgbox("Subtraction Result: " & z)
+z = x * y
+msgbox("Multiplication Result: " & z)
+z = x/y
+msgbox("Division Result: " & z)
+z = x MOD y
+Msgbox "Modulus Result: "&z
+z = x^2
+msgbox("Exponentiation Result: " & z)
+End Sub
+
+
+Sub ComparisonOper
+
+Dim x: x = 5
+Dim y: y = 10
+Dim z: z = 15
+
+If x=5 Then
+msgbox("== result is true")
+else
+msgbox("== result is False")
+End If
+
+
+If x<>0 Then
+msgbox("<> Result is true")
+else
+msgbox("<> Result is false")
+End If
+
+
+If x<>0 AND x<>0 Then
+msgbox("AND result is true")
+else 
+msgbox("AND result is false")
+End IF
+
+If (x<>y OR z=0) Then
+msgbox("OR result is true")
+else
+msgbox("OR result is false")
+End IF 
+
+If NOT(x<>0 AND x=y) Then
+msgbox("NOT result is true")
+else
+msgbox("NOT result is false")
+End IF
+
+
+End Sub
+
+Sub Concatenation
+Dim x: x = "Bentley"
+Dim y: y = "Systems"
+
+msgbox x + " . " + y
+msgbox x&y
+
+
+End Sub
+
+Sub Decision
+
+Dim x: x = 10
+Dim y: y = 6
+
+'nasted If
+If (x=5) Then
+x = 6
+    If x=7 Then
+        x = 8
+    elseIf (x=6) Then
+        x = 9
+    Else
+        x=10
+    End If
+
+Else
+  x=11
+
+End If
+
+msgbox x
+end Sub
+
+Sub switch
+' Switch Statement
+Dim Y: Y= 3
+Dim Z: Z= 2
+
+Select Case Y+Z
+
+ Case 9 
+ msgbox "Case 1"
+ 
+ Case 8
+ msgbox "Case 1"
+ Case 3
+ msgbox "Case 1"
+ Case 2
+ msgbox "Case 1"
+  Case 5
+  msgbox "Case 2"
+  
+  Case Else
+  msgbox "Else"
+ 
+ End Select
+
+End Sub
+'''''''''''''''''Loops''''''''''''''''''''''''''''''''''''''''
+Sub ForLoops
+
+Dim myVar : myVar = 10
+For i= 0 to 3
+  msgbox i
+ 
+Next
+
+End Sub
+
+Sub ForEachLoop
+fruits = Array("apple","orange","cherries","123")
+msgbox fruits(1)
+
+Dim fruitNames 
+
+For each Item in fruits
+msgbox item
+fruitNames = fruitNames & item & ","
+msgbox "FruitNAmes: " & fruitNames
+Next
+
+msgbox fruitNames
+
+End Sub
+
+Sub WhileWend
+
+Dim a : a = 10
+While a<15
+a = a+1
+msgbox a
+Wend
+End Sub
+
+
+'''''''''''''''''''''''''''' Number Conversion '''''''''''''''''''''''
+Sub NC1
+Dim x: x = 1
+Dim y: y = 2
+
+Dim result
+
+msgbox x & y
+msgbox CInt(x) + y
+
+end sub
+
+Sub NC2
+Dim x : x = "1"
+Dim y: y = "2"
+
+Dim result
+
+msgbox x + y
+msgbox CInt(x) + CInt(y) 
+
+end sub
+
+Sub CInts
+Dim x: x=-42.125
+x = Int(Abs(x))
+msgbox x
+
+Dim y: y = -23
+msgbox "Sign is " & sgn(y)
+msgbox "Exp is " & Exp(y)
+end sub
+
+Sub Strings
+Dim x : x = "My Name is Bentley"
+xy = InStr(1,x,"Name")
+msgbox "Reverse: " & InstrRev("bb bbb My Name is Bentley","M",3)
+'X = Mid(x,1,18)
+'msgbox X
+End Sub
+
+Sub Strings1
+
+msgbox "Search: " & Instr(3,"My Name is Bentley","y")
+msgbox "Reverse: " & InstrRev("My Name is Bentley","y",3)
+msgbox "Lower Case: " & Lcase("My Name is Bentley")
+msgbox "Upper Case: " & Ucase("My Name is Bentley")
+msgbox "Left: " & Left("My Name is Bentleye",5)
+msgbox "Right: " & Left("My Name is Bentley",5)
+msgbox "Mid: " & Mid("My Name is Bentley",4,4)
+msgbox "LTrim: " & LTrim("  My Name is Bentley  " & ".")
+msgbox "RTrim: " & RTrim("  My Name is Bentley  " & ".")
+msgbox "Trim: " & Trim("  My Name is Bentley  " & ".")
+msgbox "Replace: " & Replace("My Name is Bentley","Bentley", "Bentley Systems")
+msgbox "Comparison: " & StrComp("My Name is Bentley","My Name is Bentley System")
+End Sub
+''''''''''''''''''Arrays'''''''''''''''''''''''
+Sub Arrays
+' 3 Ways of declaring Arrays
+Dim arr1() ' Without Size
+Dim arr2(3) ' With Size
+Dim arr3: arr3 = Array("apple","orange","Grapes") ' Using array parameters
+
+
+arr2(0) = "5"
+msgbox "Value at index 0: " & arr2(0)
+msgbox "Value at index 3: " & arr2(3)
+msgbox "Value at index 6: " & arr2(6)
+
+' Multi-Dimension Arrays
+Dim MultiArr(2,3)
+End Sub
+
+' Array Methods
+Sub ArrayMethods
+Dim arr(3) ' With Size
+msgbox "LBound: " & LBound(arr)
+msgbox "LBound: " & UBound(arr)
+
+Dim myString: myString = "Islamabad,Lahore,Karachi"
+Dim myArr()
+a = split(mystring,",")
+msgBox "Value at 1st: " & a(1)
+
+'c = Array("Red","Blue","Green")
+d = Filter(Array("Red","Blue1","Blue2"),"Blue")
+
+For each item in d
+msgbox ("The Filter Result " & item)
+Next
+
+
+End Sub
+
+''''''''''''''''' Sub-Procedure ''''''''''''''''''''
+Sub subPro
+
+subPro1()
+
+End Sub
+
+Sub subPro1
+
+msgbox ("Hello")
+
+End Sub
+
+
+'''''''''''''''' Functions ''''''''''''''''''
+
+'Function fnum(Byval x,ByVal y)
+Function Add(x,y)
+
+z = x+y
+
+End Function
+
+Function mySub
+
+Dim x,y
+x=6
+y=4
+
+
+res = add(x,y)
+
+msgbox res
+
+
+End Function
+
+

@@ -1,0 +1,777 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT Main
+'USEUNIT Model
+'USEUNIT tabOrphan
+'USEUNIT tabSelect
+'USEUNIT tabTools
+
+
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        License                           ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'------------------------------------------------------------------------------------**/
+' Summary: Seelct AutoPIPE License edition.   
+' Remarks:
+' Actions: TestData -> table row number   
+' Author:   Bilal.Tahir
+' Date:     11/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Configuration(TestData)
+'Add to Log
+	    AppendLogFolder("Select License Edition")
+'Set Varaibles
+      Dim strTableName  : strTableName  = "tblLicenseConfiguration"            'DB mapped Table Name 
+      Dim strHotKey     : strHotKey     = "fu"                           'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod   = "License.Configuration"        'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap = "dlgLicenseConfiguration"      'Dialog mapped name
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Model                            ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'------------------------------------------------------------------------------------**/
+' Summary: Create New model existing model.     
+' Remarks:
+' Actions:
+'              All-> Execute All Rows one by one
+'              0 ->  Press OK button with default values
+'              Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub dlgNew(TestData)
+'Add to Log
+	    AppendLogFolder("Create new model")
+'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblNew"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "FN"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "Model.dlgNew1"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgNew"     'Dialog mapped name  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,strDlgVerification)
+'Log
+      PopLogFolder
+    
+    If(aliases.autopipe.dlgGeneralOptions.Exists) Then
+    TestData = CInt(TestData)
+      Dim ObjRow: Set ObjRow = GetRow(TestData, strDBTableName)         ' Get Row object 
+      Dim intGORow: intGORow = ObjRow.Item("intGORow")
+      'tab
+      intGORow = CInt(intGORow)
+      Call tabTools.GeneralOptions(intGORow)
+      
+    End If 
+      
+      'Log
+      PopLogFolder    
+End Sub
+
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Open existing model.     
+' Remarks:
+' Actions:
+'              All-> Execute All Rows one by one
+'              0 ->  Press OK button with default values
+'              Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Open(TestData,Action)
+      ' Add to Log
+      AppendLogFolder("Open Model")
+
+      Dim strTableName: strTableName = "tblOpen"                         'DB mapped Table Name 
+      Dim strHotKey                                                      'Dialog Shortcut Key
+      Dim strUIMethod        : strUIMethod        = "Model.Open"
+      Dim strDlgNameMap      : strDlgNameMap      = "dlgOpen"            'Dialog mapped name  
+      Dim strDlgVerification : strDlgVerification =  "no"
+      Dim strDlgNegativeTest : strDlgNegativeTest = "no"                     
+     
+      ''''''''''''''''Get Shortcut key '''''''''''''''
+      TestData = CInt(TestData)
+      
+      'Convert Action to lowercase
+      Action = LCase(Action)  
+      
+      'Set Shortcut key
+      Select Case Action
+          Case "autopipe database"
+                strHotKey = "FOD"
+          Case "autopipe backup"
+                strHotKey = "FOK"
+          case "autopipe batch"
+                strHotKey = "FOB"
+          case "archive"
+                strHotKey = "FOA"   
+      End Select 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod ,strDlgNameMap, LCase(strDlgVerification), LCase(strDlgNegativeTest)) 
+      'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Close existing model.     
+' Remarks:
+' Actions:
+'              Yes-> Save Mode on closing.
+'              No -> Dont Save model on closing.
+'              Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Close(TestData)
+      'Log
+      AppendLogFolder("Close the model")
+
+      Dim strOpenDialog: strOpenDialog = "Shortcut"     ' dialog opening method -> Shortcut or Ribbon button click
+      Dim strHotKey: strHotKey = "FC"
+      Set objNameMapping = Aliases.autopipe
+      Set dlgConfirm = objNameMapping.dlgConfirm
+    
+      Select Case strOpenDialog
+          Case "Shortcut"
+                objNameMapping.wndAutoPIPE.Keys(strHotkey)
+          Case "Ribbon"
+              ' Ribbon is not accessable 
+      End Select
+      If(objNameMapping.WaitAliasChild("dlgConfirm", 1000).WaitProperty("Exists", true, 10)) Then
+      '''' Case Yes to save model on closing and No to close the model without saving
+          Select Case TestData
+              Case "Yes" 'Close model after saving
+                  dlgConfirm.btnOK.Click()
+                  Log.Message("Model 'Saved' and 'Closed' ")
+              Case "No"  'Close without saving
+                  dlgConfirm.btnNo.Click()
+                  Log.Message("Model 'Closed' without Saving ")
+              Case Else
+                  msgbox "Arguments not correct either write 'Yes' or 'No' "  
+          End Select 
+      End If
+      'Log
+      PopLogFolder
+End Sub
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        SAVE                            ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+Sub Save
+
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: SaveAs model.     
+' Remarks:
+' Actions:
+'              
+'              Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub SaveAs(TestData, strAction)
+     'Log.PopLogFolder     
+     AppendLogFolder("SaveAs Model")
+     
+     Dim strTableName: strTableName = "tblSaveAs"                         'DB mapped Table Name 
+     Dim strHotKey                                                      'Dialog Shortcut Key
+     Dim strUIMethod  : strUIMethod = "Save.SaveAs"
+     Dim strDlgNameMap : strDlgNameMap ="dlgSaveAs"                       'Dialog mapped name  
+     Dim strDlgVerification : strDlgVerification =  "no" 
+     Dim strDlgNegativeTest : strDlgNegativeTest = "no"  
+     
+     Dim strSaveAsType: strSaveAsType = LCase(strAction)
+     
+      ''''''''''''''''Get Shortcut key '''''''''''''''
+     ' TestData = CInt(TestData)                                       ' Convert string to integer
+'      Dim ObjRow: Set ObjRow = GetRow(TestData, strTableName)         ' Get Row object 
+'      Dim strSaveAsType: strSaveAsType = ObjRow.Item("drpSaveAsType") ' Get model type    
+  
+      '''''''''' If strModelType is empty use DAT as default''''''''''''''.
+'      If(strModelType = "") Then
+'          strModelType = "dat"
+'      End IF
+      '''''''''''Set shortcut key''''''''''''''''''''''''''''''''''''''''''''''''''
+      Select Case strSaveAsType
+          Case "autopipe database"
+                strHotKey = "FAD"
+                
+          Case "autopipe batch"
+                strHotKey = "FAB"
+                
+          case "autopipe 10.0 model"
+                strHotKey = "FA10"
+                
+          case "archive"
+                strHotKey = "FAA"   
+      End Select 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod ,strDlgNameMap, strDlgVerification,strDlgNegativeTest)
+      Log.PopLogFolder  
+End Sub
+
+Sub SaveScreenPlot
+
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'                        Import/Export                     ' 
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Import model.     
+' Remarks:
+' Actions:
+'              
+'           Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   
+' Date:     11/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub InsertModel(TestData, strAction)
+          
+     AppendLogFolder("Insert Model")
+     Dim ObjRow
+     
+     Dim strTableName                        'DB mapped Table Name 
+     Dim strHotKey                           'Dialog Shortcut Key
+     Dim strUIMethod                         'DialogUIMethod
+     Dim strDlgNameMap                       'Dialog mapped name
+     Dim strModelType  
+     Dim strDlgVerification
+     Dim strDlgNegativeTest
+     
+     strModelType = Lcase(strAction)
+
+      '''''''''''Set type of Import File''''''''''''''''''''''''''''''''''''''''''''''''''
+      Select Case strModelType
+          Case "autopipe model"
+              strTableName = "tblInsertDAT"
+              strHotKey = "FTA"                                                      'Dialog Shortcut Key
+              strUIMethod = "ImportExport.InsertModel"                                                    'DialogUIMethod
+              strDlgNameMap = "dlgInsertModel"
+              strDlgVerification =  "no" 
+              strDlgNegativeTest = "no"  
+
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod ,strDlgNameMap, strDlgVerification,strDlgNegativeTest)
+' Step#02: Select Base Point     
+              'TestData = CInt(TestData)
+              Set ObjRow = GetRow(TestData, "tblInsertDATBasePoint")         ' Get Row object 
+              Dim strBasePoint: strBasePoint = ObjRow.Item("strPoint")    ' Get Base Point
+              'strBasePoint = CInt(strBasePoint)
+              Call tabOrphan.BasePoint(strBasePoint)              
+              
+' Step#3: Paste Dialog              
+                          
+              Call tabOrphan.InsertDATPaste(TestData)
+              If(Aliases.autopipe.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 100)) Then
+                Log.Message("Warning dialog closed. Message :" & Aliases.autopipe.dlgWarning.lblWarning.WndCaption)
+                Aliases.autopipe.dlgWarning.btnOK.ClickButton()
+              End If
+              
+              
+           Case "model from staad using pipelink"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+           Case "model from sacs using pipelink"
+              strTableName = "tblImportCeaserIINeutral"
+              strHotKey = "FIC"                                                       'Dialog Shortcut Key
+              strUIMethod = "ImportExport.ImportCeaserIINeutral"                                                   'DialogUIMethod
+              strDlgNameMap = "dlgImport"
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod ,strDlgNameMap, strDlgVerification)
+              PopLogFolder  
+              'Aliases.autopipe.dlgImportCeaserII
+              'If(objNameMapping.WaitAliasChild("dlgConfirmSaveAs", 60).WaitProperty("Exists", true, 10))
+              If(Aliases.autopipe.WaitAliasChild("dlgImportCeaserII", 60).WaitProperty("Exists", true, 10))Then
+                Call tabNoTab.ImportCeaserII(TestData)
+              End If  
+              
+              If(Aliases.autopipe.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60).WaitProperty("Exists", true, 10))Then
+                Call tabNoTab.CaesarIIImportFlangeSettings(TestData)
+              End If
+      
+              
+           Case "autocad coordinates"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+           Case "microstation coordinates"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+           Case "coordinates"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+     End Select 
+     
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Import model.     
+' Remarks:
+' Actions:
+'              
+'           Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Import(TestData, strAction)
+     'Log.PopLogFolder     
+     AppendLogFolder("Import Model")
+     Dim strTableName: strTableName = "TableImport"                         'DB mapped Table Name 
+     Dim strHotKey                                                        'Dialog Shortcut Key
+     Dim strUIMethod                                                      'DialogUIMethod
+     Dim strDlgNameMap
+     Dim isDlgVerification
+     Dim isDlgNegativeTest
+      Dim objNameMapping                                            'Dialog mapped name  
+
+     strAction = Lcase(strAction)
+      '''''''''''Set type of Import File''''''''''''''''''''''''''''''''''''''''''''''''''
+      Select Case strAction
+          Case "autoplant"
+              strTableName = "tblImportPXF"
+              strHotKey = "FIP"                                                      'Dialog Shortcut Key
+              strUIMethod = "ImportExport.ImportPXF"                                                    'DialogUIMethod
+              strDlgNameMap = "dlgImport"
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"  
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+
+              Set objNameMapping = Aliases.autopipe
+              If(Aliases.ConnectionClient.WaitAliasChild("dlgProjectChooser", 60000).WaitProperty("Exists", true, 60000))Then
+                Aliases.ConnectionClient.dlgProjectChooser.ProjectChooser1.btnCancel.Click()
+              End If
+              
+              If(Aliases.autopipe.WaitAliasChild("dlgGeneralOptions", 60000).WaitProperty("Exists", true,60000))Then
+                Call tabTools.GeneralOptions(TestData)
+              End If
+
+'              Call main.PopupsClose(objNameMapping)
+              If(Aliases.autopipe.WaitAliasChild("dlgNote", 600).WaitProperty("Exists", true,600))Then
+                Call Aliases.autopipe.dlgNote.btnOK.Click()
+                
+              End If
+                            
+              If(Aliases.autopipe.WaitAliasChild("dlgImportOpenPlantModeler", 60000).WaitProperty("Exists", true, 6000))Then
+                Call tabOrphan.ImportOpenPlantModeler(TestData)
+              End If
+              Call main.PopupsClose(objNameMapping)
+              
+              
+              If(Aliases.autopipe.WaitAliasChild("dlgOPMMapping", 3000).WaitProperty("Exists", true, 3000))Then
+                Call tabOrphan.ImportPXFOPMMapping(TestData)
+              If(Aliases.autopipe.WaitAliasChild("dlgConfirm", 6000).WaitProperty("Exists", true, 1000))Then
+                  Aliases.autopipe.dlgConfirm.btnNo.Click()
+                  Log.Message("Confirm dialog closed with No button. Message-Review consistency check warning messages.  ")
+              End If
+
+              End If
+              
+              If(Aliases.autopipe.WaitAliasChild("dlgConfirm", 3000).WaitProperty("Exists", true, 1000))Then
+                  Aliases.autopipe.dlgConfirm.btnNo.Click()
+                  Log.Message("Confirm dialog closed with No button. Message-Review consistency check warning messages.  ")
+              End If
+                  
+             ' Call main.PopupsClose(objNameMapping)
+              
+'           Case "Openplant modeler"
+'              strTableName
+'              strHotKey                                                        'Dialog Shortcut Key
+'              strUIMethod                                                      'DialogUIMethod
+'              strDlgNameMap
+              
+           Case "caeser ii neutral"
+           
+              strTableName = "tblImportCII"
+              strHotKey = "FIC"                                                       'Dialog Shortcut Key
+              strUIMethod = "ImportExport.ImportCeaserIINeutral"                                                   'DialogUIMethod
+              strDlgNameMap = "dlgImport"
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"  
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+  
+              If(Aliases.autopipe.WaitAliasChild("dlgImportCaesarII", 60).WaitProperty("Exists", true, 10))Then
+              Call tabOrphan.ImportCeaserII(TestData)
+              End If  
+              
+              If(Aliases.autopipe.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60).WaitProperty("Exists", true, 10))Then
+                Call tabOrphan.CaesarIIImportFlangeSettings(TestData)
+              End If
+
+              intCounter = 2
+              Do While intCounter > 0 
+              If (Aliases.autopipe.dlgConfirm.Exists) Then
+                Call Aliases.autopipe.dlgConfirm.btnNo.Click()
+                Exit Do
+              End If
+                intCounter = intCounter - 1
+                Delay 200
+              Loop
+              
+                    
+              If(Aliases.autopipe.WaitAliasChild("dlgConfirm", 2000).WaitProperty("Exists", true, 100))Then
+                Call Aliases.autopipe.dlgConfirm.btnNo.Click()
+              End IF
+              
+              If(Aliases.autopipe.WaitAliasChild("dlgWarning", 2000).WaitProperty("Exists", true, 100))Then
+                Call Aliases.autopipe.dlgWarning.btnOk.Click()
+             
+              While Aliases.autopipe.dlgWarning.Exists
+                Call Aliases.autopipe.dlgWarning.btnOK.Click()
+                Delay 2000
+              Wend
+               End IF
+              
+              If (Aliases.apipview.Exists) Then
+                Sys.Process("ApipView").Terminate()
+		            Log.Message("Input Listing Report Closed")
+              End If
+              
+           Case "aveva pdms"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+           Case "intergraph pds"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+           Case "adlpipe"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+           Case "smartplant"
+              strTableName  = "tblImportPCF"
+              strHotKey     = "FIM"                                                  'Dialog Shortcut Key
+              strUIMethod   = "ImportExport.ImportPCFTranslator"                                                    'DialogUIMethod
+              strDlgNameMap = "dlgPCFTranslator"
+              
+           Case "cadworx"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+               
+           Case "solidworks"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+           Case "autodesk inventor"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+               
+           Case "catia"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+           
+           Case "autodesk plant3d"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+           Case "model from opms"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              
+      End Select 
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Export model.     
+' Remarks:
+' Actions:
+'              
+'           Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Export(TestData, strAction)
+     'Log.PopLogFolder     
+     AppendLogFolder("Export Model")
+     Dim strTableName                                              'DB mapped Table Name 
+     Dim strHotKey                                                 'Dialog Shortcut Key
+     Dim strUIMethod                                               'DialogUIMethod
+     Dim strDlgNameMap                                             'Dialog mapped name  
+Dim isDlgVerification
+Dim isDlgNegativeTest
+      strAction = LCase(strAction)                                 
+      '''''''''''Set shortcut key''''''''''''''''''''''''''''''''''''''''''''''''''
+      Select Case strAction
+          Case "autoplant"
+              strTableName = "tblExportPXF"
+              strHotKey = "FEP"                                                    'Dialog Shortcut Key
+              strUIMethod = "ImportExport.ExportPXF"                                                  'DialogUIMethod
+              strDlgNameMap = "dlgExport"
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+              
+              If(Aliases.autopipe.WaitAliasChild("dlgPXFBatchResult", 6000).WaitProperty("Exists", true, 1000))Then
+              Call tabOrphan.ExportPXFBatchResult(TestData)
+              End If  
+              
+              
+           Case "autocad"
+              strTableName = "tblExportAutoCAD"
+              strHotKey = "FEA"                                                 'Dialog Shortcut Key
+              strUIMethod = "ImportExport.ExportAutoCAD"                        'DialogUIMethod
+              strDlgNameMap = "dlgExport"
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+                          
+           Case "ceaser ii neutral"
+              strTableName = "tblExportCeaserIINeutral"
+              strHotKey = "FEC"                                                 'Dialog Shortcut Key
+              strUIMethod = "ImportExport.ExportCeaserIINeutral"                'DialogUIMethod
+              strDlgNameMap = "dlgExport"
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+
+              
+           Case "ceaser ii xml"
+              strTableName
+              strHotKey                                                         'Dialog Shortcut Key
+              strUIMethod                                                       'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+              
+           Case "isogen"
+              strTableName
+              strHotKey                                                         'Dialog Shortcut Key
+              strUIMethod                                                       'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+              
+           Case "jspace model"
+              strTableName
+              strHotKey                                                         'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              
+           Case "dgn model"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+              
+           Case "imodel"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+               
+           Case "licad"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+              
+           Case "input database"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+               
+           Case "results database"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+           
+           Case "sacs sqlite database"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              
+           Case "sqlite database"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+              
+           Case "nozzle loads to autopipe nozzle"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              
+           Case "nozzle loads to autopipe nozzle"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+              
+           Case "model to staad using pipelink"
+              strTableName
+              strHotKey                                                        'Dialog Shortcut Key
+              strUIMethod                                                      'DialogUIMethod
+              strDlgNameMap
+              isDlgVerification = "no"
+              isDlgNegativeTest = "no"
+              'Call Main
+              Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+              'Log
+              Log.PopLogFolder  
+
+      End Select 
+      
+  
+''Call Main
+'      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+''Log
+'      Log.PopLogFolder  
+End Sub
+
+
+
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'                        Isometric                         ' 
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'                        Print                             ' 
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'                        Model                             ' 
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'                        Dashboard                         ' 
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'                        License                           ' 
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''

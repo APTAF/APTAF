@@ -1,0 +1,616 @@
+﻿'USEUNIT FSO_Functions
+Option Explicit
+Function GetConn(sType,locDatatable)
+  
+  'Create data file object
+  Dim fso,objData
+  Set fso = GetFileSystemObject()
+  Set objData = fso.GetFile(locDatatable)
+  
+  'Path
+  Dim sPath,FolderPath
+  sPath = objData.Path
+  
+  'Create db connection
+  Dim objCon
+  Set objCon = CreateObject("ADODB.Connection")
+  
+  Select Case sType
+  
+    'Excel
+    Case "excel"
+    
+      'Open Connection for excel sheet
+      objCon.CursorLocation = 3
+      'objCon.open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & sPath & ";Extended Properties=""Excel 8.0;HDR=Yes;IMEX=1"""
+      objCon.open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & sPath & ";Extended Properties=""Excel 12.0;HDR=YES;IMEX=1"""
+        
+    'SQLite
+    Case "sqlite"
+    
+      'Open db
+      objCon.Open "DRIVER=SQLite3 ODBC Driver;Database=" & sPath & ";"      
+  End Select
+  
+  'set connection to function
+  Set GetConn = objCon
+  
+  'Destroy
+  Set objData = Nothing
+  Set fso = Nothing
+End Function
+
+Function GetSQLiteTables(sQuery,locDb)
+
+  'Declare
+  Dim d,objCon,objRS,i,objField
+  
+  'Create objects
+  set d = CreateObject("Scripting.Dictionary")
+  
+  'Get connection
+  Set objCon = GetConn("SQLite",locDb)
+  
+  'Create record set object
+  set objRS = objCon.Execute(sQuery)
+  
+  'Counter
+  i = 0
+  
+  'Move to the first record
+  objRS.MoveFirst
+  
+  'Find row and add data to memory
+  Do while not objRS.eof
+    
+    'Add field name and value to meemory
+    For Each objField in objRS.fields
+      d.Add i,objField.Value
+    Next
+   
+    'Increase counter
+    i = i + 1
+    
+    'Next record
+    objRS.MoveNext
+  Loop
+  
+  'Set
+  Set GetSQLiteTables = d
+  
+  'Close
+  objCon.Close
+  
+  'Destroy
+  Set objField = Nothing
+  Set d = Nothing
+  Set objCon = Nothing
+  Set objRS = Nothing
+End Function
+
+Function Datatable(sType,sRange,iRow,objCon,locDatatable)
+  sType = LCase(sType)
+  'handle errors
+ ' On Error Resume Next
+  
+  'Create objects
+  Dim d
+  set d = CreateObject("Scripting.Dictionary")
+  
+  'Flag
+  Dim bTemp
+  bTemp = False
+  
+  'Create connection object
+  If IsNull(objCon) Then
+  
+    'Get connection
+    Set objCon = GetConn(sType,locDatatable)
+    
+    'Flag
+    bTemp = True
+  End If
+  
+  'Create record set object
+  Dim objRS
+  set objRS = CreateObject("ADODB.RecordSet")
+  
+  'Query string
+  Dim sQuery
+  sQuery = "SELECT * FROM " & sRange
+  
+  'Connection string
+  Dim sCon
+  Select Case sType
+  
+    'Excel
+    Case "excel"
+    
+      'Create recordset
+      objRS.CursorType = adOpenKeySet
+      objRS.LockType = 2
+      objRS.open sQuery, objCon
+  
+      'Pass errors to event handler
+      If err.Number <> 0 Then
+        Call log.Error(Err.Description)
+        
+        'Exit
+        Exit Function
+      End If
+      
+    'SQLite
+    Case "sqlite"
+    
+      'Create recordset
+      objRS.open sQuery, objCon
+      
+      'Pass errors to event handler
+      If err.Number <> 0 Then
+        Call log.Error(Err.Description)
+      
+        'Exit
+        Exit Function
+      End If
+  End Select
+  
+  'Move to the first record
+  Dim i
+  i = 1
+  objRS.MoveFirst
+  
+  'Find row and add data to memory
+  Dim sField
+  Do while not objRS.eof
+    If i = iRow Then
+    
+      'Add field name and value to meemory
+      For Each sField in objRS.fields
+        d.Add sField.name, sField.value
+      Next
+      
+      'Exit
+      Exit Do
+    End If
+    
+    'Increase counter
+    i = i + 1
+    
+    'Next record
+    objRS.MoveNext
+  Loop
+  
+  'Function is equal to contents in memory
+  Set Datatable = d
+  
+  'Close record set
+  objRS.close
+  
+  'Close connection
+  If bTemp = True Then
+    objCon.close
+    
+    'Destroy object
+    Set objCon = Nothing
+  End If
+  
+  'Destroy Objects
+  Set d = Nothing
+  set objRS = Nothing
+End Function
+
+Function Datatable_Get_Row_Count(sType,sQuery,locDatatable)
+  
+  'handle errors
+  On Error Resume Next
+  
+  'Create objects
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  set objDatatable = fso.GetFile(locDatatable)
+  
+  'Get the path to the datatable
+  Dim sPath,FolderPath
+  sPath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Create record set and connection db objects
+  Dim objCon,objRS
+  set objCon = CreateObject("ADODB.Connection")
+  set objRS = CreateObject("ADODB.RecordSet")
+  
+  'Connection string
+  Dim sCon
+  Select Case sType
+  
+    'Excel
+    Case "Excel"
+    
+      'Open db
+      'sCon = "Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq="&sPath&";DefaultDir="& FolderPath
+      sCon = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & sPath & ";Extended Properties=""Excel 12.0;HDR=YES;IMEX=1"""
+    
+      'Open db
+      objCon.CursorLocation = 3
+      objCon.open sCon
+      objRS.CursorType = adOpenKeySet
+      objRS.LockType = 2
+      
+      'Create recordset
+      objRS.open sQuery, objCon
+  
+      'Pass errors to event handler
+      If err.Number <> 0 Then
+        Call log.Error(Err.Description)
+        
+        'Exit
+        Exit Function
+      End If
+      
+    'SQLite
+    Case "SQLite"
+    
+      'Open db
+      objCon.Open "DRIVER=SQLite3 ODBC Driver;Database=" & sPath & ";"
+      
+      'Create recordset
+      objRS.open sQuery, objCon
+      
+      'Pass errors to event handler
+      If err.Number <> 0 Then
+        Call log.Error(Err.Description)
+        
+        'Exit
+        Exit Function
+      End If
+  End Select
+  
+  'First record
+  objRS.MoveFirst
+      
+  'Count
+  Dim i
+  i = 0
+  Do Until objRS.EOF = True
+    i = i + 1 
+    objRS.MoveNext 
+  Loop
+  
+  'Function equals number of records returned
+  Datatable_Get_Row_Count = i
+  
+  'Close record set and db connection
+  objRS.close
+  objCon.close
+  
+  'Destroy objects
+  set objCon = Nothing
+  set objRS = Nothing
+  set objDatatable = Nothing
+  Set fso = Nothing
+End Function
+
+Function Get_Data_Value(ColName,SheetName,locDatatable)
+  
+  'Create Objects
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  Set objDatatable = fso.GetFile(locDatatable)
+  
+  'Get the path to the datatable
+  Dim FilePath,FolderPath
+  FilePath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Create ADO Connection and Recordset objects
+  Dim cn,rs
+  set cn = CreateObject("ADODB.Connection")
+  set rs = CreateObject("ADODB.RecordSet")
+  
+  'Construct the SQL query and db connection string
+  Dim strQuery,strConnection
+  strQuery = "SELECT * FROM " & SheetName 
+  strConnection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & FilePath & ";Extended Properties=""Excel 12.0;HDR=YES;IMEX=1"""
+  
+  'Open the connection to the data source
+  cn.open strConnection
+  
+  'Create a recordset using the SQL query
+  set rs = cn.execute (strQuery)
+  
+  'Function equals value
+  Get_Data_Value = rs(ColName).value
+  
+  'Close the connection to the data source
+  cn.close
+  
+  'Destroy Objects
+  set cn = Nothing
+  set rs = Nothing
+  set objDatatable = Nothing
+  Set fso = Nothing
+End Function
+
+Function XLSParse(SheetName,ColName1,ColName2,pType,locDatatable)
+  
+  'Create COM objects
+  Dim d,fso,cn,rs
+  set d = CreateObject("Scripting.Dictionary")
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  set cn = CreateObject("ADODB.Connection")
+  set rs = CreateObject("ADODB.RecordSet") 
+  
+  'Get the path to the datatable
+  Dim objDatatable,FilePath,FolderPath
+  set objDatatable = fso.GetFile(locDatatable)
+  FilePath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Construct the query and db connection string
+  Dim strQuery,strConnection
+  strQuery = "SELECT * " & "FROM " & SheetName
+  strConnection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & FilePath & ";Extended Properties=""Excel 12.0;HDR=YES;IMEX=1"""
+  cn.CursorLocation = 3
+  
+  'Open the connection to the db
+  cn.open strConnection
+  rs.CursorType = adOpenKeySet
+  rs.LockType = 2
+  rs.open strQuery, cn
+  if err.number <> 0 Then
+      Log.Warning(err.number & err.description)
+      Runner.Stop()
+  End If
+  rs.MoveFirst
+  
+  'Get every value from the specified columns and add to Dictionary
+  Do while not rs.eof
+      
+      Select Case pType
+        Case "resi"
+            
+          'Place the two values into memory
+          d.Add columnName1 & rs(ColName1).value, rs(ColName2).value
+          
+        Case "norm"
+            
+          'Place the two values into memory
+          d.Add rs(ColName1).value, rs(ColName2).value
+            
+        End Select
+        
+        rs.MoveNext
+          
+  Loop
+  
+  'Set the value of the function to the items in memory
+  Set XLSParse = d
+  
+  'Close the connection
+  rs.close
+  cn.close
+  
+  'Destroy objects
+  set cn = Nothing
+  set rs = Nothing
+  Set objDatatable = Nothing
+  Set fso = Nothing
+  Set d = Nothing
+End Function
+
+Sub GetColNumber(sFieldName,sRange,numCol,locDatatable)
+  
+  'Create filesystem object
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  set objDatatable = fso.GetFile(locDatatable)
+  
+  'Get the path to the datatable
+  Dim FilePath,FolderPath
+  FilePath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Create db connection and record set objects
+  Dim cn,rs
+  set cn = CreateObject("ADODB.Connection")
+  set rs = CreateObject("ADODB.RecordSet")
+  
+  'Contruct the db query and connection string
+  Dim strQuery,strConnection
+  strQuery = "SELECT * FROM " & sRange
+  
+  strConnection = "Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq="&FilePath&";DefaultDir="& FolderPath
+  cn.CursorLocation = 3
+  cn.open strConnection
+  rs.CursorType = adOpenKeySet
+  rs.LockType = 2
+  rs.open strQuery, cn
+  
+  Dim i,field
+  i = 1 
+  For each field in rs.fields
+    If field.Name = sFieldName Then
+      numCol = i
+      Exit For
+    End If
+    i = i + 1
+  Next
+End Sub
+
+Sub RowNumber(sSheetName,sCriteria,numRow,locDatatable)
+ 
+  'Create filesystem object
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  set objDatatable = fso.GetFile(locDatatable)
+  
+  'Get the path to the datatable
+  Dim FilePath,FolderPath
+  FilePath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Create db connection and record set objects
+  Dim cn,rs
+  set cn = CreateObject("ADODB.Connection")
+  set rs = CreateObject("ADODB.RecordSet")
+  
+  'Contruct the db query and connection string
+  Dim strQuery,strConnection
+  strQuery = "SELECT * FROM " & sSheetName
+  strConnection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & FilePath & ";Extended Properties=""Excel 12.0;HDR=YES;IMEX=1"""
+  cn.CursorLocation = 3
+  cn.open strConnection
+  rs.CursorType = adOpenKeySet
+  rs.LockType = 2
+  rs.open strQuery, cn
+  
+  'Move to the first record
+  rs.MoveFirst
+  
+  'Find the row using the specified query
+  rs.Find(sCriteria)
+  
+  'Function equal to row number
+  numRow = rs.Bookmark
+  
+  'Close record set and db connection
+  rs.close
+  cn.close
+  
+  'Destroy Objects
+  set cn = Nothing
+  set rs = Nothing
+  Set objDatatable = Nothing
+  Set fso = Nothing
+End Sub
+
+Sub WriteToDatatable(sQuery,locDatatable)
+  
+  'Create dictionary and filesystem objects
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  set objDatatable = fso.GetFile(locDatatable)
+  
+  'Get the path to the datatable
+  Dim FilePath,FolderPath
+  FilePath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Create db connection
+  Dim cn
+  set cn = CreateObject("ADODB.Connection")
+      
+  'Create db connection
+  Dim strConnection
+  set cn = CreateObject("ADODB.Connection")
+  strConnection = "Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq="&FilePath&";DefaultDir="& FolderPath &";ReadOnly=0;"
+  cn.mode = 3
+  cn.open strConnection
+  
+  'Update the datatable
+  cn.Execute(sQuery)
+  
+  'Destroy objects
+  Set fso = Nothing
+  set objDatatable = Nothing
+  set cn = Nothing
+End Sub
+
+Sub WriteToDatatableTest()
+  
+  'Create dictionary and filesystem objects
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  set objDatatable = fso.GetFile("C:\HG\maxsurf\offshoreautotest\maxsurf\FDS Automated Testing Suite\DataTables\Stability_Data.xls")
+  
+  'Get the path to the datatable
+  Dim FilePath,FolderPath
+  FilePath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Create db connection
+  Dim cn
+  set cn = CreateObject("ADODB.Connection")
+      
+  'Create db connection
+  Dim strConnection
+  set cn = CreateObject("ADODB.Connection")
+  strConnection = "Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq="&FilePath&";DefaultDir="& FolderPath &";ReadOnly=0;"
+  cn.mode = 3
+  cn.open strConnection
+  
+  'Update the datatable - 'Note that the WHERE parameter does not have '' around the variable due to causing mismatch errors
+  'cn.Execute("UPDATE StripTheoryAnalysis1_Summary_zero_Bow_moderate SET m0=0.219400482965728 WHERE [Row]='21'")
+  cn.Execute("UPDATE LargeAngleStability_Res_nshape20x10x5m_5 SET LatprojUnderwateraream2='20' WHERE Row=1")
+  
+  'Destroy objects
+  Set fso = Nothing
+  set objDatatable = Nothing
+  set cn = Nothing
+End Sub
+
+Sub NumColumns(sRange,numCol,locDatatable)
+ 
+  'Create filesystem object
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  set objDatatable = fso.GetFile(locDatatable)
+  
+  'Get the path to the datatable
+  Dim FilePath,FolderPath
+  FilePath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Create db connection and record set objects
+  Dim cn,rs
+  set cn = CreateObject("ADODB.Connection")
+  set rs = CreateObject("ADODB.RecordSet")
+  
+  'Contruct the db query and connection string
+  Dim strQuery,strConnection
+  strQuery = "SELECT * FROM " & sRange
+  
+  'Connect to db
+  strConnection = "Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq="&FilePath&";DefaultDir="& FolderPath
+  cn.CursorLocation = 3
+  cn.open strConnection
+  rs.CursorType = adOpenKeySet
+  rs.LockType = 2
+  rs.open strQuery, cn
+  
+  'Number of columns
+  numCol = rs.Fields.Count
+End Sub
+
+Sub WriteToExcel(sQuery,locDatatable)
+  'Create dictionary and filesystem objects
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  set objDatatable = fso.GetFile(locDatatable)
+  
+  'Get the path to the datatable
+  Dim FilePath,FolderPath
+  FilePath = objDatatable.Path
+  
+  'Create db connection
+  Dim con
+  set con =CreateObject("ADODB.Connection")
+      
+  'Create db connection
+  Dim strConnection
+  strConnection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & FilePath & ";Extended Properties=""Excel 12.0;HDR=Yes"""
+  
+  con.mode = adModeReadWrite
+  con.CursorLocation = 3
+  con.open strConnection
+  
+  'Update the datatable
+  con.Execute(sQuery)
+  
+  'Destroy objects
+  Set fso = Nothing
+  set objDatatable = Nothing
+  set con = Nothing
+  
+End Sub
+

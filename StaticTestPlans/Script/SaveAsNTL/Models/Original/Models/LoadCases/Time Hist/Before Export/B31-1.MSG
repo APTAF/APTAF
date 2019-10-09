@@ -1,0 +1,12 @@
+          * * * *  APOUT MESSAGE FILE  * * * * 
+
+
+
+
+
+ *** BATCH FILE CREATION COMPLETE ***
+
+ *** NUMBER OF ERRORS =  0
+ *** NUMBER OF WARNINGS =  0
+
+

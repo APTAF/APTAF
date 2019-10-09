@@ -1,0 +1,40 @@
+﻿'USEUNIT FSO_Functions
+
+
+Sub CreateDigitalTP
+  UserForms.frmDigitalTP.ShowModal
+End Sub
+
+
+
+Sub ConnectionCleanup
+End Sub
+
+Sub GeneralEvents_OnLogError(Sender, LogParams)
+ConnectionCleanup
+End Sub
+
+Sub frmDigitalTP_btnCreateTestPlan_OnClick(Sender)
+Dim strDestination, intNoOfSheets, strCopyFrom, strCopyTo, strSheetName
+    
+'Call FSORenameFile("./Script/APTAF/DTPMain.svb","./Script/APTAF/Template/DTP-TemplateFolder/Script/DTPMain.svb") 
+'Call FSORenameFile("./Script/APTAF/ActionScript.svb","./Script/APTAF/Template/DTP-TemplateFolder/Script/ActionScript.svb")	
+	
+	Set Form = UserForms.Form(0)
+  
+  strFolderName =  Form.ComponentByName("txtTestPlanName").Text
+  strSource = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\APTAF\Script\APTAF\Template\DTP-TemplateFolder"  
+  strDestination = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\AutoPIPEStaticTestSuite\Script\" &strFolderName 'Update: Where to copy the Test Template Plan folder
+  Call FSOCopyFolder(strSource,strDestination)
+  Sys.OleObject("WScript.Shell").Run("explorer C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script")
+  
+  
+  
+  UserForms.frmDigitalTP.Visible = False
+  UserForms.frmDigitalTP.Hide
+  
+Call FSORenameFile("./Script/"&strFolderName&"/script/DTPMain.svb","./Script/"&strFolderName&"/script/"& strFolderName &"_Main.svb") 
+Call FSORenameFile("./Script/"&strFolderName&"/Report/Testplan.xlsx","./Script/"&strFolderName&"/Report/"& strFolderName &"-TestPlan.xlsx")
+Call FSORenameFile("./Script/"&strFolderName&"/script/ActionScript.svb","./Script/"&strFolderName&"/script/"& strFolderName &"_ActionScript.svb")
+    
+End Sub

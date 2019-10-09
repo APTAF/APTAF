@@ -1,0 +1,480 @@
+﻿'USEUNIT APP_Common
+'USEUNIT DatabaseFunctions
+Sub CloseSignInDialog()
+  
+  Dim ConnectClient
+  Set ConnectClient = NameMapping.Sys.Bentley_Connect_Client
+  'If Connection client exist
+  If ConnectClient.HwndSource_Window.Exists Then
+    'close it
+    ConnectClient.HwndSource_Window.Close
+    
+  End If
+  'destroy the object
+  Set ConnectClient = Nothing
+
+End Sub
+
+Sub SignInDialog(sType)
+  
+  Dim BentleyLicense
+  Set BentleyLicense = NameMapping.Sys.Bentley_Licensing_Service.HwndSource_Window.WindowLicenseService.Border.Grid
+  
+  Do
+  BuiltIn.Delay(5000)
+  
+  Loop While BentleyLicense.Exists <> True
+  
+  
+  
+  'What you want to do i.e. Continue or Sign in
+  Select Case sType
+  'In case of Continue
+  Case "Continue"
+    If BentleyLicense.Exists Then
+      'Click on continue button
+      Call BentleyLicense.ButtonContinue.Click
+    End If
+    
+    'in case of Cancel and Quit
+  Case "Cancel and Quit"
+    If BentleyLicense.WPFObject("StackPanel", "", 1).WPFObject("Button", "Cancel and Quit", 2).Exists Then
+    'click on cancel button
+      Call BentleyLicense.WPFObject("StackPanel", "", 1).WPFObject("Button", "Cancel and Quit", 2).Click
+    
+    End If
+    'In case of Acknowlege
+  Case "Acknowledge"
+    If BentleyLicense.WPFObject("StackPanel", "", 1).WPFObject("Button", "Acknowledge", 1).Exists Then
+    
+    'click on Ackowledge button
+      Call BentleyLicense.WPFObject("StackPanel", "", 1).WPFObject("Button", "Acknowledge", 1).ClickButton
+    
+    End If
+  End Select
+  'destroy the object
+  Set BentleyLicense = Nothing
+
+
+End Sub
+
+Function GetProductStatus()
+  
+  Dim LicenseTool
+  Set LicenseTool = NameMapping.Sys.Bentley_Licensing_LicenseTool.HwndSource_MainWindow.MainWindow
+  'Click on product status tab of Connect License adapter
+  Call LicenseTool.tabControl.ProductStatus.Click
+  
+  'Get value of Previous Status field of product status grid
+  Dim Value
+  Value = LicenseTool.tabControl.WPFObject("ContentPresenter", "", 1).WPFObject("userControl").WPFObject("Grid", "", 1).WPFObject("RadGridView", "", 1).wValue(0,"Previous Status")
+  
+  'Assign value to function
+  GetProductStatus = Value
+  
+  'destroy the object
+  Set LicenseTool = Nothing
+  
+End Function
+
+
+Sub LogViewver()
+    
+  Dim BentleyLicense
+  Set BentleyLicense = NameMapping.Sys.Bentley_Licensing_LicenseTool
+  
+  'click on Tool menu
+  Call BentleyLicense.HwndSource_MainWindow.MainWindow.MenuBar.ToolMenu.Click
+  
+  'Click on Log Viewer
+  Call BentleyLicense.HwndSource_PopupRoot.PopupRoot.LogViewerMenuItem.Click
+  
+  'Click on Usage tab
+  Call BentleyLicense.HwndSource_ContainerWindow.ContainerWindow.Tab.Usage.Click
+  
+  'get number of rows in usage tab grid
+  Dim Rows
+  Rows = BentleyLicense.HwndSource_ContainerWindow.ContainerWindow.Tab.WPFObject("ContentPresenter", "", 1).WPFObject("UsageLogView", "", 1).WPFObject("Grid", "", 1).WPFObject("radGridViewUsage").wRowCount
+ 
+  'get value in Start Time field of that grid 
+  Dim sTime, eTime
+  sTime = BentleyLicense.HwndSource_ContainerWindow.ContainerWindow.Tab.WPFObject("ContentPresenter", "", 1).WPFObject("UsageLogView", "", 1).WPFObject("Grid", "", 1).WPFObject("radGridViewUsage").wValue(Rows-1,"Start Time")
+  Log.Message("Start Time:" & sTime)
+  
+  'get value in End Time field of that grid
+  eTime = BentleyLicense.HwndSource_ContainerWindow.ContainerWindow.Tab.WPFObject("ContentPresenter", "", 1).WPFObject("UsageLogView", "", 1).WPFObject("Grid", "", 1).WPFObject("radGridViewUsage").wValue(Rows-1,"End Time")
+  Log.Message("Start Time:" & eTime)
+  
+  'Destroy the object
+  set BentleyLicense = Nothing
+End Sub
+
+Sub SignInConnectionClient(User,Pass)
+  
+  Dim ConnectClientProcess
+  Set ConnectClientProces = NameMapping.sys.Bentley_Connect_Client.HwndSource_MainWindow.ShellEmbedding.ShellDocObjectView.browser.pageBentleySignIn.formNovalidation.panelSigninboxcontainer
+  'Enter user email
+  Call ConnectClientProces.Email.SetText(User)
+  'Enter user password
+  Call ConnectClientProces.Password.SetText(Pass)
+  'click on sign in button
+  Call ConnectClientProces.SignIn.ClickButton
+  
+  'if autoComplete dialog appear
+  If NameMapping.Sys.Bentley_Connect_Client.WaitWindow("#32770", "AutoComplete Passwords", 1,2000).Exists Then
+    'click on yes button
+    Call NameMapping.Sys.Bentley_Connect_Client.Window("#32770", "AutoComplete Passwords", 1).Window("Button", "&Yes", 2).Click
+  
+  End If
+  
+   Do While NameMapping.Sys.Bentley_Connect_Client.HwndSource_MainWindow.MainWindow.SettingIcon.Exists <> True 
+    BuiltIn.Delay(2000)
+  Loop
+  
+  'destroy the object
+  Set ConnectClientProces = Nothing
+
+End Sub
+
+
+Sub SignoutConnectionClient()
+    
+  Dim ConnectClientProcess
+  Set ConnectClientProcess = NameMapping.sys.Bentley_Connect_Client
+  
+  'click on Setting icon
+  ConnectClientProcess.HwndSource_MainWindow.MainWindow.SettingIcon.Click
+  
+  'click on sign out 
+  ConnectClientProcess.HwndSource_PopupRoot.PopupRoot.ContextMenu.MenuitemSignOut.Click
+
+
+  set ConnectClientProcess = Nothing
+
+End Sub
+
+
+Sub SignInWebPortal(objInputs)
+
+    'launch Edge with below URL
+    Dim url : url = "https://qa-connect-webportal.bentley.com/"
+    Call Browsers.Item(btEdge).Run(url)
+    
+     Dim Page
+    Set Page = Aliases.browser
+  
+    'Maximize the browser
+    Call Page.BrowserWindow.Maximize
+
+  
+    'wait for the page to laod completely
+    Page.pageBentleySignIn.Wait
+  
+    'Enter Email
+    page.pageBentleySignIn.formNovalidation.panelSigninboxcontainer.emailinputEmail.SetText(objInputs.Item("AdminEmail"))
+  
+    'Enter password
+    page.pageBentleySignIn.formNovalidation.panelSigninboxcontainer.passwordboxPassword.SetText(objInputs.Item("AdminPass"))
+  
+    'Click on Login button
+    page.pageBentleySignIn.formNovalidation.panelSigninboxcontainer.submitbuttonSignIn.ClickButton
+    
+    page.pageBentleyCloudServices.Wait
+    
+    BuiltIn.Delay(5000)
+  
+
+  set Page = Nothing
+
+End Sub
+
+
+Sub LicenseCheckout(objInputs)
+  
+    Dim Page1, Page2, Page4
+    Set Page1 = Aliases.browser.pageBentleyCloudServices4.panelAccountmanagement
+    Set Page2 = Aliases.browser.pageBentleyCloudServices4.panelAccountmanagement.panelTopNavBar.formNewlicenseform.fieldset
+    Set Page4 = Aliases.browser.pageBentleyCloudServices4
+    
+    BuiltIn.Delay(5000)
+    Call ClickXpath("//span[@class='glyphicon glyphicon-menu-hamburger atpHamburgerMenu top-nav-bar-icon']",Page4)
+   ' Call Page1.panelTopNavBar.Click(15, 15)
+    
+    Call Page1.linkLicenseCheckout.Click
+    
+    Call Page1.linkNewlicensecheckout.Click
+    
+    Builtin.Delay(5000)
+    Call SelectValue("Email","//select[@ng-hide='userSelected']",Page4)
+    
+ '   Call Page2.panelContainerFluidSectionBox.panelRow.panelColMd8.SelectUser.ClickItem("Email")
+    
+  '  Call Page2.panelContainerFluidSectionBox.panelRow.panelColMd8.textbox.Keys(objInputs.Item("UserEmail"))
+  
+    Call EnterValueXpath(objInputs.Item("UserEmail"),"//input[@placeholder=' email']",Page4)
+    
+    BuiltIn.Delay(5000)
+  '  Dim count: count = Page2.panelContainerFluidSectionBox.panelRow.panelColMd8.tableMatchingUsersTable.RowCount
+    
+    
+    Call Page2.panelContainerFluidSectionBox.panelRow.panelColMd8.tableMatchingUsersTable.Cell(0, 0).Click
+    
+    Call Page2.panelContainerFluidSectionBox.panelRow2.panelColMd6.textboxMachineidtextbox.SetText(objInputs.Item("MachineName"))
+    
+    Call Page2.panelContainerFluidSectionBox2.panelRow.panelInputGroup.textbox.Keys(objInputs.Item("LicenseName"))
+    
+    Call Page2.panelContainerFluidSectionBox2.panelRow.panelInputGroup.panelColMd6.Link(0).Click
+    
+    Call Page2.panelContainerFluidSectionBox2.panelRowNgHide.panelColMd12.panelFormattedTableWrapper.textboxVersion0.SetText(objInputs.Item("VersionNumber"))
+    
+    Call Page2.panelSection.buttonLicenseCheckout.ClickButton
+    
+    Do While Page1.panelTopNavBar.panelSection.Exists <> True 
+  
+    BuiltIn.Delay(5000)
+    
+    Loop
+    
+
+
+  Set Page1 = Nothing
+  Set Page2 = Nothing
+
+End Sub
+
+
+
+Sub LicenseCheckIn()
+  
+
+  Dim locDatatable: locDatatable = "\\asia13780\hg2\amat_testautomation\autopipe\TestAutomation\AutoPIPE Automated Testing Suite\ConnectLicensing\Datatable\AutoPIPE_Data.xlsx"
+
+     'Get Input data from Excel Sheet
+  Dim objInputs
+  Set objInputs = Datatable("Excel","AutoPIPE_Input_Matrix",1,Null,locDatatable)
+  
+  Call SignInWebPortal(objInputs)
+  
+  Dim Page,Page1
+  Set Page = Aliases.browser
+  Set Page1 = Aliases.browser.pageBentleyCloudServices4.panelAccountmanagement
+
+    'Click on Connection Center QA2
+  page.pageBentleyCloudServices.navHfnavbar.panelHfnavbarcollapse.linkHforganizationlink.Click
+  
+  'wait for page to load completely
+  page.pageBentleyCloudServices2.Wait
+    BuiltIn.Delay(5000)
+    
+  Page.pageBentleyCloudServices2.panelConnectMain.Subscriptioninformation.panelCardBody.Click
+    
+  Builtin.Delay(10000)
+    
+  Page.pageBentleyCloudServices4.Wait
+  Builtin.Delay(5000)
+ 
+  Dim i
+  
+ ' Do
+  '  For i=5 to 50 Step 5
+    'click on three horizontal bar link
+    'Call Page1.panelTopNavBar.Click(25, 25)
+  
+ '   Next
+ ' Loop While Page1.linkNewlicensecheckout.Visible <> True
+ 
+ 
+ 
+ Dim obj
+ 
+ Set obj = Page.pageBentleyCloudServices4.FindChildByXPath("//span[@class='glyphicon glyphicon-menu-hamburger atpHamburgerMenu top-nav-bar-icon']",True)
+ 
+ If Not obj is Nothing Then
+  
+  obj.Click
+  Else
+  Log.Error("The Element Not Found")
+  End If
+ 
+ 
+  
+  'click on License Checkout
+  Call Page1.linkLicenseCheckout.Click
+  
+  Dim Page2
+  Set Page2 = Aliases.browser.pageBentleyCloudServices4.panelAccountmanagement.panelTopNavBar.panelSection
+  
+  
+  
+  Set Page = Nothing
+  Set Page1 = Nothing
+  Set objInputs = Nothing
+
+  
+
+End Sub
+
+
+
+Sub Test1
+  Dim arr, page
+  Set page = Aliases.browser.pageBentleyCloudServices4
+  Dim obj, obj1
+
+  Set obj1 = page.FindChildByXPath("//div[@class='cursor-pointer col-md-4']/div[text()='Pipe Tester1']",True)
+  
+  If Not obj1 is Nothing Then
+  
+  obj1.Click
+  Else
+  Log.Error("The Element Not Found")
+  End If
+  
+  Set obj = page.FindChildByXPath("//button[@class='btn ng-binding dropdown-toggle license-options-menu-activated']", True)
+  If Not obj is Nothing Then
+  
+  obj.Click
+  Else
+  Log.Error("The Element Not Found")
+  End If
+  
+'  Call page.CheckInLicense.Refresh
+'  Call page.CheckInLicense.Click
+  
+  Dim obj2
+  Set obj2 = page.FindChildByXPath("//li[@class='license-options-menu-item']", True)
+  If Not obj2 is Nothing Then
+  
+  call obj2.Refresh
+  call obj2.Click
+  Else
+  Log.Error("The Element Not Found")
+  End If
+
+
+  Set page= Nothing
+  set obj = Nothing
+  set obj1 = Nothing
+End Sub
+
+
+'returns the value from xpath 
+'second argument is the location of page
+Function GetValueXpath(xpath,page)
+  
+Dim obj
+Set obj = page.FindChildByXPath(xpath,True)
+
+  If Not obj is Nothing Then
+  
+    GetValueXpath = obj.contentText
+  Else
+    Log.Error("The Element Not Found")
+  End If
+  
+  Set obj = Nothing
+
+
+End Function
+
+
+Sub ClickXpath(xpath,page)
+  
+Dim obj
+Set obj = page.FindChildByXPath(xpath,True)
+
+  If Not obj is Nothing Then
+  
+  obj.Click
+  
+  Else
+    Log.Error("The Element Not Found")
+  End If
+  
+  Set obj = Nothing
+
+End sub
+
+Sub SelectValue(value,xpath,page)
+  
+Dim obj
+Set obj = page.FindChildByXPath(xpath,True)
+
+  If Not obj is Nothing Then
+  
+  obj.ClickItem(value)
+  
+  Else
+    Log.Error("The Element Not Found")
+  End If
+  
+  Set obj = Nothing
+
+End sub
+
+Sub EnterValueXpath(value,xpath,page)
+  
+Dim obj
+Set obj = page.FindChildByXPath(xpath,True)
+
+  If Not obj is Nothing Then
+  
+  obj.keys(value)
+  
+  Else
+    Log.Error("The Element Not Found")
+  End If
+  
+  Set obj = Nothing
+
+End sub
+
+
+
+
+
+
+Sub Test3
+
+  Dim Page3
+  Set Page3 = Aliases.browser.pageBentleyCloudServices4
+  Dim obj
+  Set obj = Page3.FindChildByXPath("//ul[@class='dropdown-menu ng-isolate-scope']",True)
+
+  If Not obj is Nothing Then
+  
+  obj.Click
+  obj.Keys("AutoPIPE Advanced")
+  
+  Else
+    Log.Error("The Element Not Found")
+  End If
+  
+  Set obj = Nothing
+
+End Sub
+
+
+
+
+Sub ChildCount
+  Dim Page
+  Set Page = Aliases.browser
+  'Maximize the browser
+  Dim Count
+  Count = page.pageBentleyCloudServices3.panelUsagereportscontent.sectionMainSectionNgScope.TableReport.RowCount
+  Dim value
+  value = page.pageBentleyCloudServices3.panelUsagereportscontent.sectionMainSectionNgScope.TableReport.Cell(Count-1, Count).contentText
+  
+  log.Message(Count)
+  log.Message(value)
+
+End Sub
+
+Sub Test2
+  Dim page
+  Set page = Aliases.browser.pageBentleyCloudServices4
+  Call page.panelAccountmanagement.panelTopNavBar.panelSection.PanelGroup.panelAccordiongroup2302546Tab.linkQaConnectEntitlementmanageme.button.Keys("^![ReleaseLast][ReleaseLast]")
+  Call Browsers.Item(btEdge).Navigate("https://qa-connect-entitlementmanagement.bentley.com/#/Account/LicenseCheckout")
+  page.linkQaConnectEntitlementmanageme.Click
+End Sub

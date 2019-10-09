@@ -1,0 +1,177 @@
+﻿'USEUNIT Insert
+'USEUNIT Main
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                            Test Plan Main                                         ''
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub TPMain
+    Call TPConfiguration
+    Call TPCreateIntroductionSheet
+    Call TPIntroductionSheetData
+    Call TPCategories
+End Sub
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                            Test Plan Configuration                                '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub TPConfiguration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "SineQuaNon"  'Update
+
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath   = "./Script/"&strTestPlanFolderName
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan2.xlsx"
+End Sub
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                            Test Plan Categories Main                              '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Get TestPlan categories information from InputDB(TestData.xlsx) sheet 'TPDetails'. 
+' Remarks:
+' Actions:
+'           
+'          
+' Author:     
+' Date:     11/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub TPCategories
+   
+  strTableName = "tpCategory"
+  Dim arrCategories()
+  Dim intRowCount:intRowCount = GetTotalRows(strTableName)
+  ReDim arrCategories(intRowCount)
+  Dim j:j = 0
+  For i=1 to intRowCount
+    Set ObjRow = GetRow(i, strTableName)
+    If objRow.Item("CatID") <> "" Then     
+        arrCategories(j) = objRow.Item("Category")
+        j=j+1
+    End If
+  Next
+'  For each strCategory in arrCategories
+'    CallUIMethod = "Call " & strCategory &".CategoryMain" & "(strCategory)"
+'    Execute CallUIMethod
+'  Next
+  Call Category(arrCategories)
+End Sub
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                            Test Plan Category                                     '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub Category(arrCategories())
+  For each strCategory in arrCategories
+    CallUIMethod = "Call " & strCategory &".CategoryMain" & "(strCategory)"
+    Execute CallUIMethod
+  Next
+End Sub
+Sub TPIntroductionSheetData
+  Dim strIntroduction
+  Dim strTestScope
+  Dim strPlatforms
+  Dim RevisionNo
+  Dim PreparedBy
+  Dim ReviewedBy
+  Dim ApprovedBy
+  Dim ProjectVersion
+  Dim AlphBuild
+  Dim Description
+  Dim strDate
+  Dim strTime
+  Dim Signature
+  Dim strTableName
+  Dim strDirection,intStartCol,intStartRow
+  Dim strTestPlanName: strTestPlanName = Main.GetTestPlanName
+  Dim strSheetName:strSheetName       = "Introduction" 
+
+  ' ------------------------ TestPlan Data ----------------------------------------------   
+  Dim arrTPIntro(3)
+  strTableName = "tpDetails"
+  
+  For i=1 to 4
+    Set ObjRow = GetRow(i, strTableName)
+    Dim j:j = i
+    j=j-1
+    arrTPIntro(j) = objRow.Item("Details")
+  Next
+  
+  strDirection = "vertical*2" 'Write in Vertical direction
+  intStartCol = 1           ' Start writing from Column
+  intStartRow = 2           ' Start writing from Row
+  Call WriteTP(strTestPlanName,strSheetName,arrTPIntro,LCase(strDirection),intStartCol,intStartRow)
+ ' -------------------------------------- Revision History --------------------------- 
+  Dim arrTPRevision(10)
+  ''''''''''''''''''' Rev 01 '''''''''''''''''''''''''''''
+  strTableName = "TPRevisionHistory"
+  Dim intTotalRows: intTotalRows = GetTotalRows(strTableName)
+  For i=1 to intTotalRows
+      Set ObjRow = GetRow(i, strTableName)
+      IF objRow.Item("PreparedBy") <> "" OR objRow.Item("PreparedBy") <> "NA" Then
+          arrTPRevision(0) = objRow.Item("RevNo")
+          arrTPRevision(1) = objRow.Item("PreparedBy")
+          arrTPRevision(2) = objRow.Item("Reviewed/Checkedby")
+          arrTPRevision(3) = objRow.Item("ApprovedBy")
+          arrTPRevision(4) = objRow.Item("ProjectVersion")
+          arrTPRevision(5) = objRow.Item("AlphaBuild")
+          arrTPRevision(6) = objRow.Item("Description")
+          arrTPRevision(7) = objRow.Item("Date")
+          arrTPRevision(8) = objRow.Item("Time(hrs)")
+          arrTPRevision(9) = objRow.Item("Signature")
+
+          strDirection = "horizontal"
+          intStartCol = 1
+          intStartRow = 10+i
+          Call WriteTP(strTestPlanName, strSheetName,arrTPRevision, LCase(strDirection),intStartCol,intStartRow)
+      End If 
+  Next
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Create Test Plan "Introduction" Sheet Template function
+' Remarks:
+' Actions:
+'           FolderName -> Name of the report
+'           FolderID  -> Name of the Benchmark file in "Stores"
+'           
+' Author:     
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub TPCreateIntroductionSheet
+  Dim strDirection,intStartCol,intStartRow
+  Dim strTestPlanName: strTestPlanName = Main.GetTestPlanName
+  Dim strSheetName:strSheetName       = "Introduction"  ' Update: Excel(Test Plan) Sheet Name having header
+
+  Dim arrTPIntro(5)
+  arrTPIntro(0) = "TEST PLAN NAME"
+  arrTPIntro(1) = "INTRODUCTION"
+  arrTPIntro(2) = "TEST SCOPE"
+  arrTPIntro(3) = "PLATFORMS"
+  arrTPIntro(4) = "REVISION HISTORY"
+  
+  strDirection = "vertical*2"
+  intStartCol = 1
+  intStartRow = 1
+  Call WriteTP(strTestPlanName,strSheetName,arrTPIntro,LCase(strDirection),intStartCol,intStartRow)
+  
+  Dim arrTPRevision(10)
+  arrTPRevision(0) = "Rev.No"
+  arrTPRevision(1) = "Prepared By"
+  arrTPRevision(2) = "Reviewed/Checked by"
+  arrTPRevision(3) = "Approved by"
+  arrTPRevision(4) = "Project version"
+  arrTPRevision(5) = "Alpha build"
+  arrTPRevision(6) = "Description"
+  arrTPRevision(7) = "Date"
+  arrTPRevision(8) = "Time"
+  arrTPRevision(9) = "Signature"
+  
+  strDirection = "horizontal"
+  intStartCol = 1
+  intStartRow = 10
+  Call WriteTP(strTestPlanName, strSheetName,arrTPRevision, LCase(strDirection),intStartCol,intStartRow)
+End Sub

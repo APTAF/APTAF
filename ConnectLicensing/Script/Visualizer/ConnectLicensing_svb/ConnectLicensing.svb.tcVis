@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Root signature="{42D2222C-ACA2-405F-8E67-05D5C42EB839}" version="2">
+	<data key="{3AB0E15F-F513-4150-9FEF-EEF9EA646486}">
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="478" kind="0" dateTime="43242.3797916667" objectName="Aliases.browser.pageBentleyCloudServices4.panelAccountmanagement.panelTopNavBar.panelSection.PanelGroup.panelAccordiongroup2302546Tab.linkQaConnectEntitlementmanageme.button" objectLeft="2161" objectTop="760" objectRight="2218" objectBottom="795" clickPointX="-1" clickPointY="-1" imageFileName="tcvi6789084338880.png" storageFileName="" needUpdate="False" rectColor="255" />
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="480" kind="0" dateTime="43242.3798032407" objectName="Aliases.browser.pageBentleyCloudServices4.linkQaConnectEntitlementmanageme" objectLeft="2132" objectTop="823" objectRight="2344" objectBottom="849" clickPointX="2216" clickPointY="836" imageFileName="tcvi6789201538881.png" storageFileName="" needUpdate="False" rectColor="255" />
+	</data>
+</Root>

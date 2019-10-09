@@ -1,0 +1,237 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT App_Common
+'USEUNIT FSO_Functions
+Sub DatabaseChecker(BasePath,TestPath)
+
+  Call File_Finder(BasePath)
+
+
+  
+End Sub 
+
+Sub File_Finder(BasePath)
+
+  'define and initialize FSO variables 
+  Dim objFSO : Set objFSO = CreateObject("Scripting.FileSystemObject")
+  Dim objParentFolder : Set objParentFolder = objFSO.GetFolder(BasePath)
+  
+  'Define some more variables
+  Dim SubFolder,colFiles,File
+  
+  'Go through each folder and add required files
+  For Each SubFolder in objParentFolder.SubFolders
+    
+    'Folder Appender
+    Set colFiles = SubFolder.Files  
+    
+    For Each File in colFiles
+      
+      If objFSO.GetExtensionName(File)= "db" Then
+        
+        'Get the full file paths and names       
+        Dim BasefullPath : BasefullPath = ObjFSO.GetAbsolutePathName(SubFolder) & "\" & objFSO.GetFileName(File)
+        Dim TestfullPath : TestfullPath = "D:\Database\Hasnain\Test\TestDB\Global.db"
+        
+        'Send to validator
+        Call Validator(BasefullPath,TestfullPath)
+      End If    
+    
+    Next
+    
+    Call File_Finder(SubFolder)
+  Next
+
+
+End Sub
+
+Sub Validator(sBase,sTest)
+
+  'If output_listing file exists then
+  If FSOFileExists(sTest) = True then
+        
+        'create a list of table to be compared
+        Call Table_Harvest(sBase)
+        
+        dim t
+        set t = project.Variables.sTable
+        
+        'show indicator of DB Comparison going on
+        Indicator.PushText("Doing the DB comparison bit...")
+
+        dim rows
+        Dim k
+        For k = 0 To t.RowCount -1
+          
+          'get total number of rows from each table
+          rows = Get_Row_Value("'"&t.DBTable(k)&"'",sBase)
+          
+          'if no row is present in table then skip it
+          If rows > 0 then
+          'SQL db compare                 
+            Call SQLStatComparison("'"&t.DBTable(k)&"'",sBase,sTest)
+          Else
+            log.Message(t.DBTable(k)&" Table has 0 rows")
+          End If      
+        Next 
+            
+      
+    'remove name from indicator  
+    Indicator.PopText()    
+      
+  Else 
+    
+    'write to error log
+    log.Error(sOther & " Does not exist!!!")  
+  End If
+  
+End Sub
+
+Sub SQLStatComparison(sTable,locBase,locTest)
+     
+  'Get number of rows of baseline data
+  Dim iRows,iRow, r ,p
+  iRows = Datatable_Get_Row_Count("SQLite","SELECT * FROM " & sTable,locBase)
+  log.Message("Comparison of "&sTable&" is Started")
+        Dim objConBase
+        'Open connection for baseline DB
+          set objConBase = GetConn("SQLite",locBase)
+      
+        Dim objConTest
+        'Open Connection for current DB
+          set objConTest =  GetConn("SQLite",locTest)
+          
+      Dim objBase,objApp,objTol
+      objTol = Null
+            
+      For iRow = 1 To iRows
+    
+      'Get baseline data row
+      'Passing Baseline DB connection as 5th parameter 
+      Set objBase = Datatable("SQLite",sTable,iRow,objConBase,locBase)
+  
+      'Get application data row
+      'Passing current DB connection as 5th parameter 
+      Set objApp = Datatable("SQLite",sTable,iRow,objConTest,locTest)
+      
+      'Get tolerances
+      Dim sWarn,sResults
+      If IsNull(objTol) Then        
+        'Compare without tolerances
+        Call ValidateProps(objBase,objApp,Null,sWarn,False)
+      Else
+        'Compare with tolerances
+        Call ValidateProps(objBase,objApp,objTol,sWarn,False)
+      End If
+  
+      'Results
+      If IsEmpty(sWarn) <> True Then
+        sResults = sResults & "RESULTS DATA ROW: " & iRow & vbNewLine & sWarn
+      End if
+        
+      'Empty variable
+      sWarn = Empty
+        
+      'Destroy objects
+      Set objBase = Nothing
+      Set objApp = Nothing
+
+          
+    'Next row
+    Next
+    'close object
+  objConBase.close
+  set objConBase = nothing
+  
+  'close object
+  objConTest.close
+  set objConTest = nothing
+  
+      Dim mLog
+      mLog = "Comparison of "& sTable & " of " & locTest
+    'Post results to log
+    Call ResultsToLog(sResults,locBase & vbNewLine & locTest & vbNewLine & sTable,mLog)
+  
+End Sub
+
+'Create an array of tables present in the database
+Sub Table_Harvest(sBase)
+
+  Dim tabRows
+
+  'Get query in master table to find out how many table exists in database
+  tabRows =  Get_Row_Value("sqlite_master where type = 'table'",sBase)
+
+  Dim t
+  'check if no table exist in database
+  if tabRows <> 0 Then
+
+    set t = project.Variables.sTable
+    'creations of array equals to number of tables present in database
+    t.RowCount = tabRows
+
+  End if
+
+  Dim iRow
+  Dim tabData
+  Dim objCon
+  'create connection string of baseline database
+  Set objCon = GetConn("SQLite",sBase)
+
+  For iRow = 1 to tabRows
+    'get table value row by row from master table of SQlite DB
+    Set tabData = Datatable("SQLite","sqlite_master where type = 'table'",iRow,objCon,sBase)
+    
+    'store the table name in array
+    t.Item("DBTable",iRow - 1) = tabData.item("tbl_name")
+
+  Next
+  
+  'close object
+  objCon.close
+  set objCon = nothing
+
+End Sub
+
+
+'get number of rows of specific table
+Function Get_Row_Value(SheetName,locDatatable)
+  
+  'Create Objects
+  Dim fso,objDatatable
+  Set fso = CreateObject("Scripting.FileSystemObject")      
+  Set objDatatable = fso.GetFile(locDatatable)
+  
+  'Get the path to the datatable
+  Dim FilePath,FolderPath
+  FilePath = objDatatable.Path
+  FolderPath = objDatatable.ParentFolder.Path
+  
+  'Create ADO Connection and Recordset objects
+  Dim cn,rs
+  set cn = CreateObject("ADODB.Connection")
+  set rs = CreateObject("ADODB.RecordSet")
+  
+  'Construct the SQL query and db connection string
+  Dim strQuery,strConnection
+  'get the count from table
+  strQuery = "SELECT count() FROM " & SheetName
+  strConnection = "DRIVER=SQLite3 ODBC Driver;Database=" & FilePath & ";"
+  
+  'Open the connection to the data source
+  cn.open strConnection
+  
+  'Create a recordset using the SQL query
+  set rs = cn.execute (strQuery)
+  
+  'Function equals value
+  Get_Row_Value = rs("count()").value
+  
+  'Close the connection to the data source
+  cn.close
+  
+  'Destroy Objects
+  set cn = Nothing
+  set rs = Nothing
+  set objDatatable = Nothing
+  Set fso = Nothing
+End Function

@@ -1,0 +1,271 @@
+﻿'USEUNIT FSO_Functions
+'USEUNIT APP_Common
+'USEUNIT DatabaseFunctions
+'USEUNIT PreActivation
+'USEUNIT SupportingRoutines
+'USEUNIT ConnectLicensing
+
+Sub SmokeTest(locDatatable)
+  
+  Call DLLVerification("C:\ProgramData\Bentley\CONNECT_License_Client_Adapter\x64\Bentley.liclib.10.dll")
+
+  Call AcceptablePerformance(locDatatable)
+
+End Sub
+
+
+Sub DLLVerification(locDatatable)
+     'Get Input data from Excel Sheet
+  Dim objInputs, verNum
+  Set objInputs = Datatable("Excel","AutoPIPE_Input_Matrix",1,Null,locDatatable)
+
+  IF FSOFileExists(objInputs.Item("DLLPath")) = True Then
+  
+    Log.Message("DLL is present")
+    verNum = VersionInfo(objInputs.Item("DLLPath"))
+    log.Message("Version Number:"& verNum)
+  
+  Else
+  
+    Log.Message("DLL is not present")
+    
+  End If
+  
+
+End Sub
+
+
+Sub AcceptablePerformance(locDatatable)
+
+
+    'Get Input data from Excel Sheet
+  Dim objInputs
+  Set objInputs = Datatable("Excel","AutoPIPE_Input_Matrix",1,Null,locDatatable)
+  
+  'sign in connection client with autoPIPE username and password
+  Call SignInConnectionClient(objInputs.Item("UserEmail1"),objInputs.Item("UserPassword1"))
+  
+  'Start the Application
+  Call StartApp("autopipe","")
+  
+  'Get Application start time
+  Dim sTime
+  sTime = aqDateTime.Time
+  
+  log.Message("Application Start Time:" & sTime)
+  
+  Dim AutoPIPEProcess
+  Set AutoPIPEProcess = NameMapping.Sys.AutoPIPE
+
+  'Select License type from AutoPIPE licensing window
+  Call WelcomeAutoPIPELicensing(objInputs.Item("LicenseType"))
+  
+        'CLick on Acknowledge button
+    Call SignInDialog("Acknowledge")
+  
+    'maximize the autopipe
+  call AutoPIPEProcess.AutoPIPEFullWind.Maximize
+  
+  
+  Dim wTime
+
+  If AutoPIPEProcess.AutoPIPEFullWind.Window("WORK", "", 1).Exists Then
+    'Get working application time
+    wTime = aqDateTime.Now
+    Log.Message("Application Time After License Selection:"& wTime)
+  
+  End If
+  
+  'Open Autopipe model
+  Call OpenModel(objInputs.Item("Model"))
+
+  Dim dTime
+  'get time difference in seconds
+  dTime = GetTimeDiffSec(wTime,sTime)
+  
+  log.Message("Time Difference:"& dTime)
+  'if time difference is less than acceptable startup time it is passed
+  If dTime < objInputs.Item("StartupTime") Then
+  
+    log.Message("Performance Test Passed")
+    
+  Else
+  
+    Log.Error("Performance Test Failed")
+  
+  End If
+  
+  'signout the connection client
+  SignoutConnectionClient()
+  
+  'close the autoPIPE
+  Call CloseApp("autopipe") 
+  
+  Set AutoPIPEProcess = Nothing
+
+
+End Sub
+
+
+
+
+
+
+Sub ValidateRealTimeUsage(locDatatable)
+
+
+     'Get Input data from Excel Sheet
+    Dim objInputs
+    Set objInputs = Datatable("Excel","AutoPIPE_Input_Matrix",1,Null,locDatatable)
+    
+    'sign in connection client with autoPIPE username and password
+    Call SignInConnectionClient(objInputs.Item("UserEmail1"),objInputs.Item("UserPassword1"))
+    
+    BuiltIn.Delay(10000)
+  
+    'Start the Application
+    Call StartApp("autopipe","")
+  
+  'Select License type from AutoPIPE licensing window
+    Call WelcomeAutoPIPELicensing(objInputs.Item("LicenseType"))
+    
+      'CLick on Acknowledge button
+    Call SignInDialog("Acknowledge")
+    
+    
+   call Aliases.AutoPIPE.AutoPIPEFullWind.Maximize
+   
+   Call OpenModel(objInputs.Item("Model"))
+  
+   Call SignInWebPortal(objInputs)
+   
+   Dim Page
+   Set Page = Aliases.browser
+   
+    'Click on Connection Center QA2
+    page.pageBentleyCloudServices.navHfnavbar.panelHfnavbarcollapse.linkHforganizationlink.Click
+  
+  'wait for page to load completely
+    page.pageBentleyCloudServices2.Wait
+    BuiltIn.Delay(5000)
+    'click on product usage tab
+    page.pageBentleyCloudServices2.panelConnectMain.ProductUsageReport.panelCardBody.Click
+  
+      'wait for page to load completely
+    page.pageBentleyCloudServices3.Wait
+    BuiltIn.Delay(15000)
+    
+    Dim Page3
+    Set Page3 = page.pageBentleyCloudServices3
+    
+    
+    'wait for AutoPIPE Advanced license control to load on website
+
+    Call ClickXpath("//a[text()='AutoPIPE Advanced  ']",Page3)
+
+    BuiltIn.Delay(5000)
+    
+    Dim MachineName, EmailAddress
+    'first argument is xpath and second argument is from which page you want to get value
+    MachineName = GetValueXpath("//table[@class='table report-table']//tr//td[@class='ng-binding']",Page3)
+    log.Message(MachineName)
+
+    'compare it with machine name present in excel sheet on which connect licensing is running
+     If MachineName = objInputs.Item("MachineName")  Then
+    
+     Log.Message("Product Usage use case is passed")
+   
+     Else
+   
+     log.Error("Machine Name is different: Hence Product Use Case Failed")
+    
+     End If
+    
+    'first argument is xpath and second argument is page from which page you want to get value
+    EmailAddress = GetValueXpath("(//table[@class='table report-table']//tr//a[@class='ng-binding'])[2]",Page3)
+    log.Message(EmailAddress)
+   
+     'compare it with email address present in excel sheet which is used to login the connection client
+     If EmailAddress = objInputs.Item("UserEmail1")  Then
+    
+     Log.Message("Email address is matched: Hence Product Usage use case is passed")
+   
+     Else
+   
+     log.Error("Failed")
+    
+     End If
+
+    'close the AutoPIPE application
+   Call CloseApp("autopipe")
+  
+   'close the browser
+ ' Page.UIAObject("Microsoft_Edge").Close
+  Call Page.BrowserWindow.Close
+ 
+  
+  'sign out connection client
+  Call SignoutConnectionClient()
+  
+  Set Page = Nothing
+  Set Page3 =  Nothing
+End Sub
+
+
+
+Sub ThresholdLimit(locDatatable)
+
+     'Get Input data from Excel Sheet
+    Dim objInputs
+    Set objInputs = Datatable("Excel","AutoPIPE_Input_Matrix",1,Null,locDatatable)
+    
+    'sign in connection client with autoPIPE username and password
+    Call SignInConnectionClient(objInputs.Item("UserEmail2"),objInputs.Item("UserPassword2"))
+
+    
+  '  Call SignInWebPortal(objInputs)
+    
+  '  Dim Page
+  '  Set Page = Aliases.browser
+
+    'Click on Connection Center QA2
+  '  page.pageBentleyCloudServices.navHfnavbar.panelHfnavbarcollapse.linkHforganizationlink.Click
+  
+  'wait for page to load completely
+  '  page.pageBentleyCloudServices2.Wait
+   ' BuiltIn.Delay(5000)
+    
+   ' Page.pageBentleyCloudServices2.panelConnectMain.Subscriptioninformation.panelCardBody.Click
+    
+   '  Builtin.Delay(10000)
+    
+  '  Page.pageBentleyCloudServices4.Wait
+  '  Builtin.Delay(5000)
+    
+  '  Call LicenseCheckout(objInputs)
+    
+     'Start the Application
+    Call StartApp("autopipe","")
+    
+    'Select License type from AutoPIPE licensing window
+  Call WelcomeAutoPIPELicensing(objInputs.Item("LicenseType"))
+
+  
+  Call SignInDialog("Cancel and Quit")
+  
+  'After clicking Cancel and Quit button AutoPIPE shift into Demo Mode
+  If Aliases.AutoPIPE.Window("#32770", "Warning", 1).Exists Then
+    'Click Demo Mode warning okay button
+    Call Aliases.AutoPIPE.Window("#32770", "Warning", 1).Window("Button", "OK", 1).ClickButton
+  
+  End If 
+  
+  'Close AutoPIPE 
+  Call CloseApp("autopipe") 
+  
+  'sign out from connection client
+  Call SignoutConnectionClient()
+    
+    
+    Set Page = Nothing
+End Sub

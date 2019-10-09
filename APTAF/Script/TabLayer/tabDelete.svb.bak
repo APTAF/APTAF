@@ -1,0 +1,1067 @@
+﻿'USEUNIT tabSelect
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Point     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+'                 
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Point(TestData)
+     Dim strHotKey: strHotKey = "DO" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     objNameMapping.dlgConfirm.btnOK.Click()
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Run     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+'                 
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Run(TestData)
+     Dim strHotKey: strHotKey = "DR" 
+     Set objNameMapping = Aliases.autopipe
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+         Log.Message("Run Point Deleted")
+         end if 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Run('YES')"
+     End If
+      
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Bend     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+'                 
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Bend(TestData)
+     Dim strHotKey: strHotKey = "DB" 
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(200) 
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+      If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+         Log.Message("Bend Deleted")
+         end if 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Bend('YES')"
+     End If
+    
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Flange     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+'              "0"  -> Delete all flanges on the selected point
+'              "1"  -> Delete 1st flange 1=Flange
+'              "2"  -> Delete 2nd flange   
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Flange(TestData)
+     Dim strHotKey: strHotKey = "DF" 
+     Set objNameMapping = Aliases.autopipe  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     aqutils.Delay(200)    
+     If IsNumeric(TestData) Then
+          TestData = CInt(TestData)
+      End If
+     ''' Select Case Yes , No  
+     Select Case TestData
+     Case "Yes"  
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+     
+       Log.Message("Selected Flange Deleted")
+     Case "No"
+                objNameMapping.dlgConfirm.btnNo.Click()
+     Case Else
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+       if TestData = "" then
+        TestData="0="
+       end if
+       If(objNameMapping.WaitAliasChild("dlgSelectFlange", 200).WaitProperty("Exists", true, 10)) Then
+         TestData = Left(TestData,2)    
+          TestData= "*" &   TestData & "*"   
+          objNameMapping.dlgSelectFlange.drpdwnSelectFlange.ClickItem(TestData)     
+          objNameMapping.dlgSelectFlange.btnOK.Click()    
+          Log.Message("Selected Flange Deleted")     
+       End If         
+     End Select
+End Sub
+
+
+'Sub Flange2(TestData)
+'     Dim strHotKey: strHotKey = "DF" 
+'     Set objNameMapping = Aliases.autopipe  
+'     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+'     aqutils.Delay(200)
+'     ''' If TestData is integer assign to intTestData else if TestData is string assign it to strTestData 
+'     Dim intTestData
+'     Dim strTestData
+'     If IsNumeric(TestData) Then
+'          intTestData = CInt(TestData)
+'      Else
+'          strTestData = TestData
+'      End If
+'     ''' Select Case Yes , No or integer equal or greater than zero. 
+'     Select Case strTestData
+'     Case strTestData = "Yes"
+'      If objNameMapping.dlgConfirm.btnOK.Exists = true then
+'              objNameMapping.dlgConfirm.btnOK.Click()
+'               end if
+'              If(objNameMapping.WaitAliasChild("dlgSelectFlange", 200).WaitProperty("Exists", true, 10)) Then
+'                  Msgbox "Selected point has more than one flange. Provide the flange number you want to delete e-g tabDelete.Flange('1')"
+'              End If
+'     Case strTestData = "No"
+'                objNameMapping.dlgConfirm.btnNo.Click()           
+'     Case intTestData => 0 
+'                objNameMapping.dlgConfirm.btnOK.Click()
+'                If(objNameMapping.WaitAliasChild("dlgSelectFlange", 6000).WaitProperty("Exists", true, 10)) Then
+'                    objNameMapping.dlgSelectFlange.drpdwnSelectFlange.Click()
+'                    objNameMapping.lstItems.ClickItem(intTestData)
+'                    objNameMapping.dlgSelectFlange.btnOK.Click()
+'                    Log.Message("Selected '" & intTestData  & "' to Delete")
+'                End If       
+'     End Select
+'    
+'End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Valve    
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Valve(TestData)
+     Dim strHotKey: strHotKey = "DV" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200) 
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+      If objNameMapping.dlgConfirm.btnOK.Exists = true then
+          objNameMapping.dlgConfirm.btnOK.Click()
+           Log.Message("Valve  Deleted")
+           end if
+     ElseIf(TestData = "No") Then
+          objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+          Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Valve('YES')"
+     End If
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete FlexibleJoint     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub FlexibleJoint(TestData)
+     Dim strHotKey: strHotKey = "DJ" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+        
+     If(TestData = "Yes") Then
+      If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("FlexibleJoint Deleted")
+        end if
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+         Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.FlexibleJoint('YES')"
+     End If
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Reducer     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Reducer(TestData)
+     Dim strHotKey: strHotKey = "DU" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+        
+     If(TestData = "Yes") Then
+      If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+         Log.Message("Reducer Deleted")
+         end if
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Reducer('YES')"
+     End If
+     
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Nozzle     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Nozzle(TestData)
+     Dim strHotKey: strHotKey = "DZ" 
+     Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(200)  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     
+     If(TestData = "Yes") Then
+      If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Nozzle Deleted")
+        end if
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Nozzle('YES')"
+     End If
+     
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Segment     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Segment(TestData)
+     Dim strHotKey: strHotKey = "DG" 
+     Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(400)  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+         Log.Message("Segment Deleted")
+     End If
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Segment('YES')"
+     End If
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Anchor     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete flange     
+'              "No"  -> Cancel deleting flang
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Anchor(TestData)
+     Dim strHotKey: strHotKey = "DA" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Anchor Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Anchor('YES')"
+     End If
+   
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Support     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete Support     
+'              "No"  -> Cancel deleting Support
+'              "Number" -> Delete given number Support in case of multiple Support
+
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Support(TestData)
+     Dim strHotKey: strHotKey = "DS" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Support Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Support('YES')"
+     End If
+   
+End Sub
+Sub Support2(TestData)
+     Dim strHotKey: strHotKey = "DS" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      ''' If TestData is integer assign to intTestData else if TestData is string assign it to strTestData 
+     Dim intTestData
+     Dim strTestData
+     If IsNumeric(TestData) Then
+          intTestData = CInt(TestData)
+      Else
+          strTestData = TestData
+      End If
+     ''' Select Case Yes , No or integer equal or grater than zero. 
+     Select Case True
+     Case strTestData = "Yes"
+              objNameMapping.dlgConfirm.btnOK.Click()
+              If(objNameMapping.WaitAliasChild("dlgSelectSupport", 60000).WaitProperty("Exists", true, 10)) Then
+                  Msgbox "Selected point has more than one Support. Provide the Support number you want to delete e-g tabDelete.Support('1')"
+              End If
+     Case strTestData = "No"
+                objNameMapping.dlgConfirm.btnNo.Click()           
+     Case intTestData => 0 
+                objNameMapping.dlgConfirm.btnOK.Click()
+                If(objNameMapping.WaitAliasChild("dlgSelectSupport", 60000).WaitProperty("Exists", true, 10)) Then
+                    objNameMapping.dlgSelectSupport.drpdwnSelectSupport.Click()
+                    objNameMapping.lstItems.ClickItem(intTestData)
+                    objNameMapping.dlgSelectSupport.btnOK.Click()
+                    Log.Message("Selected '" & intTestData  & "' to Delete")
+                End If       
+     End Select
+   
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Delete JointTypeAndUserSIF     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete JointTypeAndUserSIF     
+'              "No"  -> Cancel deleting JointTypeAndUserSIF
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub JointTypeAndUserSIF(TestData)
+     Dim strHotKey: strHotKey = "D1" 
+     Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(200)  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+         Log.Message("JointTypeAndUserSIF Deleted")
+     End If
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.JointTypeAndUserSIF('YES')"
+     End If
+
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Delete AdditionalWeight     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete AdditionalWeight     
+'              "No"  -> Cancel deleting AdditionalWeight
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub AdditionalWeight(TestData)
+    Dim strHotKey: strHotKey = "D2" 
+     Set objNameMapping = Aliases.autopipe  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     aqutils.Delay(200)    
+     If IsNumeric(TestData) Then
+          TestData = CInt(TestData)
+      End If
+     ''' Select Case Yes , No  
+     Select Case TestData
+     Case "Yes"  
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+     
+       Log.Message("Selected AdditionalWeight Deleted")
+     Case "No"
+                objNameMapping.dlgConfirm.btnNo.Click()
+     Case Else
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+       if TestData = "" then
+        TestData="0="
+       end if
+       If(objNameMapping.WaitAliasChild("dlgSelectWeight", 200).WaitProperty("Exists", true, 10)) Then
+         TestData = Left(TestData,2)    
+          TestData= "*" &   TestData & "*"   
+          objNameMapping.dlgSelectWeight.drpdwnSelectWeight.ClickItem(TestData)     
+          objNameMapping.dlgSelectWeight.btnOK.Click()    
+          Log.Message("Selected Weight Deleted")     
+       End If         
+     End Select
+End Sub
+
+Sub AdditionalWeight2(TestData)
+     Dim strHotKey: strHotKey = "D2" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      ''' If TestData is integer assign to intTestData else if TestData is string assign it to strTestData 
+     Dim intTestData
+     Dim strTestData
+     If IsNumeric(TestData) Then
+          intTestData = CInt(TestData)
+      Else
+          strTestData = TestData
+      End If
+     ''' Select Case Yes , No or integer equal or grater than zero. 
+     Select Case True
+     Case strTestData = "Yes"
+              objNameMapping.dlgConfirm.btnOK.Click()
+              If(objNameMapping.WaitAliasChild("dlgSelectWeight", 60000).WaitProperty("Exists", true, 10)) Then
+                  Msgbox "Selected point has more than one AdditionalWeight. Provide the AdditionalWeight number you want to delete e-g tabDelete.AdditionalWeight('1')"
+              End If
+     Case strTestData = "No"
+                objNameMapping.dlgConfirm.btnNo.Click()           
+     Case intTestData => 0 
+                objNameMapping.dlgConfirm.btnOK.Click()
+                If(objNameMapping.WaitAliasChild("dlgSelectWeight", 60000).WaitProperty("Exists", true, 10)) Then
+                    objNameMapping.dlgSelectWeight.drpdwnSelectWeight.Click()
+                    objNameMapping.lstItems.ClickItem(intTestData)
+                    objNameMapping.dlgSelectWeight.btnOK.Click()
+                    Log.Message("Selected '" & intTestData  & "' to Delete")
+                End If       
+     End Select
+   
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete ConcentratedForce     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete ConcentratedForce     
+'              "No"  -> Cancel deleting ConcentratedForce
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ConcentratedForce(TestData)
+     Dim strHotKey: strHotKey = "D3" 
+     Set objNameMapping = Aliases.autopipe  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     aqutils.Delay(200)    
+     If IsNumeric(TestData) Then
+          TestData = CInt(TestData)
+      End If
+     ''' Select Case Yes , No  
+     Select Case TestData
+     Case "Yes"  
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+     
+       Log.Message("Selected Concentrated Force Deleted")
+     Case "No"
+                objNameMapping.dlgConfirm.btnNo.Click()
+     Case Else
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+       if TestData = "" then
+        TestData="0="
+       end if
+       If(objNameMapping.WaitAliasChild("dlgSelectConcentratedForces", 200).WaitProperty("Exists", true, 10)) Then
+         TestData = Left(TestData,2)    
+          TestData= "*" &   TestData & "*"   
+          objNameMapping.dlgSelectConcentratedForces.drpdwnSelectConcentratedForces.ClickItem(TestData)     
+          objNameMapping.dlgSelectWeight.btnOK.Click()    
+          Log.Message("Selected Concentrated Force Deleted")     
+       End If         
+     End Select
+   
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete Imposed Displacement     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete Imposed Displacement     
+'              "No"  -> Cancel deleting Imposed Displacement
+
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ImposedDisplacement(TestData)
+    Dim strHotKey: strHotKey = "D4" 
+     Set objNameMapping = Aliases.autopipe  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     aqutils.Delay(200)    
+     If IsNumeric(TestData) Then
+          TestData = CInt(TestData)
+      End If
+     ''' Select Case Yes , No  
+     Select Case TestData
+     Case "Yes"  
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+     
+       Log.Message("Selected Imposed Displacement Deleted")
+     Case "No"
+                objNameMapping.dlgConfirm.btnNo.Click()
+     Case Else
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+       if TestData = "" then
+        TestData="0="
+       end if
+       If(objNameMapping.WaitAliasChild("dlgSelectImposedDisplacements", 200).WaitProperty("Exists", true, 10)) Then
+         TestData = Left(TestData,2)    
+          TestData= "*" &   TestData & "*"   
+          objNameMapping.dlgSelectImposedDisplacements.drpdwnSelectImposedDisplacements.ClickItem(TestData)     
+          objNameMapping.dlgSelectImposedDisplacements.btnOK.Click()    
+          Log.Message("Selected ImposedDisplacement Deleted")     
+       End If         
+     End Select
+   
+End Sub
+Sub ImposedDisplacement2(TestData)
+     Dim strHotKey: strHotKey = "D4" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     ''' If TestData is integer assign to intTestData else if TestData is string assign it to strTestData 
+     Dim intTestData
+     Dim strTestData
+     If IsNumeric(TestData) Then
+          intTestData = CInt(TestData)
+      Else
+          strTestData = TestData
+      End If
+     ''' Select Case Yes , No or integer equal or grater than zero. 
+     Select Case True
+     Case strTestData = "Yes"
+              objNameMapping.dlgConfirm.btnOK.Click()
+              If(objNameMapping.WaitAliasChild("dlgSelectImposedDisplacements", 60000).WaitProperty("Exists", true, 10)) Then
+                  Msgbox "Selected point has more than one Imposed Displacement. Provide the Imposed Displacement number you want to delete e-g tabDelete.ImposedDisplacement('1')"
+              End If
+     Case strTestData = "No"
+                objNameMapping.dlgConfirm.btnNo.Click()           
+     Case intTestData => 0 
+                objNameMapping.dlgConfirm.btnOK.Click()
+                If(objNameMapping.WaitAliasChild("dlgSelectImposedDisplacements", 60000).WaitProperty("Exists", true, 10)) Then
+                    objNameMapping.dlgSelectImposedDisplacements.drpdwnSelectImposedDisplacements.Click()
+                    objNameMapping.lstItems.ClickItem(intTestData)
+                    objNameMapping.dlgSelectImposedDisplacements.btnOK.Click()
+                    Log.Message("Selected '" & intTestData  & "' to Delete")
+                End If       
+     End Select
+   
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete HydrodynamicData    
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete HydrodynamicData   
+'              "No"  -> Cancel deleting HydrodynamicData
+
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub HydrodynamicData(TestData)
+       Dim strHotKey: strHotKey = "D5" 
+     Set objNameMapping = Aliases.autopipe  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     aqutils.Delay(200)    
+     If IsNumeric(TestData) Then
+          TestData = CInt(TestData)
+      End If
+     ''' Select Case Yes , No  
+     Select Case TestData
+     Case "Yes"  
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+     
+       Log.Message("Selected Hydrodynamic Data Deleted")
+     Case "No"
+                objNameMapping.dlgConfirm.btnNo.Click()
+     Case Else
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+       if TestData = "" then
+        TestData="0="
+       end if
+       If(objNameMapping.WaitAliasChild("dlgSelectExtradata", 200).WaitProperty("Exists", true, 10)) Then
+         TestData = Left(TestData,2)    
+          TestData= "*" &   TestData & "*"   
+          objNameMapping.dlgSelectExtradata.drpdwnSelectExtradata.ClickItem(TestData)     
+          objNameMapping.dlgSelectExtradata.btnOK.Click()    
+          Log.Message("Selected Hydrodynamic Data Deleted")     
+       End If         
+     End Select
+   
+End Sub
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete CutShort    
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete CutShort   
+'              "No"  -> Cancel deleting CutShort
+
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub CutShort(TestData)
+     Dim strHotKey: strHotKey = "D6" 
+     Set objNameMapping = Aliases.autopipe  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     aqutils.Delay(200)    
+     If IsNumeric(TestData) Then
+          TestData = CInt(TestData)
+      End If
+     ''' Select Case Yes , No  
+     Select Case TestData
+     Case "Yes"  
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+     
+       Log.Message("Selected Cut Short Deleted")
+     Case "No"
+                objNameMapping.dlgConfirm.btnNo.Click()
+     Case Else
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+       if TestData = "" then
+        TestData="0="
+       end if
+       If(objNameMapping.WaitAliasChild("dlgSelectCutShort", 200).WaitProperty("Exists", true, 10)) Then
+         TestData = Left(TestData,2)    
+          TestData= "*" &   TestData & "*"   
+          objNameMapping.dlgSelectCutShort.drpdwnSelectCutShort.ClickItem(TestData)     
+          objNameMapping.dlgSelectCutShort.btnOK.Click()    
+          Log.Message("Selected Cut Short Deleted")     
+       End If         
+     End Select
+   
+End Sub
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete UserWeldEfficiencyFactor    
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete UserWeldEfficiencyFactor   
+'              "No"  -> Cancel deleting UserWeldEfficiencyFactor
+
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub UserWeldEfficiencyFactor(TestData)
+    
+    Dim strHotKey: strHotKey = "D7" 
+     Set objNameMapping = Aliases.autopipe  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     aqutils.Delay(200)    
+     If IsNumeric(TestData) Then
+          TestData = CInt(TestData)
+      End If
+     ''' Select Case Yes , No  
+     Select Case TestData
+     Case "Yes"  
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+     
+       Log.Message("Selected User Weld Efficiency Factor Deleted")
+     Case "No"
+                objNameMapping.dlgConfirm.btnNo.Click()
+     Case Else
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+       if TestData = "" then
+        TestData="0="
+       end if
+       If(objNameMapping.WaitAliasChild("dlgSelectExtradata", 200).WaitProperty("Exists", true, 10)) Then
+         TestData = Left(TestData,2)    
+          TestData= "*" &   TestData & "*"   
+          objNameMapping.dlgSelectExtradata.drpdwnSelectExtradata.ClickItem(TestData)     
+          objNameMapping.dlgSelectExtradata.btnOK.Click()    
+          Log.Message("Selected User Weld Efficiency Factor Deleted")     
+       End If         
+     End Select 
+   
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete MemberEarthquakeFactor     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete MemberEarthquakeFactor     
+'              "No"  -> Cancel deleting MemberEarthquakeFactor
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub MemberEarthquakeFactor(TestData)
+     Dim strHotKey: strHotKey = "D8" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Member Earthquake Factor Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.MemberEarthquakeFactor('YES')"
+     End If
+   
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete PointEarthquakeFactor     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete PointEarthquakeFactor     
+'              "No"  -> Cancel deleting PointEarthquakeFactor
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub PointEarthquakeFactor(TestData)
+     Dim strHotKey: strHotKey = "D9" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(200)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Point Earthquake Factor Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.PointEarthquakeFactor('YES')"
+     End If
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete ReferencePoint    
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete ReferencePoint   
+'              "No"  -> Cancel deleting ReferencePoint
+
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ReferencePoint(TestData)
+     Dim strHotKey: strHotKey = "D01" 
+     Set objNameMapping = Aliases.autopipe  
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     aqutils.Delay(200)    
+     If IsNumeric(TestData) Then
+          TestData = CInt(TestData)
+      End If
+     ''' Select Case Yes , No  
+     Select Case TestData
+     Case "Yes"  
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+     
+       Log.Message("Selected Reference Point Deleted")
+     Case "No"
+                objNameMapping.dlgConfirm.btnNo.Click()
+     Case Else
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+         objNameMapping.dlgConfirm.btnOK.Click()
+       end if
+       if TestData = "" then
+        TestData="0="
+       end if
+       If(objNameMapping.WaitAliasChild("dlgSelectExtradata", 200).WaitProperty("Exists", true, 10)) Then
+         TestData = Left(TestData,2)    
+          TestData= "*" &   TestData & "*"   
+          objNameMapping.dlgSelectExtradata.drpdwnSelectExtradata.ClickItem(TestData)     
+          objNameMapping.dlgSelectExtradata.btnOK.Click()    
+          Log.Message("Selected Reference Point Deleted")     
+       End If         
+     End Select 
+   
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Delete PipingRestraintOptions     
+' Remarks:
+' Actions: Parameters     
+'              "Yes" -> Delete PipingRestraintOptions     
+'              "No"  -> Cancel deleting PipingRestraintOptions
+
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub PipingRestraintOptions(TestData)
+     Dim strHotKey: strHotKey = "D04" 
+'     Set objNameMapping = Aliases.autopipe
+'     aqutils.Delay(200)   
+'     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+'     If(TestData = "Yes") Then
+'        objNameMapping.dlgConfirm.btnOK.Click()
+'     ElseIf(TestData = "No") Then
+'        objNameMapping.dlgConfirm.btnNo.Click()
+'     Else
+        Msgbox "NOT COMPLETE YET"
+'     End If
+   
+End Sub
+
+Sub OutOfRoundness(TestData)
+     Dim strHotKey: strHotKey = "D02" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(500)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Out Of Roundness Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.OutOfRoundness('YES')"
+     End If
+   
+End Sub
+Sub GrossDiscontinuity(TestData)
+     Dim strHotKey: strHotKey = "D03" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(500)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Gross Discontinuity Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.GrossDiscontinuity('YES')"
+     End If
+   
+End Sub
+Sub UnusedPipeIdentifier(TestData)
+
+     Dim strHotKey: strHotKey = "DP" 
+     Dim Mesg
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(500)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(objNameMapping.WaitAliasChild("dlgDeleteUnusedPipeID", 200).WaitProperty("Exists", true, 10)) Then
+          If(TestData = "All Unused") Then
+             objNameMapping.dlgDeleteUnusedPipeID.drpdwnUnusedPipeID.ClickItem(TestData)  
+             Mesg = TestData & " Pipe Identifiers"  
+          Else 
+              Mesg = " Pipe Identifier " & TestData 
+              TestData= "*" &   TestData & "*"  
+              objNameMapping.dlgDeleteUnusedPipeID.drpdwnUnusedPipeID.ClickItem(TestData)  
+          end if        
+          objNameMapping.dlgDeleteUnusedPipeID.btnOK.Click()   
+          If objNameMapping.dlgConfirm.btnOK.Exists = true then
+              objNameMapping.dlgConfirm.btnOK.Click()   
+          end if   
+          '''remove asteriks from the message later
+           Log.Message( Mesg & " Deleted")             
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.UnusedPipeIdentifier('All Unused')"
+     End If
+   
+End Sub
+Sub RigidOptionsOverRange(TestData)
+     Dim strHotKey: strHotKey = "DD" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(500)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Rigid Options Over Range Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.RigidOptionsOverRange('YES')"
+     End If
+   
+End Sub
+
+Sub SoilPointsOverRange(TestData)
+     Dim strHotKey: strHotKey = "DI" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(500)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Soil Points Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.SoilPointsOverRange('YES')"
+     End If
+   
+End Sub
+
+Sub UnusedSoilPoints(TestData)
+     Dim strHotKey: strHotKey = "DY" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(500)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Unused Soil Points Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.UnusedSoilPoints('YES')"
+     End If
+   
+End Sub
+
+Sub Beams(TestData)
+     Dim strHotKey: strHotKey = "DM" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(500)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Beams Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.Beam ('YES')"
+     End If
+   
+End Sub
+
+Sub UnusedSectionIdentifier(TestData)
+  Dim strHotKey: strHotKey = "DN" 
+     Set objNameMapping = Aliases.autopipe  
+     aqutils.Delay(400)       
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     if TestData = "" then
+        TestData="0 "
+     end if
+     If(objNameMapping.WaitAliasChild("dlgDeleteUnusedSectionID", 200).WaitProperty("Exists", true, 10)) Then
+       TestData = Left(TestData,2)  
+       Dim mesg:mesg="Unused Section Identifier " & TestData   
+       TestData= "*" &   TestData & "*"   
+       objNameMapping.dlgDeleteUnusedSectionID.drpdwnUnusedSectionID.ClickItem(TestData)     
+       objNameMapping.dlgDeleteUnusedSectionID.btnOK.Click() 
+       If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()   
+       End If
+        Log.Message(mesg & " Deleted")     
+     End If            
+End Sub
+
+Sub StructuralModel(TestData)
+  Dim strHotKey: strHotKey = "DE" 
+     Set objNameMapping = Aliases.autopipe
+     aqutils.Delay(500)   
+     objNameMapping.wndAutoPIPE.Keys(strHotKey)
+     If(TestData = "Yes") Then
+     If objNameMapping.dlgConfirm.btnOK.Exists = true then
+        objNameMapping.dlgConfirm.btnOK.Click()
+        Log.Message("Structure Deleted")
+     End If 
+     ElseIf(TestData = "No") Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+     Else
+        Msgbox "ERROR: Delete function argument missing('Yes' or 'NO').e-g tabDelete.StructuralModel('YES')"
+     End If
+              
+End Sub

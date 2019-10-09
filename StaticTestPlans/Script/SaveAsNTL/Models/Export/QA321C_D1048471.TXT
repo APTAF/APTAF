@@ -1,0 +1,26 @@
+                                                                                
+  Defect #1048471 Evaluation Report                                             
+  --------------------------------                                              
+                                                                                
+  Model Name:       QA321C                                                      
+  Model Version:    12.02.00.05                                                 
+  Program Version:  12.02.00.12                                                 
+  Report Filename:  QA321C_D1048471.TXT                                         
+                                                                                
+  --------------------------------                                              
+                                                                                
+  ASME B31J tees that are skewed off the global axes may not produce the        
+  correct analysis results due to a previous program defect #1048471.           
+  Please refer to the published defect report for more details,                 
+  mitigation conditions, and instructions. To assist in the screening of        
+  this model for any potential impact by this defect, the program has           
+  examined the model database and has found that the results for the            
+  model may be incorrect for the following ASME B31J tees and should be         
+  re-computed using this program version.                                       
+  After saving this model or running any analysis in this version or            
+  later commercial release versions, this screening will no longer be           
+  performed.                                                                    
+                                                                                
+  Tee point(s) potentially impacted by this defect:                             
+  ------------------------------------------------------                        
+  J4                                                                            

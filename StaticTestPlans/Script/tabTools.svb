@@ -1,0 +1,29 @@
+﻿'USEUNIT Main
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Model Options               ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: General Model Options.   
+' Remarks:
+' Actions:     
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub GeneralOptions(TestData)
+'Add to Log
+	    AppendLogFolder("General Options")
+'Set Varaibles
+      Dim strTableName  : strTableName  = "tblGeneralOptions"                      'DB mapped Table Name 
+      Dim strHotKey     : strHotKey     = "TG"                                     'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod   = "ModelOptions.GeneralOptions"            'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap = "dlgGeneralOptions"                      'Dialog mapped name  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap)
+'Log
+      PopLogFolder
+
+End Sub   

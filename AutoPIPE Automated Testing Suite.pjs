@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="14.0" key="{57BA0B90-67C0-4930-AF84-6A4E86531ADD}">
+	<children>
+		<folder name="AutoPIPE_Common" />
+		<child name="APTAF" key="{7085E2EC-9304-413A-A1AE-AE1B6E532C04}" path="APTAF\APTAF.mds" />
+		<child name="DynamicTestPlans" key="{639111E8-4A06-4FEC-9C96-56E6F1CC6BA2}" path="DynamicTestPlans\DynamicTestPlans.mds" />
+		<child name="StaticTestPlans" key="{A40F98A2-2B4D-4558-94A4-FB5E232211DF}" path="StaticTestPlans\StaticTestPlans.mds" />
+		<child name="RequirementBasedTestPlans" key="{C027E997-1ACC-4381-9C9E-944688C8750B}" path="RequirementBasedTestPlans\RequirementBasedTestPlans.mds" />
+		<child name="AutoPIPERegression" key="{BFAC4B57-4676-4176-B1E3-6B160BAFE2E7}" path="AutoPIPERegression\AutoPIPERegression.mds" />
+		<child name="ConnectLicensing" key="{8E850C84-5112-4E8E-B2D6-C31507EDDC99}" path="ConnectLicensing\ConnectLicensing.mds" />
+		<child name="Database" key="{19F20013-83C9-4F3A-A2F9-BA6E396CC7AD}" path="Database\Database.mds" />
+	</children>
+	<testItems key="{7A0BAA44-0DF2-4128-B881-9A46192533C6}">
+		<children>
+			<testItem key="{7085E2EC-9304-413A-A1AE-AE1B6E532C04}" enabled="True" timeout="0" stopOnError="True" description="" />
+			<testItem key="{639111E8-4A06-4FEC-9C96-56E6F1CC6BA2}" enabled="True" timeout="0" stopOnError="True" description="" />
+			<testItem key="{A40F98A2-2B4D-4558-94A4-FB5E232211DF}" enabled="True" timeout="0" stopOnError="True" description="" />
+			<testItem key="{C027E997-1ACC-4381-9C9E-944688C8750B}" enabled="True" timeout="0" stopOnError="True" description="" />
+			<testItem key="{BFAC4B57-4676-4176-B1E3-6B160BAFE2E7}" enabled="True" timeout="0" stopOnError="True" description="" />
+			<testItem key="{8E850C84-5112-4E8E-B2D6-C31507EDDC99}" enabled="True" timeout="0" stopOnError="True" description="" />
+			<testItem key="{19F20013-83C9-4F3A-A2F9-BA6E396CC7AD}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{9ABC61C7-C7FF-4367-BF8C-77CC568022B6}">
+		<data Version="3" />
+	</variables>
+	<analysis key="{A6E66B5C-234B-4CC7-8EC9-ED4AC8DD4AC6}" />
+	<scc key="{F94BA630-5BEE-4053-86BD-D0BE3217873D}" name="Mercurial Plugin">
+		<data />
+	</scc>
+	<extender key="{1A3FC97E-9A66-4716-B166-35D10B4146E0}">
+		<CrossBrowserTesting Enable="True" />
+	</extender>
+</Root>

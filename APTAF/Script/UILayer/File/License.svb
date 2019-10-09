@@ -1,0 +1,73 @@
+﻿'USEUNIT Main
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                   License                                ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the License "Configuration" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : tblConfiguration table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   Bilal.Tahir
+' Date:     11/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function Configuration( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase", "VerificationRow", "Comments")
+            Configuration = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase", "intVerificationRow", "Comments")
+            Configuration = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set Configuration = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          'Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'           objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set Configuration = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Dim strConfirmLicenseChange
+        strConfirmLicenseChange = LCase(objData.Item("ConfirmLicenseChange"))
+        If(objNameMapping.WaitAliasChild("dlgConfirmLicenseChange", 60000).WaitProperty("Exists", true, 10)) Then
+        'If (objNameMapping.dlgConfirmLicenseChange.Exist) Then
+        If strConfirmLicenseChange = "yes" Then
+        objNameMapping.dlgConfirmLicenseChange.btnOK.Click()
+        Log.Message("Button 'Yes' pressed on dialog Confirm License change")
+        End If
+        
+        End If
+        
+        PopLogFolder
+    End Select
+    
+End Function

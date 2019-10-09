@@ -1,0 +1,44 @@
+﻿'------------------------------------------------------------------------------------**/
+' Summary: .   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All              - Execute All Rows one by one                                                 E-g Run("All")
+'              0                -  Press OK button with default values                                        E-g Run("0") or Run(0)
+'              Numeric Value(x) - Values of that specific row of the table will be used as input              E-g Run("5") Or Run(5)
+'              x-y              - Execut tests between a range. x and y should be any integer number          E-g Run("1-5")    
+'              x,y              - Execute Row number x and y                                                  E-g Run("1,3")
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub ZZZ(TestData)
+'Add to Log
+	    AppendLogFolder("Insert ZZZ in the model")
+'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblZZZ"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "ZZZ"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "ZZZ.ZZZ"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgZZZ"     'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'Sub Tee(TestData)
+''Add to Log
+'	    AppendLogFolder("Insert Tee in the model")
+' 'Set Varaibles 
+'      Dim strTableName: strTableName = "tblTee"                         ' Table Name 
+'      Dim strHotKey: strHotKey = "IT"                                   'Shortcut Key
+'      Dim strUIMethod  : strUIMethod = "PipingComponents.Tee"         'Procedure Name
+'      Dim strDlgNameMap : strDlgNameMap ="dlgTee"                       'Dialog Mapping Name 
+'      Dim isDlgVerification : isDlgVerification = "yes"
+'      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+''Call Main
+'      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'      'Log
+'      PopLogFolder
+'End Sub

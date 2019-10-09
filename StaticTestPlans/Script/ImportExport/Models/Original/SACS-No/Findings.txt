@@ -1,0 +1,1 @@
+Unable to test. SACS unable to import the AutoPIPE Loads as the integration with AutoPIPE feature in SACS ver 6.2 is under development.

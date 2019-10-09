@@ -1,0 +1,1675 @@
+﻿
+'USEUNIT Main
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "pipe properties" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         RigidOptionsOverRange table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Tayyaba Mehreen
+' Date:     8/2019
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function PipeProperties( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+''''''''''''''SAMPLE
+'Case “PreAction”
+'Select Case VerificationType
+'        Case "dialogvalidation"
+'            arrSkipList = Array("TestCase")
+'            Run = arrSkipList
+'        Case Else
+'            arrSkipList = Array("TestCase")
+'            Run = arrSkipList
+'
+'      End Select
+
+''''''''''''''END SAMPLE
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        'CASE VALIDATION
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase","cmbstrPipeIdentifier")
+            PipeProperties = arrSkipList
+            'CASE ACTION
+        Case Else
+            arrSkipList = Array("TestCase")
+            PipeProperties = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+    Select Case VerificationType         
+    'CASE VALIDATION 
+          
+    Case "dialogvalidation"
+      
+     Set objVerifySchema = CreateObject("Scripting.Dictionary")
+      Set PipeProperties = objVerifySchema
+      'CASE  ACTION
+    case Else
+      Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+      Set PipeProperties = objVerifySchema1
+  End Select
+    Case "PreAction"
+    Select Case VerificationType
+    'CASE VALIDATION 
+     Case "dialogvalidation"
+       AppendLogFolder("Pre-Test Actions")
+        If (objNameMapping.WaitAliasChild("dlgPipeModify", 40).WaitProperty("Exists", true, 10)) THEN
+      '
+         Dim PipeIdentifier: PipeIdentifier = ObjData.Item("cmbstrPipeIdentifier")
+         PipeIdentifier = "*" & PipeIdentifier & "*" 
+           objNameMapping.dlgPipeModify.drpdwnPipeIdentifier.ClickItem(PipeIdentifier) 
+          objNameMapping.dlgPipeModify.btnOK.Click()
+          Delay("200")
+       
+         End If
+         
+          Set objActionSchema2 = CreateObject("Scripting.Dictionary")         
+          Set PipeProperties = objActionSchema2
+             PopLogFolder
+        'CASE action
+    case else
+          AppendLogFolder("Pre-Test Actions")
+          Log.Message("No pre-test actions found")
+          PopLogFolder
+      
+        '  Set objActionSchema1 = CreateObject("Scripting.Dictionary")
+         ' Set PipeProperties = objActionSchema1
+    End Select
+    Case "PostAction"
+      Select Case VerificationType  
+        'CASE VALIDATION
+        Case "dialogvalidation" 
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test validation actions found")
+        PopLogFolder
+        'CASE  ACTION
+        case else
+          AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+      End Select
+End Function
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Properties                        ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "RigidOptionsOverRange" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   Tayyaba Mehreen
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function RigidOptionsOverRange( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            RigidOptionsOverRange = arrSkipList
+        Case else
+            arrSkipList = Array("TestCase")
+            RigidOptionsOverRange = arrSkipList
+        
+      End Select
+    
+    Case "ModifyFields"
+     Select Case VerificationType
+        Case "dialogvalidation"
+            Dim objVerifySchema2
+          '  objNameMapping.dlgRigidOptions.btnCancel.Click()
+            Set objVerifySchema2 = CreateObject("Scripting.Dictionary")
+             Set RigidOptionsOverRange = objVerifySchema2
+          Case Else
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+            Set RigidOptionsOverRange = objVerifySchema
+            End Select
+          
+    Case "PreAction"
+     AppendLogFolder("Pre-Test Actions")
+       
+      Select Case VerificationType
+        Case "dialogvalidation"
+      Dim objActionSchema2
+     '      Log.Message("No pre-test validation actions found")
+         Set objActionSchema2 = CreateObject("Scripting.Dictionary")
+         Set RigidOptionsOverRange = objActionSchema2
+        Case Else
+           Log.Message("No pre-test actions found")
+     
+    
+        End Select
+   PopLogFolder
+    Case "PostAction"
+     AppendLogFolder("Post-Test Actions")  
+     Log.Message("No post-action performed")
+  
+    PopLogFolder
+    End Select
+End Function
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Operating Pressure And Temperature " dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         RigidOptionsOverRange table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function OperatingPT( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            OperatingPT = arrSkipList
+        Case Else
+            arrSkipList = Array("TestCase")
+            OperatingPT = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+     Select Case VerificationType
+         Case "dialogvalidation"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+            Set OperatingPT = objVerifySchema
+        Case else
+            Dim objVerifySchema1
+            Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+            Set OperatingPT = objVerifySchema1
+    End Select  
+    Case "PreAction"
+     AppendLogFolder("Pre-Test Actions")
+      Select Case VerificationType
+         Case "dialogvalidation"
+         Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+          Set OperatingPT = objActionSchema
+        Case Else
+        Log.Message("No pre-test actions found")
+      End Select
+    PopLogFolder
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+'Function RigidOptionsOverRange( Action, objData, FieldName , VerificationType, objNameMapping)
+'  Dim Result
+'  Dim arrSkipList
+'
+'  Select Case Action
+'    Case "RemoveFields"
+'      Select Case VerificationType
+'        Case "positive", "positive+report","negative", "report", "image"
+'            arrSkipList = Array("TestCase")
+'            RigidOptionsOverRange = arrSkipList
+'        Case "dialogvalidation"
+'            arrSkipList = Array("TestCase")
+'            RigidOptionsOverRange = arrSkipList
+'      End Select
+'    
+'    Case "ModifyFields"
+'            Dim objVerifySchema
+'            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+''            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+''            objVerifySchema.Add "drpBendType", "cmbRadius"    
+'            Set RigidOptionsOverRange = objVerifySchema
+'
+'    Case "PreTestModifyFields"
+'          Dim objActionSchema
+'          Set objActionSchema = CreateObject("Scripting.Dictionary")
+''          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+''          objActionSchema.Add "intSIFout", "intCrotchThickness"
+'          Set RigidOptionsOverRange = objActionSchema
+'
+'    Case "PreTest"
+'        AppendLogFolder("Pre-Test Actions")
+'        Log.Message("No pre-test actions found")
+'        PopLogFolder
+'  
+'    Case "PostTest"
+'        AppendLogFolder("Post-Test Actions")
+'        Log.Message("No post-test actions found")
+'        PopLogFolder
+'    End Select
+'End Function
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "RigidOptionsOverRange" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         RigidOptionsOverRange table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Tayyaba Mehreen 
+' Date:     7/2019
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub RigidOptionsOverRange1(objNameMapping, objRow, strOpenDialog, strHotKey)
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+  Log.AppendFolder("Using the 'Insert Rigid Options Over Range' dialog")
+  Set dlgRigidOptions = objNameMapping.dlgRigidOptions
+
+  Dim chkIncludeWeight : chkIncludeWeight = objRow.Item("chkIncludeWeight")
+  Dim chkIncludeThermalExpansion : chkIncludeThermalExpansion = objRow.Item("chkIncludeThermalExpansion")
+
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select 
+  
+'Include Weight field 
+   If(chkIncludeWeight = "1") Then
+     'Change the checked condition of "Include Weight"
+      If(objNameMapping.WaitAliasChild("dlgRigidOptions", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgRigidOptions.chkboxIncludeWeight.Click()
+        Log.Message("Check box 'Include Weight' check condition changed ")  
+      End If
+   End If
+   
+'Include Thermal Expansion field 
+   If(chkIncludeThermalExpansion = "1") Then
+     'Change the checked condition of "Include Thermal Expansion"
+      If(objNameMapping.WaitAliasChild("dlgRigidOptions", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgRigidOptions.chkboxIncludeThermalExpansion.Click()
+        Log.Message("Check box 'Include Thermal Expansion' check condition changed ")  
+      End If
+   End If
+
+  Call dlgRigidOptions.btnOK.Click()   
+End Sub 
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Properties                        ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "Operating PT" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   Tayyaba Mehreen
+' Date:     7/2019
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+'Function OperatingPT( Action, objData, FieldName , VerificationType, objNameMapping)
+'  Dim Result
+'  Dim arrSkipList
+'
+'  Select Case Action
+'    Case "RemoveFields"
+'      Select Case VerificationType
+'        Case "positive", "positive+report","negative", "report", "image"
+'            arrSkipList = Array("TestCase")
+'            OperatingPT = arrSkipList
+'        Case "dialogvalidation"
+'            arrSkipList = Array("TestCase")
+'            OperatingPT = arrSkipList
+'      End Select
+'    
+'    Case "ModifyFields"
+'            Dim objVerifySchema
+'            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            Set OperatingPT = objVerifySchema
+'
+'    Case "PreTestModifyFields"
+'          Dim objActionSchema
+'          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Set OperatingPT = objActionSchema
+'
+'    Case "PreTest"
+'        AppendLogFolder("Pre-Test Actions")
+'        Log.Message("No pre-test actions found")
+'        PopLogFolder
+'  
+'    Case "PostTest"
+'        AppendLogFolder("Post-Test Actions")
+'        Log.Message("No post-test actions found")
+'        PopLogFolder
+'    End Select
+'End Function
+
+
+'sub PipeProperties (objNameMapping, objRow, strOpenDialog, strHotKey)
+'  
+'''''''''''''''' Delete
+'Set objNameMapping = Aliases.autopipe
+''''''''''''''''''''
+'  Log.AppendFolder("Using the 'PipeProperties' dialog")
+'  Set objNameMapping = Aliases.autopipe
+'  Set dlgPipePropertieserties = objNameMapping.dlgPipePropertieserties
+''int values
+'Dim intActualOD :intActualOD =  objRow.Item("intActualOD")
+'Dim intCladDensity:intCladDensity=objRow.Item("intCladDensity")
+'Dim intCladThickness:intCladThickness=objRow.Item("intCladThickness")
+'Dim intColdAllowable:intColdAllowable=objRow.Item("intColdAllowable")
+'Dim intCorrosionAllow:intCorrosionAllow=objRow.Item("intCorrosionAllow")
+'Dim intDensity:intDensity=objRow.Item("intDensity")
+'Dim intHoopModulus:intHoopModulus=objRow.Item("intHoopModulus")
+'Dim intInsulDensity:intInsulDensity=objRow.Item("intInsulDensity")
+'Dim intInsulThickness:intInsulThickness=objRow.Item("intInsulThickness")
+'Dim intLiningDensity:intLiningDensity=objRow.Item("intLiningDensity")
+'Dim intLiningThickness:intLiningThickness=objRow.Item("intLiningThickness")
+'Dim intLongModulus:intLongModulus=objRow.Item("intLongModulus")
+'Dim intLongWeldEFact:intLongWeldEFact=objRow.Item("intLongWeldEFact")
+'Dim intLongWeldWlFac:intLongWeldWlFac=objRow.Item("intLongWeldWlFac")
+'Dim intMillTolerance:intMillTolerance = objRow.Item("intMillTolerance")
+'Dim intMinimumYield:intMinimumYield=objRow.Item("intMinimumYield")
+'Dim intPoissonsRatio:intPoissonsRatio=objRow.Item("intPoissonsRatio")
+'Dim intShearModulus:intShearModulus=objRow.Item("intShearModulus")
+'Dim intStressRangeFactor:intStressRangeFactor=objRow.Item("intStressRangeFactor")
+'Dim intUltimate:intUltimate=objRow.Item("intUltimate")
+'Dim intWallThickness:intWallThickness=objRow.Item("intWallThickness")
+'Dim intSpecIficGravityOfContents :intSpecIficGravityOfContents =objRow.Item("intSpecIficGravityOfContents")
+''strings
+'Dim strTagNo:strTagNo =objRow.Item("strTagNo")
+'Dim strLineClass:strLineClass =objRow.Item("strLineClass")
+''check boxes
+'Dim chkSuppressLowTempWarnings:chkSuppressLowTempWarnings =objRow.Item("chkSuppressLowTempWarnings")
+''combinations
+'Dim cmbPipeIdentIfier: cmbPipeIdentIfier =objRow.Item("cmbPipeIdentIfier")
+'Dim cmbPipeMaterial:cmbPipeMaterial="*"&objRow.Item("cmbPipeMaterial")&"*"
+'Dim cmbSchedule:cmbSchedule="*"&objRow.Item("cmbSchedule")&"*" 
+''dropdown
+'Dim cmbCladMaterial :cmbCladMaterial=objRow.Item("cmbCladMaterial") 
+'Dim cmbComposition:cmbComposition=objRow.Item("cmbComposition")
+'Dim cmbInsulMaterial:cmbInsulMaterial="*"&objRow.Item("cmbInsulMaterial")&"*" 
+'Dim cmbLongWEedWLFac:cmbLongWEedWLFac=objRow.Item("cmbLongWEedWLFac") 
+'Dim drpNominalDiameter:drpNominalDiameter="*"&objRow.Item("drpNominalDiameter")&"*"
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Select Case strOpenDialog
+'    Case "Shortcut"
+'            'aqutils.Delay(200)
+'            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+'    Case "Ribbon"
+'    ' Ribbon is not accessable 
+'  End Select 
+''  
+''''''''cmbPipeIdentIfier  
+''  If(cmbPipeIdentIfier <> "NA") Then
+''  'If(objNameMapping.dlgPipeProperties.cmbboxPipeIdentIfier.Enabled) Then
+''   dlgPipeProperties.cmbboxPipeIdentIfier.fldPipeIdentIfier.Keys(cmbPipeIdentIfier)
+''   dlgRun.fldNameOfPoint.Keys("[Tab]")
+''  'If(objNameMapping.lstItems.Visible) Then
+''        'Write to "Name Of Point" field
+''      '  If(objNameMapping.WaitAliasChild("dlgPipePropertiesertieserties", 6000).WaitProperty("Exists", true, 10)) Then
+''       Select Case strHotKey
+''          Case "IP"
+''         dlgPipePropertieserties.cmbboxPipeIdentIfier.Click()
+''               'objNameMapping.lstItems.ClickItem(cmbPipeIdentIfier)
+''               dlgPipePropertieserties.cmbboxPipeIdentIfier.fldPipeIdentIfier.Keys(cmbPipeIdentIfier)
+''          Case "MN"
+''              dlgPipePropertieserties.cmbboxPipeIdentIfier.Click()
+''              objNameMapping.lstItems.ClickItem(cmbPipeIdentIfier)
+''          End Select
+''        'If(objNameMapping.dlgPipePropertieserties.Exists) Then
+''       
+''          dlgPipePropertieserties.cmbboxPipeIdentIfier.fldPipeIdentIfier.Keys(cmbPipeIdentIfier)
+''        
+''          Log.Message("Entered " & cmbPipeIdentIfier & " in the 'Pipe Data IdentIfier' field")
+''        'End If
+''   ' End If  
+''    End If
+''    'End If
+'
+'
+'
+'    If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+'    If(cmbPipeIdentifier  <> "NA") Then
+'        If(objNameMapping.WaitAliasChild("dlgPipePropertieserties", 60000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipePropertieserties.cmbboxPipeIdentifier.fldfldPipeIdentifier.Keys(cmbPipeIdentIfier)
+'          Log.Message("Entered " & cmbPipeIdentifier  & " in the 'Pipe Identifier' field")
+'        End If
+'    End If 
+'
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''  
+'' strTagNo
+'  If(strTagNo <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipePropertieserties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipePropertieserties.fldTagNo.Keys(strTagNo)
+'         
+'          Log.Message("Entered in the  field")
+'        End If
+'    End If
+'   
+'    
+'    'drpNominalDiameter
+'If (drpNominalDiameter <> "*NA*") Then
+'       ' Write to  field
+'       If(objNameMapping.WaitAliasChild("dlgPipePropertieserties", 600).WaitProperty("Exists", true, 10)) Then
+'          dlgPipePropertieserties.drpdwnNominalDiameter.Click()
+'          objNameMapping.lstItems.ClickItem(drpNominalDiameter)
+'
+'          Log.Message("Entered  field")
+'        'End If
+'      End If
+'    End If
+'   ' End If
+'    
+'    
+'''''cmbschedule
+'If(cmbSchedule <> "*NA*") Then
+'If(objNameMapping.dlgPipePropertieserties.cmbboxSchedule.Enabled) Then
+'If(objNameMapping.dlgPipePropertieserties.cmbboxSchedule.Exists) Then
+'    dlgPipePropertieserties.cmbboxSchedule.click()
+'    objNameMapping.lstItems.ClickItem(cmbSchedule) 
+''    If(objNameMapping.dlgWarning.Exists) Then
+''    objNameMapping.dlgWarning.Close()
+'    end If
+'    end If
+'    End If
+'    'end If 
+'    '''  
+'    ''''''''''intActualOD
+'    If(intActualOD <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipePropertieserties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          
+'           If(objNameMapping.dlgPipePropertieserties.fldActualOD.Enabled) Then
+'           dlgPipePropertieserties.fldActualOD.Keys(intActualOD)
+'          Log.Message("Entered in the intActualOD field")
+'           
+'    
+'        End If
+'    End If
+'    End If
+''    
+'    '''''' '''''intWallThickness
+'    If(intWallThickness <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipePropertieserties.Exists) Then
+'          If(objNameMapping.dlgPipePropertieserties.fldWallThickness.Enabled) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'    
+'          dlgPipePropertieserties.fldWallThickness.Keys(intWallThickness)
+'         
+'          Log.Message("Entered in the intWallThickness field")
+'        End If
+'    End If
+'    End If
+'    
+'    ''''''''''''''intCorrosionAllow
+'    If(intCorrosionAllow <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipePropertieserties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'         If(objNameMapping.dlgPipePropertieserties.fldCorrosionAllow.Enabled) Then
+'          
+'          dlgPipePropertieserties.fldCorrosionAllow.Keys(intCorrosionAllow)
+'         
+'          Log.Message("Entered in the intCorrosionAllow field")
+'        End If
+'    End If
+'    end If
+'    
+'    '''''' ''''intMillTolerance
+'    If(intMillTolerance <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipePropertieserties.Exists) Then
+'        If(objNameMapping.dlgPipePropertieserties.fldMillTolerance.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipePropertieserties.fldMillTolerance.Keys(intMillTolerance)
+'         
+'          Log.Message("Entered in the intMillTolerance field")
+'        End If
+'    End If
+'    End If
+'    
+'    '''''''''intInsulThickness
+'If(intInsulThickness <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipePropertieserties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipePropertieserties.fldInsulThickness.Keys(intInsulThickness)
+'         
+'          Log.Message("Entered in the intInsulThickness field")
+'        End If
+'    End If
+'    ''''''''''''''
+'    
+'    ''''''cmbInsulMaterial
+'      If(cmbInsulMaterial <> "*NA*") Then
+'If(objNameMapping.dlgPipeProperties.cmbboxInsulMaterial.Enabled) Then
+'If(objNameMapping.dlgPipeProperties.cmbboxInsulMaterial.Exists) Then
+'    dlgPipeProperties.cmbboxInsulMaterial.click()
+'    objNameMapping.lstItems.ClickItem(cmbInsulMaterial) 
+''    If(objNameMapping.dlgWarning.Exists) Then
+''    objNameMapping.dlgWarning.Close()
+'    end If
+'    end If
+'    End If
+'    'end If 
+'    ''''
+'    ''''''''''''''intInsulDensity
+'If(intInsulDensity <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.fldInsulDensity.Enabled) Then
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldInsulDensity.Keys(intInsulDensity)
+'         
+'          Log.Message("Entered in the intInsulDensity field")
+'        End If
+'    End If
+'
+'    ''''''''''''''intCladThickness
+' If(intCladThickness <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'         If(objNameMapping.dlgPipeProperties.fldCladThickness.Enabled) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldCladThickness.Keys(intCladThickness)
+'         
+'          Log.Message("Entered in the intCladThickness field")
+'        End If
+'    End If
+'    end If
+'    
+''cmbCladMaterial
+'     If(cmbCladMaterial <>"NA") Then
+'     If(objNameMapping.lstItems.Visible) Then
+'   '' write to field
+'    If(objNameMapping.dlgPipeProperties.cmbboxCladMaterial.Exists) Then
+'   If(objNameMapping.dlgPipeProperties.cmbboxCladMaterial.Enabled) Then
+'      dlgPipeProperties.cmbboxCladMaterial.click()
+'    objNameMapping.lstItems.ClickItem(cmbCladMaterial)
+'    Log.Message("enetred in the cmbCladMaterial field")
+'    end If
+'    end If
+'    end If
+'    End If
+'
+'    '''''''''''intCladDensity
+'  If(intCladDensity <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'        If(objNameMapping.dlgPipeProperties.fldCladDensity.Enabled) then
+'  
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldCladDensity.Keys(intCladDensity)
+'         
+'          Log.Message("Entered in the intCladDensity field")
+'        End If
+'    End If
+'    End If
+'''''''intLiningThickness
+' If(intLiningThickness <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldLiningThickness.Keys(intLiningThickness)
+'         
+'          Log.Message("Entered in the intLiningThickness field")
+'        End If
+'    End If
+'    End If
+'    
+'    '''''''intLiningDensity
+'    If(intLiningDensity <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldLiningDensity.Keys(intLiningDensity)
+'         
+'          Log.Message("Entered in the intLiningDensity field")
+'        End If
+'    End If
+'    
+'    '''strLineClass
+'   If(strLineClass <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldLineClass.Keys(strLineClass)
+'         
+'          Log.Message("Entered in the strLineClass field")
+'        End If
+'    End If
+'   
+'    
+'    
+'    '''''   ''''''''intSpecIficGravityOfContents
+'    If(intSpecIficGravityOfContents <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldSpecIficGravityOfContents.Keys(fldSpecIficGravityOfContents)
+'         
+'          Log.Message("Entered in the intSpecIficGravityOfContents field")
+'        End If
+'    End If
+'
+'    
+'    ''''''
+'''''''chkSuppressLowTempWarnings
+'   If(chkSuppressLowTempWarnings  =  "1") Then
+'        'Write to "Name Of Point" field
+'       ' If(objNameMapping.WaitAliasChild("dlgPipeProperties", 600).WaitProperty("Exists", true, 10)) Then
+'        If(objNameMapping.dlgPipeProperties.chkboxSuppressLowTempWarnings.Exists) Then
+'          dlgPipeProperties.chkboxSuppressLowTempWarnings.Click()
+'          Log.Message("Set 'chkSuppressLowTempWarnings' checkbox")
+'        End If
+'        End If
+'
+'
+'If(cmbPipeMaterial <> "*NA*") Then
+'If(objNameMapping.dlgPipeProperties.cmbboxPipeMaterial.Exists) Then
+'If(objNameMapping.dlgPipeProperties.cmbboxPipeMaterial.Enabled) Then
+'
+'    dlgPipeProperties.cmbboxPipeMaterial.click()
+'    objNameMapping.lstItems.ClickItem(cmbPipeMaterial) 
+''    If(objNameMapping.dlgWarning.Exists) Then
+''    objNameMapping.dlgWarning.Close()
+'    end If
+'    end If
+'   End If
+'    'end If 
+'    '''      
+'
+'
+'     ''cmbComposition
+'      If(cmbComposition <>"NA") Then
+'      If(objNameMapping.dlgPipeProperties.cmbboxComposition.Enabled) Then
+'
+'      If(objNameMapping.dlgPipeProperties.cmbboxComposition.Exists) Then
+' 
+'    dlgPipeProperties.cmbboxComposition.click()
+'    objNameMapping.lstItems.ClickItem(cmbComposition) 
+'   
+'    end If
+'    end If
+'    End If
+'    
+'    
+'    
+'    '''''''''  ''''intLongWeldEFact
+'    If(intLongWeldEFact <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'        If(objNameMapping.dlgPipeProperties.fldLongWeldEFact.Enabled) then
+'        
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldLongWeldEFact.Keys(intLongWeldEFact)
+'         
+'          Log.Message("Entered in the intLongWeldEFact field")
+'        End If
+'    End If
+'    End If
+'
+'
+''    ''cmbLongWEedWLFac
+'    If(cmbLongWEedWLFac <>"NA") Then
+'  If(objNameMapping.dlgPipeProperties.cmbboxLongWEedWLFac.Enabled) Then
+'   '' write to field
+'    If(objNameMapping.dlgPipeProperties.Exists) Then
+'   
+'    dlgPipeProperties.cmbboxLongWEedWLFac.click()
+'    objNameMapping.lstItems.ClickItem(cmbLongWEedWLFac)
+'    Log.Message("enetred in the cmbLongWEedWLFac field")
+'    end If
+'    end If
+'    end If
+''    ''''''   
+'    ''''intLongWeldWlFac
+'    If(intLongWeldWlFac <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'        If(objNameMapping.dlgPipeProperties.fldLongWeldWlFac.Enabled) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldLongWeldWlFac.Keys(intLongWeldWlFac)
+'         
+'          Log.Message("Entered in the intLongWeldWlFac field")
+'        End If
+'    End If
+'    End If
+'     
+'    '''''''intStressRangeFactor
+'    If(intStressRangeFactor <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldStressRangeFactor.Keys(intStressRangeFactor)
+'         
+'          Log.Message("Entered in the intStressRangeFactor field")
+'        End If
+'    End If
+''  
+''   
+''    ''''''''''''''''''''''''''''''''''''''''''''''''
+'    
+'    '''intLongModulus
+'    If(intLongModulus <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'         If(objNameMapping.dlgPipeProperties.fldLongModulus.Enabled) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldLongModulus.Keys(intLongModulus)
+'         
+'          Log.Message("Entered in the intLongModulus field")
+'        End If
+'    End If
+'    End If
+''    
+'  ''' intHoopModulus
+'If(intHoopModulus <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'         If(objNameMapping.dlgPipeProperties.fldHoopModulus.Enabled) Then
+'
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldHoopModulus.Keys(intHoopModulus)
+'         
+'          Log.Message("Entered in the intHoopModulus field")
+'        End If
+'    End If
+'  End If
+'    ''''' intColdAllowable
+'If(intColdAllowable <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldColdAllowable.Keys(intColdAllowable)
+'         
+'          Log.Message("Entered in the intColdAllowable field")
+'        End If
+'    End If
+'
+'
+''  
+'    '''''''''intShearModulus
+'     If(intShearModulus <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'          If(objNameMapping.dlgPipeProperties.fldShearModulus.Enabled) Then
+'
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldShearModulus.Keys(intShearModulus)
+'         
+'          Log.Message("Entered in the intShearModulus field")
+'        End If
+'    End If
+'    End If
+'
+'    
+''    
+''   
+'' 
+''   
+''    
+'    ''''intMinimumYield
+'    If(intMinimumYield <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldMinimumYield.Keys(intMinimumYield)
+'         
+'          Log.Message("Entered in the intMinimumYield field")
+'        End If
+'    End If
+'     
+'    '''''' intDensity
+'If(intDensity <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'        If(objNameMapping.dlgPipeProperties.fldDensity.Enabled) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldDensity.Keys(intDensity)
+'         
+'          Log.Message("Entered in the intDensity field")
+'        End If
+'    End If
+'    End If
+'
+'  
+'    '''''intUltimate
+'     If(intUltimate <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldUltimate.Keys(intUltimate)
+'         
+'          Log.Message("Entered in the intUltimate field")
+'        End If
+'    End If
+'
+''    
+''    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'    
+'    '''''intPoissonsRatio
+'     If(intPoissonsRatio <> "NA") then
+'        'Write to  field
+'        If(objNameMapping.dlgPipeProperties.Exists) Then
+'         If(objNameMapping.dlgPipeProperties.fldPoissonsRatio.Enabled) Then
+'       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+'          dlgPipeProperties.fldPoissonsRatio.Keys(intPoissonsRatio)
+'         
+'          Log.Message("Entered in the intPoissonsRatio field")
+'        End If
+'    End If
+'    End If
+'
+'   
+'
+'    If(objNameMapping.dlgWarning.Exists) Then
+'    objNameMapping.dlgWarning.Close()
+'    end If
+'    
+'      If(objNameMapping.dlgError.Exists) Then
+'    objNameMapping.dlgError.Close()
+'    end If
+'    
+'    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''call dlgPipeProperties.btnOK.Click() 
+'
+'End Sub
+
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Operating Pressure And Temperature " dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         RigidOptionsOverRange table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub OperatingPT1 (objNameMapping, objRow, strOpenDialog, strHotKey)
+   Set objNameMapping = Aliases.autopipe
+   Log.AppendFolder("Using the 'PipeProperties' dialog")
+    Set dlgOpenPressTemp = objNameMapping.dlgOpenPressTemp
+    
+    
+  Dim chkboxApplyBlue:chkboxApplyBlue = objRow.item("chkboxApplyBlue")
+  Dim chkboxAutoExp1:chkboxAutoExp1= objRow.item("chkboxAutoExp1")
+  Dim chkboxAutoExp2:chkboxAutoExp2=objRow.item("chkboxAutoExp2")
+  Dim chkboxAutoExp3:chkboxAutoExp3=objRow.item("chkboxAutoExp3")
+  Dim chkboxAutoExp4:chkboxAutoExp4=objRow.item("chkboxAutoExp4")
+  Dim chkboxAutoExp5:chkboxAutoExp5= objRow.item("chkboxAutoExp5")
+  Dim chkboxAutoHotAllow1:chkboxAutoHotAllow1= objRow.item("chkboxAutoHotAllow1")
+  Dim chkboxAutoHotAllow2:chkboxAutoHotAllow2= objRow.item("chkboxAutoHotAllow2")
+  Dim chkboxAutoHotAllow3:chkboxAutoHotAllow3= objRow.item("chkboxAutoHotAllow3")
+  Dim chkboxAutoHotAllow4:chkboxAutoHotAllow4 = objRow.item("chkboxAutoHotAllow4")
+  Dim chkboxAutoHotAllow5:chkboxAutoHotAllow5 =objRow.item("chkboxAutoHotAllow5")
+  Dim chkboxAutoHotMod1:chkboxAutoHotMod1= objRow.item("chkboxAutoHotMod1")
+  Dim chkboxAutoHotMod2:chkboxAutoHotMod2=objRow.item("chkboxAutoHotMod2")
+  Dim chkboxAutoHotMod3:chkboxAutoHotMod3=objRow.item("chkboxAutoHotMod3")
+  Dim chkboxAutoHotMod4:chkboxAutoHotMod4=objRow.item("chkboxAutoHotMod4")
+  Dim chkboxAutoHotMod5:chkboxAutoHotMod5=objRow.item("chkboxAutoHotMod5")
+  Dim chkboxAutoYieldSy1:chkboxAutoYieldSy1=objRow.item("chkboxAutoYieldSy1")
+  Dim chkboxAutoYieldSy2:chkboxAutoYieldSy2=objRow.item("chkboxAutoYieldSy2")
+  Dim chkboxAutoYieldSy3:chkboxAutoYieldSy3=objRow.item("chkboxAutoYieldSy3")
+  Dim chkboxAutoYieldSy4:chkboxAutoYieldSy4=objRow.item("chkboxAutoYieldSy4")
+  Dim chkboxAutoYieldSy5:chkboxAutoYieldSy5=objRow.item("chkboxAutoYieldSy5")
+  Dim drpdwnSelectCases:drpdwnSelectCases=objRow.item("drpdwnSelectCases")
+  Dim intExp1:intExp1=objRow.item("intExp1")
+  Dim intExp2:intExp2=objRow.item("intExp2")
+  Dim intExp3:intExp3=objRow.item("intExp3")
+  Dim intExp4:intExp4=objRow.item("intExp4")
+  Dim intExp5:intExp5=objRow.item("intExp5")
+  Dim intHotAllow1:intHotAllow1=objRow.item("intHotAllow1")
+  Dim intHotAllow2:intHotAllow2=objRow.item("intHotAllow2")
+  Dim intHotAllow3:intHotAllow3=objRow.item("intHotAllow3")
+  Dim intHotAllow4:intHotAllow4=objRow.item("intHotAllow4")
+  Dim intHotAllow5:intHotAllow5=objRow.item("intHotAllow5")
+  Dim intHotMod1:intHotMod1=objRow.item("intHotMod1")
+  Dim intHotMod2:intHotMod2=objRow.item("intHotMod2")
+  Dim intHotMod3:intHotMod3=objRow.item("intHotMod3")
+  Dim intHotMod4:intHotMod4=objRow.item("intHotMod4")
+  Dim intHotMod5:intHotMod5=objRow.item("intHotMod5")
+  Dim intPress1:intPress1=objRow.item("intPress1")
+  dim intPress2:intPress2=objRow.item("intPress2")
+  dim intPress3:intPress3=objRow.item("intPress3")
+  dim intPress4:intPress4=objRow.item("intPress4")
+  dim intpress5:intpress5=objRow.item("intpress5")
+  dim intTemp1:intTemp1=objRow.item("intTemp1")
+  dim intTemp2:intTemp2=objRow.item("intTemp2")
+  dim intTemp3:intTemp3=objRow.item("intTemp3")
+  dim intTemp4:intTemp4=objRow.item("intTemp4")
+  dim intTemp5:intTemp5=objRow.item("intTemp5")
+  Dim intYieldSy1:intYieldSy1=objRow.item("intYieldSy1")
+  Dim intYieldSy2:intYieldSy2=objRow.item("intYieldSy2")
+  dim intYieldSy3:intYieldSy3=objRow.item("intYieldSy3")
+  dim intYieldSy4:intYieldSy4=objRow.item("intYieldSy4")
+  Dim intYieldSy5:intYieldSy5=objRow.item("intYieldSy5")
+
+ Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select 
+
+If(chkboxAutoExp1 =1) then
+If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoExp1.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoExp1.Click()
+            Log.Message("Checkbox 'chkboxAutoExp1 ' clicked")
+          End If
+      End If
+      End If
+      End If
+
+
+
+If(chkboxAutoExp2 =1) then
+If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoExp2.Enabled) then
+ 'If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoExp2.Click()
+            Log.Message("Checkbox 'chkboxAutoExp2 ' clicked")
+          End If
+      End If
+      End If
+     ' End If
+      
+      
+      If(chkboxAutoExp3 =1) then
+'If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoExp3.Enabled) then
+ 'If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoExp3.Click()
+            Log.Message("Checkbox 'chkboxAutoExp3 ' clicked")
+          End If
+      'End If
+     ' End If
+      End If
+      
+      If(chkboxAutoExp4 =1) then
+If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoExp4.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoExp4.Click()
+            Log.Message("Checkbox 'chkboxAutoExp4 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      
+      '''''''''''''''
+      If(chkboxAutoExp5 =1) then
+If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoExp5.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoExp5.Click()
+            Log.Message("Checkbox 'chkboxAutoExp5 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      '''''''''''''''
+     
+      '''''''''''''''''
+ 
+       If(chkboxAutoHotMod1 =1) then
+If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotMod1.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotMod1.Click()
+            Log.Message("Checkbox 'chkboxAutoHotMod1 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      
+      ''''''
+       If(chkboxAutoHotMod2 =1) Then
+       If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotMod2.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotMod2.Click()
+            Log.Message("Checkbox 'chkboxAutoHotMod2 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      
+      ''''''''''''''''''''
+      If(chkboxAutoHotMod3 =1) Then
+       If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotMod3.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotMod3.Click()
+            Log.Message("Checkbox 'chkboxAutoHotMod3 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      
+      '''''''''''''''
+       If(chkboxAutoHotMod4 =1) Then
+       If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotMod4.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotMod4.Click()
+            Log.Message("Checkbox 'chkboxAutoHotMod4 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      
+      '''''''''''''''''''''''''''''''''
+       If(chkboxAutoHotMod5 =1) Then
+       If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotMod5.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotMod5.Click()
+            Log.Message("Checkbox 'chkboxAutoHotMod5 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      
+      ''''''''''''''''
+      If(chkboxAutoHotAllow1 =1) then
+      If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotAllow1.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotAllow1.Click()
+            Log.Message("Checkbox 'chkboxAutoHotAllow1 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      '''''''''''''''''''''
+      If(chkboxAutoHotAllow2 =1) then
+      If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotAllow2.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotAllow2.Click()
+            Log.Message("Checkbox 'chkboxAutoHotAllow2 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      
+      '''''''''''''''''''''''''''
+       If(chkboxAutoHotAllow3 =1) then
+      If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotAllow3.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotAllow3.Click()
+            Log.Message("Checkbox 'chkboxAutoHotAllow3 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      
+      '''''''''''''''
+If(chkboxAutoHotAllow4 =1) then
+    If(objNameMapping.dlgOpenPressTemp.Exists) Then
+      If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotAllow4.Enabled) then
+        If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotAllow4.Click()
+            Log.Message("Checkbox 'chkboxAutoHotAllow4' clicked")
+          End If
+      End If
+  End If
+End If
+      
+      ''''''''
+       If(chkboxAutoHotAllow5 =1) then
+      If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoHotAllow5.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoHotAllow5.Click()
+            Log.Message("Checkbox 'chkboxAutoHotAllow5' clicked")
+          End If
+      End If
+      End If
+      End If
+      ''''''''''''''''''''''''''''''''''
+      
+      ''''''''''''''''
+      If(chkboxAutoYieldSy1 = 1) Then
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoYieldSy1.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoYieldSy1.Click()
+            Log.Message("Checkbox 'chkboxAutoYieldSy1 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      '''''''''''''''''''''''''
+      If(chkboxAutoYieldSy2 = 1) Then
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoYieldSy2.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoYieldSy2.Click()
+            Log.Message("Checkbox 'chkboxAutoYieldSy2 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      '''''
+      If(chkboxAutoYieldSy3 = 1) Then
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoYieldSy3.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoYieldSy3.Click()
+            Log.Message("Checkbox 'chkboxAutoYieldSy3 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      '''''''''''''
+      If(chkboxAutoYieldSy4 = 1) Then
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+If(objNameMapping.dlgOpenPressTemp.chkboxAutoYieldSy4.Enabled) then
+ If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoYieldSy4.Click()
+            Log.Message("Checkbox 'chkboxAutoYieldSy4 ' clicked")
+          End If
+      End If
+      End If
+      End If
+      ''''''''''''
+If(chkboxAutoYieldSy5 = 1) Then
+ If(objNameMapping.dlgOpenPressTemp.Exists) Then
+    If(objNameMapping.dlgOpenPressTemp.chkboxAutoYieldSy5.Enabled) then
+        If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgOpenPressTemp.chkboxAutoYieldSy5.Click()
+            Log.Message("Checkbox 'chkboxAutoYieldSy5 ' clicked")
+          End If
+      End If
+  End If
+End If
+      
+      '''''
+      If(drpdwnSelectCases <> "NA" ) Then
+      If(objNameMapping.dlgOpenPressTemp.Exists) Then
+          'If(objNameMapping.dlgOpenPressTemp.drpdwnSelectCases.Enabled) Then
+          dlgOpenPressTemp.drpdwnSelectCases.Click()
+          objNameMapping.lstItems.ClickItem(drpdwnSelectCases)
+
+          Log.Message("Entered  field")
+        End If
+    End If
+   'End If
+   ' End If
+'       Dim intExp1:intExp1=objRow.item("intExp1")
+
+ '''intExp1
+    If(intExp1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldExp1.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldExp1.Keys(intExp1)
+         
+          Log.Message("Entered in the intExp1 field")
+        End If
+    End If
+    End If
+    
+    
+    
+
+'''intExp2
+    If(intExp2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldExp2.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldExp2.Keys(intExp2)
+         
+          Log.Message("Entered in the intExp2 field")
+        End If
+    End If
+    End If
+    
+
+'''intExp3
+    If(intExp3 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldExp3.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldExp3.Keys(intExp3)
+         
+          Log.Message("Entered in the intExp3 field")
+        End If
+    End If
+    End If
+
+
+'''intExp4
+    If(intExp4 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldExp4.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldExp4.Keys(intExp4)
+         
+          Log.Message("Entered in the intExp4 field")
+        End If
+    End If
+    End If
+
+
+'''intExp5
+    If(intExp5 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldExp5.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldExp5.Keys(intExp5)
+         
+          Log.Message("Entered in the intExp5 field")
+        End If
+    End If
+    End If
+
+
+
+'''intHotAllow1
+    If(intHotAllow1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         'If(objNameMapping.dlgOpenPressTemp.fldHotAllow1.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotAllow1.Keys(intHotAllow1)
+         
+          Log.Message("Entered in the intHotAllow1 field")
+       ' End If
+    End If
+    End If
+
+
+'''intHotAllow2
+    If(intHotAllow2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotAllow2.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotAllow2.Keys(intHotAllow2)
+         
+          Log.Message("Entered in the intHotAllow2 field")
+       End If
+    End If
+    End If
+
+
+
+'''intHotAllow3
+    If(intHotAllow3 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotAllow3.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotAllow3.Keys(intHotAllow3)
+         
+          Log.Message("Entered in the intHotAllow3 field")
+       End If
+    End If
+    End If
+
+
+'''intHotAllow4
+    If(intHotAllow4 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotAllow4.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotAllow4.Keys(intHotAllow4)
+         
+          Log.Message("Entered in the intHotAllow4 field")
+       End If
+    End If
+    End If
+
+
+'''intHotAllow5
+    If(intHotAllow5 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotAllow5.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotAllow5.Keys(intHotAllow5)
+         
+          Log.Message("Entered in the intHotAllow5 field")
+       End If
+    End If
+    End If
+
+
+
+'''intHotMod1
+    If(intHotMod1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotMod1.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotMod1.Keys(intHotMod1)
+         
+          Log.Message("Entered in the intHotMod1 field")
+       End If
+    End If
+    End If
+    
+    
+
+
+'''intHotMod2
+    If(intHotMod2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotMod2.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotMod2.Keys(intHotMod2)
+         
+          Log.Message("Entered in the intHotMod2 field")
+       End If
+    End If
+    End If
+    
+    
+    
+
+
+'''intHotMod3
+    If(intHotMod3 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotMod3.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotMod3.Keys(intHotMod3)
+         
+          Log.Message("Entered in the intHotMod3 field")
+       End If
+    End If
+    End If
+
+'''intHotMod4
+    If(intHotMod4 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotMod4.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotMod4.Keys(intHotMod4)
+         
+          Log.Message("Entered in the intHotMod4 field")
+       End If
+    End If
+    End If
+
+
+'''intHotMod5
+    If(intHotMod5 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldHotMod5.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldHotMod5.Keys(intHotMod5)
+         
+          Log.Message("Entered in the intHotMod5 field")
+       End If
+    End If
+    End If
+
+
+
+'''intPress1
+    If(intPress1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         'If(objNameMapping.dlgOpenPressTemp.fldPress1.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldPress1.Keys(intPress1)
+         
+          Log.Message("Entered in the intPress1 field")
+      ' End If
+    End If
+    End If
+
+
+
+'''intPress2
+    If(intPress2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldPress2.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldPress2.Keys(intPress2)
+         
+          Log.Message("Entered in the intPress1 field")
+      End If
+    End If
+    End If
+
+
+
+'''intPress3
+    If(intPress3 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldPress3.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldPress3.Keys(intPress3)
+         
+          Log.Message("Entered in the intPress3 field")
+      End If
+    End If
+    End If
+
+
+'''intPress4
+    If(intPress4 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldPress4.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldPress4.Keys(intPress4)
+         
+          Log.Message("Entered in the intPress4 field")
+      End If
+    End If
+    End If
+    
+    
+
+'''intPress4
+    If(intPress5 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldPress5.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldPress5.Keys(intPress5)
+         
+          Log.Message("Entered in the intPress5 field")
+      End If
+    End If
+    End If
+    
+'''intTemp1
+    If(intTemp1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+        ' If(objNameMapping.dlgOpenPressTemp.fldTemp1.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldTemp1.Keys(intTemp1)
+         
+          Log.Message("Entered in the intTemp1 field")
+      'End If
+    End If
+    End If
+
+
+'''intTemp2
+    If(intTemp2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldTemp2.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldTemp2.Keys(intTemp2)
+         
+          Log.Message("Entered in the intTemp2 field")
+      End If
+    End If
+    End If
+
+
+'''intTemp3
+    If(intTemp3 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldTemp3.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldTemp3.Keys(intTemp3)
+         
+          Log.Message("Entered in the intTemp3 field")
+      End If
+    End If
+    End If
+
+
+'''intTemp4
+    If(intTemp4 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldTemp4.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldTemp4.Keys(intTemp4)
+         
+          Log.Message("Entered in the intTemp4 field")
+      End If
+    End If
+    End If
+
+
+
+'''intTemp5
+    If(intTemp5 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+         If(objNameMapping.dlgOpenPressTemp.fldTemp5.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldTemp5.Keys(intTemp5)
+         
+          Log.Message("Entered in the intTemp5 field")
+      End If
+    End If
+    End If
+
+
+'''intYieldSy1
+    If(intYieldSy1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+        ' If(objNameMapping.dlgOpenPressTemp.fldYieldSy1.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldYieldSy1.Keys(intYieldSy1)
+         
+          Log.Message("Entered in the intYieldSy1 field")
+    '  End If
+    End If
+    End If
+
+
+'''intYieldSy2
+    If(intYieldSy2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+        If(objNameMapping.dlgOpenPressTemp.fldYieldSy2.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldYieldSy2.Keys(intYieldSy2)
+         
+          Log.Message("Entered in the intYieldSy2 field")
+     End If
+    End If
+    End If
+
+'''intYieldSy3
+    If(intYieldSy3 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+        If(objNameMapping.dlgOpenPressTemp.fldYieldSy3.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldYieldSy3.Keys(intYieldSy3)
+         
+          Log.Message("Entered in the intYieldSy3 field")
+     End If
+    End If
+    End If
+
+'''intYieldSy4
+    If(intYieldSy4 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+        If(objNameMapping.dlgOpenPressTemp.fldYieldSy4.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldYieldSy4.Keys(intYieldSy4)
+         
+          Log.Message("Entered in the intYieldSy4 field")
+     End If
+    End If
+    End If
+
+
+'''intYieldSy5
+    If(intYieldSy5 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgOpenPressTemp.Exists) Then
+        If(objNameMapping.dlgOpenPressTemp.fldYieldSy5.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgOpenPressTemp.fldYieldSy5.Keys(intYieldSy5)
+         
+          Log.Message("Entered in the intYieldSy5 field")
+     End If
+    End If
+    End If
+
+'      
+      '''''''''''''''''''''''''''''''''''''
+End Sub

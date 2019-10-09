@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="APTAF">
+			<folder name="BusinessLayer">
+				<child name="Main" key="{D6A19B07-5275-466E-8CCA-9D1D7959CDDF}" path="BusinessLayer\Main.svb" />
+				<child name="DTP" key="{AB56722A-DEC9-4067-861A-6CF0BA2EE6D9}" path="BusinessLayer\DTP.svb" />
+				<child name="UIEngine" key="{189776CD-0A62-44BB-9DD3-8EADC86B6BA3}" path="BusinessLayer\UIEngine.svb" />
+				<child name="CCEngine" key="{087DED62-487B-4F1B-BC94-9106F688D9B3}" path="BusinessLayer\CCEngine.svb" />
+				<child name="StartProject" key="{8A09F7D2-3C6D-4904-87D1-C05347F51C74}" path="BusinessLayer\StartProject.svb" />
+				<child name="EndProject" key="{1A31CC6F-239E-4CF7-88C5-49A940AEF623}" path="BusinessLayer\EndProject.svb" />
+			</folder>
+			<folder name="Library">
+				<child name="APP_Common" key="{6B80EC82-2EA5-4C76-AE63-6B809B8A598B}" path="Library\APP_Common.svb" />
+				<child name="DatabaseFunctions" key="{70AF0F3F-CB0B-45C8-B8A8-083AD206A474}" path="Library\DatabaseFunctions.svb" />
+				<child name="FSO_Functions" key="{81D64726-5C7D-4AF0-A0DD-99B28E520092}" path="Library\FSO_Functions.svb" />
+				<child name="GEN_Common" key="{43C0F222-12C6-4BD8-BDA4-D2BAE01EB81C}" path="Library\GEN_Common.svb" />
+				<child name="GlobalConstants" key="{C8C2CD2A-E00B-4EA0-8BA9-A73814299E55}" path="Library\GlobalConstants.svb" />
+				<child name="Maxsurf_Common" key="{30D71865-7D12-4055-8FA9-823EE85A0E02}" path="Library\Maxsurf_Common.svb" />
+				<child name="Microstation_Common" key="{55950A3C-9E7C-4B4F-A6BE-7233E9E6C972}" path="Library\Microstation_Common.svb" />
+				<child name="Ribbon_Common" key="{FDED81B4-3A90-4EF2-9B8E-38FA41FE4F34}" path="Library\Ribbon_Common.svb" />
+				<child name="SelfService" key="{E9EAAA0A-D651-4E47-A5C9-97103D88F1B1}" path="Library\SelfService.svb" />
+			</folder>
+			<folder name="UILayer">
+				<folder name="Analysis">
+					<child name="Analyze" key="{5B6D8A85-7BE7-404F-B8C4-8B72550F1059}" path="UILayer\Analysis\Analyze.svb" />
+				</folder>
+				<folder name="BentleyCloud" />
+				<folder name="File">
+					<child name="ImportExport" key="{DBCFA8EB-A4E4-4FDB-8E63-AEC1C6FF96E3}" path="UILayer\File\ImportExport.svb" />
+					<child name="Model" key="{5EFCA220-C0EE-445F-91D8-8D0CD6EE69A4}" path="UILayer\File\Model.svb" />
+					<child name="Save" key="{46945E92-EBC0-457C-8DD3-25B13D6354E8}" path="UILayer\File\Save.svb" />
+					<child name="License" key="{0AC4C0D4-D28B-4252-B008-260D379988FB}" path="UILayer\File\License.svb" />
+				</folder>
+				<folder name="Help" />
+				<folder name="Home">
+					<child name="HomeModelOptions" key="{7AEB2B63-7B7A-4042-BB84-8FCF9F67AC99}" path="HomeModelOptions.svb" />
+				</folder>
+				<folder name="Insert/Modify/Delete">
+					<child name="PipingComponents" key="{98F217C8-5E3F-4664-97AC-550A14ACCFB1}" path="UILayer\InsertModifyDelete\PipingComponents.svb" />
+					<child name="Properties" key="{57758695-EA69-415C-9398-1DB6F9A460B8}" path="UILayer\InsertModifyDelete\Properties.svb" />
+					<child name="Supports" key="{38522EF6-715C-4BA1-B595-7689F24008F4}" path="UILayer\InsertModifyDelete\Supports.svb" />
+					<child name="XtraData" key="{8C6445ED-AA16-4FEB-8D86-15BAE7981A8E}" path="UILayer\InsertModifyDelete\XtraData.svb" />
+				</folder>
+				<folder name="Loads" />
+				<folder name="Result">
+					<child name="Reports" key="{52F95F9B-D908-4E33-9B90-751AFD010C8C}" path="UILayer\Result\Reports.svb" />
+					<child name="ResultOptions" key="{CB3876B1-777B-46B9-8755-F7DF45B5381A}" path="UILayer\Result\ResultOptions.svb" />
+				</folder>
+				<folder name="Select">
+					<child name="Selection" key="{B70FEA76-C434-488D-8280-22D9FB408DF1}" path="UILayer\Select\Selection.svb" />
+				</folder>
+				<folder name="Show" />
+				<folder name="Tools">
+					<child name="ModelOptions" key="{278410AC-1388-4C26-BCC6-6B79AD7B316F}" path="UILayer\Tools\ModelOptions.svb" />
+				</folder>
+				<folder name="View" />
+				<folder name="ConnectionClient">
+					<child name="ConnectionClient" key="{A08091AA-D072-404E-9DF6-C17EB397B952}" path="UILayer\ConnectionClient\ConnectionClient.svb" />
+				</folder>
+				<folder name="Orphan">
+					<child name="Orphan" key="{C1DAB5FE-64AF-436A-BD9F-6A9F62275D97}" path="UILayer\Orphan\Orphan.svb" />
+				</folder>
+			</folder>
+			<folder name="Template">
+				<child name="ActionScript" key="{F67F9F4A-EF70-4958-B85A-CA2219070319}" path="Template\DigitalTestPlan\Script\ActionScript.svb" />
+				<child name="tabTemplate" key="{92915663-2CB0-431A-B436-0E22D958DD4D}" path="Template\tabTemplate.svb" />
+				<child name="UIMAppingTemplate" key="{64C621B8-0746-4222-ACF1-80D029D87F91}" path="Template\UIMAppingTemplate.svb" />
+				<child name="VBTutorial" key="{237695CA-DEF8-4401-BAC4-6E7812D2CD5D}" path="Template\VBTutorial.svb" />
+			</folder>
+			<folder name="TabLayer">
+				<child name="BentleyCloudServices" key="{5A77C257-5833-45CF-A1A1-780F7E9EBDD7}" path="BentleyCloudServices.svb" />
+				<child name="Help" key="{38ACF048-ECAD-4E71-ADFD-90DA88D52826}" path="Help.svb" />
+				<child name="tabAnalysis" key="{D95EC7D0-A2EF-44A6-80B9-5CC677F3AF41}" path="TabLayer\tabAnalysis.svb" />
+				<child name="tabDelete" key="{9BEEE4CF-A6C3-4942-ACBE-4C2A6327AD92}" path="TabLayer\tabDelete.svb" />
+				<child name="tabFile" key="{D6DC1B89-67F0-4AC3-9C65-5801AEDD6156}" path="TabLayer\tabFile.svb" />
+				<child name="tabHome" key="{A9EC8010-96C3-4F42-9712-98F188CB9602}" path="TabLayer\tabHome.svb" />
+				<child name="tabInsert" key="{A348330C-DA62-45F8-9D9C-D6ED1FE88B88}" path="TabLayer\tabInsert.svb" />
+				<child name="tabModify" key="{B0F5401C-0BDE-4F72-9719-68544692707C}" path="TabLayer\tabModify.svb" />
+				<child name="tabResult" key="{1E844CE3-1C42-4B67-A496-440EB32D135C}" path="TabLayer\tabResult.svb" />
+				<child name="tabSelect" key="{E7615A5D-F7EB-4305-A41B-65D4BCFE608A}" path="TabLayer\tabSelect.svb" />
+				<child name="tabShow" key="{3374465F-5962-4D67-A363-2BACB67B12D3}" path="TabLayer\tabShow.svb" />
+				<child name="tabTools" key="{AEF86706-C3BD-4C9D-B862-B174342B3047}" path="TabLayer\tabTools.svb" />
+				<child name="tabView" key="{C7C00A3A-E66D-462B-9309-48A69A6C0057}" path="TabLayer\tabView.svb" />
+				<child name="tabConnectionClient" key="{EB7204AF-C73D-4A02-BFF7-FD2C3A8A1131}" path="TabLayer\tabConnectionClient.svb" />
+				<child name="tabOrphan" key="{C4D4AFEA-97D6-4BD7-824B-A3AE159E0235}" path="TabLayer\tabOrphan.svb" />
+			</folder>
+			<folder name="Actions">
+				<child name="ModifyFields" key="{41F47AE5-BE8E-48D5-AE35-E4BE4F8A3E51}" path="Actions\ModifyFields.svb" />
+				<child name="PostAction" key="{BE916879-77FF-4105-9306-2C26B6368BDD}" path="Actions\PostAction.svb" />
+				<child name="PreAction" key="{F4885155-FABA-4FF0-A104-E6B92B77D00D}" path="Actions\PreAction.svb" />
+				<child name="RemoveFields" key="{68AEFB14-D3CA-4D7E-83E6-135AD8FDC1D9}" path="Actions\RemoveFields.svb" />
+			</folder>
+		</folder>
+		<child name="CreateDTP" key="{798161BE-975F-41B7-898A-3E4096BDBF57}" path="CreateDTP.svb" />
+	</children>
+</Root>

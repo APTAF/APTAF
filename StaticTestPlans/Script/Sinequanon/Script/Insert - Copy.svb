@@ -1,0 +1,365 @@
+﻿'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabSelect
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabModify
+'USEUNIT tabDelete
+'USEUNIT App_Common
+'USEUNIT DatabaseFunctions
+'USEUNIT Main
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                            Globle variables                                       '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  Dim strReportDB
+  Dim strTestPlanName: strTestPlanName = Main.GetTestPlanName
+  Dim strReportTableName
+  Dim strReportFolderPath
+  Dim intRowCounter
+  Dim strSheetName
+
+  
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                           Main Function                                           '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''  
+Sub CategoryMain(strSheetName)
+  
+  intRowCounter = 15
+  strSheetName = strSheetName
+'------ Create Sheet Header + Data
+  Dim strCopySheet:strCopySheet = "Template"
+  Dim strRenamedTo:strRenamedTo = strSheetName
+  Call Main.CreateSheet(strRenamedTo,strCopySheet)' Create copy of the 'Template' sheet and renamed to strSheetName
+  Call InsertHeader(strSheetName)                 ' Insert header in the created sheet
+  Call InsertHeaderData(strSheetName)             ' Insert Data in the sheet
+'------ Test Scenario
+  Call TSMain(strSheetName)                       ' Verify Insert Positive Scenarios
+  PopLogFolder
+
+End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                            Create Test Plan Header                                       '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub InsertHeader(strSheetName)
+  Dim strDirection,intStartCol,intStartRow
+  Dim strTestPlanName: strTestPlanName = Main.GetTestPlanName
+
+  Dim arrTPSheetHeader1(10)
+  arrTPSheetHeader1(0) = "Test Plan"
+  arrTPSheetHeader1(1) = "TestPlan Name"
+  arrTPSheetHeader1(2) = "Application"
+  arrTPSheetHeader1(3) = "AutoPIPE Build#"
+  arrTPSheetHeader1(4) = "PW Explorer Build"
+  arrTPSheetHeader1(5)=  "STAADPro Build"
+  arrTPSheetHeader1(6) = "Operating System"
+  arrTPSheetHeader1(7) = ""
+  arrTPSheetHeader1(8) = "Percent Pass"
+  arrTPSheetHeader1(9) = "Precent Fail"
+  
+  strDirection = "vertical"
+  intStartCol = 1
+  intStartRow = 1
+  Call WriteTP(strTestPlanName,strSheetName,arrTPSheetHeader1,LCase(strDirection),intStartCol,intStartRow)
+  
+  Dim arrTPSheetHeader2(6)
+  arrTPSheetHeader2(0) = "TestCase No."
+  arrTPSheetHeader2(1) = "Test Scenario"
+  arrTPSheetHeader2(2) = "Test Case"
+  arrTPSheetHeader2(3) = "Action"
+  arrTPSheetHeader2(4) = "Result"
+  arrTPSheetHeader2(5) = "Comments"
+  
+  strDirection = "horizontal"
+  intStartCol = 1
+  intStartRow = 14
+  Call WriteTP(strTestPlanName, strSheetName,arrTPSheetHeader2, LCase(strDirection),intStartCol,intStartRow)
+End Sub
+'------------------------------------------------------------------------------------
+' Summary: Function to get Sheet headers from the InputDB(TestData.xlsx) and write in the TestPlan Sheet. 
+' Remarks:
+' Actions:
+'           strSheetName -> Excel sheet name
+'          
+' Author:     
+' Date:     11/2017
+'--------------+---------------+---------------+---------------+---------------+------
+Sub InsertHeaderData(strSheetName)
+  
+  
+  Set ObjRowTPAppName = GetRow(7, "tpDetails")
+  Set ObjRowTPRegPath = GetRow(8, "tpDetails")    
+
+  Dim ApplicationName:ApplicationName  = ObjRowTPAppName.Item("Details")
+  Dim strRegistery:strRegistery        = ObjRowTPRegPath.Item("Details")  ' Update Application Registery Path e-g "Software\Wow6432Node\Bentley\AutoPIPE\CONNECT QAR v11" 
+  'Dim strTestPlanName:strTestPlanName = Main.GetTestPlanName
+  Dim TPName : TPName                  = Project.Variables.strTPReportName  ' Update: Test Plan Name
+  Dim STAADProBuild: STAADProBuild	   = "NA"  ' Update: STAAD-Pro Build#
+  Dim PWExplorerBuild: PWExplorerBuild = "NA"  ' Update: PW-Explorer Build Number
+  
+  Set Key = Storages.Registry(strRegistery,HKEY_LOCAL_MACHINE, 0, True) 'Application Registery
+  Dim strTestPlanName:strTestPlanName = Main.GetTestPlanName 
+  Dim APBuild : APBuild = Key.GetOption("Version","AutoPIPEVer")
+  Dim OperatingSystem: OperatingSystem	= Sys.OSInfo.FullName
+  
+  Dim arrData(6)
+
+  arrData(0) = TPName
+  arrData(1) = ApplicationName
+  arrData(2) = APBuild
+  arrData(3) = PWExplorerBuild
+  arrData(4) = STAADProBuild
+  arrData(5) = OperatingSystem
+  
+  strDirection = "vertical" 'Write in Vertical direction
+  intStartCol = 3          ' Start writing from Column
+  intStartRow = 2           ' Start writing from Row
+  
+  Call WriteTP(strTestPlanName,strSheetName,arrData,LCase(strDirection),intStartCol,intStartRow)
+End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                           Test Scenario                                           '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub TSMain(strSheetName)
+  'Array should contain Test Scenarios IDs like TS1, TS2, TS3 etc
+
+  
+          Dim tblName:tblName = "tpTestScenario"
+          Dim strWhere: strWhere = "Cat1"
+          Dim strField: strField = "TSID,CatID,TSComments"
+          strQuery = "Select TSNo,TSID,CatID,strTSComments, strTSTitle from "& tblName &" WHERE CatID ='"& strWhere &"'"
+          arrTestScenarios = GetDBRecord(strQuery)
+
+
+  
+   'For each TestScenario in arrTestScenarios
+    For i = 0 to UBound(arrTestScenarios)
+    Dim strTSID:strTSID = arrTestScenarios(1,i)
+    Dim strCatID:strCatID = arrTestScenarios(2,i)
+    Dim strTSComments : strTSComments = arrTestScenarios(3,i)
+    Dim strTSTitle : strTSTitle = arrTestScenarios(4,i)
+   
+    
+    
+    Call AddTSToTP(strSheetName,strTSID,strTSTitle,strTSComments)
+    Call TCMain(strSheetName, strTSID, strCatID)
+            
+  Next
+End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''                           Test Case                                               '' 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub TCMain(strSheetName, strTSID, strCatID)
+  
+  
+          Dim tblName:tblName = "tpTestCase"
+          'Dim strWhere: strWhere = "Cat1"
+          'Dim strField: strField = "TSID,CatID,TSComments"
+         strQuery = "Select TCNo,TCID,TSID,CatID,strTCComments,strBenchmarkFileName,strActualFileName,strVerificationType,strTCTitle from "& tblName &" WHERE CatID ='Cat1' And TSID = 'TS2'"
+          arrTestCases = GetDBRecord(strQuery)
+
+
+  For i = 0 to UBound(arrTestCases)-1
+  Dim strTCID:strTCID = arrTestCases(1,i)
+  'Dim strTSID:strTSID = arrTestCases(2,i)
+  'Dim strCatID:strCatID = arrTestCases(3,i)
+  Dim strTSComments:strTSComments = arrTestCases(4,i)
+  Dim strBenchmarkFileName:strBenchmarkFileName = arrTestCases(5,i)
+  Dim strActualFileName:strActualFileName = arrTestCases(6,i)
+  Dim strVerificationType:strVerificationType = arrTestCases(7,i)
+  Dim strTCTitle:strTCTitle =  arrTestCases(8,i)
+  Dim strTCAction:strTCAction =  strCatID&strTSID&strTCID 'Cat1TS1TC1
+'  
+'  
+'  
+'                     strTCID              = TestScenario & strTestCase 
+'                     strTCTitle           = "DX,DY,DZ verification"   ' Update: Test case title
+'                     strBenchmarkFileName = "SMOKE_CAT1TS1TC1_RPT"             ' Update: Benchmark file name
+'                     strActualFileName    = "SMOKE_CAT1TS1TC1.RPT"             ' Update: Actual file name with extension
+'                     strTCComments        = ""                        ' Update: Comments
+'                     strVerificationType  = "OUT"                     ' Verification Types: OUT, RPT, NTL, GUI, Dialog, InputGrid
+'                     
+                     Call TestCase(strTCAction, strSheetName,strTCID,strTCTitle, strBenchmarkFileName,strActualFileName, strTCComments, strVerificationType)
+                
+  Next
+  
+
+  
+ 
+  
+End Sub
+
+
+
+Sub TestCase(strTCAction, strSheetName, strTCID,strTCTitle, strBenchmarkFileName,strActualFileName, strTCComments,strVerificationType)
+         
+            Dim strLogFile  : strLogFile = aqFileSystem.ExpandFileName(strReportFolderPath) & "\Logs\" & strTCID & ".mht"
+            Dim strTestPlanName:strTestPlanName = Main.GetTestPlanName
+'---------- Add to Log
+           AppendFolder(strTCID&"-"&strTCTitle) 
+           AppendFolder("Actions")         
+'---------- Call Test Script           
+           
+            CallTestCase = "Call " & strTCAction
+            Execute CallTestCase
+           'Call Cat1TS1TC1Actions
+'---------- Add to Log
+           PopLogFolder
+'---------- Verification Types: OUT, RPT, NTL, GUI, Dialog, InputGrid
+           'strVerificationType = "OUT"
+           AppendFolder("Verification")
+           strTestResult = Verification(LCase(strVerificationType),strActualFileName,strBenchmarkFileName)
+'----------Save Log file
+            Call Log.SaveResultsAs(strLogFile, lsMHT)    '2 is MHT format   
+            Call AddTCToTP(strSheetName,strTCID,strTCTitle,strLogFile,strTestResult,strTSComments)
+'---------- Add to Log   
+          PopLogFolder
+          PopLogFolder
+            
+End Sub
+Sub Cat1TS1TC1
+''' Actions Section
+
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    tabInsert.Run("1")
+   
+    tabAnalysis.AnalyzeAll("0")
+    tabResult.InputlistReport("0")
+
+    'Post-Condition
+    tabFile.Close("No")  
+    
+
+End Sub
+
+'------------------------------------------------------------------------------------
+' Summary: This function will Add Test Case to Test Plan. 
+' Remarks:
+' Actions:
+'           strSheetName -> Excel sheet name
+'           strTCID      -> Test Case ID
+'           strTCTitle   -> Test Case Title
+'           strLogFile   -> Test Case Log file path
+'           strTestResult-> Test Case Verification result
+'           strTSComments-> Comments related to Test Case
+' Author:     
+' Date:     8/2017
+'------------+---------------+---------------+---------------+---------------+------
+Sub AddTCToTP(strSheetName, strTCID,strTCTitle, strLogFile, strTestResult, strTCComments)
+''' Write to Excel
+    Dim strLogFileLink
+    Dim strTestPlanName
+    
+    If strLogFile <> "" Then 
+          strLogFileLink =  "=HYPERLINK(""" & strLogFile & """,""StepsToRepeat"")"
+    Else
+          strLogFileLink = ""
+    End IF
+    strTestPlanName = Main.GetTestPlanName
+    Dim arrData(6)
+      arrData(0) = strTCID
+      arrData(1) = ""
+      arrData(2) = strTCTitle
+      arrData(3) = strLogFileLink
+      arrData(4) = strTestResult
+      arrData(5) = strTCComments
+    strDirection = "horizontal" 'Write in Vertical direction
+    intStartCol = 1             ' Start writing from Column
+    intStartRow = intRowCounter 
+    Call WriteTP(strTestPlanName,strSheetName,arrData,LCase(strDirection),intStartCol,intStartRow)
+    intRowCounter = intRowCounter +1 
+End Sub
+
+'------------------------------------------------------------------------------------
+' Summary: This function will Add Test Scenario to Test Plan. 
+' Remarks:
+' Actions:
+'           strSheetName -> Excel sheet name
+'           strTCID      -> Test Scenario ID
+'           strTCTitle   -> Test Scenario Title
+'           strTSComments-> Comments related to Test Case
+' Author:     
+' Date:     8/2017
+'--------------+---------------+---------------+---------------+---------------+------
+Sub AddTSToTP(strSheetName,strTSID,strTSTitle,strTSComments) 
+
+  Dim strTestPlanName : strTestPlanName = Main.GetTestPlanName
+  '----------------------Add to Log
+  AppendFolder(strTSID&"-"&strTSTitle)
+  
+  '-----------------Write to Excel table - TestPlan
+    Dim arrData(3)
+    arrData(0) = strTSID
+    arrData(1) = strTSTitle
+    arrData(2) = strTSComments
+    strDirection = "horizontal" 'Write in Vertical direction
+    intStartCol = 1         ' Start writing from Column
+    intStartRow = intRowCounter 
+    
+    Call WriteTP(strTestPlanName, strSheetName, arrData, LCase(strDirection),intStartCol,intStartRow)
+    intRowCounter = intRowCounter +1 ' Increment one in the test plan row number counter
+'-------Log
+  PopLogFolder
+End Sub
+Function Verification(strVerificationType, strActualFileName,strBenchmarkFileName)
+Dim strTestResult 
+    Select Case strVerificationType
+        Case "out" 
+            ' OUT Report
+              AppendFolder("OUT/RPT Verificatoin")
+              strTestResult = Main.VerifyResult(strActualFileName,strBenchmarkFileName)
+              ' If strTestResult equals to 'TRUE' means the files matched and the test is passed.
+              IF  strTestResult = "True" Then
+                  strTestResult = "Pass"
+              Else
+                  strTestResult = "Fail"
+              End IF
+              PopLogFolder
+              Verification = strTestResult
+        Case "rpt" 
+              ' OUT Report
+                AppendFolder("OUT/RPT Verificatoin")
+                strTestResult = Main.VerifyResult(strActualFileName,strBenchmarkFileName)
+                ' If strTestResult equals to 'TRUE' means the files matched and the test is passed.
+                IF  strTestResult = "True" Then
+                    strTestResult = "Pass"
+                Else
+                    strTestResult = "Fail"
+                End IF
+                PopLogFolder
+                OUTVerification = strTestResult
+        Case "gui"
+              ' GUI Verification
+                AppendFolder("GUI Verificatoin")
+                Log.Message("Verification not done")
+                PopLogFolder
+        Case "ntl"
+              ' NTL Verification
+                AppendFolder("NTL Verificatoin")
+                Log.Message("Verification not done")
+                PopLogFolder
+        case "dialog"
+              ' Verification from dialog
+                AppendFolder("Dialog Verificatoin")
+                Log.Message("Verification not done")
+                PopLogFolder
+        case "inputgrid"
+              ' Verification from Input Grid 
+                AppendFolder("Input Grid Verificatoin")
+                Log.Message("Verification not done")
+                PopLogFolder 
+    End Select
+End Function
+
+
+
+
+
+

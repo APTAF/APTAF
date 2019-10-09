@@ -1,0 +1,202 @@
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+04/03/2018 PROJECT:                                               BENTLEY                                       
+03:42 PM                                                          AutoPIPE Nuclear 11.03.00.08   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2164-158:Flange(s) with inconsistent CAD length with pipe found at following point(s)                     
+                                                                                
+     41, 44, 60                                                                 
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2216-201:Operating Pressure & temperature data has been updated for following points.                     
+                                                                                
+                                                                                
+     10       T1                                                                
+                                                                                
+     20       T1                                                                
+                                                                                
+     30       T1                                                                
+                                                                                
+     40       T1                                                                
+                                                                                
+     41       T1                                                                
+                                                                                
+     42       T1                                                                
+                                                                                
+     44       T1                                                                
+                                                                                
+     40       T1                                                                
+                                                                                
+     44       T1                                                                
+                                                                                
+     50       T1                                                                
+                                                                                
+     50  M    T1                                                                
+                                                                                
+     60       T1                                                                
+                                                                                
+     70       T1                                                                
+                                                                                
+     80       T1                                                                
+                                                                                
+     90  N    T1                                                                
+                                                                                
+     90       T1                                                                
+                                                                                
+     90  F    T1                                                                
+                                                                                
+     100 N    T1                                                                
+                                                                                
+     100      T1                                                                
+                                                                                
+     100 F    T1                                                                
+                                                                                
+     110      T1                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+04/03/2018 PROJECT:                                               BENTLEY                                       
+03:42 PM                                                          AutoPIPE Nuclear 11.03.00.08   CHECK  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+                                                                                
+     120      T1                                                                
+                                                                                
+     130      T1                                                                
+                                                                                
+     140      T1                                                                
+                                                                                
+     150      T1                                                                
+                                                                                
+     160      T1                                                                
+                                                                                
+     170      T1                                                                
+                                                                                
+     180      T1                                                                
+                                                                                
+     190      T1                                                                
+                                                                                
+     200      T1                                                                
+                                                                                
+     210      T1                                                                
+                                                                                
+     110      T1                                                                
+                                                                                
+     102      T1                                                                
+                                                                                
+     130      T1                                                                
+                                                                                
+     132      T1                                                                
+                                                                                
+     150      T1                                                                
+                                                                                
+     152      T1                                                                
+                                                                                
+     170      T1                                                                
+                                                                                
+     172      T1                                                                
+                                                                                
+     180      T1                                                                
+                                                                                
+     182      T1                                                                
+                                                                                
+     190      T1                                                                
+                                                                                
+     192      T1                                                                
+                                                                                
+     210      T1                                                                
+                                                                                
+     220      T1                                                                
+                                                                                
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-34:  Inconsistent coordinates were reset at following point(s)        
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+04/03/2018 PROJECT:                                               BENTLEY                                       
+03:42 PM                                                          AutoPIPE Nuclear 11.03.00.08   CHECK  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+     44                                                                         
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-14: No anchors in current system                                      
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-69:  Invalid tee data. Modified tee type to welding tee at following point(s)                         
+                                                                                
+     44                                                                         
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-7:   Pipe diameter change without a reducer at following point(s)     
+                                                                                
+     110                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-75:  Previous point(s) reset to following point(s)                    
+                                                                                
+     110    -to-  100 F                                                         
+     130    -to-  120                                                           
+     150    -to-  140                                                           
+     170    -to-  160                                                           
+     180    -to-  170                                                           
+     190    -to-  180                                                           
+     210    -to-  200                                                           
+                                                                                
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-77:  Next point(s) reset to following point(s)                        
+                                                                                
+     110    -to-  120                                                           
+     130    -to-  140                                                           
+     150    -to-  160                                                           
+     170    -to-  180                                                           
+     180    -to-  190                                                           
+     190    -to-  200                                                           
+     110    -to-  102                                                           
+     130    -to-  132                                                           
+     150    -to-  152                                                           
+     170    -to-  172                                                           
+     180    -to-  182                                                           
+     190    -to-  192                                                           
+     210    -to-  220                                                           
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+04/03/2018 PROJECT:                                               BENTLEY                                       
+03:42 PM                                                          AutoPIPE Nuclear 11.03.00.08   CHECK  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-79:  Reconnecting tee at following point(s)                           
+                                                                                
+     110, 130, 150, 170, 180, 190, 210, 110, 130, 150, 170, 180, 190, 210       
+ 
+ 
+  No error    84 Warning(s)                                                     
+ 
+

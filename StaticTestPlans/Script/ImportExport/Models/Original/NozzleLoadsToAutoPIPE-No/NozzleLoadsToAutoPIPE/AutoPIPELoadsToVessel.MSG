@@ -1,0 +1,21 @@
+          * * * *  PXFOUT message file  * * * * 
+
+
+
+
+
+ *** PXF file creation complete ***
+
+ *** Number of errors =  0
+ *** Number of warnings =  0
+
+
+
+
+
+ *** PXF file creation complete ***
+
+ *** Number of errors =  0
+ *** Number of warnings =  0
+
+

@@ -1,0 +1,26 @@
+﻿'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabSelect
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabModify
+'USEUNIT tabDelete
+'USEUNIT App_Common
+'USEUNIT DatabaseFunctions
+'USEUNIT Main
+
+
+Sub Cat1TS1TC1
+
+'  'Pre-Condition
+'   Call tabFile.Open("1","Autopipe database")
+'   Call tabFile.SaveAs("1","AutoPIPE Database")
+
+'  'Test Script 
+'   tabInsert.Run("1")
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'   'Post-Condition
+'    tabFile.Close("No")  
+End Sub

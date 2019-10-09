@@ -1,0 +1,964 @@
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+<IGNORE>
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+<IGNORE>
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA324A                                          
+ 
+ 
+          PROJECT ID  : QA324A                                  
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                             0                   
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.3              
+ 
+          YEAR                   : 2016                            
+ 
+          VERTICAL AXIS          : Z
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B313-16 
+ 
+<IGNORE>
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    2                      
+     Segment Data....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 1 to 2, DX= 4.32 ft                                                   Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Material= A53-A, Composition= Carbon Steel, Poisson= 0.300, Nom Size= 6 in, OD= 6.625 inch,
+   Sch= 40, Wall Thk= 0.280 inch, Mill= 0.035 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                 
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft, Insul Thk= 0 inch,          
+   Cladding Thickness = 0 inch, Lining Thk= 0 inch, Long Weld E factor= 1.00, Long Modulus= 29.50000 E6 psi,    
+   Hoop Modulus= 29.50000 E6 psi, Shear Modulus= 11.34615 E6 psi, Sc= 16000.0 psi, Syc= 30000.0 psi,            
+   Suc= 48000.0 psi                                                             
+ 
+ OPERATING DATA:                                                                
+   P1= 150.00 psi, T1= 170.00 deg F, Exp1= 0.76923 in/100ft, E1= 28.96154 E6 psi, Sh1= 16000.00 psi,            
+   Sy1= 28250.00 psi                                                            
+ 
+ POINT DATA:                                                                    
+   1, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                           
+ 
+ -------------------------------------------------------------------------------
+ From 2 to 4, DX= 0.30 ft                                                   Run 
+ 
+ POINT DATA:                                                                    
+   2, Coordinates, X= 4.32 ft, Y= 0.00 ft, Z= 0.00 ft                           
+ 
+ -------------------------------------------------------------------------------
+ From 4 to 5, DX= 0.88 ft                                                   Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.88 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   4, Coordinates, X= 4.62 ft, Y= 0.00 ft, Z= 0.00 ft                           
+   4, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,    
+   SIF= 1.00, Perform ANSI check= No                                            
+   4   M, Coordinates, X= 5.06 ft, Y= 0.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From 5 to 7, DX= 0.30 ft                                                   Run 
+ 
+ POINT DATA:                                                                    
+   5, Coordinates, X= 5.50 ft, Y= 0.00 ft, Z= 0.00 ft                           
+   5, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,    
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 7 to 10, DX= 4.20 ft                                                  Run 
+ 
+ POINT DATA:                                                                    
+   7, Coordinates, X= 5.80 ft, Y= 0.00 ft, Z= 0.00 ft                           
+ 
+ -------------------------------------------------------------------------------
+ From 10 to 11, DZ= 4.76 ft                                                 Bend
+ 
+ COMPONENT DATA (Bend, TIP= 10, Near= 10  N, Far= 10  F):                       
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ PIPE DATA (10  N to 10  F):                                                    
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ PIPE DATA (10  F to 11):                                                       
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   10, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   10  N, Coordinates, X= 9.25 ft, Y= 0.00 ft, Z= 0.00 ft                       
+   10  F, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 0.75 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 11 to 13, DZ= 0.30 ft                                                 Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   11, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 4.76 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 13 to 14, DZ= 0.87 ft                                                 Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.87 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   13, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 5.06 ft                         
+   13, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   13  M, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 5.50 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 14 to 16, DZ= 0.30 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   14, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 5.94 ft                         
+   14, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 16 to 19, DZ= 3.76 ft                                                 Run 
+ 
+ PIPE DATA (16 to 19  N):                                                       
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   16, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 6.24 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 19 to 20, DX= 4.63 ft, DZ= 0.82 ft, L= 4.70 ft                        Bend
+ 
+ COMPONENT DATA (Bend, TIP= 19, Near= 19  N, Far= 19  F):                       
+   Long Elbow, Radius= 9.00 inch, Bend angle= 80.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ PIPE DATA (19  N to 19  F):                                                    
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ PIPE DATA (19  F to 20):                                                       
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   19, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 10.00 ft                        
+   19  N, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 9.37 ft                      
+   19  F, Coordinates, X= 10.62 ft, Y= 0.00 ft, Z= 10.11 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 20 to 22, DX= 0.30 ft, DZ= 0.05 ft, L= 0.30 ft                        Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   20, Coordinates, X= 14.63 ft, Y= 0.00 ft, Z= 10.82 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 22 to 23, DX= 0.86 ft, DZ= 0.15 ft, L= 0.88 ft                        Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.88 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   22, Coordinates, X= 14.92 ft, Y= 0.00 ft, Z= 10.87 ft                        
+   22, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   22  M, Coordinates, X= 15.35 ft, Y= 0.00 ft, Z= 10.94 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 23 to 25, DX= 0.30 ft, DZ= 0.05 ft, L= 0.30 ft                        Run 
+ 
+ POINT DATA:                                                                    
+   23, Coordinates, X= 15.78 ft, Y= 0.00 ft, Z= 11.02 ft                        
+   23, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 25 to 28, DX= 3.77 ft, DZ= 0.66 ft, L= 3.82 ft                        Run 
+ 
+ PIPE DATA (25 to 28  N):                                                       
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   25, Coordinates, X= 16.08 ft, Y= 0.00 ft, Z= 11.07 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 28 to 29, DX= 0.40 ft, DY= 2.24 ft, L= 2.28 ft                        Bend
+ 
+ COMPONENT DATA (Bend, TIP= 28, Near= 28  N, Far= 28  F):                       
+   Long Elbow, Radius= 9.00 inch, Bend angle= 80.15 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ PIPE DATA (28  N to 28  F):                                                    
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ PIPE DATA (28  F to 29):                                                       
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   28, Coordinates, X= 19.85 ft, Y= 0.00 ft, Z= 11.74 ft                        
+   28  N, Coordinates, X= 19.23 ft, Y= 0.00 ft, Z= 11.63 ft                     
+   28  F, Coordinates, X= 19.96 ft, Y= 0.62 ft, Z= 11.74 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 29 to 31, DX= 0.05 ft, DY= 0.30 ft, L= 0.30 ft                        Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   29, Coordinates, X= 20.24 ft, Y= 2.24 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 31 to 32, DX= 0.15 ft, DY= 0.86 ft, L= 0.88 ft                        Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.88 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   31, Coordinates, X= 20.30 ft, Y= 2.54 ft, Z= 11.74 ft                        
+   31, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   31  M, Coordinates, X= 20.37 ft, Y= 2.97 ft, Z= 11.74 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 32 to 34, DX= 0.05 ft, DY= 0.30 ft, L= 0.30 ft                        Run 
+ 
+ POINT DATA:                                                                    
+   32, Coordinates, X= 20.45 ft, Y= 3.40 ft, Z= 11.74 ft                        
+   32, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 34 to 35, DX= 0.13 ft, DY= 0.76 ft, L= 0.77 ft                        Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   34, Coordinates, X= 20.50 ft, Y= 3.70 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 35 to 38, DX= 0.08 ft, DY= 0.46 ft, L= 0.47 ft                        Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   35, Coordinates, X= 20.64 ft, Y= 4.46 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 38 to 37, DX= 0.08 ft, DY= 0.46 ft, L= 0.47 ft                        Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 38):                                       
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   38, Coordinates, X= 20.72 ft, Y= 4.92 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 37 to 39, DX= 0.20 ft, DY= 1.13 ft, L= 1.15 ft                        Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   37, Coordinates, X= 20.80 ft, Y= 5.39 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 39 to 41, DX= 0.05 ft, DY= 0.30 ft, L= 0.30 ft                        Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   39, Coordinates, X= 21.00 ft, Y= 6.52 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 41 to 42, DX= 0.15 ft, DY= 0.86 ft, L= 0.87 ft                        Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.87 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   41, Coordinates, X= 21.05 ft, Y= 6.81 ft, Z= 11.74 ft                        
+   41, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   41  M, Coordinates, X= 21.13 ft, Y= 7.24 ft, Z= 11.74 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 42 to 44, DX= 0.05 ft, DY= 0.30 ft, L= 0.30 ft                        Run 
+ 
+ POINT DATA:                                                                    
+   42, Coordinates, X= 21.20 ft, Y= 7.67 ft, Z= 11.74 ft                        
+   42, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 44 to 47, DX= 0.33 ft, DY= 1.88 ft, L= 1.90 ft                        Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   44, Coordinates, X= 21.25 ft, Y= 7.97 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 47 to 48, DX= 2.68 ft, DY= -0.72 ft, DZ= 0.72 ft, L= 2.86 ft          Bend
+ 
+ COMPONENT DATA (Bend, TIP= 47, Near= 47  N, Far= 47  F):                       
+   Elbow, Radius= 18.00 inch, Bend angle= 94.84 deg, End flanges= 0, Flex= Auto, SIFI= 1.43, SIFO= 1.19         
+ 
+ POINT DATA:                                                                    
+   47, Coordinates, X= 21.58 ft, Y= 9.85 ft, Z= 11.74 ft                        
+   47  N, Coordinates, X= 21.30 ft, Y= 8.24 ft, Z= 11.74 ft                     
+   47  F, Coordinates, X= 23.11 ft, Y= 9.44 ft, Z= 12.15 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 48 to 50, DX= 0.28 ft, DY= -0.08 ft, DZ= 0.08 ft, L= 0.30 ft          Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   48, Coordinates, X= 24.26 ft, Y= 9.13 ft, Z= 12.45 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 50 to 51, DX= 0.82 ft, DY= -0.22 ft, DZ= 0.22 ft, L= 0.88 ft          Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.88 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   50, Coordinates, X= 24.54 ft, Y= 9.06 ft, Z= 12.53 ft                        
+   50, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   50  M, Coordinates, X= 24.95 ft, Y= 8.95 ft, Z= 12.64 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 51 to 53, DX= 0.28 ft, DY= -0.08 ft, DZ= 0.08 ft, L= 0.30 ft          Run 
+ 
+ POINT DATA:                                                                    
+   51, Coordinates, X= 25.36 ft, Y= 8.84 ft, Z= 12.75 ft                        
+   51, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 53 to 54, DX= 0.33 ft, DY= -0.09 ft, DZ= 0.09 ft, L= 0.35 ft          Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   53, Coordinates, X= 25.64 ft, Y= 8.76 ft, Z= 12.82 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 54 to 57, DX= 0.44 ft, DY= -0.12 ft, DZ= 0.12 ft, L= 0.47 ft          Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   54, Coordinates, X= 25.98 ft, Y= 8.67 ft, Z= 12.91 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 57 to 56, DX= 0.44 ft, DY= -0.12 ft, DZ= 0.12 ft, L= 0.47 ft          Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 57):                                       
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   57, Coordinates, X= 26.41 ft, Y= 8.55 ft, Z= 13.03 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 56 to 58, DX= 1.85 ft, DY= -0.50 ft, DZ= 0.50 ft, L= 1.98 ft          Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   56, Coordinates, X= 26.85 ft, Y= 8.44 ft, Z= 13.15 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 58 to 60, DX= 0.28 ft, DY= -0.08 ft, DZ= 0.08 ft, L= 0.30 ft          Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   58, Coordinates, X= 28.70 ft, Y= 7.94 ft, Z= 13.64 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 60 to 61, DX= 0.82 ft, DY= -0.22 ft, DZ= 0.22 ft, L= 0.88 ft          Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.88 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   60, Coordinates, X= 28.98 ft, Y= 7.87 ft, Z= 13.72 ft                        
+   60, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   60  M, Coordinates, X= 29.39 ft, Y= 7.76 ft, Z= 13.83 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 61 to 63, DX= 0.28 ft, DY= -0.08 ft, DZ= 0.08 ft, L= 0.30 ft          Run 
+ 
+ POINT DATA:                                                                    
+   61, Coordinates, X= 29.80 ft, Y= 7.65 ft, Z= 13.94 ft                        
+   61, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 63 to 66, DX= 1.16 ft, DY= -0.31 ft, DZ= 0.31 ft, L= 1.24 ft          Run 
+ 
+ PIPE DATA (63 to 66  N):                                                       
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   63, Coordinates, X= 30.08 ft, Y= 7.57 ft, Z= 14.01 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 66 to 67, DX= 4.77 ft                                                 Bend
+ 
+ COMPONENT DATA (Bend, TIP= 66, Near= 66  N, Far= 66  F):                       
+   Long Elbow, Radius= 9.00 inch, Bend angle= 20.75 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ PIPE DATA (66  N to 66  F):                                                    
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ PIPE DATA (66  F to 67):                                                       
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   66, Coordinates, X= 31.24 ft, Y= 7.26 ft, Z= 14.33 ft                        
+   66  N, Coordinates, X= 31.12 ft, Y= 7.29 ft, Z= 14.29 ft                     
+   66  F, Coordinates, X= 31.38 ft, Y= 7.26 ft, Z= 14.33 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 67 to 69, DX= 0.30 ft                                                 Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   67, Coordinates, X= 36.01 ft, Y= 7.26 ft, Z= 14.33 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 69 to 70, DX= 0.88 ft                                                 Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.88 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   69, Coordinates, X= 36.31 ft, Y= 7.26 ft, Z= 14.33 ft                        
+   69, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   69  M, Coordinates, X= 36.75 ft, Y= 7.26 ft, Z= 14.33 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 70 to 72, DX= 0.30 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   70, Coordinates, X= 37.19 ft, Y= 7.26 ft, Z= 14.33 ft                        
+   70, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 72 to 73, DX= 3.75 ft                                                 Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   72, Coordinates, X= 37.49 ft, Y= 7.26 ft, Z= 14.33 ft                        
+   73, Coordinates, X= 41.24 ft, Y= 7.26 ft, Z= 14.33 ft                        
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 38 to 36, DX= -0.47 ft                                                Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 38):                                       
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   38, Coordinates, X= 20.72 ft, Y= 4.92 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 36 to 81, DX= -4.46 ft                                                Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   36, Coordinates, X= 20.25 ft, Y= 4.92 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 81 to 83, DX= -0.30 ft                                                Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   81, Coordinates, X= 15.78 ft, Y= 4.92 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 83 to 84, DX= -0.88 ft                                                Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.88 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   83, Coordinates, X= 15.48 ft, Y= 4.92 ft, Z= 11.74 ft                        
+   83, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   83  M, Coordinates, X= 15.04 ft, Y= 4.92 ft, Z= 11.74 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 84 to 86, DX= -0.30 ft                                                Run 
+ 
+ POINT DATA:                                                                    
+   84, Coordinates, X= 14.61 ft, Y= 4.92 ft, Z= 11.74 ft                        
+   84, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 86 to 87, DX= -3.59 ft                                                Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   86, Coordinates, X= 14.30 ft, Y= 4.92 ft, Z= 11.74 ft                        
+   87, Coordinates, X= 10.72 ft, Y= 4.92 ft, Z= 11.74 ft                        
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 57 to 55, DX= 0.12 ft, DY= 0.44 ft, DZ= 0.12 ft, L= 0.47 ft           Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 57):                                       
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   57, Coordinates, X= 26.41 ft, Y= 8.55 ft, Z= 13.03 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 55 to 74, DX= 1.16 ft, DY= 4.33 ft, DZ= 1.16 ft, L= 4.63 ft           Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   55, Coordinates, X= 26.53 ft, Y= 8.99 ft, Z= 13.15 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 74 to 76, DX= 0.08 ft, DY= 0.28 ft, DZ= 0.08 ft, L= 0.30 ft           Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P2, Composition= Carbon Steel, Sch= STD, Pipe Density= 489.00 lb/cu.ft,                        
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   74, Coordinates, X= 27.69 ft, Y= 13.32 ft, Z= 14.31 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From 76 to 77, DX= 0.22 ft, DY= 0.82 ft, DZ= 0.22 ft, L= 0.88 ft           Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 0.88 ft, Valve weight = 240 lb, Surface factor= 4.30, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   76, Coordinates, X= 27.77 ft, Y= 13.60 ft, Z= 14.38 ft                       
+   76, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   76  M, Coordinates, X= 27.88 ft, Y= 14.01 ft, Z= 14.49 ft                    
+ 
+ -------------------------------------------------------------------------------
+ From 77 to 79, DX= 0.08 ft, DY= 0.28 ft, DZ= 0.08 ft, L= 0.30 ft           Run 
+ 
+ POINT DATA:                                                                    
+   77, Coordinates, X= 27.99 ft, Y= 14.42 ft, Z= 14.60 ft                       
+   77, Flange= WELDNECK, Rating= 150, Flange Weight= 26.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 79 to 80, DX= 0.94 ft, DY= 3.51 ft, DZ= 0.94 ft, L= 3.75 ft           Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6.000P1, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft,                         
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   79, Coordinates, X= 28.06 ft, Y= 14.70 ft, Z= 14.68 ft                       
+   80, Coordinates, X= 29.00 ft, Y= 18.21 ft, Z= 15.62 ft                       
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 84 + 0 + 0 = 84          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         4253.9 lb     +      1218.5 lb     =        5472.4 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ 1              0.00        0.00        0.00                                    
+ 2              4.32        0.00        0.00                                    
+ 4              4.62        0.00        0.00                                    
+ 4   M          5.06        0.00        0.00                                    
+ 5              5.50        0.00        0.00                                    
+ 7              5.80        0.00        0.00                                    
+ 10  N          9.25        0.00        0.00                                    
+ 10            10.00        0.00        0.00                                    
+ 10  F         10.00        0.00        0.75                                    
+ 11            10.00        0.00        4.76                                    
+ 13            10.00        0.00        5.06                                    
+ 13  M         10.00        0.00        5.50                                    
+ 14            10.00        0.00        5.94                                    
+ 16            10.00        0.00        6.24                                    
+ 19  N         10.00        0.00        9.37                                    
+ 19            10.00        0.00       10.00                                    
+ 19  F         10.62        0.00       10.11                                    
+ 20            14.63        0.00       10.82                                    
+ 22            14.92        0.00       10.87                                    
+ 22  M         15.35        0.00       10.94                                    
+ 23            15.78        0.00       11.02                                    
+ 25            16.08        0.00       11.07                                    
+ 28  N         19.23        0.00       11.63                                    
+ 28            19.85        0.00       11.74                                    
+ 28  F         19.96        0.62       11.74                                    
+ 29            20.24        2.24       11.74                                    
+ 31            20.30        2.54       11.74                                    
+ 31  M         20.37        2.97       11.74                                    
+ 32            20.45        3.40       11.74                                    
+ 34            20.50        3.70       11.74                                    
+ 35            20.64        4.46       11.74                                    
+ 38            20.72        4.92       11.74                                    
+ 37            20.80        5.39       11.74                                    
+ 39            21.00        6.52       11.74                                    
+ 41            21.05        6.81       11.74                                    
+ 41  M         21.13        7.24       11.74                                    
+ 42            21.20        7.67       11.74                                    
+ 44            21.25        7.97       11.74                                    
+ 47  N         21.30        8.24       11.74                                    
+ 47            21.58        9.85       11.74                                    
+ 47  F         23.11        9.44       12.15                                    
+ 48            24.26        9.13       12.45                                    
+ 50            24.54        9.06       12.53                                    
+ 50  M         24.95        8.95       12.64                                    
+ 51            25.36        8.84       12.75                                    
+ 53            25.64        8.76       12.82                                    
+ 54            25.98        8.67       12.91                                    
+ 57            26.41        8.55       13.03                                    
+ 56            26.85        8.44       13.15                                    
+ 58            28.70        7.94       13.64                                    
+ 60            28.98        7.87       13.72                                    
+ 60  M         29.39        7.76       13.83                                    
+ 61            29.80        7.65       13.94                                    
+ 63            30.08        7.57       14.01                                    
+ 66  N         31.12        7.29       14.29                                    
+ 66            31.24        7.26       14.33                                    
+ 66  F         31.38        7.26       14.33                                    
+ 67            36.01        7.26       14.33                                    
+ 69            36.31        7.26       14.33                                    
+ 69  M         36.75        7.26       14.33                                    
+ 70            37.19        7.26       14.33                                    
+ 72            37.49        7.26       14.33                                    
+ 73            41.24        7.26       14.33                                    
+ 
+ *** SEGMENT B                                                                  
+ 38            20.72        4.92       11.74                                    
+ 36            20.25        4.92       11.74                                    
+ 81            15.78        4.92       11.74                                    
+ 83            15.48        4.92       11.74                                    
+ 83  M         15.04        4.92       11.74                                    
+ 84            14.61        4.92       11.74                                    
+ 86            14.30        4.92       11.74                                    
+ 87            10.72        4.92       11.74                                    
+ 
+ *** SEGMENT C                                                                  
+ 57            26.41        8.55       13.03                                    
+ 55            26.53        8.99       13.15                                    
+ 74            27.69       13.32       14.31                                    
+ 76            27.77       13.60       14.38                                    
+ 76  M         27.88       14.01       14.49                                    
+ 77            27.99       14.42       14.60                                    
+ 79            28.06       14.70       14.68                                    
+ 80            29.00       18.21       15.62                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A T A   L I S T I N G                                                     
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       1      73                                    No    No     No           
+ B       38     87                                    No    No     No           
+ C       57     80                                    No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    E/  Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  W/  Steel Group/          
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f   Tcr                   
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 6.000P1        6  6.625 0.280    0 0.04    0    0  1.23    0.000  18.95     0 34.35 1.00 Carbon Steel          
+ A53-A        40                                            0.000  15.40     0       0.00 Carbon                
+                             0                              0.000            0       1.00    700.000            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 6.000P2        6  6.625 0.280    0 0.04    0    0  1.23    0.000  18.95     0 34.35 1.00 Carbon Steel          
+ A53-A        STD                                           0.000  15.40     0       0.00 Carbon                
+                             0                              0.000            0       1.00    700.000            
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ A53-A       6.000P1     489.0  0.30    70.0   29.500   29.500   11.346          Carbon Steel        
+                                       170.0   28.962                     0.7692
+ 
+ A53-A       6.000P2     489.0  0.30    70.0   29.500   29.500   11.346          Carbon Steel        
+                                       170.0   28.962                     0.7692
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Ultimate Weld Reduction Factor                                  
+    Name     Pipe ID  deg F   psi      psi                        W                                             
+------------ -------- ------- -------- -------- -------- ---------------------                                  
+ A53-A       6.000P1     70.0  16000.0  30000.0  48000.0       1.000
+                        170.0  16000.0  28250.0                1.000
+ 
+ A53-A       6.000P2     70.0  16000.0  30000.0  48000.0       1.000
+                        170.0  16000.0  28250.0                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW     YIELD                                              
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS    STRESS                                             
+ ----  ----  ------ ------  --------    -------    ------    ------                                             
+ 
+ *** SEGMENT A 
+ 1     T1       150    170     0.769     28.962     16000     28250           
+ 73     Same as previous point.          
+ 
+ *** SEGMENT B 
+ 38    T1       150    170     0.769     28.962     16000     28250           
+ 87     Same as previous point.          
+ 
+ *** SEGMENT C 
+ 57    T1       150    170     0.769     28.962     16000     28250           
+ 80     Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+

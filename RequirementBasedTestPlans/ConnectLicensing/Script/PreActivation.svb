@@ -1,0 +1,183 @@
+﻿'USEUNIT APP_Common
+'USEUNIT DatabaseFunctions
+'USEUNIT ConnectLicensing
+
+Sub PreActivation(locDatatable)
+  
+  Call StartApp("autopipe","")
+  Dim autoPIPE
+  Set autoPIPE = NameMapping.Sys.AutoPIPE
+  
+  Dim currentDateTime
+  appStartTime = aqDateTime.Now
+  
+  Log.Message("Current Date and Time:"& appStartTime)
+  
+  Dim objInputs
+  
+  Set objInputs = Datatable("Excel","PreActivation_Input_Matrix",1,Null,locDatatable)
+  'License type
+  Call WelcomeAutoPIPELicensing(objInputs.Item("LicenseType"))
+  
+ ' Call CloseSignInDialog()
+  
+ ' Call SignInDialog("Continue")
+  
+  Call StartApp("Bentley_Licensing_LicenseTool","")
+  
+  Dim pStatus
+  pStatus = GetProductStatus()
+  
+  If pStatus = "PreActivation" Then
+    Log.Message("Status is:"& pStatus)
+  Else
+    log.Error("Status is not correct:"& pStatus)
+  End If
+  
+ ' Call OpenModel(objInputs.Item("Model"))
+  
+ ' Call PipingCode(objInputs.Item("PipeCode"))
+  
+  'Call CloseApp("autopipe")
+
+  Set autoPIPE = Nothing
+  Set objInputs = Nothing
+  
+End Sub
+
+Sub OpenModel(mFile)
+
+  Dim autoPIPE
+  Set autoPIPE = NameMapping.Sys.AutoPIPE
+  
+  Call autoPIPE.AutoPIPEFullWind.Window("WORK", "", 1).Click
+  
+  Call autoPIPE.AutoPIPEFullWind.Keys("^o")
+  
+  Call autoPIPE.Window("#32770", "Open", 1).OpenFile(mFile)
+  
+  If NameMapping.Sys.Bentley_Connect_Client.ProjectChooser.Exists Then
+    
+    BuiltIn.Delay(5000)
+  
+    Call NameMapping.Sys.Bentley_Connect_Client.ProjectChooser.Close
+    
+  End If
+  
+  BuiltIn.Delay(5000)
+  Set autoPIPE = Nothing
+  
+End Sub
+
+
+Sub PipingCode(cType)
+
+  Dim autoPIPE
+  Set autoPIPE = NameMapping.Sys.AutoPIPE
+  
+  'Go to Tools->Click on General Option button 
+  Call autoPIPE.AutoPIPEFullWind.RibbonBar.Keys("T G")
+  
+  'click on dropdown
+  Call autoPIPE.GeneralModelOptionWind.PipingCodeDropdown.Click
+  
+  'select value from dropdown
+  call autoPIPE.PipeCodeListBox.ClickItem(cType)
+  
+  'click on Ok button
+  call autoPIPE.GeneralModelOptionWind.OKBtn.Click
+  
+  'check if note window appears or not
+  If autoPIPE.WaitChild("Note",1000).Exists  Then
+  
+    Call autoPIPE.Window("#32770", "Note", 1).Window("Button", "OK", 1).Click
+  
+  End If
+  
+  'check if warning window appears or not
+  If autoPIPE.WaitChild("Warning",1000).Exists  Then
+  
+    Call autoPIPE.Window("#32770", "Warning", 1).Window("Button", "OK", 1).Click
+  
+  End If
+  
+  'check if note window appears or not
+  If autoPIPE.WaitChild("Note",1000).Exists  Then
+  
+    Call autoPIPE.Window("#32770", "Note", 1).Window("Button", "OK", 1).Click
+  
+  End If
+  
+  'check if note window appears or not
+  If autoPIPE.WaitChild("Note",1000).Exists  Then
+  
+    Call autoPIPE.Window("#32770", "Note", 1).Window("Button", "OK", 1).Click
+  
+  End If
+  
+  
+
+  Set autoPIPE = Nothing
+End Sub
+
+
+
+Sub ConnectLicenseClientAdapter
+
+    'DbgServices.LaunchApplication("C:\ProgramData\Bentley\CONNECT_License_Client_Adapter\x64\AdapterUpdateWizard.exe")
+    'Call StartApp("AdapterUpdateWizard","")
+    
+  '  Call StartApp("Bentley_Licensing_LicenseTool","")
+    
+   ' Call NameMapping.Sys.Bentley_Licensing_LicenseTool.HwndSource_MainWindow.MainWindow.MenuBar.ToolMenu.Click
+    
+  '  Call NameMapping.Sys.Bentley_Licensing_LicenseTool.HwndSource_PopupRoot.PopupRoot.LogViewerMenuItem.Click
+    
+   ' Call NameMapping.Sys.Bentley_Licensing_LicenseTool.HwndSource_MainWindow.MainWindow.TabControl.ProductStatusTabItem.Click
+  
+    Call NameMapping.sys.Bentley_Connect_Client.HwndSource_Window.Close
+    
+    
+
+End Sub
+
+Sub WelcomeAutoPIPELicensing(lType)
+
+  Dim AutoPIPEProcess
+  Set AutoPIPEProcess = NameMapping.Sys.AutoPIPE
+  
+    If lType = "Advanced" Then
+    
+      Call AutoPIPEProcess.WelcomeToAutoPIPELicensing.Window("Button", "&Advanced", 4).Click
+      
+    ElseIf lType = "Nuclear" Then
+    
+      Call AutoPIPEProcess.WelcomeToAutoPIPELicensing.Window("Button", "&Nuclear", 5).Click  
+      
+      Call AutoPIPEProcess.WelcomeToAutoPIPELicensing.Window("Button", "OK", 9).Click
+      
+      If AutoPIPE.Window("#32770", "AutoPIPE Licensing", 1).Exists Then
+        AutoPIPE.Window("#32770", "AutoPIPE Licensing", 1).Window("Button", "&Yes", 1).Click
+      End If
+        
+    Else
+      Call AutoPIPEProcess.WelcomeToAutoPIPELicensing.Window("Button", "&Standard", 3).Click
+    End If
+  
+  If AutoPIPEProcess.WelcomeToAutoPIPELicensing.Exists Then
+    Call AutoPIPEProcess.WelcomeToAutoPIPELicensing.Window("Button", "OK", 9).Click
+  End If
+  
+  If AutoPIPEProcess.WaitWindow("#32770", "AutoPIPE Licensing", 1, 1000).Exists Then
+          
+    Call AutoPIPEProcess.Window("#32770", "AutoPIPE Licensing", 1).Window("Button", "&Yes", 1).Click
+        
+  End If
+  
+    'Maximize the autoPIPE
+ ' Call AutoPIPEProcess.AutoPIPEFullWind.Maximize
+  
+  Set AutoPIPEProcess = Nothing
+
+End Sub
+

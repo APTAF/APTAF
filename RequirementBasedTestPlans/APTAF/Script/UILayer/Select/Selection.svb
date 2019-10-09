@@ -1,0 +1,62 @@
+﻿'USEUNIT tabSelect
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                           Selection                      ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "Range" dialog   
+' Remarks:
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:    Run table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey: Run dialog shortcut key
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Sub Range(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgRange = objNameMapping.dlgSelectPoint
+
+Dim strFromPoint : strFromPoint = objRow.Item("strFromPoint")
+Dim strToPoint : strToPoint = objRow.Item("strToPoint")
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+           'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)
+        
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+
+'From Point tfield
+    If (strFromPoint  <> "NA") Then
+        'Write to "From Point" field
+        If(objNameMapping.WaitAliasChild("dlgSelectPoint", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgRange.fldPoint.Keys(strFromPoint)
+          Log.Message("Entered " & strFromPoint  & " in the 'From Point' field")
+        End If
+    End If 
+    
+'To Point tfield
+    If (strToPoint  <> "NA") Then
+        'Write to "To Point" field
+        If(objNameMapping.WaitAliasChild("dlgSelectPoint", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgRange.fldToPoint.Keys(strToPoint)
+          Log.Message("Entered " & strToPoint  & " in the 'To Point' field")
+        End If
+    End If
+ Call dlgSelectPoint.btnOK.Click()   
+    
+End Sub

@@ -1,0 +1,84 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+'USEUNIT App_Common
+'USEUNIT FSO_Functions
+'USEUNIT DatabaseFunctions
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "Tools"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPFolderPath   = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\Tools\Library\"&strTestPlanFolderName
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    'Call DTP.DTPMain
+    Call Cat1TS1TC1
+End Sub
+
+
+Sub Cat1TS1TC1
+AppendLogFolder("Library Files (*.src) Verification")
+'Call Configuration
+    Project.Variables.intTCExecuted = 0
+    StartTime = Timer()                               ' To monitor execution time
+    
+    Call EmptyStore()                                 ' Remove benchmark files from store
+    Call AddFilesToStore() 
+
+  Dim strDBType: strDBType = Project.Variables.strInputDBType 'Project.Variables.strDBType 
+  Dim strTableName: strTableName = "tblLibraryFiles" 
+  Dim strDBName: strDBName = "TestData.xlsx" 'Project.Variables.strDBName               ' DB Name
+  Dim strDB : strDB = Project.Variables.strTPFolderPath & "\inputDB\" & Project.Variables.strInputDBName    
+  Dim intTotalRows: intTotalRows = Datatable_Get_Row_Count(strDBType,strTableName,strDB)
+
+  
+'1. Get Library Files
+Call GetLibraryFiles       
+'2. Compare Lib Files with Benchmark Lib Files
+    
+ For intRow = 1 to intTotalRows
+      Set objTable = Datatable(strDBType,strTableName,intRow, null,strDB)
+      Dim strLibraryName : strLibraryName = ObjTable.Item("strFileName")
+AppendLogFolder("Library file " & strLibraryName & " comparison")
+'1.   ''''''''''''Create Folder ''''''''''''''''''''''''''''''
+      Dim strActualFileName: strActualFileName  = aqEnvironment.GetEnvironmentVariable("TEMP") &"\Libraries\" & strLibraryName
+      'Dim strBenchFileName:strBenchFileName = Project.Variables.strTPFolderPath & "\Benchmark\" &  strLibraryName
+
+      Call CheckText(strLibraryName,strActualFileName,"Diff")
+PopLogFolder
+Next
+
+
+Call EmptyStore
+   EndTime = Timer()
+   AppendLogFolder("DTP Execution Summary")
+    Log.Message("Test cases executed in this DTP: " & Project.Variables.intTCExecuted)
+    Log.Message("Test cases execution time in minutes: " & (EndTime - StartTime)/60) 
+   PopLogFolder
+   
+
+PopLogFolder
+
+End Sub
+
+Sub GetLibraryFiles
+Dim strLibPath: strLibPath = "C:\Program Files (x86)\Bentley\AutoPIPE CONNECT v12\Libraries"
+Dim strDestPath: strDestPath = aqEnvironment.GetEnvironmentVariable("TEMP")& "\Libraries"
+'tempPath = aqEnvironment.GetEnvironmentVariable("TEMP")
+'Copy Library files from Temp
+Call FSOCopyFolder(strLibPath,strDestPath)
+  
+End Sub

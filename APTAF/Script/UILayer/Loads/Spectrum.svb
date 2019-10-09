@@ -1,0 +1,999 @@
+﻿'USEUNIT tabLoads
+'USEUNIT DatabaseFunctions
+'USEUNIT Main
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "C411" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         C411 table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub C411 (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgC411 = objNameMapping.dlgC411
+
+Dim cmbSpectrumName     : cmbSpectrumName     = objRow.Item("cmbSpectrumName")
+Dim cmb2DampingSpectrum : cmb2DampingSpectrum = objRow.Item("cmb2DampingSpectrum")
+Dim cmb5DampingSpectrum : cmb5DampingSpectrum = objRow.Item("cmb5DampingSpectrum")
+
+Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(200)
+    
+''' cmbSpectrumName  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbSpectrumName <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgC411", 600).WaitProperty("Exists", true, 10)) Then
+          dlgC411.cmbboxSpectrumName.keys(cmbSpectrumName)
+          Log.Message("Entered " & cmbSpectrumName & " in the cmbSpectrumName field")
+      End If       
+  End If
+'End If
+
+''' cmb2DampingSpectrum
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmb2DampingSpectrum <> "NA") Then
+     'Write to thedrpdwnSectionID field
+     If(objNameMapping.WaitAliasChild("dlgC411", 600).WaitProperty("Exists", true, 10)) Then
+          dlgC411.cmbbox2DampingSpectrum.keys(cmb2DampingSpectrum)
+          Log.Message("Entered " & cmb2DampingSpectrum & " in the cmbSpectrumName field")
+      End If       
+  End If
+'End If
+
+
+'''' cmb5DampingSpectrum 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmb5DampingSpectrum <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgC411", 600).WaitProperty("Exists", true, 10)) Then
+          dlgC411.cmbbox5DampingSpectrum.keys(cmb5DampingSpectrum)
+          Log.Message("Entered " & cmb5DampingSpectrum & " in the cmb5DampingSpectrum field")
+      End If       
+  End If
+'End If
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+dlgC411.btnOK.Click()
+
+End If
+
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "C411" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         C411 table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub EnvelopeSpectrum (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgEnvelopeSpectrum = objNameMapping.dlgEnvelopeSpectrum
+Dim cmbSpectrumEnvelope       : cmbSpectrumEnvelope     = objRow.Item("cmbSpectrumEnvelope")
+Dim chkN411Damping            : chkN411Damping          = objRow.Item("chkN411Damping")
+Dim intDampingRatio           : intDampingRatio         = objRow.Item("intDampingRatio ")
+Dim drpInterpolationMethod    : drpInterpolationMethod  = "*"&objRow.Item("drpInterpolationMethod")&"*"
+Dim drpDataType               : drpDataType             = "*"&objRow.Item("drpDataType")&"*"
+Dim drpAccForce               : drpAccForce             = "*"&objRow.Item("drpAccForce")&"*"
+Dim chkUseSampling            : chkUseSampling          = objRow.Item("chkUseSampling")
+Dim intFreqPeriodInc          : intFreqPeriodInc        = objRow.Item("intFreqPeriodInc")
+Dim drpSpectrum1              : drpSpectrum1            = "*"&objRow.Item("drpSpectrum1")&"*"
+Dim intScale1                 : intScale1               = objRow.Item("intScale1")
+Dim drpSpectrum2              : drpSpectrum2            = "*"&objRow.Item("drpSpectrum2")&"*"
+Dim intScale2                 : intScale2               = objRow.Item("intScale2")
+Dim drpSpectrum3              : drpSpectrum3            = "*"&objRow.Item("drpSpectrum3")&"*"
+Dim intScale3                 : intScale3               = objRow.Item("intScale3")
+Dim drpSpectrum4              : drpSpectrum4            = "*"&objRow.Item("drpSpectrum4")&"*"
+Dim intScale4                 : intScale4               = objRow.Item("intScale4")
+Dim drpSpectrum5              : drpSpectrum5            = "*"&objRow.Item("drpSpectrum5")&"*"
+Dim intScale5                 : intScale5               = objRow.Item("intScale5")
+Dim drpSpectrum6              : drpSpectrum6            = "*"&objRow.Item("drpSpectrum6")&"*"
+Dim intScale6                 : intScale6               = objRow.Item("intScale6")
+Dim drpSpectrum7              : drpSpectrum7            = "*"&objRow.Item("drpSpectrum7")&"*"
+Dim intScale7                 : intScale7               = objRow.Item("intScale7")
+Dim drpSpectrum8              : drpSpectrum8            = "*"&objRow.Item("drpSpectrum8")&"*"
+Dim intScale8                 : intScale8               = objRow.Item("intScale8")
+Dim drpSpectrum9              : drpSpectrum9            = "*"&objRow.Item("drpSpectrum9")&"*"
+Dim intScale9                 : intScale9               = objRow.Item("intScale9")
+Dim drpSpectrum10             : drpSpectrum10           = "*"&objRow.Item("drpSpectrum10")&"*"
+Dim intScale10                : intScale10              = objRow.Item("intScale10")
+Dim drpSpectrum11             : drpSpectrum11           = "*"&objRow.Item("drpSpectrum11")&"*"
+Dim intScale11                : intScale11              = objRow.Item("intScale11")
+Dim drpSpectrum12             : drpSpectrum12           = "*"&objRow.Item("drpSpectrum12")&"*"
+Dim intScale12                : intScale12              = objRow.Item("intScale12")
+Dim drpSpectrum13             : drpSpectrum13           = "*"&objRow.Item("drpSpectrum13")&"*"
+Dim intScale13                : intScale13              = objRow.Item("intScale13")
+Dim drpSpectrum14             : drpSpectrum14           = "*"&objRow.Item("drpSpectrum14")&"*"
+Dim intScale14                : intScale14              = objRow.Item("intScale14")
+Dim drpSpectrum15             : drpSpectrum15           = "*"&objRow.Item("drpSpectrum15")&"*"
+Dim intScale15                : intScale15              = objRow.Item("intScale15")
+Dim drpSpectrum16             : drpSpectrum16           = "*"&objRow.Item("drpSpectrum16")&"*"
+Dim intScale16                : intScale16              = objRow.Item("intScale16")
+Dim drpSpectrum17             : drpSpectrum17           = "*"&objRow.Item("drpSpectrum17")&"*"
+Dim intScale17                : intScale17              = objRow.Item("intScale17")
+Dim drpSpectrum18             : drpSpectrum18        = "*"&objRow.Item("drpSpectrum18")&"*"
+Dim intScale18                : intScale18              = objRow.Item("intScale18")
+Dim drpSpectrum19             : drpSpectrum19           = "*"&objRow.Item("drpSpectrum19")&"*"
+Dim intScale19                : intScale19              = objRow.Item("intScale19")
+Dim drpSpectrum20             : drpSpectrum20           = "*"&objRow.Item("drpSpectrum20")&"*"
+Dim intScale20                : intScale20              = objRow.Item("intScale20")
+Dim drpSpectrum21             : drpSpectrum21           = "*"&objRow.Item("drpSpectrum21")&"*"  
+Dim intScale21                : intScale21              = objRow.Item("intScale21")
+Dim drpSpectrum22             : drpSpectrum22           = "*"&objRow.Item("drpSpectrum22")&"*"
+Dim intScale22                : intScale22              = objRow.Item("intScale22")
+Dim drpSpectrum23             : drpSpectrum23           = "*"&objRow.Item("drpSpectrum23")&"*"
+Dim intScale23                : intScale23              = objRow.Item("intScale23")
+Dim drpSpectrum24             : drpSpectrum24           = "*"&objRow.Item("drpSpectrum24")&"*"
+Dim intScale24                : intScale24              = objRow.Item("intScale24")
+Dim drpSpectrum25             : drpSpectrum25           = "*"&objRow.Item("drpSpectrum25")&"*"
+Dim intScale25                : intScale25              = objRow.Item("intScale25")
+Dim drpSpectrum26             : drpSpectrum26           = "*"&objRow.Item("drpSpectrum26")&"*"
+Dim intScale26                : intScale26              = objRow.Item("intScale26")
+Dim drpSpectrum27             : drpSpectrum27          = "*"&objRow.Item("drpSpectrum27")&"*"
+Dim intScale27                : intScale27              = objRow.Item("intScale27")
+Dim drpSpectrum28             : drpSpectrum28           = "*"&objRow.Item("drpSpectrum28")&"*"
+Dim intScale28                : intScale28              = objRow.Item("intScale28")
+Dim drpSpectrum29             : drpSpectrum29           = "*"&objRow.Item("drpSpectrum29")&"*"
+Dim intScale29                : intScale29              = objRow.Item("intScale29")
+Dim drpSpectrum30            : drpSpectrum30           = "*"&objRow.Item("drpSpectrum30")&"*"
+Dim intScale30                : intScale30              = objRow.Item("intScale30")
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(200)
+    
+'''''''''''' cmbSpectrumEnvelope     
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(cmbSpectrumEnvelope  <> "NA") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.cmbboxSpectrumEnvelope.Keys(cmbSpectrumEnvelope)
+            dlgEnvelopeSpectrum.cmbboxSpectrumEnvelope.Keys("[Tab]")
+          Log.Message("Entered " & cmbSpectrumEnvelope & " in the cmbSpectrumEnvelope field")
+        End If
+    End If 
+End If
+    
+'''' chkN411Damping  
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkN411Damping <>  "NA") Then
+ state = dlgEnvelopeSpectrum.chkboxN411Damping.wState 
+    If( CInt(chkN411Damping) <> CInt(state) )then
+    dlgEnvelopeSpectrum.chkboxN411Damping.Click()
+    Log.Message("Entered " & chkN411Damping & " in the chkN411Damping field")
+    End If
+  End If
+End If
+
+''' intDampingRatio
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intDampingRatio <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldDampingRatio.Keys(intDampingRatio)
+          dlgEnvelopeSpectrum.fldDampingRatio.Keys("[Tab]")
+         Log.Message("Entered " & intDampingRatio & " in the intDampingRatio field")
+    End If
+  End If
+End If  
+
+
+'Dim drpInterpolationMethod  
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpInterpolationMethod  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnInterpolationMethod.ClickItem(drpInterpolationMethod)
+            dlgEnvelopeSpectrum.drpdwnInterpolationMethod.Keys("[Tab]")
+         Log.Message("Entered " & drpInterpolationMethod & " in the drpInterpolationMethod field")
+        End If
+    End If 
+End If
+
+''' drpDataType 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpDataType  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnDataType.ClickItem(drpDataType)
+            dlgEnvelopeSpectrum.drpdwnDataType.Keys("[Tab]")
+         Log.Message("Entered " & drpDataType & " in the drpDataType field")
+        End If
+    End If 
+End If
+
+'Dim drpAccForce 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpAccForce  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnAccForce.ClickItem(drpAccForce)
+            dlgEnvelopeSpectrum.drpdwnAccForce.Keys("[Tab]")
+         Log.Message("Entered " & drpAccForce & " in the drpAccForce field")
+        End If
+    End If 
+End If
+
+''' chkUseSampling
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkUseSampling <>  "NA") Then
+ state = dlgEnvelopeSpectrum.chkboxUseSampling.wState 
+    If( CInt(chkUseSampling) <> CInt(state) )then
+    dlgEnvelopeSpectrum.chkboxUseSampling.Click()
+    Log.Message("Entered " & chkUseSampling & " in the chkUseSampling field")
+    End If
+  End If
+'End If
+
+''' intFreqPeriodInc 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intFreqPeriodInc <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldFreqPeriodInc.Keys(intFreqPeriodInc)
+          dlgEnvelopeSpectrum.fldFreqPeriodInc.Keys("[Tab]")
+         Log.Message("Entered " & intFreqPeriodInc & " in the intFreqPeriodInc field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum1
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum1  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum1.ClickItem(drpSpectrum1)
+            dlgEnvelopeSpectrum.drpdwnSpectrum1.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum1 & " in the drpSpectrum1 field")
+        End If
+    End If 
+End If
+
+'Dim intScale1
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale1 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale1.Keys(intScale1)
+          dlgEnvelopeSpectrum.fldScale1.Keys("[Tab]")
+         Log.Message("Entered " & intScale1 & " in the intScale1 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum2 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum2  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum2.ClickItem(drpSpectrum2)
+            dlgEnvelopeSpectrum.drpdwnSpectrum2.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum2 & " in the drpSpectrum2 field")
+        End If
+    End If 
+End If
+
+''' intScale2 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale2 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale2.Keys(intScale2)
+          dlgEnvelopeSpectrum.fldScale2.Keys("[Tab]")
+         Log.Message("Entered " & intScale2 & " in the intScale2 field")
+    End If
+  End If
+End If  
+
+''' drpSpectrum3  
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum3  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum3.ClickItem(drpSpectrum3)
+            dlgEnvelopeSpectrum.drpdwnSpectrum3.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum3 & " in the drpSpectrum3 field")
+        End If
+    End If 
+End If
+
+'''' intScale3
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale3 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale3.Keys(intScale3)
+          dlgEnvelopeSpectrum.fldScale3.Keys("[Tab]")
+         Log.Message("Entered " & intScale3 & " in the intScale3 field")
+    End If
+  End If
+End If  
+
+'Dim drpdwnSpectrum4  
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum4  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum4.ClickItem(drpSpectrum4)
+         dlgEnvelopeSpectrum.drpdwnSpectrum4.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum4 & " in the drpSpectrum4 field")
+        End If
+    End If 
+End If
+
+'Dim intScale4  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale4 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale4.Keys(intScale4)
+          dlgEnvelopeSpectrum.fldScale4.Keys("[Tab]")
+         Log.Message("Entered " & intScale4 & " in the intScale4 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum5  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum5  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum5.ClickItem(drpSpectrum5)
+            dlgEnvelopeSpectrum.drpdwnSpectrum5.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum5 & " in the drpSpectrum5 field")
+        End If
+    End If 
+'End If
+
+
+'Dim intScale5   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale5 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale5.Keys(intScale5)
+          dlgEnvelopeSpectrum.fldScale5.Keys("[Tab]")
+         Log.Message("Entered " & intScale5 & " in the intScale5 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum6
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum6  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum6.ClickItem(drpSpectrum6)
+            dlgEnvelopeSpectrum.drpdwnSpectrum6.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum6 & " in the drpSpectrum6 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale6   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale6 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale6.Keys(intScale6)
+          dlgEnvelopeSpectrum.fldScale6.Keys("[Tab]")
+         Log.Message("Entered " & intScale6 & " in the intScale6 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum7 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum7  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum7.ClickItem(drpSpectrum7)
+            dlgEnvelopeSpectrum.drpdwnSpectrum7.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum7 & " in the drpSpectrum7 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale7 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale7 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale7.Keys(intScale7)
+          dlgEnvelopeSpectrum.fldScale7.Keys("[Tab]")
+         Log.Message("Entered " & intScale7 & " in the intScale7 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum8 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum8  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum8.ClickItem(drpSpectrum8)
+            dlgEnvelopeSpectrum.drpdwnSpectrum8.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum8 & " in the drpSpectrum8 field")
+        End If
+    End If 
+'End If
+'Dim intScale8                 : intScale8               = objRow.Item("intScale8")
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale8 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale8.Keys(intScale8)
+          dlgEnvelopeSpectrum.fldScale8.Keys("[Tab]")
+         Log.Message("Entered " & intScale8 & " in the intScale8 field")
+    End If
+  End If
+'End If  
+
+
+'Dim drpSpectrum9
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum9  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum9.ClickItem(drpSpectrum9)
+            dlgEnvelopeSpectrum.drpdwnSpectrum9.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum9 & " in the drpSpectrum9 field")
+        End If
+    End If 
+'End If
+
+
+'Dim intScale9
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale9 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale9.Keys(intScale9)
+          dlgEnvelopeSpectrum.fldScale9.Keys("[Tab]")
+         Log.Message("Entered " & intScale9 & " in the intScale9 field")
+    End If
+  End If
+'End If  
+'Dim drpSpectrum10 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum10  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum10.ClickItem(drpSpectrum10)
+            dlgEnvelopeSpectrum.drpdwnSpectrum10.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum10 & " in the drpSpectrum10 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale10 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale10 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale10.Keys(intScale10)
+          dlgEnvelopeSpectrum.fldScale10.Keys("[Tab]")
+         Log.Message("Entered " & intScale10 & " in the intScale10 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum11 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum11  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum11.ClickItem(drpSpectrum11)
+            dlgEnvelopeSpectrum.drpdwnSpectrum11.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum11 & " in the drpSpectrum11 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale11                : intScale11              = objRow.Item("intScale11")
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale11 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale11.Keys(intScale11)
+          dlgEnvelopeSpectrum.fldScale11.Keys("[Tab]")
+         Log.Message("Entered " & intScale11 & " in the intScale11 field")
+    End If
+  End If
+'End If  
+'Dim drpSpectrum12  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum12  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum12.ClickItem(drpSpectrum12)
+            dlgEnvelopeSpectrum.drpdwnSpectrum12.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum12 & " in the drpSpectrum12 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale12   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale12 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale12.Keys(intScale12)
+          dlgEnvelopeSpectrum.fldScale12.Keys("[Tab]")
+         Log.Message("Entered " & intScale12 & " in the intScale12 field")
+    End If
+  End If
+'End If  
+'Dim drpSpectrum13 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum13  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum13.ClickItem(drpSpectrum13)
+            dlgEnvelopeSpectrum.drpdwnSpectrum13.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum13 & " in the drpSpectrum13 field")
+        End If
+    End If 
+'End If
+'Dim intScale13   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale13 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale13.Keys(intScale13)
+          dlgEnvelopeSpectrum.fldScale13.Keys("[Tab]")
+         Log.Message("Entered " & intScale13 & " in the intScale13 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum14
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum14  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum14.ClickItem(drpSpectrum14)
+            dlgEnvelopeSpectrum.drpdwnSpectrum14.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum14 & " in the drpSpectrum14 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale14  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale14 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale14.Keys(intScale14)
+          dlgEnvelopeSpectrum.fldScale14.Keys("[Tab]")
+         Log.Message("Entered " & intScale14 & " in the intScale14 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum15  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum15  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum15.ClickItem(drpSpectrum15)
+            dlgEnvelopeSpectrum.drpdwnSpectrum15.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum15 & " in the drpSpectrum15 field")
+        End If
+    End If 
+'End If
+
+
+'Dim intScale15 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale15 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale15.Keys(intScale15)
+          dlgEnvelopeSpectrum.fldScale15.Keys("[Tab]")
+         Log.Message("Entered " & intScale15 & " in the intScale15 field")
+    End If
+  End If
+'End If  
+'Dim drpSpectrum16 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum16  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum16.ClickItem(drpSpectrum16)
+            dlgEnvelopeSpectrum.drpdwnSpectrum16.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum16 & " in the drpSpectrum16 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale16   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale16 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale16.Keys(intScale16)
+          dlgEnvelopeSpectrum.fldScale16.Keys("[Tab]")
+         Log.Message("Entered " & intScale16 & " in the intScale16 field")
+    End If
+  End If
+'End If  
+'Dim drpSpectrum17  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum17  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum17.ClickItem(drpSpectrum17)
+            dlgEnvelopeSpectrum.drpdwnSpectrum17.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum17 & " in the drpSpectrum17 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale17 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale17 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale17.Keys(intScale17)
+          dlgEnvelopeSpectrum.fldScale17.Keys("[Tab]")
+         Log.Message("Entered " & intScale17 & " in the intScale17 field")
+    End If
+  End If
+'End If  
+'Dim drpdwnSpectrum18 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum18  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum18.ClickItem(drpSpectrum18)
+            dlgEnvelopeSpectrum.drpdwnSpectrum18.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum18 & " in the drpSpectrum18 field")
+        End If
+    End If 
+'End If
+'Dim intScale18  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale18 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale18.Keys(intScale18)
+          dlgEnvelopeSpectrum.fldScale18.Keys("[Tab]")
+         Log.Message("Entered " & intScale18 & " in the intScale18 field")
+    End If
+  End If
+'End If  
+'Dim drpSpectrum19 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum19  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum19.ClickItem(drpSpectrum19)
+            dlgEnvelopeSpectrum.drpdwnSpectrum19.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum19 & " in the drpSpectrum19 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale19 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale19 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale19.Keys(intScale19)
+          dlgEnvelopeSpectrum.fldScale19.Keys("[Tab]")
+         Log.Message("Entered " & intScale19 & " in the intScale19 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum20  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum20  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum20.ClickItem(drpSpectrum20)
+            dlgEnvelopeSpectrum.drpdwnSpectrum20.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum20 & " in the drpSpectrum20 field")
+        End If
+    End If 
+'End If
+
+
+'Dim intScale20 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale20 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale20.Keys(intScale20)
+          dlgEnvelopeSpectrum.fldScale20.Keys("[Tab]")
+         Log.Message("Entered " & intScale20 & " in the intScale20 field")
+    End If
+  End If
+'End If  
+'Dim drpSpectrum21  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum21  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum21.ClickItem(drpSpectrum21)
+            dlgEnvelopeSpectrum.drpdwnSpectrum21.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum21 & " in the drpSpectrum21 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale21 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale21 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale21.Keys(intScale21)
+          dlgEnvelopeSpectrum.fldScale21.Keys("[Tab]")
+         Log.Message("Entered " & intScale21 & " in the intScale21 field")
+    End If
+  End If
+'End If 
+ 
+'Dim drpSpectrum22 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum22  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum22.ClickItem(drpSpectrum22)
+            dlgEnvelopeSpectrum.drpdwnSpectrum22.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum22 & " in the drpSpectrum22 field")
+        End If
+    End If 
+'End If
+
+
+'Dim intScale22 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale22 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale22.Keys(intScale22)
+          dlgEnvelopeSpectrum.fldScale22.Keys("[Tab]")
+         Log.Message("Entered " & intScale22 & " in the intScale22 field")
+    End If
+  End If
+'End If 
+
+ 
+''''drpSpectrum23 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum23  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum23.ClickItem(drpSpectrum23)
+            dlgEnvelopeSpectrum.drpdwnSpectrum23.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum23 & " in the drpSpectrum23 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale23   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale23 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale23.Keys(intScale23)
+          dlgEnvelopeSpectrum.fldScale23.Keys("[Tab]")
+         Log.Message("Entered " & intScale23 & " in the intScale3 field")
+    End If
+  End If
+'End If  
+'End If  
+
+'Dim drpSpectrum24
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum24  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum24.ClickItem(drpSpectrum24)
+            dlgEnvelopeSpectrum.drpdwnSpectrum24.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum24 & " in the drpSpectrum24 field")
+        End If
+    End If 
+'End If
+
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale23 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale23.Keys(intScale23)
+          dlgEnvelopeSpectrum.fldScale23.Keys("[Tab]")
+         Log.Message("Entered " & intScale23 & " in the intScale3 field")
+    End If
+  End If
+'End If  
+'End If  
+
+'Dim intScale24   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale24 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale24.Keys(intScale24)
+          dlgEnvelopeSpectrum.fldScale24.Keys("[Tab]")
+         Log.Message("Entered " & intScale24 & " in the intScale24 field")
+    End If
+  End If
+'End If  
+'Dim drpSpectrum25 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum25  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum25.ClickItem(drpSpectrum25)
+            dlgEnvelopeSpectrum.drpdwnSpectrum25.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum25 & " in the drpSpectrum25 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale25 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale25 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale25.Keys(intScale25)
+          dlgEnvelopeSpectrum.fldScale25.Keys("[Tab]")
+         Log.Message("Entered " & intScale25 & " in the intScale25 field")
+    End If
+  End If
+'End If  
+
+
+'Dim drpSpectrum26
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum26  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum26.ClickItem(drpSpectrum26)
+            dlgEnvelopeSpectrum.drpdwnSpectrum26.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum26 & " in the drpSpectrum26 field")
+        End If
+    End If 
+'End If
+  
+'Dim intScale26
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale26 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale26.Keys(intScale26)
+          dlgEnvelopeSpectrum.fldScale26.Keys("[Tab]")
+         Log.Message("Entered " & intScale27 & " in the intScale26 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum27  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum27  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum27.ClickItem(drpSpectrum27)
+            dlgEnvelopeSpectrum.drpdwnSpectrum27.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum27 & " in the drpSpectrum27 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale27             
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale27 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale27.Keys(intScale27)
+          dlgEnvelopeSpectrum.fldScale27.Keys("[Tab]")
+         Log.Message("Entered " & intScale27 & " in the intScale27 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum28  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum28  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum28.ClickItem(drpSpectrum28)
+            dlgEnvelopeSpectrum.drpdwnSpectrum28.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum28 & " in the drpSpectrum28 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale28
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale28 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale28.Keys(intScale28)
+          dlgEnvelopeSpectrum.fldScale28.Keys("[Tab]")
+         Log.Message("Entered " & intScale28 & " in the intScale28 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum29 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum29  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum29.ClickItem(drpSpectrum29)
+            dlgEnvelopeSpectrum.drpdwnSpectrum29.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum29 & " in the drpSpectrum29 field")
+        End If
+    End If 
+'End If
+
+'Dim intScale29   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale29 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale29.Keys(intScale29)
+          dlgEnvelopeSpectrum.fldScale29.Keys("[Tab]")
+         Log.Message("Entered " & intScale29 & " in the intScale29 field")
+    End If
+  End If
+'End If  
+
+'Dim drpSpectrum30
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpSpectrum30  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgEnvelopeSpectrum.drpdwnSpectrum30.ClickItem(drpSpectrum30)
+            dlgEnvelopeSpectrum.drpdwnSpectrum30.Keys("[Tab]")
+         Log.Message("Entered " & drpSpectrum30 & " in the drpSpectrum30 field")
+        End If
+    End If 
+'End If 
+
+'Dim intScale30
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intScale30 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgEnvelopeSpectrum", 600).WaitProperty("Exists", true, 10)) Then
+          dlgEnvelopeSpectrum.fldScale30.Keys(intScale30)
+          dlgEnvelopeSpectrum.fldScale30.Keys("[Tab]")
+         Log.Message("Entered " & intScale30 & " in the intScale30 field")
+    End If
+  End If
+'End If      
+    
+
+End Sub

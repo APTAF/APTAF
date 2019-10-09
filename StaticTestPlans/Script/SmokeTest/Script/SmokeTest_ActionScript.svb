@@ -1,0 +1,527 @@
+﻿'USEUNIT Main
+'USEUNIT DTP
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabTools
+
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "SmokeTest"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+   Call DTP.DTPMain
+End Sub
+
+Sub Cat1TS1TC1
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.FlexibleJoint("1")
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+
+Sub Cat1TS1TC2
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.FlexibleJoint("2")
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC3
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.FlexibleJoint("3")
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS2TC1
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.FlexibleJoint("4-6") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC1
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("1") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC2
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("2") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC3
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("3") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC4
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("4") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC5
+'''' Actions Section
+'
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("5") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+
+Sub Cat2TS1TC1
+'Call Configuration
+    'Pre-Condition    
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Valve("1")
+    'Call tabResult.InputlistReport("1")
+    'Call tabResult.InputlistReport("1")
+    Aliases.autopipe.wndAutoPIPE.keys("RI")
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+    Aliases.autopipe.dlgInputListReport.btnOK.Click
+    If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+    Call tabFile.Close("No")
+
+End Sub
+
+Sub Cat2TS1TC3
+    'Pre-Condition 
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Valve("3")
+    'Call tabResult.InputlistReport("1")
+    Aliases.autopipe.wndAutoPIPE.keys("RI")
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+    Aliases.autopipe.dlgInputListReport.btnOK.Click
+If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+    Call tabFile.Close("No")
+
+End Sub
+
+Sub Cat2TS1TC4
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Valve("4")
+    'Call tabResult.InputlistReport("1")
+    Aliases.autopipe.wndAutoPIPE.keys("RI")
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+    Aliases.autopipe.dlgInputListReport.btnOK.Click
+If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+    Call tabFile.Close("No")
+
+End Sub
+
+Sub Cat2TS1TC5
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Valve("5")
+    'Call tabResult.InputlistReport("1")
+    Aliases.autopipe.wndAutoPIPE.keys("RI")
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+    Aliases.autopipe.dlgInputListReport.btnOK.Click
+If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+    Call tabFile.Close("No")
+
+End Sub
+
+Sub Cat2TS2TC1
+    'Pre-Condition
+    'Call Configuration
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+   Call tabInsert.Tee("1")
+   
+   Aliases.autopipe.wndAutoPIPE.keys("RI")
+   Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   'Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   Aliases.autopipe.dlgInputListReport.btnOK.Click
+If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+   Call tabFile.Close("No")  
+End Sub
+
+Sub Cat2TS2TC2
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+   Call tabInsert.Tee("2")
+   
+   Aliases.autopipe.wndAutoPIPE.keys("RI")
+   Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   'Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   Aliases.autopipe.dlgInputListReport.btnOK.Click
+If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+   Call tabFile.Close("No")
+End Sub
+
+Sub Cat2TS2TC3
+    'Pre-Condition
+
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+   Call tabInsert.Tee("3")
+   
+   Aliases.autopipe.wndAutoPIPE.keys("RI")
+   Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   'Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   Aliases.autopipe.dlgInputListReport.btnOK.Click
+If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+   Call tabFile.Close("No")  
+End Sub
+
+Sub Cat2TS2TC4
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+   Call tabInsert.Tee("4")
+   
+   Aliases.autopipe.wndAutoPIPE.keys("RI")
+   Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   'Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   Aliases.autopipe.dlgInputListReport.btnOK.Click
+If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+   Call tabFile.Close("No")  
+End Sub
+
+Sub Cat2TS2TC5
+    'Pre-Condition
+    
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+   Call tabInsert.Tee("5")
+   
+   Aliases.autopipe.wndAutoPIPE.keys("RI")
+   'BuiltIn.delay(2000)
+   Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   'Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   Aliases.autopipe.dlgInputListReport.btnOK.Click
+   If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+   End If
+    'Post-Condition
+   Call tabFile.Close("No")  
+End Sub
+
+Sub Cat2TS2TC6
+    'Pre-Condition
+    'Call Configuration
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+   Call tabInsert.Tee("6")
+   
+   Aliases.autopipe.wndAutoPIPE.keys("RI")
+   'BuiltIn.delay(2000)
+   Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   'Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.Click
+   Aliases.autopipe.dlgInputListReport.btnOK.Click
+If(Aliases.apipview.Exists) Then
+      Aliases.apipview.frmMain.SetFocus()
+      Aliases.apipview.frmMain.Close()
+      Log.Message("Input Listing Report Closed")
+     'PopLogFolder
+    End If
+    'Post-Condition
+   Call tabFile.Close("No")  
+End Sub
+
+
+
+'Reducer  Tests
+
+Sub Cat3TS1TC1
+'Call Configuration
+ Call tabFile.Open("2","AutoPIPE database")
+ Call tabFile.SaveAs("2","Autopipe database")
+ Call tabInsert.Run("1")
+ Call tabinsert.Reducer("1")
+ Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+ Call tabInsert.Run("2")
+ Call tabInsert.Run("3")
+ Call tabinsert.Reducer("2")
+ Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+ Call tabInsert.Run("4")
+ Call tabInsert.Run("5")
+ Call tabinsert.Reducer("3")
+ Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+ Call tabInsert.Run("6")
+ Call InputlistReport("0")
+ Call tabFile.Close("No")
+
+End Sub
+
+Sub Cat3TS1TC2
+
+Call tabFile.Open("2","AutoPIPE database")
+Call tabFile.SaveAs("2","Autopipe database")
+Call tabInsert.Run("10")
+Call tabInsert.Reducer("4")
+Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+Call tabInsert.Run("11")
+Call tabInsert.Run("12")
+Call tabinsert.Reducer("5")
+Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+Call tabInsert.Run("13")
+Call tabInsert.Run("14")
+Call tabinsert.Reducer("6")
+Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+Call tabInsert.Run("15")
+Call InputlistReport("0")
+Call tabFile.Close("No")
+
+End Sub
+
+Sub Cat3TS1TC3
+
+'Call Configuration
+Call tabFile.Open("2","AutoPIPE database")
+Call tabFile.SaveAs("2","Autopipe database")
+Call tabInsert.Run("1")
+Call tabinsert.Reducer("7")
+Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+Call tabInsert.Run("2")
+Call InputlistReport("0")
+Call tabFile.Close("No")
+
+End Sub
+
+Sub Cat3TS1TC4
+
+
+Call tabFile.Open("2","AutoPIPE database")
+Call tabFile.SaveAs("2","Autopipe database")
+Call tabInsert.Run("13")
+Call tabinsert.Reducer("8")
+Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+Call tabInsert.Run("12")
+Call InputlistReport("0")
+Call tabFile.Close("No")
+
+End Sub
+
+
+Sub Cat3TS1TC5
+
+
+Call tabFile.Open("2","AutoPIPE database")
+Call tabFile.SaveAs("2","Autopipe database")
+Call tabInsert.Run("5")
+Call tabinsert.Reducer("9")
+Aliases.autopipe.dlgOperPressTemp.btnOK.Click
+Call tabInsert.Run("6")
+Call InputlistReport("0")
+Call tabFile.Close("No")
+
+End Sub
+
+
+'New Segment Tests
+
+Sub Cat3TS2TC1
+
+'Call Configuration
+Call tabFile.Open("2","AutoPIPE database")
+Call tabFile.SaveAs("2","Autopipe database")
+Call tabInsert.Segment("1")
+Call tabInsert.Run("8")  
+Call tabInsert.Segment("2")
+Call tabInsert.Run("8") 
+Call tabInsert.Segment("3")
+Call tabInsert.Run("8")  
+Call InputlistReport("0")
+Call tabFile.Close("No")
+
+End Sub
+
+Sub Cat3TS2TC2
+
+
+Call tabFile.Open("2","AutoPIPE database")
+Call tabFile.SaveAs("2","Autopipe database")
+Call tabInsert.Segment("4")
+Call tabInsert.Run("8")  
+Call tabInsert.Segment("5")
+Call tabInsert.Run("8")  
+Call tabInsert.Segment("6")
+Call tabInsert.Run("8") 
+Call InputlistReport("0")
+Call tabFile.Close("No") 
+   
+End Sub
+
+
+
+Sub Cat4TS1TC1
+  
+   Call tabFile.Open("3","AutoPIPE Database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+   
+   Call tabInsert.Run("0")
+   Call tabInsert.Flange("0")
+   
+   Call tabInsert.Run("0")
+   Call tabInsert.Flange("1-4")   
+   
+   Call tabResult.InputlistReport("0")
+   Call tabFile.Close("No")
+   
+
+End Sub

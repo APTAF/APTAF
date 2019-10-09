@@ -1,0 +1,167 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+'USEUNIT APP_Common
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "ImportExportPXF"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName   
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+'..
+'..............Import Tests
+'..
+Sub Cat1TS1TC1
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA326A.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("1","AutoPlant")
+   'Call tabFile.SaveAs("1","AutoPIPE Database")
+   Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC2
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA326B.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+  Call tabFile.Import("2","AutoPlant")
+  Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC3
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA326C.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("3","AutoPlant")
+
+   Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC4
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA326D.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("4","AutoPlant")
+
+   Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC5
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA326E.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("5","AutoPlant")
+
+   Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC6
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA326F.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("6","AutoPlant")
+
+   Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC7
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA324A.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("7","AutoPlant")
+
+   Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC8
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA324B.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("8","AutoPlant")
+
+'   Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC9
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA324C.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("9","AutoPlant")
+
+   Call tabResult.InputlistReport("0")
+''Post-Condition
+   Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC10
+''Comments
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExportPXF\Models\Import\QA324D.PXF"
+  Call CopyToTemp(strfilePath)
+''Pre-Conditions
+   Call tabFile.Import("10","AutoPlant")
+
+'   Call tabResult.InputlistReport("0")
+''Post-Condition
+   Call tabFile.Close("No")  
+End Sub
+
+'..
+'..............Export Tests
+'..
+Sub Cat2TS1TC1
+''Comments
+''Pre-Conditions
+Call tabfile.Open("1","AutoPIPE DataBase")
+Call tabfile.SaveAs("1","AutoPIPE DataBase")
+''Tests
+Call tabFile.Export("11","AutoPlant")
+
+   Call tabResult.InputlistReport("0")
+''Post-Condition
+   Call tabFile.Close("No")  
+End Sub
+Sub Cat2TS1TC2
+''Comments
+''Pre-Conditions
+Call tabfile.Open("2","AutoPIPE DataBase")
+Call tabfile.SaveAs("2","AutoPIPE DataBase")
+''Tests
+Call tabFile.Export("11","AutoPlant")
+
+   tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub

@@ -1,0 +1,666 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT FSO_Functions
+'USEUNIT GlobalConstants
+
+Option Explicit 
+Sub RunFile(FileName)
+  
+  'Create object
+  Dim wShell
+  Set wShell = CreateObject("WScript.Shell")
+  wShell.run chr(34) & FileName & chr(34)
+  
+  'Destroy object
+  Set wShell = Nothing
+End Sub
+
+Sub ShellRun(cLine,Param1,Param2)
+  
+  'Create object
+  Dim wShell
+  Set wShell = CreateObject("WScript.Shell")
+  wShell.run cLine, Param1, Param2
+  
+  'Destroy object
+  Set wShell = Nothing
+End Sub
+
+
+Function ShellCheck(cLine)
+  
+  'Create object
+  Dim wShell
+  Dim Ret
+  Set wShell = CreateObject("WScript.Shell")
+  Ret = wShell.Run(cLine, 0, true) 
+  
+  'Destroy object
+  Set wShell = Nothing
+  ShellCheck = Ret
+  
+End Function
+
+Sub KillProcess(sProcess)
+  
+  'Kill
+  Do Until Sys.WaitProcess(sProcess, 1000, -1).Exists <> True
+    Sys.Process(sProcess).Terminate
+  Loop
+End Sub
+
+Sub SendEmail(mFrom, mTo, mSubject, mBody, mAttachment)
+  
+  'Enable error handling
+  On Error Resume Next
+  
+  'Schema
+  Dim mConfig,schema
+  schema = "http://schemas.microsoft.com/cdo/configuration/"
+  
+  'CDO object
+  Set mConfig = Sys.OleObject("CDO.Configuration")
+  
+  'CDO Port
+  mConfig.Fields.Item(schema + "sendusing") = 2
+  
+  'Server
+  mConfig.Fields.Item(schema + "smtpserver") = "SMTP.Bentley.COM"
+  
+  'SMTP Port
+  mConfig.Fields.Item(schema + "smtpserverport") = 25
+  mConfig.Fields.Update()
+  
+  'Construct the message
+  Dim mMessage
+  Set mMessage = Sys.OleObject("CDO.Message")
+  mMessage.Configuration = mConfig
+  mMessage.From = mFrom
+  mMessage.To = mTo
+  mMessage.Subject = mSubject
+  mMessage.TextBody = mBody
+  mMessage.AddAttachment(mAttachment)
+  
+  'Send
+  mMessage.Send
+  
+  'Handle any errors
+  If Err.Number <> 0 Then
+    Log.Error "E-mail cannot be sent", Err.Description
+  Else
+    Log.Message "Message to <" + mTo + "> was successfully sent"
+  End If
+End Sub
+
+Function LoadXML(DocName)
+  
+  'Enable error handling
+  On Error resume next
+  
+  'Create object 
+  Dim XMLDoc,s
+  Set XMLDoc = CreateObject("Microsoft.XMLDOM")
+  XMLDoc.async = False
+  
+  'Load file
+  Call XMLDoc.load(DocName)
+  
+  'Report an error, if, for instance, the markup or file structure is invalid 
+  If XMLDoc.parseError.errorCode <> 0 Then
+  
+    'Error string
+    s = "Reason:" + Chr(9) + XMLDoc.parseError.reason + _
+        "Line:" + Chr(9) + CStr(XMLDoc.parseError.line) + Chr(13) + Chr(10) + _
+        "Pos:" + Chr(9) + CStr(XMLDoc.parseError.linePos) + Chr(13) + Chr(10) + _
+        "Source:" + Chr(9) + XMLDoc.parseError.srcText
+        
+    'Post an error to the log and exit
+    Call Log.Error("Cannot parse the document.", s) 
+  
+    'Destroy object
+    Set XMLDoc = Nothing
+    Exit Function
+  End If
+  
+  'Set function
+  Set LoadXML = XMLDoc
+  
+  'Destroy Object
+  Set XMLDoc = Nothing
+End Function
+
+Sub XMLNodeCount(DocName,XMLQuery,intCount)
+  
+  'Load the XML into memory
+  Dim XMLDoc
+  Set XMLDoc = LoadXML(DocName)
+  
+  'Get a collection of all nodes
+  Dim colNodes
+  Set colNodes = XMLDoc.selectNodes(XMLQuery)
+  
+  'Get the length
+  intCount = colNodes.Length
+  
+  'Destroy Objects
+  Set XMLDoc = Nothing
+  Set colNodes = Nothing
+End Sub
+
+Function XMLGetNodeId(DocName,XMLQuery)
+  
+  'Load the XML into memory
+  Dim XMLDoc
+  Set XMLDoc = LoadXML(DocName)
+  'Get a collection of all nodes
+  Dim colNodes
+  Set colNodes = XMLDoc.selectNodes(XMLQuery)
+  
+  'Create dictionary object
+  Dim d
+  Set d = CreateObject("Scripting.Dictionary")
+  
+  'Iterate nodes
+  Dim i,objNode
+  For i = 0 to colNodes.Length -1
+   
+    'Node object
+    Set objNode = colNodes.Item(i)
+    d.Add i,Mid(objNode.xml,InStr(objNode.xml,"=")+2,InStr(Mid(objNode.xml,InStr(objNode.xml,"=")+2),">")-2) 
+  
+    'Destroy object
+    Set objNode = Nothing
+  Next
+  
+  'Destroy Objects
+  Set XMLDoc = Nothing
+  Set colNodes = Nothing
+  
+  'Set function
+  Set XMLGetNodeId = d
+End Function
+
+Function XMLParseData(DocName,XMLQuery,pType,Tag1,Tag2)
+  'Enable error handling
+  On error resume next
+  Err.Clear
+  'Load the XML into memory
+  Dim XMLDoc,d
+  Set XMLDoc = LoadXML(DocName)
+  'Create Dictionary object
+  Set d = CreateObject("Scripting.Dictionary")
+  'Process the XML
+  Dim colNodes,i,objNode,XMLNode,XMLChilds,Child
+  Select Case pType
+    'This case parses the XML and exports the values of 2 different tags from all elements
+    Case "prop"
+      Set colNodes = XMLDoc.selectNodes(XMLQuery)
+      i = 0
+      For Each objNode in colNodes
+        d.Add XMLDoc.getElementsByTagName(Tag1).item(i).text,XMLDoc.getElementsByTagName(Tag2).item(i).text
+        If err.number <> 0 Then
+          If d.exists(XMLDoc.getElementsByTagName(Tag1).item(i).text) = true Then
+            Log.Message("XML Parse::The key you are trying to add to memory [" & XMLDoc.getElementsByTagName(Tag1).item(i).text & "] already exists, so ignoring..")
+          End If
+          Err.Clear
+        End If
+        'Get a counter going so that the parser moves down the XML tree
+        i = i + 1
+      Next
+    'This case parses the XML and exports a whole element based on the query passed to it
+    Case "data"
+      Set XMLNode = XMLDoc.SelectSingleNode(XMLQuery)
+      Set XMLChilds = XMLNode.childNodes
+      i = 0
+      For Each Child in XMLChilds
+        d.Add Child.nodeName, Child.text
+        If err.number <> 0 Then
+          If d.exists(Child.nodeName) = true Then
+            i = i + 1
+            d.Add Child.nodeName & i, Child.text
+            'Log.Message(Child.nodeName & " already exists,ignoring...")
+          End If
+          Err.Clear
+         End If
+      Next 
+    'This case parses the XML and exports a tag name and its value along with another tag value in all elements
+    Case "res"
+      Set colNodes = XMLDoc.selectNodes(XMLQuery)
+      i = 0
+      For Each objNode in colNodes
+        d.Add Tag1 & XMLDoc.getElementsByTagName(Tag1).item(i).text,XMLDoc.getElementsByTagName(Tag2).item(i).text
+        If err.number <> 0 Then
+          If d.exists(XMLDoc.getElementsByTagName(Tag1).item(i).text) = true Then
+            Log.Message("XML Parse::The key you are trying to add to memory [" & XMLDoc.getElementsByTagName(Tag1).item(i).text & "] already exists, so ignoring..")
+          End If
+          Err.Clear
+        End If
+        'Get a counter going so that the parser moves down the XML tree
+        i = i + 1
+      Next  
+  End Select                                                                           
+  'Set the value of the function to the items in memory
+  Set XMLParseData = d 
+  'Destroy Objects
+  Set XMLDoc = Nothing
+  Set XMLNode = Nothing
+  Set XMLChilds = Nothing
+  Set d = Nothing 
+  Set colNodes = Nothing
+End Function 
+
+Function NumType(num)
+  If num => 0 Then
+    NumType = "Positive"
+  Else
+    NumType = "Negative"
+  End If
+End Function
+
+Function InvertNumber(num)
+  If InStr(num,"-") <> 0 Then
+    InvertNumber = Replace(num,"-","")
+  Else
+    InvertNumber = "-" & num
+  End If
+End Function
+
+Function GetTempDirLoc()
+  
+  'Create Shell object
+  Dim objShell
+  Set objShell = CreateObject("Wscript.Shell")
+  
+  'Get temp variable
+  GetTempDirLoc = objShell.ExpandEnvironmentStrings("%temp%") & "\"
+  
+  'Destroy objects
+  Set objShell = Nothing
+End Function
+
+Function GetEnvironmentString(sName)
+  
+ 'Create object
+  Dim objShell
+  Set objShell = CreateObject("Wscript.Shell")
+  
+  'Set function
+  GetEnvironmentString = objShell.ExpandEnvironmentStrings(sName) & "\"
+  
+  'Destroy object
+  Set objShell = Nothing
+End Function
+
+Function GetMachineName()
+  
+  'Create object
+  Dim oWshShell
+  set oWshShell = CreateObject("WScript.Shell") 
+  
+  'Machine name
+  GetMachineName = oWshShell.ExpandEnvironmentStrings("%ComputerName%") 
+End Function
+
+Sub DeleteRegkeys(Hive,sPath) 
+ 
+  'Create object
+  Dim objReg,aSubKeys
+  Set objReg = GetObject("winmgmts:\\.\root\default:StdRegProv")
+  objReg.EnumKey Hive,sPath,aSubkeys 
+
+  'Check for sub keys
+  Dim sSubKey
+  If IsArray(aSubkeys) Then 
+    For Each sSubkey In aSubkeys 
+      Call DeleteRegkeys(Hive,sPath & "\" & sSubkey) 
+    Next 
+  End If 
+
+  'Delete key
+  objReg.DeleteKey Hive, sPath 
+ 
+  'Destroy objects
+  Set objReg = Nothing
+End Sub
+
+Sub XMLParser(DocName,ByRef objApplic)
+  
+  'Load the XML into memory
+  Dim XMLDoc,d
+  Set XMLDoc = LoadXML(DocName)
+  
+  'Create Dictionary object
+  Set objApplic = CreateObject("Scripting.Dictionary")
+ 
+  'Select the nodes
+  Dim XMLNode,childs,child
+  Set XMLNode = XMLDoc.SelectNodes("/DataGrid/Row")
+  Dim i,curNode,idValue
+      
+  'Iterate through each node
+  For i = 0 to XMLNode.Length
+    Set curNode = XMLNode.Item(i)
+        
+    'Get the current ID value
+    idValue = curNode.getAttribute("Id")
+        
+    'Get all the child nodes
+    Set childs = curNode.childNodes
+        
+    For each child in childs
+      
+      'Add each property and value to memory  
+      objApplic.add "Row" & idValue & child.tagName,child.Text
+    
+    'Next child node    
+    Next 
+  
+  'Destroy objects
+  Set curNode = Nothing
+  Set childs = Nothing
+  
+  'Next node
+  Next
+  
+  'Destroy Objects
+  Set XMLDoc = Nothing
+  Set XMLNode = Nothing
+End Sub
+
+Sub GetOSVersion(sVer)
+  
+  'Create object
+  Dim oSh, oEx, OS
+  Set oSh=CreateObject("WScript.Shell")
+  Set oEx=oSh.Exec("%COMSPEC% /C ver")
+  Do While oEx.Status=0
+    BuiltIn.Delay(100)
+  Loop
+  While Len(os)<1
+   os=Replace(oEx.StdOut.ReadLine,vbCrLf,"")
+  Wend
+  sVer = os
+  
+  'Destroy Objects
+  Set oSh = Nothing
+  Set oEx = Nothing
+End Sub
+
+Sub GetOSType(sType)
+  
+  'local computer
+  Dim sComputer
+  sComputer = "."
+
+  'Create object
+  Dim objWMIService,colComputer
+  Set objWMIService = GetObject("winmgmts:" _
+  & "{impersonationLevel=impersonate}!\\" _ 
+  & sComputer & "\root\cimv2") 
+  
+  'Computer object
+  Set colComputer = objWMIService.ExecQuery _
+  ("Select * from Win32_ComputerSystem")
+
+  'Get system type
+  Dim objComputer
+  For Each objComputer in colComputer
+    sType = objComputer.SystemType 
+  Next
+  
+  'Destroy objects
+  Set objWMIService = Nothing
+  Set colComputer = Nothing
+End Sub
+
+Sub SortArrayNumerical(YourArray)
+  
+  'Array bound
+  Dim ArrayUbound
+  ArrayUbound = UBound(YourArray)
+
+  'The actual sort process
+  Dim I,TempVAR_1,TempVAR_2,P
+  For I = 0 to ArrayUbound 
+    TempVAR_1 = 0
+    TempVAR_2 = 0 
+    For P = 0 to ArrayUbound
+      If CDbl(YourArray(I)) < CDbl(YourArray(P)) Then
+        TempVAR_1 = CDbl(YourArray(I))
+        TempVAR_2 = CDbl(YourArray(P))
+        YourArray(I) = TempVAR_2
+        YourArray(P) = TempVAR_1
+      End If
+    Next 'P 
+  Next 'I
+End Sub
+
+Sub FormatNumbers(aName,nDec,Group)
+ 
+  'Temp array
+  Dim tmpArray(),i,Element
+  i = 0
+  For Each Element in aName
+    If IsNumeric(Element) Then
+      ReDim Preserve tmpArray(i)
+      tmpArray(i) = FormatNumber(Element,nDec,,,Group)
+    Else
+      ReDim Preserve tmpArray(i)
+      tmpArray(i) = Element
+    End If
+    i = i + 1  
+  Next
+  
+  'Array equals temp array
+  aName = tmpArray
+End Sub
+
+Sub RemoveEmptyElements(aName)
+  
+  'Temp array
+  Dim tmpArray(),i,Element
+  i = 0
+  For Each Element in aName
+    If Element <> "" Then
+      ReDim Preserve tmpArray(i)
+      tmpArray(i) = Element
+      i = i + 1
+    End If
+  Next
+  
+  'Array equals temp array
+  aName = tmpArray
+End Sub
+
+Function RemoveElements(aName,sName)
+ 
+  'Temp array
+  Dim tmpArray(),i,Element
+  i = 0
+  For Each Element in aName
+    If Element <> sName Then
+      ReDim Preserve tmpArray(i)
+      tmpArray(i) = Element
+      i = i + 1
+    End If
+  Next
+  
+  'Array equals function
+  RemoveElements = tmpArray
+End Function
+
+Sub AddToDictionary(key,item)
+ 
+  'Dictionary object
+  Dim d
+  Set d = CreateObject("Scripting.Dictionary")
+  
+  'Add
+  d.Add key,item
+End Sub
+
+Sub Usage(sProcess,cpuUsage,memUsage)
+  
+  'Usage
+  cpuUsage = sys.Process(sProcess).CPUUsage
+  memUsage = sys.Process(sProcess).MemUsage
+End Sub
+  
+Sub WaitProcess(sProcess,iTime,bExists)
+  
+  'Counter
+  Dim i
+  i = 0
+  
+  'Wait for process
+  If Sys.WaitProcess(sProcess, 1000).Exists <> True Then
+    Do While Sys.WaitProcess(sProcess, 1000).Exists <> True or i = iTime
+      i = i + 1
+      Builtin.Delay(1000)
+    Loop
+  End If
+  
+  If i = iTime Then
+    bExists = False
+  Else
+    bExists = True
+  End If
+End Sub
+
+Sub RandomNumber(nMax,nMin,rNum)
+  
+  'Initialze the random number generator
+  Randomize
+  
+  'Generate a random number
+  rNum = Int((nMax-nMin+1)*Rnd+nMin)
+End Sub
+
+Sub PruneObject(objObject,aItems)
+ 
+  'Prune
+  Dim item,prop,diff
+  For each prop in objObject
+    For each item in aItems
+      If prop <> item Then
+        diff = True
+      Else
+        diff = False
+        Exit For
+      End If 
+    Next
+    If diff = True Then objObject.Remove(prop)
+    diff = False  
+  Next
+End Sub
+
+Function CreateDictionaryObject()
+  
+  'Create object
+  Set CreateDictionaryObject = CreateObject("Scripting.Dictionary")
+End Function
+
+Function DayOfWeek(dtmToday)
+ 
+  'Get today
+  DayOfWeek = DatePart("w", dtmToday)
+End Function
+
+Sub SendKeyToScreen(sKey)
+ 
+  'Send key
+  Sys.Keys(sKey)
+End Sub
+
+Function FindExp(sText,exp)
+  
+  'Create object
+  Dim objRegEx
+  Set objRegEx = CreateObject("VBScript.RegExp")
+
+  'Expression pattern
+  objRegEx.Global = True   
+  objRegEx.Pattern = exp
+
+  'Get collection of search matches
+  Dim colMatches
+  Set colMatches = objRegEx.Execute(sText)  
+
+  Dim strMatch,strValue
+  For Each strMatch in colMatches  
+    strValue = strValue & "," & strMatch.Value
+  Next
+  FindExp = strValue
+  
+  'Destroy objects
+  Set objRegEx = Nothing
+  Set colMatches = Nothing
+End Function
+
+Function FileVersion(sPath)
+  
+  'Create object
+  Dim objWMI
+  Set objWMI = GetObject("winmgmts:\\.\root\cimv2")
+
+  'File object
+  Dim colFiles
+  Set colFiles = objWMI.ExecQuery("Select * from CIM_Datafile Where Name = '" & sPath & "'")
+  
+  'Get version number
+  Dim objFile
+  For Each objFile in colFiles
+    FileVersion = objFile.Version
+  Next
+  
+  'Destroy
+  Set objWMI = Nothing
+  Set colFiles = Nothing
+End Function
+
+Function ArrayToDictionary(ItemName,aName)
+  
+  'Dictionary object
+  Dim d
+  Set d = CreateObject("Scripting.Dictionary")
+
+  'Add
+  Dim Element,i
+  i = 0
+  For Each Element in aName
+    d.Add ItemName & i + 1,Element
+    i = i + 1
+  Next
+  
+  Set ArrayToDictionary = d
+End Function
+
+Sub ConvertToDouble(Val)
+  
+  'Type
+  Select Case TypeName(Val)
+  
+    'String
+    Case "String"
+    
+      'Get delimiter
+      Dim sTmp
+      sTmp = CDbl(0.5)
+      
+      'Convert
+      If InStr(Val,".") <> 0 Then
+        If InStr(sTmp,",") <> 0 Then
+          Val = CDbl(Replace(Val,".",","))
+        Else
+          Val = CDbl(Val)
+        End If
+      End If
+  End Select
+End Sub
+
+Function HiWord(Value)
+  HiWord = ((Value And &H7FFF0000) \ &H10000) Or (&H8000 And (Value < 0))
+End Function
+
+Function LoWord(Value)
+  LoWord = (Value And &H7FFF) Or (&H8000 And ((Value And &H8000&) = &H8000&))
+End Function

@@ -1,0 +1,23 @@
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+08/26/2014 PROJECT:                                                   BENTLEY                                   
+04:43 PM                                                              AutoPIPE Nuclear 9.6.1.07  CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-14: No anchors in current system                                      
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-7:  Pipe diameter change without a reducer at following point(s)      
+                                                                                
+     110                                                                        
+ 
+ 
+  No error     2 Warning(s)                                                     
+ 
+

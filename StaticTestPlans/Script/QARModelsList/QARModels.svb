@@ -1,0 +1,101 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT FSO_Functions
+'USEUNIT tabFile
+
+
+'Steps to Get Model files
+'1. Gets Model Name from Excel
+'2. Create Folder of same model name
+'3. Open Model
+'4. Save As model in that folder.
+'5. Close Model
+
+Sub QARModels
+'''''''''''''''  Required Inputs ''''''''''''''''''''''''''''
+      Dim strWorkingFolder :  strWorkingFolder = "C:\Users\bilal.tahir\OneDrive - Bentley Systems, Inc\Documents\Delete\ATS\ATSModels"
+      Dim strModelsPath : strModelsPath = "C:\Users\bilal.tahir\OneDrive - Bentley Systems, Inc\Documents\Delete\ATS\DAT\"
+      Dim strTableName: strTableName = "QARModels"  
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+      
+      Dim strDBType: strDBType = "Excel" 'Project.Variables.strDBType 
+      Dim strOpenDialog: strOpenDialog = "ShortCut" 'Project.Variables.strOpenDialog   ' dialog opening method -> Shortcut or Ribbon
+      Dim strDBPath: strDbPath     = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\QARModelsList"'Project.Variables.strDbPath           ' DB path 
+      Dim strDBName: strDBName = "QARModelsList.xlsx" 'Project.Variables.strDBName               ' DB Name
+      Dim strDB : strDB = strDBPath & "\" & strDBName                            ' DB Path + DB Name 
+ 
+      'Dim strTableName: strTableName = "QARModels"                           ' Table Name 
+      Set ObjNameMapping = Aliases.autopipe
+      Dim intTotalRows: intTotalRows = Datatable_Get_Row_Count(strDBType,strTableName,strDB)
+      
+      
+ For intRow = 1 to intTotalRows
+      Set objTable = Datatable(strDBType,strTableName,intRow, null,strDB)
+      Dim strModelName : strModelName = ObjTable.Item("Model")
+
+'1.   ''''''''''''Create Folder ''''''''''''''''''''''''''''''
+      Dim strModelFolder: strModelFolder  = strWorkingFolder & "\" & strModelName
+      Call FSOCreateFolder(strModelFolder)
+
+'2.   '''''''''''''''''Open Model'''''''''''''''''''''''''''''
+      Dim strModelToOpen: strModelToOpen = strModelsPath&strModelName
+      Dim strHotKey: strHotKey = "FOD"
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      ObjNameMapping.dlgOpen.cbxFileName.cmbFileName.fldFileName.Keys(strModelToOpen)
+      ObjNameMapping.dlgOpen.btnOK.Click()
+      Log.Message("Model " &strModelName& " Opened")
+
+'3.   ''''''''''''''' Save AS Model '''''''''''''''''''''''
+      aqutils.Delay(100)
+      objNameMapping.wndAutoPIPE.Click()
+
+      objNameMapping.wndAutoPIPE.Keys("FAD")
+      'ObjNameMapping.dlgSaveAs.fldFileName.Keys(strModelFolder&"\"&strModelName)
+      'ObjNameMapping.dlgSaveAs.fldFileName.Keys(strWorkingFolder&"\"&strModelName)
+      ObjNameMapping.dlgSaveAs.DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName.Keys(strModelFolder &"\"&strModelName)
+      
+      objNameMapping.dlgSaveAs.btnOK.click()
+
+'4.   ''''''''''''''' Close Model '''''''''''''''''''''''
+      tabFile.Close("Yes")
+   
+   Next
+End Sub
+
+Sub GetOUTFiles
+  '''''''''''''''  Required Inputs ''''''''''''''''''''''''''''
+      Dim strWorkingFolder :  strWorkingFolder = "D:\Delete\NonATSOUT\"
+      Dim strModelsPath : strModelsPath = "D:\Delete\OUT"
+      Dim strTableName: strTableName = "NonATS"  ' "ATS"
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+      
+      Dim strDBType: strDBType = "Excel" 'Project.Variables.strDBType 
+      Dim strOpenDialog: strOpenDialog = "ShortCut" 'Project.Variables.strOpenDialog   ' dialog opening method -> Shortcut or Ribbon
+      Dim strDBPath: strDbPath     = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\QARModelsList"'Project.Variables.strDbPath           ' DB path 
+      Dim strDBName: strDBName = "QARModelsList.xlsx" 'Project.Variables.strDBName               ' DB Name
+      Dim strDB : strDB = strDBPath & "\" & strDBName                            ' DB Path + DB Name 
+ 
+      'Dim strTableName: strTableName = "QARModels"                           ' Table Name 
+      Set ObjNameMapping = Aliases.autopipe
+      Dim intTotalRows: intTotalRows = Datatable_Get_Row_Count(strDBType,strTableName,strDB)
+      
+ For intRow = 1 to intTotalRows
+      Set objTable = Datatable(strDBType,strTableName,intRow, null,strDB)
+      Dim strModelName : strModelName = ObjTable.Item("Model")
+'.. Get Dat Files
+'      If FSOFileExists(strModelsPath&"\"&strModelName&".DAT") Then
+'        Call FSOCopyFile(strModelsPath&"\"&strModelName&".DAT",strWorkingFolder)
+'      End If
+'..Get OUT FILES
+      If FSOFileExists(strModelsPath&"\"&strModelName&".OUT") Then
+        Call FSOCopyFile(strModelsPath&"\"&strModelName&".OUT",strWorkingFolder)
+      ElseIf FSOFileExists(strModelsPath&"\"&strModelName&".RPT")Then
+        Call FSOCopyFile(strModelsPath&"\"&strModelName&".RPT",strWorkingFolder)
+      ElseIf FSOFileExists(strModelsPath&"\"&strModelName&".HGR")Then
+        Call FSOCopyFile(strModelsPath&"\"&strModelName&".HGR",strWorkingFolder)
+      ElseIf FSOFileExists(strModelsPath&"\"&strModelName&".FLR")Then
+        Call FSOCopyFile(strModelsPath&"\"&strModelName&".FLR",strWorkingFolder)      
+      End If
+      Next
+      
+
+End Sub

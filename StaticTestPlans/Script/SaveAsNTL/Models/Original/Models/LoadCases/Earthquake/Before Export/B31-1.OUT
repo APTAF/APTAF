@@ -1,0 +1,1907 @@
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                                         BENTLEY                      
+11:10 AM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.12                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                                         BENTLEY                      
+11:10 AM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : B31-1                                           
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2004                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   68.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-04 
+ 
+          MODEL REVISION NUMBER  :     3
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                                         BENTLEY                      
+11:10 AM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    4                      
+     Pipe Properties.................................................................    5                      
+     Material Properties.............................................................    6                      
+     Material Allowables.............................................................    7                      
+     Temperature and Pressure........................................................    8                      
+     Loads Summary...................................................................    9                      
+     Bend............................................................................   10                      
+     Tee.............................................................................   11                      
+     Valve...........................................................................   12                      
+     Flange..........................................................................   14                      
+     Analysis Summary................................................................   15                      
+     Displacement....................................................................   19                      
+     Restraint Reactions.............................................................   22                      
+     Forces & Moments................................................................   23                      
+     General Stress..................................................................   27                      
+     Code Compliance.................................................................   32                      
+     Result Summary..................................................................   38                      
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 4.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 8, Material= A672-C60-12, Poisson= 0.300, Nom Size= 8 in, OD= 8.625 inch, Sch= 80S,                 
+   Wall Thk= 0.500 inch, Mill= 0.063 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                          
+   Pipe Unit Wgt= 43.34 lb/ft, Insul Thk= 0 inch, Cladding Thickness = 0 inch, Lining Thk= 0 inch,              
+   Long Weld factor= 1.00, Circ Weld factor= 1.00, Long Modulus= 29.50824 E6 psi, Hoop Modulus= 29.50824 E6 psi,
+   Shear Modulus= 11.34932 E6 psi, Sc= 15000.0 psi, Syc= 32000.0 psi            
+ 
+ OPERATING DATA:                                                                
+   P1= 100.00 psi, P2= 200.00 psi, P3= 300.00 psi, T1= 50.00 deg F, T2= 100.00 deg F, T3= 150.00 deg F,         
+   Exp1= -0.13235 in/100ft, Exp2= 0.24548 in/100ft, Exp3= 0.63009 in/100ft, E1= 29.58235 E6 psi,                
+   E2= 29.33846 E6 psi, E3= 29.06923 E6 psi, Sh1= 15000.00 psi, Sh2= 15000.00 psi, Sh3= 15000.00 psi            
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A10, DX= 1.38 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 300, Length= 1.38 ft, Valve weight = 500 lb, Surface factor= 5.10, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 4.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A01, Flange= WELDNECK, Rating= 16, Flange Weight= 24.30 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   A01 M, Coordinates, X= 4.69 ft, Y= 0.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A10 to A02, DX= 2.62 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A10, Coordinates, X= 5.38 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A10, Flange= WELDNECK, Rating= 16, Flange Weight= 24.30 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DY= 4.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= A02, Near= A02 N, Far= A02 F):                      
+   Long Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.77                 
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 8.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A02 N, Coordinates, X= 7.00 ft, Y= 0.00 ft, Z= 0.00 ft                       
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   A02 F, Coordinates, X= 8.00 ft, Y= 1.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A03 to A04, DY= 4.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A03, Coordinates, X= 8.00 ft, Y= 4.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A04 to A05, DY= 1.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= 8.00 ft, Y= 8.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A05 to A06, DX= 4.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= A05, Near= A05 N, Far= A05 F):                      
+   Long Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.77                 
+ 
+ POINT DATA:                                                                    
+   A05, Coordinates, X= 8.00 ft, Y= 9.00 ft, Z= 0.00 ft                         
+   A05 N, Coordinates, X= 8.00 ft, Y= 8.00 ft, Z= 0.00 ft                       
+   A05 F, Coordinates, X= 9.00 ft, Y= 9.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A06 to A07, DX= 1.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A06, Coordinates, X= 12.00 ft, Y= 9.00 ft, Z= 0.00 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From A07 to A08, DZ= -4.00 ft                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= A07, Near= A07 N, Far= A07 F):                      
+   Long Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.77                 
+ 
+ POINT DATA:                                                                    
+   A07, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= 0.00 ft                        
+   A07 N, Coordinates, X= 12.00 ft, Y= 9.00 ft, Z= 0.00 ft                      
+   A07 F, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -1.00 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From A08 to A09, DZ= -4.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A08):                                      
+   B16.9 welding tee, SIF= 1.35                                                 
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+   A09, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -8.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   A09, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A08 to B01, DX= 4.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A08):                                      
+   B16.9 welding tee, SIF= 1.35                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 8, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 43.34 lb/ft        
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+   B01, Coordinates, X= 17.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   B01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 23 + 0 + 0 = 23          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         1906.7 lb     +         0.0 lb     =        1906.7 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ A00            0.00        0.00        0.00                                    
+ A01            4.00        0.00        0.00                                    
+ A01 M          4.69        0.00        0.00                                    
+ A10            5.38        0.00        0.00                                    
+ A02 N          7.00        0.00        0.00                                    
+ A02            8.00        0.00        0.00                                    
+ A02 F          8.00        1.00        0.00                                    
+ A03            8.00        4.00        0.00                                    
+ A04            8.00        8.00        0.00                                    
+ A05 N          8.00        8.00        0.00                                    
+ A05            8.00        9.00        0.00                                    
+ A05 F          9.00        9.00        0.00                                    
+ A06           12.00        9.00        0.00                                    
+ A07 N         12.00        9.00        0.00                                    
+ A07           13.00        9.00        0.00                                    
+ A07 F         13.00        9.00       -1.00                                    
+ A08           13.00        9.00       -4.00                                    
+ A09           13.00        9.00       -8.00                                    
+ 
+ *** SEGMENT B                                                                  
+ A08           13.00        9.00       -4.00                                    
+ B01           17.00        9.00       -4.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    ZL/ Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC/                       
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 8              8  8.625 0.500    0 0.06    0    0     0    0.000  43.34     0 43.34 1.00                       
+ A672-C60-12  80S                                           0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ A672-C60-12 8           489.0  0.30    68.0   29.508   29.508   11.349                              
+                                        50.0   29.582                    -0.1324
+                                       100.0   29.338                     0.2455
+                                       150.0   29.069                     0.6301
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield                                                                    
+    Name     Pipe ID  deg F   psi      psi                                                                      
+------------ -------- ------- -------- --------                                                                 
+ A672-C60-12 8           68.0  15000.0  32000.0
+                         50.0  15000.0
+                        100.0  15000.0
+                        150.0  15000.0
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A 
+ A00   T1       100  50.00    -0.132     29.582     15000                     
+       T2       200    100     0.245     29.338     15000                     
+       T3       300    150     0.630     29.069     15000                     
+ A09    Same as previous point.          
+ 
+ *** SEGMENT B 
+ A08   T1       100  50.00    -0.132     29.582     15000                     
+       T2       200    100     0.245     29.338     15000                     
+       T3       300    150     0.630     29.069     15000                     
+ B01    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     EARTHQUAKE LOAD CASES :
+     -----------------------
+
+     Number of load cases :  6
+
+     Load case 1  -  E1 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.500    Y-Resultant =        0.000    Z-Resultant =        0.000                
+
+     Load case 2  -  E2 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.000    Y-Resultant =        1.000    Z-Resultant =        0.000                
+
+     Load case 3  -  E3 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.000    Y-Resultant =        0.000    Z-Resultant =        1.500                
+
+     Load case 4  -  E4 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.500    Y-Resultant =        0.000    Z-Resultant =        0.000                
+
+     Load case 5  -  E5 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.000    Y-Resultant =        1.000    Z-Resultant =        0.000                
+
+     Load case 6  -  E6 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.000    Y-Resultant =        0.000    Z-Resultant =        1.500                
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (in)   (deg)   (in)   (in)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+ A02   Elbow  12.00L  90.0   8.625  0.500 A672-C60-12  0/0  1.77   1.77    1           4.54     None            
+ A05   Elbow  12.00L  90.0   8.625  0.500 A672-C60-12  0/0  1.77   1.77    1           4.54     None            
+ A07   Elbow  12.00L  90.0   8.625  0.500 A672-C60-12  0/0  1.77   1.77    1           4.54     None            
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+ L = Long radius                                                                
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (in)    (in)               Type     (in)   (in)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ A08   A-Header  8.625  0.500  A672-C60-12 Welding                  1.35   1.35 
+       B-Branch  8.625  0.500  A672-C60-12                                      
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+                    V A L V E   D A T A   L I S T I N G                                                         
+                              Valve   Actuator       Actuator                            Size  Type             
+ Point          Dnom  Length  Weight  Weight    DX      DY      DZ          Joint        /Avg. /Max.            
+ Name   Type    (in)   (ft)   (lb)    (lb)     (ft)    (ft)    (ft)    SAF  Type    SIF  (in)  (in)             
+ ----- -------- ---- -------- ------  ------  ------- ------- ------- ----- ------- ---- ----- -----            
+ 
+ Tag No. : <None>                                                               
+ A01   CATALOG     8     1.38    500                                   5.10 WN      1.00                        
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : A01                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : FL                                                               
+ Rating      : 300                                                              
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+                    F L A N G E   D A T A   L I S T I N G                                                       
+                                   Flange  Bolt               Size  Type                                        
+ Point FLG            Dnom         Weight Weight Joint        /Avg. /Max. ANSI                                  
+ Name  No.   Type     (in)  Rating  (lb)   (lb)  Type    SIF  (in)  (in)  Check                                 
+ ----- ---- -------- ------ ------ ------ ------ ------- ---- ----- ----- -----                                 
+ Tag No. : <None>                                                               
+ A01    1   WELDNECK      8     16  24.30   0.00 WN      1.00             No    
+ Tag No. : <None>                                                               
+ A10    1   WELDNECK      8     16  24.30   0.00 WN      1.00             No    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+ 
+                    A N A L Y S I S   S U M M A R Y                             
+ 
+ 
+   Current model revision number : 3                                            
+ 
+     Static - Analysis set number ................... 1                         
+              Date and Time of analysis ............. Nov 17, 2016   11:10 AM   
+              Model Revision Number ................. 3                         
+              Number of load cases .................. 7                         
+              Load cases analyzed ................... GR T1 T2 T3 E4 E5 E6      
+              Description ........................... Load Set No. 1                                            
+              Gaps/Friction/Soil considered ......... No                        
+              Hanger design run ..................... No                        
+              Cut short included .................... No                        
+              Thermal bowing included ............... No                        
+              Include Bourdon rotational effect ..... No                        
+              Pipe radius for Bourdon calculation ... Mean                      
+              Weight of contents included ........... Yes                       
+              Fluid density factor for contents ..... 1.00                      
+              Pressure stiffening case .............. None                      
+              Hot modulus case ...................... None                      
+              Pressure Extension..................... No                        
+              Water elevation for buoyancy loads .... Not considered            
+              Use corroded thickness in analysis .... No                        
+              Rigid stiffness factor ................ 1000.0                    
+              Support rigid stiffness (translation) . 0.100000E+11 lb/in        
+              Support rigid stiffness (rotation) .... 0.145444E+10 ft-lb/deg    
+              Anchor rigid stiffness (translation) .. 0.100000E+11 lb/in        
+              Anchor rigid stiffness (rotation) ..... 0.145444E+10 ft-lb/deg    
+              Remove Lift-Off Supports .............. No                        
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+                                        CODE COMPLIANCE COMBINATIONS                                            
+                                                                                                                
+  <Description>                                                                              Allowable          
+  Combination              Category    Method       Case/Combination     Factor M/S K-Factor   (psi)   D/A/P/C  
+  -----------------------  ----------- -------- ------------------------ ------ --- -------- --------- -------  
+  GR + Max P               Sustain     Sum      GR                         1.00              Automatic Y Y Y Y  
+                                                Max Long                   1.00                                 
+ 
+  Amb to T1                Expansion   Sum      T1                         1.00              Automatic Y Y Y Y  
+ 
+  Amb to T2                Expansion   Sum      T2                         1.00              Automatic Y Y Y Y  
+ 
+  Amb to T3                Expansion   Sum      T3                         1.00              Automatic Y Y Y Y  
+ 
+  T1 to T2                 Expansion   Sum      T2                         1.00              Automatic Y Y Y Y  
+                                                T1                        -1.00                                 
+ 
+  T1 to T3                 Expansion   Sum      T3                         1.00              Automatic Y Y Y Y  
+                                                T1                        -1.00                                 
+ 
+  T2 to T3                 Expansion   Sum      T3                         1.00              Automatic Y Y Y Y  
+                                                T2                        -1.00                                 
+ 
+  Sus. + E4                Occasion    Abs sum  E4                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Sus. + E5                Occasion    Abs sum  E5                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Sus. + E6                Occasion    Abs sum  E6                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Max P                    Hoop        Sum      Max Hoop                   1.00              Automatic Y Y Y Y  
+ 
+ 
+  Notes:                                                                        
+ 
+  D/A/P/C: [D]efault/[A]uto-Update/[P]rint options/[C]Consistent (Y=Yes, N=No)  
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  17
+----------------------------------------------------------------------------------------------------------------
+
+                              NON-CODE COMBINATIONS                                                             
+                                                                                                                
+  <Description>                                                                                                 
+  Combination               Method       Case/Combination     Factor  D/A/P/C                                   
+  -----------------------   -------- ------------------------ ------  -------                                   
+  Gravity                   Sum      GR                         1.00  Y Y Y Y   
+ 
+  Thermal 1                 Sum      T1                         1.00  Y Y Y Y   
+ 
+  Thermal 2                 Sum      T2                         1.00  Y Y Y Y   
+ 
+  Thermal 3                 Sum      T3                         1.00  Y Y Y Y   
+ 
+  Static Seismic 4          Sum      E4                         1.00  Y Y Y Y   
+ 
+  Static Seismic 5          Sum      E5                         1.00  Y Y Y Y   
+ 
+  Static Seismic 6          Sum      E6                         1.00  Y Y Y Y   
+ 
+ 
+  Notes:                                                                        
+ 
+  D/A/P/C: [D]efault/[A]uto-Update/[P]rint options/[C]Consistent (Y=Yes, N=No)  
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  18
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+   CODE COMPLIANCE                                                              
+ 
+   Y - Factor ............................ 0.40                                 
+   Weld efficiency factor Ej.............. 1.00                                 
+   Design Pressure Factor ................ 1.00                                 
+   Minimum stress ratio used in reports... 0.00                                 
+   Number of stress points per span ...... 0                                    
+   Include corrosion in stress calcs. .... Y                                    
+   Include corrosion in Hoop stress calcs. Y                                    
+   Include axial force in code stress .... N                                    
+   Include sustain load margin ........... Only if allowable stress is exceeded 
+   Use minimum sustained margin........... Y                                    
+   Set sustained SIF=1 no bends .......... N                                    
+   Set sustained/occasional SIF = 1 ...... N                                    
+   Set sustained/occasional SIF = 0.75i .. N                                    
+   Apply cold/hot modulus ratio .......... N                                    
+   Disable auto code combinations ........ N                                    
+   Disable auto non-code combinations .... N                                    
+   No. of thermal ranges to report ....... 3                                    
+   Include Max Range combination ......... N                                    
+   Total stress .......................... Octahedral                           
+   Direct shear .......................... None                                 
+   Longitudinal pressure calculation ..... PD/4t                                
+   Inc. Axial Str and Pcase in Sustained.. N                                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  19
+----------------------------------------------------------------------------------------------------------------
+
+                                       D I S P L A C E M E N T S                                                
+                                                                                                                
+ Point      Load                      TRANSLATIONS (in  )         ROTATIONS (deg  )                             
+ name    combination                   X       Y       Z          X       Y       Z                             
+ ------  ------------------------    ------  ------  ------     ------  ------  ------                          
+ 
+ *** Segment A  begin ***
+ 
+ A00     Gravity                      0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 2                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 3                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 4             0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 5             0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 6             0.000   0.000   0.000      0.000   0.000   0.000                          
+ 
+ A01     Gravity                      0.000  -0.015  -0.001      0.001   0.003  -0.026                          
+         Thermal 1                   -0.005   0.002  -0.001     -0.002   0.003   0.004                          
+         Thermal 2                    0.010  -0.004   0.002      0.003  -0.005  -0.007                          
+         Thermal 3                    0.025  -0.010   0.006      0.008  -0.012  -0.017                          
+         Static Seismic 4             0.000   0.000   0.000      0.001   0.000  -0.001                          
+         Static Seismic 5             0.000   0.015   0.001     -0.001  -0.003   0.026                          
+         Static Seismic 6             0.000   0.001   0.019      0.000  -0.034   0.002                          
+ 
+ A01 M   Gravity                      0.000  -0.018  -0.002      0.001   0.003  -0.026                          
+         Thermal 1                   -0.006   0.003  -0.002     -0.002   0.003   0.004                          
+         Thermal 2                    0.011  -0.005   0.003      0.003  -0.005  -0.007                          
+         Thermal 3                    0.029  -0.013   0.008      0.008  -0.012  -0.017                          
+         Static Seismic 4             0.000   0.000   0.000      0.001   0.000  -0.001                          
+         Static Seismic 5             0.000   0.018   0.002     -0.001  -0.003   0.026                          
+         Static Seismic 6             0.000   0.001   0.024      0.000  -0.034   0.002                          
+ 
+ A10     Gravity                      0.000  -0.022  -0.002      0.001   0.003  -0.026                          
+         Thermal 1                   -0.007   0.003  -0.002     -0.002   0.003   0.004                          
+         Thermal 2                    0.013  -0.006   0.004      0.003  -0.005  -0.007                          
+         Thermal 3                    0.034  -0.015   0.009      0.008  -0.012  -0.017                          
+         Static Seismic 4             0.000  -0.001   0.000      0.001   0.000  -0.001                          
+         Static Seismic 5             0.000   0.022   0.002     -0.001  -0.003   0.026                          
+         Static Seismic 6             0.000   0.001   0.029      0.000  -0.034   0.002                          
+ 
+ A02 N   Gravity                      0.000  -0.031  -0.003      0.002   0.003  -0.024                          
+         Thermal 1                   -0.009   0.004  -0.003     -0.002   0.003   0.002                          
+         Thermal 2                    0.017  -0.008   0.005      0.004  -0.005  -0.003                          
+         Thermal 3                    0.044  -0.020   0.014      0.011  -0.013  -0.008                          
+         Static Seismic 4             0.000  -0.001   0.000      0.001   0.000  -0.001                          
+         Static Seismic 5             0.000   0.031   0.003     -0.002  -0.003   0.024                          
+         Static Seismic 6             0.000   0.002   0.040      0.000  -0.030   0.001                          
+ 
+ A02 F   Gravity                      0.003  -0.035  -0.003      0.002   0.004  -0.008                          
+         Thermal 1                   -0.009   0.002  -0.004     -0.004   0.003  -0.010                          
+         Thermal 2                    0.017  -0.004   0.008      0.007  -0.006   0.019                          
+         Thermal 3                    0.044  -0.011   0.020      0.017  -0.016   0.049                          
+         Static Seismic 4             0.001  -0.001   0.000      0.002   0.001  -0.003                          
+         Static Seismic 5            -0.003   0.035   0.003     -0.002  -0.004   0.008                          
+         Static Seismic 6             0.000   0.002   0.044     -0.007  -0.016  -0.003                          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  20
+----------------------------------------------------------------------------------------------------------------
+
+                                       D I S P L A C E M E N T S                                                
+                                                                                                                
+ Point      Load                      TRANSLATIONS (in  )         ROTATIONS (deg  )                             
+ name    combination                   X       Y       Z          X       Y       Z                             
+ ------  ------------------------    ------  ------  ------     ------  ------  ------                          
+ A03     Gravity                      0.006  -0.035  -0.002      0.004   0.004  -0.001                          
+         Thermal 1                   -0.002  -0.002  -0.007     -0.004   0.003  -0.013                          
+         Thermal 2                    0.003   0.003   0.012      0.007  -0.006   0.024                          
+         Thermal 3                    0.008   0.007   0.031      0.018  -0.015   0.062                          
+         Static Seismic 4             0.002  -0.001   0.001      0.002   0.001  -0.002                          
+         Static Seismic 5            -0.006   0.035   0.002     -0.004  -0.004   0.001                          
+         Static Seismic 6             0.003   0.002   0.039     -0.010  -0.003  -0.004                          
+ 
+ A04     Gravity                      0.004  -0.035   0.003      0.006   0.005   0.006                          
+         Thermal 1                    0.009  -0.007  -0.009     -0.002   0.003  -0.010                          
+         Thermal 2                   -0.016   0.013   0.017      0.004  -0.005   0.019                          
+         Thermal 3                   -0.042   0.033   0.044      0.011  -0.014   0.049                          
+         Static Seismic 4             0.003  -0.001   0.003      0.002   0.002   0.000                          
+         Static Seismic 5            -0.004   0.035  -0.003     -0.006  -0.005  -0.006                          
+         Static Seismic 6             0.006   0.002   0.029     -0.012   0.014  -0.004                          
+ 
+ A05 N   Gravity                      0.004  -0.035   0.003      0.006   0.005   0.006                          
+         Thermal 1                    0.009  -0.007  -0.009     -0.002   0.003  -0.010                          
+         Thermal 2                   -0.016   0.013   0.017      0.004  -0.005   0.019                          
+         Thermal 3                   -0.042   0.033   0.044      0.011  -0.014   0.049                          
+         Static Seismic 4             0.003  -0.001   0.003      0.002   0.002   0.000                          
+         Static Seismic 5            -0.004   0.035  -0.003     -0.006  -0.005  -0.006                          
+         Static Seismic 6             0.006   0.002   0.029     -0.012   0.014  -0.004                          
+ 
+ A05 F   Gravity                      0.001  -0.032   0.003      0.011   0.004   0.017                          
+         Thermal 1                    0.009  -0.009  -0.010      0.001   0.001   0.002                          
+         Thermal 2                   -0.016   0.016   0.018     -0.001  -0.003  -0.003                          
+         Thermal 3                   -0.042   0.041   0.047     -0.003  -0.007  -0.008                          
+         Static Seismic 4             0.003  -0.001   0.003      0.001   0.003   0.001                          
+         Static Seismic 5            -0.001   0.032  -0.003     -0.011  -0.004  -0.017                          
+         Static Seismic 6             0.007   0.001   0.022     -0.013   0.025   0.000                          
+ 
+ A06     Gravity                      0.001  -0.020   0.001      0.014   0.004   0.018                          
+         Thermal 1                    0.005  -0.006  -0.011      0.003   0.000   0.004                          
+         Thermal 2                   -0.009   0.012   0.020     -0.006  -0.001  -0.008                          
+         Thermal 3                   -0.023   0.031   0.050     -0.016  -0.002  -0.020                          
+         Static Seismic 4             0.003  -0.001   0.001      0.001   0.004   0.001                          
+         Static Seismic 5            -0.001   0.020  -0.001     -0.014  -0.004  -0.018                          
+         Static Seismic 6             0.007   0.002   0.005     -0.008   0.027   0.000                          
+ 
+ A07 N   Gravity                      0.001  -0.020   0.001      0.014   0.004   0.018                          
+         Thermal 1                    0.005  -0.006  -0.011      0.003   0.000   0.004                          
+         Thermal 2                   -0.009   0.012   0.020     -0.006  -0.001  -0.008                          
+         Thermal 3                   -0.023   0.031   0.050     -0.016  -0.002  -0.020                          
+         Static Seismic 4             0.003  -0.001   0.001      0.001   0.004   0.001                          
+         Static Seismic 5            -0.001   0.020  -0.001     -0.014  -0.004  -0.018                          
+         Static Seismic 6             0.007   0.002   0.005     -0.008   0.027   0.000                          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  21
+----------------------------------------------------------------------------------------------------------------
+
+                                       D I S P L A C E M E N T S                                                
+                                                                                                                
+ Point      Load                      TRANSLATIONS (in  )         ROTATIONS (deg  )                             
+ name    combination                   X       Y       Z          X       Y       Z                             
+ ------  ------------------------    ------  ------  ------     ------  ------  ------                          
+ A07 F   Gravity                      0.001  -0.014   0.000      0.015   0.002   0.014                          
+         Thermal 1                    0.004  -0.005  -0.009      0.005  -0.002   0.004                          
+         Thermal 2                   -0.007   0.009   0.017     -0.009   0.004  -0.008                          
+         Thermal 3                   -0.018   0.022   0.043     -0.024   0.011  -0.020                          
+         Static Seismic 4             0.002   0.000   0.000      0.001   0.004   0.000                          
+         Static Seismic 5            -0.001   0.014   0.000     -0.015  -0.002  -0.014                          
+         Static Seismic 6             0.003   0.001   0.000     -0.003   0.010   0.002                          
+ 
+ A08     Gravity                      0.000  -0.005   0.000      0.010   0.000   0.008                          
+         Thermal 1                    0.005  -0.002  -0.005      0.003  -0.001   0.003                          
+         Thermal 2                   -0.009   0.003   0.009     -0.006   0.001  -0.005                          
+         Thermal 3                   -0.024   0.008   0.024     -0.016   0.003  -0.012                          
+         Static Seismic 4             0.000   0.000   0.000      0.000   0.001   0.000                          
+         Static Seismic 5             0.000   0.005   0.000     -0.010   0.000  -0.008                          
+         Static Seismic 6             0.000   0.000   0.000      0.000   0.001   0.000                          
+ 
+ A09     Gravity                      0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 2                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 3                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 4             0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 5             0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 6             0.000   0.000   0.000      0.000   0.000   0.000                          
+ 
+ *** Segment A  end   ***
+ 
+ *** Segment B  begin ***
+ 
+ A08     Gravity                      0.000  -0.005   0.000      0.010   0.000   0.008                          
+         Thermal 1                    0.005  -0.002  -0.005      0.003  -0.001   0.003                          
+         Thermal 2                   -0.009   0.003   0.009     -0.006   0.001  -0.005                          
+         Thermal 3                   -0.024   0.008   0.024     -0.016   0.003  -0.012                          
+         Static Seismic 4             0.000   0.000   0.000      0.000   0.001   0.000                          
+         Static Seismic 5             0.000   0.005   0.000     -0.010   0.000  -0.008                          
+         Static Seismic 6             0.000   0.000   0.000      0.000   0.001   0.000                          
+ 
+ B01     Gravity                      0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 2                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 3                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 4             0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 5             0.000   0.000   0.000      0.000   0.000   0.000                          
+         Static Seismic 6             0.000   0.000   0.000      0.000   0.000   0.000                          
+ 
+ *** Segment B  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  22
+----------------------------------------------------------------------------------------------------------------
+
+                                      R E S T R A I N T   R E A C T I O N S                                     
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ -----------------------   ------ ------ ------ ------ ------- ------- ------- -------                   
+ 
+ A00     Anchor    Tag No.: <None>                                              
+         Gravity                     -38  -1057    -33   1059      78     320   -4496    4508                   
+         Thermal 1                   172    186    -43    257    -122     325     715     795                   
+         Thermal 2                  -318   -345     79    476     227    -602   -1326    1474                   
+         Thermal 3                  -818   -885    202   1222     582   -1545   -3405    3784                   
+         Static Seismic 4            523      8     10    523      61     -20     -57      86                   
+         Static Seismic 5             38   1057     33   1059     -78    -320    4496    4508                   
+         Static Seismic 6             56     69   1462   1464     -16   -5936     281    5942                   
+ 
+ A09     Anchor    Tag No.: <None>                                              
+         Gravity                     -44   -322     77    334    1490     -50     611    1611                   
+         Thermal 1                  1490    -46   1372   2026     416    2910     190    2946                   
+         Thermal 2                 -2763     85  -2545   3758    -771   -5397    -353    5464                   
+         Thermal 3                 -7093    217  -6534   9646   -1980  -13854    -906   14024                   
+         Static Seismic 4            -75      2    121    142      27     -98      16     103                   
+         Static Seismic 5             44    322    -77    334   -1490      50    -611    1611                   
+         Static Seismic 6           -166    -81   1394   1406     132    -193      36     237                   
+ 
+ B01     Anchor    Tag No.: <None>                                              
+         Gravity                      82   -527    -45    535     740     -51    1733    1885                   
+         Thermal 1                 -1662   -140  -1330   2133     250   -2729     528    2791                   
+         Thermal 2                  3082    260   2467   3956    -463    5062    -980    5176                   
+         Thermal 3                  7910    668   6331  10154   -1189   12992   -2514   13287                   
+         Static Seismic 4            506    -11   -131    523      24    -151      42     159                   
+         Static Seismic 5            -82    527     45    535    -740      51   -1733    1885                   
+         Static Seismic 6            110     12      5    110     -23     -25      21      40                   
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  23
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ 
+ *** Segment A  begin ***
+ 
+ A00     Gravity                      38   1057     33   1059     -78    -320    4496    4508                   
+         Thermal 1                  -172   -186     43    257     122    -325    -715     795                   
+         Thermal 2                   318    345    -79    476    -227     602    1326    1474                   
+         Thermal 3                   818    885   -202   1222    -582    1545    3405    3784                   
+         Static Seismic 4           -523     -8    -10    523     -61      20      57      86                   
+         Static Seismic 5            -38  -1057    -33   1059      78     320   -4496    4508                   
+         Static Seismic 6            -56    -69  -1462   1464      16    5936    -281    5942                   
+ 
+ A01  -  Gravity                      38    884     33    886     -78    -190     613     646                   
+         Thermal 1                  -172   -186     43    257     122    -155      29     199                   
+         Thermal 2                   318    345    -79    476    -227     287     -53     369                   
+         Thermal 3                   818    885   -202   1222    -582     736    -137     948                   
+         Static Seismic 4           -436     -8    -10    436     -61     -20      90     110                   
+         Static Seismic 5            -38   -884    -33    886      78     190    -613     646                   
+         Static Seismic 6            -56    -69  -1202   1205      16     609      -5     609                   
+ 
+ A01  +  Gravity                      38    860     33    861     -78    -190     613     646                   
+         Thermal 1                  -172   -186     43    257     122    -155      29     199                   
+         Thermal 2                   318    345    -79    476    -227     287     -53     369                   
+         Thermal 3                   818    885   -202   1222    -582     736    -137     948                   
+         Static Seismic 4           -424     -8    -10    424     -61     -20      90     110                   
+         Static Seismic 5            -38   -860    -33    861      78     190    -613     646                   
+         Static Seismic 6            -56    -69  -1165   1169      16     609      -5     609                   
+ 
+ A01 M   Gravity                      38    610     33    612     -78    -167     106     212                   
+         Thermal 1                  -172   -186     43    257     122    -125     157     235                   
+         Thermal 2                   318    345    -79    476    -227     232    -291     436                   
+         Thermal 3                   818    885   -202   1222    -582     596    -748    1120                   
+         Static Seismic 4           -299     -8    -10    299     -61     -26      95     116                   
+         Static Seismic 5            -38   -610    -33    612      78     167    -106     212                   
+         Static Seismic 6            -56    -69   -790    795      16     -65      42      79                   
+ 
+ A10  -  Gravity                      38    360     33    363     -78    -145    -229     282                   
+         Thermal 1                  -172   -186     43    257     122     -96     285     325                   
+         Thermal 2                   318    345    -79    476    -227     178    -529     603                   
+         Thermal 3                   818    885   -202   1222    -582     457   -1359    1547                   
+         Static Seismic 4           -174     -8    -10    174     -61     -33     101     123                   
+         Static Seismic 5            -38   -360    -33    363      78     145     229     282                   
+         Static Seismic 6            -56    -69   -415    425      16    -481      90     490                   
+ 
+ A10  +  Gravity                      38    336     33    339     -78    -145    -229     282                   
+         Thermal 1                  -172   -186     43    257     122     -96     285     325                   
+         Thermal 2                   318    345    -79    476    -227     178    -529     603                   
+         Thermal 3                   818    885   -202   1222    -582     457   -1359    1547                   
+         Static Seismic 4           -162     -8    -10    162     -61     -33     101     123                   
+         Static Seismic 5            -38   -336    -33    339      78     145     229     282                   
+         Static Seismic 6            -56    -69   -379    389      16    -481      90     490                   
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  24
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ A02 N   Gravity                      38    265     33    270     -78     -92    -715     726                   
+         Thermal 1                  -172   -186     43    257     122     -27     587     600                   
+         Thermal 2                   318    345    -79    476    -227      50   -1088    1113                   
+         Thermal 3                   818    885   -202   1222    -582     129   -2793    2856                   
+         Static Seismic 4           -126     -8    -10    127     -61     -49     115     139                   
+         Static Seismic 5            -38   -265    -33    270      78      92     715     726                   
+         Static Seismic 6            -56    -69   -273    287      16   -1009     201    1029                   
+ 
+ A02 F   Gravity                      38    197     33    203    -110     -59    -918     927                   
+         Thermal 1                  -172   -186     43    257      80      15     601     606                   
+         Thermal 2                   318    345    -79    476    -148     -29   -1115    1125                   
+         Thermal 3                   818    885   -202   1222    -380     -74   -2861    2887                   
+         Static Seismic 4            -92     -8    -10     93     -51     -59      18      80                   
+         Static Seismic 5            -38   -197    -33    203     110      59     918     927                   
+         Static Seismic 6            -56    -69   -171    193     224   -1245     214    1283                   
+ 
+ A03     Gravity                      38     67     33     84    -208     -59    -804     833                   
+         Thermal 1                  -172   -186     43    257     -48      15      86      99                   
+         Thermal 2                   318    345    -79    476      88     -29    -159     184                   
+         Thermal 3                   818    885   -202   1222     227     -74    -408     473                   
+         Static Seismic 4            -27     -8    -10     30     -22     -59    -162     173                   
+         Static Seismic 5            -38    -67    -33     84     208      59     804     833                   
+         Static Seismic 6            -56    -69     24     92     445   -1245      45    1323                   
+ 
+ A04     Gravity                      38   -106     33    117    -338     -59    -653     737                   
+         Thermal 1                  -172   -186     43    257    -218      15    -601     640                   
+         Thermal 2                   318    345    -79    476     404     -29    1115    1186                   
+         Thermal 3                   818    885   -202   1222    1036     -74    2862    3045                   
+         Static Seismic 4             59     -8    -10     61      17     -59     -98     115                   
+         Static Seismic 5            -38    106    -33    117     338      59     653     737                   
+         Static Seismic 6            -56    -69    284    297    -170   -1245    -181    1270                   
+ 
+ A05 N   Gravity                      38   -106     33    117    -338     -59    -653     737                   
+         Thermal 1                  -172   -186     43    257    -218      15    -602     640                   
+         Thermal 2                   318    345    -79    476     404     -29    1116    1187                   
+         Thermal 3                   818    885   -202   1222    1037     -74    2864    3046                   
+         Static Seismic 4             59     -8    -10     61      17     -59     -98     115                   
+         Static Seismic 5            -38    106    -33    117     338      59     653     737                   
+         Static Seismic 6            -56    -69    284    298    -170   -1245    -181    1270                   
+ 
+ A05 F   Gravity                      38   -174     33    181    -371     -27    -465     596                   
+         Thermal 1                  -172   -186     43    257    -260      58    -587     645                   
+         Thermal 2                   318    345    -79    476     483    -107    1089    1196                   
+         Thermal 3                   818    885   -202   1222    1239    -276    2796    3071                   
+         Static Seismic 4             93     -8    -10     94      27     -68     -18      76                   
+         Static Seismic 5            -38    174    -33    181     371      27     465     596                   
+         Static Seismic 6            -56    -69    386    396    -491    -897    -169    1036                   
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  25
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ A06     Gravity                      38   -304     33    308    -371      71     252     454                   
+         Thermal 1                  -172   -186     43    257    -260     185     -29     321                   
+         Thermal 2                   318    345    -79    476     483    -344      54     595                   
+         Thermal 3                   818    885   -202   1222    1239    -883     140    1528                   
+         Static Seismic 4            158     -8    -10    159      27     -98       7     102                   
+         Static Seismic 5            -38    304    -33    308     371     -71    -252     454                   
+         Static Seismic 6            -56    -69    581    588    -491     553      38     741                   
+ 
+ A07 N   Gravity                      38   -304     33    308    -371      71     253     455                   
+         Thermal 1                  -172   -186     43    257    -260     186     -29     321                   
+         Thermal 2                   318    345    -79    476     483    -344      54     595                   
+         Thermal 3                   818    885   -202   1222    1239    -883     138    1528                   
+         Static Seismic 4            158     -8    -10    159      27     -98       7     102                   
+         Static Seismic 5            -38    304    -33    308     371     -71    -253     455                   
+         Static Seismic 6            -56    -69    581    588    -491     555      38     742                   
+ 
+ A07 F   Gravity                      38   -372     33    376     -24     142     582     599                   
+         Thermal 1                  -172   -186     43    257     -74      56     157     183                   
+         Thermal 2                   318    345    -79    476     138    -105    -291     339                   
+         Thermal 3                   818    885   -202   1222     355    -269    -747     869                   
+         Static Seismic 4            192     -8    -10    193      35      72      15      82                   
+         Static Seismic 5            -38    372    -33    376      24    -142    -582     599                   
+         Static Seismic 6            -56    -69    683    689    -422    1116     107    1198                   
+ 
+ A08  -  Gravity                      38   -502     33    505    1288     255     582    1437                   
+         Thermal 1                  -172   -186     43    257     483    -459     157     685                   
+         Thermal 2                   318    345    -79    476    -897     851    -291    1270                   
+         Thermal 3                   818    885   -202   1222   -2301    2184    -747    3259                   
+         Static Seismic 4            257     -8    -10    258      60     747      15     750                   
+         Static Seismic 5            -38    502    -33    505   -1288    -255    -582    1437                   
+         Static Seismic 6            -56    -69    878    883    -216     947     107     977                   
+ 
+ A08  +  Gravity                     -44   -149     77    173     549     127     611     831                   
+         Thermal 1                  1490    -46   1372   2026     234   -3049     190    3064                   
+         Thermal 2                 -2763     85  -2545   3758    -433    5656    -353    5683                   
+         Thermal 3                 -7093    217  -6534   9646   -1112   14517    -906   14587                   
+         Static Seismic 4           -162      2    121    202      36     376      16     378                   
+         Static Seismic 5             44    149    -77    173    -549    -127    -611     831                   
+         Static Seismic 6           -166    -81   1134   1148    -193     471      36     510                   
+ 
+ A09     Gravity                     -44   -322     77    334    1490     -50     611    1611                   
+         Thermal 1                  1490    -46   1372   2026     416    2910     190    2946                   
+         Thermal 2                 -2763     85  -2545   3758    -771   -5397    -353    5464                   
+         Thermal 3                 -7093    217  -6534   9646   -1980  -13854    -906   14024                   
+         Static Seismic 4            -75      2    121    142      27     -98      16     103                   
+         Static Seismic 5             44    322    -77    334   -1490      50    -611    1611                   
+         Static Seismic 6           -166    -81   1394   1406     132    -193      36     237                   
+ 
+ *** Segment A  end   ***
+ 
+ *** Segment B  begin ***
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  26
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ A08     Gravity                      82   -354    -45    366     740     128     -29     751                   
+         Thermal 1                 -1662   -140  -1330   2133     250    2591     -33    2603                   
+         Thermal 2                  3082    260   2467   3956    -463   -4805      62    4827                   
+         Thermal 3                  7910    668   6331  10154   -1189  -12333     159   12391                   
+         Static Seismic 4            419    -11   -131    439      24     371      -1     372                   
+         Static Seismic 5            -82    354     45    366    -740    -128      29     751                   
+         Static Seismic 6            110     12   -255    278     -23     476      71     482                   
+ 
+ B01     Gravity                      82   -527    -45    535     740     -51    1733    1885                   
+         Thermal 1                 -1662   -140  -1330   2133     250   -2729     528    2791                   
+         Thermal 2                  3082    260   2467   3956    -463    5062    -980    5176                   
+         Thermal 3                  7910    668   6331  10154   -1189   12992   -2514   13287                   
+         Static Seismic 4            506    -11   -131    523      24    -151      42     159                   
+         Static Seismic 5            -82    527     45    535    -740      51   -1733    1885                   
+         Static Seismic 6            110     12      5    110     -23     -25      21      40                   
+ 
+ *** Segment B  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  27
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+ 
+ *** Segment A  begin ***
+ 
+ A00    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0    2203   -2209      19    2204  -2210    2210  184                    
+        Thermal 1                      0     398    -371      30     400   -373     401  156                    
+        Thermal 2                      0     688    -738      56     693   -742     744  156                    
+        Thermal 3                      0    1766   -1894     143    1778  -1905    1910  156                    
+        Static Seismic 4               0      70      12      15      73    -10      75  341                    
+        Static Seismic 5               0    2209   -2203      19    2210  -2204    2210  184                    
+        Static Seismic 6               0    2913   -2904       4    2913  -2904    2913  267                    
+ 
+ A01    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     311    -317      19     312   -318     319  197                    
+        Thermal 1                      0      90     -64      30      99    -75     104   79                    
+        Thermal 2                      0     118    -168      56     140   -184     193   79                    
+        Thermal 3                      0     302    -430     143     359   -473     496   79                    
+        Static Seismic 4               0      79     -11      15      82    -21      83   12                    
+        Static Seismic 5               0     317    -311      19     318   -312     319  197                    
+        Static Seismic 6               0     303    -294       4     303   -294     303  270                    
+ 
+ A10    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     130    -135      19     132   -138     139  328                    
+        Thermal 1                      0     161    -134      30     166   -140     169   19                    
+        Thermal 2                      0     248    -298      56     260   -308     313   19                    
+        Thermal 3                      0     638    -766     143     668   -791     805   19                    
+        Static Seismic 4               0      65     -39      15      68    -44      70   18                    
+        Static Seismic 5               0     135    -130      19     138   -132     139  328                    
+        Static Seismic 6               0     244    -235       4     244   -235     244   79                    
+ 
+ A02 N- SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     350    -356      19     351   -357     358  353                    
+        Thermal 1                      0     301    -274      30     304   -277     305    3                    
+        Thermal 2                      0     508    -558      56     514   -564     566    3                    
+        Thermal 3                      0    1305   -1433     143    1320  -1447    1454    3                    
+        Static Seismic 4               0      71     -51      15      74    -55      75   23                    
+        Static Seismic 5               0     356    -350      19     357   -351     358  353                    
+        Static Seismic 6               0     508    -499       4     508   -499     508   79                    
+ 
+ A02 N+ SIFI= 1.77   SIFO= 1.77                                                 
+        Gravity                        0     621    -627      19     622   -627     628  353                    
+        Thermal 1                      0     521    -495      30     523   -496     524    3                    
+        Thermal 2                      0     917    -967      56     921   -970     972    3                    
+        Thermal 3                      0    2354   -2482     143    2363  -2490    2495    3                    
+        Static Seismic 4               0     118     -98      15     119   -100     120   23                    
+        Static Seismic 5               0     627    -621      19     627   -622     628  353                    
+        Static Seismic 6               0     894    -886       4     894   -886     895   79                    
+ 
+ A02 F- SIFI= 1.77   SIFO= 1.77                                                 
+        Gravity                        0     784    -815      14     785   -816     816    7                    
+        Thermal 1                      0     539    -510       4     539   -510     539    8                    
+        Thermal 2                      0     945    -999       7     945  -1000    1000    8                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  28
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+        Thermal 3                      0    2427   -2565      18    2427  -2566    2566    8                    
+        Static Seismic 4               0      48     -46      14      52    -50      54  289                    
+        Static Seismic 5               0     815    -784      14     816   -785     816    7                    
+        Static Seismic 6               0     273    -263     305     471   -463     595   46                    
+ 
+ A02 F+ SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     437    -468      14     438   -469     469  277                    
+        Thermal 1                      0     311    -282       4     311   -282     311  278                    
+        Thermal 2                      0     523    -577       7     523   -577     578  278                    
+        Thermal 3                      0    1343   -1482      18    1344  -1482    1482  278                    
+        Static Seismic 4               0      27     -26      14      33    -32      37  199                    
+        Static Seismic 5               0     468    -437      14     469   -438     469  277                    
+        Static Seismic 6               0     157    -146     305     393   -387     551  316                    
+ 
+ A03    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     401    -412      14     402   -412     413  284                    
+        Thermal 1                      0      63     -33       4      63    -34      63  241                    
+        Thermal 2                      0      62    -116       7      63   -117     117  241                    
+        Thermal 3                      0     159    -298      18     161   -299     300  241                    
+        Static Seismic 4               0      81     -79      14      83    -82      84   98                    
+        Static Seismic 5               0     412    -401      14     412   -402     413  284                    
+        Static Seismic 6               0     225    -214     305     437   -430     574  354                    
+ 
+ A04    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     368    -352      14     369   -352     369  117                    
+        Thermal 1                      0     328    -298       4     328   -298     328  110                    
+        Thermal 2                      0     553    -608       7     554   -608     608  110                    
+        Thermal 3                      0    1421   -1559      18    1421  -1560    1560  110                    
+        Static Seismic 4               0      49     -48      14      53    -52      55   80                    
+        Static Seismic 5               0     352    -368      14     352   -369     369  117                    
+        Static Seismic 6               0     127    -116     305     375   -368     543  133                    
+ 
+ A05 N- SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     368    -352      14     369   -352     369  117                    
+        Thermal 1                      0     328    -299       4     328   -299     328  110                    
+        Thermal 2                      0     554    -608       7     554   -608     608  110                    
+        Thermal 3                      0    1421   -1560      18    1422  -1560    1561  110                    
+        Static Seismic 4               0      49     -48      14      53    -52      55   80                    
+        Static Seismic 5               0     352    -368      14     352   -369     369  117                    
+        Static Seismic 6               0     127    -116     305     375   -368     543  133                    
+ 
+ A05 N+ SIFI= 1.77   SIFO= 1.77                                                 
+        Gravity                        0     644    -627      15     644   -628     645   27                    
+        Thermal 1                      0     568    -539       4     568   -539     568   20                    
+        Thermal 2                      0     999   -1053       7     999  -1053    1053   20                    
+        Thermal 3                      0    2565   -2704      18    2565  -2704    2704   20                    
+        Static Seismic 4               0      86     -85      14      89    -88      90  350                    
+        Static Seismic 5               0     627    -644      15     628   -644     645   27                    
+        Static Seismic 6               0     220    -209     305     434   -427     572   43                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  29
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+ 
+ A05 F- SIFI= 1.77   SIFO= 1.77                                                 
+        Gravity                        0     400    -406      91     420   -425     435  177                    
+        Thermal 1                      0     524    -497      64     532   -505     535    6                    
+        Thermal 2                      0     922    -972     118     937   -986     993    6                    
+        Thermal 3                      0    2366   -2494     303    2404  -2530    2549    6                    
+        Static Seismic 4               0      54     -68       7      55    -69      69  105                    
+        Static Seismic 5               0     406    -400      91     425   -420     435  177                    
+        Static Seismic 6               0     793    -784     120     811   -803     820  281                    
+ 
+ A05 F+ SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     225    -231      91     257   -263     280  357                    
+        Thermal 1                      0     302    -275      64     315   -289     322  186                    
+        Thermal 2                      0     511    -561     118     537   -585     597  186                    
+        Thermal 3                      0    1311   -1439     303    1378  -1501    1532  186                    
+        Static Seismic 4               0      27     -42       7      29    -43      43  285                    
+        Static Seismic 5               0     231    -225      91     263   -257     280  357                    
+        Static Seismic 6               0     451    -442     120     481   -473     497  101                    
+ 
+ A06    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     125    -131      91     173   -178     205  164                    
+        Thermal 1                      0     105     -78      64     135   -114     153  261                    
+        Thermal 2                      0     146    -195     118     212   -251     283  261                    
+        Thermal 3                      0     374    -502     303     543   -644     726  261                    
+        Static Seismic 4               0      36     -60       7      37    -61      61  266                    
+        Static Seismic 5               0     131    -125      91     178   -173     205  164                    
+        Static Seismic 6               0     276    -267     120     321   -313     346  274                    
+ 
+ A07 N- SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     126    -132      91     173   -178     205  164                    
+        Thermal 1                      0     105     -78      64     135   -114     153  261                    
+        Thermal 2                      0     146    -195     118     212   -251     283  261                    
+        Thermal 3                      0     374    -502     303     543   -644     726  261                    
+        Static Seismic 4               0      36     -60       7      37    -61      61  266                    
+        Static Seismic 5               0     132    -126      91     178   -173     205  164                    
+        Static Seismic 6               0     277    -268     120     322   -314     346  274                    
+ 
+ A07 N+ SIFI= 1.77   SIFO= 1.77                                                 
+        Gravity                        0     224    -230      91     256   -262     279  254                    
+        Thermal 1                      0     176    -149      64     197   -173     208  351                    
+        Thermal 2                      0     276    -326     118     320   -365     385  351                    
+        Thermal 3                      0     709    -838     303     821   -936     989  351                    
+        Static Seismic 4               0      72     -97       7      73    -98      98  356                    
+        Static Seismic 5               0     230    -224      91     262   -256     279  254                    
+        Static Seismic 6               0     485    -476     120     513   -505     528    4                    
+ 
+ A07 F- SIFI= 1.77   SIFO= 1.77                                                 
+        Gravity                        0     127    -121     142     219   -216     277  351                    
+        Thermal 1                      0      84     -77      38      99    -93     107  307                    
+        Thermal 2                      0     144    -156      71     173   -184     199  307                    
+        Thermal 3                      0     368    -400     183     444   -471     510  307                    
+        Static Seismic 4               0      69     -70       4      69    -71      71  206                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  30
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+        Static Seismic 5               0     121    -127     142     216   -219     277  351                    
+        Static Seismic 6               0    1086    -978      26    1086   -979    1086  339                    
+ 
+ A07 F+ SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0      73     -68     142     183   -180     257  261                    
+        Thermal 1                      0      49     -42      38      70    -65      83  217                    
+        Thermal 2                      0      79     -91      71     121   -130     153  217                    
+        Thermal 3                      0     202    -234     183     310   -334     393  217                    
+        Static Seismic 4               0      39     -40       4      39    -40      41  116                    
+        Static Seismic 5               0      68     -73     142     180   -183     257  261                    
+        Static Seismic 6               0     638    -531      26     639   -532     639  249                    
+ 
+ A08  - SIFI= 1.35   SIFO= 1.35                                                 
+        Gravity                        0     874    -868     142     896   -891     908  349                    
+        Thermal 1                      0     445    -439      38     449   -442     450   43                    
+        Thermal 2                      0     813    -826      71     820   -832     835   43                    
+        Thermal 3                      0    2088   -2120     183    2104  -2135    2143   43                    
+        Static Seismic 4               0     496    -498       4     496   -498     498   95                    
+        Static Seismic 5               0     868    -874     142     891   -896     908  349                    
+        Static Seismic 6               0     713    -575      26     714   -576     714  257                    
+ 
+ A08  + SIFI= 1.35   SIFO= 1.35                                                 
+        Gravity                        0     380    -368     150     431   -421     460  347                    
+        Thermal 1                      0    2136   -1920      47    2137  -1922    2137   86                    
+        Thermal 2                      0    3562   -3961      86    3564  -3963    3964   86                    
+        Thermal 3                      0    9143  -10166     222    9148 -10171   10174   86                    
+        Static Seismic 4               0     260    -241       4     260   -241     260  275                    
+        Static Seismic 5               0     368    -380     150     421   -431     460  347                    
+        Static Seismic 6               0     426    -249       9     426   -249     426  248                    
+ 
+ A09    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     736    -724     150     765   -753     780    2                    
+        Thermal 1                      0    1547   -1331      47    1548  -1333    1549  278                    
+        Thermal 2                      0    2469   -2868      86    2472  -2871    2872  278                    
+        Thermal 3                      0    6339   -7363     222    6346  -7369    7373  278                    
+        Static Seismic 4               0      59     -40       4      59    -41      60   75                    
+        Static Seismic 5               0     724    -736     150     753   -765     780    2                    
+        Static Seismic 6               0     224      -6       9     224    -12     224   56                    
+ 
+ *** Segment A  end   ***
+ 
+ *** Segment B  begin ***
+ 
+ A08    SIFI= 1.35   SIFO= 1.35                                                 
+        Gravity                        0      80     -93     181     226   -234     327   77                    
+        Thermal 1                      0    1848   -1588      61    1850  -1590    1851  269                    
+        Thermal 2                      0    2945   -3428     113    2949  -3432    3433  269                    
+        Thermal 3                      0    7559   -8799     291    7570  -8808    8813  269                    
+        Static Seismic 4               0     213    -279       6     213   -279     279   90                    
+        Static Seismic 5               0      93     -80     181     234   -226     327   77                    
+        Static Seismic 6               0     311    -328       6     311   -328     328   99                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  31
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+ 
+ B01    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     842    -855     181     879   -892     911  182                    
+        Thermal 1                      0    1491   -1231      61    1493  -1234    1495   79                    
+        Thermal 2                      0    2282   -2765     113    2288  -2770    2772   79                    
+        Thermal 3                      0    5858   -7098     291    5873  -7110    7116   79                    
+        Static Seismic 4               0      37    -116       6      38   -117     117  254                    
+        Static Seismic 5               0     855    -842     181     892   -879     911  182                    
+        Static Seismic 6               0       8     -25       6      11    -26      27  230                    
+ 
+ *** Segment B  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  32
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ 
+ A08  + Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    831                   1.35  (11) SUST    1707   15000                     
+        Amb to T1                                    3064   1.35  (13) DISP    2032   22500                     
+        Amb to T2                                    5683   1.35  (13) DISP    3769   22500                     
+        Amb to T3                                   14587   1.35  (13) DISP    9673   22500                     
+        T1 to T2                                     8747   1.35  (13) DISP    5800   22500                     
+        T1 to T3                                    17652   1.35  (13) DISP   11705   22500                     
+        T2 to T3                                     8904   1.35  (13) DISP    5905   22500                     
+        Sus. + E4                     831     378           1.35  (12)  OCC    1895   18000                     
+        Sus. + E5                     831     831           1.35  (12)  OCC    2120   18000                     
+        Sus. + E6                     831     510           1.35  (12)  OCC    1961   18000                     
+ 
+ A08    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    751                   1.35  (11) SUST    1667   15000                     
+        Amb to T1                                    2603   1.35  (13) DISP    1726   22500                     
+        Amb to T2                                    4827   1.35  (13) DISP    3201   22500                     
+        Amb to T3                                   12391   1.35  (13) DISP    8217   22500                     
+        T1 to T2                                     7430   1.35  (13) DISP    4927   22500                     
+        T1 to T3                                    14994   1.35  (13) DISP    9943   22500                     
+        T2 to T3                                     7564   1.35  (13) DISP    5016   22500                     
+        Sus. + E4                     751     372           1.35  (12)  OCC    1852   18000                     
+        Sus. + E5                     751     751           1.35  (12)  OCC    2041   18000                     
+        Sus. + E6                     751     482           1.35  (12)  OCC    1907   18000                     
+ 
+ A09    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                   1611                   1.00  (11) SUST    2082   15000                     
+        Amb to T1                                    2946   1.00  (13) DISP    1442   22500                     
+        Amb to T2                                    5464   1.00  (13) DISP    2675   22500                     
+        Amb to T3                                   14024   1.00  (13) DISP    6865   22500                     
+        T1 to T2                                     8409   1.00  (13) DISP    4117   22500                     
+        T1 to T3                                    16970   1.00  (13) DISP    8307   22500                     
+        T2 to T3                                     8560   1.00  (13) DISP    4190   22500                     
+        Sus. + E4                    1611     103           1.00  (12)  OCC    2133   18000                     
+        Sus. + E5                    1611    1611           1.00  (12)  OCC    2871   18000                     
+        Sus. + E6                    1611     237           1.00  (12)  OCC    2198   18000                     
+ 
+ B01    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                   1885                   1.00  (11) SUST    2216   15000                     
+        Amb to T1                                    2791   1.00  (13) DISP    1366   22500                     
+        Amb to T2                                    5176   1.00  (13) DISP    2534   22500                     
+        Amb to T3                                   13287   1.00  (13) DISP    6504   22500                     
+        T1 to T2                                     7967   1.00  (13) DISP    3900   22500                     
+        T1 to T3                                    16078   1.00  (13) DISP    7870   22500                     
+        T2 to T3                                     8110   1.00  (13) DISP    3970   22500                     
+        Sus. + E4                    1885     159           1.00  (12)  OCC    2294   18000                     
+        Sus. + E5                    1885    1885           1.00  (12)  OCC    3139   18000                     
+        Sus. + E6                    1885      40           1.00  (12)  OCC    2236   18000                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  33
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A00    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                   4508                   1.00  (11) SUST    3500   15000                     
+        Amb to T1                                     795   1.00  (13) DISP     389   22500                     
+        Amb to T2                                    1474   1.00  (13) DISP     722   22500                     
+        Amb to T3                                    3784   1.00  (13) DISP    1852   22500                     
+        T1 to T2                                     2269   1.00  (13) DISP    1111   22500                     
+        T1 to T3                                     4579   1.00  (13) DISP    2241   22500                     
+        T2 to T3                                     2310   1.00  (13) DISP    1131   22500                     
+        Sus. + E4                    4508      86           1.00  (12)  OCC    3542   18000                     
+        Sus. + E5                    4508    4508           1.00  (12)  OCC    5707   18000                     
+        Sus. + E6                    4508    5942           1.00  (12)  OCC    6409   18000                     
+ 
+ A05 F- Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    596                   1.77  (11) SUST    1680   15000                     
+        Amb to T1                                     645   1.77  (13) DISP     558   22500                     
+        Amb to T2                                    1196   1.77  (13) DISP    1035   22500                     
+        Amb to T3                                    3071   1.77  (13) DISP    2656   22500                     
+        T1 to T2                                     1841   1.77  (13) DISP    1592   22500                     
+        T1 to T3                                     3715   1.77  (13) DISP    3214   22500                     
+        T2 to T3                                     1874   1.77  (13) DISP    1621   22500                     
+        Sus. + E4                     596      76           1.77  (12)  OCC    1729   18000                     
+        Sus. + E5                     596     596           1.77  (12)  OCC    2066   18000                     
+        Sus. + E6                     596    1036           1.77  (12)  OCC    2352   18000                     
+ 
+ A05 N+ Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    737                   1.77  (11) SUST    1772   15000                     
+        Amb to T1                                     640   1.77  (13) DISP     553   22500                     
+        Amb to T2                                    1187   1.77  (13) DISP    1027   22500                     
+        Amb to T3                                    3046   1.77  (13) DISP    2635   22500                     
+        T1 to T2                                     1827   1.77  (13) DISP    1580   22500                     
+        T1 to T3                                     3686   1.77  (13) DISP    3188   22500                     
+        T2 to T3                                     1860   1.77  (13) DISP    1608   22500                     
+        Sus. + E4                     737     115           1.77  (12)  OCC    1847   18000                     
+        Sus. + E5                     737     737           1.77  (12)  OCC    2250   18000                     
+        Sus. + E6                     737    1270           1.77  (12)  OCC    2596   18000                     
+ 
+ A02 F- Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    927                   1.77  (11) SUST    1895   15000                     
+        Amb to T1                                     606   1.77  (13) DISP     524   22500                     
+        Amb to T2                                    1125   1.77  (13) DISP     973   22500                     
+        Amb to T3                                    2887   1.77  (13) DISP    2497   22500                     
+        T1 to T2                                     1731   1.77  (13) DISP    1497   22500                     
+        T1 to T3                                     3493   1.77  (13) DISP    3021   22500                     
+        T2 to T3                                     1762   1.77  (13) DISP    1524   22500                     
+        Sus. + E4                     927      80           1.77  (12)  OCC    1947   18000                     
+        Sus. + E5                     927     927           1.77  (12)  OCC    2496   18000                     
+        Sus. + E6                     927    1283           1.77  (12)  OCC    2727   18000                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  34
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A02 N+ Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    726                   1.77  (11) SUST    1764   15000                     
+        Amb to T1                                     600   1.77  (13) DISP     519   22500                     
+        Amb to T2                                    1113   1.77  (13) DISP     962   22500                     
+        Amb to T3                                    2856   1.77  (13) DISP    2470   22500                     
+        T1 to T2                                     1713   1.77  (13) DISP    1481   22500                     
+        T1 to T3                                     3456   1.77  (13) DISP    2989   22500                     
+        T2 to T3                                     1743   1.77  (13) DISP    1508   22500                     
+        Sus. + E4                     726     139           1.77  (12)  OCC    1854   18000                     
+        Sus. + E5                     726     726           1.77  (12)  OCC    2235   18000                     
+        Sus. + E6                     726    1029           1.77  (12)  OCC    2432   18000                     
+ 
+ A08  - Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                   1437                   1.35  (11) SUST    2008   15000                     
+        Amb to T1                                     685   1.35  (13) DISP     454   22500                     
+        Amb to T2                                    1270   1.35  (13) DISP     842   22500                     
+        Amb to T3                                    3259   1.35  (13) DISP    2161   22500                     
+        T1 to T2                                     1954   1.35  (13) DISP    1296   22500                     
+        T1 to T3                                     3944   1.35  (13) DISP    2615   22500                     
+        T2 to T3                                     1990   1.35  (13) DISP    1319   22500                     
+        Sus. + E4                    1437     750           1.35  (12)  OCC    2381   18000                     
+        Sus. + E5                    1437    1437           1.35  (12)  OCC    2723   18000                     
+        Sus. + E6                    1437     977           1.35  (12)  OCC    2494   18000                     
+ 
+ A07 F+ Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    599                   1.00  (11) SUST    1587   15000                     
+        Amb to T1                                     183   1.00  (13) DISP      89   22500                     
+        Amb to T2                                     339   1.00  (13) DISP     166   22500                     
+        Amb to T3                                     869   1.00  (13) DISP     425   22500                     
+        T1 to T2                                      521   1.00  (13) DISP     255   22500                     
+        T1 to T3                                     1052   1.00  (13) DISP     515   22500                     
+        T2 to T3                                      530   1.00  (13) DISP     260   22500                     
+        Sus. + E4                     599      82           1.00  (12)  OCC    1627   18000                     
+        Sus. + E5                     599     599           1.00  (12)  OCC    1880   18000                     
+        Sus. + E6                     599    1198           1.00  (12)  OCC    2174   18000                     
+ 
+ A07 F- Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    599                   1.77  (11) SUST    1682   15000                     
+        Amb to T1                                     183   1.77  (13) DISP     158   22500                     
+        Amb to T2                                     339   1.77  (13) DISP     293   22500                     
+        Amb to T3                                     869   1.77  (13) DISP     752   22500                     
+        T1 to T2                                      521   1.77  (13) DISP     451   22500                     
+        T1 to T3                                     1052   1.77  (13) DISP     910   22500                     
+        T2 to T3                                      530   1.77  (13) DISP     459   22500                     
+        Sus. + E4                     599      82           1.77  (12)  OCC    1736   18000                     
+        Sus. + E5                     599     599           1.77  (12)  OCC    2071   18000                     
+        Sus. + E6                     599    1198           1.77  (12)  OCC    2460   18000                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  35
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A07 N+ Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    455                   1.77  (11) SUST    1589   15000                     
+        Amb to T1                                     321   1.77  (13) DISP     278   22500                     
+        Amb to T2                                     595   1.77  (13) DISP     515   22500                     
+        Amb to T3                                    1528   1.77  (13) DISP    1321   22500                     
+        T1 to T2                                      916   1.77  (13) DISP     792   22500                     
+        T1 to T3                                     1849   1.77  (13) DISP    1599   22500                     
+        T2 to T3                                      933   1.77  (13) DISP     807   22500                     
+        Sus. + E4                     455     102           1.77  (12)  OCC    1655   18000                     
+        Sus. + E5                     455     455           1.77  (12)  OCC    1883   18000                     
+        Sus. + E6                     455     742           1.77  (12)  OCC    2070   18000                     
+ 
+ A07 N- Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    455                   1.00  (11) SUST    1516   15000                     
+        Amb to T1                                     321   1.00  (13) DISP     157   22500                     
+        Amb to T2                                     595   1.00  (13) DISP     291   22500                     
+        Amb to T3                                    1528   1.00  (13) DISP     748   22500                     
+        T1 to T2                                      916   1.00  (13) DISP     448   22500                     
+        T1 to T3                                     1849   1.00  (13) DISP     905   22500                     
+        T2 to T3                                      933   1.00  (13) DISP     457   22500                     
+        Sus. + E4                     455     102           1.00  (12)  OCC    1566   18000                     
+        Sus. + E5                     455     455           1.00  (12)  OCC    1739   18000                     
+        Sus. + E6                     455     742           1.00  (12)  OCC    1879   18000                     
+ 
+ A06    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    454                   1.00  (11) SUST    1516   15000                     
+        Amb to T1                                     321   1.00  (13) DISP     157   22500                     
+        Amb to T2                                     595   1.00  (13) DISP     291   22500                     
+        Amb to T3                                    1528   1.00  (13) DISP     748   22500                     
+        T1 to T2                                      916   1.00  (13) DISP     448   22500                     
+        T1 to T3                                     1849   1.00  (13) DISP     905   22500                     
+        T2 to T3                                      933   1.00  (13) DISP     457   22500                     
+        Sus. + E4                     454     102           1.00  (12)  OCC    1566   18000                     
+        Sus. + E5                     454     454           1.00  (12)  OCC    1738   18000                     
+        Sus. + E6                     454     741           1.00  (12)  OCC    1879   18000                     
+ 
+ A05 F+ Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    596                   1.00  (11) SUST    1585   15000                     
+        Amb to T1                                     645   1.00  (13) DISP     316   22500                     
+        Amb to T2                                    1196   1.00  (13) DISP     586   22500                     
+        Amb to T3                                    3071   1.00  (13) DISP    1503   22500                     
+        T1 to T2                                     1841   1.00  (13) DISP     901   22500                     
+        T1 to T3                                     3715   1.00  (13) DISP    1819   22500                     
+        T2 to T3                                     1874   1.00  (13) DISP     917   22500                     
+        Sus. + E4                     596      76           1.00  (12)  OCC    1622   18000                     
+        Sus. + E5                     596     596           1.00  (12)  OCC    1877   18000                     
+        Sus. + E6                     596    1036           1.00  (12)  OCC    2093   18000                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  36
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A05 N- Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    737                   1.00  (11) SUST    1655   15000                     
+        Amb to T1                                     640   1.00  (13) DISP     313   22500                     
+        Amb to T2                                    1187   1.00  (13) DISP     581   22500                     
+        Amb to T3                                    3046   1.00  (13) DISP    1491   22500                     
+        T1 to T2                                     1827   1.00  (13) DISP     894   22500                     
+        T1 to T3                                     3686   1.00  (13) DISP    1805   22500                     
+        T2 to T3                                     1860   1.00  (13) DISP     910   22500                     
+        Sus. + E4                     737     115           1.00  (12)  OCC    1711   18000                     
+        Sus. + E5                     737     737           1.00  (12)  OCC    2016   18000                     
+        Sus. + E6                     737    1270           1.00  (12)  OCC    2276   18000                     
+ 
+ A04    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    737                   1.00  (11) SUST    1655   15000                     
+        Amb to T1                                     640   1.00  (13) DISP     313   22500                     
+        Amb to T2                                    1186   1.00  (13) DISP     581   22500                     
+        Amb to T3                                    3045   1.00  (13) DISP    1490   22500                     
+        T1 to T2                                     1826   1.00  (13) DISP     894   22500                     
+        T1 to T3                                     3684   1.00  (13) DISP    1803   22500                     
+        T2 to T3                                     1859   1.00  (13) DISP     910   22500                     
+        Sus. + E4                     737     115           1.00  (12)  OCC    1711   18000                     
+        Sus. + E5                     737     737           1.00  (12)  OCC    2016   18000                     
+        Sus. + E6                     737    1270           1.00  (12)  OCC    2276   18000                     
+ 
+ A03    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    833                   1.00  (11) SUST    1701   15000                     
+        Amb to T1                                      99   1.00  (13) DISP      49   22500                     
+        Amb to T2                                     184   1.00  (13) DISP      90   22500                     
+        Amb to T3                                     473   1.00  (13) DISP     231   22500                     
+        T1 to T2                                      284   1.00  (13) DISP     139   22500                     
+        T1 to T3                                      572   1.00  (13) DISP     280   22500                     
+        T2 to T3                                      289   1.00  (13) DISP     141   22500                     
+        Sus. + E4                     833     173           1.00  (12)  OCC    1786   18000                     
+        Sus. + E5                     833     833           1.00  (12)  OCC    2109   18000                     
+        Sus. + E6                     833    1323           1.00  (12)  OCC    2349   18000                     
+ 
+ A02 F+ Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    927                   1.00  (11) SUST    1747   15000                     
+        Amb to T1                                     606   1.00  (13) DISP     297   22500                     
+        Amb to T2                                    1125   1.00  (13) DISP     551   22500                     
+        Amb to T3                                    2887   1.00  (13) DISP    1413   22500                     
+        T1 to T2                                     1731   1.00  (13) DISP     847   22500                     
+        T1 to T3                                     3493   1.00  (13) DISP    1710   22500                     
+        T2 to T3                                     1762   1.00  (13) DISP     863   22500                     
+        Sus. + E4                     927      80           1.00  (12)  OCC    1787   18000                     
+        Sus. + E5                     927     927           1.00  (12)  OCC    2201   18000                     
+        Sus. + E6                     927    1283           1.00  (12)  OCC    2376   18000                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  37
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A02 N- Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    726                   1.00  (11) SUST    1649   15000                     
+        Amb to T1                                     600   1.00  (13) DISP     294   22500                     
+        Amb to T2                                    1113   1.00  (13) DISP     545   22500                     
+        Amb to T3                                    2856   1.00  (13) DISP    1398   22500                     
+        T1 to T2                                     1713   1.00  (13) DISP     838   22500                     
+        T1 to T3                                     3456   1.00  (13) DISP    1692   22500                     
+        T2 to T3                                     1743   1.00  (13) DISP     853   22500                     
+        Sus. + E4                     726     139           1.00  (12)  OCC    1717   18000                     
+        Sus. + E5                     726     726           1.00  (12)  OCC    2004   18000                     
+        Sus. + E6                     726    1029           1.00  (12)  OCC    2153   18000                     
+ 
+ A10    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    282                   1.00  (11) SUST    1432   15000                     
+        Amb to T1                                     325   1.00  (13) DISP     159   22500                     
+        Amb to T2                                     603   1.00  (13) DISP     295   22500                     
+        Amb to T3                                    1547   1.00  (13) DISP     757   22500                     
+        T1 to T2                                      928   1.00  (13) DISP     454   22500                     
+        T1 to T3                                     1872   1.00  (13) DISP     916   22500                     
+        T2 to T3                                      944   1.00  (13) DISP     462   22500                     
+        Sus. + E4                     282     123           1.00  (12)  OCC    1492   18000                     
+        Sus. + E5                     282     282           1.00  (12)  OCC    1569   18000                     
+        Sus. + E6                     282     490           1.00  (12)  OCC    1671   18000                     
+ 
+ A01    Max P                                                     ( 3) HOOP    2841   15000                     
+        GR + Max P                    646                   1.00  (11) SUST    1610   15000                     
+        Amb to T1                                     199   1.00  (13) DISP      98   22500                     
+        Amb to T2                                     369   1.00  (13) DISP     181   22500                     
+        Amb to T3                                     948   1.00  (13) DISP     464   22500                     
+        T1 to T2                                      569   1.00  (13) DISP     278   22500                     
+        T1 to T3                                     1148   1.00  (13) DISP     562   22500                     
+        T2 to T3                                      579   1.00  (13) DISP     283   22500                     
+        Sus. + E4                     646     110           1.00  (12)  OCC    1664   18000                     
+        Sus. + E5                     646     646           1.00  (12)  OCC    1926   18000                     
+        Sus. + E6                     646     609           1.00  (12)  OCC    1908   18000                     
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  38
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+ Maximum displacements (in)                                                     
+ ---------------------------                                                    
+ 
+          Maximum X :     0.044      Point : A02 F      Load Comb.: Thermal 3                                   
+          Maximum Y :     0.041      Point : A05 F      Load Comb.: Thermal 3                                   
+          Maximum Z :     0.050      Point : A07 N      Load Comb.: Thermal 3                                   
+          Max. total:     0.075      Point : A05 F      Load Comb.: Thermal 3                                   
+ 
+ Maximum rotations (deg)                                                        
+ -----------------------                                                        
+ 
+          Maximum X :    -0.024      Point : A07 F      Load Comb.: Thermal 3                                   
+          Maximum Y :    -0.034      Point : A01 M      Load Comb.: Static Seismic 6                            
+          Maximum Z :     0.062      Point : A03        Load Comb.: Thermal 3                                   
+          Max. total:     0.067      Point : A03        Load Comb.: Thermal 3                                   
+ 
+ 
+ 
+ Maximum restraint forces (lb)                                                  
+ ------------------------------                                                 
+ 
+          Maximum X :      7910      Point : B01        Load Comb.: Thermal 3                                   
+          Maximum Y :     -1057      Point : A00        Load Comb.: Gravity                                     
+          Maximum Z :     -6534      Point : A09        Load Comb.: Thermal 3                                   
+          Max. total:     10154      Point : B01        Load Comb.: Thermal 3                                   
+ 
+ Maximum restraint moments (ft-lb)                                              
+ ----------------------------------                                             
+ 
+          Maximum X :     -1980      Point : A09        Load Comb.: Thermal 3                                   
+          Maximum Y :    -13854      Point : A09        Load Comb.: Thermal 3                                   
+          Maximum Z :     -4496      Point : A00        Load Comb.: Gravity                                     
+          Max. total:     14024      Point : A09        Load Comb.: Thermal 3                                   
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  39
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+ Maximum pipe forces (lb)                                                       
+ -------------------------                                                      
+ 
+          Maximum X :      7910      Point : A08        Load Comb.: Thermal 3                                   
+          Maximum Y :      1057      Point : A00        Load Comb.: Gravity                                     
+          Maximum Z :     -6534      Point : A08        Load Comb.: Thermal 3                                   
+          Max. total:     10154      Point : A08        Load Comb.: Thermal 3                                   
+ 
+ Maximum pipe moments (ft-lb)                                                   
+ -----------------------------                                                  
+ 
+          Maximum X :     -2301      Point : A08        Load Comb.: Thermal 3                                   
+          Maximum Y :     14517      Point : A08        Load Comb.: Thermal 3                                   
+          Maximum Z :      4496      Point : A00        Load Comb.: Gravity                                     
+          Max. total:     14587      Point : A08        Load Comb.: Thermal 3                                   
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  40
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+     Maximum sustained stress                                                   
+ 
+                              Point            : A00                            
+                              Stress    psi    : 3500                           
+                              Allowable psi    : 15000                          
+                              Ratio            : 0.23                           
+                              Load combination : GR + Max P                     
+ 
+     Maximum displacement stress                                                
+ 
+                              Point            : A08                            
+                              Stress    psi    : 11705                          
+                              Allowable psi    : 22500                          
+                              Ratio            : 0.52                           
+                              Load combination : T1 to T3                       
+ 
+     Maximum occasional stress                                                  
+ 
+                              Point            : A00                            
+                              Stress    psi    : 6409                           
+                              Allowable psi    : 18000                          
+                              Ratio            : 0.36                           
+                              Load combination : Sus. + E6                      
+ 
+     Maximum hoop stress                                                        
+ 
+                              Point            : A08                            
+                              Stress    psi    : 2841                           
+                              Allowable psi    : 15000                          
+                              Ratio            : 0.19                           
+                              Load combination : Max P                          
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:10 AM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  41
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+     Maximum sustained stress ratio                                             
+ 
+                              Point            : A00                            
+                              Stress    psi    : 3500                           
+                              Allowable psi    : 15000                          
+                              Ratio            : 0.23                           
+                              Load combination : GR + Max P                     
+ 
+     Maximum displacement stress ratio                                          
+ 
+                              Point            : A08                            
+                              Stress    psi    : 11705                          
+                              Allowable psi    : 22500                          
+                              Ratio            : 0.52                           
+                              Load combination : T1 to T3                       
+ 
+     Maximum occasional stress ratio                                            
+ 
+                              Point            : A00                            
+                              Stress    psi    : 6409                           
+                              Allowable psi    : 18000                          
+                              Ratio            : 0.36                           
+                              Load combination : Sus. + E6                      
+ 
+     Maximum hoop stress ratio                                                  
+ 
+                              Point            : A08                            
+                              Stress    psi    : 2841                           
+                              Allowable psi    : 15000                          
+                              Ratio            : 0.19                           
+                              Load combination : Max P                          
+ 
+ 
+ 
+     * * * The system satisfies ASME B31.1 (2004) code requirements * * *       
+     * * * for the selected options                                 * * *       
+

@@ -1,0 +1,46 @@
+JOB                                                         1.1       
+HED  bp-201-P
+    *
+CTL  B31.3     Y                           English            AUTOPIPE   B313-12
+***  
+SEG  1                 214.000    34.000    -5.000          
+RVER 1.7
+PIPE PIPE1               8.000     0.322     0.000
+    *A53-B          
+    *                    0.000     0.000     0.000
+    *
+    *
+    *        1C0031LAYOUT
+RVER 1.1
+OPER 1             1  -459.670          0.000
+RUN  2                   0.000     0.000     2.328
+UUID RUN  2                   0001388C-0000-0000-2B00-44DBA0473104
+RUN  3                   0.000     0.000     2.672
+RUN  4                   0.000     0.000     7.831
+RUN  5                   0.000     0.000     2.169
+RUN  6                   0.000     0.000     9.483
+RUN  7                   0.000     0.000     2.086
+RUN  8                   0.000     0.000     6.365
+*** ANCHORS AT OPEN ENDS
+ANC  1    
+ANC  8    
+GUID 2                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Penetration Plate on Pipe(s)
+UUID GUID 2                   00022303-0000-0000-5100-44DBA0473104
+GUID 4                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Penetration Plate on Pipe(s)
+UUID GUID 4                   00022303-0000-0000-C805-7F41A2472C04
+GUID 3                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Rigid Rod Trapeze - W-Section, Top Type: LUG/CLEVIS, Rod: End Thread, 7/8
+UUID GUID 3                   00022303-0000-0000-3900-FCDCA0472C04
+GUID 5                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Assembly DM1 Size 4 Sway Strut Assembly (Option 3) for Pipe Sizes 5in to 36in
+UUID GUID 5                   00022303-0000-0000-A103-FCDCA0472C04
+GUID 6                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Variable Spring with Clevis Hanger, TYPE A SPRING, C-CLAMP, SHORT SPRING, Size:11
+UUID GUID 6                   00022303-0000-0000-F207-FCDCA0472C04
+GUID 7                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Inverted T Shaped Frame L4X4X1/4 w/ Baseplate
+UUID GUID 7                   00022303-0000-0000-B118-FF65B0475204
+***  
+*** END OF FILE

@@ -1,0 +1,26 @@
+                                                                                
+  Defect #1054789 Evaluation Report                                             
+  ---------------------------------                                             
+                                                                                
+  Model Name:       WALKTHRU                                                    
+  Model Version:    12.02.00.05                                                 
+  Program Version:  12.02.00.12                                                 
+  Report Filename:  WALKTHRU_D1054789.TXT                                       
+                                                                                
+  --------------------------------                                              
+                                                                                
+  ASME VIII-1, ASME VIII-2, and ASME III Appendix XI flanges do not             
+  consider corrosion allowance due to a previous program defect                 
+  #1054789. Please refer to the published defect report for more                
+  details, mitigation conditions and instructions. To assist in the             
+  screening of this model for any potential impact by this defect,              
+  program has examined the model database and has found that the Flange         
+  Check stresses for the flanges reported below should be re-computed           
+  using this program version.                                                   
+  After saving this model or running any analysis in this version or            
+  later commercial release versions, this screening will no longer be           
+  performed.                                                                    
+                                                                                
+  Flange(s) potentially impacted by this defect:                                
+  ----------------------------------------------                                
+   B02                                                                          

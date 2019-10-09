@@ -1,0 +1,52 @@
+﻿'USEUNIT APP_COMMON 
+'USEUNIT FSO_Functions
+
+'Sub StartStop
+'  Call StartApp("autopipe","")
+'  If Aliases.autopipe.wndAutoPIPE.WaitAliasChild("mainGUI",60000).WaitProperty("Exists", true, 10) Then
+'    Call CloseApp("autopipe")
+'  End If 
+'End Sub
+' 
+  Sub Main
+  
+    Call StartStop
+    Call CopyRibbonUI
+    Call CreateDiscrepanciesFolder
+   
+  End Sub
+  
+  Sub StartStop
+    Call StartApp("autopipe","")
+     If Aliases.autopipe.wndAutoPIPE.WaitAliasChild("mainGUI",6000).WaitProperty("Exists", true, 10) Then
+      Call CloseApp("autopipe")
+    End If
+  End Sub
+
+  Sub CreateDiscrepanciesFolder
+      '''''create a Discrepancies folder in temp and append its name with date
+    
+     Dim curDate : curDate =  Month(Date) & "_" & Day(Date) & "_" & Year(Date)
+     Dim tempPath : tempPath = aqEnvironment.GetEnvironmentVariable("TEMP") & "\"
+     Dim folderName : folderName = tempPath  & "Discrepancies" & curDate
+ 
+     if FSO_Functions.FSOFolderExists(folderName) = False then
+        FSO_Functions.FSOCreateFolder(folderName)     
+        Log.Message("Discrepancies folder created")
+      End If
+  
+  End Sub
+   Sub CopyRibbonUI
+    Dim roam : roam = aqEnvironment.GetEnvironmentVariable("appdata") & "\"
+    Dim sourceFile : sourceFile = "\\isbprdfs03\QA\TestingProjects\AlphaTesting\CAE\AutoPIPE\AutoPIPERegression\Common\APInstallationDir\RibbonUI.xml"
+   ' Dim toProgramFiles: toProgramFiles = "C:\Program Files (x86)\Bentley\AutoPIPE CONNECT v12\" 
+    Dim toRoaming: toRoaming = roam & "Bentley\AutoPIPE CONNECT v12\" 
+    
+'    Call  FSO_Functions.FSOCopyFile(sourceFile,toProgramFiles)
+'    Log.Message("RibbonUI copied to Program Files")
+    
+    Call FSO_Functions.FSOCopyFile(sourceFile,toRoaming)
+    Log.Message("RibbonUI copied to Roaming")
+   
+   END Sub 
+    

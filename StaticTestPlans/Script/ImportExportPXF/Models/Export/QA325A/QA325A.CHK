@@ -1,0 +1,19 @@
+----------------------------------------------------------------------------------------------------------------
+QA325A                                                                                                          
+09/26/2019 QA TEST FOR PXF GEOMETRY EXPORT                        BENTLEY                                       
+03:09 AM   SYSTEM CONTAINS ALL COMPONENTS                         AutoPIPE Nuclear 12.02.00.12   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-64:  Effective radius of miter bend is less than limit at following point(s)                          
+                                                                                
+     A16 N                                                                      
+ 
+ 
+  No error     1 Warning(s)                                                     
+ 
+

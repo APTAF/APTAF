@@ -1,0 +1,745 @@
+﻿'USEUNIT Main
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Piping Components                 ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Run or Runs with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Run("All")
+'              0              -  Press OK button with default values                                        E-g Run("0") or Run(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Run("5") Or Run(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Run("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Run(TestData)
+      Dim strTableName: strTableName = "tblRun"                         'DB mapped Table Name 
+      Dim strHotKey: strHotKey = "MR"                                   'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Run"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgRun"                       'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+      
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Bend or Bends with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Bend("All")
+'              0              -  Press OK button with default values                                        E-g Bend("0") or Bend(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Bend("5") Or Bend(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Bend("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Bend(TestData)
+      Dim strTableName: strTableName = "tblBend"                         ' Table Name 
+      Dim strHotKey: strHotKey = "MB"                                    'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Bend"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgBend" 
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"                      'Dialog Mapping Name 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Tee or Tee with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Tee("All")
+'              0              -  Press OK button with default values                                        E-g Tee("0") or Tee(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Tee("5") Or Tee(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Tee("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Tee(TestData)
+      Dim strTableName: strTableName = "tblTee"                         ' Table Name 
+      Dim strHotKey: strHotKey = "MT"                                   'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Tee"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgTee"                       'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"                      'Dialog Mapping Name 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Flange or Flange with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Flange("All")
+'              0              -  Press OK button with default values                                        E-g Flange("0") or Flange(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Flange("5") Or Flange(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Flange("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Flange(TestData)
+      Dim strTableName: strTableName = "tblFlange"                         ' Table Name 
+      Dim strHotKey: strHotKey = "MF"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Flange"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgFlange"                       'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"                      'Dialog Mapping Name 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Valve or Valve with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Valve("All")
+'              0              -  Press OK button with default values                                        E-g Valve("0") or Valve(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Valve("5") Or Valve(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Valve("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Valve(TestData)
+      Dim strTableName: strTableName = "tblValve"                         ' Table Name 
+      Dim strHotKey: strHotKey = "MV"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Valve"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgValve"                       'Dialog Mapping Name 
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify FlexibleJoint or FlexibleJoint with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g FlexibleJoint("All")
+'              0              -  Press OK button with default values                                        E-g FlexibleJoint("0") or FlexibleJoint(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g FlexibleJoint("5") Or FlexibleJoint(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g FlexibleJoint("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub FlexibleJoint(TestData)
+      Dim strTableName: strTableName = "tblFlexibleJoint"                  ' Table Name 
+      Dim strHotKey: strHotKey = "MJ"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.FlexibleJoint"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgFlexibleJoint"                       'Dialog Mapping Name 
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Reducer or Reducer with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Reducer("All")
+'              0              -  Press OK button with default values                                        E-g Reducer("0") or Reducer(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Reducer("5") Or Reducer(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Reducer("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Reducer(TestData)
+      Dim strTableName: strTableName = "tblReducer"                        ' Table Name 
+      Dim strHotKey: strHotKey = "MU"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Reducer"        'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgReducer"                      'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Nozzle or Nozzle with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Nozzle("All")
+'              0              -  Press OK button with default values                                        E-g Nozzle("0") or Nozzle(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Nozzle("5") Or Nozzle(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Nozzle("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Nozzle(TestData)
+      Dim strTableName: strTableName = "tblNozzle"                         ' Table Name 
+      Dim strHotKey: strHotKey = "MZ"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Nozzle"        'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgNozzle"                      'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Supports                          ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Anchor or Anchor with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Anchor("All")
+'              0              -  Press OK button with default values                                        E-g Anchor("0") or Anchor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Anchor("5") Or Anchor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Anchor("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Anchor(TestData)
+      Dim strTableName: strTableName = "tblAnchor"                         ' Table Name 
+      Dim strHotKey: strHotKey = "MA"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Supports.Anchor"
+      Dim strDlgNameMap : strDlgNameMap ="dlgAnchor"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Support or Support with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Support("All")
+'              0              -  Press OK button with default values                                        E-g Support("0") or Support(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Support("5") Or Support(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Support("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Support(TestData)
+      Dim strTableName: strTableName = "tblSupport"                         ' Table Name 
+      Dim strHotKey: strHotKey = "MS"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Supports.Support"
+      Dim strDlgNameMap : strDlgNameMap ="dlgSupport"
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+     
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Modify Support Connection with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Support("All")
+'              0              -  Press OK button with default values                                        E-g Support("0") or Support(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Support("5") Or Support(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Support("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub SupportConnection(TestData)
+      Dim strTableName: strTableName = "tblSupportConnection"                         ' Table Name 
+      Dim strHotKey: strHotKey = "MW"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Supports.SupportConnection"
+      Dim strDlgNameMap : strDlgNameMap ="dlgSupportConnection"
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+     
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Xtra Data                          ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'-----------------------------------------------------------------------------------**/
+' Summary: Modify JointTypeAndUserSIF with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g JointTypeAndUserSIF("All")
+'              0              -  Press OK button with default values                                        E-g JointTypeAndUserSIF("0") or JointTypeAndUserSIF(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g JointTypeAndUserSIF("5") Or JointTypeAndUserSIF(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g JointTypeAndUserSIF("1-5")    
+' Author:   Sumbal.Khan
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub JointTypeAndUserSIF(TestData)
+      Dim strTableName: strTableName = "tblJointTypeAndUserSIF"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M1"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.JointTypeAndUserSIF"
+      Dim strDlgNameMap : strDlgNameMap ="dlgJointTypeAndUserSIF"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+    
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'-----------------------------------------------------------------------------------**/
+' Summary: Modify AdditionalWeight or AdditionalWeight with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g AdditionalWeight("All")
+'              0              -  Press OK button with default values                                        E-g AdditionalWeight("0") or AdditionalWeight(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g AdditionalWeight("5") Or AdditionalWeight(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g AdditionalWeight("1-5")    
+' Author:   Sumbal.Khan
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub AdditionalWeight(TestData)
+      Dim strTableName: strTableName = "tblAdditionalWeight"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M2"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.AdditionalWeight"
+      Dim strDlgNameMap : strDlgNameMap ="dlgAdditionalWeight"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+    
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'-----------------------------------------------------------------------------------**/
+' Summary: Modify ConcentratedForce with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g ConcentratedForce("All")
+'              0              -  Press OK button with default values                                        E-g ConcentratedForce("0") or ConcentratedForce(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g ConcentratedForce("5") Or ConcentratedForce(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g ConcentratedForce("1-5")    
+' Author:   Sumbal.Khan
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub ConcentratedForce(TestData)
+      Dim strTableName: strTableName = "tblConcentratedForce"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M3"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.ConcentratedForce"
+      Dim strDlgNameMap : strDlgNameMap ="dlgConcentratedForce"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+
+'-----------------------------------------------------------------------------------**/
+' Summary: Modify ImposedDisplacement with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g ImposedDisplacement("All")
+'              0              -  Press OK button with default values                                        E-g ImposedDisplacement("0") or ImposedDisplacement(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g ImposedDisplacement("5") Or ImposedDisplacement(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g ImposedDisplacement("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub ImposedDisplacement(TestData)
+      Dim strTableName: strTableName = "tblImposedDisplacements"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M4"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.ImposedDisplacement"
+      Dim strDlgNameMap : strDlgNameMap ="dlgImposedSupportDisplacements"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify HydrodynamicData with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g HydrodynamicData("All")
+'              0              -  Press OK button with default values                                        E-g HydrodynamicData("0") or HydrodynamicData(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g HydrodynamicData("5") Or HydrodynamicData(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g HydrodynamicData("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub HydrodynamicData(TestData)
+      Dim strTableName: strTableName = "tblHydrodynamicData"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M6"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.HydrodynamicData"
+      Dim strDlgNameMap : strDlgNameMap ="dlgHydrodynamicData"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify CutShort with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g CutShort("All")
+'              0              -  Press OK button with default values                                        E-g CutShort("0") or CutShort(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g CutShort("5") Or CutShort(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g CutShort("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub CutShort(TestData)
+      Dim strTableName: strTableName = "tblCutShort"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M7"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.CutShort"
+      Dim strDlgNameMap : strDlgNameMap ="dlgCutShort"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify UserWeldEfficiencyFactor with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g UserWeldEfficiencyFactor("All")
+'              0              -  Press OK button with default values                                        E-g UserWeldEfficiencyFactor("0") or UserWeldEfficiencyFactor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g UserWeldEfficiencyFactor("5") Or UserWeldEfficiencyFactor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g UserWeldEfficiencyFactor("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub UserWeldEfficiencyFactor(TestData)
+      Dim strTableName: strTableName = "tblUserWeldEfficiencyFactor"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M8"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.UserWeldEfficiencyFactor"
+      Dim strDlgNameMap : strDlgNameMap ="dlgUserWeldEfficiencyFactor"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify MemberEarthquakeFactor with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g MemberEarthquakeFactor("All")
+'              0              -  Press OK button with default values                                        E-g MemberEarthquakeFactor("0") or MemberEarthquakeFactor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g MemberEarthquakeFactor("5") Or MemberEarthquakeFactor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g MemberEarthquakeFactor("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub MemberEarthquakeFactor(TestData)
+      Dim strTableName: strTableName = "tblMemberEarthquakeFactor"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M9"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.EarthquakeScaleFactor"
+      Dim strDlgNameMap : strDlgNameMap ="dlgEarthquakeScaleFactor"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify PointEarthquakeFactor with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PointEarthquakeFactor("All")
+'              0              -  Press OK button with default values                                        E-g PointEarthquakeFactor("0") or PointEarthquakeFactor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PointEarthquakeFactor("5") Or PointEarthquakeFactor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PointEarthquakeFactor("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub PointEarthquakeFactor(TestData)
+      Dim strTableName: strTableName = "tblPointEarthquakeFactor"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M01"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.EarthquakeScaleFactor"
+      Dim strDlgNameMap : strDlgNameMap ="dlgEarthquakeScaleFactor"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Modify ReferencePoint with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g ReferencePoint("All")
+'              0              -  Press OK button with default values                                        E-g ReferencePoint("0") or ReferencePoint(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g ReferencePoint("5") Or ReferencePoint(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g ReferencePoint("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ReferencePoint(TestData)
+      Dim strTableName: strTableName = "tblReferencePoint"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M02"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.ReferencePoint"
+      Dim strDlgNameMap : strDlgNameMap ="dlgReferencePoint"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+'/*------------------------------------------------------------------------------------**/
+' Summary: Modify Out of Roundness with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipingRestraintOptions("All")
+'              0              -  Press OK button with default values                                        E-g PipingRestraintOptions("0") or PipingRestraintOptions(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipingRestraintOptions("5") Or PipingRestraintOptions(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipingRestraintOptions("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub OutOfRoundness(TestData)
+
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblOutOfRoundness"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M03"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.OutOfRoundness"
+      Dim strDlgNameMap : strDlgNameMap ="dlgOutOfRoundness"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Modify GrossDiscontinuity with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g GrossDiscontinuity("All")
+'              0              -  Press OK button with default values                                        E-g GrossDiscontinuity("0") or GrossDiscontinuity(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g GrossDiscontinuity("5") Or GrossDiscontinuity(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g GrossDiscontinuity("1-5")    
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub GrossDiscontinuity(TestData)
+
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblGrossDiscontinuity"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M04"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.GrossDiscontinuity"
+      Dim strDlgNameMap : strDlgNameMap ="dlgGrossDiscontinuity"
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+     
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Modify PipingRestraintOptions with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipingRestraintOptions("All")
+'              0              -  Press OK button with default values                                        E-g PipingRestraintOptions("0") or PipingRestraintOptions(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipingRestraintOptions("5") Or PipingRestraintOptions(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipingRestraintOptions("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub PipingRestraintOptions(TestData)
+      Dim strTableName: strTableName = "tblPipingRestraintOptions"                         ' Table Name 
+      Dim strHotKey: strHotKey = "M05"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.PipingRestraintOptions"
+      Dim strDlgNameMap : strDlgNameMap ="dlgPipingRestraintOptions"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+End Sub
+
+'/*------------------------------------------------------------------------------------**/
+' Summary: Modify PipeProperties with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipeModify("All")
+'              0              -  Press OK button with default values                                        E-g PipeModify("0") or PipeModify(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeModify("5") Or PipeModify(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeModify("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub PipeProperties(TestData)
+
+      Dim strDBTableName: strDBTableName = "tblPipeProperties"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "MP"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "Properties.PipeProperties"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgPipeProperties"     'Dialog mapped name  
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+
+End Sub
+'/*------------------------------------------------------------------------------------**/
+' Summary: Modify PipeProperties Over Range with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipeModify("All")
+'              0              -  Press OK button with default values                                        E-g PipeModify("0") or PipeModify(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeModify("5") Or PipeModify(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeModify("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub PipePropertiesOverRange(TestData)
+
+      Dim strDBTableName: strDBTableName = "tblPipeProperties"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "MPR"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "Properties.PipeProperties"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgPipeProperties"     'Dialog mapped name  
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+
+End Sub
+'/*------------------------------------------------------------------------------------**/
+' Summary: Modify Rigid Options Over Range with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipeModify("All")
+'              0              -  Press OK button with default values                                        E-g PipeModify("0") or PipeModify(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeModify("5") Or PipeModify(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeModify("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub RigidOptionsOverRange(TestData)
+
+      Dim strDBTableName: strDBTableName = "tblRigidOptions"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "MD"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "Properties.RigidOptionsOverRange"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgRigidOptions"     'Dialog mapped name  
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+
+End Sub
+'/*------------------------------------------------------------------------------------**/
+' Summary: Modify Rigid Options Over Range with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipeModify("All")
+'              0              -  Press OK button with default values                                        E-g PipeModify("0") or PipeModify(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeModify("5") Or PipeModify(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeModify("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub OperatingPT(TestData)
+
+      Dim strDBTableName: strDBTableName = "tblOperatingPT"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "ME"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "Properties.OperatingPT"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgOpenPressTemp"     'Dialog mapped name  
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+
+End Sub
+'/*------------------------------------------------------------------------------------**/
+' Summary: Modify Beam Section Properties with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipeModify("All")
+'              0              -  Press OK button with default values                                        E-g PipeModify("0") or PipeModify(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeModify("5") Or PipeModify(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeModify("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub BeamSectionProperties(TestData)
+
+      Dim strDBTableName: strDBTableName = "tblBeamSectionProperties"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "MN"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "Properties.BeamSectionProperties"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgBeamSectionProperties"     'Dialog mapped name  
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+
+End Sub
+'/*------------------------------------------------------------------------------------**/
+' Summary: Modify Beam  with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipeModify("All")
+'              0              -  Press OK button with default values                                        E-g PipeModify("0") or PipeModify(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeModify("5") Or PipeModify(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeModify("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Beam(TestData)
+
+      Dim strDBTableName: strDBTableName = "tblBeam"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "MM"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "Properties.Beam"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgBeam"     'Dialog mapped name  
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+
+End Sub
+''/*------------------------------------------------------------------------------------**/
+'' Summary: Modify Split Beam  with default or custom values from Excel sheet.   
+'' Remarks:
+'' Actions: TestData -> The value could be:
+''              All            - Execute All Rows one by one                                                 E-g PipeModify("All")
+''              0              -  Press OK button with default values                                        E-g PipeModify("0") or PipeModify(0)
+''              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeModify("5") Or PipeModify(5)
+''              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeModify("1-5")    
+'' Author:   Sumbal.Khan
+'' Date:     9/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+'Sub SplitBeam(TestData)
+'
+'      Dim strDBTableName: strDBTableName = "tblSplitBeam"     'DB mapped Table Name 
+'      Dim strHotKey     : strHotKey      = "MK"        'Dialog Shortcut Key
+'      Dim strUIMethod   : strUIMethod    = "Properties.SplitBeam"    'Procedure Name
+'      Dim strDlgNameMap : strDlgNameMap  = "dlgSplitBeam"     'Dialog mapped name  
+'       Dim isDlgVerification : isDlgVerification = "yes"
+'      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+'      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+'
+'End Sub
+''/*------------------------------------------------------------------------------------**/
+'' Summary: Modify Split Beam  with default or custom values from Excel sheet.   
+'' Remarks:
+'' Actions: TestData -> The value could be:
+''              All            - Execute All Rows one by one                                                 E-g PipeModify("All")
+''              0              -  Press OK button with default values                                        E-g PipeModify("0") or PipeModify(0)
+''              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeModify("5") Or PipeModify(5)
+''              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeModify("1-5")    
+'' Author:   Sumbal.Khan
+'' Date:     9/2017
+''/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+'Sub EnableWindForSelectedMembers(TestData)
+'
+'      Dim strDBTableName: strDBTableName = ""     'DB mapped Table Name 
+'      Dim strHotKey     : strHotKey      = "MXE"        'Dialog Shortcut Key
+'      Dim strUIMethod   : strUIMethod    = "Properties.SplitBeam"    'Procedure Name
+'      Dim strDlgNameMap : strDlgNameMap  = "dlgEnableWindForSelectedMembers"     'Dialog mapped name  
+'       Dim isDlgVerification : isDlgVerification = "yes"
+'      Dim isDlgNegativeTest : isDlgNegativeTest = "yes" 
+'      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+'
+'End Sub
+Sub DisableWindForSelectedMembers(TestData)
+
+      Dim strDBTableName: strDBTableName = ""     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "MXD"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "Structure.Disable"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgNote"     'Dialog mapped name  
+       Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no" 
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+
+End Sub

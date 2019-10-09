@@ -1,0 +1,127 @@
+﻿'USEUNIT tabLoads
+'USEUNIT DatabaseFunctions
+'USEUNIT Main
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ThermalBowing" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ThermalBowing table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub ThermalBowing (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgThermalBowing = objNameMapping.dlgThermalBowing
+
+Dim intTempDiff                    : intTempDiff                    = objRow.Item("intTempDiff")
+Dim intMaxInclination              : intMaxInclination              = objRow.Item("intMaxInclination")
+Dim chkApplyBowingToAllSegments    : chkApplyBowingToAllSegments    = objRow.Item("chkApplyBowingToAllSegments") 
+Dim chkAddBowingToAllThermalCases  : chkAddBowingToAllThermalCases  = objRow.Item("chkAddBowingToAllThermalCases")
+Dim drpLoadCase                    : drpLoadCase                    = objRow.Item("drpLoadCase")
+Dim drpThermalCase                 : drpThermalCase                 = "*"&objRow.Item("drpThermalCase")&"*"
+Dim intCoeffNSMaterials            : intCoeffNSMaterials            = objRow.Item("intCoeffNSMaterials")
+
+Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(200)
+    
+'''' intTempDiff
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intTempDiff <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgThermalBowing", 600).WaitProperty("Exists", true, 10)) Then
+          dlgThermalBowing.fldTempDiff.Keys(intTempDiff)
+          dlgThermalBowing.fldTempDiff.Keys("[Tab]")
+         Log.Message("Entered " & intTempDiff & " in the intTempDiff field")
+    End If
+  End If
+'End If  
+
+'Dim intMaxInclination
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intMaxInclination <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgThermalBowing", 600).WaitProperty("Exists", true, 10)) Then
+          dlgThermalBowing.fldMaxInclination.Keys(intMaxInclination)
+          dlgThermalBowing.fldMaxInclination.Keys("[Tab]")
+         Log.Message("Entered " & intMaxInclination & " in the intMaxInclination field")
+    End If
+  End If
+'End If  
+
+'''' chkApplyBowingToAllSegments 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkApplyBowingToAllSegments <>  "NA") Then
+ state = dlgThermalBowing.chkboxApplyBowingToAllSegments.wState 
+    If( CInt(chkApplyBowingToAllSegments) <> CInt(state) )then
+    dlgThermalBowing.chkboxApplyBowingToAllSegments.Click()
+    Log.Message("Entered " & chkApplyBowingToAllSegments & " in the chkApplyBowingToAllSegments field")
+    End If
+  End If
+End If
+
+
+''' chkAddBowingToAllThermalCases
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkAddBowingToAllThermalCases <>  "NA") Then
+ state = dlgThermalBowing.chkboxAddBowingToAllThermalCases.wState 
+    If( CInt(chkAddBowingToAllThermalCases) <> CInt(state) )then
+    dlgThermalBowing.chkboxAddBowingToAllThermalCases.Click()
+    Log.Message("Entered " & chkAddBowingToAllThermalCases & " in the chkAddBowingToAllThermalCases field")
+    End If
+  End If
+End If
+
+'''' drpLoadCase 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(drpLoadCase <> "*NA*") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgThermalBowing", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgThermalBowing.drpdwnLoadCase.ClickItem(drpLoadCase)
+          Log.Message("Entered " & drpLoadCase & " in the drpLoadCase field")
+      End If       
+  End If
+'End If
+
+''''' drpThermalCase 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(drpThermalCase <> "*NA*") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgThermalBowing", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgThermalBowing.drpdwnThermalCase.ClickItem(drpThermalCase)
+          Log.Message("Entered " & drpThermalCase & " in the drpThermalCase field")
+      End If       
+  End If
+'End If
+
+''' intCoeffNSMaterials
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intCoeffNSMaterials <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgThermalBowing", 600).WaitProperty("Exists", true, 10)) Then
+          dlgThermalBowing.fldCoeffNSMaterials.Keys(intCoeffNSMaterials)
+          dlgThermalBowing.fldCoeffNSMaterials.Keys("[Tab]")
+         Log.Message("Entered " & intCoeffNSMaterials & " in the intCoeffNSMaterials field")
+    End If
+  End If
+'End If 
+ 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+dlgThermalBowing.btnOK.Click()
+End If
+
+End Sub

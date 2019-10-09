@@ -1,0 +1,1529 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="message 21">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="21"/>
+			<Prp name="date" type="D" value="43700.5086171296"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Test Case:4,FileName"/>
+			<Prp name="owner id" type="I" value="19"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 79">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'FC' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (Undefined)&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="79"/>
+			<Prp name="date" type="D" value="43700.5091684028"/>
+			<Prp name="unit id" type="I" value="8"/>
+			<Prp name="line no" type="I" value="154"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="78"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 41">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnStandard&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 3))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="41"/>
+			<Prp name="date" type="D" value="43700.5089256019"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="297"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The combo box item 'ANSI/ASME' was selected."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 59">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="59"/>
+			<Prp name="date" type="D" value="43700.5090386111"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="523"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="dlgValve Closed with OK"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 37">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="37"/>
+			<Prp name="date" type="D" value="43700.5088963657"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="295"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Selected 'After' from the 'AddValveBeforeAfter' dropdown"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 31">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="31"/>
+			<Prp name="date" type="D" value="43700.5087365625"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="663"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Model replaced"/>
+			<Prp name="owner id" type="I" value="29"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 83">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="83"/>
+			<Prp name="date" type="D" value="43700.5091722569"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Positive test with Report Verificatoin"/>
+			<Prp name="owner id" type="I" value="82"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 63">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'RI' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (Undefined)&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="63"/>
+			<Prp name="date" type="D" value="43700.5090820486"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="62"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 61">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="61"/>
+			<Prp name="date" type="D" value="43700.5090621644"/>
+			<Prp name="unit id" type="I" value="5"/>
+			<Prp name="line no" type="I" value="715"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="No post-test validation action performed"/>
+			<Prp name="owner id" type="I" value="60"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 19">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="19"/>
+			<Prp name="date" type="D" value="43700.5085680208"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="SaveAs Model"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 16">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="16"/>
+			<Prp name="date" type="D" value="43700.5085145139"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="523"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="dlgOpen Closed with OK"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 78">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="78"/>
+			<Prp name="date" type="D" value="43700.5091554745"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Close the model"/>
+			<Prp name="owner id" type="I" value="6"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 58">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="A click at point (60, 14) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgValve.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;Button&quot;, &quot;OK&quot;, 8))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="58"/>
+			<Prp name="date" type="D" value="43700.5090370023"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="520"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 33">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'IV' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (Undefined)&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="33"/>
+			<Prp name="date" type="D" value="43700.5088723264"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="32"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 73">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="A click at point (24, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgInputListReport.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Model Input List Report&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;OK&quot;, 33))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="73"/>
+			<Prp name="date" type="D" value="43700.509102338"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="520"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="date" type="D" value="43700.5084421759"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Test Case:1,cmbfldFileName,SaveYesNo,ReopenExistingYesNo,ReplaceDatYesNo"/>
+			<Prp name="owner id" type="I" value="8"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 70">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="A click at point (93, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgInputListReport.chkboxValve&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Model Input List Report&quot;, 1).Window(&quot;APBUTTON&quot;, &quot; Valve .....................&quot;, 17))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="70"/>
+			<Prp name="date" type="D" value="43700.5090986574"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="313"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="item 5">
+			<Prp name="line no" type="I" value="24"/>
+			<Prp name="stacktext" type="S" value="Configuration"/>
+			<Prp name="unit id" type="I" value="10"/>
+		</Node>
+		<Node name="item 2">
+			<Prp name="line no" type="I" value="505"/>
+			<Prp name="stacktext" type="S" value="Verification"/>
+			<Prp name="unit id" type="I" value="1"/>
+		</Node>
+		<Node name="message 29">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="29"/>
+			<Prp name="date" type="D" value="43700.5086709838"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Post-Test Actions"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 20">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'FAD' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (Undefined)&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="20"/>
+			<Prp name="date" type="D" value="43700.5085977546"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="19"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 82">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="82"/>
+			<Prp name="date" type="D" value="43700.5091721991"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Verification:"/>
+			<Prp name="owner id" type="I" value="6"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 39">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnAddValveBeforeAfter&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="39"/>
+			<Prp name="date" type="D" value="43700.508918912"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 60">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="60"/>
+			<Prp name="date" type="D" value="43700.5090621412"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Post-Test Actions"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="date" type="D" value="43700.5083905671"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="561"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="CAT6TS5TC1.RPT file has been successfully added in Store."/>
+			<Prp name="owner id" type="I" value="3"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="14"/>
+			<Prp name="date" type="D" value="43700.508509375"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="288"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Entered 'C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ComponentsTest\Models\ModelB311.dat' in the 'FileName' field"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 72">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="72"/>
+			<Prp name="date" type="D" value="43700.5091009606"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="317"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Checkbox 'Valve' has been checked "/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 52">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="52"/>
+			<Prp name="date" type="D" value="43700.5089977894"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="295"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Selected '150' from the 'PressureRating' dropdown"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 50">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnMainEnd&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 6))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="50"/>
+			<Prp name="date" type="D" value="43700.5089844213"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="297"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The combo box item 'BW' was selected."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 48">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnValveType&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 5))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="48"/>
+			<Prp name="date" type="D" value="43700.5089789699"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 27">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="A click at point (55, 16) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSaveAs.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Save As&quot;, 1).Window(&quot;Button&quot;, &quot;&amp;Save&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="27"/>
+			<Prp name="date" type="D" value="43700.5086328472"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="520"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 26">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="26"/>
+			<Prp name="date" type="D" value="43700.5086317824"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="288"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Entered '%temp%\CAT6TS5TC1.DAT' in the 'eAs' field"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 84">
+			<Prp name="link" type="S" value="&lt;a rel=&quot;child&quot; href=&quot;0&quot;&gt;Details&lt;/a&gt;"/>
+			<Prp name="type" type="I" value="6"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;This test has a log associated with it.&lt;/p&gt;&lt;p style=&quot;margin-top: 12px;&quot;&gt;&lt;a href=&quot;logchild://{77C62AD5-F18C-4472-9E09-08CFD6484FED}&quot;&gt;View this child log&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="id" type="I" value="84"/>
+			<Prp name="date" type="D" value="43700.5092901273"/>
+			<Prp name="unit id" type="I" value="9"/>
+			<Prp name="line no" type="I" value="1799"/>
+			<Prp name="child index" type="I" value="0"/>
+			<Prp name="message" type="S" value="File Comparison Result [CAT6TS5TC1.RPT]"/>
+			<Prp name="owner id" type="I" value="83"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 40">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="40"/>
+			<Prp name="date" type="D" value="43700.5089198264"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="295"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Selected 'ANSI/ASME' from the 'Standard' dropdown"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 69">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="69"/>
+			<Prp name="date" type="D" value="43700.5090974884"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="319"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Checkbox 'SelectUnselectAllReports' has been unchecked "/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="child data">
+			<Prp name="child 0" type="S" value="{77C62AD5-F18C-4472-9E09-08CFD6484FED}"/>
+		</Node>
+		<Node name="message 64">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="64"/>
+			<Prp name="date" type="D" value="43700.5090933218"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Test Case:3,SelectUnselectAllReports,Valve"/>
+			<Prp name="owner id" type="I" value="62"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 22">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="22"/>
+			<Prp name="date" type="D" value="43700.5086171528"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Pre-Test Actions"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 3">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="date" type="D" value="43700.5083885417"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Benchmark Files added to Store"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="date" type="D" value="43700.5084005556"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="InsertValve_ASME&gt;Gate&amp;BallValve_AllFields"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 75">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="75"/>
+			<Prp name="date" type="D" value="43700.5091317708"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Post-Test Actions"/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 18">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="18"/>
+			<Prp name="date" type="D" value="43700.5085679282"/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="98"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="No post-test action performed"/>
+			<Prp name="owner id" type="I" value="17"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="date" type="D" value="43700.5083925463"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="561"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="CAT6TS9TC1.RPT file has been successfully added in Store."/>
+			<Prp name="owner id" type="I" value="3"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 76">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="76"/>
+			<Prp name="date" type="D" value="43700.5091318056"/>
+			<Prp name="unit id" type="I" value="6"/>
+			<Prp name="line no" type="I" value="126"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="No post-test action performed"/>
+			<Prp name="owner id" type="I" value="75"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'FOD' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (Undefined)&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="date" type="D" value="43700.5084266551"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="8"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 51">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnMainEnd&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 6))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="51"/>
+			<Prp name="date" type="D" value="43700.5089968866"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 47">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnValveType&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 5))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="47"/>
+			<Prp name="date" type="D" value="43700.5089670833"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="297"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The combo box item 'Gate Valves' was selected."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 28">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="28"/>
+			<Prp name="date" type="D" value="43700.5086356481"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="523"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="dlgSaveAs Closed with OK"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 49">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="49"/>
+			<Prp name="date" type="D" value="43700.5089798727"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="295"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Selected 'BW' from the 'MainEnd' dropdown"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 30">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgConfirmSaveAs.CtrlNotifySink.CtrlNotifySink.btnYes&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Confirm Save As&quot;, 1).UIAObject(&quot;Confirm_Save_As&quot;).Window(&quot;CtrlNotifySink&quot;, &quot;&quot;, 7).Window(&quot;Button&quot;, &quot;&amp;Yes&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="30"/>
+			<Prp name="date" type="D" value="43700.5087347454"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="662"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The button was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="29"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="item 1">
+			<Prp name="line no" type="I" value="265"/>
+			<Prp name="stacktext" type="S" value="VerifyResult"/>
+			<Prp name="unit id" type="I" value="1"/>
+		</Node>
+		<Node name="message 46">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="46"/>
+			<Prp name="date" type="D" value="43700.508962581"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="295"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Selected 'Gate Valves' from the 'ValveType' dropdown"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 24">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'%temp%\CAT6TS5TC1.DAT' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSaveAs.DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Save As&quot;, 1).Window(&quot;DUIViewWndClassName&quot;, &quot;&quot;, 1).UIAObject(&quot;Explorer_Pane&quot;).Window(&quot;FloatNotifySink&quot;, &quot;&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1).Window(&quot;Edit&quot;, &quot;&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="24"/>
+			<Prp name="date" type="D" value="43700.5086293171"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="286"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 65">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="65"/>
+			<Prp name="date" type="D" value="43700.5090933681"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Pre-Test Actions"/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 85">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="stack beginning" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;a href=&quot;projectnode://{1D9E090B-5091-46F1-89C0-145300EB6D46}&quot;&gt; Click here to show or modify data of the checkpoint &quot;CAT6TS5TC1.RPT&quot;. &lt;/a&gt;&lt;br&gt;&lt;br&gt;The files &quot;CAT6TS5TC1.RPT&quot; and &quot;C:\Users\TAYYAB~1.MEH\AppData\Local\Temp\cat6ts5tc1.rpt&quot; are not equal. 266 bytes are different.&lt;br&gt;&lt;br&gt;&lt;p&gt;&lt;a href=&quot;logchild://{77C62AD5-F18C-4472-9E09-08CFD6484FED}&quot;&gt;Show comparison results.&lt;/a&gt;&lt;/p&gt;The difference between the files is 4 %.&lt;br&gt;The difference between the compared files is significant. It is not recommended to increase the value of the Allowed Difference parameter as in this case, the different files will be considered as the same. &lt;a href=&quot;aqa-help://3061&quot;&gt;See help for more information.&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href=&quot;checkpointupdate://1|{0606873D-1781-4B99-BDCE-942B429A6D53}|{A40F98A2-2B4D-4558-94A4-FB5E232211DF}|CAT6TS5TC1.RPT|CheckpointData\checkpoint_8_23_2019.bin|&quot;&gt;Update the &quot;CAT6TS5TC1.RPT&quot; checkpoint data.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="id" type="I" value="85"/>
+			<Prp name="date" type="D" value="43700.5092935764"/>
+			<Prp name="unit id" type="I" value="9"/>
+			<Prp name="line no" type="I" value="1799"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack end" type="I" value="5"/>
+			<Prp name="message" type="S" value="The file checkpoint &quot;CAT6TS5TC1.RPT&quot; failed. See Additional Information for details."/>
+			<Prp name="owner id" type="I" value="83"/>
+			<Prp name="pictype" type="I" value="2"/>
+		</Node>
+		<Node name="message 23">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="23"/>
+			<Prp name="date" type="D" value="43700.5086171759"/>
+			<Prp name="unit id" type="I" value="4"/>
+			<Prp name="line no" type="I" value="65"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="No pre-test actions performed"/>
+			<Prp name="owner id" type="I" value="22"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="date" type="D" value="43700.5083884722"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="581"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="All Files removed"/>
+			<Prp name="owner id" type="I" value="1"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 38">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnAddValveBeforeAfter&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="38"/>
+			<Prp name="date" type="D" value="43700.5089011111"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="297"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The combo box item 'After' was selected."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 7">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="date" type="D" value="43700.5084005903"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Actions:"/>
+			<Prp name="owner id" type="I" value="6"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 17">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="17"/>
+			<Prp name="date" type="D" value="43700.5085679051"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Post-Test Actions"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 56">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnJointEndType&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 8))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="56"/>
+			<Prp name="date" type="D" value="43700.5090211574"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="297"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The combo box item 'Butt Weld' was selected."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 68">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Model Input List Report&quot;, 1).Window(&quot;APBUTTON&quot;, &quot; Select/Unselect all reports :        &quot;, 5))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="68"/>
+			<Prp name="date" type="D" value="43700.5090966435"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="314"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 5" type="S" value="{F895A7BA-3B08-4240-8457-954BE3FF6E51}"/>
+			<Prp name="unit 2" type="S" value="{0815D52E-3D7F-47DB-B298-BCD46ECA9E92}"/>
+			<Prp name="unit 9" type="S" value="{C5144B0F-FEA2-4547-AA69-978139DB4787}"/>
+			<Prp name="unit 7" type="S" value="{C57BCA48-5432-4625-ABF3-7483B4F9E415}"/>
+			<Prp name="unit 0" type="S" value="{EA02F85F-C8F3-4FEA-B901-E5BDCE85BA6C}"/>
+			<Prp name="unit 6" type="S" value="{4D7A2EBE-EF7C-4314-93C7-40C4094C120B}"/>
+			<Prp name="unit 8" type="S" value="{2F0CC17A-CB99-4318-A9FF-9668D8FA8D5C}"/>
+			<Prp name="unit 3" type="S" value="{02574557-9F7D-4802-B069-D5B5627AAA2C}"/>
+			<Prp name="unit 1" type="S" value="{D385C7A4-7574-4A86-B9FB-7E6124A25B1B}"/>
+			<Prp name="unit 10" type="S" value="{C113E472-093F-4E07-A0BA-4EFF8BC02D9E}"/>
+			<Prp name="unit 4" type="S" value="{87D08DC6-943F-4433-96B4-4BA57B5E137E}"/>
+		</Node>
+		<Node name="message 42">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnStandard&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 3))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="42"/>
+			<Prp name="date" type="D" value="43700.5089395602"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 62">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="62"/>
+			<Prp name="date" type="D" value="43700.5090622454"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Generate model's 'Input Listing Report'"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 36">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="36"/>
+			<Prp name="date" type="D" value="43700.5088948843"/>
+			<Prp name="unit id" type="I" value="5"/>
+			<Prp name="line no" type="I" value="703"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="No pre-test action performed"/>
+			<Prp name="owner id" type="I" value="35"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 53">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnPressureRating&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 7))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="53"/>
+			<Prp name="date" type="D" value="43700.5090023958"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="297"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The combo box item '150' was selected."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 74">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="74"/>
+			<Prp name="date" type="D" value="43700.5091033102"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="523"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="dlgInputListReport Closed with OK"/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 67">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="A click at point (123, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Model Input List Report&quot;, 1).Window(&quot;APBUTTON&quot;, &quot; Select/Unselect all reports :        &quot;, 5))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="67"/>
+			<Prp name="date" type="D" value="43700.5090951852"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="313"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="item 0">
+			<Prp name="line no" type="I" value="1799"/>
+			<Prp name="stacktext" type="S" value="CheckText"/>
+			<Prp name="unit id" type="I" value="9"/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="message 13">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpen.cbxFileName.cmbFileName.fldFileName&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Open&quot;, 1).Window(&quot;ComboBoxEx32&quot;, &quot;&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1).Window(&quot;Edit&quot;, &quot;&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="13"/>
+			<Prp name="date" type="D" value="43700.5085085185"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="287"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="date" type="D" value="43700.5083883796"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Files removed from the Store"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 66">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="66"/>
+			<Prp name="date" type="D" value="43700.5090933912"/>
+			<Prp name="unit id" type="I" value="6"/>
+			<Prp name="line no" type="I" value="114"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="No pre-test action performed"/>
+			<Prp name="owner id" type="I" value="65"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 35">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="35"/>
+			<Prp name="date" type="D" value="43700.5088948611"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Pre-Test Actions"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 77">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="77"/>
+			<Prp name="date" type="D" value="43700.5091554167"/>
+			<Prp name="unit id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="70"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Input Listing Report Closed"/>
+			<Prp name="owner id" type="I" value="62"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="11"/>
+			<Prp name="date" type="D" value="43700.5084422106"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Pre-Test Actions"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="A click at point (55, 16) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpen.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Open&quot;, 1).Window(&quot;Button&quot;, &quot;&amp;Open&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="15"/>
+			<Prp name="date" type="D" value="43700.5085106018"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="520"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="item 4">
+			<Prp name="line no" type="I" value="67"/>
+			<Prp name="stacktext" type="S" value="DTPMain"/>
+			<Prp name="unit id" type="I" value="0"/>
+		</Node>
+		<Node name="message 25">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSaveAs.DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Save As&quot;, 1).Window(&quot;DUIViewWndClassName&quot;, &quot;&quot;, 1).UIAObject(&quot;Explorer_Pane&quot;).Window(&quot;FloatNotifySink&quot;, &quot;&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1).Window(&quot;Edit&quot;, &quot;&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="25"/>
+			<Prp name="date" type="D" value="43700.5086308333"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="287"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="2"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="500"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="date" type="D" value="43700.5083809259"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="7"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="There is (are) 1 running instance(s) of &quot;C:\Program Files (x86)\Bentley\AutoPIPE CONNECT v12\autopipe.exe&quot;. New instances will not be launched."/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 8">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="8"/>
+			<Prp name="date" type="D" value="43700.5084007176"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Open Model"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 80">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="A click at point (50, 16) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgConfirm.btnNo&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Confirm&quot;, 1).Window(&quot;Button&quot;, &quot;&amp;No&quot;, 2))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="80"/>
+			<Prp name="date" type="D" value="43700.5091711574"/>
+			<Prp name="unit id" type="I" value="8"/>
+			<Prp name="line no" type="I" value="165"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="78"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 55">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="55"/>
+			<Prp name="date" type="D" value="43700.5090150231"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="295"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Selected 'Butt Weld' from the 'JointEndType' dropdown"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 57">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnJointEndType&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 8))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="57"/>
+			<Prp name="date" type="D" value="43700.509034537"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 34">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="34"/>
+			<Prp name="date" type="D" value="43700.5088948264"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Test Case:1,AddValveBeforeAfter,Standard,SubCategory,ValveType,MainEnd,PressureRating,JointEndType,Avg,Max,ifyRowNum"/>
+			<Prp name="owner id" type="I" value="32"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 32">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="32"/>
+			<Prp name="date" type="D" value="43700.5088432292"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Insert Valve in the model"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 71">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgInputListReport.chkboxValve&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Model Input List Report&quot;, 1).Window(&quot;APBUTTON&quot;, &quot; Valve .....................&quot;, 17))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="71"/>
+			<Prp name="date" type="D" value="43700.5091001042"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="314"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="64"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 12">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ComponentsTest\Models\ModelB311.dat' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpen.cbxFileName.cmbFileName.fldFileName&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Open&quot;, 1).Window(&quot;ComboBoxEx32&quot;, &quot;&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1).Window(&quot;Edit&quot;, &quot;&quot;, 1))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="12"/>
+			<Prp name="date" type="D" value="43700.5085069907"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="286"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 45">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnSubCategory&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 4))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="45"/>
+			<Prp name="date" type="D" value="43700.5089616435"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 43">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="43"/>
+			<Prp name="date" type="D" value="43700.5089404861"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="295"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Selected 'Gate Valves' from the 'SubCategory' dropdown"/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 81">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="81"/>
+			<Prp name="date" type="D" value="43700.5091721181"/>
+			<Prp name="unit id" type="I" value="8"/>
+			<Prp name="line no" type="I" value="166"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Model 'Closed' without Saving "/>
+			<Prp name="owner id" type="I" value="78"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 54">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnPressureRating&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 7))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="54"/>
+			<Prp name="date" type="D" value="43700.5090139931"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="item 3">
+			<Prp name="line no" type="I" value="125"/>
+			<Prp name="stacktext" type="S" value="TestCaseExecution"/>
+			<Prp name="unit id" type="I" value="0"/>
+		</Node>
+		<Node name="message 44">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgValve.drpdwnSubCategory&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Valve&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 4))"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="44"/>
+			<Prp name="date" type="D" value="43700.5089464236"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="297"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The combo box item 'Gate Valves' was selected."/>
+			<Prp name="owner id" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 88">
+			<Prp name="date" type="D" value="43700.5093030671"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="message" type="S" value="DTP Execution Summary"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="id" type="I" value="88"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 87">
+			<Prp name="date" type="D" value="43700.5093029745"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="message" type="S" value="All Files removed"/>
+			<Prp name="line no" type="I" value="581"/>
+			<Prp name="id" type="I" value="87"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="86"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 86">
+			<Prp name="date" type="D" value="43700.5092995949"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="message" type="S" value="Files removed from the Store"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="id" type="I" value="86"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 90">
+			<Prp name="date" type="D" value="43700.5093031713"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="message" type="S" value="Test cases execution time in minutes: 1.317122"/>
+			<Prp name="line no" type="I" value="80"/>
+			<Prp name="id" type="I" value="90"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="88"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 89">
+			<Prp name="date" type="D" value="43700.509303125"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="message" type="S" value="Test cases executed in this DTP: 4"/>
+			<Prp name="line no" type="I" value="79"/>
+			<Prp name="id" type="I" value="89"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="88"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Prp name="status" type="I" value="2"/>
+	</Node>
+</Nodes>

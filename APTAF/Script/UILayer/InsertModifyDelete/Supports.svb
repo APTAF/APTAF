@@ -1,0 +1,317 @@
+﻿'USEUNIT tabInsert
+'USEUNIT tabModify
+'USEUNIT Main
+'USEUNIT UIEngine
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Supports                          ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Anchor" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:    Anchor table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+
+Function Anchor( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Anchor = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Anchor = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set Anchor = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set Anchor = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Support" dialog  
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostAction  
+'           objData       : Support table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   Bilal Tahir
+' Date:     2/2019
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function Support( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Support = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Support = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set Support = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set Support = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+
+Function Support1( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+  Dim strSupportType
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Support = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Support = arrSkipList
+      End Select
+
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+
+        strSupportType = objData.Item("drpSupportType")
+      If strSupportType = "Constant" Then
+            objVerifySchema.Add "intColdLoad", "intLoadVariation"
+            objVerifySchema.Add "intNoOfHangers", "intColdLoad"
+            Set Support = objVerifySchema
+       ElseIf strSupportType = "V-stop" Then
+            objVerifySchema.Add "intGapBelow", "intLoadVariation"
+            objVerifySchema.Add "intGapAbove", "intColdLoad"
+            objVerifySchema.Add "intFrictionCoefficient", "intSize"
+            Set Support = objVerifySchema
+       ElseIf strSupportType = "Incline" Then
+            objVerifySchema.Add "intSpringRate", "intLoadVariation"
+            objVerifySchema.Add "intGapBackward", "intColdLoad"
+            objVerifySchema.Add "intGapForward", "intSize"
+           objVerifySchema.Add "intFrictionCoefficient", "intSpringRate"
+           objVerifySchema.Add "intX", "intFigure"
+           objVerifySchema.Add "intY", "intNoOfHangers"
+            Set Support = objVerifySchema
+       ElseIf strSupportType = "Line stop" Then
+            objVerifySchema.Add "strStiffness", "intLoadVariation"
+            objVerifySchema.Add "intGapBackward", "intColdLoad"
+            objVerifySchema.Add "intGapForward", "intSize"
+            Set Support = objVerifySchema
+       ElseIf strSupportType = "Guide" Then
+            objVerifySchema.Add "strStiffness", "intLoadVariation"
+            objVerifySchema.Add "intGapDown", "intColdLoad"
+            objVerifySchema.Add "intGapUp", "intSize"
+            objVerifySchema.Add "intGapLeft", "intSpringRate"
+            objVerifySchema.Add "intGapRight", "intFigure"
+            objVerifySchema.Add "intFrictionCoefficient", "intNoOfHangers"
+            Set Support = objVerifySchema
+       ElseIf strSupportType = "Rotation" Then
+            objVerifySchema.Add "strStiffness", "intLoadVariation"
+            objVerifySchema.Add "drpDirection", "drpGapsSetting"
+           objVerifySchema.Add "intX", "intColdLoad"
+           objVerifySchema.Add "intY", "intSize"
+           objVerifySchema.Add "intZ", "intSpringRate"
+            Set Support = objVerifySchema
+       ElseIf strSupportType = "Damper" Then
+            objVerifySchema.Add "strStiffness", "intLoadVariation"
+            objVerifySchema.Add "drpDirection", "drpGapsSetting"
+           objVerifySchema.Add "intX", "intColdLoad"
+           objVerifySchema.Add "intY", "intSize"
+           objVerifySchema.Add "intZ", "intSpringRate"
+            Set Support = objVerifySchema
+       ElseIf strSupportType = "Tie/link" Then
+            objVerifySchema.Add "intSpringRate", "intLoadVariation"
+            objVerifySchema.Add "intGapBackward", "intColdLoad"
+            objVerifySchema.Add "intGapForward", "intSize"
+           objVerifySchema.Add "intFrictionCoefficient", "intSpringRate"
+            Set Support = objVerifySchema
+      Else 
+      Set Support = objVerifySchema 
+      End If  
+
+    Case "PreTestModifyFields"
+      Dim objActionSchema
+      Set objActionSchema = CreateObject("Scripting.Dictionary")
+      strSupportType = objData.Item("drpSupportType")
+      If strSupportType = "Constant" Then
+            objActionSchema.Add "intColdLoad", "intLoadVariation"
+            objActionSchema.Add "intNoOfHangers", "intColdLoad"
+            Set Support = objActionSchema
+       ElseIf strSupportType = "V-stop" Then
+            objActionSchema.Add "intGapBelow", "intLoadVariation"
+            objActionSchema.Add "intGapAbove", "intColdLoad"
+            objActionSchema.Add "intFrictionCoefficient", "intSize"
+            Set Support = objActionSchema
+       ElseIf strSupportType = "Incline" Then
+            objActionSchema.Add "intSpringRate", "intLoadVariation"
+            objActionSchema.Add "intGapBackward", "intColdLoad"
+            objActionSchema.Add "intGapForward", "intSize"
+           objActionSchema.Add "intFrictionCoefficient", "intSpringRate"
+           objActionSchema.Add "intX", "intFigure"
+           objActionSchema.Add "intY", "intNoOfHangers"
+            Set Support = objActionSchema
+       ElseIf strSupportType = "Line stop" Then
+            objActionSchema.Add "strStiffness", "intLoadVariation"
+            objActionSchema.Add "intGapBackward", "intColdLoad"
+            objActionSchema.Add "intGapForward", "intSize"
+            Set Support = objActionSchema
+       ElseIf strSupportType = "Guide" Then
+            objActionSchema.Add "strStiffness", "intLoadVariation"
+            objActionSchema.Add "intGapDown", "intColdLoad"
+            objActionSchema.Add "intGapUp", "intSize"
+            objActionSchema.Add "intGapLeft", "intSpringRate"
+            objActionSchema.Add "intGapRight", "intFigure"
+            objActionSchema.Add "intFrictionCoefficient", "intNoOfHangers"
+            Set Support = objActionSchema
+       ElseIf strSupportType = "Rotation" Then
+            objActionSchema.Add "strStiffness", "intLoadVariation"
+            objActionSchema.Add "drpDirection", "drpGapsSetting"
+           objActionSchema.Add "intX", "intColdLoad"
+           objActionSchema.Add "intY", "intSize"
+           objActionSchema.Add "intZ", "intSpringRate"
+            Set Support = objActionSchema
+       ElseIf strSupportType = "Damper" Then
+            objActionSchema.Add "strStiffness", "intLoadVariation"
+            objActionSchema.Add "drpDirection", "drpGapsSetting"
+           objActionSchema.Add "intX", "intColdLoad"
+           objActionSchema.Add "intY", "intSize"
+           objActionSchema.Add "intZ", "intSpringRate"
+            Set Support = objActionSchema
+       ElseIf strSupportType = "Tie/link" Then
+            objActionSchema.Add "intSpringRate", "intLoadVariation"
+            objActionSchema.Add "intGapBackward", "intColdLoad"
+            objActionSchema.Add "intGapForward", "intSize"
+           objActionSchema.Add "intFrictionCoefficient", "intSpringRate"
+            Set Support = objActionSchema
+      Else 
+      Set Support = objActionSchema 
+      End If  
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "SupporSamMsrsSupportGroup" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:    SupporSamMsrsSupportGroup table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Sub SamMsrsSupportGroup(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+Set dlgSamMsrsSupportGroup = objNameMapping.dlgSamMsrsSupportGroup
+
+Dim drpSAMCaseNum : drpSAMCaseNum = objRow.Item("drpSAMCaseNum")
+Dim intSupportGroupNum : intSupportGroupNum = objRow.Item("intSupportGroupNum")
+
+ 'SAM Case Num drop down options'
+    If(drpSAMCaseNum <> "NA") Then
+      'Select the option provide in "SAM Case Num:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgSamMsrsSupportGroup", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgSamMsrsSupportGroup.drpdwnSAMCaseNum.Click()
+        objNameMapping.lstItems.ClickItem(drpSAMCaseNum)
+        Log.Message("Selected " & drpSAMCaseNum & "in the 'SAM Case Num:' drop down")
+      End If
+   End If  
+
+ 'Support Group Num field 
+    If(intSupportGroupNum <> "NA") Then
+    'Write to "Support Group Num" field
+      if(objNameMapping.WaitAliasChild("dlgSamMsrsSupportGroup", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgSamMsrsSupportGroup.fldSupportGroupNum.Keys(intSupportGroupNum)
+        Log.Message("Entered " & intSupportGroupNum & " in the 'Support Group Num ' field")
+      End If
+    End If 
+
+ Call dlgSupporSamMsrsSupportGroupt.btnOK.Click()   
+    
+End Sub

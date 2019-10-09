@@ -1,0 +1,39 @@
+﻿'USEUNIT Main
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Model Options                     ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: General Model options dialog.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Run("All")
+'              0              -  Press OK button with default values                                        E-g Run("0") or Run(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Run("5") Or Run(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Run("1-5")    
+' Author:   Bilal.Tahir
+' Date:     12/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub GeneralOptions(TestData)
+Dim strHotKey
+'Add to Log
+	    AppendLogFolder("Model's General Option dialog")
+'Set Varaibles
+      Dim strTableName  : strTableName  = "tblGeneralOptions"'DB mapped Table Name 
+      If(Aliases.autopipe.dlgGeneralOptions.Exists) Then'Check if the dialog General Option already open                       
+        strHotKey     = ""'Dialog Shortcut Key     
+      Else
+        strHotKey     = "TG"'Dialog Shortcut Key                     
+      End If
+      Dim strUIMethod   : strUIMethod   = "ModelOptions.GeneralOptions"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap = "dlgGeneralOptions"            'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"  
+      'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+      'Log
+      Log.PopLogFolder  
+
+End Sub

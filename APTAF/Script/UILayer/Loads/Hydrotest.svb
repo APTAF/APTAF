@@ -1,0 +1,150 @@
+﻿'USEUNIT tabLoads
+'USEUNIT DatabaseFunctions
+'USEUNIT Main
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Hydrotest" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Hydrotest table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Hydrotest (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgHydrotestLoadProperties = objNameMapping.dlgHydrotestLoadProperties
+
+Dim intSpecificGravity            : intSpecificGravity            = objRow.Item("intSpecificGravity")
+Dim cmbTestPressureCase           : cmbTestPressureCase           = objRow.Item("cmbTestPressureCase")
+Dim intTPFactor                   : intTPFactor                   = objRow.Item("intTPFactor")
+Dim cmbTestTempCase               : cmbTestTempCase               = objRow.Item("cmbTestTempCase")
+Dim intFactorTemp                 : intFactorTemp                 = objRow.Item("intFactorTemp")
+Dim cmbCutShortCase               : cmbCutShortCase               = objRow.Item("cmbCutShortCase")
+Dim chkIncludeInsulationCladding  : chkIncludeInsulationCladding  = objRow.Item("chkIncludeInsulationCladding")
+Dim cmbDesignCase                 : cmbDesignCase                 = objRow.Item("cmbDesignCase")
+Dim chkProvideWarning             : chkProvideWarning             = objRow.Item("chkProvideWarning")
+
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(200)
+    
+'''' intSpecificGravity
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intSpecificGravity <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgHydrotestLoadProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgHydrotestLoadProperties.fldSpecificGravity.Keys(intSpecificGravity)
+          dlgHydrotestLoadProperties.fldSpecificGravity.Keys("[Tab]")
+         Log.Message("Entered " & intSpecificGravity & " in the intSpecificGravity field")
+    End If
+  End If
+'End If  
+
+'''' cmbTestPressureCase 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbTestPressureCase <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgHydrotestLoadProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgHydrotestLoadProperties.cmbboxTestPressureCase.keys(cmbTestPressureCase)
+          Log.Message("Entered " & cmbTestPressureCase & " in the cmbTestPressureCase field")
+      End If       
+  End If
+End If
+
+''''intTPFactor
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intTPFactor <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgHydrotestLoadProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgHydrotestLoadProperties.fldTPFactor.Keys(intTPFactor)
+          dlgHydrotestLoadProperties.fldTPFactor.Keys("[Tab]")
+         Log.Message("Entered " & intTPFactor & " in the intTPFactor field")
+    End If
+  End If
+'End If  
+
+''' cmbTestTempCase
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbTestTempCase <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgHydrotestLoadProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgHydrotestLoadProperties.cmbboxTestTempCase.keys(cmbTestTempCase)
+          Log.Message("Entered " & cmbTestTempCase & " in the cmbTestTempCase field")
+      End If       
+  End If
+'End If
+
+'''' intFactorTemp
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intFactorTemp <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgHydrotestLoadProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgHydrotestLoadProperties.fldFactorTemp.Keys(intFactorTemp)
+          dlgHydrotestLoadProperties.fldFactorTemp.Keys("[Tab]")
+         Log.Message("Entered " & intFactorTemp & " in the intFactorTemp field")
+    End If
+  End If
+'End If  
+
+''' cmbCutShortCase
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbCutShortCase <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgHydrotestLoadProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgHydrotestLoadProperties.cmbboxCutShortCase.keys(cmbCutShortCase)
+          Log.Message("Entered " & cmbCutShortCase & " in the cmbCutShortCase field")
+      End If       
+  End If
+'End If
+
+'''' chkIncludeInsulationCladding 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkIncludeInsulationCladding <>  "NA") Then
+ state = dlgHydrotestLoadProperties.chkboxIncludeInsulationCladding.wState 
+    If( CInt(chkIncludeInsulationCladding) <> CInt(state) )then
+    dlgHydrotestLoadProperties.chkboxIncludeInsulationCladding.Click()
+    Log.Message("Entered " & chkIncludeInsulationCladding & " in the chkIncludeInsulationCladding field")
+    End If
+  End If
+'End If
+
+''' cmbDesignCase
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbDesignCase <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgHydrotestLoadProperties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgHydrotestLoadProperties.cmbboxDesignCase.keys(cmbDesignCase)
+          Log.Message("Entered " & cmbDesignCase & " in the cmbDesignCase field")
+      End If       
+  End If
+'End If
+
+''' chkProvideWarning 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkProvideWarning <>  "NA") Then
+ state = dlgHydrotestLoadProperties.chkboxProvideWarning.wState 
+    If( CInt(chkProvideWarning) <> CInt(state) )then
+    dlgHydrotestLoadProperties.chkboxProvideWarning.Click()
+    Log.Message("Entered " & chkProvideWarning & " in the chkProvideWarning field")
+    End If
+  End If
+'End If
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+dlgHydrotestLoadProperties.btnOK.Click()
+End If
+
+
+End Sub

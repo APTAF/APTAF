@@ -1,0 +1,240 @@
+﻿'USEUNIT tabInsert
+'USEUNIT tabModify
+'USEUNIT Main
+'USEUNIT UIEngine
+''''''''''''''''''''''''' TEMPLATE '''''''''''''''''''''''''''''''''''''''''
+'Case "dlgZZZ"
+'      Call ZZZ(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+'      
+'Function ZZZ(strDlgNameMap,objData, strVerificationType, objNameMapping, strHotKey)
+'  AppendLogFolder("Post-Test Actions")
+'    Select Case strVerificationType   
+'     Case "dialogvalidation"    
+'         Log.Message("No Post-Test Validation action performed")
+'     Case else
+'         Log.Message("No Post-Test action performed")   
+'     End Select
+'     PopLogFolder
+' End Function
+''''''''''''''''''''''''' PipingComponents '''''''''''''''''''''''''''''''''''''''''
+Function Main(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  Select Case strDlgNameMap
+    Case "dlgSaveAs"
+      Call SaveAs(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+    Case "dlgBend"
+      Call Bend(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+    Case "dlgFlange"
+      Call Flange(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   Case "dlgGrossDiscontinuity"
+      Call GrossDiscontinuity(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+    Case "dlgValve"
+      Call Valve(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+
+
+    Case "dlgOpen"
+      Call Open(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   Case "dlgImport"
+      Call Import(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   Case "dlgReducer"
+      Call Reducer(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   Case Else
+     AppendLogFolder("Post-Test Actions")
+     Select Case strVerificationType         
+      'CASE VALIDATION 
+       Case "dialogvalidation"
+        Log.Message("No Post-Test Validation action performed")
+      'CASE  ACTION
+       Case Else 
+        Log.Message("No Post-Test action performed")
+     End Select 
+   PopLogFolder   
+  End Select 
+End Function
+''''''''''''''''''''''''' SaveAs '''''''''''''''''''''''''''''''''''''''''
+Function SaveAs(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Post-Test Actions")
+    Select Case strVerificationType   
+     Case "dialogvalidation"    
+     Case else
+     End Select
+     PopLogFolder
+ End Function
+''''''''''''''''''''''''' PipingComponents '''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''' Bend''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+Function Bend(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Post-Test Actions")
+    'intentionally written here as it was required as the post-action of validation
+    Select Case strVerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"     
+        Dim intRunOffsetsDX : intRunOffsetsDX = objData.Item("RunOffsetDX")
+        Dim intRunOffsetsDY : intRunOffsetsDY = objData.Item("RunOffsetDY")
+        Dim intRunOffsetsDZ : intRunOffsetsDZ = objData.Item("RunOffsetDZ")
+
+        ' '''''''''''''''''''' Run Dialog '''''''''''''''''''''''''''''''''''''''
+        'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+        'Select Case strOpenDialog
+         Set dlgRun = objNameMapping.dlgRun
+         strHotKey = "IR"
+         objNameMapping.wndAutoPIPE.Keys(strHotKey)
+         'field Run offsetDX
+          If(intRunOffsetsDX <> "NA") Then
+            If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                  dlgRun.fldOffsetDX.Keys(intRunOffsetsDX)
+                  Log.Message("Entered '" & intRunOffsetsDX & "' in the 'Run offsets DX' field of Run")
+            End If     
+          End If
+    
+          'field Run offsetDY
+          If(intRunOffsetsDY <> "NA") Then
+             'Write to "Name Of Point" field
+               If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                     dlgRun.fldOffsetDY.Keys(intRunOffsetsDY)
+                    Log.Message("Entered '" & intRunOffsetsDY & "' in the 'Run offsets DY' field of Run")
+                End If     
+          End If
+          'field Run offsetDZ
+          If(intRunOffsetsDZ <> "NA") Then
+            'Write to "Name Of Point" field
+             If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                   dlgRun.fldOffsetDZ.Keys(intRunOffsetsDZ)
+                Log.Message("Entered '" & intRunOffsetsDZ & "' in the 'Run offsets DZ' field of Run")
+             End If     
+          End If
+       Call dlgRun.btnOK.Click() 
+     'CASE  ACTION
+     Case Else 
+        Log.Message("No Post-Test Action performed")
+   End Select 
+  PopLogFolder
+End Function
+
+''''''''''''''''''''''''' Flange''''''''''''''''''''''''''''''''''''''
+Function Flange(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Post-Test Actions")
+    Select Case strVerificationType         
+     Case "dialogvalidation"
+        Set dlgRun = objNameMapping.dlgRun
+                  strHotKey = "IR"
+                  objNameMapping.wndAutoPIPE.Keys(strHotKey)
+                      If(objNameMapping.WaitAliasChild("dlgRun", 6000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.btnOk.Click()
+                      Log.Message("Inserted Run with default values")
+                      Else
+                   objNameMapping.wndAutoPIPE.Keys(strHotKey)
+                      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+                      If(objNameMapping.WaitAliasChild("dlgRun", 6000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.btnOk.Click()
+                      Log.Message("Inserted Run with default values")
+                    End If
+                  End If 
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+      End Select
+   PopLogFolder
+End Function
+''''''''''''''''''''''''' Valve '''''''''''''''''''''''''''''''''''''''''
+Function Valve(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Post-Test Actions")
+  Select Case strHotKey
+   Case "IV"
+    Select Case strVerificationType         
+     Case "dialogvalidation"
+         Log.Message("No Post-Test Validation action performed")
+     'CASE  ACTION
+       Case Else 
+       Log.Message("No Post-Test  action performed")
+      End Select
+    Case "MV","DV"
+      Select Case strVerificationType   
+         Case "dialogvalidation" 
+           objNameMapping.wndAutoPIPE.Keys("[Right]")
+     'CASE  ACTION
+       Case Else 
+        objNameMapping.wndAutoPIPE.Keys("[Right]")
+      End Select
+   End Select
+   PopLogFolder
+End Function
+
+
+
+''''''''''''''''''''''''' Supports '''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''' XtraData '''''''''''''''''''''''''''''''''''''''''
+   
+    Function GrossDiscontinuity(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   AppendLogFolder("Post-Test Actions")
+   Select Case strHotKey
+   Case "I04"
+    Select Case strVerificationType         
+     Case "dialogvalidation"
+     Log.Message("No Post-Test Validation action performed")
+'     'CASE  ACTION
+     Case Else 
+        Log.Message("No post-test action performed")
+    End Select
+    Case "M04"
+    Select Case strVerificationType         
+     Case "dialogvalidation"
+           Set dlgRun = objNameMapping.dlgRun
+                  strHotKey = "IR"
+                  objNameMapping.wndAutoPIPE.Keys(strHotKey)
+                      If(objNameMapping.WaitAliasChild("dlgRun", 6000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.btnOk.Click()
+                      Log.Message("Inserted Run with default values")
+                  End If             
+      'CASE  ACTION
+     Case Else 
+        Log.Message("No post-test action performed")
+    End Select
+   PopLogFolder
+   End Select
+End Function            
+''''''''''''''''''''''''' Export '''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''' Import '''''''''''''''''''''''''''''''''''''''''
+Function Import(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   AppendLogFolder("Post-Test Actions")
+    Select Case strVerificationType         
+     Case "dialogvalidation"
+       'CASE  ACTION
+     Case Else 
+     
+
+   
+    End Select
+   PopLogFolder
+End Function
+''''''''''''''''''''''''' Open '''''''''''''''''''''''''''''''''''''''''
+Function Open(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Post-Test Actions")
+ Select Case strVerificationType
+     Case "dialogvalidation"     
+       Log.Message("No Post-Test Validation action performed")    
+     Case else
+     Log.Message("No Post-Test Action performed")   
+   End select
+   PopLogFolder
+End Function
+
+''''''''''''''''''''''''' Reducer'''''''''''''''''''''''''''''''''''''''''
+Function Reducer(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Post-Test Actions")
+ Select Case strVerificationType
+     Case "dialogvalidation"     
+       Log.Message("No Post-test Validation action performed")    
+     Case else   
+        If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60).WaitProperty("Exists", true, 10)) Then
+          objNameMapping.dlgOpenPressTemp.SetFocus
+          objNameMapping.dlgOpenPressTemp.btnOK.Click()
+          Log.Message("Operating Pressure&Temperature dialog closed with default values")
+        End If
+        Log.Message("Operating Pressure&Temperature dialog closed with default values")             
+   End select
+   PopLogFolder
+End Function
+
+
+
+

@@ -1,0 +1,350 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT SineQuaNon_Main
+
+
+'Sub Cat1TS1TC1
+'''' Actions Section
+'
+'    'Pre-Condition
+'   Call tabFile.Open("1","Autopipe database")
+'   Call tabFile.SaveAs("1","AutoPIPE Database")
+'    'Test 
+'    tabInsert.Run("1")
+'   
+'    tabAnalysis.AnalyzeAll("0")
+'    tabResult.InputlistReport("0")
+'
+'    'Post-Condition
+'    tabFile.Close("No")  
+'End Sub
+
+Sub Cat1TS1TC1
+   'Pre-Condition
+   Call Configuration
+    'TestedApps.autopipe.Run
+    
+   ' tabFile.dlgNew("1")
+    
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("2","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Run("1")
+     
+   ' Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    
+    Call tabFile.Close("No")  
+    
+    
+End Sub
+Sub Cat1TS1TC2
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("3","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Run("2")
+    Call tabAnalysis.AnalyzeAll("0")
+    'Call tabResult.InputlistReport("0")
+    Aliases.autopipe.wndAutoPIPE.Keys("II")
+    Aliases.autopipe.dlgInputListReport.chkboxSelectUnselectAllReports.DblClick
+    
+    'Post-Condition
+    Call tabFile.Close("No")   
+End Sub
+
+
+Sub Cat1TS1TC3
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("4","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Run("3")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+
+
+Sub Cat1TS1TC4
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("5","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Run("2")
+    Call tabInsert.Run("4")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC5
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("6","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Run("5")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC6
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("7","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Run("6")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS1TC7
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("8","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Run("7-9")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+' ------------------------- BEND ----------------------------
+' DX ----------------
+Sub Cat1TS2TC1
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("2","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("1")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC2
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("3","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("2")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC3
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("4","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("3")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+' Negative Test
+Sub Cat1TS2TC4
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("5","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("4")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+' DY ------------
+Sub Cat1TS2TC5
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("6","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("5")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC6
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("7","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("6")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC7
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("8","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("7")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC8
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("9","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("8")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+'------------- DZ
+Sub Cat1TS2TC9
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("10","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("9")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC10
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("11","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("10")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC11
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("12","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("11")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC12
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("13","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("12")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+' -------- All DX,DY, DZ
+Sub Cat1TS2TC13
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("14","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("13")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC14
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("15","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("14")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC15
+   'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("16","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Bend("15-17")
+    Call tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No") 
+End Sub
+
+
+' -----------------------------------------------------
+
+
+
+
+
+
+' Tee
+Sub Cat1TS3TC1
+  
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test
+    Call Insert.Tee("1")
+    Call Aliases.autopipe.wndAutoPIPE.User.APEDIT.Keys("[Down]")
+    Call Aliases.autopipe.wndAutoPIPE.User.APEDIT.Keys("[Up]")
+    Call Insert.Run("9")
+    Call Insert.Tee("2")
+    Call Aliases.autopipe.wndAutoPIPE.User.APEDIT.Keys("[Down]")
+    Call Aliases.autopipe.wndAutoPIPE.User.APEDIT.Keys("[Up]")
+    Call Insert.Run("10")
+    Call Insert.Tee("3")
+    'Analysis
+    Call tabAnalysis.AnalyzeAll("0")
+    'Result
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No")
+End Sub
+
+' Valve
+Sub Cat1TS5TC1
+  
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test
+    Call Insert.Valve("1-3")
+        'Analysis
+    Call tabAnalysis.AnalyzeAll("0")
+    'Result
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No")
+End Sub
+
+Sub Cat1TS6TC1
+  
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test
+    Call Insert.FlexibleJoint("1-3")
+        'Analysis
+    Call tabAnalysis.AnalyzeAll("0")
+    'Result
+    Call tabResult.InputlistReport("0")
+    'Post-Condition
+    Call tabFile.Close("No")
+
+End Sub

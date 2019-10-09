@@ -1,0 +1,162 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "InsertAPModel"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath   = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\"&strTestPlanFolderName
+    'aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+
+Sub Cat1TS1TC1
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("2","AutoPIPE Database")
+   Call tabFile.Open("3","Autopipe database")
+''Tests 
+   tabSelect.Point("A00")
+   Call tabFile.InsertModel("1","AutoPIPE Model")
+
+
+''Report
+  tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+Sub Cat1TS1TC2
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+   Call tabFile.Open("4","Autopipe database")
+''Tests 
+   tabSelect.Point("B03")
+   Call tabFile.InsertModel("2","AutoPIPE Model")
+
+
+''Report
+  tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+Sub Cat1TS1TC3
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("4","AutoPIPE Database")
+   Call tabFile.Open("5","Autopipe database")
+''Tests 
+   tabSelect.Point("B05")
+   Call tabFile.InsertModel("3","AutoPIPE Model")
+
+''Report
+  tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+Sub Cat1TS1TC4
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("5","AutoPIPE Database")
+   Call tabFile.Open("6","Autopipe database")
+''Tests 
+   tabSelect.Point("A12")
+   Call tabFile.InsertModel("4","AutoPIPE Model")
+
+
+''Report
+  tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+Sub Cat1TS1TC5
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("6","AutoPIPE Database")
+   Call tabFile.Open("7","Autopipe database")
+''Tests 
+   tabSelect.Point("B05")
+   Call tabFile.InsertModel("4","AutoPIPE Model")
+
+
+''Report
+  tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+Sub Cat1TS1TC6
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("7","AutoPIPE Database")
+   Call tabFile.Open("8","Autopipe database")
+''Tests 
+   tabSelect.Point("A17")
+   Call tabFile.InsertModel("4","AutoPIPE Model")
+
+
+''Report
+  tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test1">
+						<Node name="warnings">
+							<Node name="warning0">
+								<Prp name="msg" type="S" value="There is (are) 1 running instance(s) of &quot;C:\Program Files (x86)\Bentley\AutoPIPE CONNECT v12\autopipe.exe&quot;. New instances will not be launched."/>
+							</Node>
+						</Node>
+						<Node name="errors">
+							<Node name="error13">
+								<Prp name="msg" type="S" value="The object &quot;wndAutoPIPE&quot; does not exist."/>
+							</Node>
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The file checkpoint &quot;QA326A.NTL&quot; failed. See Details for additional information."/>
+							</Node>
+							<Node name="error7">
+								<Prp name="msg" type="S" value="There was an attempt to perform an action at point (50, 15) which is transparent or out of the window bounds."/>
+							</Node>
+							<Node name="error8">
+								<Prp name="msg" type="S" value="The window was destroyed during method execution."/>
+							</Node>
+							<Node name="error17">
+								<Prp name="msg" type="S" value="The object &quot;autopipe&quot; does not exist."/>
+							</Node>
+							<Node name="error10">
+								<Prp name="msg" type="S" value="The execution timeout has expired."/>
+							</Node>
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The file checkpoint &quot;QA326B.NTL&quot; failed. See Details for additional information."/>
+							</Node>
+							<Node name="error15">
+								<Prp name="msg" type="S" value="The object &quot;wndAutoPIPE&quot; does not exist."/>
+							</Node>
+							<Node name="error6">
+								<Prp name="msg" type="S" value="The window was destroyed during method execution."/>
+							</Node>
+							<Node name="error11">
+								<Prp name="msg" type="S" value="The process &quot;autopipe&quot; was not found."/>
+							</Node>
+							<Node name="error5">
+								<Prp name="msg" type="S" value="The window was destroyed during method execution."/>
+							</Node>
+							<Node name="error9">
+								<Prp name="msg" type="S" value="The file checkpoint &quot;QA325A.PXF&quot; failed. See Details for additional information."/>
+							</Node>
+							<Node name="error16">
+								<Prp name="msg" type="S" value="The file checkpoint &quot;QA325B.PXF&quot; failed. See Details for additional information."/>
+							</Node>
+							<Node name="error3">
+								<Prp name="msg" type="S" value="The window was destroyed during method execution."/>
+							</Node>
+							<Node name="error12">
+								<Prp name="msg" type="S" value="The object &quot;Window(&quot;#32770&quot;, &quot;*&quot;, 1)&quot; does not exist."/>
+							</Node>
+							<Node name="error4">
+								<Prp name="msg" type="S" value="The window was destroyed during method execution."/>
+							</Node>
+							<Node name="error14">
+								<Prp name="msg" type="S" value="The object &quot;btnOK&quot; does not exist."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="The window was destroyed during method execution."/>
+							</Node>
+						</Node>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBDADIANAA2AEEAMQA5AEYALQA5ADYAMgA4AC0ANABDAEIANQAtAEEARgAwADcALQBGADMANAA0ADcAOQAxAEMARABEAEQAQgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="durationwithoutchildren" type="I" value="1310910"/>
+						<Prp name="duration" type="I" value="1310910"/>
+						<Prp name="name" type="S" value="ImportExport-PXF_DTP"/>
+						<Prp name="starttime" type="D" value="43734.5899243519"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewA5ADkANABFADIAMQBFAEUALQBBAEYAQgA4AC0ANAA3ADcAQwAtAEIAQQA5AEYALQA4AEYANQA3AEMAMwBDADEAOQAwADAAMgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="durationwithoutchildren" type="I" value="3035"/>
+						<Prp name="duration" type="I" value="3035"/>
+						<Prp name="name" type="S" value="ApplicationStartStop"/>
+						<Prp name="starttime" type="D" value="43734.589889213"/>
+					</Node>
+					<Node name="test2">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBFAEUAMQAxADcAOQA4ADIALQBFAEIAMAA4AC0ANABFADUAMAAtADkAOQAyADEALQBDAEUARgBEADcARABFAEIAQQA1ADgAOAB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="durationwithoutchildren" type="I" value="1795"/>
+						<Prp name="duration" type="I" value="1795"/>
+						<Prp name="name" type="S" value="EndApplication"/>
+						<Prp name="starttime" type="D" value="43734.6050969213"/>
+					</Node>
+				</Node>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="duration" type="I" value="1315740"/>
+				<Prp name="starttime" type="D" value="43734.589889213"/>
+				<Prp name="name" type="S" value="StaticTestPlans"/>
+			</Node>
+		</Node>
+		<Prp name="starttime" type="D" value="43734.5898890741"/>
+		<Prp name="host" type="S" value="ASIA13894"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="key" type="S" value="{E72F031C-6517-48B7-9F17-C07B67AFA07D}"/>
+		<Prp name="tests" type="I" value="3"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="testname" type="S" value="StaticTestPlans"/>
+		<Prp name="name" type="S" value="AutoPIPE Automated Testing Suite"/>
+		<Prp name="user" type="S" value="Tayyabaa.Mehreen"/>
+		<Prp name="failedtests" type="I" value="1"/>
+		<Prp name="stop" type="D" value="43734.6051190625"/>
+	</Node>
+</Nodes>

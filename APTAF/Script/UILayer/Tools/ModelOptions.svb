@@ -1,0 +1,753 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT Main
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "General model options " dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         General model options table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function GeneralOptions( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            GeneralOptions = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            GeneralOptions = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set GeneralOptions = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set GeneralOptions = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "General model options " dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         General model options table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub GeneralOptions1 (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+'''''''''''''''''''''''''''''''''''
+  Set ObjNameMapping = Aliases.autopipe
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+set dlgGeneralOptions = objNameMapping.dlgGeneralOptions
+
+
+dim strProjectID1 : strProjectID1 = objRow.item("strProjectID1")
+dim strProjectID2 :strProjectID2 = objRow.item("strProjectID2")
+dim strPreparedBy :strPreparedBy = objRow.item("strPreparedBy")
+dim strCheckedBy :strCheckedBy = objRow.item("strCheckedBy")
+dim str1stApprover :str1stApprover = objRow.item("str1stApprover")
+dim str2ndApprover:str2ndApprover= objRow.item("str2ndApprover")
+dim drpPipingCode:drpPipingCode= objRow.item("drpPipingCode")
+dim drpEdition:drpEdition= objRow.item("drpEdition")
+dim chkAppendixP:chkAppendixP= objRow.item("chkAppendixP")
+dim chkHDPE:chkHDPE= objRow.item("chkHDPE")
+dim chkB31J:chkB31J= objRow.item("chkB31J")
+dim strLifeTime:strLifeTime= objRow.item("strLifeTime")
+dim chkLifeTimeMonitoringSystem:chkLifeTimeMonitoringSystem= objRow.item("chkLifeTimeMonitoringSystem")
+dim drpInputUnit:drpInputUnit= objRow.item("drpInputUnit")
+dim drpOutputUnit:drpOutputUnit= objRow.item("drpOutputUnit")
+dim drpVerticalAxisDirection:drpVerticalAxisDirection= objRow.item("drpVerticalAxisDirection")
+dim strAmbientTemperature:strAmbientTemperature= objRow.item("strAmbientTemperature")
+Dim drpLibraryComponent:drpLibraryComponent= objRow.item("drpLibraryComponent")
+dim drpLibraryMaterial:drpLibraryMaterial= objRow.item("drpLibraryMaterial")
+Dim drpSIFCode:drpSIFCode= objRow.item("drpSIFCode")
+Dim drpSIFEdition:drpSIFEdition= objRow.item("drpSIFEdition")
+Dim intThermalPressureCases :intThermalPressureCases = objRow.item("intThermalPressureCases")
+
+
+    Select Case strOpenDialog
+        Case "Shortcut"
+          objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+
+
+if( strProjectID1 <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fldProjectID1.Keys(strProjectID1)
+         
+          Log.Message("Entered in the strProjectID1  field")
+        End If
+    End If
+''''''''''''''''
+
+if( strProjectID2 <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fldProjectID2.Keys(strProjectID2)
+         
+          Log.Message("Entered in the strProjectID2  field")
+        End If
+    End If
+''''''''''''''''''
+if( strPreparedBy <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fldPreparedBy.Keys(strPreparedBy)
+         
+          Log.Message("Entered in the strPreparedBy  field")
+        End If
+    End If
+''''''''''''''''''''''''''''''''''''''
+if( strCheckedBy <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fldCheckedBy.Keys(strCheckedBy)
+         
+          Log.Message("Entered in the strCheckedBy  field")
+        End If
+    End If
+''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''str1stApprover
+if( str1stApprover <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fld1stApprover.Keys(str1stApprover)
+         
+          Log.Message("Entered in the str1stApprover  field")
+        End If
+    End If
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''''''str2ndApprover
+if( str2ndApprover <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fld2ndApprover.Keys(str2ndApprover)
+         
+          Log.Message("Entered in the str2ndApprover  field")
+        End If
+    End If
+''''''''''''''''''''''''''''''''''''''''''
+
+''''''''''''''drpPipingCode
+If (drpPipingCode <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          'If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnNominalDiameter.Enabled) Then
+          dlgGeneralOptions.drpdwnPipingCode.Click()
+          objNameMapping.lstItems.ClickItem(drpPipingCode)
+
+          Log.Message("Entered  field")
+        End If
+    End If
+   'End If
+   ' End If
+''''''''''''''''''''''''''
+''''''''drpEdition
+If (drpEdition <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          'If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnNominalDiameter.Enabled) Then
+          dlgGeneralOptions.drpdwnEdition.Click()
+          objNameMapping.lstItems.ClickItem(drpdwnEdition)
+
+          Log.Message("Entered  field")
+        End If
+    End If
+   'End If
+   ' End If
+'''''''''''''''''''''''''''chkAppendixP
+'''''chkAppendixP
+   If(chkAppendixP  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgGeneralOptions.chkboxAppendixP.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgGeneralOptions.chkboxAppendixP.Enabled) Then
+          dlgGeneralOptions.chkboxAppendixP.Click()
+          Log.Message("Set 'chkboxAppendixP' checkbox")
+        End If
+        End If
+        End If
+        
+        ''''''''''''chkHDPE
+ If(chkHDPE  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgGeneralOptions.chkboxHDPE.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgGeneralOptions.chkboxHDPE.Enabled) Then
+          dlgGeneralOptions.chkboxHDPE.Click()
+          Log.Message("Set 'chkboxHDPE' checkbox")
+        End If
+        End If
+        End If
+
+     '''''''''''''chkB31J
+       If(chkB31J  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgGeneralOptions.chkboxB31J.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgGeneralOptions.chkboxB31J.Enabled) Then
+          dlgGeneralOptions.chkboxB31J.Click()
+          Log.Message("Set 'chkB31J' checkbox")
+        End If
+        End If
+        End If
+        
+        
+ ''''''''''''''''''''''strLifeTime
+ if( strLifeTime <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fldLifeTime.Keys(strLifeTime)
+         
+          Log.Message("Entered in the strLifeTime  field")
+        End If
+    End If
+    
+    
+   ''''''''''''''''''''''chkLifeTimeMonitoringSystem
+    If(chkLifeTimeMonitoringSystem  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgGeneralOptions.chkboxLifeTimeMonitoringSystem.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgGeneralOptions.chkboxLifeTimeMonitoringSystem.Enabled) Then
+          dlgGeneralOptions.chkboxLifeTimeMonitoringSystem.Click()
+          Log.Message("Set 'chkboxLifeTimeMonitoringSystem' checkbox")
+        End If
+        End If
+        End If
+   
+  '''''''''''''''drpEdition  
+        If (drpEdition <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          'If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnNominalDiameter.Enabled) Then
+          dlgGeneralOptions.drpdwnEdition.Click()
+          objNameMapping.lstItems.ClickItem(drpdwnEdition)
+
+          Log.Message("Entered  field")
+        End If
+    End If
+   'End If
+   ' End If
+   
+   '''''''''''drpInputUnit
+    If (drpInputUnit <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          'If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwpInputUnit.Enabled) Then
+          dlgGeneralOptions.drpdwpInputUnit.Click()
+          objNameMapping.lstItems.ClickItem(drpdwpInputUnit)
+
+          Log.Message("Entered drpdwpInputUnit field")
+        End If
+    End If
+   'End If
+   ' End If
+   '''''''''''''''''drpOutputUnit
+   If (drpOutputUnit <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          'If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnOutputUnit.Enabled) Then
+          dlgGeneralOptions.drpdwnOutputUnit.Click()
+          objNameMapping.lstItems.ClickItem(drpOutputUnit)
+
+          Log.Message("Entered drpOutputUnit field")
+        End If
+    End If
+   'End If
+   ' End If
+  '''''''''''''''''drpVerticalAxisDirection
+  
+    If (drpVerticalAxisDirection <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          'If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnVerticalAxisDirection.Enabled) Then
+          dlgGeneralOptions.drpdwnVerticalAxisDirection.Click()
+          objNameMapping.lstItems.ClickItem(drpVerticalAxisDirection)
+
+          Log.Message("Entered drpVerticalAxisDirection field")
+        End If
+    End If
+   'End If
+   ' End If
+   
+   
+   '''''''intThermalPressureCases
+   if( intThermalPressureCases <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fldThermalPressureCases.Keys(intThermalPressureCases)
+         
+          Log.Message("Entered in the strAmbientTemperature  field")
+        End If
+    End If
+   
+   
+   ''''''''''''''''strAmbientTemperature
+    if( strAmbientTemperature <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgGeneralOptions.fldAmbientTemperature.Keys(strAmbientTemperature)
+         
+          Log.Message("Entered in the strAmbientTemperature  field")
+        End If
+    End If
+    
+   ''''''''''''drpLibraryComponent
+    If (drpLibraryComponent <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnLibraryComponent.Enabled) Then
+           If(NameMapping.Sys.autopipe.lstItems.Visible) Then
+          dlgGeneralOptions.drpdwnLibraryComponent.Click()
+          objNameMapping.lstItems.ClickItem(drpLibraryComponent)
+
+          Log.Message("Entered drpLibraryComponent field")
+        End If
+    End If
+   End If
+   End If
+
+   '''''''drpdwnLibraryMaterial
+   
+     If (drpdwnLibraryMaterial <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+           If(NameMapping.Sys.autopipe.lstItems.Visible) Then
+          'If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnLibraryMaterial.Enabled) Then
+          dlgGeneralOptions.drpdwnLibraryMaterial.Click()
+          objNameMapping.lstItems.ClickItem(drpLibraryMaterial)
+
+          Log.Message("Entered drpdwnLibraryMaterial field")
+        End If
+    End If
+   End If
+   ' End If
+   
+   ''''''''''''''drpSIFCode
+     If (drpSIFCode <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnSIFCode.Enabled) Then
+          dlgGeneralOptions.drpdwnSIFCode.Click()
+          objNameMapping.lstItems.ClickItem(drpSIFCode)
+
+          Log.Message("Entered drpdwnLibraryMaterial field")
+        End If
+    End If
+   'End If
+   End If
+   
+   '''''''''''''''''''drpSIFEdition
+   If (drpSIFEdition <> "NA") Then
+       ' Write to  field
+       ' If(objNameMapping.WaitAliasChild("dlgWarning", 600).WaitProperty("Exists", true, 10)) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.Exists) Then
+          If(NameMapping.Sys.autopipe.dlgGeneralOptions.drpdwnSIFEdition.Enabled) Then
+          dlgGeneralOptions.drpdwnSIFEdition.Click()
+          objNameMapping.lstItems.ClickItem(drpSIFEdition)
+
+          Log.Message("Entered drpSIFEdition field")
+        End If
+    End If
+   End If
+   ' End If
+   
+   '''''''''''''''''
+   dlgGeneralOptions.btnOK.click()
+   
+End Sub
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Edit model options " dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Edit model options table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+sub EditOptions(objNameMapping, objRow,strOpenDialog, strHotKey)
+  
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+    set dlgEditModelOptions = objNameMapping.dlgEditModelOptions
+    Dim intDigitsAfterDecimal : intDigitsAfterDecimal = objRow.item("intDigitsAfterDecimal")
+    Dim cmbDefaultPointNameFormat : cmbDefaultPointNameFormat = objRow.item("cmbDefaultPointNameFormat")
+Dim intDefaultPointNameOffset : intDefaultPointNameOffset = objRow.item("intDefaultPointNameOffset")
+Dim chkReplaceAllPointNames : chkReplaceAllPointNames = objRow.item("chkReplaceAllPointNames")
+Dim chkUseFeetInchesDisplay : chkUseFeetInchesDisplay = objRow.item("chkUseFeetInchesDisplay")
+Dim intMassPointsPerSpan : intMassPointsPerSpan = objRow.item("intMassPointsPerSpan")
+Dim intCutoffFrequency : intCutoffFrequency = objRow.item("intCutoffFrequency")
+Dim chkuseCorrodedThickness : chkuseCorrodedThickness = objRow.item("chkuseCorrodedThickness")
+Dim chkIgnoreFlangeEffect : chkIgnoreFlangeEffect = objRow.item("chkIgnoreFlangeEffect")
+Dim intDistanceLDFromFlange : intDistanceLDFromFlange = objRow.item("intDistanceLDFromFlange")
+Dim chkIncludeBourdonRotationalEffect : chkIncludeBourdonRotationalEffect = objRow.item("chkIncludeBourdonRotationalEffect")
+Dim cmbboxPipeRadius : cmbboxPipeRadius = objRow.item("cmbboxPipeRadius")
+Dim intCoincidentNodeTolerance : intCoincidentNodeTolerance = objRow.item("intCoincidentNodeTolerance")
+Dim intlevelsOfUndo : intlevelsOfUndo = objRow.item("intlevelsOfUndo")
+Dim intRigidPipeStiffnessFactor : intRigidPipeStiffnessFactor = objRow.item("intRigidPipeStiffnessFactor")
+Dim intFlangeBoltNutWeightFactor : intFlangeBoltNutWeightFactor = objRow.item("intFlangeBoltNutWeightFactor") 
+Dim chkApplyPressureCorrection : chkApplyPressureCorrection = objRow.item("chkApplyPressureCorrection") 
+Dim chkSuppressStoringTime : chkboxSuppressStoringTime = objRow.item("chkboxSuppressStoringTime") 
+Dim chkUpdateIds : chkUpdateIds = objRow.item("chkUpdateIds") 
+Dim strSupportRigidStiffnessT : strSupportRigidStiffnessT = objRow.item("strSupportRigidStiffnessT")  
+Dim strSupportRigidStiffnessR : strSupportRigidStiffnessR = objRow.item("strSupportRigidStiffnessR")  
+Dim strAnchorRigidStiffnessT : strAnchorRigidStiffnessT = objRow.item("strAnchorRigidStiffnessT")
+Dim strAnchorRigidStiffnessR : strAnchorRigidStiffnessR = objRow.item("strAnchorRigidStiffnessR")
+
+    Select Case strOpenDialog
+        Case "Shortcut"
+          objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+''''intDigitsAfterDecimal
+if( intDigitsAfterDecimal <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldDigitsAfterDecimal.Keys(intDigitsAfterDecimal)
+         
+          Log.Message("Entered in the intDigitsAfterDecimal  field")
+        End If
+    End If
+    
+''''''cmbDefaultPointNameFormat
+if(cmbDefaultPointNameFormat <> "NA") Then
+If(NameMapping.Sys.autopipe.dlgEditModelOptions.cmbboxDefaultPointNameFormat.Enabled) Then
+if(NameMapping.Sys.autopipe.dlgEditModelOptions.cmbboxDefaultPointNameFormat.Exists) Then
+    dlgEditModelOptions.cmbboxDefaultPointNameFormat.click()
+    objNameMapping.lstItems.ClickItem(cmbboxDefaultPointNameFormat) 
+'    if(NameMapping.Sys.autopipe.dlgWarning.Exists) Then
+'    objNameMapping.dlgWarning.Close()
+    end If
+    end If
+    End If
+    'end if 
+    '''      
+
+''''intDefaultPointNameOffset
+if( intDefaultPointNameOffset <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldDigitsAfterDecimal.Keys(intDefaultPointNameOffset)
+         
+          Log.Message("Entered in the intDefaultPointNameOffset  field")
+        End If
+    End If
+
+
+
+'''''''chkReplaceAllPointNames
+ If(chkReplaceAllPointNames  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxReplaceAllPointNames.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxReplaceAllPointNames.Enabled) Then
+          dlgEditModelOptions.chkboxReplaceAllPointNames.Click()
+          Log.Message("Set 'chkReplaceAllPointNames' checkbox")
+        End If
+        End If
+        End If
+
+'''' chkUseFeetInchesDisplay 
+If(chkUseFeetInchesDisplay  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxUseFeetInchesDisplay.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxUseFeetInchesDisplay.Enabled) Then
+          dlgEditModelOptions.chkboxUseFeetInchesDisplay.Click()
+          Log.Message("Set 'chkUseFeetInchesDisplay' checkbox")
+        End If
+        End If
+        End If
+
+
+''''' intMassPointsPerSpan 
+if( intMassPointsPerSpan <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldMassPointsPerSpan.Keys(intMassPointsPerSpan)
+         
+          Log.Message("Entered in the intMassPointsPerSpan  field")
+        End If
+    End If
+
+
+''' intCutoffFrequency
+if( intCutoffFrequency <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+        if(NameMapping.sys.autopipe.dlgEditModelOptions.fldCutoffFrequency.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldCutoffFrequency.Keys(intCutoffFrequency)
+         
+          Log.Message("Entered in the intCutoffFrequency  field")
+        End If
+    End If
+    End If
+
+
+
+'''' chkuseCorrodedThickness
+If(chkuseCorrodedThickness  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxuseCorrodedThickness.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxuseCorrodedThickness.Enabled) Then
+          dlgEditModelOptions.chkboxuseCorrodedThickness.Click()
+          Log.Message("Set 'chkuseCorrodedThickness' checkbox")
+        End If
+        End If
+        End If
+
+
+'chkIgnoreFlangeEffect 
+If(chkIgnoreFlangeEffect  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxIgnoreFlangeEffect.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxIgnoreFlangeEffect.Enabled) Then
+          dlgEditModelOptions.chkboxIgnoreFlangeEffect.Click()
+          Log.Message("Set 'chkIgnoreFlangeEffect' checkbox")
+        End If
+        End If
+        End If
+
+''' intDistanceLDFromFlange 
+if( intDistanceLDFromFlange <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldDistanceLDFromFlange.Keys(intDistanceLDFromFlange)
+         
+          Log.Message("Entered in the intDistanceLDFromFlange  field")
+        End If
+    End If
+
+'''' chkIncludeBourdonRotationalEffect
+If(chkIncludeBourdonRotationalEffect  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxIncludeBourdonRotationalEffect.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxIncludeBourdonRotationalEffect.Enabled) Then
+          dlgEditModelOptions.chkboxIncludeBourdonRotationalEffect.Click()
+          Log.Message("Set 'chkIncludeBourdonRotationalEffect' checkbox")
+        End If
+        End If
+        End If
+       
+'''''cmbboxPipeRadius 
+if(cmbboxPipeRadius <> "NA") Then
+If(NameMapping.Sys.autopipe.dlgEditModelOptions.cmbboxPipeRadius.Enabled) Then
+if(NameMapping.Sys.autopipe.dlgEditModelOptions.cmbboxPipeRadius.Exists) Then
+    dlgEditModelOptions.cmbboxPipeRadius.click()
+    objNameMapping.lstItems.ClickItem(cmbboxPipeRadius) 
+'    if(NameMapping.Sys.autopipe.dlgWarning.Exists) Then
+'    objNameMapping.dlgWarning.Close()
+    end If
+    end If
+    End If
+    'end if 
+    
+    
+'''' intCoincidentNodeTolerance
+if( intCoincidentNodeTolerance <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldCoincidentNodeTolerance.Keys(intCoincidentNodeTolerance)
+         
+          Log.Message("Entered in the intCoincidentNodeTolerance  field")
+        End If
+    End If
+
+
+''''''''''''intlevelsOfUndo
+if( intlevelsOfUndo <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldlevelsOfUndo.Keys(intlevelsOfUndo)
+         
+          Log.Message("Entered in the intlevelsOfUndo  field")
+        End If
+    End If
+
+
+'''' intRigidPipeStiffnessFactor
+if( intRigidPipeStiffnessFactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldRigidPipeStiffnessFactor.Keys(intRigidPipeStiffnessFactor)
+         
+          Log.Message("Entered in the intRigidPipeStiffnessFactor  field")
+        End If
+    End If
+    
+    
+
+''''intFlangeBoltNutWeightFactor
+if( intFlangeBoltNutWeightFactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldFlangeBoltNutWeightFactor.Keys(intFlangeBoltNutWeightFactor)
+         
+          Log.Message("Entered in the intFlangeBoltNutWeightFactor  field")
+        End If
+    End If
+
+
+'''' chkApplyPressureCorrection 
+If(chkApplyPressureCorrection  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxApplyPressureCorrection.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxApplyPressureCorrection.Enabled) Then
+          dlgEditModelOptions.chkboxApplyPressureCorrection.Click()
+          Log.Message("Set 'chkApplyPressureCorrection' checkbox")
+        End If
+        End If
+        End If
+ 
+'''' chkSuppressStoringTime 
+If(chkSuppressStoringTime  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxSuppressStoringTime.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxSuppressStoringTime.Enabled) Then
+          dlgEditModelOptions.chkboxSuppressStoringTime.Click()
+          Log.Message("Set 'chkSuppressStoringTime' checkbox")
+        End If
+        End If
+        End If
+
+'''''chkUpdateIds 
+If(chkUpdateIds  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgpipeprop", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxUpdateIds.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgEditModelOptions.chkboxUpdateIds.Enabled) Then
+          dlgEditModelOptions.chkboxUpdateIds.Click()
+          Log.Message("Set 'chkUpdateIds' checkbox")
+        End If
+        End If
+        End If
+
+
+'''' strSupportRigidStiffnessT 
+ if( strSupportRigidStiffnessT <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldSupportRigidStiffnessT.Keys(strSupportRigidStiffnessT)
+         
+          Log.Message("Entered in the strSupportRigidStiffnessT  field")
+        End If
+    End If
+    
+
+'''' strSupportRigidStiffnessR 
+if( strSupportRigidStiffnessR <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldSupportRigidStiffnessR.Keys(strSupportRigidStiffnessR)
+         
+          Log.Message("Entered in the strSupportRigidStiffnessR  field")
+        End If
+    End If
+    
+'''' strAnchorRigidStiffnessT 
+if( strAnchorRigidStiffnessT <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldAnchorRigidStiffnessT.Keys(strAnchorRigidStiffnessT)
+         
+          Log.Message("Entered in the strAnchorRigidStiffnessT  field")
+        End If
+    End If
+
+''''strAnchorRigidStiffnessR 
+
+ if( strAnchorRigidStiffnessR <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgEditModelOptions.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgEditModelOptions.fldAnchorRigidStiffnessR.Keys(strAnchorRigidStiffnessR)
+         
+          Log.Message("Entered in the strAnchorRigidStiffnessR  field")
+        End If
+    End If
+
+End Sub

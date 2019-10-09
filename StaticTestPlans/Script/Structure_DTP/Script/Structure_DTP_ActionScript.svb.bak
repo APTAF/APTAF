@@ -1,0 +1,57 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "Structure_DTP"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+
+Sub Cat1TS1TC1
+'''Comments
+'
+
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+
+'''Tests 
+     
+   tabInsert.BeamSectionProperties("1,3,5,7,9,11,13,15,17,19,21,23,25,27,29")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+Sub Cat1TS2TC1
+'''Comments
+'
+'Configuration
+
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+
+'''Tests 
+   tabInsert.Beam("1")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+
+End Sub

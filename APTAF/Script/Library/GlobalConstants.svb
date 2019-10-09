@@ -1,0 +1,13 @@
+﻿const ForReading = 1
+const ForWriting = 2
+const ForAppending = 8
+Const adReadLine = -2
+Const adTypeText = 2
+Const adTypeBinary = 1
+Const adCRLF = -1
+
+const WM_USER = 1024
+Const WinX = 0
+Const WinY = 0
+Const WinHeight = 700
+Const WinWidth = 700

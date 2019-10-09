@@ -1,0 +1,162 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT FlexibleJoint_Q4_Main
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "FlexibleJoint_Q4"  'Update
+    
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath   = "./Script/"&strTestPlanFolderName
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+    
+End Sub
+
+Sub Cat1TS1TC1
+''Sub TC111
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.FlexibleJoint("1")
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+
+Sub Cat1TS1TC2
+'Sub TC112
+
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.FlexibleJoint("2")
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+'Sub TC113
+Sub Cat1TS1TC3
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.FlexibleJoint("3")
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+'Sub TC121
+Sub Cat1TS2TC1
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.FlexibleJoint("4-6") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+'Sub TC131
+Sub Cat1TS3TC1
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("1") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC2
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("2") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+    
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC3
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("3") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC4
+'''' Actions Section
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("4") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub
+Sub Cat1TS3TC5
+'''' Actions Section
+'Call Configuration
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    Call tabInsert.Nozzle("5") 
+    'Analysis
+'    tabAnalysis.AnalyzeAll("0")
+    Call tabResult.InputlistReport("0")
+
+    'Post-Condition
+    Call tabFile.Close("No")  
+End Sub

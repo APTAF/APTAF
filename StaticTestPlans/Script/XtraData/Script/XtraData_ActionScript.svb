@@ -1,0 +1,418 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabDelete
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "XtraData"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          JointType And UserSIF
+'''''''''''''''''''''''''''''''
+Sub Cat1TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 8
+'''Tests
+  tabInsert.JointTypeAndUserSIF(i)
+  tabInsert.Run("0")
+  'tabDelete.JointTypeAndUserSIF("Yes")
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          AdditionalWeight
+'''''''''''''''''''''''''''''''
+Sub Cat2TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 5
+'''Tests
+  tabInsert.AdditionalWeight(i)
+  tabInsert.Run("0")
+ 
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          ConcentratedForce
+'''''''''''''''''''''''''''''''
+Sub Cat3TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 3
+'''Tests
+  tabInsert.ConcentratedForce(i)
+  tabInsert.Run("0")
+
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+Sub Cat3TS1TC2
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 3
+'''Tests
+  tabInsert.ConcentratedForce(i)
+  tabInsert.Run("0")
+
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          Imposed Support Displacement
+'''''''''''''''''''''''''''''''
+Sub Cat4TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 3
+'''Tests
+  tabInsert.ImposedDisplacement(i)
+  tabInsert.Run("0")
+  
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          Excel Support Displacement
+'''''''''''''''''''''''''''''''
+Sub Cat5TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 1
+'''Tests
+  tabInsert.ExcelSupportDisplacement(i)
+  tabInsert.Run("0")
+
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          Hydrodynamic Data
+'''''''''''''''''''''''''''''''
+Sub Cat6TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 1
+'''Tests
+  tabInsert.HydrodynamicData(i)
+  tabInsert.Run("0")
+
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          Cut Short
+'''''''''''''''''''''''''''''''
+Sub Cat7TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 1
+'''Tests
+  tabInsert.CutShort(i)
+  tabInsert.Run("0")
+
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          UserWeldEfficiencyFactor
+'''''''''''''''''''''''''''''''
+Sub Cat8TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 2
+'''Tests
+  tabInsert.UserWeldEfficiencyFactor(i)
+  tabInsert.Run("0")
+
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          Member Earthquake Factor
+'''''''''''''''''''''''''''''''
+Sub Cat9TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 1
+'''Tests
+
+  Call tabSelect.Range("A00","A01")
+  tabInsert.MemberEarthquakeFactor(i)
+  tabInsert.Run("0")
+
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          Point Earthquake Factor
+'''''''''''''''''''''''''''''''
+Sub Cat10TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+  For i = 1 to 3
+'''Tests
+    tabInsert.PointEarthquakeFactor(i)
+    tabInsert.Run("0")
+  'tabDelete.JointTypeAndUserSIF("Yes")
+  Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          Reference Point
+'''''''''''''''''''''''''''''''
+Sub Cat11TS1TC1
+'''Comments
+'
+'Call Configuration
+'Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+For i = 1 to 3
+'''Tests
+  tabInsert.ReferencePoint(i)
+  tabInsert.Run("0")
+
+Next
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+   tabResult.InputlistReport("0")
+'
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+
+'''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''          Piping Restraint Options
+'''''''''''''''''''''''''''''''
+Sub Cat12TS1TC1
+'''Comments
+'
+'''Pre-Conditions
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("2","AutoPIPE Database")
+'''Tests
+  tabInsert.PipingRestraintOptions("1,3,4")
+'Next
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+'for restrained as restrained is not working'
+Sub Cat12TS1TC2
+'''Comments
+'
+Call Configuration
+Project.Variables.strTCTestType = "Positive"
+'''Pre-Conditions
+  ' Call tabFile.Open("2","Autopipe database")
+  ' Call tabFile.SaveAs("2","AutoPIPE Database")
+
+'''Tests
+'For i = 1 to 4
+  tabInsert.PipingRestraintOptions("2")
+'Next
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+Sub Cat13TS1TC1
+'''Comments
+'
+'''Pre-Conditions
+   Call tabFile.Open("3","Autopipe database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+'''Tests
+ 
+  tabInsert.OutOfRoundness("1-2")
+ 
+'Next
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+Sub Cat14TS1TC1
+'''Comments
+'
+'''Pre-Conditions
+   Call tabFile.Open("3","Autopipe database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+'''Tests
+  tabInsert.GrossDiscontinuity("1-3")
+'Next
+'''Post-Condition
+   tabFile.Close("No")  
+'
+End Sub
+'Sub Cat12TS1TC1
+''''Comments
+''
+''Call Configuration
+''Project.Variables.strTCTestType = "Positive"
+''''Pre-Conditions
+'   Call tabFile.Open("2","Autopipe database")
+'   Call tabFile.SaveAs("2","AutoPIPE Database")
+'For i = 1 to 3
+''''Tests
+'  tabInsert.PipingRestraintOptions(i)
+'  tabInsert.Run("0")
+'  'tabDelete.JointTypeAndUserSIF("Yes")
+'Next
+''''Report
+''   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+''
+''''Post-Condition
+'   tabFile.Close("No")  
+''
+'End Sub

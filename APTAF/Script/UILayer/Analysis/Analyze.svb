@@ -1,0 +1,130 @@
+﻿'USEUNIT tabAnalysis
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Analyze All" dialog   
+' Remarks:
+' Parameters:
+'           strOperator:    Insert or Modify
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Flange table row object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:      Valve dialog shortcut key
+' Author:   Bilal.Tahir
+' Status: Working
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub AnalyzeAll(intDbTestRow, objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+    'Log.AppendFolder("Using the 'Analyze All' dialog")
+    Set dlgAnalyzeAll = objNameMapping.dlgAnalyzeAll
+
+    Dim chkAnalysisAutomatically :  chkAnalysisAutomatically = objRow.Item("chkAnalysisAutomatically") 
+    Dim chkHangerSelection : chkHangerSelection = objRow.Item("chkHangerSelection")
+    Dim chkStatic : chkUseCylindrical = objRow.Item("chkUseCylindrical")
+    Dim chkModal : chkModal = objRow.Item("chkModal")
+    Dim chkResponseSpectrum : chkResponseSpectrum = objRow.Item("chkResponseSpectrum")
+    Dim chkForceSpectrum : chkForceSpectrum = objRow.Item("chkForceSpectrum")
+    Dim chkTimeHistory : chkTimeHistory = objRow.Item("chkTimeHistory")
+    Dim chkHarmonic : chkHarmonic = objRow.Item("chkHarmonic")
+    Dim chkSeismicAncMov : chkSeismicAncMov = objRow.Item("chkSeismicAncMov")
+    Dim chkSuppressWarnings : chkSuppressWarnings = objRow.Item("chkSuppressWarnings")
+    
+
+    Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+
+  If(objNameMapping.WaitAliasChild("dlgConfirm", 20000).WaitProperty("Exists", true, 2)) Then
+    'If objNameMapping.dlgConfirm.Exists Then
+    objNameMapping.dlgConfirm.btnNo.click()
+    Log.Message("Consistency warning message dialog appears")
+  End IF    
+'Checkbox Use Analysis Automatically
+  If(chkAnalysisAutomatically  =  "1") Then
+      If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+        dlgAnalyzeAll.chkboxAnalysisAutomatically.Click()
+        Log.Message("Checkbox 'Analysis Automatically' checkbox checked")
+      End If
+  End If
+'Execute if 'Select Analysis Automatically' checkbox unchecked
+  If (chkAnalysisAutomatically = "0" )Then
+'Checkbox Use Hanger Selection
+      If(chkHangerSelection  =  "1") Then
+          If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgAnalyzeAll.chkboxHangerSelection.Click()
+            Log.Message("Checkbox 'Hanger Selection' checkbox checked")
+          End If
+      End If
+'Checkbox Use Static
+      If(chkStatic  =  "1") Then
+          If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgAnalyzeAll.chkboxStatic.Click()
+            Log.Message("Checkbox 'Static' checkbox checked")
+          End If
+      End If
+'Checkbox Use Modal
+      If(chkModal  =  "1") Then
+          If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgAnalyzeAll.chkboxModal.Click()
+            Log.Message("Checkbox 'Modal' checkbox checked")
+          End If
+      End If
+'Checkbox Response Spectrum
+      If(chkResponseSpectrum  =  "1") Then
+          If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgAnalyzeAll.chkboxResponseSpectrum.Click()
+            Log.Message("Checkbox 'Response Spectrum' checkbox checked")
+          End If
+      End If
+'Checkbox Use Force Spectrum
+      If(chkForceSpectrum  =  "1") Then
+          If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+            dlgAnalyzeAll.chkboxForceSpectrum.Click()
+            Log.Message("Checkbox 'Force Spectrum' checkbox checked")
+          End If
+      End If
+'Checkbox Use Time History
+    If(chkTimeHistory  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgAnalyzeAll.chkboxTimeHistory.Click()
+          Log.Message("Checkbox 'Time History' checkbox checked")
+        End If
+    End If
+'Checkbox Use Harmonic
+    If(chkHarmonic  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgAnalyzeAll.chkboxHarmonic.Click()
+          Log.Message("Checkbox 'Harmonic' checkbox checked")
+        End If
+    End If
+'Checkbox Use Seismic Anc Mov
+    If(chkSeismicAncMov  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgAnalyzeAll.chkboxSeismicAncMov.Click()
+          Log.Message("Checkbox 'Seismic Anc Mov' checkbox checked")
+        End If
+    End If
+End If
+'Checkbox Use Suppress Warnings
+    If(chkSuppressWarnings  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnalyzeAll", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgAnalyzeAll.chkboxSuppressWarnings.Click()
+          Log.Message("Checkbox 'Suppress Warnings' checkbox checked")
+        End If
+    End If        
+
+Call dlgAnalyzeAll.btnOK.Click()
+
+End Sub

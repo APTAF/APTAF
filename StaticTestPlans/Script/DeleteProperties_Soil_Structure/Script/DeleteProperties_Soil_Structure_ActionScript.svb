@@ -1,0 +1,74 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabDelete
+'USEUNIT tabModify
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "DeleteProperties_Soil_Structure"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+
+Sub Cat8TS4TC1
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+
+''Tests 
+
+   tabDelete.UnusedPipeIdentifier("All Unused")
+   Call tabSelect.Range("C16","C17")
+   tabDelete.RigidOptionsOverRange ("Yes")
+   tabSelect.SoilPoints("1")
+   tabDelete.SoilPointsOverRange("Yes")
+   'tabDelete.UnusedSoilPoints("Yes")
+   tabSelect.Beams("0")
+   tabDelete.Beams("Yes")
+   tabDelete.UnusedSectionIdentifier("0 ")
+   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+Sub Cat8TS4TC2
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+
+''Tests 
+  
+   tabDelete.UnusedPipeIdentifier("32")
+   tabDelete.UnusedSectionIdentifier("2 ")
+   tabDelete.StructuralModel("Yes")
+   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub

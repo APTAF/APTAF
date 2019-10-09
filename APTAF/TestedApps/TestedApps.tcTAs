@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{90D101C8-80C7-48D4-9055-2E451B9BCD75}" version="1400" key="{503E3A70-9BC2-497D-BA5E-64BD9B3C649F}" typeId="{90D101C8-80C7-48D4-9055-2E451B9BCD75}">
+	<config nodeName="TestedApps" />
+	<testData />
+	<data />
+	<children>
+		<child key="{4AC7B236-E6DA-47D1-85B0-C895FF22B998}">
+			<config nodeName="autopipe" autorunOnRecording="False" enabled="True" count="1" useFeaturedRuntimeObject="True" userChangeName="False">
+				<runModeParams activeRunMode="Simple">
+					<param name="RunAs" parameters="" workFolder="C:\AutomatedTesting" userName="" password="" domain="" />
+					<param name="Profile" parameters="" workFolder="C:\AutomatedTesting" useProject="False" projectFileName="" overrideProfiler="False" profilerName="" profileRunMode="Silent" AQtimeVersion="0" forceRunMode="False" />
+					<param name="Debug" parameters="" workFolder="C:\AutomatedTesting" />
+					<param name="Simple" fileName="autopipe.exe" filePath="C:\Program Files (x86)\Bentley\AutoPIPE CONNECT QAR v12\" parameters="" workFolder="C:\AutomatedTesting" />
+				</runModeParams>
+			</config>
+			<testData />
+			<data />
+		</child>
+	</children>
+</Root>

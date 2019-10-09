@@ -1,0 +1,654 @@
+ISOGEN-FILES         ISOGEN.FLS
+UNITS-BORE           INCH
+UNITS-CO-ORDS         MM
+UNITS-BOLT-LENGTH     INCH
+UNITS-BOLT-DIA        INCH
+UNITS-WEIGHT          LBS
+PIPELINE-REFERENCE   Rick Unit-133-W-33-Water
+    PIPING-SPEC   1C0031
+    INSULATION-SPEC   CALCIUM SILICATE
+    PAINTING-SPEC   PS1.04
+    PIPELINE-TEMP   65.56 C / 150.00 F
+    ATTRIBUTE1   150.000 psi
+    ATTRIBUTE8   WATER
+    ATTRIBUTE9    11/11/2004 8:32:53 AM
+    AREA   PERMISSION GROUP1
+    PROJECT-IDENTIFIER   Beta
+    ATTRIBUTE7   PIPINGSYSTEM-1-0001
+    PIPING-SPEC 1C0031
+ELBOW
+    END-POINT    8502.997    1335.836    4999.839     6    BW
+    END-POINT    8731.597    1107.236    4999.839     6    BW
+    CENTRE-POINT    8731.597    1335.836    4999.839        
+    SKEY    ELBW
+    ITEM-CODE    MCMZZBOZZAAEADCZZUS
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A234-WPB
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    24. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+    UCI    {00013885-0000-0000-3F02-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    4.931
+WELD
+    END-POINT    8731.597    1107.236    4999.839     6    
+    END-POINT    8731.597    1107.236    4999.839     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W2
+    UCI    {000138AA-0000-0000-5B02-53908A413104}
+PIPE
+    END-POINT    8731.597    -482.312    5228.439     6    
+    END-POINT    8731.597    -482.312    6457.656     6    
+    ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    UCI    {0001388C-0000-0000-4202-53908A413104}
+    FABRICATION-ITEM
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PIPING-SPEC    1C0031
+    PAINTING-SPEC    PS1.04
+    WEIGHT    18.923
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A53-B
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    83.82 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+WELD
+    END-POINT    8731.597    -482.312    5228.439     6    
+    END-POINT    8731.597    -482.312    5228.439     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W5
+    UCI    {000138AA-0000-0000-6602-53908A413104}
+WELD
+    END-POINT    8731.597    -482.312    6457.656     6    
+    END-POINT    8731.597    -482.312    6457.656     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W6
+    UCI    {000138AA-0000-0000-6702-53908A413104}
+VALVE
+    END-POINT    8731.597    560.112    4999.839     6    FL
+    END-POINT    8731.597    293.412    4999.839     6    FL
+    CENTRE-POINT    8731.597    426.762    4999.839        
+    SKEY    VTFL
+    ITEM-CODE    VAAAHABAHADJADAZZZZUS
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A216-WCB
+    Component-Attribute4    0  in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    175. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+    UCI    {00013885-0000-0000-4402-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    ERECTION-ITEM
+    WEIGHT    35.959
+    SPINDLE-DIRECTION    UP
+    DIRECTION    UP 
+    MESSAGE-SQUARE
+    TEXT    Copy of COADE_Component-1-4
+GASKET
+    END-POINT    8731.597    563.287    4999.839     6    
+    END-POINT    8731.597    560.112    4999.839     6    
+    ITEM-CODE    GMAHACABXBEPUS
+    UCI    {000138A8-0000-0000-7102-53908A413104}
+    PIPING-SPEC    1C0031
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+BOLT
+    CO-ORDS    8731.597    560.112    4999.839        
+    BOLT-DIA    0.75
+    BOLT-LENGTH    4.25
+    BOLT-QUANTITY    8
+    BOLT-ITEM-CODE    BAZZZZZZAAYBETZZUS
+    BOLT-ITEM-DESCRIPTION  ASTM-A193-B7 studs w/ASTM-A194-2H hvy hex nuts -
+    BOLT-ITEM-DESCRIPTION  4.25 in. Length
+FLANGE
+    END-POINT    8731.597    -482.312    6546.556     6    
+    END-POINT    8731.597    -482.312    6457.656     6    
+    SKEY    FLWN
+    ITEM-CODE    FAAAHDCZZAADABQZZUS
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A105
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    24. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+    UCI    {00013885-0000-0000-4702-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    4.931
+FLANGE
+    END-POINT    3603.346    1335.836    4999.839     6    
+    END-POINT    3692.246    1335.836    4999.839     6    
+    SKEY    FLWN
+    ITEM-CODE    FAAAHDCZZAADABQZZUS
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A105
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    24. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+    UCI    {00013885-0000-0000-4802-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    4.931
+WELD
+    END-POINT    3692.246    1335.836    4999.839     6    
+    END-POINT    3692.246    1335.836    4999.839     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W8
+    UCI    {000138AA-0000-0000-8302-53908A413104}
+PIPE
+    END-POINT    3692.246    1335.836    4999.839     6    
+    END-POINT    6275.824    1335.836    4999.839     6    
+    ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    UCI    {0001388C-0000-0000-3D02-53908A413104}S1
+    FABRICATION-ITEM
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PIPING-SPEC    1C0031
+    PAINTING-SPEC    PS1.04
+    WEIGHT    18.923
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A53-B
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    328.03 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+PIPE
+    END-POINT    6275.824    1335.836    4999.839     6    
+    END-POINT    8502.997    1335.836    4999.839     6    
+    ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    UCI    {0001388C-0000-0000-3D02-53908A413104}S2
+    FABRICATION-ITEM
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PIPING-SPEC    1C0031
+    PAINTING-SPEC    PS1.04
+    WEIGHT    18.923
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A53-B
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    328.03 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+SUPPORT
+    CO-ORDS    4751.959    1335.836    4999.839     6
+    SKEY    01HG
+    ITEM-CODE    G4G_Knee_02_K1
+    UCI    {00022303-0000-0000-5302-F0D88F411D04}
+    NAME    G4G_Knee_02_K1-1-1
+WELD
+    END-POINT    8502.997    1335.836    4999.839     6    
+    END-POINT    8502.997    1335.836    4999.839     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W1
+    UCI    {000138AA-0000-0000-5602-53908A413104}
+FLANGE
+    END-POINT    8731.597    563.287    4999.839     6    
+    END-POINT    8731.597    652.187    4999.839     6    
+    SKEY    FLWN
+    ITEM-CODE    FAAAHDCZZAADABQZZUS
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A105
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    24. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+    UCI    {00013885-0000-0000-4302-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    4.931
+WELD
+    END-POINT    8731.597    652.187    4999.839     6    
+    END-POINT    8731.597    652.187    4999.839     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W7
+    UCI    {000138AA-0000-0000-6C02-53908A413104}
+FLANGE
+    END-POINT    8731.597    290.237    4999.839     6    
+    END-POINT    8731.597    201.337    4999.839     6    
+    SKEY    FLWN
+    ITEM-CODE    FAAAHDCZZAADABQZZUS
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A105
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    24. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+    UCI    {00013885-0000-0000-4502-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    4.931
+GASKET
+    END-POINT    8731.597    293.412    4999.839     6    
+    END-POINT    8731.597    290.237    4999.839     6    
+    ITEM-CODE    GMAHACABXBEPUS
+    UCI    {000138A8-0000-0000-7702-53908A413104}
+    PIPING-SPEC    1C0031
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+BOLT
+    CO-ORDS    8731.597    290.237    4999.839        
+    BOLT-DIA    0.75
+    BOLT-LENGTH    4.25
+    BOLT-QUANTITY    8
+    BOLT-ITEM-CODE    BAZZZZZZAAYBETZZUS
+    BOLT-ITEM-DESCRIPTION  ASTM-A193-B7 studs w/ASTM-A194-2H hvy hex nuts -
+    BOLT-ITEM-DESCRIPTION  4.25 in. Length
+PIPE
+    END-POINT    8731.597    1107.236    4999.839     6    
+    END-POINT    8731.597    652.187    4999.839     6    
+    ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    UCI    {0001388C-0000-0000-4602-53908A413104}
+    FABRICATION-ITEM
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PIPING-SPEC    1C0031
+    PAINTING-SPEC    PS1.04
+    WEIGHT    18.923
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A53-B
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    31.03 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+ELBOW
+    END-POINT    8731.597    -253.712    4999.839     6    BW
+    END-POINT    8731.597    -482.312    5228.439     6    BW
+    CENTRE-POINT    8731.597    -482.312    4999.839        
+    SKEY    ELBW
+    ITEM-CODE    MCMZZBOZZAAEADCZZUS
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A234-WPB
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    24. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+    UCI    {00013885-0000-0000-4102-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    4.931
+WELD
+    END-POINT    8731.597    -253.712    4999.839     6    
+    END-POINT    8731.597    -253.712    4999.839     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W4
+    UCI    {000138AA-0000-0000-6302-53908A413104}
+PIPE
+    END-POINT    8731.597    201.337    4999.839     6    
+    END-POINT    8731.597    -253.712    4999.839     6    
+    ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    UCI    {0001388C-0000-0000-4002-53908A413104}
+    FABRICATION-ITEM
+    INSULATION-ON
+    INSULATION-SPEC    CALCIUM SILICATE
+    PIPING-SPEC    1C0031
+    PAINTING-SPEC    PS1.04
+    WEIGHT    18.923
+    Component-Attribute1    150. psi
+    Component-Attribute2    150. F
+    Component-Attribute3    A53-B
+    Component-Attribute4     .28 in
+    Component-Attribute5    2. in
+    Component-Attribute6     .001806 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    31.03 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    210. psi
+SUPPORT
+    CO-ORDS    8731.597    0.000    4999.839     6
+    SKEY    01HG
+    ITEM-CODE    HgrBeam_U_Support_1
+    UCI    {00022303-0000-0000-8D00-F0D88F411D04}
+    NAME    HgrBeam_U_Support_1-1-1
+WELD
+    END-POINT    8731.597    201.337    4999.839     6    
+    END-POINT    8731.597    201.337    4999.839     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W3
+    UCI    {000138AA-0000-0000-5E02-53908A413104}
+PIPE
+    END-POINT    6275.824    1335.836    5134.777     4    
+    END-POINT    6275.824    1335.836    6204.332     4    
+    ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    UCI    {0001388C-0000-0000-4D02-53908A413104}
+    FABRICATION-ITEM
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+    PIPING-SPEC    1C0031
+    PAINTING-SPEC    PS1.04
+    WEIGHT    10.761
+    Component-Attribute1    180. psi
+    Component-Attribute2    95. F
+    Component-Attribute3    A53-B
+    Component-Attribute4     .237 in
+    Component-Attribute5    1. in
+    Component-Attribute6     .000903 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    38.95 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    300. psi
+WELD
+    END-POINT    6275.824    1335.836    6204.332     4    
+    END-POINT    6275.824    1335.836    6204.332     4    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W11
+    UCI    {000138AA-0000-0000-8C02-53908A413104}
+ELBOW
+    END-POINT    6275.824    1335.836    6204.332     4    BW
+    END-POINT    6275.824    1488.236    6356.732     4    BW
+    CENTRE-POINT    6275.824    1335.836    6356.732        
+    SKEY    ELBW
+    ITEM-CODE    MCMZZBOZZAAEADCZZUS
+    Component-Attribute1    180. psi
+    Component-Attribute2    95. F
+    Component-Attribute3    A234-WPB
+    Component-Attribute4     .237 in
+    Component-Attribute5    1. in
+    Component-Attribute6     .000903 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    8.9 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    300. psi
+    UCI    {00013885-0000-0000-4E02-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    1.829
+WELD
+    END-POINT    6275.824    1488.236    6356.732     4    
+    END-POINT    6275.824    1488.236    6356.732     4    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W12
+    UCI    {000138AA-0000-0000-9102-53908A413104}
+VALVE
+    END-POINT    6275.824    1830.692    6356.732     4    FL
+    END-POINT    6275.824    2122.792    6356.732     4    FL
+    CENTRE-POINT    6275.824    1976.742    6356.732        
+    SKEY    VGFL
+    ITEM-CODE    VALAHABAHACWADAZZZZUS
+    Component-Attribute1    180. psi
+    Component-Attribute2    95. F
+    Component-Attribute3    A216-WCB
+    Component-Attribute4    0  in
+    Component-Attribute5    1. in
+    Component-Attribute6     .000903 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    143. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    300. psi
+    UCI    {00013885-0000-0000-5102-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    ERECTION-ITEM
+    WEIGHT    29.383
+    SPINDLE-DIRECTION    UP
+    DIRECTION    UP 
+    MESSAGE-SQUARE
+    TEXT    Copy of PipeRun-1-0011_Component-1-3
+GASKET
+    END-POINT    6275.824    2122.792    6356.732     4    
+    END-POINT    6275.824    2125.967    6356.732     4    
+    ITEM-CODE    GMAHACABXBEPUS
+    UCI    {000138A8-0000-0000-9E02-53908A413104}
+    PIPING-SPEC    1C0031
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+BOLT
+    CO-ORDS    6275.824    2122.792    6356.732        
+    BOLT-DIA    0.625
+    BOLT-LENGTH    3.75
+    BOLT-QUANTITY    8
+    BOLT-ITEM-CODE    BAZZZZZZAAYBETZZUS
+    BOLT-ITEM-DESCRIPTION  ASTM-A193-B7 studs w/ASTM-A194-2H hvy hex nuts -
+    BOLT-ITEM-DESCRIPTION  3.75 in. Length
+FLANGE
+    END-POINT    6275.824    1827.517    6356.732     4    
+    END-POINT    6275.824    1751.317    6356.732     4    
+    SKEY    FLWN
+    ITEM-CODE    FAAAHDCZZAADABQZZUS
+    Component-Attribute1    180. psi
+    Component-Attribute2    95. F
+    Component-Attribute3    A105
+    Component-Attribute4     .237 in
+    Component-Attribute5    1. in
+    Component-Attribute6     .000903 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    15. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    300. psi
+    UCI    {00013885-0000-0000-5002-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    3.082
+GASKET
+    END-POINT    6275.824    1827.517    6356.732     4    
+    END-POINT    6275.824    1830.692    6356.732     4    
+    ITEM-CODE    GMAHACABXBEPUS
+    UCI    {000138A8-0000-0000-9802-53908A413104}
+    PIPING-SPEC    1C0031
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+BOLT
+    CO-ORDS    6275.824    1827.517    6356.732        
+    BOLT-DIA    0.625
+    BOLT-LENGTH    3.75
+    BOLT-QUANTITY    8
+    BOLT-ITEM-CODE    BAZZZZZZAAYBETZZUS
+    BOLT-ITEM-DESCRIPTION  ASTM-A193-B7 studs w/ASTM-A194-2H hvy hex nuts -
+    BOLT-ITEM-DESCRIPTION  3.75 in. Length
+FLANGE
+    END-POINT    6275.824    2125.967    6356.732     4    
+    END-POINT    6275.824    2202.167    6356.732     4    
+    SKEY    FLWN
+    ITEM-CODE    FAAAHDCZZAADABQZZUS
+    Component-Attribute1    180. psi
+    Component-Attribute2    95. F
+    Component-Attribute3    A105
+    Component-Attribute4     .237 in
+    Component-Attribute5    1. in
+    Component-Attribute6     .000903 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    15. lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    300. psi
+    UCI    {00013885-0000-0000-5202-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    3.082
+WELD
+    END-POINT    6275.824    2202.167    6356.732     4    
+    END-POINT    6275.824    2202.167    6356.732     4    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W13
+    UCI    {000138AA-0000-0000-A402-53908A413104}
+PIPE
+    END-POINT    6275.824    2202.167    6356.732     4    
+    END-POINT    6275.824    2465.248    6356.732     4    
+    ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    UCI    {0001388C-0000-0000-4F02-53908A413104}
+    FABRICATION-ITEM
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+    PIPING-SPEC    1C0031
+    PAINTING-SPEC    PS1.04
+    WEIGHT    10.761
+    Component-Attribute1    180. psi
+    Component-Attribute2    95. F
+    Component-Attribute3    A53-B
+    Component-Attribute4     .237 in
+    Component-Attribute5    1. in
+    Component-Attribute6     .000903 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    9.58 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    300. psi
+PIPE
+    END-POINT    6275.824    1488.236    6356.732     4    
+    END-POINT    6275.824    1751.317    6356.732     4    
+    ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    UCI    {0001388C-0000-0000-5302-53908A413104}
+    FABRICATION-ITEM
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+    PIPING-SPEC    1C0031
+    PAINTING-SPEC    PS1.04
+    WEIGHT    10.761
+    Component-Attribute1    180. psi
+    Component-Attribute2    95. F
+    Component-Attribute3    A53-B
+    Component-Attribute4     .237 in
+    Component-Attribute5    1. in
+    Component-Attribute6     .000903 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    9.58 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    300. psi
+WELD
+    END-POINT    6275.824    1751.317    6356.732     4    
+    END-POINT    6275.824    1751.317    6356.732     4    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W14
+    UCI    {000138AA-0000-0000-A702-53908A413104}
+OLET
+    CENTRE-POINT    6275.824    1335.836    4999.839        
+    BRANCH1-POINT    6275.824    1335.836    5134.777     4    
+    SKEY    WTBW
+    ITEM-CODE    MEKZZBOZZAEYABQZZUM
+    Component-Attribute1    180. psi
+    Component-Attribute2    95. F
+    Component-Attribute3    A105
+    Component-Attribute4     .237 in
+    Component-Attribute5    1. in
+    Component-Attribute6     .000903 lbm/in^3
+    Component-Attribute7     .063 in
+    Component-Attribute8    6.3 lbm
+    Component-Attribute9     .036127 lbm/in^3
+    Component-Attribute10    300. psi
+    UCI    {00013885-0000-0000-4B02-53908A413104}
+    INSULATION-ON
+    INSULATION-SPEC    MINERAL WOOL
+    PAINTING-SPEC    PS1.04
+    PIPING-SPEC    1C0031
+    FABRICATION-ITEM
+    WEIGHT    1.295
+WELD
+    END-POINT    6275.824    1335.836    4999.839     6    
+    END-POINT    6275.824    1335.836    4999.839     6    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W9
+    UCI    {000138AA-0000-0000-8802-53908A413104}
+WELD
+    END-POINT    6275.824    1335.836    5134.777     4    
+    END-POINT    6275.824    1335.836    5134.777     4    
+    SKEY    WW
+    REPEAT-WELD-IDENTIFIER    RICK_UNIT-133-W10
+    UCI    {000138AA-0000-0000-8902-53908A413104}
+END-POSITION-OPEN
+    CO-ORDS    8731.597    -482.312    6546.556
+END-POSITION-OPEN
+    CO-ORDS    3603.346    1335.836    4999.839
+END-POSITION-OPEN
+    CO-ORDS    6275.824    2465.248    6356.732
+MATERIALS
+ITEM-CODE    MCMZZBOZZAAEADCZZUS
+    DESCRIPTION    90 deg LR elbow, S-STD, BE, ASTM-A234-WPB, ANSI-B16.9
+ITEM-CODE    PAAZZBOZZABAABOAAZZUS
+    DESCRIPTION    Pipe, S-STD, BE, ASTM-A53-B Type S
+ITEM-CODE    VAAAHABAHADJADAZZZZUS
+    DESCRIPTION    Gate valve, CL150, RFFE, BB, OS&Y, ASTM-A216-WCB, trim 8, Crane
+    DESCRIPTION    47
+ITEM-CODE    GMAHACABXBEPUS
+    DESCRIPTION    Gasket, CL150, 0.125 thk, 304 spiral wnd, graph filled, CS
+    DESCRIPTION    center ring, API-601
+ITEM-CODE    BAZZZZZZAAYBETZZUS
+    DESCRIPTION    ASTM-A193-B7 studs w/ASTM-A194-2H hvy hex nuts
+ITEM-CODE    FAAAHDCZZAADABQZZUS
+    DESCRIPTION    Flange, CL150, RFFE/BE, ASTM-A105, ANSI-B16.5, WN, S-STD
+    DESCRIPTION    borebore to match
+ITEM-CODE    G4G_Knee_02_K1
+    DESCRIPTION    Knee Brace with U-Bolt
+ITEM-CODE    HgrBeam_U_Support_1
+    DESCRIPTION    Hanger Beam U shape with U-bolt
+ITEM-CODE    VALAHABAHACWADAZZZZUS
+    DESCRIPTION    Globe valve, CL150, RFFE, BB, OS&Y, ASTM-A216-WCB, trim 8,
+    DESCRIPTION    Crane 143
+ITEM-CODE    MEKZZBOZZAEYABQZZUM
+    DESCRIPTION    Weldolet, S-STD x S-STD, BE, weldolet, ASTM-A105

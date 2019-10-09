@@ -1,0 +1,155 @@
+---------------------------------------------------------------------------------------------------------------------------
+
+                              C A E S A R   R I G I D   C O M P O N E N T S   I M P O R T                                  
+
+---------------------------------------------------------------------------------------------------------------------------
+
+ Selected Standard : B16-47 2006 & B16-5 2009
+
+ Selected Type     : All
+
+ Selected Rating   : All
+
+ NPS Tolerance     :  5.0 %
+
+ Length Tolerance  : 10.0 %
+
+ From      To        Standard        Pipe OD   Actual NPS  Actual Len     Actual    Type          Lib.       Comments      
+                                                Lib. NPS    Lib. Len      Weight                 Rating*                   
+                                      (mm)        (mm)        (mm)         (kg)                                            
+ ------  ------  -----------------  ---------  ----------  -----------  ---------- ----------  ----------  ----------------
+     10      20  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+     40      50  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+     50      60          -            219.075     200.000      464.000     217.214     -           -       Mapped to Valve
+
+     60      70  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+     90     100  B16-5 2009           219.075     200.000      105.500      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+    100     110  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+    152     154  B16-5 2009           219.075     200.000      105.500      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+    154     156  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+    202     204  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+    204     206  B16-5 2009           219.075     200.000      105.500      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+    320     330  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    330     340          -             88.900      80.000      210.000      45.890     -           -       Mapped to Valve
+
+    340     350  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    380     390  B16-5 2009            60.325      50.000       63.500       2.753  Weldneck      150      Mapped to Flange
+                                                   50.000       61.976  
+    390     400          -             60.325      50.000      210.000      36.712     -           -       Mapped to Valve
+
+    400     410  B16-5 2009            60.325      50.000       63.500       2.753  Weldneck      150      Mapped to Flange
+                                                   50.000       61.976  
+    440     450  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    450     460          -             88.900      80.000      210.000      45.890     -           -       Mapped to Valve
+
+    460     470  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    515     516  B16-5 2009            88.900      80.000       70.711       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    516     517          -             88.900      80.000       24.042       4.181     -           -       Mapped to Valve
+
+    540     550  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    550     560          -             88.900      80.000      210.000      45.890     -           -       Mapped to Valve
+
+    560     570  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    610     620  B16-5 2009            60.325      50.000       63.500       2.753  Weldneck      150      Mapped to Flange
+                                                   50.000       61.976  
+    620     630          -             60.325      50.000      210.000      36.712     -           -       Mapped to Valve
+
+    630     640  B16-5 2009            60.325      50.000       63.500       2.753  Weldneck      150      Mapped to Flange
+                                                   50.000       61.976  
+    690     700  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    700     710          -             88.900      80.000      210.000      45.890     -           -       Mapped to Valve
+
+    710     720  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+    800     810  B16-5 2009           168.275     150.000       89.000      12.033  Weldneck      150      Mapped to Flange
+                                                  150.000       87.376  
+    810     820  B16-5 2009           168.275     150.000      274.000      86.682  Weldneck      2500     Mapped to Flange
+                                                  150.000      273.050  
+    820     830  B16-5 2009           168.275     150.000       89.000      12.033  Weldneck      150      Mapped to Flange
+                                                  150.000       87.376  
+    835     836  B16-5 2009           168.275     150.000       89.000      12.033  Weldneck      150      Mapped to Flange
+                                                  150.000       87.376  
+    836     837          -            168.275     150.000       25.500      12.441     -           -       Mapped to Valve
+
+    910     920  B16-5 2009           168.275     150.000       89.000      12.033  Weldneck      150      Mapped to Flange
+                                                  150.000       87.376  
+    920     930  B16-5 2009           168.275     150.000      274.000      86.682  Weldneck      2500     Mapped to Flange
+                                                  150.000      273.050  
+    930     940  B16-5 2009           168.275     150.000       89.000      12.033  Weldneck      150      Mapped to Flange
+                                                  150.000       87.376  
+   1030    1040  B16-5 2009           141.300     125.000       92.500       9.688  Weldneck      300      Mapped to Flange
+                                                  125.000       97.028  
+   1040    1050  B16-5 2009           141.300     125.000       89.000       9.688  Weldneck      150      Mapped to Flange
+                                                  125.000       87.376  
+   1060    1070  B16-5 2009           141.300     125.000       89.000       9.688  Weldneck      150      Mapped to Flange
+                                                  125.000       87.376  
+   1110    1120  B16-5 2009           219.075     200.000      105.500      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+   1120    1130  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+   1200    1210  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+   1210    1220          -            219.075     200.000      464.000     217.214     -           -       Mapped to Valve
+
+   1220    1230  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+   1400    1410  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+   1410    1420          -             88.900      80.000      210.000      45.890     -           -       Mapped to Valve
+
+   1420    1430  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+   1490    1500  B16-5 2009            60.325      50.000       63.500       2.753  Weldneck      150      Mapped to Flange
+                                                   50.000       61.976  
+   1500    1510          -             60.325      50.000      210.000      36.712     -           -       Mapped to Valve
+
+   1510    1520  B16-5 2009            60.325      50.000       63.500       2.753  Weldneck      150      Mapped to Flange
+                                                   50.000       61.976  
+   1550    1560  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+   1560    1570          -             88.900      80.000      210.000      45.890     -           -       Mapped to Valve
+
+   1570    1580  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+   1610    1620  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+   1620    1630          -             88.900      80.000      210.000      45.890     -           -       Mapped to Valve
+
+   1630    1640  B16-5 2009            88.900      80.000       70.000       5.405  Weldneck      150      Mapped to Flange
+                                                   80.000       68.326  
+   1720    1730  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+   1730    1740  B16-5 2009           219.075     200.000      102.000      19.376  Slip On       900      Mapped to Flange
+                                                  200.000      101.600  
+   1810    1820  B16-5 2009           168.275     150.000       89.000      12.033  Weldneck      150      Mapped to Flange
+                                                  150.000       87.376  
+   1820    1830  B16-5 2009           168.275     150.000      274.000      86.682  Weldneck      2500     Mapped to Flange
+                                                  150.000      273.050  
+   1830    1840  B16-5 2009           168.275     150.000       89.000      12.033  Weldneck      150      Mapped to Flange
+                                                  150.000       87.376  
+   1920    1930  B16-5 2009           141.300     125.000       92.500       9.688  Weldneck      300      Mapped to Flange
+                                                  125.000       97.028  
+   1930    1940  B16-5 2009           141.300     125.000       89.000       9.688  Weldneck      150      Mapped to Flange
+                                                  125.000       87.376  
+   1950    1960  B16-5 2009           141.300     125.000       89.000       9.688  Weldneck      150      Mapped to Flange
+                                                  125.000       87.376  
+
+   * Library flange rating is the rating value of matching flange record from flange dimension library.
+     Rating of flanges in imported AutoPIPE model may be different and is dependent on piping code of the model.

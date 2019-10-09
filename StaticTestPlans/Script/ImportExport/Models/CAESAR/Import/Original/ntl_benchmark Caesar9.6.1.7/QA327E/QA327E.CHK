@@ -1,0 +1,33 @@
+----------------------------------------------------------------------------------------------------------------
+QA327E                                                                                                          
+08/26/2014 PROJECT:                                                   BENTLEY                                   
+04:44 PM                                                              AutoPIPE Nuclear 9.6.1.07  CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2143-121 Sc > 20 ksi (138 MPa). In calculation Sc will be set to          
+     20 ksi (138 MPa) for expansion allow for pipe(s)                           
+                                                                                
+     PIPE4                                                                      
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2143-123 Sh > 20 ksi (138 MPa). In calculation Sh will be set to          
+     20 ksi (138 MPa) for expansion allow at following point(s)                 
+                                                                                
+     80  F, 90, 100 N, 100 F, 110                                               
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-7:  Pipe diameter change without a reducer at following point(s)      
+                                                                                
+     50, 80  F                                                                  
+ 
+ 
+  No error     8 Warning(s)                                                     
+ 
+

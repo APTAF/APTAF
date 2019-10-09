@@ -1,0 +1,571 @@
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+<IGNORE>
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+<IGNORE>
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA327A                                          
+ 
+ 
+          PROJECT ID  : PROJECT:                                
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.3              
+ 
+          YEAR                   : 2016                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : autopipe
+ 
+          MATERIAL LIBRARY       : b313-12 
+ 
+<IGNORE>
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    2                      
+     Segment Data....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+     Forces and Displacement.........................................................    8                      
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 2 to 4, DX= 1.00 ft                                                   Junc
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE1, Material= CS, Composition= Carbon Steel, Poisson= 0.300, Nom Size= 12 in, OD= 12.750 inch,   
+   Sch= NS, Wall Thk= 0.365 inch, Mill= 0.046 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                 
+   Pipe Unit Wgt= 48.23 lb/ft, Insul Thk= 2.000 inch, Insul Material= OTHER, Insul Density= 11.50 lb/cu.ft,     
+   Insul Unit Wgt= 7.40 lb/ft, Cladding Thickness = 0 inch, Lining Thk= 0 inch, Long Weld E factor= 1.00,       
+   Long Modulus= 29.50000 E6 psi, Hoop Modulus= 29.50000 E6 psi, Shear Modulus= 11.34615 E6 psi, Sc= 0 psi,     
+   Syc= 40000.0 psi                                                             
+ 
+ OPERATING DATA:                                                                
+   P1= 210.00 psi, P2= 344.00 psi, P3= 0 psi, T1= 155.00 deg F, T2= 266.00 deg F, T3= 377.00 deg F,             
+   Exp1= 0.64800 in/100ft, Exp2= 1.53440 in/100ft, Exp3= 2.49760 in/100ft, E1= 29.04200 E6 psi,                 
+   E2= 28.47320 E6 psi, E3= 27.83800 E6 psi, Sh1= 0 psi, Sh2= 0 psi, Sh3= 0 psi, Sy1= 40000.00 psi,             
+   Sy2= 40000.00 psi, Sy3= 40000.00 psi                                         
+ 
+ POINT DATA:                                                                    
+   2, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                           
+ 
+ -------------------------------------------------------------------------------
+ From 4 to 4X, DX= 0.01 ft                                                  Noz 
+ 
+ COMPONENT DATA (Nozzle):                                                       
+   Length= 0.01 ft, Flexibility method= WRC 297, Rad= 4.17 ft, Thick= 2.000 inch, L1= 16.7 ft, L2= 16.7 ft,     
+   DirX= 0.000, DirY= 1.000, DirZ= 0.000, Krad=1771051.50 lb/in, Kcirc=242128.81 ft-lb/deg,                     
+   Klong=415646.34 ft-lb/deg                                                    
+ 
+ POINT DATA:                                                                    
+   4, Coordinates, X= 1.00 ft, Y= 0.00 ft, Z= 0.00 ft                           
+   4X, Coordinates, X= 1.01 ft, Y= 0.00 ft, Z= 0.00 ft                          
+ 
+ SUPPORT DATA:                                                                  
+   4X, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid     
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 2 to 10, DX= 2.00 ft                                                  Junc
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 48.23 lb/ft         
+ 
+ POINT DATA:                                                                    
+   2, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                           
+ 
+ -------------------------------------------------------------------------------
+ From 10 to 20, DX= 8.00 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   10, Coordinates, X= 2.00 ft, Y= 0.00 ft, Z= 0.00 ft                          
+   10, Dist Load= U1, Id= 289, DLX= 66 lb/ft                                    
+   10, Dist Load= U2, Id= 291, DLY= 77 lb/ft                                    
+   10, Dist Load= U3, Id= 293, DLZ= 88 lb/ft                                    
+ 
+ -------------------------------------------------------------------------------
+ From 20 to 30, DX= 10.17 ft                                                Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE2, Material= A106-B, Composition= Carbon Steel, Wall Thk= 0.277 inch, Mill= 0.035 inch,         
+   Cor= 0.060 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 36.86 lb/ft, Sc= 20000.0 psi,                 
+   Syc= 35000.0 psi, Suc= 60000.0 psi                                           
+ 
+ OPERATING DATA:                                                                
+   Sh1= 20000.00 psi, Sh2= 20000.00 psi, Sh3= 19923.00 psi, Sy1= 33405.00 psi, Sy2= 31374.00 psi,               
+   Sy3= 30153.00 psi                                                            
+ 
+ POINT DATA:                                                                    
+   20, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   20, Dist Load= U1, Id= 289, DLX= 66 lb/ft                                    
+   20, Dist Load= U2, Id= 291, DLY= 77 lb/ft                                    
+   20, Dist Load= U3, Id= 293, DLZ= 88 lb/ft                                    
+   20, Dist Load= U1, Id= 295, DLX= 53 lb/ft                                    
+   20, Dist Load= U2, Id= 297, DLY= 62 lb/ft                                    
+   20, Dist Load= U3, Id= 299, DLZ= 71 lb/ft                                    
+ 
+ -------------------------------------------------------------------------------
+ From 30 to 40, DX= 6.33 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   30, Coordinates, X= 20.17 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   30, Dist Load= U1, Id= 295, DLX= 53 lb/ft                                    
+   30, Dist Load= U2, Id= 297, DLY= 62 lb/ft                                    
+   30, Dist Load= U3, Id= 299, DLZ= 71 lb/ft                                    
+   30, Dist Load= U1, Id= 301, DLX= 53 lb/ft                                    
+   30, Dist Load= U2, Id= 305, DLY= 62 lb/ft                                    
+   30, Dist Load= U3, Id= 309, DLZ= 71 lb/ft                                    
+ 
+ -------------------------------------------------------------------------------
+ From 40 to 50, DZ= 7.17 ft                                                 Bend
+ 
+ COMPONENT DATA (Bend, TIP= 40, Near= 40  N, Mid= 40  M, Far= 40  F):           
+   Elbow, Radius= 18.00 inch, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,    
+   SIFI= 3.54, SIFO= 2.95                                                       
+ 
+ POINT DATA:                                                                    
+   40, Coordinates, X= 26.50 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   40  N, Coordinates, X= 25.00 ft, Y= 0.00 ft, Z= 0.00 ft                      
+   40  N, Dist Load= U1, Id= 301, DLX= 53 lb/ft                                 
+   40  N, Dist Load= U2, Id= 305, DLY= 62 lb/ft                                 
+   40  N, Dist Load= U3, Id= 309, DLZ= 71 lb/ft                                 
+   40  M, Coordinates, X= 26.06 ft, Y= 0.00 ft, Z= 0.44 ft                      
+   40  M, Dist Load= U1, Id= 301, DLX= 53 lb/ft                                 
+   40  M, Dist Load= U2, Id= 305, DLY= 62 lb/ft                                 
+   40  M, Dist Load= U3, Id= 309, DLZ= 71 lb/ft                                 
+   40  F, Coordinates, X= 26.50 ft, Y= 0.00 ft, Z= 1.50 ft                      
+   40  F, Dist Load= U1, Id= 301, DLX= 53 lb/ft                                 
+   40  F, Dist Load= U2, Id= 305, DLY= 62 lb/ft                                 
+   40  F, Dist Load= U3, Id= 309, DLZ= 71 lb/ft                                 
+   40  F, Dist Load= U1, Id= 313, DLX= 53 lb/ft                                 
+   40  F, Dist Load= U2, Id= 315, DLY= 62 lb/ft                                 
+   40  F, Dist Load= U3, Id= 317, DLZ= 71 lb/ft                                 
+ 
+ -------------------------------------------------------------------------------
+ From 50 to 60, DZ= 7.25 ft                                                 Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Material= A312-TP304L, Composition= Austenitic Stainless, Nom Size= 10 in, OD= 10.750 inch,  
+   Wall Thk= 0.250 inch, Mill= 0.031 inch, Pipe Density= 501.00 lb/cu.ft, Pipe Unit Wgt= 28.69 lb/ft,           
+   Insul Thk= 4.000 inch, Insul Density= 11.50 lb/cu.ft, Insul Unit Wgt= 14.80 lb/ft,                           
+   Long Modulus= 28.30000 E6 psi, Hoop Modulus= 28.30000 E6 psi, Shear Modulus= 10.88462 E6 psi,                
+   Sc= 16700.0 psi, Syc= 25000.0 psi, Suc= 70000.0 psi                          
+ 
+ OPERATING DATA:                                                                
+   Exp1= 0.95600 in/100ft, Exp2= 2.21560 in/100ft, Exp3= 3.52400 in/100ft, E1= 27.84200 E6 psi,                 
+   E2= 27.20400 E6 psi, E3= 26.61960 E6 psi, Sh1= 16700.00 psi, Sh2= 16700.00 psi, Sh3= 16007.00 psi,           
+   Sy1= 23020.00 psi, Sy2= 19948.00 psi, Sy3= 17891.00 psi                      
+ 
+ POINT DATA:                                                                    
+   50, Coordinates, X= 26.50 ft, Y= 0.00 ft, Z= 7.17 ft                         
+   50, Dist Load= U1, Id= 313, DLX= 53 lb/ft                                    
+   50, Dist Load= U2, Id= 315, DLY= 62 lb/ft                                    
+   50, Dist Load= U3, Id= 317, DLZ= 71 lb/ft                                    
+ 
+ -------------------------------------------------------------------------------
+ From 60 to 70, DZ= 6.42 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   60, Coordinates, X= 26.50 ft, Y= 0.00 ft, Z= 14.42 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 70 to 80, DZ= 6.50 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   70, Coordinates, X= 26.50 ft, Y= 0.00 ft, Z= 20.83 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 80 to 90, DX= 4.00 ft                                                 Bend
+ 
+ COMPONENT DATA (Bend, TIP= 80, Near= 80  N, Mid= 80  M, Far= 80  F):           
+   Elbow, Radius= 15.00 inch, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,    
+   SIFI= 3.40, SIFO= 2.84                                                       
+ 
+ PIPE DATA (80  F to 90):                                                       
+   Pipe Id= PIPE4, Material= CS, Composition= Carbon Steel, Nom Size= 14 in, OD= 14.000 inch,                   
+   Wall Thk= 0.437 inch, Mill= 0.055 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 63.23 lb/ft,           
+   Insul Thk= 5.000 inch, Insul Density= 11.23 lb/cu.ft, Insul Unit Wgt= 23.28 lb/ft,                           
+   Long Modulus= 29.50000 E6 psi, Hoop Modulus= 29.50000 E6 psi, Shear Modulus= 11.34615 E6 psi,                
+   Sc= 18000.0 psi, Suc= 0 psi                                                  
+ 
+ OPERATING DATA (80  F to 90):                                                  
+   Exp1= 0.64800 in/100ft, Exp2= 1.53440 in/100ft, Exp3= 2.49760 in/100ft, E1= 29.04200 E6 psi,                 
+   E2= 28.47320 E6 psi, E3= 27.83800 E6 psi, Sh1= 15500.00 psi, Sh2= 14800.00 psi, Sh3= 14300.00 psi,           
+   Sy1= 25000.00 psi, Sy2= 25000.00 psi, Sy3= 25000.00 psi                      
+ 
+ POINT DATA:                                                                    
+   80, Coordinates, X= 26.50 ft, Y= 0.00 ft, Z= 27.33 ft                        
+   80  N, Coordinates, X= 26.50 ft, Y= 0.00 ft, Z= 26.08 ft                     
+   80  M, Coordinates, X= 26.87 ft, Y= 0.00 ft, Z= 26.97 ft                     
+   80  F, Coordinates, X= 27.75 ft, Y= 0.00 ft, Z= 27.33 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 90 to 100, DX= 5.00 ft                                                Run 
+ 
+ OPERATING DATA:                                                                
+   Sh1= 18000.00 psi, Sh2= 18000.00 psi, Sh3= 18000.00 psi                      
+ 
+ POINT DATA:                                                                    
+   90, Coordinates, X= 30.50 ft, Y= 0.00 ft, Z= 27.33 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 100 to 110, DZ= 4.42 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= 100, Near= 100 N, Far= 100 F):                      
+   Elbow, Radius= 21.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.64, SIFO= 2.20         
+ 
+ POINT DATA:                                                                    
+   100, Coordinates, X= 35.50 ft, Y= 0.00 ft, Z= 27.33 ft                       
+   100 N, Coordinates, X= 33.75 ft, Y= 0.00 ft, Z= 27.33 ft                     
+   100 F, Coordinates, X= 35.50 ft, Y= 0.00 ft, Z= 29.08 ft                     
+   110, Coordinates, X= 35.50 ft, Y= 0.00 ft, Z= 31.75 ft                       
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 26 + 0 + 0 = 26          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         3526.7 lb     +         0.0 lb     =        3526.7 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ 2              0.00        0.00        0.00                                    
+ 4              1.00        0.00        0.00                                    
+ 4X             1.01        0.00        0.00                                    
+ 
+ *** SEGMENT B                                                                  
+ 2              0.00        0.00        0.00                                    
+ 10             2.00        0.00        0.00                                    
+ 20            10.00        0.00        0.00                                    
+ 30            20.17        0.00        0.00                                    
+ 40  N         25.00        0.00        0.00                                    
+ 40            26.50        0.00        0.00                                    
+ 40  M         26.06        0.00        0.44                                    
+ 40  F         26.50        0.00        1.50                                    
+ 50            26.50        0.00        7.17                                    
+ 60            26.50        0.00       14.42                                    
+ 70            26.50        0.00       20.83                                    
+ 80  N         26.50        0.00       26.08                                    
+ 80            26.50        0.00       27.33                                    
+ 80  M         26.87        0.00       26.97                                    
+ 80  F         27.75        0.00       27.33                                    
+ 90            30.50        0.00       27.33                                    
+ 100 N         33.75        0.00       27.33                                    
+ 100           35.50        0.00       27.33                                    
+ 100 F         35.50        0.00       29.08                                    
+ 110           35.50        0.00       31.75                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A T A   L I S T I N G                                                     
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       2      4X                                    No    No     No           
+ B       2      110                                   No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    E/  Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  W/  Steel Group/          
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f   Tcr                   
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ PIPE1         12 12.750 0.365    0 0.05 2.00    0     0   11.500  48.23     0 55.63 1.00 Carbon Steel          
+ CS           NS                                   Other    0.000      0  7.40       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE2         12 12.750 0.277 0.06 0.03 2.00    0     0   11.500  36.86     0 44.26 1.00 Carbon Steel          
+ A106-B       NS                                   Other    0.000      0  7.40       0.00 Carbon                
+                             0                              0.000            0       1.00    650.000            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE3         10 10.750 0.250 0.06 0.03 4.00    0     0   11.500  28.69     0 43.49 1.00 Austenitic Stainless  
+ A312-TP304L  NS                                   Other    0.000      0 14.80       0.00 Austenitic            
+                             0                              0.000            0       1.00    850.000            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE4         14 14.000 0.437 0.06 0.05 5.00    0     0   11.232  63.23     0 86.51 1.00 Carbon Steel          
+ CS           NS                                   Other    0.000      0 23.28       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ CS          PIPE1       489.0  0.30    70.0   29.500   29.500   11.346          Carbon Steel        
+                                       155.0   29.042                     0.6480
+                                       266.0   28.473                     1.5344
+                                       377.0   27.838                     2.4976
+ 
+ A106-B      PIPE2       489.0  0.30    70.0   29.500   29.500   11.346          Carbon Steel        
+                                       155.0   29.042                     0.6480
+                                       266.0   28.473                     1.5344
+                                       377.0   27.838                     2.4976
+ 
+ A312-TP304L PIPE3       501.0  0.30    70.0   28.300   28.300   10.885          Austenitic Stainless
+                                       155.0   27.842                     0.9560
+                                       266.0   27.204                     2.2156
+                                       377.0   26.620                     3.5240
+ 
+ CS          PIPE4       489.0  0.30    70.0   29.500   29.500   11.346          Carbon Steel        
+                                       155.0   29.042                     0.6480
+                                       266.0   28.473                     1.5344
+                                       377.0   27.838                     2.4976
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Ultimate Weld Reduction Factor                                  
+    Name     Pipe ID  deg F   psi      psi                        W                                             
+------------ -------- ------- -------- -------- -------- ---------------------                                  
+ CS          PIPE1       70.0      0.0  40000.0      0.0       1.000
+                        155.0      0.0  40000.0                1.000
+                        266.0      0.0  40000.0                1.000
+                        377.0      0.0  40000.0                1.000
+ 
+ A106-B      PIPE2       70.0  20000.0  35000.0  60000.0       1.000
+                        155.0  20000.0  33405.0                1.000
+                        266.0  20000.0  31374.0                1.000
+                        377.0  19923.0  30153.0                1.000
+ 
+ A312-TP304L PIPE3       70.0  16700.0  25000.0  70000.0       1.000
+                        155.0  16700.0  23020.0                1.000
+                        266.0  16700.0  19948.0                1.000
+                        377.0  16007.0  17891.0                1.000
+ 
+ CS          PIPE4       70.0  18000.0  25000.0      0.0       1.000
+                        155.0  15500.0  25000.0                1.000
+                        266.0  14800.0  25000.0                1.000
+                        377.0  14300.0  25000.0                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW     YIELD                                              
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS    STRESS                                             
+ ----  ----  ------ ------  --------    -------    ------    ------                                             
+ 
+ *** SEGMENT A 
+ 2     T1       210    155     0.648     29.042         0*    40000*          
+       T2       344    266     1.534     28.473         0*    40000*          
+       T3         0    377     2.498     27.838         0*    40000*          
+ 4X     Same as previous point.          
+ 
+ *** SEGMENT B 
+ 2     T1       210    155     0.648     29.042         0*    40000*          
+       T2       344    266     1.534     28.473         0*    40000*          
+       T3         0    377     2.498     27.838         0*    40000*          
+ 20    T1       210    155     0.648     29.042     20000     33405           
+       T2       344    266     1.534     28.473     20000     31374           
+       T3         0    377     2.498     27.838     19923     30153           
+ 50    T1       210    155     0.956     27.842     16700     23020           
+       T2       344    266     2.216     27.204     16700     19948           
+       T3         0    377     3.524     26.620     16007     17891           
+ 80  F T1       210    155     0.648     29.042     15500*    25000*          
+       T2       344    266     1.534     28.473     14800*    25000*          
+       T3         0    377     2.498     27.838     14300*    25000*          
+ 90    T1       210    155     0.648     29.042     18000*    25000*          
+       T2       344    266     1.534     28.473     18000*    25000*          
+       T3         0    377     2.498     27.838     18000*    25000*          
+ 110    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            FORCES AND DISPLACEMENTS                                                            
+   (Force - lbf , Moment - ft-lb , Tran. - in  , Rot. - deg  , Line - lb/ft  )                                  
+    POINT  LOAD                                                                                                 
+    NAME   CASE  TYPE      X        Y        Z        XX       YY       ZZ                                      
+    -----  ----  ----  -------- -------- --------  -------- -------- --------                                   
+    10     U1    LINE        66        0        0                               
+           U2    LINE         0       77        0                               
+           U3    LINE         0        0       88                               
+ 
+    20     U1    LINE        66        0        0                               
+           U2    LINE         0       77        0                               
+           U3    LINE         0        0       88                               
+           U1    LINE        53        0        0                               
+           U2    LINE         0       62        0                               
+           U3    LINE         0        0       71                               
+ 
+    30     U1    LINE        53        0        0                               
+           U2    LINE         0       62        0                               
+           U3    LINE         0        0       71                               
+           U1    LINE        53        0        0                               
+           U2    LINE         0       62        0                               
+           U3    LINE         0        0       71                               
+ 
+    40  N  U1    LINE        53        0        0                               
+           U2    LINE         0       62        0                               
+           U3    LINE         0        0       71                               
+ 
+    40  M  U1    LINE        53        0        0                               
+           U2    LINE         0       62        0                               
+           U3    LINE         0        0       71                               
+ 
+    40  F  U1    LINE        53        0        0                               
+           U2    LINE         0       62        0                               
+           U3    LINE         0        0       71                               
+           U1    LINE        53        0        0                               
+           U2    LINE         0       62        0                               
+           U3    LINE         0        0       71                               
+ 
+    50     U1    LINE        53        0        0                               
+           U2    LINE         0       62        0                               
+           U3    LINE         0        0       71                               
+

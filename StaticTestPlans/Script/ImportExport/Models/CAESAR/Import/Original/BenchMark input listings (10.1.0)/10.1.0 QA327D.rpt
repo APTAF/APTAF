@@ -1,0 +1,1046 @@
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                                               BENTLEY                       
+02:16 AM                                                                          AutoPIPE Advanced 10.01.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 10.01.00.09                            
+                                                                                
+                                Edition: Advanced                               
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                                               BENTLEY                       
+02:16 AM                                                                          AutoPIPE Advanced 10.01.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA327D                                          
+ 
+ 
+          PROJECT ID  : PROJECT:                                
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2004                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : autopipe
+ 
+          MATERIAL LIBRARY       : b311-04 
+ 
+          MODEL REVISION NUMBER  :     1
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                                               BENTLEY                       
+02:16 AM                                                                          AutoPIPE Advanced 10.01.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    9                      
+     Segment Data....................................................................   11                      
+     Pipe Properties.................................................................   12                      
+     Material Properties.............................................................   13                      
+     Material Allowables.............................................................   14                      
+     Temperature and Pressure........................................................   15                      
+     Forces and Displacement.........................................................   16                      
+     Support.........................................................................   17                      
+     Bend............................................................................   18                      
+     Tee.............................................................................   19                      
+     Valve...........................................................................   20                      
+     Flange..........................................................................   21                      
+     Rigid Pipe......................................................................   22                      
+     Center of Gravity...............................................................   23                      
+     Load Case Description...........................................................   24                      
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 10 to 20, DX= 5.00 ft                                                 Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE1, Material= A135-B, Poisson= 0.300, Nom Size= 10 in, OD= 10.750 inch, Sch= NS,                 
+   Wall Thk= 0.307 inch, Mill= 0.038 inch, Cor= 0.060 inch, Pipe Density= 489.00 lb/cu.ft,                      
+   Pipe Unit Wgt= 34.20 lb/ft, Content Sp Gr= 22.154, Content Unit Wgt= 774.63 lb/ft, Insul Thk= 2.000 inch,    
+   Insul Material= OTHER, Insul Density= 120.96 lb/cu.ft, Insul Unit Wgt= 67.29 lb/ft,                          
+   Cladding Thickness = 0 inch, Lining Thk= 0 inch, Long Weld factor= 1.00, Circ Weld factor= 1.00,             
+   Long Modulus= 29.50000 E6 psi, Hoop Modulus= 29.50000 E6 psi, Shear Modulus= 11.34615 E6 psi,                
+   Sc= 12800.0 psi, Syc= 35000.0 psi                                            
+ 
+ OPERATING DATA:                                                                
+   P1= 200.00 psi, T1= 100.00 deg F, Exp1= 0.23077 in/100ft, E1= 29.33846 E6 psi, Sh1= 12800.00 psi             
+ 
+ POINT DATA:                                                                    
+   10, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                          
+ 
+ -------------------------------------------------------------------------------
+ From 20 to 30, DX= 6.00 ft                                                 Flex
+ 
+ COMPONENT DATA (Flex Jt):                                                      
+   Length= 6.00 ft, Weight= 0 lb, Area= 78.5 sq.in, Kax= 100.0 lb/in, Kylat= RIGID, Kzlat= RIGID,               
+   Ktor= 83333000 ft-lb/deg, Kybend= 250.0 ft-lb/deg, Kzbend= 250.0 ft-lb/deg   
+ 
+ POINT DATA:                                                                    
+   20, Coordinates, X= 5.00 ft, Y= 0.00 ft, Z= 0.00 ft                          
+ 
+ -------------------------------------------------------------------------------
+ From 30 to 40, DX= 6.00 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   30, Coordinates, X= 11.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 40 to 41, DX= 0.58 ft                                                 Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 40):                                       
+   Other, SIF= 1.00                                                             
+   Rigid, Include weight= No, Include expansion= Yes                            
+ 
+ POINT DATA:                                                                    
+   40, Coordinates, X= 17.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 41 to 42, DX= 0.73 ft                                                 Flex
+ 
+ COMPONENT DATA (Flex Jt):                                                      
+   Length= 0.73 ft, Weight= 0 lb, Area= 109.3 sq.in, Kax= 2168.0 lb/in, Kylat= 5912.0 lb/in,                    
+   Kzlat= 5912.0 lb/in, Ktor= 15653.0 ft-lb/deg, Kybend= RIGID, Kzbend= RIGID   
+ 
+ POINT DATA:                                                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   41, Coordinates, X= 17.58 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   41, Flange= LAPJOINT, Rating= 1500, Flange Weight= 78.97 lb, Bolt/Nut Weight= 0.00 lb, End type= Lap jointed,
+   SIF= 1.60, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 42 to 44, DX= 0.58 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   42, Coordinates, X= 18.31 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   44, Coordinates, X= 18.90 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   44, Flange= LAPJOINT, Rating= 1500, Flange Weight= 78.97 lb, Bolt/Nut Weight= 0.00 lb, End type= Lap jointed,
+   SIF= 1.60, Perform ANSI check= No                                            
+ 
+ SUPPORT DATA:                                                                  
+   44, Incline, Support Id= 44   1, Connected to Ground, Dir= Inclined, DirX= 1.000, DirY= 0.000, DirZ= 0.000,  
+   Comp.Wt = 0.000 lb, Stiffness= RIGID                                         
+   44, Rotation, Support Id= 44   2, Connected to Ground, Dir= Inclined, DirX= 0.000, DirY= 0.000, DirZ= 1.000, 
+   Comp.Wt = 0.000 lb, Stiffness= RIGID                                         
+   44, Rotation, Support Id= 44   3, Connected to Ground, Dir= Inclined, DirX= 0.000, DirY= 1.000, DirZ= 0.000, 
+   Comp.Wt = 0.000 lb, Stiffness= RIGID                                         
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 40 to 44, DX= 1.90 ft                                                 Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 40):                                       
+   Other, SIF= 1.00                                                             
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE1, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 34.20 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 774.63 lb/ft                                               
+ 
+ OPERATING DATA:                                                                
+   T1= 70.00 deg F, Exp1= 0 in/100ft, E1= 29.50000 E6 psi                       
+ 
+ POINT DATA:                                                                    
+   40, Coordinates, X= 17.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 44 to 50, DX= 1.10 ft                                                 Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 44):                                       
+   Other, SIF= 1.00                                                             
+ 
+ OPERATING DATA:                                                                
+   T1= 100.00 deg F, Exp1= 0.23077 in/100ft, E1= 29.33846 E6 psi                
+ 
+ POINT DATA:                                                                    
+   44, Coordinates, X= 18.90 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 50 to 60, DX= 4.00 ft                                                 Valv
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ COMPONENT DATA (Valve):                                                        
+   NS, Rating= Non-standard, Length= 4.00 ft, Valve weight = 250 lb, Surface factor= 1.75,                      
+   End type= User-defined, SIF= 1.00                                            
+ 
+ POINT DATA:                                                                    
+   50, Coordinates, X= 20.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   50  M, Coordinates, X= 22.00 ft, Y= 0.00 ft, Z= 0.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   50, Incline, Support Id= 50   1, Connected to Ground, Dir= Inclined, DirX= 0.000, DirY= 1.000, DirZ= 0.000,  
+   Comp.Wt = 0.000 lb, Stiffness= RIGID, Gap-Minus= 0.00 inch, Gap-Plus= 1000.00 inch, Friction= 0.00,          
+   Gaps setting= Weightless                                                     
+ 
+ -------------------------------------------------------------------------------
+ From 60 to 70, DX= 1.53 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   60, Coordinates, X= 24.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   60, Flange= WELDNECK, Rating= 2500, Flange Weight= 575.00 lb, Bolt/Nut Weight= 0.00 lb,                      
+   End type= Butt welded, SIF= 1.00, Perform ANSI check= No, Avg offset= 0.000 inch, Max offset= 0.000 inch     
+ 
+ -------------------------------------------------------------------------------
+ From 70 to 80, DX= 6.00 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   70, Coordinates, X= 25.53 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   70, Forces/Moments, Load= U1, FY= -50 lbf, MX= -5 ft-lb                      
+   70, Forces/Moments, Load= U2, FX= 55 lbf, MZ= 6 ft-lb                        
+   70, Forces/Moments, Load= U3, FZ= 50 lbf                                     
+ 
+ SUPPORT DATA:                                                                  
+   70, Variable Spring Hanger, Support Id= 70   1, Connected to Ground, 1 hanger(s), Comp.Wt = 0.000 lb,        
+   Stiffness= 100 lb/in, Preload= 400 lbf                                       
+ 
+ -------------------------------------------------------------------------------
+ From 80 to 90, DX= 3.00 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   80, Coordinates, X= 31.53 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 90 to 100, DY= -5.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= 90, Near= 90  N, Far= 90  F):                       
+   Elbow, Radius= 15.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 2.95                      
+ 
+ POINT DATA:                                                                    
+   90, Coordinates, X= 34.53 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   90  N, Coordinates, X= 33.28 ft, Y= 0.00 ft, Z= 0.00 ft                      
+   90  F, Coordinates, X= 34.53 ft, Y= -1.25 ft, Z= 0.00 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 100 to 110, DX= 5.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= 100, Near= 100 N, Far= 100 F):                      
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   Elbow, Radius= 15.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 2.95                      
+ 
+ PIPE DATA (100 F to 110):                                                      
+   Pipe Id= PIPE2, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 34.20 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 774.63 lb/ft, Insul Thk= 3.000 inch, Insul Density= 120.96 lb/cu.ft,                       
+   Insul Unit Wgt= 108.86 lb/ft                                                 
+ 
+ POINT DATA:                                                                    
+   100, Coordinates, X= 34.53 ft, Y= -5.00 ft, Z= 0.00 ft                       
+   100 N, Coordinates, X= 34.53 ft, Y= -3.75 ft, Z= 0.00 ft                     
+   100 F, Coordinates, X= 35.78 ft, Y= -5.00 ft, Z= 0.00 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From 110 to 120, DZ= 6.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 110):                                      
+   B16.9 welding tee, SIF= 2.08                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Nom Size= 16 in, OD= 16.000 inch, Wall Thk= 0.500 inch, Mill= 0.063 inch,                    
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 82.68 lb/ft, Content Sp Gr= 22.154,                            
+   Content Unit Wgt= 1696.46 lb/ft, Insul Density= 120.96 lb/cu.ft, Insul Unit Wgt= 150.42 lb/ft                
+ 
+ POINT DATA:                                                                    
+   110, Coordinates, X= 39.53 ft, Y= -5.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From 120 to 130, DZ= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   120, Coordinates, X= 39.53 ft, Y= -5.00 ft, Z= 6.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From 130 to 140, DX= 3.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 130):                                      
+   Reinforced tee, SIF= 3.61, Pad thick= 0.30 inch                              
+ 
+ POINT DATA:                                                                    
+   130, Coordinates, X= 39.53 ft, Y= -5.00 ft, Z= 8.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From 140 to 150, DX= 3.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   140, Coordinates, X= 42.53 ft, Y= -5.00 ft, Z= 8.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From 150 to 160, DZ= 3.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 150):                                      
+   Unreinforced tee, SIF= 5.59                                                  
+ 
+ POINT DATA:                                                                    
+   150, Coordinates, X= 45.53 ft, Y= -5.00 ft, Z= 8.00 ft                       
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ From 160 to 170, DZ= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   160, Coordinates, X= 45.53 ft, Y= -5.00 ft, Z= 11.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 170 to 180, DX= 4.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 170):                                      
+   Other, SIF= 1.00                                                             
+ 
+ POINT DATA:                                                                    
+   170, Coordinates, X= 45.53 ft, Y= -5.00 ft, Z= 13.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 180 to 190, DZ= 5.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 180):                                      
+   Welded-on fitting, SIF= 2.52                                                 
+ 
+ POINT DATA:                                                                    
+   180, Coordinates, X= 49.53 ft, Y= -5.00 ft, Z= 13.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 190 to 200, DX= 5.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 190):                                      
+   B16.9 welding tee, SIF= 2.08                                                 
+ 
+ POINT DATA:                                                                    
+   190, Coordinates, X= 49.53 ft, Y= -5.00 ft, Z= 18.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 200 to 210, DX= 5.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   200, Coordinates, X= 54.53 ft, Y= -5.00 ft, Z= 18.00 ft                      
+   210, Coordinates, X= 59.53 ft, Y= -5.00 ft, Z= 18.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 110 to 102, DZ= -2.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 110):                                      
+   B16.9 welding tee, SIF= 2.08                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 82.68 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 1696.46 lb/ft                                              
+ 
+ POINT DATA:                                                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   110, Coordinates, X= 39.53 ft, Y= -5.00 ft, Z= 0.00 ft                       
+   102, Coordinates, X= 39.53 ft, Y= -5.00 ft, Z= -2.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT D                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 130 to 132, DX= -2.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 130):                                      
+   Reinforced tee, SIF= 3.61, Pad thick= 0.30 inch                              
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 82.68 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 1696.46 lb/ft                                              
+ 
+ POINT DATA:                                                                    
+   130, Coordinates, X= 39.53 ft, Y= -5.00 ft, Z= 8.00 ft                       
+   132, Coordinates, X= 37.53 ft, Y= -5.00 ft, Z= 8.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT E                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 150 to 152, DZ= -2.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 150):                                      
+   Unreinforced tee, SIF= 5.59                                                  
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 82.68 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 1696.46 lb/ft                                              
+ 
+ POINT DATA:                                                                    
+   150, Coordinates, X= 45.53 ft, Y= -5.00 ft, Z= 8.00 ft                       
+   152, Coordinates, X= 45.53 ft, Y= -5.00 ft, Z= 6.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT F                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 170 to 172, DX= -2.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 170):                                      
+   Other, SIF= 1.00                                                             
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 82.68 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 1696.46 lb/ft                                              
+ 
+ POINT DATA:                                                                    
+   170, Coordinates, X= 45.53 ft, Y= -5.00 ft, Z= 13.00 ft                      
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   172, Coordinates, X= 43.53 ft, Y= -5.00 ft, Z= 13.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT G                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 180 to 182, DZ= -2.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 180):                                      
+   Welded-on fitting, SIF= 2.52                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 82.68 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 1696.46 lb/ft                                              
+ 
+ POINT DATA:                                                                    
+   180, Coordinates, X= 49.53 ft, Y= -5.00 ft, Z= 13.00 ft                      
+   182, Coordinates, X= 49.53 ft, Y= -5.00 ft, Z= 11.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT H                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 190 to 192, DX= -2.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 190):                                      
+   B16.9 welding tee, SIF= 2.08                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 82.68 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 1696.46 lb/ft                                              
+ 
+ POINT DATA:                                                                    
+   190, Coordinates, X= 49.53 ft, Y= -5.00 ft, Z= 18.00 ft                      
+   192, Coordinates, X= 47.53 ft, Y= -5.00 ft, Z= 18.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT I                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 210 to 220, DX= 4.00 ft                                               Junc
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 82.68 lb/ft, Content Sp Gr= 22.154,            
+   Content Unit Wgt= 1696.46 lb/ft                                              
+ 
+ POINT DATA:                                                                    
+   210, Coordinates, X= 59.53 ft, Y= -5.00 ft, Z= 18.00 ft                      
+   220, Coordinates, X= 63.53 ft, Y= -5.00 ft, Z= 18.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ Number of points in the system (Pipe + Frame + Soil): 47 + 0 + 0 = 47          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+        17651.8 lb     +    126285.7 lb     =      143937.5 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ 10             0.00        0.00        0.00                                    
+ 20             5.00        0.00        0.00                                    
+ 30            11.00        0.00        0.00                                    
+ 40            17.00        0.00        0.00                                    
+ 41            17.58        0.00        0.00                                    
+ 42            18.31        0.00        0.00                                    
+ 44            18.90        0.00        0.00                                    
+ 
+ *** SEGMENT B                                                                  
+ 40            17.00        0.00        0.00                                    
+ 44            18.90        0.00        0.00                                    
+ 50            20.00        0.00        0.00                                    
+ 50  M         22.00        0.00        0.00                                    
+ 60            24.00        0.00        0.00                                    
+ 70            25.53        0.00        0.00                                    
+ 80            31.53        0.00        0.00                                    
+ 90  N         33.28        0.00        0.00                                    
+ 90            34.53        0.00        0.00                                    
+ 90  F         34.53       -1.25        0.00                                    
+ 100 N         34.53       -3.75        0.00                                    
+ 100           34.53       -5.00        0.00                                    
+ 100 F         35.78       -5.00        0.00                                    
+ 110           39.53       -5.00        0.00                                    
+ 120           39.53       -5.00        6.00                                    
+ 130           39.53       -5.00        8.00                                    
+ 140           42.53       -5.00        8.00                                    
+ 150           45.53       -5.00        8.00                                    
+ 160           45.53       -5.00       11.00                                    
+ 170           45.53       -5.00       13.00                                    
+ 180           49.53       -5.00       13.00                                    
+ 190           49.53       -5.00       18.00                                    
+ 200           54.53       -5.00       18.00                                    
+ 210           59.53       -5.00       18.00                                    
+ 
+ *** SEGMENT C                                                                  
+ 110           39.53       -5.00        0.00                                    
+ 102           39.53       -5.00       -2.00                                    
+ 
+ *** SEGMENT D                                                                  
+ 130           39.53       -5.00        8.00                                    
+ 132           37.53       -5.00        8.00                                    
+ 
+ *** SEGMENT E                                                                  
+ 150           45.53       -5.00        8.00                                    
+ 152           45.53       -5.00        6.00                                    
+ 
+ *** SEGMENT F                                                                  
+ 170           45.53       -5.00       13.00                                    
+ 172           43.53       -5.00       13.00                                    
+ 
+ *** SEGMENT G                                                                  
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ 180           49.53       -5.00       13.00                                    
+ 182           49.53       -5.00       11.00                                    
+ 
+ *** SEGMENT H                                                                  
+ 190           49.53       -5.00       18.00                                    
+ 192           47.53       -5.00       18.00                                    
+ 
+ *** SEGMENT I                                                                  
+ 210           59.53       -5.00       18.00                                    
+ 220           63.53       -5.00       18.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A  T A   L I S T I N G                                                    
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       10     44                                    No    No     No           
+ B       40     210                                   No    No     No           
+ C       110    102                                   No    No     No           
+ D       130    132                                   No    No     No           
+ E       150    152                                   No    No     No           
+ F       170    172                                   No    No     No           
+ G       180    182                                   No    No     No           
+ H       190    192                                   No    No     No           
+ I       210    220                                   No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    ZL/ Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC/                       
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ PIPE1         10 10.750 0.307 0.06 0.04 2.00    0 22.15  120.960  34.20     0   876 1.00                       
+ A135-B       NS                                   Other    0.000    775 67.29       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE2         10 10.750 0.307 0.06 0.04 3.00    0 22.15  120.960  34.20     0   918 1.00                       
+ A135-B       NS                                   Other    0.000    775   109       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE3         16 16.000 0.500 0.06 0.06 3.00    0 22.15  120.960  82.68     0  1930 1.00                       
+ A135-B       NS                                   Other    0.000   1696   150       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ A135-B      PIPE1       489.0  0.30    70.0   29.500   29.500   11.346                              
+                                       100.0   29.338                     0.2308
+ 
+ A135-B      PIPE2       489.0  0.30    70.0   29.500   29.500   11.346                              
+                                       100.0   29.338                     0.2308
+ 
+ A135-B      PIPE3       489.0  0.30    70.0   29.500   29.500   11.346                              
+                                       100.0   29.338                     0.2308
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield                                                                    
+    Name     Pipe ID  deg F   psi      psi                                                                      
+------------ -------- ------- -------- --------                                                                 
+ A135-B      PIPE1       70.0  12800.0  35000.0
+                        100.0  12800.0
+                         70.0  12800.0
+ 
+ A135-B      PIPE2       70.0  12800.0  35000.0
+                        100.0  12800.0
+ 
+ A135-B      PIPE3       70.0  12800.0  35000.0
+                        100.0  12800.0
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A 
+ 10    T1       200    100     0.231     29.338     12800                     
+ 44     Same as previous point.          
+ 
+ *** SEGMENT B 
+ 40    T1       200  70.00     0.000     29.500     12800                     
+ 44    T1       200    100     0.231     29.338     12800                     
+ 210    Same as previous point.          
+ 
+ *** SEGMENT C 
+ 110   T1       200    100     0.231     29.338     12800                     
+ 102    Same as previous point.          
+ 
+ *** SEGMENT D 
+ 130   T1       200    100     0.231     29.338     12800                     
+ 132    Same as previous point.          
+ 
+ *** SEGMENT E 
+ 150   T1       200    100     0.231     29.338     12800                     
+ 152    Same as previous point.          
+ 
+ *** SEGMENT F 
+ 170   T1       200    100     0.231     29.338     12800                     
+ 172    Same as previous point.          
+ 
+ *** SEGMENT G 
+ 180   T1       200    100     0.231     29.338     12800                     
+ 182    Same as previous point.          
+ 
+ *** SEGMENT H 
+ 190   T1       200    100     0.231     29.338     12800                     
+ 192    Same as previous point.          
+ 
+ *** SEGMENT I 
+ 210   T1       200    100     0.231     29.338     12800                     
+ 220    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+                            FORCES AND DISPLACEMENTS                                                            
+   (Force - lbf , Moment - ft-lb , Tran. - in  , Rot. - deg  , Line - lb/ft  )                                  
+    POINT  LOAD                                                                                                 
+    NAME   CASE  TYPE      X        Y        Z        XX       YY       ZZ                                      
+    -----  ----  ----  -------- -------- --------  -------- -------- --------                                   
+    70     U1    FORCE        0      -50        0       -5        0        0    
+           U2    FORCE       55        0        0        0        0        6    
+           U3    FORCE        0        0       50        0        0        0    
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  17
+----------------------------------------------------------------------------------------------------------------
+
+                               S U P P O R T   D A T A   L I S T I N G                                          
+                                                                                                                
+ Point Support  Support Conn.to Comp.Wt  Stiff.     Gap 1   Gap 2  Fric. GapSet Preload Ld.Var Size    Figure   
+ Name   Type      ID     /Dir    (lb)               (in)    (in)   Fact. /#hgr   (lbf)                          
+ ----- -------- ------- ------- ------- ---------- ------- ------- ----- ------ ------- ------ ---- ------------
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ 44    Incline  44   1  Ground    0.000 Rigid        0.000   0.000  0.00        
+                        Inclined (DX=  1.000  DY=  0.000  DZ=  0.000)           
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ 44    Rotation 44   2  Ground    0.000 Rigid                                   
+                        Inclined (DX=  0.000  DY=  0.000  DZ=  1.000)           
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ 44    Rotation 44   3  Ground    0.000 Rigid                                   
+                        Inclined (DX=  0.000  DY=  1.000  DZ=  0.000)           
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ 50    Incline  50   1  Ground    0.000 Rigid        0.000 1000.00  0.00  Weightless                            
+                        Inclined (DX=  0.000  DY=  1.000  DZ=  0.000)           
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ 70    Spr. Hgr 70   1  Ground    0.000    100.000                        1-Des     400                         
+ 
+ 
+ Spring Manufacturer: Power Piping                                              
+ NOTE 1: No soil supports present in the system.                                
+ Gap 1 : V-stop,Guide-V=down, Linestop,Incline,Tie/link=backward, Guide-H=Left  
+ Gap 2 : V-stop,Guide-V=Up  , Linestop,Incline,Tie/link=forward , Guide-H=Right 
+ Stiffness units for rotation support: ft-lb/deg, all others: lb/in             
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  18
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (in)   (deg)   (in)   (in)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+ 90    Elbow  15.00   90.0  10.750  0.307 A135-B       0/0  2.95   2.95    1           9.77     None            
+ 100   Elbow  15.00   90.0  10.750  0.307 A135-B       0/0  2.95   2.95    1           9.77     None            
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  19
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (in)    (in)               Type     (in)   (in)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ 40    A-Header 10.750  0.307  A135-B      Other                    1.00   1.00 
+       B-Branch 10.750  0.307  A135-B                                           
+                                                                                
+ 44    A-Header 10.750  0.307  A135-B      Other                    1.00   1.00 
+       B-Branch 10.750  0.307  A135-B                                           
+                                                                                
+ 110   C-Header 16.000  0.500  A135-B      welding                  2.08   2.08 
+       B-Branch 16.000  0.500  A135-B                                           
+                                                                                
+ 130   D-Header 16.000  0.500  A135-B      Reinforc         0.300   3.61   3.61 
+       B-Branch 16.000  0.500  A135-B                                           
+                                                                                
+ 150   E-Header 16.000  0.500  A135-B      Unreinfo                 5.59   5.59 
+       B-Branch 16.000  0.500  A135-B                                           
+                                                                                
+ 170   F-Header 16.000  0.500  A135-B      Other                    1.00   1.00 
+       B-Branch 16.000  0.500  A135-B                                           
+                                                                                
+ 180   G-Header 16.000  0.500  A135-B      fitting                  2.52   2.52 
+       B-Branch 16.000  0.500  A135-B                                           
+                                                                                
+ 190   H-Header 16.000  0.500  A135-B      welding                  2.08   2.08 
+       B-Branch 16.000  0.500  A135-B                                           
+ 
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  20
+----------------------------------------------------------------------------------------------------------------
+
+                    V A L V E   D A T A   L I S T I N G                                                         
+                                     Valve   Actuator       Actuator                            Size  Type      
+ Point          Dnom         Length  Weight  Weight    DX      DY      DZ          Joint        /Avg. /Max.     
+ Name   Type    (in) Rating   (ft)   (lb)    (lb)     (ft)    (ft)    (ft)    SAF  Type    SIF  (in)  (in)      
+ ----- -------- ---- ------ -------- ------  ------  ------- ------- ------- ----- ------- ---- ----- -----     
+ 
+ Tag No. : <None>                                                               
+ 50    NS         10 NS         4.00    250                                   1.75 USER    1.00                 
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  21
+----------------------------------------------------------------------------------------------------------------
+
+                    F L A N G E   D A T A   L I S T I N G                                                       
+                                   Flange  Bolt               Size  Type                                        
+ Point FLG            Dnom         Weight Weight Joint        /Avg. /Max. ANSI                                  
+ Name  No.   Type     (in)  Rating  (lb)   (lb)  Type    SIF  (in)  (in)  Check                                 
+ ----- ---- -------- ------ ------ ------ ------ ------- ---- ----- ----- -----                                 
+ Tag No. : <None>                                                               
+ 41     1   LAPJOINT     10   1500  78.97   0.00 LJ      1.60             No    
+ Tag No. : <None>                                                               
+ 44     1   LAPJOINT     10   1500  78.97   0.00 LJ      1.60             No    
+ Tag No. : <None>                                                               
+ 60     1   WELDNECK     10   2500 575.00   0.00 BW      1.00  0.00  0.00 No    
+ 
+ 
+ Size/Avg. = Weld Size for SO/SW, Average offset for BW                         
+ Type/Max. = Socket welding type for SW, Maximum offset for BW,                 
+             Concave or Convex for SW and SO (JSME)                             
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  22
+----------------------------------------------------------------------------------------------------------------
+
+          R I G I D   P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ From   To      Include   Include     Rigid                                                                     
+ Point  Point   Weight    Expansion   Factor                                                                    
+ -----  -----   -------   ---------   ------                                                                    
+ 40     41        No        Yes       1000.0                                    
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  23
+----------------------------------------------------------------------------------------------------------------
+
+                        C E N T E R    O F    G R A V I T Y    R E P O R T                                      
+                                                                                                                
+  Description                                                   Weight       X CoG       Y CoG       Z CoG      
+                                                                  (lb)        (ft)        (ft)        (ft)      
+  -----------                                                ---------   ---------   ---------   ---------      
+  Valve                                                  :      250.00       22.00        0.00        0.00      
+  Support                                                :        0.00        0.00        0.00        0.00      
+  Flange                                                 :      732.95       22.76        0.00        0.00      
+  Flexible Joint                                         :        0.00        0.00        0.00        0.00      
+  Additional Weight                                      :        0.00        0.00        0.00        0.00      
+  Pipes (Run, Bend, Tee, Reducer)                        :     5628.85       42.42       -4.18        9.22      
+ 
+  PipeTot (Valve+Support+Flange+Flex. Jt.+Add. Wt.+Pipes):     6611.80       39.47       -3.56        7.85      
+ 
+  Insulation                                             :    11040.01       41.18       -3.96        8.56      
+  Cladding                                               :        0.00        0.00        0.00        0.00      
+  Lining                                                 :        0.00        0.00        0.00        0.00      
+  Contents                                               :   126285.66       40.17       -3.84        8.44      
+  Beam                                                   :        0.00        0.00        0.00        0.00      
+ 
+  PipeTot + Ins.                                         :    17651.82       40.54       -3.81        8.29      
+  PipeTot + Ins. + Clad.                                 :    17651.82       40.54       -3.81        8.29      
+  PipeTot + Ins. + Clad. + Lin.                          :    17651.82       40.54       -3.81        8.29      
+  PipeTot + Ins. + Clad. + Lin. + Cont.                  :   143937.44       40.21       -3.84        8.42      
+ 
+  PipeTot + Beam                                         :     6611.80       39.47       -3.56        7.85      
+  PipeTot + Ins. + Beam                                  :    17651.82       40.54       -3.81        8.29      
+  PipeTot + Ins. + Clad. + Beam                          :    17651.82       40.54       -3.81        8.29      
+  PipeTot + Ins. + Clad. + Lin. + Beam                   :    17651.82       40.54       -3.81        8.29      
+  PipeTot + Ins. + Clad. + Lin. + Cont. + Beam           :   143937.44       40.21       -3.84        8.42      
+ 
+  NOTE: COG report only includes the currently visible beams and segments.      
+  All pipe segments are included.                                               
+  No beams present in the model.                                                
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA327D                                                                                                          
+10/19/2016 PROJECT:                                               BENTLEY                                       
+02:16 AM                                                          AutoPIPE Advanced 10.01.00.09  MODEL  PAGE  24
+----------------------------------------------------------------------------------------------------------------
+
+          L O A D    C A S E    D E S C R I P T I O N                                                           
+                                                                                                                
+  Load Case     Load Case Name     Description                                                                  
+  ---------     --------------     -----------------------------------------------------------------------------
+  GR            Gravity                                                                                         
+  T1            Thermal 1                                                                                       
+  P1            Press 1                                                                                         
+  U1            User 1                                                                                          
+  U2            User 2                                                                                          
+  U3            User 3                                                                                          
+

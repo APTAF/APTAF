@@ -1,0 +1,356 @@
+﻿'USEUNIT Main
+'USEUNIT DatabaseFunctions
+'USEUNIT tabView
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Transparency " dialog  in home tab. 
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         tblTransparency table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Transparency (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+
+Set ObjNameMapping = Aliases.autopipe
+Set dlgTransparency = objNameMapping.dlgTransparency
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+  Dim chkboxSelectUnselectAll : chkboxSelectUnselectAll = objRow.item("chkboxSelectUnselectAll")
+  Dim chkboxPipe : chkboxPipe =  objRow.item("chkboxPipe")
+  Dim chkboxBeam : chkboxBeam =  objRow.item("chkboxBeam")
+  Dim chkboxPoint : chkboxPoint =  objRow.item("chkboxPoint")
+  Dim chkboxValve : chkboxValve = objRow.item("chkboxValve")
+  Dim chkboxFlange : chkboxFlange =  objRow.item("chkboxFlange")
+  Dim chkboxReducer : chkboxReducer =  objRow.item("chkboxReducer")
+  Dim chkboxRigid : chkboxRigid =  objRow.item("chkboxRigid")
+  Dim chkboxFlexJoint : chkboxFlexJoint =  objRow.item("chkboxFlexJoint")
+  Dim chkboxForces : chkboxForces = objRow.item("chkboxForces")
+  Dim chkboxWeight : chkboxWeight = objRow.item("chkboxWeight")
+  Dim chkboxAnchor : chkboxAnchor = objRow.item("chkboxAnchor")
+  Dim chkboxExtraData : chkboxExtraData = objRow.item("chkboxExtraData")
+  Dim chkboxImposedDisp : chkboxImposedDisp= objRow.item("chkboxImposedDisp")
+  Dim chkboxCutShort : chkboxCutShort = objRow.item("chkboxCutShort")
+  Dim chkboxSpring : chkboxSpring = objRow.item("chkboxSpring")
+  Dim chkboxVStop : chkboxVStop = objRow.item("chkboxVStop")
+  Dim chkboxConstant : chkboxConstant = objRow.item("chkboxConstant")
+  Dim chkboxLineStop : chkboxLineStop = objRow.item("chkboxLineStop")
+  Dim chkboxIncline :chkboxIncline = objRow.item("chkboxIncline")
+  Dim chkboxGuide : chkboxGuide = objRow.item("chkboxGuide")
+  Dim chkboxDamperRotational : chkboxDamperRotational = objRow.item("chkboxDamperRotational")
+  Dim chkboxTieLink : chkboxTieLink = objRow.item("chkboxTieLink") 
+
+  
+
+    aqUtils.Delay(2000)
+  
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select
+  aqUtils.Delay(2000)
+  
+  'chkboxSelectUnselectAll
+    If(chkboxSelectUnselectAll  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxSelectUnselectAll.Click()
+          Log.Message("Checkbox chkboxSelectUnselectAll checked")
+        End If
+    End If  
+  
+'  Dim chkboxPipe : chkboxPipe =  objRow.item("chkboxPipe")
+'chkboxPipe
+    If(chkboxPipe  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxPipe.Click()
+          Log.Message("Checkbox chkboxPip checked")
+        End If
+    End If  
+  
+'chkboxBeam
+    If(chkboxBeam  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxBeam.Click()
+          Log.Message("Checkbox chkboxBeam checked")
+        End If
+    End If 
+     
+'chkboxPoint
+If(chkboxPoint  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxPoint.Click()
+          Log.Message("Checkbox chkboxPoint checked")
+        End If
+    End If 
+    
+' chkboxValve
+If(chkboxValve  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxValve.Click()
+          Log.Message("Checkbox chkboxValve checked")
+        End If
+    End If 
+    
+'chkboxFlange
+If(chkboxFlange  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxFlange.Click()
+          Log.Message("Checkbox chkboxFlange checked")
+        End If
+    End If 
+    
+    
+'chkboxReducer 
+If(chkboxReducer  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxReducer.Click()
+          Log.Message("chkboxReducer checked")
+        End If
+    End If 
+    
+'  Dim chkboxRigid 
+If(chkboxRigid  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxRigid.Click()
+          Log.Message("chkboxReducer checked")
+        End If
+    End If 
+    
+    
+' chkboxFlexJoint 
+If(chkboxFlexJoint  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxFlexJoint.Click()
+          Log.Message("chkboxFlexJoint checked")
+        End If
+    End If 
+
+'  Dim chkboxForces 
+If(chkboxForces  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxForces.Click()
+          Log.Message("chkboxForces checked")
+        End If
+    End If 
+    
+' chkboxWeight 
+If(chkboxWeight  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxWeight.Click()
+          Log.Message("chkboxWeight checked")
+        End If
+    End If 
+    
+' chkboxAnchor 
+If(chkboxAnchor  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxAnchor.Click()
+          Log.Message("chkboxAnchor checked")
+        End If
+    End If 
+
+'chkboxExtraData
+If(chkboxExtraData  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxExtraData.Click()
+          Log.Message("chkboxExtraData checked")
+        End If
+    End If
+    
+' chkboxImposedDisp
+If(chkboxImposedDisp  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxImposedDisp.Click()
+          Log.Message("chkboxImposedDisp checked")
+        End If
+    End If
+    
+'  Dim chkboxCutShort 
+If(chkboxCutShort  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxCutShort.Click()
+          Log.Message("chkboxCutShort checked")
+        End If
+    End If
+    
+'chkboxSpring 
+If(chkboxSpring  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxSpring.Click()
+          Log.Message("chkboxSpring checked")
+        End If
+    End If
+    
+' chkboxVStop 
+If(chkboxVStop  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxVStop.Click()
+          Log.Message("chkboxVStop checked")
+        End If
+    End If
+    
+' chkboxConstant 
+If(chkboxConstant  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxConstant.Click()
+          Log.Message("chkboxConstant checked")
+        End If
+    End If
+    
+'chkboxLineStop 
+If(chkboxLineStop  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxLineStop.Click()
+          Log.Message("chkboxLineStop checked")
+        End If
+    End If
+    
+'chkboxIncline 
+If(chkboxIncline  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxIncline.Click()
+          Log.Message("chkboxIncline checked")
+        End If
+    End If
+    
+' chkboxGuide 
+If(chkboxGuide  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxGuide.Click()
+          Log.Message("chkboxGuide checked")
+        End If
+    End If
+    
+'  Dim chkboxDamperRotational 
+If(chkboxDamperRotational  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxDamperRotational.Click()
+          Log.Message("chkboxDamperRotational checked")
+        End If
+    End If
+    
+'chkboxTieLink 
+    If(chkboxTieLink  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgTransparency", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgTransparency.chkboxTieLink.Click()
+          Log.Message("chkboxTieLink checked")
+        End If
+    End If
+    
+  dlgTransparency.btnOK.Click()
+  End Sub
+  '''''''''''''''''''''''''''''''''''
+  '------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "level of detail" dialog  in home tab. 
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         tblTransparency table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub LevelOfDetail (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+
+Set ObjNameMapping = Aliases.autopipe
+Set dlgLevelOfDetailOptions = objNameMapping.dlgLevelOfDetailOptions
+''''''''''''''''''''''''''''''''''''''''''''''''''''
+Dim chkboxHideText : chkboxHideText =  objRow.item("chkboxHideText")
+Dim chkboxSwitchToLinebboard : chkboxSwitchToLinebboard =  objRow.item("chkboxSwitchToLinebboard")
+Dim chkboxDisableLighting : chkboxDisableLighting =  objRow.item("chkboxDisableLighting")
+Dim chkboxLessLevelOfDetail : chkboxLessLevelOfDetail =  objRow.item("chkboxLessLevelOfDetail")
+Dim chkBoxDrawVisibleObjectsOnly : chkBoxDrawVisibleObjectsOnly =  objRow.item("chkBoxDrawVisibleObjectsOnly")
+
+ aqUtils.Delay(2000)
+  
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select
+  aqUtils.Delay(2000)
+  
+  
+'chkboxHideText 
+ If(chkboxHideText  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgLevelOfDetailOptions", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgLevelOfDetailOptions.chkboxHideText.Click()
+          Log.Message("chkboxHideText checked")
+        End If
+    End If
+    
+'chkboxSwitchToLinebboard 
+If(chkboxSwitchToLinebboard  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgLevelOfDetailOptions", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgLevelOfDetailOptions.chkboxSwitchToLinebboard.Click()
+          Log.Message("chkboxSwitchToLinebboard checked")
+        End If
+    End If
+    
+
+'Dim chkboxDisableLighting : chkboxDisableLighting =  objRow.item("chkboxDisableLighting")
+If(chkboxDisableLighting  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgLevelOfDetailOptions", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgLevelOfDetailOptions.chkboxDisableLighting.Click()
+          Log.Message("chkboxDisableLighting checked")
+        End If
+    End If
+    
+'Dim chkboxLessLevelOfDetail 
+If(chkboxLessLevelOfDetail  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgLevelOfDetailOptions", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgLevelOfDetailOptions.chkboxLessLevelOfDetail.Click()
+          Log.Message("chkboxLessLevelOfDetail checked")
+        End If
+    End If
+    
+'Dim chkBoxDrawVisibleObjectsOnly 
+If(chkBoxDrawVisibleObjectsOnly  = "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgLevelOfDetailOptions", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgLevelOfDetailOptions.chkBoxDrawVisibleObjectsOnly.Click()
+          Log.Message("chkBoxDrawVisibleObjectsOnly checked")
+        End If
+    End If
+    
+    aqUtils.Delay(2000)
+  dlgLevelOfDetailOptions.btnOK.Click()
+End Sub

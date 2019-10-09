@@ -1,0 +1,122 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+'USEUNIT App_Common
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "SaveAsNTL"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/" & strTestPlanFolderName)
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName  
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+'..
+'................... Export NTL
+'..
+Sub Cat1TS1TC1
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+''Tests 
+   Call tabFile.SaveAs("5","AutoPIPE Batch")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+Sub Cat1TS1TC2
+''Pre-Conditions
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("2","AutoPIPE Database")
+''Tests 
+   Call tabFile.SaveAs("6","AutoPIPE Batch")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+Sub Cat1TS1TC3
+''Pre-Conditions
+   Call tabFile.Open("3","Autopipe database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+''Tests 
+   Call tabFile.SaveAs("7","AutoPIPE Batch")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+Sub Cat1TS1TC4
+''Pre-Conditions
+   Call tabFile.Open("4","Autopipe database")
+   Call tabFile.SaveAs("4","AutoPIPE Database")
+''Tests 
+   Call tabFile.SaveAs("8","AutoPIPE Batch")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+'..
+'................... Import NTL
+'..
+Sub Cat1TS2TC1
+''Pre-Conditions
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\SaveAsNTL\Models\Import\QA321A.NTL"
+  Call CopyToTemp(strfilePath)
+''Tests
+Call tabFile.Open("5","AutoPIPE Batch")
+Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC2
+''Pre-Conditions
+   strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\SaveAsNTL\Models\Import\QA321B.NTL"
+   Call CopyToTemp(strfilePath)
+''Tests 
+Call tabFile.Open("6","AutoPIPE Batch")
+Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC3
+''Pre-Conditions
+   strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\SaveAsNTL\Models\Import\QA321C.NTL"
+   Call CopyToTemp(strfilePath)
+
+   Call tabFile.Open("7","AutoPIPE Batch")
+''Tests 
+Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC4
+''Pre-Conditions
+   strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\SaveAsNTL\Models\Import\QA321D.NTL"
+   Call CopyToTemp(strfilePath)
+
+   Call tabFile.Open("8","AutoPIPE Batch")
+''Tests 
+Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+Sub Cat1TS2TC5
+''Pre-Conditions
+   strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\SaveAsNTL\Models\Import\QA321E.NTL"
+   Call CopyToTemp(strfilePath)
+
+   Call tabFile.Open("9","AutoPIPE Batch")
+''Tests 
+Call tabResult.InputlistReport("0")
+''Post-Condition
+   tabFile.Close("No") 
+End Sub
+

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{1C914193-A452-48E8-A8FD-BCA13ACFF263}" version="14.0">
+	<children>
+		<child name="frmDigitalTP" key="{C7188AD1-572C-41B4-9F29-75B55535F724}" path="frmDigitalTP.tcUsrFrm" />
+	</children>
+</Root>

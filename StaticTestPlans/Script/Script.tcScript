@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="APTAF">
+			<folder name="BusinessLayer">
+				<child name="Main" key="{D385C7A4-7574-4A86-B9FB-7E6124A25B1B}" path="..\..\APTAF\Script\BusinessLayer\Main.svb" />
+				<child name="DTP" key="{EA02F85F-C8F3-4FEA-B901-E5BDCE85BA6C}" path="..\..\APTAF\Script\BusinessLayer\DTP.svb" />
+				<child name="UIEngine" key="{0815D52E-3D7F-47DB-B298-BCD46ECA9E92}" path="..\..\APTAF\Script\BusinessLayer\UIEngine.svb" />
+				<child name="EndProject" key="{EDC0350A-7B38-46EB-AE08-F8402E61E30C}" path="..\..\APTAF\Script\BusinessLayer\EndProject.svb" />
+				<child name="StartProject" key="{E8DB668F-CEBD-4CD5-807A-C03E79B1861E}" path="..\..\APTAF\Script\BusinessLayer\StartProject.svb" />
+			</folder>
+			<folder name="Library">
+				<child name="APP_Common" key="{C5144B0F-FEA2-4547-AA69-978139DB4787}" path="..\..\APTAF\Script\Library\APP_Common.svb" />
+				<child name="DatabaseFunctions" key="{318147B1-33A8-4A08-9CB0-BD70AB1C423A}" path="..\..\APTAF\Script\Library\DatabaseFunctions.svb" />
+				<child name="FSO_Functions" key="{AC36CF3D-65E3-4710-8374-D92981538FB8}" path="..\..\APTAF\Script\Library\FSO_Functions.svb" />
+				<child name="GEN_Common" key="{AB9D5E44-17DA-4183-9248-F808DA7A3C6F}" path="..\..\APTAF\Script\Library\GEN_Common.svb" />
+				<child name="GlobalConstants" key="{BF261FE9-C469-44A7-AA0D-06347C336585}" path="..\..\APTAF\Script\Library\GlobalConstants.svb" />
+				<child name="Maxsurf_Common" key="{39D6937B-9EDF-4BDB-B7AA-68D672E06817}" path="..\..\APTAF\Script\Library\Maxsurf_Common.svb" />
+				<child name="Microstation_Common" key="{BDCD17DB-5BEF-40DF-9CA8-99D5C26F6C6E}" path="..\..\APTAF\Script\Library\Microstation_Common.svb" />
+				<child name="Ribbon_Common" key="{9A6C7CA3-677F-41F8-98B5-ECFFEC284517}" path="..\..\APTAF\Script\Library\Ribbon_Common.svb" />
+				<child name="SelfService" key="{E48B7A5D-7337-436E-948A-13ABADCDD4FF}" path="..\..\APTAF\Script\Library\SelfService.svb" />
+			</folder>
+			<folder name="UILayer">
+				<folder name="Analysis">
+					<child name="Analyze" key="{AD075D99-F3D5-4313-B5C8-0D1CADE2ED27}" path="..\..\APTAF\Script\UILayer\Analysis\Analyze.svb" />
+				</folder>
+				<folder name="File">
+					<child name="ImportExport" key="{503BE219-77F6-458D-8A27-222F7B1F3090}" path="..\..\APTAF\Script\UILayer\File\ImportExport.svb" />
+					<child name="Model" key="{02574557-9F7D-4802-B069-D5B5627AAA2C}" path="..\..\APTAF\Script\UILayer\File\Model.svb" />
+					<child name="Save" key="{87D08DC6-943F-4433-96B4-4BA57B5E137E}" path="..\..\APTAF\Script\UILayer\File\Save.svb" />
+					<child name="License" key="{2ECE3FCA-F302-4948-A8A3-3FF3843C6219}" path="..\..\APTAF\Script\UILayer\File\License.svb" />
+				</folder>
+				<folder name="Insert/Modify/Delete">
+					<child name="PipingComponents" key="{F895A7BA-3B08-4240-8457-954BE3FF6E51}" path="..\..\APTAF\Script\UILayer\InsertModifyDelete\PipingComponents.svb" />
+					<child name="Properties" key="{E61AEE24-9BD0-4D94-8B54-69BDEE44C1D7}" path="..\..\APTAF\Script\UILayer\InsertModifyDelete\Properties.svb" />
+					<child name="Supports" key="{34602094-535D-4A03-B0BF-9BD0760F93BF}" path="..\..\APTAF\Script\UILayer\InsertModifyDelete\Supports.svb" />
+					<child name="XtraData" key="{DC4EC474-0748-4D61-81DB-D11C0017EFD2}" path="..\..\APTAF\Script\UILayer\InsertModifyDelete\XtraData.svb" />
+				</folder>
+				<folder name="Result">
+					<child name="Reports" key="{4D7A2EBE-EF7C-4314-93C7-40C4094C120B}" path="..\..\APTAF\Script\UILayer\Result\Reports.svb" />
+				</folder>
+				<folder name="Select">
+					<child name="Selection" key="{7AE0A884-142D-470D-9CAC-90D729E0E4FC}" path="..\..\APTAF\Script\UILayer\Select\Selection.svb" />
+				</folder>
+				<folder name="Orphan">
+					<child name="Orphan" key="{E685A60A-57B1-49C0-9125-7A6E098C8778}" path="..\..\APTAF\Script\UILayer\Orphan\Orphan.svb" />
+				</folder>
+				<folder name="Show" />
+				<folder name="Tools">
+					<child name="ModelOptions" key="{1E7787FE-35CB-4D1A-B848-A6BB54BFE941}" path="..\..\APTAF\Script\UILayer\Tools\ModelOptions.svb" />
+				</folder>
+				<folder name="SignIn" />
+				<folder name="ConnectionClient">
+					<child name="ConnectionClient" key="{829FCDF9-8770-47C5-977E-D5F496832409}" path="..\..\APTAF\Script\UILayer\ConnectionClient\ConnectionClient.svb" />
+				</folder>
+			</folder>
+			<folder name="TabLayer">
+				<child name="tabAnalysis" key="{01112080-F99F-4A75-B6D1-D7B73237BCB5}" path="..\..\APTAF\Script\TabLayer\tabAnalysis.svb" />
+				<child name="tabDelete" key="{5A168EFD-2E83-48FE-8BED-28A0CF5A16C7}" path="..\..\APTAF\Script\TabLayer\tabDelete.svb" />
+				<child name="tabFile" key="{2F0CC17A-CB99-4318-A9FF-9668D8FA8D5C}" path="..\..\APTAF\Script\TabLayer\tabFile.svb" />
+				<child name="tabHome" key="{47B317D1-3732-46DF-9DBF-7E3D41235621}" path="..\..\APTAF\Script\TabLayer\tabHome.svb" />
+				<child name="tabInsert" key="{D1E57311-50D0-415B-B6FA-F043F9E21A9C}" path="..\..\APTAF\Script\TabLayer\tabInsert.svb" />
+				<child name="tabModify" key="{B38C9E02-F1EC-413F-AC06-EFCC4656F538}" path="..\..\APTAF\Script\TabLayer\tabModify.svb" />
+				<child name="tabOrphan" key="{A0B6120A-2D7C-46AC-86F0-C4B3C63AE85B}" path="..\..\APTAF\Script\TabLayer\tabOrphan.svb" />
+				<child name="tabResult" key="{C57BCA48-5432-4625-ABF3-7483B4F9E415}" path="..\..\APTAF\Script\TabLayer\tabResult.svb" />
+				<child name="tabSelect" key="{6C2E1644-DAC0-4A06-9398-7FC24F03DE92}" path="..\..\APTAF\Script\TabLayer\tabSelect.svb" />
+				<child name="tabShow" key="{A275A446-9283-475E-B71D-11370DC7841A}" path="..\..\APTAF\Script\TabLayer\tabShow.svb" />
+				<child name="tabTools" key="{29B2044C-9468-4BD6-81D3-319FAFD68B3C}" path="..\..\APTAF\Script\TabLayer\tabTools.svb" />
+				<child name="tabView" key="{DF0050FD-4BA4-4525-9D6B-F83E50535242}" path="..\..\APTAF\Script\TabLayer\tabView.svb" />
+				<child name="tabConnectionClient" key="{B86B798B-51B3-4963-B4FF-C11C38CC718A}" path="..\..\APTAF\Script\TabLayer\tabConnectionClient.svb" />
+			</folder>
+			<folder name="Actions">
+				<child name="ModifyFields" key="{6EF9E1B3-3A28-4723-9180-CBB0BE2C2752}" path="..\..\APTAF\Script\Actions\ModifyFields.svb" />
+				<child name="PostAction" key="{C3D24E3E-7FE4-4CA7-82C4-3F4B93B41237}" path="..\..\APTAF\Script\Actions\PostAction.svb" />
+				<child name="PreAction" key="{6E6E19F7-6921-41F5-A734-5E3F61FCE96F}" path="..\..\APTAF\Script\Actions\PreAction.svb" />
+				<child name="RemoveFields" key="{25C9F928-743A-4151-A460-84D7EF2F7AC2}" path="..\..\APTAF\Script\Actions\RemoveFields.svb" />
+			</folder>
+		</folder>
+		<folder name="QAR">
+			<child name="QAR_ActionScript" key="{D6E27B32-0E4A-4018-82EC-AD380630030C}" path="QAR\Script\QAR_ActionScript.svb" />
+		</folder>
+		<folder name="SmokeTest">
+			<child name="SmokeTest_ActionScript" key="{7D5711CF-C14B-4B4E-8707-205A4E348F4F}" path="SmokeTest\Script\SmokeTest_ActionScript.svb" />
+		</folder>
+		<folder name="ImportExport_DTPs">
+			<folder name="ExportDXF_DTP">
+				<child name="ExportDXF_ActionScript" key="{18B359EB-DB24-4630-87F6-A739D8447413}" path="ExportDXF\Script\ExportDXF_ActionScript.svb" />
+			</folder>
+			<folder name="ImportExportNTL_DTP">
+				<child name="SaveAsNTL_ActionScript" key="{960BE62D-569F-4E1F-B118-ABDBCEEA9EF1}" path="SaveAsNTL\Script\SaveAsNTL_ActionScript.svb" />
+			</folder>
+			<folder name="ImportExportCaesar_DTP">
+				<child name="ImportExport_ActionScript" key="{5D354416-C47F-439B-99AE-11415AE2D987}" path="ImportExport\Script\ImportExport_ActionScript.svb" />
+			</folder>
+			<folder name="ImportExportPXF_DTP">
+				<child name="ImportExportPXF_ActionScript" key="{6943C655-80D0-4B43-B2D3-BD2FFF701B2E}" path="ImportExportPXF\Script\ImportExportPXF_ActionScript.svb" />
+			</folder>
+			<folder name="ImportPCF_DTP">
+				<child name="ImportPCF_ActionScript" key="{04A22642-2CF2-49B7-AFBE-B60D40B94EFA}" path="ImportPCF\Script\ImportPCF_ActionScript.svb" />
+			</folder>
+		</folder>
+		<folder name="InsertModel_DTPs">
+			<folder name="InsertAPModel_DTP">
+				<child name="InsertAPModel_ActionScript" key="{90DB3FA9-5925-46C2-9000-36A8620FFF05}" path="InsertAPModel\Script\InsertAPModel_ActionScript.svb" />
+			</folder>
+		</folder>
+		<folder name="Tools">
+			<folder name="Library_DTP">
+				<child name="Library_ActionScript" key="{DB705E87-4DEA-4EA6-954A-646D72D44100}" path="Tools\Library\Script\Library_ActionScript.svb" />
+			</folder>
+		</folder>
+		<folder name="InsertTab">
+			<folder name="Components_DTP">
+				<child name="ComponentsTest_ActionScript" key="{C113E472-093F-4E07-A0BA-4EFF8BC02D9E}" path="ComponentsTest\Script\ComponentsTest_ActionScript.svb" />
+			</folder>
+			<folder name="Supports_DTP">
+				<child name="SupportsTest_ActionScript" key="{AB39B886-A598-4088-9F12-6A49A47DA1D1}" path="SupportsTest\Script\SupportsTest_ActionScript.svb" />
+			</folder>
+			<folder name="XtraData_DTP">
+				<child name="XtraData_ActionScript" key="{D50518E7-B877-4D01-AEF7-2E071C743FC4}" path="XtraData\Script\XtraData_ActionScript.svb" />
+			</folder>
+			<folder name="Properties">
+				<child name="Properties_ActionScript" key="{A9276C84-D75A-4B01-898B-A56FB91AB829}" path="Properties\Script\Properties_ActionScript.svb" />
+			</folder>
+			<folder name="Structure_DTP">
+				<child name="Structure_DTP_ActionScript" key="{B14078D2-853A-4DF0-A4FF-DD179AB413EA}" path="Structure_DTP\Script\Structure_DTP_ActionScript.svb" />
+			</folder>
+			<folder name="Soil_DTP">
+				<child name="Soil_ActionScript" key="{B1EE7B0C-BBC1-4E23-868E-368F774EF8D5}" path="Soil_ActionScript.svb" />
+			</folder>
+			<folder name="Other">
+				<folder name="DistributedLoad_DTP">
+					<child name="DistributedLoad_DTP_ActionScript" key="{466643A8-8BA0-4E29-B01D-08FA12989AAC}" path="DistributedLoad_DTP_ActionScript.svb" />
+				</folder>
+			</folder>
+		</folder>
+		<folder name="Modify">
+			<folder name="Modify_ComponentTest_DTP">
+				<child name="Modify_ComponentTest_DTP_ActionScript" key="{121213C4-58F3-4DA3-B8BC-CA0BE57D181E}" path="Modify_ComponentTest_DTP\Script\Modify_ComponentTest_DTP_ActionScript.svb" />
+			</folder>
+			<folder name="Modify_Properties_DTP">
+				<child name="Modify_Properties_DTP_ActionScript" key="{EB516467-6925-4C0C-9B32-FAB148D56BA5}" path="Modify_Properties_DTP\Script\Modify_Properties_DTP_ActionScript.svb" />
+			</folder>
+			<folder name="Modify_Structure_DTP">
+				<child name="Modify_Structure_DTP_ActionScript" key="{D9809B8B-3651-4E76-AC2C-CD1B101529C1}" path="Modify_Structure_DTP\Script\Modify_Structure_DTP_ActionScript.svb" />
+			</folder>
+			<folder name="Modify_Supports_DTP">
+				<child name="Modify_Supports_DTP_ActionScript" key="{CEABB6C2-9837-4C82-BF98-9DEC6E670A7A}" path="Modify_Supports_DTP\Script\Modify_Supports_DTP_ActionScript.svb" />
+			</folder>
+			<folder name="Modify_XtraData_DTP">
+				<child name="Modify_XtraData_DTP_ActionScript" key="{5185B0F3-7E56-413F-B62C-13B935DEB27A}" path="Modify_XtraData_DTP\Script\Modify_XtraData_DTP_ActionScript.svb" />
+			</folder>
+		</folder>
+		<folder name="Delete">
+			<folder name="DeleteComponents">
+				<child name="DeleteComponents_ActionScript" key="{1F92015F-AEE6-43BA-9C8D-340E51D554AC}" path="DeleteComponents\Script\DeleteComponents_ActionScript.svb" />
+			</folder>
+			<folder name="DeleteSupports">
+				<child name="DeleteSupports_ActionScript" key="{5A926A51-7036-4FBC-9342-38E4B1E03863}" path="DeleteSupports\Script\DeleteSupports_ActionScript.svb" />
+			</folder>
+			<folder name="DeleteXtraData">
+				<child name="DeleteXtraData_ActionScript" key="{933BDB48-6D25-4E82-8C0E-449FE03845B0}" path="DeleteXtraData\Script\DeleteXtraData_ActionScript.svb" />
+			</folder>
+			<folder name="DeleteProperties_Soil_Structure">
+				<child name="DeleteProperties_Soil_Structure_ActionScript" key="{5AF17182-8BDD-44BE-9576-12829EFE0CB0}" path="DeleteProperties_Soil_Structure\Script\DeleteProperties_Soil_Structure_ActionScript.svb" />
+			</folder>
+		</folder>
+		<child name="Unit2" key="{0B6DBA27-7096-4C6A-BD9B-F998FED8663C}" path="Unit2.svb" />
+		<child name="CreateDTP" key="{36B311DE-B52B-415F-A041-66C73B52C122}" path="CreateDTP.svb" />
+		<child name="AutomaticTableUICreation" key="{1BCA2D63-0C7C-40CD-BA13-5297DFCA38E9}" path="AutomaticTableUICreation.svb" />
+		<child name="Unit3" key="{EF345F3B-F1F6-4CDD-B0B5-81B67B507395}" path="Unit3.svb" />
+		<child name="QARModels" key="{58FD5EB7-9489-49D6-8BCE-398FD0BBC09F}" path="QARModelsList\QARModels.svb" />
+	</children>
+</Root>

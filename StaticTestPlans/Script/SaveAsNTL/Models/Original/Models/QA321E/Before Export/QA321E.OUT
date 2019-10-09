@@ -1,0 +1,1163 @@
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                                          BENTLEY                      
+04:14 PM   GHP.  7/1/88                                                            AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.12                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                                          BENTLEY                      
+04:14 PM   GHP.  7/1/88                                                            AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA321E                                          
+ 
+ 
+          PROJECT ID  : CHECK NONLINEAR SOIL BEHAVIOR.          
+                        GHP.  7/1/88                            
+ 
+ 
+          PREPARED BY  : ______________________________
+                         GHP                     
+ 
+          CHECKED BY   : ______________________________
+                         JPH                     
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2004                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-04 
+ 
+          MODEL REVISION NUMBER  :     3
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                                          BENTLEY                      
+04:14 PM   GHP.  7/1/88                                                            AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+     Forces and Displacement.........................................................    8                      
+     Soil Properties.................................................................    9                      
+     Loads Summary...................................................................   11                      
+     Analysis Summary................................................................   12                      
+     Displacement....................................................................   16                      
+     Restraint Reactions.............................................................   17                      
+     Forces & Moments................................................................   18                      
+     General Stress..................................................................   20                      
+     Soil Forces & Deformations......................................................   22                      
+     Code Compliance.................................................................   23                      
+     Result Summary..................................................................   25                      
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 0.50 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 24STD, Material= NS, Poisson= 0.300, Nom Size= 24 in, OD= 24.000 inch, Sch= STD,                    
+   Wall Thk= 0.375 inch, Mill= 0.047 inch, Cor= 0 inch, Insul Thk= 0 inch, Cladding Thickness = 0 inch,         
+   Lining Thk= 0 inch, Long Weld factor= 1.00, Circ Weld factor= 1.00, Long Modulus= 27.90000 E6 psi,           
+   Hoop Modulus= 27.90000 E6 psi, Shear Modulus= 10.73080 E6 psi, Sc= 100.0 psi, Syc= 0 psi                     
+ 
+ OPERATING DATA:                                                                
+   P1= 0 psi, P2= 0 psi, P3= 0 psi, T1= 70.00 deg F, T2= 70.00 deg F, T3= 70.00 deg F, Exp1= 0 in/100ft,        
+   Exp2= 0 in/100ft, Exp3= 0 in/100ft, E1= 27.90000 E6 psi, E2= 27.90000 E6 psi, E3= 27.90000 E6 psi,           
+   Sh1= 100.00 psi, Sh2= 100.00 psi, Sh3= 100.00 psi                            
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, KTX= Free, KTY= Free, KTZ= Free, KRX= 1000 ft-lb/deg, KRY= Free, KRZ= Free                      
+ 
+ SOIL DATA:                                                                     
+   Soil Id= SOIL, 1 point(s) at 4.00 inch                                       
+   Horz K1= 500.000 lb/in/ft, Horz P1= 3000.000 lb/ft, Horz K2= 1000.000 lb/in/ft, Long K1= 400.000 lb/in/ft,   
+   Long P1= 400.000 lb/ft, Long k2= 200.000 lb/in/ft, Vert Up K1= 2000.000 lb/in/ft, Vert Up P1= 1000.000 lb/ft,
+   Vert Up K2= 500.000 lb/in/ft, Vert Dn K1= 1000.000 lb/in/ft, Vert Dn P1= 750.000 lb/ft,                      
+   Vert Dn K2= 2500.000 lb/in/ft                                                
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DX= 0.50 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 0.50 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A01, Forces/Moments, Load= GR, FX= 100 lbf, FY= 1000 lbf, FZ= 4000 lbf       
+   A01, Forces/Moments, Load= T1, FX= 500 lbf, FY= 500 lbf, FZ= -2500 lbf       
+   A01, Forces/Moments, Load= T2, FX= -500 lbf, FY= -1500 lbf, FZ= -8000 lbf    
+   A01, Forces/Moments, Load= T3, FX= -600 lbf, FY= -2000 lbf                   
+   A01, Forces/Moments, Load= E1, FX= 500 lbf, FY= 500 lbf, FZ= -2500 lbf       
+   A01, Forces/Moments, Load= E2, FX= -1000 lbf, FY= -2000 lbf, FZ= -5500 lbf   
+   A01, Forces/Moments, Load= E3, FX= -100 lbf, FY= -500 lbf, FZ= 8000 lbf      
+   A02, Coordinates, X= 1.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ SOIL DATA:                                                                     
+   Soil Id= SOIL, 1 point(s) at 4.00 inch                                       
+   Soil Id= SOIL, End at A02                                                    
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 3 + 0 + 2 = 5            
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+            0.0 lb     +         0.0 lb     =           0.0 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ A00            0.00        0.00        0.00                                    
+ A01            0.50        0.00        0.00                                    
+ A02            1.00        0.00        0.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    ZL/ Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC/                       
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 24STD         24 24.000 0.375    0 0.05    0    0     0    0.000      0     0     0 1.00                       
+ NS           STD                                           0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ NS          24STD         0.0  0.30    70.0   27.900   27.900   10.731                              
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield                                                                    
+    Name     Pipe ID  deg F   psi      psi                                                                      
+------------ -------- ------- -------- --------                                                                 
+ NS          24STD       70.0    100.0      0.0
+                         70.0    100.0
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A 
+ A00   T1         0  70.00     0.000*    27.900*   100.00*                    
+       T2         0  70.00     0.000*    27.900*   100.00*                    
+       T3         0  70.00     0.000*    27.900*   100.00*                    
+ A02    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+                            FORCES AND DISPLACEMENTS                                                            
+   (Force - lbf , Moment - ft-lb , Tran. - in  , Rot. - deg  , Line - lb/ft  )                                  
+    POINT  LOAD                                                                                                 
+    NAME   CASE  TYPE      X        Y        Z        XX       YY       ZZ                                      
+    -----  ----  ----  -------- -------- --------  -------- -------- --------                                   
+    A01    GR    FORCE      100     1000     4000        0        0        0    
+           T1    FORCE      500      500    -2500        0        0        0    
+           T2    FORCE     -500    -1500    -8000        0        0        0    
+           T3    FORCE     -600    -2000        0        0        0        0    
+           E1    FORCE      500      500    -2500        0        0        0    
+           E2    FORCE    -1000    -2000    -5500        0        0        0    
+           E3    FORCE     -100     -500     8000        0        0        0    
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            SOIL DATA LISTING                                   
+                            -----------------                                   
+                                                                                
+                                                                                
+                        SOIL STIFFNESS PROPERTIES (SOIL)                        
+                                                                                
+                    Initial K         Yield P     Final K    Yield disp         
+      Dirn    Auto  (lb/in/ft) Auto  (lb/ft  )   (lb/in/ft)   (in    )          
+      ------- ----  ---------- ----  ----------  ----------  ----------         
+                                                                                
+  Low Stiffness                                                                 
+      Horiz.   N       500.000  N      3000.000    1000.000      6.0000         
+      Long.    N       400.000  N       400.000     200.000      1.0000         
+      Vert. Up N      2000.000  N      1000.000     500.000      0.5000         
+      Vert. Dn N      1000.000  N       750.000    2500.000      0.7500         
+                                                                                
+                                                                                
+  High Stiffness                                                                
+      Horiz.   N       500.000  N      3000.000    1000.000      6.0000         
+      Long.    N       400.000  N       400.000     200.000      1.0000         
+      Vert. Up N      2000.000  N      1000.000     500.000      0.5000         
+      Vert. Dn N      1000.000  N       750.000    2500.000      0.7500         
+                                                                                
+                                                                                
+  Average Stiffness                                                             
+      Horiz.   N       500.000  N      3000.000    1000.000      6.0000         
+      Long.    N       400.000  N       400.000     200.000      1.0000         
+      Vert. Up N      2000.000  N      1000.000     500.000      0.5000         
+      Vert. Dn N      1000.000  N       750.000    2500.000      0.7500         
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                                                                                
+                                SOIL PARAMETERS (SOIL)                          
+                                ----------------------                          
+                                                                                
+  Calculation Method :  User                                                    
+                                                                                
+  Parameters                                            Low          High       Average                         
+  -----------------------------------------------    ----------   ----------   ----------                       
+  Outside Diameter, D [in]                                 0.00                 
+  Depth to Centerline, H [inch]                            0.00                 
+  Derived values for buried piping :                                            
+                                                                                
+  Circumferential wall bending stress method:  Adams et. al.                    
+  Circumferential wall bending stress [psi]                0.00         0.00         0.00                       
+  Linear buoyancy force on pipe, Fb [lb/ft]                0.00         0.00         0.00                       
+  Equiv. seismic wave prop. temperature [deg F]            0.00         0.00         0.00                       
+  Buoyancy reduction factor R                              0.00         0.00         0.00                       
+                                                                                
+  Burial factor B' (Adams method - for Pipe ID)      0.00                       
+  Burial factor B' (CC N-755-1   - for Pipe ID)      0.00                       
+                                                                                
+                                EARTH LOADS (SOIL)                              
+                                ------------------                              
+                                                                                
+  Pipe Identifier                             :  24STD                          
+  Surface live load file name                 :                                                                 
+  Pressure on pipe due to surface load     Pp :      0.000 psi                  
+  Trench laying condition                     :  Type 1                         
+  Modulus of passive soil fill reaction    E' :    150.000 psi                  
+  Bending moment coefficient               Kb :      0.235                      
+  Deflection coefficient                   Kx :      0.108                      
+  Deflection lag factor                    Dl :      1.500                      
+  Bedding constant                         K  :      0.100                      
+  Soil support factor                      Fs :      0.100                      
+                                                                                
+                                SEISMIC LOADS (SOIL)                            
+                                --------------------                            
+                                                                                
+  Pipe Identifier                             :  24STD                          
+  Soil input parameters set                   :  Low                            
+  Seismic wave type                           :  Compression                    
+  Seismic wave coefficient                 aw :      1.000                      
+  Seismic wave curvature coefficient       ak :      1.600                      
+  Wave length of seismic wave              Lw :    100.000 inch                 
+  Seismic wave velocity at pipeline        c  :  42000.000 in/sec               
+  Peak ground acceleration                PGA :    100.000 in/s/s               
+  Peak ground velocity                    PGV :     15.000 in/sec               
+  Add axial and bending strain                :  N                              
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     EARTHQUAKE LOAD CASES :
+     -----------------------
+
+     Number of load cases :  3
+
+     Load case 1  -  E1 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.000    Y-Resultant =        0.000    Z-Resultant =        0.000                
+
+     Load case 2  -  E2 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.000    Y-Resultant =        0.000    Z-Resultant =        0.000                
+
+     Load case 3  -  E3 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.000    Y-Resultant =        0.000    Z-Resultant =        0.000                
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+ 
+                    A N A L Y S I S   S U M M A R Y                             
+ 
+ 
+   Current model revision number : 3                                            
+ 
+     Static - Analysis set number ................... 1                         
+              Date and Time of analysis ............. Nov 16, 2016   4:14 PM    
+              Model Revision Number ................. 3                         
+              Number of load cases .................. 7                         
+              Load cases analyzed ................... GR T1 T2 T3 E1 E2 E3      
+              Description ........................... Load Set No. 1                                            
+              Gaps/Friction/Soil considered ......... Yes                       
+              Tolerance - Force, Displacement ....... 10.00 lbf  0.0162 in      
+              Friction - Scale Factor, Tolerance .... 1.00   0.10               
+              Ignore friction for cases E1,E2,E3 .... No                        
+              Ignore friction for gravity case ...... Yes                       
+              Hanger design run ..................... No                        
+              Cut short included .................... No                        
+              Thermal bowing included ............... No                        
+              Include Bourdon rotational effect ..... No                        
+              Pipe radius for Bourdon calculation ... Mean                      
+              Occasional load analysis type ......... Nonlinear                 
+              Non-linear analysis summary file ...... QA321E.LOG                
+              Use default load sequence ............. Yes                       
+              Base load cases for nonlinear analysis                            
+                                                         GR   = None            
+                                                         T1   = GR              
+                                                         T2   = GR              
+                                                         T3   = GR              
+                                                         E1   = GR              
+                                                         E2   = GR              
+                                                         E3   = GR              
+              Weight of contents included ........... Yes                       
+              Fluid density factor for contents ..... 1.00                      
+              Pressure stiffening case .............. None                      
+              Hot modulus case ...................... None                      
+              Pressure Extension..................... No                        
+              Soil Stiffness ........................ Low                       
+              Water elevation for buoyancy loads .... Not considered            
+              Use corroded thickness in analysis .... No                        
+              Rigid stiffness factor ................ 1000.0                    
+              Support rigid stiffness (translation) . 0.100000E+11 lb/in        
+              Support rigid stiffness (rotation) .... 0.145444E+10 ft-lb/deg    
+              Anchor rigid stiffness (translation) .. 0.100000E+11 lb/in        
+              Anchor rigid stiffness (rotation) ..... 0.145444E+10 ft-lb/deg    
+              Remove Lift-Off Supports .............. No                        
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+                                        CODE COMPLIANCE COMBINATIONS                                            
+                                                                                                                
+  <Description>                                                                              Allowable          
+  Combination              Category    Method       Case/Combination     Factor M/S K-Factor   (psi)   D/A/P/C  
+  -----------------------  ----------- -------- ------------------------ ------ --- -------- --------- -------  
+  GR + Max P               Sustain     Sum      GR                         1.00              Automatic Y Y Y Y  
+                                                Max Long                   1.00                                 
+ 
+  Amb to T1                Expansion   Sum      T1                         1.00              Automatic Y Y Y Y  
+ 
+  Amb to T2                Expansion   Sum      T2                         1.00              Automatic Y Y Y Y  
+ 
+  Amb to T3                Expansion   Sum      T3                         1.00              Automatic Y Y Y Y  
+ 
+  T1 to T2                 Expansion   Sum      T2                         1.00              Automatic Y Y Y N  
+                                                T1                        -1.00                                 
+ 
+  T1 to T3                 Expansion   Sum      T3                         1.00              Automatic Y Y Y N  
+                                                T1                        -1.00                                 
+ 
+  T2 to T3                 Expansion   Sum      T3                         1.00              Automatic Y Y Y N  
+                                                T2                        -1.00                                 
+ 
+  Sus. + E1                Occasion    Abs sum  E1                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Sus. + E2                Occasion    Abs sum  E2                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Sus. + E3                Occasion    Abs sum  E3                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Max P                    Hoop        Sum      Max Hoop                   1.00              Automatic Y Y Y Y  
+ 
+ 
+  Notes:                                                                        
+ 
+  D/A/P/C: [D]efault/[A]uto-Update/[P]rint options/[C]Consistent (Y=Yes, N=No)  
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+                              NON-CODE COMBINATIONS                                                             
+                                                                                                                
+  <Description>                                                                                                 
+  Combination               Method       Case/Combination     Factor  D/A/P/C                                   
+  -----------------------   -------- ------------------------ ------  -------                                   
+  Gravity                   Sum      GR                         1.00  Y Y Y Y   
+ 
+  Thermal 1                 Sum      T1                         1.00  Y Y Y N   
+ 
+  Thermal 2                 Sum      T2                         1.00  Y Y Y N   
+ 
+  Thermal 3                 Sum      T3                         1.00  Y Y Y N   
+ 
+  Static Seismic 1          Sum      E1                         1.00  Y Y Y N   
+ 
+  Static Seismic 2          Sum      E2                         1.00  Y Y Y N   
+ 
+  Static Seismic 3          Sum      E3                         1.00  Y Y Y N   
+ 
+ 
+  Notes:                                                                        
+ 
+  D/A/P/C: [D]efault/[A]uto-Update/[P]rint options/[C]Consistent (Y=Yes, N=No)  
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+   CODE COMPLIANCE                                                              
+ 
+   Y - Factor ............................ 0.40                                 
+   Weld efficiency factor Ej.............. 1.00                                 
+   Design Pressure Factor ................ 1.00                                 
+   Minimum stress ratio used in reports... 0.00                                 
+   Number of stress points per span ...... 0                                    
+   Include corrosion in stress calcs. .... Y                                    
+   Include corrosion in Hoop stress calcs. Y                                    
+   Include axial force in code stress .... N                                    
+   Include sustain load margin ........... Only if allowable stress is exceeded 
+   Use minimum sustained margin........... Y                                    
+   Set sustained SIF=1 no bends .......... N                                    
+   Set sustained/occasional SIF = 1 ...... N                                    
+   Set sustained/occasional SIF = 0.75i .. N                                    
+   Apply cold/hot modulus ratio .......... N                                    
+   Disable auto code combinations ........ N                                    
+   Disable auto non-code combinations .... N                                    
+   No. of thermal ranges to report ....... 3                                    
+   Include Max Range combination ......... N                                    
+   Total stress .......................... Octahedral                           
+   Direct shear .......................... None                                 
+   Longitudinal pressure calculation ..... PD/4t                                
+   Inc. Axial Str and Pcase in Sustained.. N                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+                                       D I S P L A C E M E N T S                                                
+                                                                                                                
+ Point      Load                      TRANSLATIONS (in  )         ROTATIONS (deg  )                             
+ name    combination                   X       Y       Z          X       Y       Z                             
+ ------  ------------------------    ------  ------  ------     ------  ------  ------                          
+ 
+ *** Segment A  begin ***
+ 
+ A00     Gravity                      0.250   0.500   7.000      0.000   0.000   0.000                          
+         Thermal 1                    1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Thermal 2                   -1.250  -1.000 -14.000      0.000   0.000   0.000                          
+         Thermal 3                   -1.750  -1.350   0.000      0.000   0.000   0.000                          
+         Static Seismic 1             1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Static Seismic 2            -3.750  -1.350 -10.000      0.000   0.000   0.000                          
+         Static Seismic 3            -0.250  -0.250   8.000      0.000   0.000   0.000                          
+ 
+ +1      Gravity                      0.250   0.500   7.000      0.000   0.000   0.000                          
+         Thermal 1                    1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Thermal 2                   -1.250  -1.000 -14.000      0.000   0.000   0.000                          
+         Thermal 3                   -1.750  -1.350   0.000      0.000   0.000   0.000                          
+         Static Seismic 1             1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Static Seismic 2            -3.750  -1.350 -10.000      0.000   0.000   0.000                          
+         Static Seismic 3            -0.250  -0.250   8.000      0.000   0.000   0.000                          
+ 
+ A01     Gravity                      0.250   0.500   7.000      0.000   0.000   0.000                          
+         Thermal 1                    1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Thermal 2                   -1.250  -1.000 -14.000      0.000   0.000   0.000                          
+         Thermal 3                   -1.750  -1.350   0.000      0.000   0.000   0.000                          
+         Static Seismic 1             1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Static Seismic 2            -3.750  -1.350 -10.000      0.000   0.000   0.000                          
+         Static Seismic 3            -0.250  -0.250   8.000      0.000   0.000   0.000                          
+ 
+ +1      Gravity                      0.250   0.500   7.000      0.000   0.000   0.000                          
+         Thermal 1                    1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Thermal 2                   -1.250  -1.000 -14.000      0.000   0.000   0.000                          
+         Thermal 3                   -1.750  -1.350   0.000      0.000   0.000   0.000                          
+         Static Seismic 1             1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Static Seismic 2            -3.750  -1.350 -10.000      0.000   0.000   0.000                          
+         Static Seismic 3            -0.250  -0.250   8.000      0.000   0.000   0.000                          
+ 
+ A02     Gravity                      0.250   0.500   7.000      0.000   0.000   0.000                          
+         Thermal 1                    1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Thermal 2                   -1.250  -1.000 -14.000      0.000   0.000   0.000                          
+         Thermal 3                   -1.750  -1.350   0.000      0.000   0.000   0.000                          
+         Static Seismic 1             1.750   1.000  -4.000      0.000   0.000   0.000                          
+         Static Seismic 2            -3.750  -1.350 -10.000      0.000   0.000   0.000                          
+         Static Seismic 3            -0.250  -0.250   8.000      0.000   0.000   0.000                          
+ 
+ *** Segment A  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  17
+----------------------------------------------------------------------------------------------------------------
+
+                                      R E S T R A I N T   R E A C T I O N S                                     
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ -----------------------   ------ ------ ------ ------ ------- ------- ------- -------                   
+ 
+ A00     Anchor    Tag No.: <None>                                              
+         Gravity                       0      0      0      0       0       0       0       0                   
+         Thermal 1                     0      0      0      0       0       0       0       0                   
+         Thermal 2                     0      0      0      0       0       0       0       0                   
+         Thermal 3                     0      0      0      0       0       0       0       0                   
+         Static Seismic 1              0      0      0      0       0       0       0       0                   
+         Static Seismic 2              0      0      0      0       0       0       0       0                   
+         Static Seismic 3              0      0      0      0       0       0       0       0                   
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  18
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ 
+ *** Segment A  begin ***
+ 
+ A00     Gravity                     -12   -125   -500    516       0       0       0       0                   
+         Thermal 1                   -62    -63    312    325       0       0       0       0                   
+         Thermal 2                    62    187   1000   1019       0       0       0       0                   
+         Thermal 3                    75    250      0    261       0       0       0       0                   
+         Static Seismic 1            -62    -63    312    325       0       0       0       0                   
+         Static Seismic 2            125    250    687    742       0       0       0       0                   
+         Static Seismic 3             12     62  -1000   1002       0       0       0       0                   
+ 
+ +1   -  Gravity                     -12   -125   -500    516       0    -125      31     129                   
+         Thermal 1                   -62    -63    312    325       0      78      16      80                   
+         Thermal 2                    62    187   1000   1019       0     250     -47     254                   
+         Thermal 3                    75    250      0    261       0       0     -62      62                   
+         Static Seismic 1            -62    -63    312    325       0      78      16      80                   
+         Static Seismic 2            125    250    687    742       0     172     -62     183                   
+         Static Seismic 3             12     62  -1000   1002       0    -250     -16     250                   
+ 
+ +1   +  Gravity                     -37   -375  -1500   1547       0    -125      31     129                   
+         Thermal 1                  -188   -188    937    974       0      78      16      80                   
+         Thermal 2                   187    562   3000   3058       0     250     -47     254                   
+         Thermal 3                   225    750      0    783       0       0     -62      62                   
+         Static Seismic 1           -188   -188    937    974       0      78      16      80                   
+         Static Seismic 2            375    750   2062   2226       0     172     -62     183                   
+         Static Seismic 3             37    188  -3000   3006       0    -250     -16     250                   
+ 
+ A01  -  Gravity                     -37   -375  -1500   1547       0    -500     125     515                   
+         Thermal 1                  -188   -188    937    974       0     312      63     319                   
+         Thermal 2                   187    562   3000   3058       0    1000    -187    1017                   
+         Thermal 3                   225    750      0    783       0       0    -250     250                   
+         Static Seismic 1           -188   -188    937    974       0     312      63     319                   
+         Static Seismic 2            375    750   2062   2226       0     687    -250     732                   
+         Static Seismic 3             37    188  -3000   3006       0   -1000     -62    1002                   
+ 
+ A01  +  Gravity                      37    375   1500   1547       0    -500     125     515                   
+         Thermal 1                   188    188   -937    974       0     312      63     319                   
+         Thermal 2                  -187   -562  -3000   3058       0    1000    -187    1017                   
+         Thermal 3                  -225   -750      0    783       0       0    -250     250                   
+         Static Seismic 1            188    188   -937    974       0     312      63     319                   
+         Static Seismic 2           -375   -750  -2062   2226       0     687    -250     732                   
+         Static Seismic 3            -37   -188   3000   3006       0   -1000     -62    1002                   
+ 
+ +1   -  Gravity                      37    375   1500   1547       0    -125      31     129                   
+         Thermal 1                   188    188   -937    974       0      78      16      80                   
+         Thermal 2                  -187   -562  -3000   3058       0     250     -47     254                   
+         Thermal 3                  -225   -750      0    783       0       0     -62      62                   
+         Static Seismic 1            188    188   -937    974       0      78      16      80                   
+         Static Seismic 2           -375   -750  -2062   2226       0     172     -62     183                   
+         Static Seismic 3            -37   -188   3000   3006       0    -250     -16     250                   
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  19
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ +1   +  Gravity                      12    125    500    516       0    -125      31     129                   
+         Thermal 1                    62     63   -312    325       0      78      16      80                   
+         Thermal 2                   -62   -187  -1000   1019       0     250     -47     254                   
+         Thermal 3                   -75   -250      0    261       0       0     -62      62                   
+         Static Seismic 1             62     63   -312    325       0      78      16      80                   
+         Static Seismic 2           -125   -250   -687    742       0     172     -62     183                   
+         Static Seismic 3            -12    -62   1000   1002       0    -250     -16     250                   
+ 
+ A02     Gravity                      12    125    500    516       0       0       0       0                   
+         Thermal 1                    62     63   -312    325       0       0       0       0                   
+         Thermal 2                   -62   -187  -1000   1019       0       0       0       0                   
+         Thermal 3                   -75   -250      0    261       0       0       0       0                   
+         Static Seismic 1             62     63   -312    325       0       0       0       0                   
+         Static Seismic 2           -125   -250   -687    742       0       0       0       0                   
+         Static Seismic 3            -12    -62   1000   1002       0       0       0       0                   
+ 
+ *** Segment A  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  20
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+ 
+ *** Segment A  begin ***
+ 
+ A00    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0       0       0       0       0      0       0  270                    
+        Thermal 1                      0       2       2       0       2      0       2  270                    
+        Thermal 2                      0      -2      -2       0       0     -2       2  270                    
+        Thermal 3                      0      -3      -3       0       0     -3       3  270                    
+        Static Seismic 1               0       2       2       0       2      0       2  270                    
+        Static Seismic 2               0      -4      -4       0       0     -4       4  270                    
+        Static Seismic 3               0       0       0       0       0      0       0  270                    
+ 
+ +1   - SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0      10      -9       0      10     -9      10   76                    
+        Thermal 1                      0       8      -4       0       8     -4       8  281                    
+        Thermal 2                      0      17     -21       0      17    -21      21   79                    
+        Thermal 3                      0       2      -7       0       2     -7       7    0                    
+        Static Seismic 1               0       8      -4       0       8     -4       8  281                    
+        Static Seismic 2               0       9     -18       0       9    -18      18   70                    
+        Static Seismic 3               0      18     -19       0      18    -19      19  274                    
+ 
+ +1   + SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0       0       0       0       0      0       0  270                    
+        Thermal 1                      0       0       0       0       0      0       0  270                    
+        Thermal 2                      0       0       0       0       0      0       0  270                    
+        Thermal 3                      0       0       0       0       0      0       0  270                    
+        Static Seismic 1               0       0       0       0       0      0       0  270                    
+        Static Seismic 2               0       0       0       0       0      0       0  270                    
+        Static Seismic 3               0       0       0       0       0      0       0  270                    
+ 
+ A01  - SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0      40     -37       0      40    -37      40   76                    
+        Thermal 1                      0      30     -17       0      30    -17      30  281                    
+        Thermal 2                      0      69     -82       0      69    -82      82   79                    
+        Thermal 3                      0      10     -27       0      10    -27      27    0                    
+        Static Seismic 1               0      30     -17       0      30    -17      30  281                    
+        Static Seismic 2               0      41     -68       0      41    -68      68   70                    
+        Static Seismic 3               0      73     -76       0      73    -76      76  274                    
+ 
+ A01  + SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0      37     -40       0      37    -40      40  256                    
+        Thermal 1                      0      17     -30       0      17    -30      30  101                    
+        Thermal 2                      0      82     -69       0      82    -69      82  259                    
+        Thermal 3                      0      27     -10       0      27    -10      27  180                    
+        Static Seismic 1               0      17     -30       0      17    -30      30  101                    
+        Static Seismic 2               0      68     -41       0      68    -41      68  250                    
+        Static Seismic 3               0      76     -73       0      76    -73      76   94                    
+ 
+ +1   - SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0       8     -11       0       8    -11      11  256                    
+        Thermal 1                      0      -1     -13       0       0    -13      13  101                    
+        Thermal 2                      0      26     -12       0      26    -12      26  259                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  21
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+        Thermal 3                      0      13       3       0      13      0      13  180                    
+        Static Seismic 1               0      -1     -13       0       0    -13      13  101                    
+        Static Seismic 2               0      27       0       0      27      0      27  250                    
+        Static Seismic 3               0      20     -17       0      20    -17      20   94                    
+ 
+ +1   + SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0       0       0       0       0      0       0  270                    
+        Thermal 1                      0       0       0       0       0      0       0  270                    
+        Thermal 2                      0       0       0       0       0      0       0  270                    
+        Thermal 3                      0       0       0       0       0      0       0  270                    
+        Static Seismic 1               0       0       0       0       0      0       0  270                    
+        Static Seismic 2               0       0       0       0       0      0       0  270                    
+        Static Seismic 3               0       0       0       0       0      0       0  270                    
+ 
+ A02    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0       0       0       0       0      0       0  270                    
+        Thermal 1                      0      -2      -2       0       0     -2       2  270                    
+        Thermal 2                      0       2       2       0       2      0       2  270                    
+        Thermal 3                      0       3       3       0       3      0       3  270                    
+        Static Seismic 1               0      -2      -2       0       0     -2       2  270                    
+        Static Seismic 2               0       4       4       0       4      0       4  270                    
+        Static Seismic 3               0       0       0       0       0      0       0  270                    
+ 
+ *** Segment A  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  22
+----------------------------------------------------------------------------------------------------------------
+
+             S O I L    F O R C E S   &  D E F O R M A T I O N S                                                
+                                                                                                                
+ Point      Load                       FORCES (lb/ft  )           DEFORMATIONS (in  )                           
+ name    combination                 Long     Vert    Horiz     Long     Vert     Horiz                         
+ ------  ----------------------     -------  ------- -------   -------  -------  -------                        
+ 
+ *** Segment A  begin ***
+ A00                                                                            
+         Gravity                    -100.00  -999.99 -3999.99     -0.25    -0.50    -7.00                       
+         Thermal 1                  -500.00  -500.00  2499.99     -1.75    -1.00     4.00                       
+         Thermal 2                   500.00  1500.00  7999.98      1.25     1.00    14.00                       
+         Thermal 3                   600.00  1999.99     0.00      1.75     1.35     0.00                       
+         Static Seismic 1           -500.00  -500.00  2499.99     -1.75    -1.00     4.00                       
+         Static Seismic 2           1000.00  1999.99  5499.99      3.75     1.35    10.00                       
+         Static Seismic 3            100.00   500.00 -7999.98      0.25     0.25    -8.00                       
+ +1                                                                             
+         Gravity                    -100.00 -1000.00 -4000.01     -0.25    -0.50    -7.00                       
+         Thermal 1                  -500.00  -500.00  2500.01     -1.75    -1.00     4.00                       
+         Thermal 2                   500.00  1500.00  8000.02      1.25     1.00    14.00                       
+         Thermal 3                   600.00  2000.01     0.00      1.75     1.35     0.00                       
+         Static Seismic 1           -500.00  -500.00  2500.01     -1.75    -1.00     4.00                       
+         Static Seismic 2           1000.00  2000.01  5500.01      3.75     1.35    10.00                       
+         Static Seismic 3            100.00   500.00 -8000.02      0.25     0.25    -8.00                       
+ A01                                                                            
+         Gravity                    -100.00 -1000.00 -4000.01     -0.25    -0.50    -7.00                       
+         Thermal 1                  -500.00  -500.00  2500.01     -1.75    -1.00     4.00                       
+         Thermal 2                   500.00  1500.00  8000.02      1.25     1.00    14.00                       
+         Thermal 3                   600.00  2000.01     0.00      1.75     1.35     0.00                       
+         Static Seismic 1           -500.00  -500.00  2500.01     -1.75    -1.00     4.00                       
+         Static Seismic 2           1000.00  2000.01  5500.01      3.75     1.35    10.00                       
+         Static Seismic 3            100.00   500.00 -8000.02      0.25     0.25    -8.00                       
+ +1                                                                             
+         Gravity                    -100.00  -999.99 -3999.99     -0.25    -0.50    -7.00                       
+         Thermal 1                  -500.00  -500.00  2499.99     -1.75    -1.00     4.00                       
+         Thermal 2                   500.00  1500.00  7999.98      1.25     1.00    14.00                       
+         Thermal 3                   600.00  1999.99     0.00      1.75     1.35     0.00                       
+         Static Seismic 1           -500.00  -500.00  2499.99     -1.75    -1.00     4.00                       
+         Static Seismic 2           1000.00  1999.99  5499.99      3.75     1.35    10.00                       
+         Static Seismic 3            100.00   500.00 -7999.98      0.25     0.25    -8.00                       
+ A02                                                                            
+ 
+ *** Segment A  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  23
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ 
+ A01  + Max P                                                     ( 3) HOOP       0     100                     
+        GR + Max P                    515                   1.00  (11) SUST      38     100                     
+        Amb to T1                                     319   1.00  (13) DISP      24     150                     
+        Amb to T2                                    1017   1.00  (13) DISP      75     150                     
+        Amb to T3                                     250   1.00  (13) DISP      19     150                     
+        T1 to T2                                      732   1.00  (13) DISP      54     150                     
+        T1 to T3                                      442   1.00  (13) DISP      33     150                     
+        T2 to T3                                     1002   1.00  (13) DISP      74     150                     
+        Sus. + E1                     515     319           1.00  (12)  OCC      62     120                     
+        Sus. + E2                     515     732           1.00  (12)  OCC      92     120                     
+        Sus. + E3                     515    1002           1.00  (12)  OCC     112     120                     
+ 
+ A01  - Max P                                                     ( 3) HOOP       0     100                     
+        GR + Max P                    515                   1.00  (11) SUST      38     100                     
+        Amb to T1                                     319   1.00  (13) DISP      24     150                     
+        Amb to T2                                    1017   1.00  (13) DISP      75     150                     
+        Amb to T3                                     250   1.00  (13) DISP      19     150                     
+        T1 to T2                                      732   1.00  (13) DISP      54     150                     
+        T1 to T3                                      442   1.00  (13) DISP      33     150                     
+        T2 to T3                                     1002   1.00  (13) DISP      74     150                     
+        Sus. + E1                     515     319           1.00  (12)  OCC      62     120                     
+        Sus. + E2                     515     732           1.00  (12)  OCC      92     120                     
+        Sus. + E3                     515    1002           1.00  (12)  OCC     112     120                     
+ 
+ +1   - Max P                                                     ( 3) HOOP       0     100                     
+        GR + Max P                    129                   1.00  (11) SUST      10     100                     
+        Amb to T1                                      80   1.00  (13) DISP       6     150                     
+        Amb to T2                                     254   1.00  (13) DISP      19     150                     
+        Amb to T3                                      62   1.00  (13) DISP       5     150                     
+        T1 to T2                                      183   1.00  (13) DISP      14     150                     
+        T1 to T3                                      110   1.00  (13) DISP       8     150                     
+        T2 to T3                                      250   1.00  (13) DISP      19     150                     
+        Sus. + E1                     129      80           1.00  (12)  OCC      15     120                     
+        Sus. + E2                     129     183           1.00  (12)  OCC      23     120                     
+        Sus. + E3                     129     250           1.00  (12)  OCC      28     120                     
+ 
+ +1   - Max P                                                     ( 3) HOOP       0     100                     
+        GR + Max P                    129                   1.00  (11) SUST      10     100                     
+        Amb to T1                                      80   1.00  (13) DISP       6     150                     
+        Amb to T2                                     254   1.00  (13) DISP      19     150                     
+        Amb to T3                                      62   1.00  (13) DISP       5     150                     
+        T1 to T2                                      183   1.00  (13) DISP      14     150                     
+        T1 to T3                                      110   1.00  (13) DISP       8     150                     
+        T2 to T3                                      250   1.00  (13) DISP      19     150                     
+        Sus. + E1                     129      80           1.00  (12)  OCC      15     120                     
+        Sus. + E2                     129     183           1.00  (12)  OCC      23     120                     
+        Sus. + E3                     129     250           1.00  (12)  OCC      28     120                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  24
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A00    Max P                                                     ( 3) HOOP       0     100                     
+        GR + Max P                      0                   1.00  (11) SUST       0     100                     
+        Amb to T1                                       0   1.00  (13) DISP       0     150                     
+        Amb to T2                                       0   1.00  (13) DISP       0     150                     
+        Amb to T3                                       0   1.00  (13) DISP       0     150                     
+        T1 to T2                                        0   1.00  (13) DISP       0     150                     
+        T1 to T3                                        0   1.00  (13) DISP       0     150                     
+        T2 to T3                                        0   1.00  (13) DISP       0     150                     
+        Sus. + E1                       0       0           1.00  (12)  OCC       0     120                     
+        Sus. + E2                       0       0           1.00  (12)  OCC       0     120                     
+        Sus. + E3                       0       0           1.00  (12)  OCC       0     120                     
+ 
+ A02    Max P                                                     ( 3) HOOP       0     100                     
+        GR + Max P                      0                   1.00  (11) SUST       0     100                     
+        Amb to T1                                       0   1.00  (13) DISP       0     150                     
+        Amb to T2                                       0   1.00  (13) DISP       0     150                     
+        Amb to T3                                       0   1.00  (13) DISP       0     150                     
+        T1 to T2                                        0   1.00  (13) DISP       0     150                     
+        T1 to T3                                        0   1.00  (13) DISP       0     150                     
+        T2 to T3                                        0   1.00  (13) DISP       0     150                     
+        Sus. + E1                       0       0           1.00  (12)  OCC       0     120                     
+        Sus. + E2                       0       0           1.00  (12)  OCC       0     120                     
+        Sus. + E3                       0       0           1.00  (12)  OCC       0     120                     
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  25
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+ Maximum displacements (in)                                                     
+ ---------------------------                                                    
+ 
+          Maximum X :    -3.750      Point : A01        Load Comb.: Static Seismic 2                            
+          Maximum Y :    -1.350      Point : A01        Load Comb.: Thermal 3                                   
+          Maximum Z :   -14.000      Point : A01        Load Comb.: Thermal 2                                   
+          Max. total:    14.091      Point : A01        Load Comb.: Thermal 2                                   
+ 
+ Maximum rotations (deg)                                                        
+ -----------------------                                                        
+          Maximum Y :     0.000      Point : A02        Load Comb.: Thermal 2                                   
+          Maximum Z :     0.000      Point : A02        Load Comb.: Thermal 3                                   
+          Max. total:     0.000      Point : A02        Load Comb.: Thermal 2                                   
+ 
+ 
+ 
+ Maximum restraint forces (lb)                                                  
+ ------------------------------                                                 
+ 
+ 
+           Results for this section are zero                                    
+ 
+ Maximum restraint moments (ft-lb)                                              
+ ----------------------------------                                             
+ 
+ 
+           Results for this section are zero                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  26
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+ Maximum pipe forces (lb)                                                       
+ -------------------------                                                      
+ 
+          Maximum X :       375      Point : A00        Load Comb.: Static Seismic 2                            
+          Maximum Y :       750      Point : A00        Load Comb.: Thermal 3                                   
+          Maximum Z :      3000      Point : A00        Load Comb.: Thermal 2                                   
+          Max. total:      3058      Point : A00        Load Comb.: Thermal 2                                   
+ 
+ Maximum pipe moments (ft-lb)                                                   
+ -----------------------------                                                  
+          Maximum Y :      1000      Point : A01        Load Comb.: Thermal 2                                   
+          Maximum Z :      -250      Point : A01        Load Comb.: Thermal 3                                   
+          Max. total:      1017      Point : A01        Load Comb.: Thermal 2                                   
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  27
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+     Maximum sustained stress                                                   
+ 
+                              Point            : A01                            
+                              Stress    psi    : 38                             
+                              Allowable psi    : 100                            
+                              Ratio            : 0.38                           
+                              Load combination : GR + Max P                     
+ 
+     Maximum displacement stress                                                
+ 
+                              Point            : A01                            
+                              Stress    psi    : 75                             
+                              Allowable psi    : 150                            
+                              Ratio            : 0.50                           
+                              Load combination : Amb to T2                      
+ 
+     Maximum occasional stress                                                  
+ 
+                              Point            : A01                            
+                              Stress    psi    : 112                            
+                              Allowable psi    : 120                            
+                              Ratio            : 0.94                           
+                              Load combination : Sus. + E3                      
+ 
+     Maximum hoop stress                                                        
+ 
+                              Point            : A01                            
+                              Stress    psi    : 0                              
+                              Allowable psi    : 100                            
+                              Ratio            : 0.00                           
+                              Load combination : Max P                          
+
+----------------------------------------------------------------------------------------------------------------
+QA321E                                                                                                          
+11/16/2016 CHECK NONLINEAR SOIL BEHAVIOR.                         BENTLEY                                       
+04:14 PM   GHP.  7/1/88                                           AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  28
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+     Maximum sustained stress ratio                                             
+ 
+                              Point            : A01                            
+                              Stress    psi    : 38                             
+                              Allowable psi    : 100                            
+                              Ratio            : 0.38                           
+                              Load combination : GR + Max P                     
+ 
+     Maximum displacement stress ratio                                          
+ 
+                              Point            : A01                            
+                              Stress    psi    : 75                             
+                              Allowable psi    : 150                            
+                              Ratio            : 0.50                           
+                              Load combination : Amb to T2                      
+ 
+     Maximum occasional stress ratio                                            
+ 
+                              Point            : A01                            
+                              Stress    psi    : 112                            
+                              Allowable psi    : 120                            
+                              Ratio            : 0.94                           
+                              Load combination : Sus. + E3                      
+ 
+     Maximum hoop stress ratio                                                  
+ 
+                              Point            : A01                            
+                              Stress    psi    : 0                              
+                              Allowable psi    : 100                            
+                              Ratio            : 0.00                           
+                              Load combination : Max P                          
+ 
+ 
+ 
+     * * * The system satisfies ASME B31.1 (2004) code requirements * * *       
+     * * * for the selected options                                 * * *       
+                                                                                
+           Warnings:                                                            
+           (1) Maximum hoop stress ratio is zero                                
+

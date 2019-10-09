@@ -1,0 +1,223 @@
+﻿'USEUNIT MAIN
+'USEUNIT UIEngine
+'USEUNIT tabDelete
+SUB modifyPipeProperties()
+'Aliases.autopipe.dlgPipeModify.drpdwnPipeIdentifier.ClickItem("*12*")
+'Aliases.autopipe.dlgBend.fldLengt objNameMapping.dlgSelectSupportPoints.drpdwnSupportConnectionType.ClickItem(TestData)
+h.Keys("5")
+'Aliases.autopipe.dlgBend.drpdwnBendType.ClickItem ("*Elbow*")
+'Aliases.autopipe.dlgTee.drpdwnTypeOfTee.ClickItem ("*Contour*")
+Aliases.autopipe.dlgNozzle.drpdwnFlexibilityMethod.ClickItem("*Bijlaard*")
+'Aliases.autopipe.dlgRigidOptions.btnCancel.Click()
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+ 
+End Sub
+Sub delete
+
+'   
+'  tabDelete.OutOfRoundness("Yes")
+'   
+'   tabDelete.GrossDiscontinuity("Yes")
+'   
+'   tabSelect.Point("D16")
+'   tabDelete.JointTypeAndUserSIF("Yes")
+'   tabSelect.JointTypeAndUserSIF("0")
+'   tabDelete.JointTypeAndUserSIF("Yes")
+'   
+'   tabSelect.Point("B06")
+'   tabDelete.AdditionalWeight("1=Weight")   
+'   tabSelect.AdditionalWeight("0")
+'   tabDelete.AdditionalWeight("Yes")
+'   
+'   tabSelect.Point("B09")
+'   tabDelete.ConcentratedForce("3=Conc for")   
+'   tabSelect.ConcentratedForce("0")
+'   tabDelete.ConcentratedForce("Yes")
+''   
+'   tabSelect.Point("D00")
+'   tabDelete.ImposedDisplacement("2=Imposed")
+'   tabSelect.ImposedDisplacement("0")
+'   tabDelete.ImposedDisplacement("Yes")
+'   
+'   tabSelect.Point("C07")
+'   tabDelete.HydrodynamicData("2=Hydro")
+'   tabSelect.HydrodynamicData("0")
+'   tabDelete.HydrodynamicData("0=All")
+'
+'   
+'   tabSelect.Point("D07")
+'   tabDelete.CutShort("1=cut")
+'   tabSelect.CutShort("0")
+'   tabDelete.CutShort("Yes")
+''   
+'   tabSelect.Point("D11")
+'   tabDelete.UserWeldEfficiencyFactor("1=user")
+'   tabSelect.UserWeldEfficiencyFactor("0")
+'   tabDelete.UserWeldEfficiencyFactor("Yes")
+'   
+'   Call tabSelect.Range("D02","D03")
+'   tabDelete.MemberEarthquakeFactor("Yes")
+'   
+'   tabSelect.Point("D02")
+'   tabDelete.PointEarthquakeFactor("Yes")
+'   tabSelect.PointEarthquakeFactor("0")
+'   tabDelete.PointEarthquakeFactor("Yes")
+'   
+'   tabSelect.Point("D09")
+'   tabDelete.ReferencePoint("3=Ref")
+'   tabSelect.ReferencePoint("0")
+'   tabDelete.ReferencePoint("Yes")
+'   
+'   tabDelete.OutOfRoundness("Yes")
+'   tabDelete.GrossDiscontinuity("Yes")
+' Call tabSelect.Range("C16","C17")
+'   tabDelete.RigidOptionsOverRange ("Yes")
+'tabDelete.UnusedPipeProperties("All Unused")  
+'tabDelete.UnusedPipeProperties("32")  
+'tabDelete.UnusedPipeProperties("All Unused")
+'   Call tabSelect.Range("C16","C17")
+'   tabDelete.RigidOptionsOverRange ("Yes")
+'   tabSelect.SoilPoints("1")
+'   tabDelete.SoilPointsOverRange("Yes")
+' tabSelect.Beams("0")
+'   tabDelete.Beams("Yes")
+   tabDelete.UnusedSectionIdentifier("0 ")
+End Sub
+Sub selectsupport
+    Aliases.autopipe.dlgSelectSupportPoints.drpdwnSupportConnectionType.ClickItem("All")
+    Aliases.autopipe.dlgSelectSupportPoints.chkboxAll.Click()
+End Sub
+Sub integr
+  Dim TestData:TestData="yes"    
+  If IsNumeric(TestData) Then
+          TestData = CInt(TestData)   
+ end if 
+          Log.Message(TestData)
+End Sub
+Sub grdLicensingTool
+Dim myGrid
+'Aliases.LicensingTool.HwndSource_MainWindow.LicensingTool.LicensingTool1.RadGridView
+ Set myTab = Aliases.LicensingTool.HwndSource_MainWindow.LicensingTool.LicensingTool1.tabControl
+ Set myGrid = Aliases.LicensingTool.HwndSource_MainWindow.LicensingTool.LicensingTool1.tabControl.RadGridView
+ 
+For k = 0 To myTab.wTabCount -1
+ myTab.ClickTab(k)
+ AppendLogFolder(myTab.wTabCaption(k))
+ 'Log.Message()
+For i = 1 To myGrid.wColumnCount -1
+AppendLogFolder(myGrid.wColumn(i))
+'Log.Message(myGrid.wColumn(i))
+  For j = 0 To myGrid.wRowCount -1
+Log.Message(myGrid.wValue(j,myGrid.wColumn(i)).oleValue)
+Next
+PopLogFolder
+Next
+PopLogFolder
+Next
+'Log.Message(myGrid.wColumnCount)
+End Sub
+
+
+Sub grdLicensingTool1
+Dim myGrid
+'Aliases.LicensingTool.HwndSource_MainWindow.LicensingTool.LicensingTool1.RadGridView
+ Set myTab = Aliases.LicensingTool.HwndSource_MainWindow.LicensingTool.LicensingTool1.tabControl
+ Set myGrid = Aliases.LicensingTool.HwndSource_MainWindow.LicensingTool.LicensingTool1.tabControl.RadGridView
+ 
+For k = 0 To myTab.wTabCount -1
+ myTab.ClickTab(k)
+ AppendLogFolder(myTab.wTabCaption(k))
+ 'Log.Message()
+For i = 0 To myGrid.wRowCount -1 'myGrid.wColumnCount -1
+AppendLogFolder("Row Number- " & i)
+'Log.Message(myGrid.wColumn(i))
+  For j = 1 To myGrid.wColumnCount -1 ' myGrid.wRowCount -1
+Log.Message(myGrid.wValue(i,myGrid.wColumn(j)).oleValue)
+Next
+PopLogFolder
+Next
+PopLogFolder
+Next
+'Log.Message(myGrid.wColumnCount)
+End Sub
+
+
+Sub grdLogViewer
+  Dim myGrid
+  Set myTab = Aliases.LicensingTool.ContainerLogViewer.dlgLogViewer.tabLogViewer
+  Set myGrid = Aliases.LicensingTool.ContainerLogViewer.dlgLogViewer.tabLogViewer.radGridLogViewer
+  
+  For k = 0 To myTab.wTabCount -2
+  myTab.ClickTab(k)
+  AppendLogFolder(myTab.wTabCaption(k))
+ 'Log.Message()
+  For i = 0 To myGrid.wRowCount -1 'myGrid.wColumnCount -1
+  AppendLogFolder("Row Number- " & i)
+  'Log.Message(myGrid.wColumn(i))
+  For j = 0 To myGrid.wColumnCount -1 ' myGrid.wRowCount -1
+  Log.Message(myGrid.wValue(i,myGrid.wColumn(j)))
+  Next
+  PopLogFolder
+  Next
+  PopLogFolder
+  Next
+End Sub
+
+
+
+Sub rr
+    Dim myGrid
+  Set myTab = Aliases.LicensingTool.ContainerLogViewer.dlgLogViewer.tabLogViewer
+  Set myGrid = Aliases.LicensingTool.ContainerLogViewer.dlgLogViewer.tabLogViewer.radGridLogViewer
+  Log.Message(myGrid.wValue(1,myGrid.wColumn(0)))
+  myGrid.get_CurrentCell
+  myGrid.get_Items
+  myGrid.Grid_Column
+  myGrid.Grid_Row
+  
+  'Log.Message(myGrid.wValue(1,myGrid.wColumn(5)).oleValue)
+  
+  
+  
+End Sub
+
+
+
+
+
+
+Function F1
+Dim arrSkipList
+            arrSkipList = Array("intRunOffsetDX" , "TestCase" , "intRunOffsetDY" , "intRunOffsetDZ")
+             F1 = arrSkipList
+            
+End Function
+
+Sub Test1
+Aliases.autopipe.wndAutoPIPE.Keys("N")
+End Sub
+
+Sub Test2
+  Dim emailInput
+  Set emailInput = Aliases.BentleyConnectClient.dlgConnectionClient.ShellEmbedding.ShellDocObjectView.InternetExplorerServer.pageBentleySignIn.formNovalidation.panelSigninboxcontainer.panelFormGroupData.emailinputEmail
+  Call emailInput.SetText("Bilal.Tahir@Bentley.com")
+End Sub
+
+Sub Test3
+  Dim autopipe
+  Dim dlgOpen
+  Dim cbxFileName
+  Dim wnd
+  Set autopipe = Aliases.autopipe
+  Set dlgOpen = autopipe.dlgOpen
+  Set cbxFileName = dlgOpen.cbxFileName
+  Call cbxFileName.cmbFileName.fldFileName.Click(160, 9)
+  Call cbxFileName.SetText("c:]")
+  Set wnd = dlgOpen.DUIViewWndClassName.Explorer_Pane.CtrlNotifySink.ShellView.Items_View
+  Call wnd.ADAMS_SUMMARY_2_DAT.Name.Click(124, 18)
+  Call wnd.Header.Name.Keys("[Tab]")
+  Call wnd.Keys("[Tab]")
+  Call dlgOpen.drpdwnFileType.Keys("C[Esc]")
+  Call autopipe.wndAutoPIPE.RibbonBar.Click(73, 85)
+  Call cbxFileName.SetText("c\dd")
+End Sub

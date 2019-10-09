@@ -1,0 +1,281 @@
+﻿'USEUNIT Main
+
+'------------------------------------------------------------------------------------**/
+' Summary: Select Point with given value.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              String Value  - Value of that specific Point name as input              E-g Point("A01")
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Point(strPointName)
+    Dim strHotKey: strHotKey = "SO" 
+
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys("SC")
+    
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+        
+      if(objNameMapping.WaitAliasChild("dlgSelectPoint", 60).WaitProperty("Exists", true, 10)) Then 
+        objNameMapping.dlgSelectPoint.fldPoint.DblClick()
+        objNameMapping.dlgSelectPoint.fldPoint.Keys(strPointName)
+        objNameMapping.dlgSelectPoint.btnOK.Click()
+        Log.Message("Point '" & strPointName & "' selected")
+    End If
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Select Range with given value.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              String Value  - Value of that specific Point name as input              E-g Point("A01")
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Range(strFromPoint,strToPoint)
+    Dim strHotKey: strHotKey = "SR" 
+
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+     ' objNameMapping.wndAutoPIPE.Keys("SR")
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+        
+      if(objNameMapping.WaitAliasChild("dlgSelectPoint", 60).WaitProperty("Exists", true, 10)) Then 
+        objNameMapping.dlgSelectPoint.fldPoint.DblClick()
+        objNameMapping.dlgSelectPoint.fldPoint.Keys(strFromPoint)
+        objNameMapping.dlgSelectPoint.fldToPoint.DblClick()
+        objNameMapping.dlgSelectPoint.fldToPoint.Keys(strToPoint)
+        objNameMapping.dlgSelectPoint.btnOK.Click()
+        Log.Message("Range Selected between Points '" & strFromPoint & "-" & strToPoint)
+    End If
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Select Range with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Range("All")
+'              0              - Press OK button with default values                                         E-g Range("0") or Range(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Range("5") Or Range(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Range("1-5")    
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Run(TestData)
+      Dim strTableName: strTableName = "tblRange"                         'DB mapped Table Name 
+      Dim strHotKey: strHotKey = "SR"                                   'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Selection.Range"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgSelectPoint"                       'Dialog mapped name  
+
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod,strDlgNameMap)
+      
+End Sub
+
+Sub Bend(TestData)
+      Dim strHotKey: strHotKey = "SB"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)  
+      Log.Message("Selected All Bends")    
+End Sub
+
+Sub Tee(TestData)
+      Dim strHotKey: strHotKey = "ST"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)    
+End Sub
+
+Sub Flange(TestData)
+      Dim strHotKey: strHotKey = "SF"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Flanges") 
+       'aqutils.Delay(200)     
+End Sub
+
+Sub Valve(TestData)
+      Dim strHotKey: strHotKey = "SV"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Valves") 
+       'aqutils.Delay(200)
+End Sub
+
+Sub FlexibleJoint(TestData)
+      Dim strHotKey: strHotKey = "SJ"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Flexible Joints") 
+            'aqutils.Delay(200)
+      
+End Sub
+
+Sub Reducer(TestData)
+      Dim strHotKey: strHotKey = "SU"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Reducers")
+       'aqutils.Delay(200)
+End Sub
+
+Sub Nozzle(TestData)
+      Dim strHotKey: strHotKey = "SZ"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Nozzles")
+       'aqutils.Delay(200)
+End Sub
+
+Sub Anchor(TestData)
+      Dim strHotKey: strHotKey = "SH"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Anchors")
+      
+End Sub
+Sub Supports(TestData)
+      AppendLogFolder("Delete Supports")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblSupportPoints"                         ' Table Name 
+      Dim strHotKey: strHotKey = "SS"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Supports"
+      Dim strDlgNameMap : strDlgNameMap ="dlgSelectSupportPoints"
+       Dim isDlgVerification : isDlgVerification =  "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+ 
+ 'Log
+      PopLogFolder   
+   
+End Sub
+
+Sub Supports2(TestData)
+      Dim strHotKey: strHotKey = "SS"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+                If(objNameMapping.WaitAliasChild("dlgSelectSupportPoints", 200).WaitProperty("Exists", true, 10)) Then
+                    objNameMapping.dlgSelectSupportPoints.drpdwnSupportConnectionType.ClickItem(TestData)
+                   ' objNameMapping.lstItems.ClickItem(TestData)
+                    objNameMapping.dlgSelectSupportPoints.chkboxAll.Click()
+                    objNameMapping.dlgSelectSupportPoints.btnOK.Click()
+                    Log.Message("Selected " & TestData & "Support Type")
+                End If         
+End Sub
+
+Sub JointTypeAndUserSIF(TestData)
+      Dim strHotKey: strHotKey = "S1"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All JointTypeAndUserSIFs")
+      
+End Sub
+
+Sub AdditionalWeight(TestData)
+      Dim strHotKey: strHotKey = "S2"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All AdditionalWeights")
+      
+End Sub
+
+Sub ConcentratedForce(TestData)
+      Dim strHotKey: strHotKey = "S3"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Concentrated Forces")
+      
+End Sub
+
+Sub ImposedDisplacement(TestData)
+      Dim strHotKey: strHotKey = "S4"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Imposed Displacements")
+      
+End Sub
+
+Sub HydrodynamicData(TestData)
+      Dim strHotKey: strHotKey = "S5"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Hydrodynamic Data")
+      
+End Sub
+
+Sub CutShort(TestData)
+      Dim strHotKey: strHotKey = "S6"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All CutShorts")
+      
+End Sub
+
+Sub UserWeldEfficiencyFactor(TestData)
+      Dim strHotKey: strHotKey = "S7"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All User Weld Efficiency Factors")
+      
+End Sub
+
+Sub MemberEarthquakeFactor(TestData)
+      Dim strHotKey: strHotKey = "S8"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All User Member Earthquake Factors")
+      
+End Sub
+
+Sub PointEarthquakeFactor(TestData)
+      Dim strHotKey: strHotKey = "S9"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All User Point Earthquake Factors")
+      
+End Sub
+
+Sub ReferencePoint(TestData)
+      Dim strHotKey: strHotKey = "S01"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Reference Points")
+      
+End Sub
+Sub SoilPoints(TestData)
+      Dim strHotKey: strHotKey = "SI"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      If(objNameMapping.WaitAliasChild("dlgSelectSoilPoints", 200).WaitProperty("Exists", true, 10)) Then
+                    Dim mesg : mesg = TestData & " Soil Point "            
+                    TestData= "*" &   TestData & "*"
+                    objNameMapping.dlgSelectSoilPoints.drpdwnSoilID.ClickItem(TestData)
+                    objNameMapping.dlgSelectSoilPoints.btnOK.Click()
+                    Log.Message("Selected " & mesg)
+      End If               
+End Sub
+Sub Beams(TestData)
+      Dim strHotKey: strHotKey = "SM"                                   'Dialog Shortcut Key
+      Set objNameMapping = Aliases.autopipe
+      aqutils.Delay(500)
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      Log.Message("Selected All Beams")
+      
+End Sub

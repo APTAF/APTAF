@@ -1,0 +1,164 @@
+ISOGEN-FILES APIPE.FLS                                                                       
+UNITS-BORE INCH                                                                 
+UNITS-CO-ORDS INCH                                                              
+UNITS-WEIGHT LBS                                                                
+UNITS-BOLT-DIA INCH                                                             
+UNITS-BOLT-LENGTH INCH                                                          
+PIPELINE-REFERENCE ISO                                                          
+PIPELINE-TEMP  50
+SPECIFIC-GRAVITY  1.00
+OFFSET-IMPERIAL  1.00     2.00    3.00
+PIPE                                                                            
+    END-POINT        0.000        0.000        0.000        8.000               
+    END-POINT       44.004        0.000        0.000        8.000               
+SUPPORT                                                                         
+    CO-ORDS        0.000        0.000        0.000                              
+    SKEY 01AN                                                                   
+    SUPPORT-DIRECTION UP                                                        
+    MESSAGE-SQUARE                                                              
+    TEXT ANCHOR                                                                 
+BEND                                                                            
+    END-POINT       44.004        0.000        0.000        8.000               
+    END-POINT       56.004        0.000       12.000        8.000               
+    CENTRE-POINT       56.004        0.000        0.000                         
+    SKEY ELBW                                                                   
+PIPE                                                                            
+    END-POINT       56.004        0.000       12.000        8.000               
+    END-POINT       56.004        0.000       30.000        8.000               
+VALVE                                                                           
+    END-POINT       56.004        0.000       30.000        8.000 FL            
+    END-POINT       56.004        0.000       46.560        8.000 FL            
+    SKEY VTFL                                                                   
+    MESSAGE-POINTED                                                             
+    TEXT 300#                                                                   
+PIPE                                                                            
+    END-POINT       56.004        0.000       46.560        8.000               
+    END-POINT       56.004        0.000       75.996        8.000               
+BEND                                                                            
+    END-POINT       56.004        0.000       75.996        8.000               
+    END-POINT       56.004       12.000       87.996        8.000               
+    CENTRE-POINT       56.004        0.000       87.996                         
+    SKEY ELBW                                                                   
+PIPE                                                                            
+    END-POINT       56.004       12.000       87.996        8.000               
+    END-POINT       56.004       35.531       87.996        8.000               
+TEE                                                                             
+    END-POINT       56.004       35.531       87.996        8.000               
+    END-POINT       56.004       48.469       87.996        8.000               
+    CENTRE-POINT       56.004       42.000       87.996                         
+    BRANCH1-POINT       62.473       42.000       87.996        8.000           
+    SKEY TEBW                                                                   
+PIPE                                                                            
+    END-POINT       56.004       48.469       87.996        8.000               
+    END-POINT       56.004       72.000       87.996        8.000               
+BEND                                                                            
+    END-POINT       56.004       72.000       87.996        8.000               
+    END-POINT       56.004       84.000       75.996        8.000               
+    CENTRE-POINT       56.004       84.000       87.996                         
+    SKEY ELBW                                                                   
+PIPE                                                                            
+    END-POINT       56.004       84.000       75.996        8.000               
+    END-POINT       56.004       84.000       48.000        8.000               
+VALVE                                                                           
+    END-POINT       56.004       84.000       48.000        8.000 FL            
+    END-POINT       56.004       84.000       31.440        8.000 FL            
+    SKEY VTFL                                                                   
+    MESSAGE-POINTED                                                             
+    TEXT 300#                                                                   
+PIPE                                                                            
+    END-POINT       56.004       84.000       31.440        8.000               
+    END-POINT       56.004       84.000       12.000        8.000               
+BEND                                                                            
+    END-POINT       56.004       84.000       12.000        8.000               
+    END-POINT       44.004       84.000        0.000        8.000               
+    CENTRE-POINT       56.004       84.000        0.000                         
+    SKEY ELBW                                                                   
+PIPE                                                                            
+    END-POINT       44.004       84.000        0.000        8.000               
+    END-POINT        0.000       84.000        0.000        8.000               
+SUPPORT                                                                         
+    CO-ORDS        0.000       84.000        0.000                              
+    SKEY 01AN                                                                   
+    SUPPORT-DIRECTION UP                                                        
+PIPE                                                                            
+    END-POINT       62.473       42.000       87.996        8.000               
+    END-POINT       68.004       42.000       87.996        8.000               
+PIPE                                                                            
+    END-POINT       68.004       42.000       87.996        8.000               
+    END-POINT       99.375       42.000       87.996        8.000               
+SUPPORT                                                                         
+    CO-ORDS       68.004       42.000       87.996                              
+    SKEY 01SR                                                                   
+    SUPPORT-DIRECTION UP                                                        
+    MESSAGE-SQUARE                                                              
+    TEXT B01  1                                                                 
+PIPE                                                                            
+    END-POINT      116.625       42.000       87.996        8.000               
+    END-POINT      123.996       42.000       87.996        8.000               
+FLANGE                                                                          
+    END-POINT      108.000       42.000       87.996        8.000 BW            
+    END-POINT       99.375       42.000       87.996        8.000 BW            
+    SKEY FLWN                                                                   
+FLANGE                                                                          
+    END-POINT      108.000       42.000       87.996        8.000 BW            
+    END-POINT      116.625       42.000       87.996        8.000 BW            
+    SKEY FLWN                                                                   
+    MESSAGE-POINTED                                                             
+    TEXT 300#                                                                   
+BEND                                                                            
+    END-POINT      123.996       42.000       87.996        8.000               
+    END-POINT      135.996       42.000       99.996        8.000               
+    CENTRE-POINT      135.996       42.000       87.996                         
+    SKEY ELBW                                                                   
+PIPE                                                                            
+    END-POINT      135.996       42.000       99.996        8.000               
+    END-POINT      135.996       42.000      127.992        8.000               
+SUPPORT                                                                         
+    CO-ORDS      135.996       42.000      127.992                              
+    SKEY 01AN                                                                   
+    SUPPORT-DIRECTION UP                                                        
+MESSAGE-ROUND                                                                   
+    CO-ORDS        0.000        0.000        0.000                              
+    TEXT A00                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004        0.000        0.000                              
+    TEXT A01                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004        0.000       30.000                              
+    TEXT A02                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004        0.000       46.560                              
+    TEXT A03                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004        0.000       87.996                              
+    TEXT A04                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004       42.000       87.996                              
+    TEXT A05                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004       84.000       87.996                              
+    TEXT A06                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004       84.000       48.000                              
+    TEXT A07                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004       84.000       31.440                              
+    TEXT A08                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       56.004       84.000        0.000                              
+    TEXT A09                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS        0.000       84.000        0.000                              
+    TEXT A10                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS       68.004       42.000       87.996                              
+    TEXT B01                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS      108.000       42.000       87.996                              
+    TEXT B02                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS      135.996       42.000       87.996                              
+    TEXT B03                                                                    
+MESSAGE-ROUND                                                                   
+    CO-ORDS      135.996       42.000      127.992                              
+    TEXT B04                                                                    

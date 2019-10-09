@@ -1,0 +1,21 @@
+﻿'USEUNIT APP_COMMON 
+'USEUNIT FSO_Functions
+ ''''close app 
+ Sub Main
+   Call CopyDiscrepanciesFolder
+ End Sub
+ 
+ Sub CopyDiscrepanciesFolder
+  Dim curDate : curDate =  Month(Date) & "_" & Day(Date) & "_" & Year(Date)
+  Dim sourceFolder : sourceFolder = aqEnvironment.GetEnvironmentVariable("TEMP")& "\" & "Discrepancies" & curDate
+  Dim destFolder: destFolder = "\\isbprdfs03\QA\TestingProjects\AlphaTesting\CAE\AutoPIPE\AutoPIPERegression\UIAutomation\Discrepancies\" 
+ 
+  If FSO_Functions.FSOFolderExists(sourceFolder) = True then 
+   If FSO_Functions.FSOFolderExists(destFolder) = True then   
+    Call  FSO_Functions.FSOCopyFolder(sourceFolder,destFolder)
+    Log.Message("Added to Discrepancies")
+   End If
+   
+  End If 
+ END Sub 
+  

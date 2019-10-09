@@ -1,0 +1,13 @@
+          * * * *  APIN MESSAGE FILE  * * * * 
+
+
+
+
+      DATABASE ARRAY SIZE IS  24104.  MAXIMUM ALLOWABLE IS   10000000
+
+
+
+ ********** NUMBER OF ERRORS:   0
+ ********** NUMBER OF WARNINGS:   0
+
+

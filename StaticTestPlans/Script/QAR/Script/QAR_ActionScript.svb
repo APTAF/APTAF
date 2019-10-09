@@ -1,0 +1,114 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT DatabaseFunctions
+'USEUNIT FSO_FUNCTIONS
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "QAR"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    'Call DTP.DTPMain
+End Sub
+
+
+
+
+Sub Cat1TS1TC1
+''Comments
+
+Call Configuration
+''Pre-Conditions
+For i=1 To 114 
+   Call tabFile.Open(i,"Autopipe database")
+   Call tabFile.SaveAs(i,"AutoPIPE Database")
+   ''Post-Condition
+   tabFile.Close("No")
+Next
+'''Tests 
+'   tabInsert.Run("1")
+'
+'''Report
+'   tabAnalysis.AnalyzeAll("0")
+'   tabResult.InputlistReport("0")
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+
+'Steps to Get Model files
+'1. Gets Model Name from Excel
+'2. Create Folder of same model name
+'3. Open Model
+'4. Save As model in that folder.
+'5. Close Model
+
+Sub QARModels
+
+Dim strTableName: strTableName = "tblQARModels"
+
+'''''''''''''''  Required Inputs ''''''''''''''''''''''''''''
+      Dim strWorkingFolder :  strWorkingFolder = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\QAR\Models\OUTPUT\"
+      Dim strModelsPath : strModelsPath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\QAR\Models\DAT\"
+        
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+      
+      Dim strDBType: strDBType = "Excel" 'Project.Variables.strDBType 
+      Dim strOpenDialog: strOpenDialog = "ShortCut" 'Project.Variables.strOpenDialog   ' dialog opening method -> Shortcut or Ribbon
+      Dim strDBPath: strDbPath     = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\QAR\InputDB\"'Project.Variables.strDbPath           ' DB path 
+      Dim strDBName: strDBName = "TestData.xlsx" 'Project.Variables.strDBName               ' DB Name
+      Dim strDB : strDB = strDBPath & "\" & strDBName                            ' DB Path + DB Name 
+ 
+      'Dim strTableName: strTableName = "QARModels"                           ' Table Name 
+      Set ObjNameMapping = Aliases.autopipe
+      Dim intTotalRows: intTotalRows = Datatable_Get_Row_Count(strDBType,strTableName,strDB)
+      
+ For intRow = 1 to intTotalRows
+      Set objTable = Datatable(strDBType,strTableName,intRow, null,strDB)
+      Dim strModelName : strModelName = ObjTable.Item("Models")
+
+'1.   ''''''''''''Create Folder ''''''''''''''''''''''''''''''
+      Dim strModelFolder: strModelFolder  = strWorkingFolder & strModelName
+      Call FSOCreateFolder(strModelFolder)
+
+'2.   '''''''''''''''''Open Model'''''''''''''''''''''''''''''
+TestedApps.autopipe.Run
+      Dim strModelToOpen: strModelToOpen = strModelsPath&strModelName
+      Dim strHotKey: strHotKey = "FOD"
+      objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      
+      ObjNameMapping.dlgOpen.cbxFileName.cmbFileName.fldFileName.Keys(strModelToOpen)
+      ObjNameMapping.dlgOpen.btnOK.Click()
+      Log.Message("Model " &strModelName& " Opened")
+
+'3.   ''''''''''''''' Save AS Model '''''''''''''''''''''''
+      aqutils.Delay(100)
+      objNameMapping.wndAutoPIPE.Click()
+
+      objNameMapping.wndAutoPIPE.Keys("FAD")
+      'ObjNameMapping.dlgSaveAs.fldFileName.Keys(strModelFolder&"\"&strModelName)
+      'ObjNameMapping.dlgSaveAs.fldFileName.Keys(strWorkingFolder&"\"&strModelName)
+      ObjNameMapping.dlgSaveAs.DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName.Keys(strModelFolder&"\"&strModelName&".DAT")
+      
+      objNameMapping.dlgSaveAs.btnOK.click()
+
+'4.   ''''''''''''''' Close Model '''''''''''''''''''''''
+      tabFile.Close("Yes")
+   
+   Next
+End Sub
+

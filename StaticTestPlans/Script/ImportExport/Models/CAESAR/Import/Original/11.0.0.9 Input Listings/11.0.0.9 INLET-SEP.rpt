@@ -1,0 +1,1178 @@
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 VALVE TYPE GATE-F TESTING                                               BENTLEY                      
+06:31 AM                                                                           AutoPIPE Nuclear 11.00.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.09                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 VALVE TYPE GATE-F TESTING                                               BENTLEY                      
+06:31 AM                                                                           AutoPIPE Nuclear 11.00.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : INLET-SEPARATOR-SKID-C2                         
+ 
+ 
+          PROJECT ID  : PROJECT:                                
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.3              
+ 
+          YEAR                   : 2014                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   21.1 deg C    
+ 
+          COMPONENT LIBRARY      : autopipe
+ 
+          MATERIAL LIBRARY       : b313-12 
+ 
+          MODEL REVISION NUMBER  :     1
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 VALVE TYPE GATE-F TESTING                                               BENTLEY                      
+06:31 AM                                                                           AutoPIPE Nuclear 11.00.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    9                      
+     Segment Data....................................................................   11                      
+     Pipe Properties.................................................................   12                      
+     Material Properties.............................................................   13                      
+     Material Allowables.............................................................   14                      
+     Temperature and Pressure........................................................   15                      
+     Support.........................................................................   16                      
+     Bend............................................................................   17                      
+     Tee.............................................................................   18                      
+     Valve...........................................................................   19                      
+     Flange..........................................................................   21                      
+     User SIF........................................................................   22                      
+     Rigid Pipe......................................................................   23                      
+     Center of Gravity...............................................................   24                      
+     Load Case Description...........................................................   25                      
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 10 to 20, DZ= -108.00 mm                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE1, Material= A106-B, Composition= Carbon Steel, Poisson= 0.300, Nom Size= 100 mm, OD= 114.30 mm,
+   Sch= NS, Wall Thk= 6.000 mm, Mill= 0.750 mm, Cor= 0 mm, Pipe Density= 7833.03 Kg/m3,                         
+   Pipe Unit Wgt= 15.99 Kg/m, Insul Thk= 0 mm, Cladding Thickness = 0 mm, Lining Thk= 0 mm,                     
+   Long Weld E factor= 1.00, Long Modulus= 2.07405 E6Kg/cm2, Hoop Modulus= 2.07405 E6Kg/cm2,                    
+   Shear Modulus= 0.79771 E6Kg/cm2, Sc= 1406.1 Kg/cm2, Syc= 2460.7 Kg/cm2, Suc= 4218.4 Kg/cm2                   
+ 
+ OPERATING DATA:                                                                
+   P1= 2.039 Kg/cm2, T1= 349.97 deg C, Exp1= 4.36188 mm/m, E1= 1.82493 E6Kg/cm2, Sh1= 1206.23 Kg/cm2,           
+   Sy1= 1807.51 Kg/cm2                                                          
+ 
+ POINT DATA:                                                                    
+   10, Coordinates, X= 23227.58 mm, Y= 3257.15 mm, Z= -19800.00 mm              
+ 
+ SUPPORT DATA:                                                                  
+   10, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                           
+ 
+ -------------------------------------------------------------------------------
+ From 20 to 30, DZ= -992.00 mm                                              Run 
+ 
+ POINT DATA:                                                                    
+   20, Coordinates, X= 23227.58 mm, Y= 3257.15 mm, Z= -19908.00 mm              
+   20, Flange= LAPJOINT, Rating= 2500, Flange Weight= 19.05 Kg, Bolt/Nut Weight= 0.00 Kg, End type= Lap jointed,
+   SIF= 1.60, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From 30 to 40, DZ= -3084.58 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 30):                                       
+   B16.9 welding tee, SIFI= 1.63, SIFO= 1.83                                    
+ 
+ POINT DATA:                                                                    
+   30, Coordinates, X= 23227.58 mm, Y= 3257.15 mm, Z= -20900.00 mm              
+ 
+ -------------------------------------------------------------------------------
+ From 40 to 50, DY= 1442.40 mm                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= 40, Near= 40  N, Mid= 40  M, Far= 40  F):           
+   Elbow, Radius= 152.40 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 1.96, SIFO= 1.63                                                       
+ 
+ POINT DATA:                                                                    
+   40, Coordinates, X= 23227.58 mm, Y= 3257.15 mm, Z= -23984.58 mm              
+   40  N, Coordinates, X= 23227.58 mm, Y= 3257.15 mm, Z= -23832.18 mm           
+   40  M, Coordinates, X= 23227.58 mm, Y= 3301.79 mm, Z= -23939.94 mm           
+   40  F, Coordinates, X= 23227.58 mm, Y= 3409.55 mm, Z= -23984.58 mm           
+ 
+ SUPPORT DATA:                                                                  
+   40  F, Incline, Support Id= 40  F1, Connected to Ground, Dir= Inclined, DirX= 0.000, DirY= 1.000,            
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   DirZ= 0.000, Comp.Wt = 0.000 Kg, Stiffness= RIGID, Gap-Minus= 0.00 mm, Gap-Plus= 1000.00 mm, Friction= 0.00, 
+   Gaps setting= Weightless                                                     
+   40  F, Guide, Support Id= 40  F2, Connected to Ground, Comp.Wt = 0.000 Kg, Stiffness= RIGID,                 
+   Gap -Z= 1000.00 mm, Gap +Z= 1000.00 mm, Gap -X= 0.00 mm, Gap +X= 0.00 mm, Friction= 0.00,                    
+   Gaps setting= Weightless                                                     
+ 
+ -------------------------------------------------------------------------------
+ From 50 to 60, DX= 722.43 mm                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= 50, Near= 50  N, Mid= 50  M, Far= 50  F):           
+   Elbow, Radius= 152.40 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 1.96, SIFO= 1.63                                                       
+ 
+ POINT DATA:                                                                    
+   50, Coordinates, X= 23227.58 mm, Y= 4699.55 mm, Z= -23984.58 mm              
+   50  N, Coordinates, X= 23227.58 mm, Y= 4547.15 mm, Z= -23984.58 mm           
+   50  M, Coordinates, X= 23272.21 mm, Y= 4654.91 mm, Z= -23984.58 mm           
+   50  F, Coordinates, X= 23379.98 mm, Y= 4699.55 mm, Z= -23984.58 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 60 to 65, DY= -1000.00 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= 60, Near= 60  N, Mid= 60  M, Far= 60  F):           
+   Elbow, Radius= 152.40 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 1.96, SIFO= 1.63                                                       
+ 
+ POINT DATA:                                                                    
+   60, Coordinates, X= 23950.00 mm, Y= 4699.55 mm, Z= -23984.58 mm              
+   60  N, Coordinates, X= 23797.60 mm, Y= 4699.55 mm, Z= -23984.58 mm           
+   60  M, Coordinates, X= 23905.37 mm, Y= 4654.91 mm, Z= -23984.58 mm           
+   60  F, Coordinates, X= 23950.00 mm, Y= 4547.15 mm, Z= -23984.58 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 65 to 70, DZ= -1950.72 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= 65, Near= 65  N, Mid= 65  M, Far= 65  F):           
+   Elbow, Radius= 152.40 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 1.96, SIFO= 1.63                                                       
+ 
+ POINT DATA:                                                                    
+   65, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -23984.58 mm              
+   65  N, Coordinates, X= 23950.00 mm, Y= 3851.95 mm, Z= -23984.58 mm           
+   65  M, Coordinates, X= 23950.00 mm, Y= 3744.19 mm, Z= -24029.22 mm           
+   65  F, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -24136.98 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 70 to 80, DZ= -104.80 mm                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 70):                                       
+   B16.9 welding tee, SIFI= 1.63, SIFO= 1.83                                    
+ 
+ POINT DATA:                                                                    
+   70, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -25935.30 mm              
+ 
+ -------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ From 80 to 90, DZ= -616.10 mm                                              Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= NS,      
+   Length= 616.10 mm, Valve weight = 39 Kg, Surface factor= 1.75, End type= User-defined, SIF= 1.00             
+ 
+ POINT DATA:                                                                    
+   80, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -26040.10 mm              
+   80  M, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -26348.15 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 90 to 100, DZ= -127.35 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   90, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -26656.20 mm              
+ 
+ -------------------------------------------------------------------------------
+ From 100 to 110, DZ= -127.35 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 100):                                      
+   Welded-on fitting, SIFI= 1.76, SIFO= 1.76                                    
+ 
+ POINT DATA:                                                                    
+   100, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -26783.55 mm             
+ 
+ -------------------------------------------------------------------------------
+ From 110 to 120, DZ= -736.80 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= NS,      
+   Length= 736.80 mm, Valve weight = 127 Kg, Surface factor= 1.75, End type= User-defined, SIF= 1.00            
+ 
+ POINT DATA:                                                                    
+   110, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -26910.90 mm             
+   110 M, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -27279.30 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 120 to 130, DZ= -152.40 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   120, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -27647.70 mm             
+ 
+ -------------------------------------------------------------------------------
+ From 130 to 140, DY= 573.80 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= 130, Near= 130 N, Mid= 130 M, Far= 130 F):          
+   Elbow, Radius= 152.40 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 1, Flex= Auto,     
+   SIFI= 1.61, SIFO= 1.34                                                       
+ 
+ POINT DATA:                                                                    
+   130, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -27800.10 mm             
+   130 N, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -27648.34 mm           
+   130 M, Coordinates, X= 23950.00 mm, Y= 3744.28 mm, Z= -27755.56 mm           
+   130 F, Coordinates, X= 23950.00 mm, Y= 3851.95 mm, Z= -27800.10 mm           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ SUPPORT DATA:                                                                  
+   130 F, Incline, Support Id= 130 F1, Connected to Ground, Dir= Inclined, DirX= 0.000, DirY= 0.000,            
+   DirZ= 1.000, Comp.Wt = 0.000 Kg, Stiffness= RIGID, Gap-Minus= 0.00 mm, Gap-Plus= 1000.00 mm, Friction= 0.00, 
+   Gaps setting= Weightless                                                     
+ 
+ -------------------------------------------------------------------------------
+ From 140 to 150, DY= 526.20 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 140):                                      
+   Welded-on fitting, SIFI= 1.76, SIFO= 1.76                                    
+ 
+ POINT DATA:                                                                    
+   140, Coordinates, X= 23950.00 mm, Y= 4273.35 mm, Z= -27800.10 mm             
+ 
+ -------------------------------------------------------------------------------
+ From 150 to 160, DY= 783.15 mm, DZ= 0.11 mm, L= 783.15 mm                  Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 150):                                      
+   B16.9 welding tee, SIFI= 1.63, SIFO= 1.83                                    
+ 
+ POINT DATA:                                                                    
+   150, Coordinates, X= 23950.00 mm, Y= 4799.55 mm, Z= -27800.10 mm             
+ 
+ -------------------------------------------------------------------------------
+ From 160 to 170, DX= 1050.00 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= 160, Near= 160 N, Mid= 160 M, Far= 160 F):          
+   Elbow, Radius= 152.40 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 1.96, SIFO= 1.63                                                       
+ 
+ POINT DATA:                                                                    
+   160, Coordinates, X= 23950.00 mm, Y= 5582.70 mm, Z= -27799.99 mm             
+   160 N, Coordinates, X= 23950.00 mm, Y= 5430.30 mm, Z= -27800.01 mm           
+   160 M, Coordinates, X= 23994.64 mm, Y= 5538.07 mm, Z= -27800.00 mm           
+   160 F, Coordinates, X= 24102.40 mm, Y= 5582.70 mm, Z= -27799.99 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 170 to 190, DY= -260.40 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= 170, Near= 170 N, Mid= 170 M, Far= 170 F):          
+   Elbow, Radius= 152.40 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 1.96, SIFO= 1.63                                                       
+ 
+ POINT DATA:                                                                    
+   170, Coordinates, X= 25000.00 mm, Y= 5582.70 mm, Z= -27799.99 mm             
+   170 N, Coordinates, X= 24847.60 mm, Y= 5582.70 mm, Z= -27799.99 mm           
+   170 M, Coordinates, X= 24955.37 mm, Y= 5538.07 mm, Z= -27799.99 mm           
+   170 F, Coordinates, X= 25000.00 mm, Y= 5430.30 mm, Z= -27799.99 mm           
+   190, Coordinates, X= 25000.00 mm, Y= 5322.30 mm, Z= -27799.99 mm             
+   190, Flange= LAPJOINT, Rating= 2500, Flange Weight= 19.05 Kg, Bolt/Nut Weight= 0.00 Kg,                      
+   End type= Lap jointed, SIF= 1.60, Perform ANSI check= No                     
+ 
+ SUPPORT DATA:                                                                  
+   190, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 30 to 200, DY= 342.40 mm                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 30):                                       
+   B16.9 welding tee, SIFI= 1.63, SIFO= 1.83                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE2, Composition= Carbon Steel, Nom Size= 90 mm, OD= 101.60 mm, Wall Thk= 5.500 mm,               
+   Mill= 0.688 mm, Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 13.01 Kg/m       
+ 
+ POINT DATA:                                                                    
+   30, Coordinates, X= 23227.58 mm, Y= 3257.15 mm, Z= -20900.00 mm              
+ 
+ -------------------------------------------------------------------------------
+ From 200 to 210, DX= -2427.57 mm                                           Bend
+ 
+ COMPONENT DATA (Bend, TIP= 200, Near= 200 N, Mid= 200 M, Far= 200 F):          
+   Elbow, Radius= 114.30 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 2.14, SIFO= 1.79                                                       
+ 
+ POINT DATA:                                                                    
+   200, Coordinates, X= 23227.58 mm, Y= 3599.55 mm, Z= -20900.00 mm             
+   200 N, Coordinates, X= 23227.58 mm, Y= 3485.25 mm, Z= -20900.00 mm           
+   200 M, Coordinates, X= 23194.10 mm, Y= 3566.07 mm, Z= -20900.00 mm           
+   200 F, Coordinates, X= 23113.28 mm, Y= 3599.55 mm, Z= -20900.00 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 210 to 220, DY= -949.55 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= 210, Near= 210 N, Mid= 210 M, Far= 210 F):          
+   Elbow, Radius= 114.30 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 2.14, SIFO= 1.79                                                       
+ 
+ POINT DATA:                                                                    
+   210, Coordinates, X= 20800.01 mm, Y= 3599.55 mm, Z= -20900.00 mm             
+   210 N, Coordinates, X= 20914.31 mm, Y= 3599.55 mm, Z= -20900.00 mm           
+   210 M, Coordinates, X= 20833.48 mm, Y= 3566.07 mm, Z= -20900.00 mm           
+   210 F, Coordinates, X= 20800.01 mm, Y= 3485.25 mm, Z= -20900.00 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 220 to 230, DZ= -208.20 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= 220, Near= 220 N, Mid= 220 M, Far= 220 F):          
+   Elbow, Radius= 114.30 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,     
+   SIFI= 2.14, SIFO= 1.79                                                       
+ 
+ POINT DATA:                                                                    
+   220, Coordinates, X= 20800.01 mm, Y= 2650.00 mm, Z= -20900.00 mm             
+   220 N, Coordinates, X= 20800.01 mm, Y= 2764.30 mm, Z= -20900.00 mm           
+   220 M, Coordinates, X= 20800.01 mm, Y= 2683.48 mm, Z= -20933.48 mm           
+   220 F, Coordinates, X= 20800.01 mm, Y= 2650.00 mm, Z= -21014.30 mm           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ From 230 to 240, DZ= -447.70 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= NS,      
+   Length= 447.70 mm, Valve weight = 49 Kg, Surface factor= 1.75, End type= User-defined, SIF= 1.00             
+ 
+ POINT DATA:                                                                    
+   230, Coordinates, X= 20800.01 mm, Y= 2650.00 mm, Z= -21108.20 mm             
+   230 M, Coordinates, X= 20800.01 mm, Y= 2650.00 mm, Z= -21332.05 mm           
+   240, Coordinates, X= 20800.01 mm, Y= 2650.00 mm, Z= -21555.90 mm             
+ 
+ SUPPORT DATA:                                                                  
+   240, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 70 to 250, DY= 1100.00 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 70):                                       
+   B16.9 welding tee, SIFI= 1.63, SIFO= 1.83                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE3, Composition= Carbon Steel, Nom Size= 50 mm, OD= 60.325 mm, Wall Thk= 3.900 mm,               
+   Mill= 0.487 mm, Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 5.42 Kg/m        
+ 
+ POINT DATA:                                                                    
+   70, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -25935.30 mm              
+ 
+ -------------------------------------------------------------------------------
+ From 250 to 260, DZ= -1318.60 mm                                           Bend
+ 
+ COMPONENT DATA (Bend, TIP= 250, Near= 250 N, Mid= 250 M, Far= 250 F):          
+   Elbow, Radius= 76.20 mm, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,      
+   SIFI= 1.74, SIFO= 1.45                                                       
+ 
+ POINT DATA:                                                                    
+   250, Coordinates, X= 23950.00 mm, Y= 4799.55 mm, Z= -25935.30 mm             
+   250 N, Coordinates, X= 23950.00 mm, Y= 4723.35 mm, Z= -25935.30 mm           
+   250 M, Coordinates, X= 23950.00 mm, Y= 4777.23 mm, Z= -25957.62 mm           
+   250 F, Coordinates, X= 23950.00 mm, Y= 4799.55 mm, Z= -26011.50 mm           
+ 
+ -------------------------------------------------------------------------------
+ From 260 to 270, DZ= -457.30 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= NS,      
+   Length= 457.30 mm, Valve weight = 52 Kg, Surface factor= 1.75, End type= User-defined, SIF= 1.00             
+ 
+ POINT DATA:                                                                    
+   260, Coordinates, X= 23950.00 mm, Y= 4799.55 mm, Z= -27253.90 mm             
+   260 M, Coordinates, X= 23950.00 mm, Y= 4799.55 mm, Z= -27482.55 mm           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ From 270 to 150, DZ= -88.90 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   270, Coordinates, X= 23950.00 mm, Y= 4799.55 mm, Z= -27711.20 mm             
+   150, Coordinates, X= 23950.00 mm, Y= 4799.55 mm, Z= -27800.10 mm             
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT D                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 100 to 280, DY= -79.55 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 100):                                      
+   Welded-on fitting, SIFI= 1.76, SIFO= 1.76                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE4, Composition= Carbon Steel, Nom Size= 20 mm, OD= 26.670 mm, Mill= 0.487 mm,                   
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 2.19 Kg/m                        
+ 
+ POINT DATA:                                                                    
+   100, Coordinates, X= 23950.00 mm, Y= 3699.55 mm, Z= -26783.55 mm             
+ 
+ -------------------------------------------------------------------------------
+ From 280 to 290, DY= -50.00 mm                                             Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE5, Composition= Carbon Steel, Wall Thk= 7.800 mm, Mill= 0.975 mm, Pipe Density= 7833.03 Kg/m3,  
+   Pipe Unit Wgt= 3.62 Kg/m                                                     
+ 
+ POINT DATA:                                                                    
+   280, Coordinates, X= 23950.00 mm, Y= 3620.00 mm, Z= -26783.55 mm             
+ 
+ -------------------------------------------------------------------------------
+ From 290 to 300, DY= -41.70 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   290, Coordinates, X= 23950.00 mm, Y= 3570.00 mm, Z= -26783.55 mm             
+   290, Joint End Type= threaded, SIFI= 2.30, SIFO= 2.30, Override all other values= No                         
+ 
+ -------------------------------------------------------------------------------
+ From 300 to 310, DY= -44.50 mm                                             Run 
+ 
+ COMPONENT DATA (Run):                                                          
+   Rigid, Include weight= No, Include expansion= Yes                            
+ 
+ POINT DATA:                                                                    
+   300, Coordinates, X= 23950.00 mm, Y= 3528.30 mm, Z= -26783.55 mm             
+   300, Flange= LAPJOINT, Rating= 2500, Flange Weight= 0.34 Kg, Bolt/Nut Weight= 0.00 Kg, End type= Lap jointed,
+   SIF= 1.60, Perform ANSI check= No                                            
+   300, Joint End Type= threaded, SIFI= 2.30, SIFO= 2.30, Override all other values= No                         
+   310, Coordinates, X= 23950.00 mm, Y= 3483.80 mm, Z= -26783.55 mm             
+ 
+ -------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT E                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From 140 to 320, DZ= 75.35 mm                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 140):                                      
+   Welded-on fitting, SIFI= 1.76, SIFO= 1.76                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE6, Composition= Carbon Steel, Nom Size= 15 mm, OD= 21.336 mm, Wall Thk= 3.700 mm,               
+   Mill= 0.463 mm, Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 1.61 Kg/m        
+ 
+ POINT DATA:                                                                    
+   140, Coordinates, X= 23950.00 mm, Y= 4273.35 mm, Z= -27800.10 mm             
+ 
+ -------------------------------------------------------------------------------
+ From 320 to 330, DZ= 50.00 mm                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= PIPE7, Composition= Carbon Steel, Wall Thk= 7.500 mm, Mill= 0.938 mm, Pipe Density= 7833.03 Kg/m3,  
+   Pipe Unit Wgt= 2.55 Kg/m                                                     
+ 
+ POINT DATA:                                                                    
+   320, Coordinates, X= 23950.00 mm, Y= 4273.35 mm, Z= -27724.75 mm             
+ 
+ -------------------------------------------------------------------------------
+ From 330 to 340, DZ= 23.60 mm                                              Run 
+ 
+ POINT DATA:                                                                    
+   330, Coordinates, X= 23950.00 mm, Y= 4273.35 mm, Z= -27674.75 mm             
+   330, Joint End Type= threaded, SIFI= 2.30, SIFO= 2.30, Override all other values= No                         
+   340, Coordinates, X= 23950.00 mm, Y= 4273.35 mm, Z= -27651.15 mm             
+   340, Flange= LAPJOINT, Rating= 600, Flange Weight= 0.36 Kg, Bolt/Nut Weight= 0.00 Kg, End type= Lap jointed, 
+   SIF= 1.60, Perform ANSI check= No                                            
+   340, Joint End Type= threaded, SIFI= 2.30, SIFO= 2.30, Override all other values= No                         
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 87 + 0 + 0 = 87          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+          569.6 Kg     +         0.0 Kg     =         569.6 Kg                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (mm   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ 10         23227.58     3257.15   -19800.00                                    
+ 20         23227.58     3257.15   -19908.00                                    
+ 30         23227.58     3257.15   -20900.00                                    
+ 40  N      23227.58     3257.15   -23832.18                                    
+ 40         23227.58     3257.15   -23984.58                                    
+ 40  M      23227.58     3301.79   -23939.94                                    
+ 40  F      23227.58     3409.55   -23984.58                                    
+ 50  N      23227.58     4547.15   -23984.58                                    
+ 50         23227.58     4699.55   -23984.58                                    
+ 50  M      23272.21     4654.91   -23984.58                                    
+ 50  F      23379.98     4699.55   -23984.58                                    
+ 60  N      23797.60     4699.55   -23984.58                                    
+ 60         23950.00     4699.55   -23984.58                                    
+ 60  M      23905.37     4654.91   -23984.58                                    
+ 60  F      23950.00     4547.15   -23984.58                                    
+ 65  N      23950.00     3851.95   -23984.58                                    
+ 65         23950.00     3699.55   -23984.58                                    
+ 65  M      23950.00     3744.19   -24029.22                                    
+ 65  F      23950.00     3699.55   -24136.98                                    
+ 70         23950.00     3699.55   -25935.30                                    
+ 80         23950.00     3699.55   -26040.10                                    
+ 80  M      23950.00     3699.55   -26348.15                                    
+ 90         23950.00     3699.55   -26656.20                                    
+ 100        23950.00     3699.55   -26783.55                                    
+ 110        23950.00     3699.55   -26910.90                                    
+ 110 M      23950.00     3699.55   -27279.30                                    
+ 120        23950.00     3699.55   -27647.70                                    
+ 130 N      23950.00     3699.55   -27648.34                                    
+ 130        23950.00     3699.55   -27800.10                                    
+ 130 M      23950.00     3744.28   -27755.56                                    
+ 130 F      23950.00     3851.95   -27800.10                                    
+ 140        23950.00     4273.35   -27800.10                                    
+ 150        23950.00     4799.55   -27800.10                                    
+ 160 N      23950.00     5430.30   -27800.01                                    
+ 160        23950.00     5582.70   -27799.99                                    
+ 160 M      23994.64     5538.07   -27800.00                                    
+ 160 F      24102.40     5582.70   -27799.99                                    
+ 170 N      24847.60     5582.70   -27799.99                                    
+ 170        25000.00     5582.70   -27799.99                                    
+ 170 M      24955.37     5538.07   -27799.99                                    
+ 170 F      25000.00     5430.30   -27799.99                                    
+ 190        25000.00     5322.30   -27799.99                                    
+ 
+ *** SEGMENT B                                                                  
+ 30         23227.58     3257.15   -20900.00                                    
+ 200 N      23227.58     3485.25   -20900.00                                    
+ 200        23227.58     3599.55   -20900.00                                    
+ 200 M      23194.10     3566.07   -20900.00                                    
+ 200 F      23113.28     3599.55   -20900.00                                    
+ 210 N      20914.31     3599.55   -20900.00                                    
+ 210        20800.01     3599.55   -20900.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (mm   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ 210 M      20833.48     3566.07   -20900.00                                    
+ 210 F      20800.01     3485.25   -20900.00                                    
+ 220 N      20800.01     2764.30   -20900.00                                    
+ 220        20800.01     2650.00   -20900.00                                    
+ 220 M      20800.01     2683.48   -20933.48                                    
+ 220 F      20800.01     2650.00   -21014.30                                    
+ 230        20800.01     2650.00   -21108.20                                    
+ 230 M      20800.01     2650.00   -21332.05                                    
+ 240        20800.01     2650.00   -21555.90                                    
+ 
+ *** SEGMENT C                                                                  
+ 70         23950.00     3699.55   -25935.30                                    
+ 250 N      23950.00     4723.35   -25935.30                                    
+ 250        23950.00     4799.55   -25935.30                                    
+ 250 M      23950.00     4777.23   -25957.62                                    
+ 250 F      23950.00     4799.55   -26011.50                                    
+ 260        23950.00     4799.55   -27253.90                                    
+ 260 M      23950.00     4799.55   -27482.55                                    
+ 270        23950.00     4799.55   -27711.20                                    
+ 150        23950.00     4799.55   -27800.10                                    
+ 
+ *** SEGMENT D                                                                  
+ 100        23950.00     3699.55   -26783.55                                    
+ 280        23950.00     3620.00   -26783.55                                    
+ 290        23950.00     3570.00   -26783.55                                    
+ 300        23950.00     3528.30   -26783.55                                    
+ 310        23950.00     3483.80   -26783.55                                    
+ 
+ *** SEGMENT E                                                                  
+ 140        23950.00     4273.35   -27800.10                                    
+ 320        23950.00     4273.35   -27724.75                                    
+ 330        23950.00     4273.35   -27674.75                                    
+ 340        23950.00     4273.35   -27651.15                                    
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A  T A   L I S T I N G                                                    
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       10     190                                   No    No     No           
+ B       30     240                                   No    No     No           
+ C       70     150                                   No    No     No           
+ D       100    310                                   No    No     No           
+ E       140    340                                   No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(mm  )----- Spec  InsuDen/   Weight(Kg/m  )    E/  Composition/          
+ Material     Sch  mm    W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  W/  Steel Group/          
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f   Tcr                   
+ ---Line Class---                                        Kg/m3           Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ PIPE1        100 114.30 6.000    0 0.75    0    0     0    0.000  15.99     0 15.99 1.00 Carbon Steel          
+ A106-B       NS                                            0.000      0     0       0.00 Carbon                
+                             0                              0.000            0       1.00    361.111            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE2         90 101.60 5.500    0 0.69    0    0     0    0.000  13.01     0 13.01 1.00 Carbon Steel          
+ A106-B       NS                                            0.000      0     0       0.00 Carbon                
+                             0                              0.000            0       1.00    361.111            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE3         50 60.325 3.900    0 0.49    0    0     0    0.000   5.42     0  5.42 1.00 Carbon Steel          
+ A106-B       NS                                            0.000      0     0       0.00 Carbon                
+                             0                              0.000            0       1.00    361.111            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE4         20 26.670 3.900    0 0.49    0    0     0    0.000   2.19     0  2.19 1.00 Carbon Steel          
+ A106-B       NS                                            0.000      0     0       0.00 Carbon                
+                             0                              0.000            0       1.00    361.111            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE5         20 26.670 7.800    0 0.97    0    0     0    0.000   3.62     0  3.62 1.00 Carbon Steel          
+ A106-B       NS                                            0.000      0     0       0.00 Carbon                
+                             0                              0.000            0       1.00    361.111            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE6         15 21.336 3.700    0 0.46    0    0     0    0.000   1.61     0  1.61 1.00 Carbon Steel          
+ A106-B       NS                                            0.000      0     0       0.00 Carbon                
+                             0                              0.000            0       1.00    361.111            
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ PIPE7         15 21.336 7.500    0 0.94    0    0     0    0.000   2.55     0  2.55 1.00 Carbon Steel          
+ A106-B       NS                                            0.000      0     0       0.00 Carbon                
+                             0                              0.000            0       1.00    361.111            
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6Kg/cm2     Expans.  Composition                    
+    Name     Pipe ID  Kg/m3    Ratio deg C    Axial     Hoop    Shear   mm/m                                    
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ A106-B      PIPE1      7833.0  0.30    21.1   2.0741   2.0741   0.7977          Carbon Steel        
+                                       350.0   1.8249                     4.3619
+ 
+ A106-B      PIPE2      7833.0  0.30    21.1   2.0741   2.0741   0.7977          Carbon Steel        
+                                       350.0   1.8249                     4.3619
+ 
+ A106-B      PIPE3      7833.0  0.30    21.1   2.0741   2.0741   0.7977          Carbon Steel        
+                                       350.0   1.8249                     4.3619
+ 
+ A106-B      PIPE4      7833.0  0.30    21.1   2.0741   2.0741   0.7977          Carbon Steel        
+                                       350.0   1.8249                     4.3619
+ 
+ A106-B      PIPE5      7833.0  0.30    21.1   2.0741   2.0741   0.7977          Carbon Steel        
+                                       350.0   1.8249                     4.3619
+ 
+ A106-B      PIPE6      7833.0  0.30    21.1   2.0741   2.0741   0.7977          Carbon Steel        
+                                       350.0   1.8249                     4.3619
+ 
+ A106-B      PIPE7      7833.0  0.30    21.1   2.0741   2.0741   0.7977          Carbon Steel        
+                                       350.0   1.8249                     4.3619
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Ultimate Weld Reduction Factor                                  
+    Name     Pipe ID  deg C   Kg/cm2   Kg/cm2                     W                                             
+------------ -------- ------- -------- -------- -------- ---------------------                                  
+ A106-B      PIPE1       21.1   1406.1   2460.7   4218.4       1.000
+                        350.0   1206.2   1807.5                1.000
+ 
+ A106-B      PIPE2       21.1   1406.1   2460.7   4218.4       1.000
+                        350.0   1206.2   1807.5                1.000
+ 
+ A106-B      PIPE3       21.1   1406.1   2460.7   4218.4       1.000
+                        350.0   1206.2   1807.5                1.000
+ 
+ A106-B      PIPE4       21.1   1406.1   2460.7   4218.4       1.000
+                        350.0   1206.2   1807.5                1.000
+ 
+ A106-B      PIPE5       21.1   1406.1   2460.7   4218.4       1.000
+                        350.0   1206.2   1807.5                1.000
+ 
+ A106-B      PIPE6       21.1   1406.1   2460.7   4218.4       1.000
+                        350.0   1206.2   1807.5                1.000
+ 
+ A106-B      PIPE7       21.1   1406.1   2460.7   4218.4       1.000
+                        350.0   1206.2   1807.5                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN Kg/cm2                                                                          
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW     YIELD                                              
+ NAME  CASE  Kg/cm2 deg C   mm/m        E6Kg/cm    STRESS    STRESS                                             
+ ----  ----  ------ ------  --------    -------    ------    ------                                             
+ 
+ *** SEGMENT A 
+ 10    T1     2.039    350     4.362     1.8249    1206.2    1807.5           
+ 190    Same as previous point.          
+ 
+ *** SEGMENT B 
+ 30    T1     2.039    350     4.362     1.8249    1206.2    1807.5           
+ 240    Same as previous point.          
+ 
+ *** SEGMENT C 
+ 70    T1     2.039    350     4.362     1.8249    1206.2    1807.5           
+ 150    Same as previous point.          
+ 
+ *** SEGMENT D 
+ 100   T1     2.039    350     4.362     1.8249    1206.2    1807.5           
+ 310    Same as previous point.          
+ 
+ *** SEGMENT E 
+ 140   T1     2.039    350     4.362     1.8249    1206.2    1807.5           
+ 340    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+                               S U P P O R T   D A T A   L I S T I N G                                          
+                                                                                                                
+ Point Support  Support Conn.to Comp.Wt  Stiff.     Gap 1   Gap 2  Fric. GapSet Preload Ld.Var Size    Figure   
+ Name   Type      ID     /Dir    (Kg)               (mm)    (mm)   Fact. /#hgr   (Kgf)                          
+ ----- -------- ------- ------- ------- ---------- ------- ------- ----- ------ ------- ------ ---- ------------
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ 40  F Incline  40  F1  Ground    0.000 Rigid          0.0  1000.0  0.00  Weightless                            
+                        Inclined (DX=  0.000  DY=  1.000  DZ=  0.000)           
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ 40  F Guide-V  40  F2  Ground    0.000 Rigid       1000.0  1000.0  0.00  Weightless                            
+       Guide-H  40  F2  Ground    0.000 Rigid          0.0     0.0  0.00  Weightless                            
+            Gap Dir.: (Gap1_V=-Z, Gap2_V=+Z, Gap1_H=-X, Gap2_H=+X)              
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ 130 F Incline  130 F1  Ground    0.000 Rigid          0.0  1000.0  0.00  Weightless                            
+                        Inclined (DX=  0.000  DY=  0.000  DZ=  1.000)           
+ 
+ 
+ Spring Manufacturer:                                                           
+ NOTE 1: No soil supports present in the system.                                
+ Gap 1 : V-stop,Guide-V=down, Linestop,Incline,Tie/link=backward, Guide-H=Left  
+ Gap 2 : V-stop,Guide-V=Up  , Linestop,Incline,Tie/link=forward , Guide-H=Right 
+ Stiffness units for rotation support: Kg-cm/deg, all others: Kg/m              
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  17
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (mm)   (deg)   (mm)   (mm)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+ 40   *Elbow    152   90.0   114.3    6.0 A106-B       0/0  1.96   1.63    1           5.29     None            
+ 50   *Elbow    152   90.0   114.3    6.0 A106-B       0/0  1.96   1.63    1           5.29     None            
+ 60   *Elbow    152   90.0   114.3    6.0 A106-B       0/0  1.96   1.63    1           5.29     None            
+ 65   *Elbow    152   90.0   114.3    6.0 A106-B       0/0  1.96   1.63    1           5.29     None            
+ 130  *Elbow    152   90.0   114.3    6.0 A106-B       1/0  1.61   1.34    1           4.36     None            
+ 160  *Elbow    152   90.0   114.3    6.0 A106-B       0/0  1.96   1.63    1           5.29     None            
+ 170  *Elbow    152   90.0   114.3    6.0 A106-B       0/0  1.96   1.63    1           5.29     None            
+ 200  *Elbow    114   90.0   101.6    5.5 A106-B       0/0  2.14   1.79    1           6.06     None            
+ 210  *Elbow    114   90.0   101.6    5.5 A106-B       0/0  2.14   1.79    1           6.06     None            
+ 220  *Elbow    114   90.0   101.6    5.5 A106-B       0/0  2.14   1.79    1           6.06     None            
+ 250  *Elbow     76   90.0    60.3    3.9 A106-B       0/0  1.74   1.45    1           4.42     None            
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+ * = Mid-point present                                                          
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  18
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (mm)    (mm)               Type     (mm)   (mm)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ 30    A-Header  114.3    6.0  A106-B      Welding                  1.63   1.83 
+       B-Branch  101.6    5.5  A106-B                                           
+                                                                                
+ 70    A-Header  114.3    6.0  A106-B      Welding                  1.63   1.83 
+       C-Branch   60.3    3.9  A106-B                                           
+                                                                                
+ 100   A-Header  114.3    6.0  A106-B      Fitting                  1.76   1.76 
+       D-Branch   26.7    3.9  A106-B                                           
+                                                                                
+ 140   A-Header  114.3    6.0  A106-B      Fitting                  1.76   1.76 
+       E-Branch   21.3    3.7  A106-B                                           
+                                                                                
+ 150   A-Header  114.3    6.0  A106-B      Welding                  1.63   1.83 
+       C-Branch   60.3    3.9  A106-B                                           
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  19
+----------------------------------------------------------------------------------------------------------------
+
+                    V A L V E   D A T A   L I S T I N G                                                         
+                              Valve   Actuator       Actuator                            Size  Type             
+ Point          Dnom  Length  Weight  Weight    DX      DY      DZ          Joint        /Avg. /Max.            
+ Name   Type    (mm)   (mm)   (Kg)    (Kg)     (mm)    (mm)    (mm)    SAF  Type    SIF  (mm)  (mm)             
+ ----- -------- ---- -------- ------  ------  ------- ------- ------- ----- ------- ---- ----- -----            
+ 
+ Tag No. : <None>                                                               
+ 80    CATALOG   100   616.10     39                                   1.75 USER    1.00                        
+ 
+ Tag No. : <None>                                                               
+ 110   CATALOG   100   736.80    127                                   1.75 USER    1.00                        
+ 
+ Tag No. : <None>                                                               
+ 230   CATALOG    90   447.70     49                                   1.75 USER    1.00                        
+ 
+ Tag No. : <None>                                                               
+ 260   CATALOG    50   457.30     52                                   1.75 USER    1.00                        
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  20
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : 80                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+ Point Name  : 110                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+ Point Name  : 230                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+ Point Name  : 260                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  21
+----------------------------------------------------------------------------------------------------------------
+
+                    F L A N G E   D A T A   L I S T I N G                                                       
+                                   Flange  Bolt               Size  Type                                        
+ Point FLG            Dnom         Weight Weight Joint        /Avg. /Max. ANSI                                  
+ Name  No.   Type     (mm)  Rating  (Kg)   (Kg)  Type    SIF  (mm)  (mm)  Check                                 
+ ----- ---- -------- ------ ------ ------ ------ ------- ---- ----- ----- -----                                 
+ Tag No. : <None>                                                               
+ 20     1   LAPJOINT    100   2500  19.05   0.00 LJ      1.60             No    
+ Tag No. : <None>                                                               
+ 190    1   LAPJOINT    100   2500  19.05   0.00 LJ      1.60             No    
+ Tag No. : <None>                                                               
+ 300    1   LAPJOINT     20   2500   0.34   0.00 LJ      1.60u            No    
+ Tag No. : <None>                                                               
+ 340    1   LAPJOINT     15    600   0.36   0.00 LJ      1.60u            No    
+ 
+ 
+ u = User SIF present at point, check user-sif data listing.                    
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  22
+----------------------------------------------------------------------------------------------------------------
+
+       J O I N T  T Y P E  /  U S E R -  S I F   D A T A  L I S T I N G                                         
+                                                                                Size        Over Over           
+ Point Point          SIF      SIF     Axial    Tors.    Axial    Tors.   Joint /Avg. Max.  ride ride           
+ Name  Type           in       out     Index    Index     SIF      SIF    Type  (mm)  (mm)  SIF  A&T            
+ ----- ----------   -------  -------  -------  -------  -------  -------  ----- ----- ----- ---- ----           
+ 290   Run            2.300    2.300    1.000    1.000    1.000    1.000  TJ                No   No             
+ 300   Flange         2.300    2.300    1.000    1.000    1.000    1.000  TJ                No   No             
+ 330   Run            2.300    2.300    1.000    1.000    1.000    1.000  TJ                No   No             
+ 340   Flange         2.300    2.300    1.000    1.000    1.000    1.000  TJ                No   No             
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  23
+----------------------------------------------------------------------------------------------------------------
+
+          R I G I D   P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ From   To      Include   Include     Rigid                                                                     
+ Point  Point   Weight    Expansion   Factor                                                                    
+ -----  -----   -------   ---------   ------                                                                    
+ 300    310       No        Yes       1000.0                                    
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  24
+----------------------------------------------------------------------------------------------------------------
+
+                        C E N T E R    O F    G R A V I T Y    R E P O R T                                      
+                                                                                                                
+  Description                                                   Weight       X CoG       Y CoG       Z CoG      
+                                                                  (Kg)        (mm)        (mm)        (mm)      
+  -----------                                                ---------   ---------   ---------   ---------      
+  Valve                                                  :      266.80    23371.58     3719.99   -26090.14      
+  Support                                                :        0.00        0.00        0.00        0.00      
+  Flange                                                 :       38.80    24110.83     4282.90   -23914.90      
+  Flexible Joint                                         :        0.00        0.00        0.00        0.00      
+  Additional Weight                                      :        0.00        0.00        0.00        0.00      
+  Pipes (Run, Bend, Tee, Reducer)                        :      264.05    23333.13     3912.10   -23909.17      
+ 
+  PipeTot (Valve+Support+Flange+Flex. Jt.+Add. Wt.+Pipes):      569.64    23404.11     3847.38   -24931.04      
+ 
+  Insulation                                             :        0.00        0.00        0.00        0.00      
+  Cladding                                               :        0.00        0.00        0.00        0.00      
+  Lining                                                 :        0.00        0.00        0.00        0.00      
+  Contents                                               :        0.00        0.00        0.00        0.00      
+  Beam                                                   :        0.00        0.00        0.00        0.00      
+ 
+  PipeTot + Ins.                                         :      569.64    23404.11     3847.38   -24931.04      
+  PipeTot + Ins. + Clad.                                 :      569.64    23404.11     3847.38   -24931.04      
+  PipeTot + Ins. + Clad. + Lin.                          :      569.64    23404.11     3847.38   -24931.04      
+  PipeTot + Ins. + Clad. + Lin. + Cont.                  :      569.64    23404.11     3847.38   -24931.04      
+ 
+  PipeTot + Beam                                         :      569.64    23404.11     3847.38   -24931.04      
+  PipeTot + Ins. + Beam                                  :      569.64    23404.11     3847.38   -24931.04      
+  PipeTot + Ins. + Clad. + Beam                          :      569.64    23404.11     3847.38   -24931.04      
+  PipeTot + Ins. + Clad. + Lin. + Beam                   :      569.64    23404.11     3847.38   -24931.04      
+  PipeTot + Ins. + Clad. + Lin. + Cont. + Beam           :      569.64    23404.11     3847.38   -24931.04      
+ 
+  NOTE: COG report only includes the currently visible beams and segments.      
+  All pipe segments are included.                                               
+  No beams present in the model.                                                
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+INLET-SEPARATOR-SKID-C2                                                                                         
+10/19/2016 PROJECT:                                               BENTLEY                                       
+06:31 AM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  25
+----------------------------------------------------------------------------------------------------------------
+
+          L O A D    C A S E    D E S C R I P T I O N                                                           
+                                                                                                                
+  Load Case     Load Case Name     Description                                                                  
+  ---------     --------------     -----------------------------------------------------------------------------
+  GR            Gravity                                                                                         
+  T1            Thermal 1                                                                                       
+  P1            Press 1                                                                                         
+

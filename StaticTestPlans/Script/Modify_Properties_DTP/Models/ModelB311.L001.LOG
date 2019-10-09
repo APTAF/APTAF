@@ -1,0 +1,21 @@
+ **************************************
+ ANALYSIS TYPE = STATIC      
+ ANALYSIS SET =    1
+ **************************************
+ E Q U A T I O N   P A R A M E T E R S,
+
+ TOTAL NUMBER OF EQUATIONS      =   12
+ AVERAGE BANDWIDTH              =    7
+ NUMBER OF STIFFNESS BLOCKS     =    1
+ NUMBER OF TERMS IN MAX BLOCK   =   78
+
+
+
+ L O A D   B L O C K I N G   P A R A M E T E R S
+
+ NUMBER OF LOAD VECTORS         =    2
+ NUMBER OF LOAD BLOCKS          =    1
+ NUMBER OF LOAD VECTORS/BLOCK   =    2
+ INCORE LOAD ASSEMBLY STARTS AT =    0
+         1   TANGENT      1      2
+         1   ANCHOR       1

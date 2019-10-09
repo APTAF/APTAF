@@ -1,0 +1,407 @@
+﻿'USEUNIT Main
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ExportPXFBatchResult" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function PXFBatchResult( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            PXFBatchResult = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            PXFBatchResult = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set PXFBatchResult = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set PXFBatchResult = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        If(Aliases.autopipe.WaitAliasChild("dlgNote", 2000).WaitProperty("Exists", true, 100))Then
+          Call Aliases.autopipe.dlgNote.btnOK.Click()
+          Log.Message("Note Dialog. Message - PXF Export operation completed")
+        Else
+        Log.Message("No post-test actions found")
+
+        End IF
+        PopLogFolder
+    End Select
+End Function
+
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function ImportOpenPlantModeler( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            ImportOpenPlantModeler = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            ImportOpenPlantModeler = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set ImportOpenPlantModeler = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set ImportOpenPlantModeler = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        If (Aliases.AutoPIPE.WaitAliasChild("dlgConfirm", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+          Call PopupsClose(objNameMapping)
+        Else 
+            Log.Message("No post-test actions found")
+        End If 
+        PopLogFolder
+      End Select
+End Function
+
+
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function ImportPXFOPM( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            ImportPXFOPM = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            ImportPXFOPM = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set ImportPXFOPM = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set ImportPXFOPM = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function ImportCaesarII( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            ImportCaesarII = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            ImportCaesarII = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set ImportCaesarII = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set ImportCaesarII = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function CaesarIIImportFlangeSettings( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            CaesarIIImportFlangeSettings = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            CaesarIIImportFlangeSettings = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set CaesarIIImportFlangeSettings = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set CaesarIIImportFlangeSettings = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function InsertDATPaste( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            InsertDATPaste = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            InsertDATPaste = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set InsertDATPaste = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set InsertDATPaste = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ImportPXFOPMMapping" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function ImportPXFOPMMapping( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            ImportPXFOPMMapping = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            ImportPXFOPMMapping = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set ImportPXFOPMMapping = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set ImportPXFOPMMapping = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function

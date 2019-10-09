@@ -1,0 +1,661 @@
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+<IGNORE>
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+<IGNORE>
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA326C                                          
+ 
+ 
+          PROJECT ID  : QA326C                                  
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                             0                   
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.3              
+ 
+          YEAR                   : 2016                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B313-16 
+ 
+<IGNORE>
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    2                      
+     Segment Data....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From 35 to 10, DY= 0.47 ft                                                 Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 35):                                       
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Material= CS, Composition= Carbon Steel, Poisson= 0.300, Nom Size= 6 in, OD= 6.625 inch,       
+   Sch= STD, Wall Thk= 0.280 inch, Mill= 0.035 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                
+   Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft, Insul Thk= 1.550 inch,      
+   Insul Material= AMOSITE ASBESTOS, Insul Density= 0.55 lb/cu.ft, Insul Unit Wgt= 0.15 lb/ft,                  
+   Cladding Thickness = 0 inch, Lining Thk= 0 inch, Long Weld E factor= 1.00, Long Modulus= 29.50000 E6 psi,    
+   Hoop Modulus= 29.50000 E6 psi, Shear Modulus= 11.34615 E6 psi, Sc= 15000.0 psi, Syc= 40000.0 psi             
+ 
+ OPERATING DATA:                                                                
+   P1= 19.33 psi, T1= 75.00 deg F, Exp1= 0.03846 in/100ft, E1= 29.47308 E6 psi, Sh1= 15000.00 psi,              
+   Sy1= 40000.00 psi                                                            
+ 
+ POINT DATA:                                                                    
+   35, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                          
+ 
+ -------------------------------------------------------------------------------
+ From 10 to 15, DY= 4.00 ft                                                 Run 
+ 
+ POINT DATA:                                                                    
+   10, Coordinates, X= 0.00 ft, Y= 0.47 ft, Z= 0.00 ft                          
+ 
+ -------------------------------------------------------------------------------
+ From 15 to 20, DX= 4.00 ft                                                 Bend
+ 
+ COMPONENT DATA (Bend, TIP= 15, Near= 15  N, Far= 15  F):                       
+   Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 1.87, SIFO= 1.56         
+ 
+ POINT DATA:                                                                    
+   15, Coordinates, X= 0.00 ft, Y= 4.47 ft, Z= 0.00 ft                          
+   15  N, Coordinates, X= 0.00 ft, Y= 3.47 ft, Z= 0.00 ft                       
+   15  F, Coordinates, X= 1.00 ft, Y= 4.47 ft, Z= 0.00 ft                       
+   20, Coordinates, X= 4.00 ft, Y= 4.47 ft, Z= 0.00 ft                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From 60 to 55, DY= -4.00 ft                                                Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   60, Coordinates, X= 0.00 ft, Y= 4.00 ft, Z= 7.47 ft                          
+ 
+ -------------------------------------------------------------------------------
+ From 55 to 50, DZ= -4.00 ft                                                Bend
+ 
+ COMPONENT DATA (Bend, TIP= 55, Near= 55  N, Far= 55  F):                       
+   Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 1.87, SIFO= 1.56         
+ 
+ POINT DATA:                                                                    
+   55, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 7.47 ft                          
+   55  N, Coordinates, X= 0.00 ft, Y= 1.00 ft, Z= 7.47 ft                       
+   55  F, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 6.47 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From 50 to 40, DZ= -3.00 ft                                                Run 
+ 
+ POINT DATA:                                                                    
+   50, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 3.47 ft                          
+ 
+ -------------------------------------------------------------------------------
+ From 40 to 35, DZ= -0.47 ft                                                Run 
+ 
+ POINT DATA:                                                                    
+   40, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.47 ft                          
+ 
+ -------------------------------------------------------------------------------
+ From 35 to 30, DZ= -0.47 ft                                                Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 35):                                       
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   35, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                          
+ 
+ -------------------------------------------------------------------------------
+ From 30 to 90, DZ= -3.00 ft                                                Run 
+ 
+ POINT DATA:                                                                    
+   30, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -0.47 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 90 to 95, DZ= -0.47 ft                                                Run 
+ 
+ POINT DATA:                                                                    
+   90, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -3.47 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 95 to 100, DZ= -0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 95):                                       
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   95, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -3.94 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 100 to 471, DZ= -5.12 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   100, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -4.40 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 471 to 450, DZ= -0.88 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   471, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -9.52 ft                        
+   450, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -10.41 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   471, V-Stop, Support Id= 471  1, Connected to Ground, Mark= SUPAB-6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From 95 to 110, DX= -0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 95):                                       
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   95, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -3.94 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From 110 to 455, DX= -0.85 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   110, Coordinates, X= -0.47 ft, Y= 0.00 ft, Z= -3.94 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From 455 to 457, DX= -1.23 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   455, Coordinates, X= -1.31 ft, Y= 0.00 ft, Z= -3.94 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   455, Variable Spring Hanger, Support Id= 455  1, Connected to Ground, Mark= SUPSH-6, Tag No.= Undefined,     
+   CompID= Undefined, 1 hanger(s), Undesigned, Comp.Wt = 0.000 lb               
+ 
+ -------------------------------------------------------------------------------
+ From 457 to 125, DX= -1.67 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   457, Coordinates, X= -2.55 ft, Y= 0.00 ft, Z= -3.94 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   457, V-Stop, Support Id= 457  1, Connected to Ground, Mark= SUPB--6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+ 
+ -------------------------------------------------------------------------------
+ From 125 to 200, DZ= 4.75 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= 125, Near= 125 N, Mid= 125 M, Far= 125 F):          
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0, Flex= Auto,
+   SIFI= 2.27, SIFO= 1.89                                                       
+ 
+ POINT DATA:                                                                    
+   125, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= -3.94 ft                       
+   125 N, Coordinates, X= -3.47 ft, Y= 0.00 ft, Z= -3.94 ft                     
+   125 M, Coordinates, X= -4.00 ft, Y= 0.00 ft, Z= -3.72 ft                     
+   125 F, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= -3.19 ft                     
+ 
+ SUPPORT DATA:                                                                  
+   125 M, V-Stop, Support Id= 125 M1, Connected to Ground, Mark= Undefined, Tag No.= Undefined,                 
+   CompID= Undefined, Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35,        
+   Gaps setting= Weightless                                                     
+ 
+ -------------------------------------------------------------------------------
+ From 200 to 205, DZ= 0.47 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   200, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 0.81 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   200, V-Stop, Support Id= 200  1, Connected to Ground, Mark= SUPTS-6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+ 
+ -------------------------------------------------------------------------------
+ From 205 to 210, DZ= 0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 205):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   205, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 1.28 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 210 to 405, DZ= 3.75 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   210, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 1.75 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 405 to 469, DX= -4.06 ft                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= 405, Near= 405 N, Far= 405 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ POINT DATA:                                                                    
+   405, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 5.50 ft                        
+   405 N, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 4.75 ft                      
+   405 F, Coordinates, X= -4.97 ft, Y= 0.00 ft, Z= 5.50 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 469 to 420, DX= -0.69 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   469, Coordinates, X= -8.28 ft, Y= 0.00 ft, Z= 5.50 ft                        
+   420, Coordinates, X= -8.97 ft, Y= 0.00 ft, Z= 5.50 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   469, Guide, Support Id= 469  1, Connected to Ground, Mark= SUPUB-6, Tag No.= Undefined, CompID= Undefined,   
+   Comp.Wt = 0.000 lb, Stiffness= RIGID, Gap-Down= 0.00 inch, Gap-Above= 0.00 inch, Gap-Left= 0.00 inch,        
+   Gap-Right= 0.00 inch, Friction= 0.35, Gaps setting= Weightless               
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT D , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From 205 to 220, DY= 0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 205):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   205, Coordinates, X= -4.22 ft, Y= 0.00 ft, Z= 1.28 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 220 to 255, DY= 3.75 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   220, Coordinates, X= -4.22 ft, Y= 0.47 ft, Z= 1.28 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 255 to 275, DX= 3.25 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= 255, Near= 255 N, Far= 255 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ POINT DATA:                                                                    
+   255, Coordinates, X= -4.22 ft, Y= 4.22 ft, Z= 1.28 ft                        
+   255 N, Coordinates, X= -4.22 ft, Y= 3.47 ft, Z= 1.28 ft                      
+   255 F, Coordinates, X= -3.47 ft, Y= 4.22 ft, Z= 1.28 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 275 to 463, DZ= 1.99 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= 275, Near= 275 N, Far= 275 F):                      
+   Short Elbow, Radius= 6.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.97, SIFO= 2.47    
+ 
+ POINT DATA:                                                                    
+   275, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 1.28 ft                        
+   275 N, Coordinates, X= -1.47 ft, Y= 4.22 ft, Z= 1.28 ft                      
+   275 F, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 1.78 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From 463 to 290, DZ= 2.51 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   463, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 3.27 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   463, V-Stop, Support Id= 463  1, Connected to Ground, Mark= SUPRH-6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+ 
+ -------------------------------------------------------------------------------
+ From 290 to 295, DZ= 0.47 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   290, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 5.78 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 295 to 320, DZ= 0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= 295):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   295, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 6.25 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 320 to 467, DZ= 3.31 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   320, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 6.72 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 467 to 370, DZ= 2.69 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   467, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 10.02 ft                       
+   370, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 12.72 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   467, V-Stop, Support Id= 467  1, Connected to Ground, Mark= SUPCS-6, Tag No.= Undefined, CompID= Undefined,  
+   Comp.Wt = 0.000 lb, Gap-Below= 0.00 inch, Gap-Above= 1000.00 inch, Friction= 0.35, Gaps setting= Weightless  
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT E , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From 295 to 330, DX= -0.47 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= 295):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   295, Coordinates, X= -0.97 ft, Y= 4.22 ft, Z= 6.25 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 330 to 465, DX= -3.46 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   330, Coordinates, X= -1.44 ft, Y= 4.22 ft, Z= 6.25 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From 465 to 340, DX= -0.54 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   465, Coordinates, X= -4.90 ft, Y= 4.22 ft, Z= 6.25 ft                        
+   340, Coordinates, X= -5.44 ft, Y= 4.22 ft, Z= 6.25 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   465, Guide, Support Id= 465  1, Connected to Ground, Mark= SUPAG-6, Tag No.= Undefined, CompID= Undefined,   
+   Comp.Wt = 0.000 lb, Stiffness= RIGID, Gap-Down= 0.00 inch, Gap-Above= 0.00 inch, Gap-Left= 0.00 inch,        
+   Gap-Right= 0.00 inch, Friction= 0.35, Gaps setting= Weightless               
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 59 + 0 + 0 = 59          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         1338.9 lb     +      1079.1 lb     =        2418.1 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A , LINE # L100                                                    
+ 35             0.00        0.00        0.00                                    
+ 10             0.00        0.47        0.00                                    
+ 15  N          0.00        3.47        0.00                                    
+ 15             0.00        4.47        0.00                                    
+ 15  F          1.00        4.47        0.00                                    
+ 20             4.00        4.47        0.00                                    
+ 
+ *** SEGMENT B , LINE # L100                                                    
+ 60             0.00        4.00        7.47                                    
+ 55  N          0.00        1.00        7.47                                    
+ 55             0.00        0.00        7.47                                    
+ 55  F          0.00        0.00        6.47                                    
+ 50             0.00        0.00        3.47                                    
+ 40             0.00        0.00        0.47                                    
+ 35             0.00        0.00        0.00                                    
+ 30             0.00        0.00       -0.47                                    
+ 90             0.00        0.00       -3.47                                    
+ 95             0.00        0.00       -3.94                                    
+ 100            0.00        0.00       -4.40                                    
+ 471            0.00        0.00       -9.52                                    
+ 450            0.00        0.00      -10.41                                    
+ 
+ *** SEGMENT C , LINE # L100                                                    
+ 95             0.00        0.00       -3.94                                    
+ 110           -0.47        0.00       -3.94                                    
+ 455           -1.31        0.00       -3.94                                    
+ 457           -2.55        0.00       -3.94                                    
+ 125 N         -3.47        0.00       -3.94                                    
+ 125           -4.22        0.00       -3.94                                    
+ 125 M         -4.00        0.00       -3.72                                    
+ 125 F         -4.22        0.00       -3.19                                    
+ 200           -4.22        0.00        0.81                                    
+ 205           -4.22        0.00        1.28                                    
+ 210           -4.22        0.00        1.75                                    
+ 405 N         -4.22        0.00        4.75                                    
+ 405           -4.22        0.00        5.50                                    
+ 405 F         -4.97        0.00        5.50                                    
+ 469           -8.28        0.00        5.50                                    
+ 420           -8.97        0.00        5.50                                    
+ 
+ *** SEGMENT D , LINE # L100                                                    
+ 205           -4.22        0.00        1.28                                    
+ 220           -4.22        0.47        1.28                                    
+ 255 N         -4.22        3.47        1.28                                    
+ 255           -4.22        4.22        1.28                                    
+ 255 F         -3.47        4.22        1.28                                    
+ 275 N         -1.47        4.22        1.28                                    
+ 275           -0.97        4.22        1.28                                    
+ 275 F         -0.97        4.22        1.78                                    
+ 463           -0.97        4.22        3.27                                    
+ 290           -0.97        4.22        5.78                                    
+ 295           -0.97        4.22        6.25                                    
+ 320           -0.97        4.22        6.72                                    
+ 467           -0.97        4.22       10.02                                    
+ 370           -0.97        4.22       12.72                                    
+ 
+ *** SEGMENT E , LINE # L100                                                    
+ 295           -0.97        4.22        6.25                                    
+ 330           -1.44        4.22        6.25                                    
+ 465           -4.90        4.22        6.25                                    
+ 340           -5.44        4.22        6.25                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A T A   L I S T I N G                                                     
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       35     20     L100                           No    No     No           
+ B       60     450    L100                           No    No     No           
+ C       95     420    L100                           No    No     No           
+ D       205    370    L100                           No    No     No           
+ E       295    340    L100                           No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    E/  Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  W/  Steel Group/          
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f   Tcr                   
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 6P1            6  6.625 0.280    0 0.04 1.55    0  1.23    0.550  18.95     0 34.50 1.00 Carbon Steel          
+ CS           STD                                  Asb      0.000  15.40  0.15       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ CS          6P1         489.0  0.30    70.0   29.500   29.500   11.346          Carbon Steel        
+                                        75.0   29.473                     0.0385
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Ultimate Weld Reduction Factor                                  
+    Name     Pipe ID  deg F   psi      psi                        W                                             
+------------ -------- ------- -------- -------- -------- ---------------------                                  
+ CS          6P1         70.0  15000.0  40000.0      0.0       1.000
+                         75.0  15000.0  40000.0                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW     YIELD                                              
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS    STRESS                                             
+ ----  ----  ------ ------  --------    -------    ------    ------                                             
+ 
+ *** SEGMENT A , LINE # L100                          
+ 35    T1     19.33  75.00     0.038     29.473     15000*    40000*          
+ 20     Same as previous point.          
+ 
+ *** SEGMENT B , LINE # L100                          
+ 60    T1     19.33  75.00     0.038     29.473     15000*    40000*          
+ 450    Same as previous point.          
+ 
+ *** SEGMENT C , LINE # L100                          
+ 95    T1     19.33  75.00     0.038     29.473     15000*    40000*          
+ 420    Same as previous point.          
+ 
+ *** SEGMENT D , LINE # L100                          
+ 205   T1     19.33  75.00     0.038     29.473     15000*    40000*          
+ 370    Same as previous point.          
+ 
+ *** SEGMENT E , LINE # L100                          
+ 295   T1     19.33  75.00     0.038     29.473     15000*    40000*          
+ 340    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+

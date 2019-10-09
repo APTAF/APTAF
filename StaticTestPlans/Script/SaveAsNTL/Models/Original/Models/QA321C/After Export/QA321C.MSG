@@ -1,0 +1,17 @@
+          * * * *  APIN MESSAGE FILE  * * * * 
+
+
+*** LAST NODE PROCESSED: O5   
+OPER O4       1                                                A       29.5     
+          *** WARNING: MISSING FLEXIBLE JOINT DATA.
+              FLEXIBLE JOINT IS RIGID.
+
+
+      DATABASE ARRAY SIZE IS  83324.  MAXIMUM ALLOWABLE IS   10000000
+
+
+
+ ********** NUMBER OF ERRORS:   0
+ ********** NUMBER OF WARNINGS:   1
+
+

@@ -1,0 +1,177 @@
+<IGNORE>
+    *                                                                           
+HED  CHECK OF BS 7159                                                           
+    *CODE STRESS CALCULATIONS                                                   
+CTL  B7159      Y   1             0.00   SI        SI        AUTOGRPP  AUTOGRPM 
+    *                    1989  NN       Y-X                                     
+***  Support rigid stiffness - Translation   .1000E+11                          
+***  Support rigid stiffness - Rotation      .1000E+11                          
+***  Anchor rigid stiffness - Translation    .1000E+11                          
+***  Anchor rigid stiffness - Rotation       .1000E+11                          
+***  IR Code                                 19                                 
+DESC ^n ^e                                                                      
+MINP N N Y Y Y Y Y Y N N   N N N N N N Y Y Y Y N N N Y N N N N N N N N N        
+***                                                                             
+SEG  A00  A             0.000     0.000     0.000                               
+PIPE PIPE01        N  500.000    10.600     4.000    0.0000  500.0000  3       N
+    *                                                                           
+    *NS               0.00150      .0055           1329.000                 .004
+    *                  0.0000                                                   
+    *                  1.0000    1.0000 .002115384                              
+    *                                                                           
+    *                                                                           
+***  Pipe ID                                   500.000                          
+***  Design Thickness                           10.600                          
+ANC        R  000000                                                            
+OPER A00      1        40.000          0.080          0.960                     
+    *                 0.00150          0.850                                    
+RUN  A01             4000.000     0.000     0.000                               
+OPER A01      1                                                                 
+RUN  A02             2000.000     0.000     0.000                               
+OPER A02      1                                                                 
+VSTP A02            .1751E+10                               N                   
+    *                                                                           
+    *                                                  0.00     0.000     0.000 
+RUN  A03             2000.000     0.000     0.000                               
+OPER A03      1                                                                 
+TEE  A03  E                                                                     
+***  Tee Type Id                             9                                  
+***  SIF In-Plane                            2.7311                             
+***  SIF Out-Plane                           2.7311                             
+RUN  A04             4000.001     0.000     0.000                               
+OPER A04      1                                                                 
+RUN  A05             3999.999     0.000     0.000                               
+OPER A05      1                                                                 
+GUID A05                                                                        
+    *                                                                           
+    *                                                  0.00     0.000     0.000 
+RUN  A06             4000.001     0.000     0.000                               
+RED  A07              500.000     0.000     0.000                               
+OPER A06      1                                                                 
+PIPE PIPE04        N  300.000  LL40         2.000    0.0000  300.0000  2       N
+    *                                                                           
+    *L40              0.00180 .007001072           1329.500           .007001072
+    *                  0.0000                                                   
+    *                                   .002692308                              
+    *                                                                           
+    *                                                                           
+***  Pipe ID                                   300.000                          
+***  Design Thickness                            6.000                          
+OPER A07      1        60.000          0.060    A     1.530    A                
+RUN  A08             3000.000     0.000     0.000                               
+OPER A08      1                                                A                
+RUN  A09             3500.000     0.000     0.000                               
+OPER A09      1                                                A                
+TEE  A09  R                                 8.000                               
+***  Tee Type Id                             7                                  
+***  SIF In-Plane                            2.8579                             
+***  SIF Out-Plane                           2.8579                             
+RUN  A10             2000.002     0.000     0.000                               
+OPER A10      1                                                A                
+VSTP A10            .1751E+10                               N                   
+    *                                                                           
+    *                                                  0.00     0.000     0.000 
+RUN  A11             4000.001     0.000     0.000                               
+OPER A11      1                                                A                
+BEND A12             1999.999     0.000     0.000     S       50.000            
+OPER A12 N    1                                                A                
+OPER A12 M    1                                                A                
+OPER A12 F    1                                                A                
+RUN  A13                0.000     0.000 -2000.000                               
+OPER A13      1                                                A                
+RUN  A14                0.000     0.000 -2000.000                               
+OPER A14      1                                                A                
+VSTP A14            .1751E+10                               N                   
+    *                                                                           
+    *                                                  0.00     0.000     0.000 
+RUN  A15                0.000     0.000 -2000.000                               
+OPER A15      1                                                A                
+BEND A16   W            0.000     0.000 -2000.000  1000.000   50.000            
+OPER A16 N    1                                                A                
+OPER A16 M    1                                                A                
+OPER A16 F    1                                                A                
+RUN  A17             1999.999     0.000 -2000.000                               
+OPER A17      1                                                A                
+BEND A18   C      6  1999.999     0.000 -2000.000   600.000   50.000            
+OPER A18 N    1                                                A                
+OPER A18 M    1                                                A                
+OPER A18 F    1                                                A                
+RUN  A19                0.000 -4000.000     0.000                               
+OPER A19      1                                                A                
+RUN  A20                0.000 -4000.000     0.000                               
+ANC  A20   R  000000                                                            
+OPER A20      1                                                A                
+***                                                                             
+SEG  A03  B          8000.000     0.000     0.000                               
+PIPE PIPE02        N  300.000  LL40         2.500    0.0000  300.0000  1       N
+    *                                                                           
+    *                 0.00150 .005527163                              .005527163
+    *                  0.0000                                                   
+    *                                   .002125506                              
+    *                                                                           
+    *                                                                           
+***  Pipe ID                                   300.000                          
+***  Design Thickness                            7.600                          
+OPER A03      1        40.000          0.080    A     1.020    A                
+RUN  B01                0.000     0.000 -2000.000                               
+OPER B01      1                                                A                
+RUN  B02                0.000     0.000 -4000.000                               
+OPER B02      1                                                A                
+VSTP B02            .1751E+10                               N                   
+    *                                                                           
+    *                                                  0.00     0.000     0.000 
+BEND B03                0.000     0.000 -4000.000     S       50.000            
+OPER B03 N    1                                                A                
+OPER B03 M    1                                                A                
+OPER B03 F    1                                                A                
+RUN  B04                0.000 -4000.000     0.000                               
+OPER B04      1                                                A                
+RUN  B05                0.000 -2000.000     0.000                               
+ANC  B05   R  000000                                                            
+OPER B05      1                                                A                
+***                                                                             
+SEG  A09  C         27000.000     0.000     0.000                               
+PIPE PIPE03        N  200.000  LL25         0.500    0.0000  200.0000  2       N
+    *                                                                           
+    *L25              0.00180 .005556407                              .005556407
+    *                  0.0000                                                   
+    *                                   .002136752                              
+    *                                                                           
+    *                                                                           
+***  Pipe ID                                   200.000                          
+***  Design Thickness                            4.500                          
+OPER A09      1        60.000          0.060    A     1.530    A                
+RUN  C01                0.000     0.000  4000.000                               
+OPER C01      1                                                A                
+RUN  C02                0.000     0.000  4000.000                               
+OPER C02      1                                                A                
+VSTP C02            .1751E+10                               N                   
+    *                                                                           
+    *                                                  0.00     0.000     0.000 
+BEND C03                0.000     0.000  4000.000     S       50.000            
+OPER C03 N    1                                                A                
+OPER C03 M    1                                                A                
+OPER C03 F    1                                                A                
+RUN  C04                0.000 -4000.000     0.000                               
+OPER C04      1                                                A                
+RUN  C05                0.000 -4000.000     0.000                               
+ANC  C05   R  000000                                                            
+OPER C05      1                                                A                
+***  NOTE: ALL SUPPORT NAMES GENERATED BY TRANSLATOR                            
+***                                                                             
+***  ---NONSTANDARD BEAM MATERIALS---                                           
+MATL RIGID          0.6895E+08  0.3000      0.000     0.000     0.000 0.0000E+00
+***                                                                             
+BUOY                    0.000     0.000     2.000                               
+    *     A  B  C                                                               
+WIND   1  WIND1      0.000000  0.000000  1.000000    1.0000           N         
+    *        1.0000                                                             
+    *     A  B  C                                                               
+WPRS USER WIND1   W -99999.00    50.031                                         
+MODE   12    0 Y       33.000    0       N N N       1.000                      
+SOLV Y    STAT     1          N         N             1.000 N                   
+    *Load Set No. 1                                                             
+    *Y    N        1         0    0.413   444.820     0.100     1.000  N Y Y N 0
+    *GR,,T1,,W1,,P1,,                                                           
+***                                                                             
+***   END OF FILE                                                               

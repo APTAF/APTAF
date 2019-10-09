@@ -1,0 +1,26 @@
+﻿'USEUNIT APP_COMMON 
+'USEUNIT FSO_Functions
+
+
+' 
+Sub EndApp
+sDateTimeStamp = cStr(Year(now())) & _
+                 Pad(cStr(Month(now())),2) & _
+                 Pad(cStr(Day(now())),2) & _
+                 Pad(cStr(Hour(now())),2) & _
+                 Pad(cStr(Minute(now())),2) 
+  Call StartApp("autopipe","")
+  '''create discrepencies folder in temp
+  Dim tempDiscFolder : tempDiscFolder = aqEnvironment.GetEnvironmentVariable("TEMP") & "\" & "Discrepencies"
+  CopyDiscName = Discrepencies
+  Dim CopyDiscName : CopyDiscName = "\\isbprdfs03\QA\TestingProjects\AlphaTesting\CAE\AutoPIPE\AutoPIPERegression\"
+   
+   if FSO_Functions.FSOFolderExists(folderName) = false then
+      FSO_Functions.FSOCreateFolder(folderName)
+   end if
+  ''''close app 
+  If Aliases.autopipe.wndAutoPIPE.WaitAliasChild("mainGUI",60000).WaitProperty("Exists", true, 10) Then
+    Call CloseApp("autopipe")
+  End If 
+End Sub
+' 

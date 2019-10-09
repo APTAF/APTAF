@@ -1,0 +1,938 @@
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                                         BENTLEY                      
+03:32 PM                                                                           AutoPIPE Nuclear 11.00.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.09                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                                         BENTLEY                      
+03:32 PM                                                                           AutoPIPE Nuclear 11.00.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : LoadsToVessel                                   
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2014                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-14 
+ 
+          MODEL REVISION NUMBER  :     0
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                                         BENTLEY                      
+03:32 PM                                                                           AutoPIPE Nuclear 11.00.00.09 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    2                      
+     Segment Data....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+     Thermal Anchor Movements........................................................    8                      
+     Support.........................................................................    9                      
+     Bend............................................................................   10                      
+     Tee.............................................................................   11                      
+     Valve...........................................................................   12                      
+     Flange..........................................................................   14                      
+     User SIF........................................................................   15                      
+     Reducer.........................................................................   16                      
+     Rigid Pipe......................................................................   17                      
+     Reference Points................................................................   18                      
+     Center of Gravity...............................................................   19                      
+     Analysis Summary................................................................   20                      
+     Displacement....................................................................   24                      
+     Restraint Reactions.............................................................   25                      
+     Forces & Moments................................................................   26                      
+     General Stress..................................................................   27                      
+     Reference Loads.................................................................   28                      
+     Code Compliance.................................................................   29                      
+     Result Summary..................................................................   30                      
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 2.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12, Material= A53-A, Poisson= 0.300, Nom Size= 12 in, OD= 12.750 inch, Sch= STD,                    
+   Wall Thk= 0.375 inch, Mill= 0.047 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                          
+   Pipe Unit Wgt= 49.51 lb/ft, Insul Thk= 0 inch, Cladding Thickness = 0 inch, Lining Thk= 0 inch,              
+   Long Weld factor= 1.00, Circ Weld factor= 1.00, Long Modulus= 29.40000 E6 psi, Hoop Modulus= 29.40000 E6 psi,
+   Shear Modulus= 11.30769 E6 psi, Sc= 13700.0 psi, Syc= 30000.0 psi            
+ 
+ OPERATING DATA:                                                                
+   P1= 0 psi, T1= 70.00 deg F, Exp1= 0 in/100ft, E1= 29.40000 E6 psi, Sh1= 13700.00 psi                         
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, Tag No.= TAG 1: ANCHORA00, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid,          
+   KRZ= Rigid                                                                   
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 2.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A02, Coordinates, X= 4.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   Ref. ID= A02-1, Tag No.= TAG 3: REFERENCE POINT, Ref. Side= Before, Report actual loads= Yes,                
+   Ref. coord.= Global, Ref. dir.= towards A02, Report allow. loads= Yes, FX= 1 lbf, FY= 2 lbf, FZ= 3 lbf,      
+   FR= 4 lbf, MX= 5 ft-lb, MY= 6 ft-lb, MZ= 7 ft-lb, MR= 8 ft-lb                
+ 
+ SUPPORT DATA:                                                                  
+   A01, Anchor, Tag No.= TAG 2: ANCHOR01, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid,           
+   KRZ= Rigid                                                                   
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 3 + 0 + 0 = 3            
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+          198.0 lb     +         0.0 lb     =         198.0 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ A00            0.00        0.00        0.00                                    
+ A01            2.00        0.00        0.00                                    
+ A02            4.00        0.00        0.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A  T A   L I S T I N G                                                    
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       A00    A02                                   No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    ZL/ Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC/                       
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 12            12 12.750 0.375    0 0.05    0    0     0    0.000  49.51     0 49.51 1.00                       
+ A53-A        STD                                           0.000      0     0       1.00 Carbon                
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ A53-A       12          489.0  0.30    70.0   29.400   29.400   11.308                              
+ 
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Weld Reduction Factor                                           
+    Name     Pipe ID  deg F   psi      psi               W                                                      
+------------ -------- ------- -------- -------- ---------------------                                           
+ A53-A       12          70.0  13700.0  30000.0       1.000
+                         70.0  13700.0                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A 
+ A00   T1         0  70.00     0.000     29.400     13700                     
+ A02    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+ 
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+                   THERMAL ANCHOR MOVEMENTS AND DISPLACEMENTS                                                   
+                                                                                                                
+    POINT                DX       DY       DZ         RX        RY        RZ                                    
+    NAME   LOAD CASE   (in  )   (in  )   (in  )     (deg  )   (deg  )   (deg  )                                 
+    -----  ----------  -------- -------- --------   --------  --------  --------                                
+    A00    Thermal  1      2.00     3.00     4.00      5.000     6.000     7.000                                
+ 
+    A01    Thermal  1    100.00   200.00   300.00      1.200     1.300     1.400                                
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+                               S U P P O R T   D A T A   L I S T I N G                                          
+                                                                                                                
+ Point Support  Support Conn.to Comp.Wt  Stiff.     Gap 1   Gap 2  Fric. GapSet Preload Ld.Var Size    Figure   
+ Name   Type      ID     /Dir    (lb)               (in)    (in)   Fact. /#hgr   (lbf)                          
+ ----- -------- ------- ------- ------- ---------- ------- ------- ----- ------ ------- ------ ---- ------------
+ 
+ 
+ Spring Manufacturer: Anvil/Grinnell                                            
+ NOTE 1: No soil supports present in the system.                                
+ Gap 1 : V-stop,Guide-V=down, Linestop,Incline,Tie/link=backward, Guide-H=Left  
+ Gap 2 : V-stop,Guide-V=Up  , Linestop,Incline,Tie/link=forward , Guide-H=Right 
+ Stiffness units for rotation support: ft-lb/deg, all others: lb/in             
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (in)   (deg)   (in)   (in)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (in)    (in)               Type     (in)   (in)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+                    V A L V E   D A T A   L I S T I N G                                                         
+                              Valve   Actuator       Actuator                            Size  Type             
+ Point          Dnom  Length  Weight  Weight    DX      DY      DZ          Joint        /Avg. /Max.            
+ Name   Type    (in)   (ft)   (lb)    (lb)     (ft)    (ft)    (ft)    SAF  Type    SIF  (in)  (in)             
+ ----- -------- ---- -------- ------  ------  ------- ------- ------- ----- ------- ---- ----- -----            
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+                    F L A N G E   D A T A   L I S T I N G                                                       
+                                   Flange  Bolt               Size  Type                                        
+ Point FLG            Dnom         Weight Weight Joint        /Avg. /Max. ANSI                                  
+ Name  No.   Type     (in)  Rating  (lb)   (lb)  Type    SIF  (in)  (in)  Check                                 
+ ----- ---- -------- ------ ------ ------ ------ ------- ---- ----- ----- -----                                 
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+       J O I N T  T Y P E  /  U S E R -  S I F   D A T A   L I S T I N G                                        
+                                  Weld  Joint Size                                                              
+ Point Point         SIF    Joint Size  OFF.  /Avg. Max.  Over                                                  
+ Name  Type          in     Type  (in)  (in)  (in)  (in)  ride                                                  
+ ----- ----------  -------  ----- ----- ----- ----- ----- ----                                                  
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+                R E D U C E R   D A T A   L I S T I N G                                                         
+                        OD      OD     Thk    Thk                 Cone                                          
+ From  To     Length   From     To     From   To     From         Angle  SIF                                    
+ Point Point   (ft)    (in)    (in)    (in)   (in)  Material      (deg)                                         
+ ----- ----- ------- ------- -------  -----  -----  ------------  ----- ------                                  
+ 
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  17
+----------------------------------------------------------------------------------------------------------------
+
+          R I G I D   P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ From   To      Include   Include     Rigid                                                                     
+ Point  Point   Weight    Expansion   Factor                                                                    
+ -----  -----   -------   ---------   ------                                                                    
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  18
+----------------------------------------------------------------------------------------------------------------
+
+            R E F E R E N C E   P O I N T   L I S T I N G                                                       
+                   (Force - lbf , Moment - ft-lb )                                                              
+ Tag No./  Refer.  Point  Seg   Coord.      Load       [Report Loads]                                           
+ Ref. ID   Side    Name   Name  System    Direction    Actual  Allow.                                           
+ --------  ------  -----  ----  ------  -------------  ------  ------                                           
+ 
+ Tag No.: TAG 3: REFERENCE POINT                                                
+ A02-1     Before  A02     A    Global  Towards A02     Yes     Yes             
+     [Allow. Forces:  FX=      1  FY=      2  FZ=      3  FR=      4]           
+     [Allow. Moments: MX=      5  MY=      6  MZ=      7  MR=      8]           
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   MODEL  PAGE  19
+----------------------------------------------------------------------------------------------------------------
+
+                        C E N T E R    O F    G R A V I T Y    R E P O R T                                      
+                                                                                                                
+  Description                                                   Weight       X CoG       Y CoG       Z CoG      
+                                                                  (lb)        (ft)        (ft)        (ft)      
+  -----------                                                ---------   ---------   ---------   ---------      
+  Valve                                                  :        0.00        0.00        0.00        0.00      
+  Support                                                :        0.00        0.00        0.00        0.00      
+  Flange                                                 :        0.00        0.00        0.00        0.00      
+  Flexible Joint                                         :        0.00        0.00        0.00        0.00      
+  Additional Weight                                      :        0.00        0.00        0.00        0.00      
+  Pipes (Run, Bend, Tee, Reducer)                        :      198.03        2.00        0.00        0.00      
+ 
+  PipeTot (Valve+Support+Flange+Flex. Jt.+Add. Wt.+Pipes):      198.03        2.00        0.00        0.00      
+ 
+  Insulation                                             :        0.00        0.00        0.00        0.00      
+  Cladding                                               :        0.00        0.00        0.00        0.00      
+  Lining                                                 :        0.00        0.00        0.00        0.00      
+  Contents                                               :        0.00        0.00        0.00        0.00      
+  Beam                                                   :        0.00        0.00        0.00        0.00      
+ 
+  PipeTot + Ins.                                         :      198.03        2.00        0.00        0.00      
+  PipeTot + Ins. + Clad.                                 :      198.03        2.00        0.00        0.00      
+  PipeTot + Ins. + Clad. + Lin.                          :      198.03        2.00        0.00        0.00      
+  PipeTot + Ins. + Clad. + Lin. + Cont.                  :      198.03        2.00        0.00        0.00      
+ 
+  PipeTot + Beam                                         :      198.03        2.00        0.00        0.00      
+  PipeTot + Ins. + Beam                                  :      198.03        2.00        0.00        0.00      
+  PipeTot + Ins. + Clad. + Beam                          :      198.03        2.00        0.00        0.00      
+  PipeTot + Ins. + Clad. + Lin. + Beam                   :      198.03        2.00        0.00        0.00      
+  PipeTot + Ins. + Clad. + Lin. + Cont. + Beam           :      198.03        2.00        0.00        0.00      
+ 
+  NOTE: COG report only includes the currently visible beams and segments.      
+  All pipe segments are included.                                               
+  No beams present in the model.                                                
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  20
+----------------------------------------------------------------------------------------------------------------
+
+ 
+                    A N A L Y S I S   S U M M A R Y                             
+ 
+ 
+   Current model revision number : 0                                            
+ 
+     Static - Analysis set number ................... 1                         
+              Date and Time of analysis ............. Oct 19, 2016   3:32 PM    
+              Model Revision Number ................. 0                         
+              Number of load cases .................. 2                         
+              Load cases analyzed ................... GR T1                     
+              Description ........................... Analysis Set No.1                                         
+              Gaps/Friction/Soil considered ......... No                        
+              Hanger design run ..................... No                        
+              Cut short included .................... No                        
+              Thermal bowing included ............... No                        
+              Include Bourdon rotational effect ..... No                        
+              Pipe radius for Bourdon calculation ... Mean                      
+              Weight of contents included ........... Yes                       
+              Fluid density factor for contents ..... 1.00                      
+              Pressure stiffening case .............. None                      
+              Hot modulus case ...................... None                      
+              Pressure Extension..................... No                        
+              Water elevation for buoyancy loads .... Not considered            
+              Use corroded thickness in analysis .... No                        
+              Rigid stiffness factor ................ 1000.0                    
+              Support rigid stiffness (translation) . 0.100000E+11 lb/in        
+              Support rigid stiffness (rotation) .... 0.100000E+11 ft-lb/deg    
+              Anchor rigid stiffness (translation) .. 0.100000E+11 lb/in        
+              Anchor rigid stiffness (rotation) ..... 0.100000E+11 ft-lb/deg    
+              Remove Lift-Off Supports .............. No                        
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  21
+----------------------------------------------------------------------------------------------------------------
+
+                                        CODE COMPLIANCE COMBINATIONS                                            
+                                                                                                                
+  <Description>                                                                              Allowable          
+  Combination              Category    Method       Case/Combination     Factor M/S K-Factor   (psi)   D/A/P/C  
+  -----------------------  ----------- -------- ------------------------ ------ --- -------- --------- -------  
+  GR + Max P{1}            Sustain     Sum      GR[1]                      1.00              Automatic Y Y Y Y  
+                                                Max Long                   1.00                                 
+ 
+  Max Range                Expansion   Sum      Temp. Range                1.00              Automatic Y Y Y Y  
+ 
+  Amb to T1{1}             Expansion   Sum      T1[1]                      1.00              Automatic Y Y Y Y  
+ 
+  Max P{1}                 Hoop        Sum      Max Hoop                   1.00              Automatic Y Y Y Y  
+ 
+ 
+  Notes:                                                                        
+ 
+  D/A/P/C: [D]efault/[A]uto-Update/[P]rint options/[C]Consistent (Y=Yes, N=No)  
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  22
+----------------------------------------------------------------------------------------------------------------
+
+                              NON-CODE COMBINATIONS                                                             
+                                                                                                                
+  <Description>                                                                                                 
+  Combination               Method       Case/Combination     Factor  D/A/P/C                                   
+  -----------------------   -------- ------------------------ ------  -------                                   
+  Gravity{1}                Sum      GR[1]                      1.00  Y Y Y Y   
+ 
+    <70.00 deg F>                                                               
+  Thermal 1{1}              Sum      T1[1]                      1.00  Y Y Y Y   
+ 
+  GRT1{1}                   Sum      GR[1]                      1.00  Y Y Y Y   
+                                     T1[1]                      1.00            
+ 
+ 
+  Notes:                                                                        
+ 
+  D/A/P/C: [D]efault/[A]uto-Update/[P]rint options/[C]Consistent (Y=Yes, N=No)  
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  23
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+   CODE COMPLIANCE                                                              
+ 
+   Y - Factor ............................ 0.40                                 
+   Weld efficiency factor Ej.............. 1.00                                 
+   Design Pressure Factor ................ 1.00                                 
+   Minimum stress ratio used in reports... 0.00                                 
+   Number of stress points per span ...... 0                                    
+   Include corrosion in stress calcs. .... N                                    
+   Include corrosion in Hoop stress calcs. Y                                    
+   Include axial force in code stress .... N                                    
+   Include sustain load margin ........... Only if allowable stress is exceeded 
+   Use minimum sustained margin........... Y                                    
+   Set sustained SIF=1 no bends .......... N                                    
+   Set sustained/occasional SIF = 1 ...... N                                    
+   Set sustained/occasional SIF = 0.75i .. N                                    
+   Apply cold/hot modulus ratio .......... N                                    
+   Disable auto code combinations ........ N                                    
+   Disable auto non-code combinations .... N                                    
+   No. of thermal ranges to report ....... 0                                    
+   Include Max Range combination ......... Y                                    
+   Total stress .......................... Octahedral                           
+   Direct shear .......................... None                                 
+   Longitudinal pressure calculation ..... PD/4t                                
+   Inc. Axial Str and Pcase in Sustained.. N                                    
+   Apply CSA 289.3 criteria .............. Not applied                          
+   ASME B31J Enabled ..................... N                                    
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  24
+----------------------------------------------------------------------------------------------------------------
+
+                                       D I S P L A C E M E N T S                                                
+                                                                                                                
+ Point      Load                      TRANSLATIONS (in  )         ROTATIONS (deg  )                             
+ name    combination                   X       Y       Z          X       Y       Z                             
+ ------  ------------------------    ------  ------  ------     ------  ------  ------                          
+ 
+ *** Segment A  begin ***
+ 
+ A00     Gravity{1}                   0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1{1}                 2.174   3.045   4.069      5.000   5.931   7.045                          
+         GRT1{1}                      2.174   3.045   4.069      5.000   5.931   7.045                          
+ 
+ A01     Gravity{1}                   0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1{1}                99.826 199.955 299.931      1.200   1.231   1.446                          
+         GRT1{1}                     99.826 199.955 299.931      1.200   1.231   1.446                          
+ 
+ A02     Gravity{1}                   0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1{1}                99.826 200.560 299.415      1.200   1.231   1.446                          
+         GRT1{1}                     99.826 200.560 299.415      1.200   1.231   1.445                          
+ 
+ *** Segment A  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  25
+----------------------------------------------------------------------------------------------------------------
+
+                                      R E S T R A I N T   R E A C T I O N S                                     
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ -----------------------   ------ ------ ------ ------ ------- ------- ------- -------                   
+ 
+ A00     Anchor    Tag No.: TAG 1: ANCHORA00                                    
+         Gravity{1}                    0    -50      0     50       0       0     -17      17                   
+         Thermal 1{1}            .17E+10.45E+09.69E+09.19E+10-1454671-.69E+09.449E+09.825E+09                   
+         GRT1{1}                 .17E+10.45E+09.69E+09.19E+10-1454671-.69E+09.449E+09.825E+09                   
+ 
+ A01     Anchor    Tag No.: TAG 2: ANCHOR01                                     
+         Gravity{1}                    0   -149      0    149       0       0     -83      83                   
+         Thermal 1{1}            -.2E+10-.5E+09-.7E+09.19E+10 1454671-.69E+09.455E+09.824E+09                   
+         GRT1{1}                 -.2E+10-.5E+09-.7E+09.19E+10 1454671-.69E+09.455E+09.824E+09                   
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  26
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ 
+ *** Segment A  begin ***
+ 
+ A00     Gravity{1}                    0     50      0     50       0       0      17      17                   
+         Thermal 1{1}            -.2E+10-.5E+09-.7E+09.19E+10 1454671.692E+09-.45E+09.825E+09                   
+         GRT1{1}                 -.2E+10-.5E+09-.7E+09.19E+10 1454671.692E+09-.45E+09.825E+09                   
+ 
+ A01  -  Gravity{1}                    0    -49      0     49       0       0      16      16                   
+         Thermal 1{1}            -.2E+10-.5E+09-.7E+09.19E+10 1454671-.69E+09.455E+09.824E+09                   
+         GRT1{1}                 -.2E+10-.5E+09-.7E+09.19E+10 1454671-.69E+09.455E+09.824E+09                   
+ 
+ A01  +  Gravity{1}                    0     99      0     99       0       0      99      99                   
+         Thermal 1{1}                  0      0      0      0       0       0       0       0                   
+         GRT1{1}                       0     99      0     99       0       0      99      99                   
+ 
+ A02     Gravity{1}                    0      0      0      0       0       0       0       0                   
+         Thermal 1{1}                  0      0      0      0       0       0       0       0                   
+         GRT1{1}                       0      0      0      0       0       0       0       0                   
+ 
+ *** Segment A  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  27
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+ 
+ *** Segment A  begin ***
+ 
+ A00    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity{1}                     0       5      -5       0       5     -5       5    0                    
+        Thermal 1{1}                   0 .35E+09 -.1E+09  199191 .35E+09-.1E+09 .35E+09  237                    
+        GRT1{1}                        0 .35E+09 -.1E+09  199191 .35E+09-.1E+09 .35E+09  237                    
+ 
+ A01  - SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity{1}                     0       5      -5       0       5     -5       5    0                    
+        Thermal 1{1}                   0 .35E+09 -.1E+09  199191 .35E+09-.1E+09 .35E+09   56                    
+        GRT1{1}                        0 .35E+09 -.1E+09  199191 .35E+09-.1E+09 .35E+09   56                    
+ 
+ A01  + SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity{1}                     0      27     -27       0      27    -27      27    0                    
+        Thermal 1{1}                   0       0       0       0       0      0       0  270                    
+        GRT1{1}                        0      27     -27       0      27    -27      27    0                    
+ 
+ A02    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity{1}                     0       0       0       0       0      0       0  270                    
+        Thermal 1{1}                   0       0       0       0       0      0       0  270                    
+        GRT1{1}                        0       0       0       0       0      0       0  270                    
+ 
+ *** Segment A  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  28
+----------------------------------------------------------------------------------------------------------------
+
+                  R E F E R E N C E   P O I N T   L O A D S                                                     
+                                                                                                                
+    Load                           FORCES (lbf   )                 MOMENTS (ft-lb  )                            
+ Combination                   Actual   Allow.  Ratio          Actual    Allow.   Ratio                         
+ ----------------------       -------- -------- ------        --------- --------- ------                        
+ 
+ Tag No.:  TAG 3: REFERENCE POINT                                               
+ Ref. ID: A02-1     [Before A02, Seg A, Global loads applied towards A02]       
+ 
+ Gravity{1}                FX        0        1   0.00     MX         0         5   0.00                        
+                           FY        0        2   0.00     MY         0         6   0.00                        
+                           FZ        0        3   0.00     MZ         0         7   0.00                        
+                           FR        0        4   0.00     MR         0         8   0.00                        
+ 
+ Thermal 1{1}              FX        0        1   0.00     MX         0         5   0.00                        
+                           FY        0        2   0.00     MY         0         6   0.00                        
+                           FZ        0        3   0.00     MZ         0         7   0.00                        
+                           FR        0        4   0.00     MR         0         8   0.00                        
+ 
+ GRT1{1}                   FX        0        1   0.00     MX         0         5   0.00                        
+                           FY        0        2   0.00     MY         0         6   0.00                        
+                           FZ        0        3   0.00     MZ         0         7   0.00                        
+                           FR        0        4   0.00     MR         0         8   0.00                        
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  29
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2014)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ 
+ A00    Max P{1}                                                  ( 3) HOOP       0   13700                     
+        GR + Max P{1}                  17                   1.00  (15) SUST       5   13700                     
+        TR:Amb to T1{1}                          .825E+09   1.00  (17) DISP.226E+09   20550**                   
+        with Sus. load margin                                             .226E+09   34245**                   
+        Amb to T1{1}                             .825E+09   1.00  (17) DISP.226E+09   20550**                   
+        with Sus. load margin                                             .226E+09   34245**                   
+ 
+ A01  - Max P{1}                                                  ( 3) HOOP       0   13700                     
+        GR + Max P{1}                  16                   1.00  (15) SUST       5   13700                     
+        TR:Amb to T1{1}                          .824E+09   1.00  (17) DISP.226E+09   20550**                   
+        with Sus. load margin                                             .226E+09   34245**                   
+        Amb to T1{1}                             .824E+09   1.00  (17) DISP.226E+09   20550**                   
+        with Sus. load margin                                             .226E+09   34245**                   
+ 
+ A01  + Max P{1}                                                  ( 3) HOOP       0   13700                     
+        GR + Max P{1}                  99                   1.00  (15) SUST      27   13700                     
+        TR:Amb to T1{1}                                 0   1.00  (17) DISP       0   20550                     
+        Amb to T1{1}                                    0   1.00  (17) DISP       0   20550                     
+ 
+ A02    Max P{1}                                                  ( 3) HOOP       0   13700                     
+        GR + Max P{1}                   0                   1.00  (15) SUST       0   13700                     
+        TR:Amb to T1{1}                                 0   1.00  (17) DISP       0   20550                     
+        Amb to T1{1}                                    0   1.00  (17) DISP       0   20550                     
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  30
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+ Maximum displacements (in)                                                     
+ ---------------------------                                                    
+ 
+          Maximum X :    99.826      Point : A01        Load Comb.: Thermal 1{1}                                
+          Maximum Y :   200.560      Point : A02        Load Comb.: Thermal 1{1}                                
+          Maximum Z :   299.931      Point : A01        Load Comb.: Thermal 1{1}                                
+          Max. total:   374.040      Point : A01        Load Comb.: Thermal 1{1}                                
+ 
+ Maximum rotations (deg)                                                        
+ -----------------------                                                        
+ 
+          Maximum X :     5.000      Point : A00        Load Comb.: Thermal 1{1}                                
+          Maximum Y :     5.931      Point : A00        Load Comb.: Thermal 1{1}                                
+          Maximum Z :     7.045      Point : A00        Load Comb.: Thermal 1{1}                                
+          Max. total:    10.479      Point : A00        Load Comb.: Thermal 1{1}                                
+ 
+ 
+ 
+ Maximum restraint forces (lb)                                                  
+ ------------------------------                                                 
+ 
+          Maximum X : .1744E+10      Point : A00        Load Comb.: Thermal 1{1}                                
+          Maximum Y : -.452E+09      Point : A01        Load Comb.: GRT1{1}                                     
+          Maximum Z : 689230272      Point : A00        Load Comb.: Thermal 1{1}                                
+          Max. total: .1929E+10      Point : A00        Load Comb.: Thermal 1{1}                                
+ 
+ Maximum restraint moments (ft-lb)                                              
+ ----------------------------------                                             
+ 
+          Maximum X :  -1454671      Point : A00        Load Comb.: Thermal 1{1}                                
+          Maximum Y : -.692E+09      Point : A00        Load Comb.: Thermal 1{1}                                
+          Maximum Z : 455064896      Point : A01        Load Comb.: Thermal 1{1}                                
+          Max. total: 824810624      Point : A00        Load Comb.: Thermal 1{1}                                
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  31
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+ Maximum pipe forces (lb)                                                       
+ -------------------------                                                      
+ 
+          Maximum X : -.174E+10      Point : A00        Load Comb.: Thermal 1{1}                                
+          Maximum Y : -.452E+09      Point : A01        Load Comb.: GRT1{1}                                     
+          Maximum Z : -.689E+09      Point : A00        Load Comb.: Thermal 1{1}                                
+          Max. total: .1929E+10      Point : A00        Load Comb.: Thermal 1{1}                                
+ 
+ Maximum pipe moments (ft-lb)                                                   
+ -----------------------------                                                  
+ 
+          Maximum X :   1454671      Point : A00        Load Comb.: Thermal 1{1}                                
+          Maximum Y : 691569216      Point : A00        Load Comb.: Thermal 1{1}                                
+          Maximum Z : 455064896      Point : A01        Load Comb.: Thermal 1{1}                                
+          Max. total: 824810624      Point : A00        Load Comb.: Thermal 1{1}                                
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  32
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+     Maximum sustained stress                                                   
+ 
+                              Point            : A01                            
+                              Stress    psi    : 27                             
+                              Allowable psi    : 13700                          
+                              Ratio            : 0.00                           
+                              Load combination : GR + Max P{1}                  
+ 
+     Maximum displacement stress                                                
+ 
+                              Point            : A00                            
+                              Stress    psi    : 225886496                      
+                              Allowable psi    : 34245                          
+                              Ratio            : 6596                           
+                              Load combination : Max Range                      
+ 
+     Maximum hoop stress                                                        
+ 
+                              Point            : A00                            
+                              Stress    psi    : 0                              
+                              Allowable psi    : 13700                          
+                              Ratio            : 0.00                           
+                              Load combination : Max P{1}                       
+
+----------------------------------------------------------------------------------------------------------------
+LoadsToVessel                                                                                                   
+10/19/2016                                                        BENTLEY                                       
+03:32 PM                                                          AutoPIPE Nuclear 11.00.00.09   RESULT PAGE  33
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+     Maximum sustained stress ratio                                             
+ 
+                              Point            : A01                            
+                              Stress    psi    : 27                             
+                              Allowable psi    : 13700                          
+                              Ratio            : 0.00                           
+                              Load combination : GR + Max P{1}                  
+ 
+     Maximum displacement stress ratio                                          
+ 
+                              Point            : A00                            
+                              Stress    psi    : 225886496                      
+                              Allowable psi    : 34245                          
+                              Ratio            : 6596                           
+                              Load combination : Max Range                      
+ 
+     Maximum hoop stress ratio                                                  
+ 
+                              Point            : A00                            
+                              Stress    psi    : 0                              
+                              Allowable psi    : 13700                          
+                              Ratio            : 0.00                           
+                              Load combination : Max P{1}                       
+ 
+ 
+ 
+     * * * The system does not satisfy ASME B31.1 (2014) code requirements * * *
+     * * * for the selected options                                        * * *
+                                                                                
+           Warnings:                                                            
+           (1) Maximum hoop stress ratio is zero                                
+

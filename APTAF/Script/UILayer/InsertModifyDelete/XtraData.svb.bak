@@ -1,0 +1,1662 @@
+﻿'USEUNIT tabInsert
+'USEUNIT tabModify
+'USEUNIT Main
+'USEUNIT UIEngine
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Xtra Data                          ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "JointTypeAndUserSIF" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         JointTypeAndUserSIF table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+
+
+
+Function JointTypeAndUserSIF( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            JointTypeAndUserSIF = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            JointTypeAndUserSIF = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set JointTypeAndUserSIF = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set JointTypeAndUserSIF = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+
+
+End Function
+
+
+
+Sub JointTypeAndUserSIF1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+   ''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+Log.AppendFolder("Using the 'Insert JointTypeAndUserSIF' dialog")
+Set dlgJointTypeAndUserSIF = objNameMapping.dlgJointTypeAndUserSIF
+Dim drpJointEndType : drpJointEndType = "*"&objRow.Item("drpJointEndType/drpJointType")&"*"
+Dim chkConcave : chkConcave = objRow.Item("chkConcave")
+Dim intWeldSize : intWeldSize = objRow.Item("intWeldSize")
+Dim intOffsetJoint : intOffsetJoint = objRow.Item("intOffsetJoint/JointOffset")
+Dim intAvg : intAvg = objRow.Item("intAvg")
+Dim intMax : intMax = objRow.Item("intMax")
+Dim intSIF : intSIF = objRow.Item("intSIF/intInPlaneSIF")
+Dim intOutPlaneSIF : intOutPlaneSIF = objRow.Item("intOutPlaneSIF")
+Dim chkOverrideSIF : chkOverrideSIF = objRow.Item("chkOverrideSIF/chkOverrideInplaneOutplaneSIFs")
+Dim intB1 : intB1 = objRow.Item("intB1")
+Dim intC1 : intC1 = objRow.Item("intC1")
+Dim intK1 : intK1 = objRow.Item("intK1")
+Dim intB2 : intB2 = objRow.Item("intB2")
+Dim intB2dash : intB2dash = objRow.Item("intB2dash")
+Dim intC2 : intC2 = objRow.Item("intC2")
+Dim intK2 : intK2 = objRow.Item("intK2")
+Dim intC3 : intC3 = objRow.Item("intC3")
+Dim intK3 : intK3 = objRow.Item("intK3")
+Dim intC3dash : intC3dash = objRow.Item("intC3dash")
+Dim intAxialIndex : intAxialIndex = objRow.Item("intAxialIndex")
+Dim intTorsIndex : intTorsIndex = objRow.Item("intTorsIndex")
+Dim intAxialSIF : intAxialSIF = objRow.Item("intAxialSIF")
+Dim intTorsionalSIF : intTorsionalSIF = objRow.Item("intTorsionalSIF")
+Dim chkOverrideAxialTorsionalSIFs : chkOverrideAxialTorsionalSIFs = objRow.Item("chkOverrideAxialTorsionalSIFs")
+Dim strPipingCode : strPipingCode = Project.Variables.strPipingCode
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select  
+
+ 'Joint End Type drop down options'
+    If(drpJointEndType <> "*NA*") Then
+      'Select the option provide in "Joint End Type:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.drpdwnJointEndType.Click()
+        objNameMapping.lstItems.ClickItem(drpJointEndType)
+        Log.Message("Selected " & drpJointEndType & "in the 'Joint End Type' drop down")
+      End If
+   End If  
+   
+ 'Concave field 
+   If(chkConcave = "1") Then
+     'Change the checked condition of "Concave"
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.chkboxConcave.Click()
+        Log.Message("Check box 'Concave' check condition changed ")  
+      End If
+   End If
+   
+ 'Weld Size field
+   If(intWeldSize <> "NA") Then
+      'Write to "Weld Size" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldWeldSize.Keys(intWeldSize)
+        Log.Message("Entered " & intWeldSize & " in the 'Weld Size' field")
+      End If
+   End If
+ 
+ 'Offset Joint field
+   If(intOffsetJoint <> "NA") Then
+      'Write to "Offset Joint" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldOffsetJoint.Keys(intOffsetJoint)
+        Log.Message("Entered " & intOffsetJoint & " in the 'Offset Joint' field")
+      End If
+   End If
+ 
+   
+ 'Avg field
+   If(intAvg <> "NA") Then
+      'Write to "Avg" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldAvg.Keys(intAvg)
+        Log.Message("Entered " & intAvg & " in the 'Avg' field")
+      End If
+   End If
+ 
+   
+ 'Max field
+   If(intMax <> "NA") Then
+      'Write to "Max" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldMax.Keys(intMax)
+        Log.Message("Entered " & intMax & " in the 'Max' field")
+      End If
+   End If
+ 
+ 'SIF field
+   If(intSIF <> "NA") Then
+      'Write to "SIF" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+       Select Case strPipingCode
+            Case "ASME NC Nuclear"
+            Case "ASME ND Nuclear"
+                dlgJointTypeAndUserSIF.fldAvg.Keys(intSIF)
+            Case Else
+                dlgJointTypeAndUserSIF.fldSIF.Keys(intSIF)
+       End Select 
+        Log.Message("Entered " & intSIF & " in the 'SIF' field")
+      End If
+   End If
+   
+   'OutPlaneSIF field
+   If(intOutPlaneSIF <> "NA") Then
+      'Write to "OutPlaneSIF" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldOutPlaneSIF.Keys(intOutPlaneSIF)
+        Log.Message("Entered " & intOutPlaneSIF & " in the 'OutPlaneSIF' field")
+      End If
+   End If
+ 
+ 'Override SIF field 
+   If(chkOverrideSIF = "1") Then
+     'Change the checked condition of "Override SIF"
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.chkboxOverrideSIF.Click()
+        Log.Message("Check box 'Override SIF' check condition changed ")  
+      End If
+   End If
+   
+   'B1 field
+   If(intB1 <> "NA") Then
+      'Write to "B1" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+       Select Case strPipingCode
+            Case "ASME NC Nuclear"
+            Case "ASME ND Nuclear"
+               dlgJointTypeAndUserSIF.fldMax.Keys(intB1)
+            Case Else
+               dlgJointTypeAndUserSIF.fldAvg.Keys(intB1)
+       End Select 
+       Log.Message("Entered " & intB1 & " in the 'B1' field")
+      End If
+   End If
+   
+   'C1 field
+   If(intC1 <> "NA") Then
+      'Write to "C1" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldMax.Keys(intC1)
+        Log.Message("Entered " & intC1 & " in the 'C1' field")
+      End If
+   End If
+   
+   'K1 field
+   If(intK1 <> "NA") Then
+      'Write to "K1" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldSIF.Keys(intK1)
+        Log.Message("Entered " & intK1 & " in the 'K1' field")
+      End If
+   End If
+   
+   'B2 field
+   If(intB2 <> "NA") Then
+      'Write to "B2" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+      Select Case strPipingCode
+            Case "ASME NC Nuclear"
+            Case "ASME ND Nuclear"
+               dlgJointTypeAndUserSIF.fldSIF.Keys(intB2)
+            Case Else
+               dlgJointTypeAndUserSIF.fldOutPlaneSIF.Keys(intB2) 
+       End Select
+        Log.Message("Entered " & intB2 & " in the 'B2' field")
+      End If
+   End If
+   
+   'B2dash field
+   If(intB2dash <> "NA") Then
+      'Write to "B2dash" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldB2dash.Keys(intB2dash)
+        Log.Message("Entered " & intB2dash & " in the 'B2dash' field")
+      End If
+   End If
+   
+   'C2 field
+   If(intC2 <> "NA") Then
+      'Write to "C2" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+       Select Case strPipingCode
+            Case "ASME NC Nuclear"
+            Case "ASME ND Nuclear"
+               dlgJointTypeAndUserSIF.fldOutPlaneSIF.Keys(intC2)
+            Case Else
+               dlgJointTypeAndUserSIF.fldC2.Keys(intC2) 
+       End Select
+        Log.Message("Entered " & intC2 & " in the 'C2' field")
+      End If
+   End If
+   
+   'K2 field
+   If(intK2 <> "NA") Then
+      'Write to "K2" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldK2.Keys(intK2)
+        Log.Message("Entered " & intK2 & " in the 'K2' field")
+      End If
+   End If
+   
+   'C3 field
+   If(intC3 <> "NA") Then
+      'Write to "C3" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldC3.Keys(intC3)
+        Log.Message("Entered " & intC3 & " in the 'C3' field")
+      End If
+   End If
+   
+   'K3 field
+   If(intK3 <> "NA") Then
+      'Write to "K3" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldK3.Keys(intK3)
+        Log.Message("Entered " & intK3 & " in the 'K3' field")
+      End If
+   End If
+   
+ 'C3dash field
+   If(intC3dash <> "NA") Then
+      'Write to "C3dash" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldC3dash.Keys(intC3dash)
+        Log.Message("Entered " & intC3dash & " in the 'C3dash' field")
+      End If
+   End If
+    
+ 'Axial Index field
+   If(intAxialIndex <> "NA") Then
+      'Write to "Axial Index" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldB2dash.Keys(intAxialIndex)
+        Log.Message("Entered " & intAxialIndex & " in the 'Axial Index' field")
+      End If
+   End If
+   
+ 'Tors Index field
+   If(intTorsIndex <> "NA") Then
+      'Write to "Tors Index" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldC2.Keys(intTorsIndex)
+        Log.Message("Entered " & intTorsIndex & " in the 'Tors Index' field")
+      End If
+   End If
+   
+ 'Axial SIF field
+   If(intAxialSIF <> "NA") Then
+      'Write to "Axial SIF" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldK2.Keys(intAxialSIF)
+        Log.Message("Entered " & intAxialSIF & " in the 'Axial SIF' field")
+      End If
+   End If
+   
+ 'Torsional SIF field
+   If(intTorsionalSIF <> "NA") Then
+      'Write to "Torsional SIF" field
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.fldC3.Keys(intTorsionalSIF)
+        Log.Message("Entered " & intTorsionalSIF & " in the 'Torsional SIF' field")
+      End If
+   End If
+   
+ 'Override Axial Torsional SIF field 
+   If(chkOverrideAxialTorsionalSIFs = "1") Then
+     'Change the checked condition of "Override Axial Torsional SIF"
+      If(objNameMapping.WaitAliasChild("dlgJointTypeAndUserSIF", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgJointTypeAndUserSIF.chkboxOverrideAxialTorsionalSIFs.Click()
+        Log.Message("Check box 'Override Axial Torsional SIF' check condition changed ")  
+      End If
+   End If
+    
+ Call dlgJointTypeAndUserSIF.btnOK.Click()   
+    
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Additional Weight" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Additional Weight table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function AdditionalWeight( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            AdditionalWeight = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            AdditionalWeight = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set AdditionalWeight = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set AdditionalWeight = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+Sub AdditionalWeight1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+Log.AppendFolder("Using the 'Insert Additional Weight' dialog")
+Set dlgAdditionalWeight = objNameMapping.dlgAdditionalWeight
+
+Dim intWeight : intWeight = objRow.Item("intWeight")
+Dim intOffsetDX : intOffsetDX = objRow.Item("intOffsetDX")
+Dim intOffsetDY : intOffsetDY = objRow.Item("intOffsetDY")
+Dim intOffsetDZ : intOffsetDZ = objRow.Item("intOffsetDZ")
+Dim strSelectWeight : strSelectWeight = objRow.Item("dlgSelectWeight")
+
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+' Ribbon is not accessable 
+End Select 
+
+''''''''''''''''Multiple AdditionalWeight Modify Case''''''''''''
+' verifying open dialog is dlgSelectWeight
+      If  (Aliases.autopipe.WaitWindow("*", "Select Weight", 1, 5000).Exists) And (strSelectWeight  <> "NA")  Then
+            objNameMapping.dlgSelectWeight.drpdwnSelectWeight.Click()
+            objNameMapping.lstItems.ClickItem(strSelectWeight)
+            objNameMapping.dlgSelectWeight.btnOK.Click()
+            Log.Message("Selected '" & strSelectWeight  & "' to Modify") 
+    End If    
+'''''''''''''''''''''''''''''''''''    
+    
+ 'Weight field
+   If(intWeight <> "NA") Then
+      'Write to "Weight field"
+      If(objNameMapping.WaitAliasChild("dlgAdditionalWeight", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgAdditionalWeight.fldWeight.Keys(intWeight)
+        Log.Message("Entered " & intWeight & " in the 'Weight' field")
+      End If
+   End If
+   
+    'Offset from the point field
+   If(intOffsetDX <> "NA") Then
+      'Write to "intOffsetDX"
+      If(objNameMapping.WaitAliasChild("dlgAdditionalWeight", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgAdditionalWeight.fldOffsetDX.Keys(intOffsetDX)
+        Log.Message("Entered " & intOffsetDX & " in the 'OffsetDX' field")
+      End If
+   End If
+   
+   If(intOffsetDY <> "NA") Then
+      'Write to "intOffsetDY"
+      If(objNameMapping.WaitAliasChild("dlgAdditionalWeight", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgAdditionalWeight.fldOffsetDY.Keys(intOffsetDY)
+        Log.Message("Entered " & intOffsetDY & " in the 'OffsetDY' field")
+      End If
+   End If
+   
+   
+   If(intOffsetDZ <> "NA") Then
+      'Write to "intOffsetDZ"
+      If(objNameMapping.WaitAliasChild("dlgAdditionalWeight", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgAdditionalWeight.fldOffsetDZ.Keys(intOffsetDZ)
+        Log.Message("Entered " & intOffsetDZ & " in the 'OffsetDZ' field")
+      End If
+   End If
+     
+ Call dlgAdditionalWeight.btnOK.Click()   
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ConcentratedForce" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ConcentratedForce table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function ConcentratedForce( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            ConcentratedForce = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            ConcentratedForce = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set ConcentratedForce = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set ConcentratedForce = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+Sub ConcentratedForce1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+Log.AppendFolder("Using the 'Insert ConcentratedForce' dialog")
+Set dlgConcentratedForce = objNameMapping.dlgConcentratedForce
+
+Dim drpCombineWith : drpCombineWith = "*"&objRow.Item("drpCombineWith")&"*"
+Dim drpCombineTo : drpCombineTo = "*"&objRow.Item("drpCombineTo")&"*"
+Dim intForceX : intForceX = objRow.Item("intForceX")
+Dim intForceY : intForceY = objRow.Item("intForceY")
+Dim intForceZ : intForceZ = objRow.Item("intForceZ")
+Dim intMomentsX : intMomentsX = objRow.Item("intMomentsX")
+Dim intMomentsY : intMomentsY = objRow.Item("intMomentsY")
+Dim intMomentsZ : intMomentsZ = objRow.Item("intMomentsZ")
+Dim strSelectConcentratedForces : strSelectConcentratedForces = objRow.Item("dlgSelectConcentratedForces")
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+''''''''''''''''Multiple ConcentratedForces Modify Case''''''''''''
+' verifying open dialog is dlgSelectConcentratedForces
+      If  (Aliases.autopipe.WaitWindow("*", "Select Concentrated Forces", 1, 5000).Exists) And (strSelectConcentratedForces  <> "NA")  Then
+            objNameMapping.dlgSelectConcentratedForces.drpdwnSelectConcentratedForces.Click()
+            objNameMapping.lstItems.ClickItem(strSelectConcentratedForces)
+            objNameMapping.dlgSelectConcentratedForces.btnOK.Click()
+            Log.Message("Selected '" & strSelectConcentratedForces  & "' to Modify") 
+    End If    
+'''''''''''''''''''''''''''''''''''   
+
+'Combine With drop down options'
+    If(drpCombineWith <> "*NA*") Then
+      'Select the option provide in "Combine With:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgConcentratedForce", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgConcentratedForce.drpdwnCombineWith.Click()
+        objNameMapping.lstItems.ClickItem(drpCombineWith)
+        Log.Message("Selected " & drpCombineWith & "in the 'Combine With' drop down")
+      End If
+   End If  
+   
+ 'Combine To drop down options'
+    If(drpCombineTo <> "NA") Then
+      'Select the option provide in "Combine To:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgConcentratedForce", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgConcentratedForce.drpdwnCombineTo.Click()
+        objNameMapping.lstItems.ClickItem(drpCombineTo)
+        Log.Message("Selected " & drpCombineTo & "in the 'Combine To' drop down")
+      End If
+   End If  
+   
+ 'Force X field
+   If(intForceX <> "NA") Then
+      'Write to "Force X" field
+      If(objNameMapping.WaitAliasChild("dlgConcentratedForce", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgConcentratedForce.fldForceX.Keys(intForceX)
+        Log.Message("Entered " & intForceX & " in the 'Force X' field")
+      End If
+   End If
+
+    'Force Y field
+   If(intForceY <> "NA") Then
+      'Write to "Force Y" field
+      If(objNameMapping.WaitAliasChild("dlgConcentratedForce", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgConcentratedForce.fldForceY.Keys(intForceY)
+        Log.Message("Entered " & intForceY & " in the 'Force Y' field")
+      End If
+   End If
+   
+    'Force Z field
+   If(intForceZ <> "NA") Then
+      'Write to "Force Z" field
+      If(objNameMapping.WaitAliasChild("dlgConcentratedForce", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgConcentratedForce.fldForceZ.Keys(intForceZ)
+        Log.Message("Entered " & intForceZ & " in the 'Force Z' field")
+      End If
+   End If
+   
+    'Moments X field
+   If(intMomentsX <> "NA") Then
+      'Write to "Moments X" field
+      If(objNameMapping.WaitAliasChild("dlgConcentratedForce", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgConcentratedForce.fldMomentsX.Keys(intMomentsX)
+        Log.Message("Entered " & intMomentsX & " in the 'Moments X' field")
+      End If
+   End If
+
+    'Moments Y field
+   If(intMomentsY <> "NA") Then
+      'Write to "Moments Y" field
+      If(objNameMapping.WaitAliasChild("dlgConcentratedForce", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgConcentratedForce.fldMomentsY.Keys(intMomentsY)
+        Log.Message("Entered " & intMomentsY & " in the 'Moments Y' field")
+      End If
+   End If
+   
+    'Moments Z field
+   If(intMomentsZ <> "NA") Then
+      'Write to "Moments Z" field
+      If(objNameMapping.WaitAliasChild("dlgConcentratedForce", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgConcentratedForce.fldMomentsZ.Keys(intMomentsZ)
+        Log.Message("Entered " & intMomentsZ & " in the 'Moments Z' field")
+      End If
+   End If
+ Call dlgConcentratedForce.btnOK.Click()   
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ImposedDisplacement" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ImposedDisplacement table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function ImposedDisplacement( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            ImposedDisplacement = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            ImposedDisplacement = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set ImposedDisplacement = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set ImposedDisplacement = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+Sub ImposedDisplacement1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+Log.AppendFolder("Using the 'Insert Imposed Displacement' dialog")
+Set dlgImposedDisplacement = objNameMapping.dlgImposedSupportDisplacements
+
+Dim drpLoadCombineWith : drpLoadCombineWith = "*"&objRow.Item("drpLoadCombineWith")&"*"
+Dim drpLoadCombineTo : drpLoadCombineTo = "*"&objRow.Item("drpLoadCombineTo")&"*"
+Dim intSupportGroupNo : intSupportGroupNo = objRow.Item("intSupportGroupNo")
+Dim intTranslationX : intTranslationX = objRow.Item("intTranslationX")
+Dim intTranslationY : intTranslationY = objRow.Item("intTranslationY")
+Dim intTranslationZ : intTranslationZ = objRow.Item("intTranslationZ")
+Dim intRotationX : intRotationX = objRow.Item("intRotationX")
+Dim intRotationY : intRotationY = objRow.Item("intRotationY")
+Dim intRotationZ : intRotationZ = objRow.Item("intRotationZ")
+Dim strSelectImposedDisplacements : strSelectImposedDisplacements = objRow.Item("dlgSelectImposedDisplacements")
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+
+''''''''''''''''Multiple Imposed Displacement Modify Case''''''''''''
+' verifying open dialog is dlgSelectImposedDisplacements
+      If  (Aliases.autopipe.WaitWindow("*", "Select Imposed Displacements", 1, 5000).Exists) And (strSelectImposedDisplacements  <> "NA")  Then
+            objNameMapping.dlgSelectImposedDisplacements.drpdwnSelectImposedDisplacements.Click()
+            objNameMapping.lstItems.ClickItem(strSelectImposedDisplacements)
+            objNameMapping.dlgSelectImposedDisplacements.btnOK.Click()
+            Log.Message("Selected '" & strSelectImposedDisplacements  & "' to Modify") 
+    End If    
+'''''''''''''''''''''''''''''''''''   
+
+'LoadCombine With drop down options'
+    If(drpLoadCombineWith <> "*NA*") Then
+      'Select the option provide in "LoadCombine With:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgImposedDisplacement", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgImposedDisplacement.drpdwnLoadCombineWith.Click()
+        objNameMapping.lstItems.ClickItem(drpLoadCombineWith)
+        Log.Message("Selected " & drpLoadCombineWith & "in the 'LoadCombine With' drop down")
+      End If
+   End If  
+   
+ 'LoadCombine To drop down options'
+    If(drpLoadCombineTo <> "*NA*") Then
+      'Select the option provide in "LoadCombine To:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgImposedDisplacement", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgImposedDisplacement.drpdwnLoadCombineTo.Click()
+        objNameMapping.lstItems.ClickItem(drpLoadCombineTo)
+        Log.Message("Selected " & drpLoadCombineTo & "in the 'LoadCombine To' drop down")
+      End If
+   End If  
+   
+ 'Translation X field
+   If(intTranslationX <> "NA") Then
+      'Write to "Translation X" field
+      If(objNameMapping.WaitAliasChild("dlgImposedDisplacement", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgImposedDisplacement.fldTranslationX.Keys(intTranslationX)
+        Log.Message("Entered " & intTranslationX & " in the 'Translation X' field")
+      End If
+   End If
+
+    'Translation Y field
+   If(intTranslationY <> "NA") Then
+      'Write to "Translation Y" field
+      If(objNameMapping.WaitAliasChild("dlgImposedDisplacement", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgImposedDisplacement.fldTranslationY.Keys(intTranslationY)
+        Log.Message("Entered " & intTranslationY & " in the 'Translation Y' field")
+      End If
+   End If
+   
+    'Translation Z field
+   If(intTranslationZ <> "NA") Then
+      'Write to "Translation Z" field
+      If(objNameMapping.WaitAliasChild("dlgImposedDisplacement", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgImposedDisplacement.fldTranslationZ.Keys(intTranslationZ)
+        Log.Message("Entered " & intTranslationZ & " in the 'Translation Z' field")
+      End If
+   End If
+   
+    'Rotation X field
+   If(intRotationX <> "NA") Then
+      'Write to "Rotation X" field
+      If(objNameMapping.WaitAliasChild("dlgImposedDisplacement", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgImposedDisplacement.fldRotationX.Keys(intRotationX)
+        Log.Message("Entered " & intRotationX & " in the 'Rotation X' field")
+      End If
+   End If
+
+    'Rotation Y field
+   If(intRotationY <> "NA") Then
+      'Write to "Rotation Y" field
+      If(objNameMapping.WaitAliasChild("dlgImposedDisplacement", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgImposedDisplacement.fldRotationY.Keys(intRotationY)
+        Log.Message("Entered " & intRotationY & " in the 'Rotation Y' field")
+      End If
+   End If
+   
+    'Rotation Z field
+   If(intRotationZ <> "NA") Then
+      'Write to "Rotation Z" field
+      If(objNameMapping.WaitAliasChild("dlgImposedDisplacement", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgImposedDisplacement.fldRotationZ.Keys(intRotationZ)
+        Log.Message("Entered " & intRotationZ & " in the 'Rotation Z' field")
+      End If
+   End If
+ Call dlgImposedDisplacement.btnOK.Click()   
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "HydrodynamicData" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         HydrodynamicData table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function HydrodynamicData( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            HydrodynamicData = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            HydrodynamicData = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set HydrodynamicData = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set HydrodynamicData = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+Sub HydrodynamicData1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''''''''''''''''''''''''''''''
+objNameMapping = Aliases.autopipe
+''''''''''''''''''''''''''''''''''''''''''
+
+Log.AppendFolder("Using the 'Insert Hydrodynamic Data' dialog")
+Set dlgHydrodynamicData = objNameMapping.dlgHydrodynamicData
+
+Dim intMassCoefficient : intMassCoefficient = objRow.Item("intMassCoefficient")
+Dim intDragCoefficient : intDragCoefficient = objRow.Item("intDragCoefficient")
+Dim intLiftCoefficient : intLiftCoefficient = objRow.Item("intLiftCoefficient")
+Dim strSelectExtradata : strSelectExtradata = objRow.Item("dlgSelectExtradata")
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+
+''''''''''''''''Multiple HydrodynamicData Modify Case''''''''''''
+' verifying open dialog is dlgSelectExtradata
+      If  (Aliases.autopipe.WaitWindow("*", "Select Extradata", 1, 5000).Exists) And (strSelectExtradata  <> "NA")  Then
+            objNameMapping.dlgSelectExtradata.drpdwnSelectExtradata.Click()
+            objNameMapping.lstItems.ClickItem(strSelectExtradata)
+            objNameMapping.dlgSelectExtradata.btnOK.Click()
+            Log.Message("Selected '" & strSelectExtradata  & "' to Modify") 
+    End If    
+'''''''''''''''''''''''''''''''''''   
+'Mass Coefficient field
+   If(intMassCoefficient <> "NA") Then
+      'Write to "Mass Coefficient" field
+      If(objNameMapping.WaitAliasChild("dlgHydrodynamicData", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgHydrodynamicData.fldMassCoefficient.Keys(intMassCoefficient)
+        Log.Message("Entered " & intMassCoefficient & " in the 'Mass Coefficient' field")
+      End If
+   End If
+   
+   'Drag Coefficient field
+   If(intDragCoefficient <> "NA") Then
+      'Write to "Drag Coefficient" field
+      If(objNameMapping.WaitAliasChild("dlgHydrodynamicData", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgHydrodynamicData.fldDragCoefficient.Keys(intDragCoefficient)
+        Log.Message("Entered " & intDragCoefficient & " in the 'Drag Coefficient' field")
+      End If
+   End If
+   
+   'Lift Coefficient field
+   If(intLiftCoefficient <> "NA") Then
+      'Write to "Lift Coefficient" field
+      If(objNameMapping.WaitAliasChild("dlgHydrodynamicData", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgHydrodynamicData.fldLiftCoefficient.Keys(intLiftCoefficient)
+        Log.Message("Entered " & intLiftCoefficient & " in the 'Lift Coefficient' field")
+      End If
+   End If
+   
+   Call dlgHydrodynamicData.btnOK.Click()   
+    
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "CutShort" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         CutShort table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function CutShort( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            CutShort = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            CutShort = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set CutShort = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set CutShort = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+Sub CutShort1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''''''''''''''''''''''''''''''
+objNameMapping = Aliases.autopipe
+''''''''''''''''''''''''''''''''''''''''''
+
+Log.AppendFolder("Using the 'Insert Cut Short' dialog")
+Set dlgCutShort = objNameMapping.dlgCutShort
+
+Dim drpLoadCombineWith : drpLoadCombineWith = "*"&objRow.Item("drpLoadCombineWith")&"*"
+Dim intAmountCutShort : intAmountCutShort = objRow.Item("intAmountCutShort")
+Dim strSelectCutShort : strSelectCutShort = objRow.Item("dlgSelectCutShort")
+
+Select Case strOpenDialog
+  Case "Shortcut"
+           ' aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+
+''''''''''''''''Multiple CutShort Modify Case''''''''''''
+' verifying open dialog is dlgSelectCutShort
+      If  (Aliases.autopipe.WaitWindow("*", "Select Cut Short", 1, 5000).Exists) And (strSelectCutShort  <> "NA")  Then
+            objNameMapping.dlgSelectCutShort.drpdwnSelectCutShort.Click()
+            objNameMapping.lstItems.ClickItem(strSelectCutShort)
+            objNameMapping.dlgSelectCutShort.btnOK.Click()
+            Log.Message("Selected '" & strSelectCutShort  & "' to Modify") 
+    End If    
+'''''''''''''''''''''''''''''''''''   
+
+'LoadCombine With drop down options'
+    If(drpLoadCombineWith <> "*NA*") Then
+      'Select the option provide in "LoadCombine With:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgCutShort", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgCutShort.drpdwnLoadCombineWith.Click()
+        objNameMapping.lstItems.ClickItem(drpLoadCombineWith)
+        Log.Message("Selected " & drpLoadCombineWith & "in the 'LoadCombine With' drop down")
+      End If
+   End If  
+   
+   
+'Amount CutShort field
+   If(intAmountCutShort <> "NA") Then
+      'Write to "Amount CutShort" field
+      If(objNameMapping.WaitAliasChild("dlgCutShort", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgCutShort.fldAmountCutShort.Keys(intAmountCutShort)
+        Log.Message("Entered " & intAmountCutShort & " in the 'Amount CutShort' field")
+      End If
+   End If
+   
+   Call dlgCutShort.btnOK.Click()   
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "UserWeldEfficiencyFactor" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         UserWeldEfficiencyFactor table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function UserWeldEfficiencyFactor( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            UserWeldEfficiencyFactor = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            UserWeldEfficiencyFactor = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set UserWeldEfficiencyFactor = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set UserWeldEfficiencyFactor = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+Sub UserWeldEfficiencyFactor1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''''''''''''''''''''''''''''''
+objNameMapping = Aliases.autopipe
+''''''''''''''''''''''''''''''''''''''''''
+
+Log.AppendFolder("Using the 'Insert User Weld Efficiency Factor' dialog")
+Set dlgUserWeldEfficiencyFactor = objNameMapping.dlgUserWeldEfficiencyFactor
+
+Dim intWeldFactorZL : intWeldFactorZL = objRow.Item("intWeldFactorZL")
+Dim intWeldFactorZC : intWeldFactorZC = objRow.Item("intWeldFactorZC")
+Dim chkOverrideWeldFactors : chkOverrideWeldFactors = objRow.Item("chkOverrideWeldFactors")
+Dim drpCircWeldWC : drpCircWeldWC = "*"&objRow.Item("drpCircWeldWC")&"*"
+Dim intCircWeldWC : intCircWeldWC = objRow.Item("intCircWeldWC")
+Dim strSelectExtradata : strSelectExtradata = objRow.Item("dlgSelectExtradata")
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+
+''''''''''''''''Multiple UserWeldEfficiencyFactor Modify Case''''''''''''
+' verifying open dialog is dlgSelectExtradata
+      If  (Aliases.autopipe.WaitWindow("*", "Select Extradata", 1, 5000).Exists) And (strSelectExtradata  <> "NA")  Then
+            objNameMapping.dlgSelectExtradata.drpdwnSelectExtradata.Click()
+            objNameMapping.lstItems.ClickItem(strSelectExtradata)
+            objNameMapping.dlgSelectExtradata.btnOK.Click()
+            Log.Message("Selected '" & strSelectExtradata  & "' to Modify") 
+    End If    
+'''''''''''''''''''''''''''''''''''   
+
+ 
+'WeldFactorZL field
+   If(intWeldFactorZL <> "NA") Then
+      'Write to "WeldFactorZL" field
+      If(objNameMapping.WaitAliasChild("dlgUserWeldEfficiencyFactor", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgUserWeldEfficiencyFactor.fldWeldFactorZL.Keys(intWeldFactorZL)
+        Log.Message("Entered " & intWeldFactorZL & " in the 'WeldFactorZL' field")
+      End If
+   End If
+   
+'WeldFactorZC field
+   If(intWeldFactorZC <> "NA") Then
+      'Write to "WeldFactorZC" field
+      If(objNameMapping.WaitAliasChild("dlgUserWeldEfficiencyFactor", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgUserWeldEfficiencyFactor.fldWeldFactorZC.Keys(intWeldFactorZC)
+        Log.Message("Entered " & intWeldFactorZC & " in the 'WeldFactorZC' field")
+      End If
+   End If
+
+'OverrideWeldFactors field 
+   If(chkOverrideWeldFactors = "1") Then
+     'Change the checked condition of "OverrideWeldFactors"
+      If(objNameMapping.WaitAliasChild("dlgUserWeldEfficiencyFactor", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgUserWeldEfficiencyFactor.chkboxOverrideWeldFactors.Click()
+        Log.Message("Check box 'OverrideWeldFactors' check condition changed ")  
+      End If
+   End If
+   
+'CircWeldWC drop down options'
+    If(drpCircWeldWC <> "*NA*") Then
+      'Select the option provide in "CircWeldWC:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgUserWeldEfficiencyFactor", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgUserWeldEfficiencyFactor.drpdwnCircWeldWC.Click()
+        objNameMapping.lstItems.ClickItem(drpCircWeldWC)
+        Log.Message("Selected " & drpCircWeldWC & "in the 'CircWeldWC' drop down")
+      End If
+   End If  
+   
+     
+   'CircWeldWC field
+   If(intCircWeldWC <> "NA") Then
+      'Write to "CircWeldWC" field
+      If(objNameMapping.WaitAliasChild("dlgUserWeldEfficiencyFactor", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgUserWeldEfficiencyFactor.fldCircWeldWC.Keys(intCircWeldWC)
+        Log.Message("Entered " & intCircWeldWC & " in the 'CircWeldWC' field")
+      End If
+   End If
+   Call dlgUserWeldEfficiencyFactor.btnOK.Click()   
+    
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "EarthquakeScaleFactor" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         EarthquakeScaleFactor table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function EarthquakeScaleFactor( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            EarthquakeScaleFactor = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            EarthquakeScaleFactor = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set EarthquakeScaleFactor = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set EarthquakeScaleFactor = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+Sub EarthquakeScaleFactor1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''''''''''''''''''''''''''''''
+objNameMapping = Aliases.autopipe
+''''''''''''''''''''''''''''''''''''''''''
+
+Log.AppendFolder("Using the 'Earthquake Scale Factor' dialog")
+Set dlgEarthquakeScaleFactor = objNameMapping.dlgEarthquakeScaleFactor
+
+Dim intMemberX : intMemberX = objRow.Item("intMemberX")
+Dim intMemberY : intMemberY = objRow.Item("intMemberY")
+Dim intMemberZ : intMemberZ = objRow.Item("intMemberZ")
+
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+'MemberX field
+   If(intMemberX <> "NA") Then
+      'Write to "MemberX" field
+      If(objNameMapping.WaitAliasChild("dlgEarthquakeScaleFactor", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgEarthquakeScaleFactor.fldMemberX.Keys(intMemberX)
+        Log.Message("Entered " & intMemberX & " in the 'MemberX' field")
+      End If
+   End If
+
+'MemberY field
+   If(intMemberY <> "NA") Then
+      'Write to "MemberY" field
+      If(objNameMapping.WaitAliasChild("dlgEarthquakeScaleFactor", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgEarthquakeScaleFactor.fldMemberY.Keys(intMemberY)
+        Log.Message("Entered " & intMemberY & " in the 'MemberY' field")
+      End If
+   End If
+   
+'MemberZ field
+   If(intMemberZ <> "NA") Then
+      'Write to "MemberZ" field
+      If(objNameMapping.WaitAliasChild("dlgEarthquakeScaleFactor", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgEarthquakeScaleFactor.fldMemberZ.Keys(intMemberZ)
+        Log.Message("Entered " & intMemberZ & " in the 'MemberZ' field")
+      End If
+   End If
+   Call dlgEarthquakeScaleFactor.btnOK.Click()   
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ReferencePoint" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ReferencePoint table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function ReferencePoint( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            ReferencePoint = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            ReferencePoint = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set ReferencePoint = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set ReferencePoint = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+Sub ReferencePoint1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''''''''''''''''''''''''''''''
+objNameMapping = Aliases.autopipe
+''''''''''''''''''''''''''''''''''''''''''
+
+Log.AppendFolder("Using the 'Insert ReferencePoint' dialog")
+Set dlgReferencePoint = objNameMapping.dlgReferencePoint
+
+Dim strID : strID = objRow.Item("strID")
+Dim strTagNo : strTagNo = objRow.Item("strTagNo")
+Dim drpRefSide : drpRefSide = "*"&objRow.Item("drpRefSide")&"*"
+Dim drpLoadDirection : drpLoadDirection = "*"&objRow.Item("drpLoadDirection")&"*"
+Dim chkReportActualLoads : chkReportActualLoads = objRow.Item("chkReportActualLoads")
+Dim drpLoadCoordinateSystem : drpLoadCoordinateSystem = "*"&objRow.Item("drpLoadCoordinateSystem")&"*"
+Dim chkReportAllowbaleLoads : chkReportAllowbaleLoads = objRow.Item("chkReportAllowbaleLoads")
+Dim intForcesFX : intForcesFX = objRow.Item("intForcesFX")
+Dim intForcesFY : intForcesFY = objRow.Item("intForcesFY")
+Dim intForcesFZ : intForcesFZ = objRow.Item("intForcesFZ")
+Dim intForcesFR : intForcesFR = objRow.Item("intForcesFR")
+Dim intMomentsMX : intMomentsMX = objRow.Item("intMomentsMX")
+Dim intMomentsMY : intMomentsMY = objRow.Item("intMomentsMY")
+Dim intMomentsMZ : intMomentsMZ = objRow.Item("intMomentsMZ")
+Dim intMomentsMR : intMomentsMR = objRow.Item("intMomentsMR")
+Dim chkRefPointResultsToNozzle : chkRefPointResultsToNozzle = objRow.Item("chkRefPointResultsToNozzle")
+Dim strSelectExtradata : strSelectExtradata = objRow.Item("dlgSelectExtradata")
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+
+''''''''''''''''Multiple ReferencePoint Modify Case''''''''''''
+' verifying open dialog is dlgSelectExtradata
+      If  (Aliases.autopipe.WaitWindow("*", "Select Extradata", 1, 5000).Exists) And (strSelectExtradata  <> "NA")  Then
+            objNameMapping.dlgSelectExtradata.drpdwnSelectExtradata.Click()
+            objNameMapping.lstItems.ClickItem(strSelectExtradata)
+            objNameMapping.dlgSelectExtradata.btnOK.Click()
+            Log.Message("Selected '" & strSelectExtradata  & "' to Modify") 
+    End If    
+'''''''''''''''''''''''''''''''''''   
+'ID field
+   If(strID <> "NA") Then
+      'Write to "ID" field
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.fldID.Keys(strID)
+        Log.Message("Entered " & strID & " in the 'ID' field")
+      End If
+   End If 
+   
+'TagNo field
+   If(strTagNo <> "NA") Then
+      'Write to "TagNo" field
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.fldTagNo.Keys(strTagNo)
+        Log.Message("Entered " & strTagNo & " in the 'TagNo' field")
+      End If
+   End If
+   
+'RefSide drop down options'
+    If(drpRefSide <> "*NA*") Then
+      'Select the option provide in "RefSide:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.drpdwnRefSide.Click()
+        objNameMapping.lstItems.ClickItem(drpRefSide)
+        Log.Message("Selected " & drpRefSide & "in the 'RefSide' drop down")
+      End If
+   End If 
+   
+'LoadDirection drop down options'
+    If(drpLoadDirection <> "NA") Then
+      'Select the option provide in "LoadDirection:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.drpdwnLoadDirection.Click()
+        objNameMapping.lstItems.ClickItem(drpLoadDirection)
+        Log.Message("Selected " & drpLoadDirection & "in the 'LoadDirection' drop down")
+      End If
+   End If 
+      
+'ReportActualLoads field 
+   If(chkReportActualLoads = "1") Then
+     'Change the checked condition of "ReportActualLoads"
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.chkboxReportActualLoads.Click()
+        Log.Message("Check box 'ReportActualLoads' check condition changed ")  
+      End If
+   End If
+      
+'LoadCoordinateSystem drop down options'
+    If(drpLoadCoordinateSystem <> "NA") Then
+      'Select the option provide in "LoadCoordinateSystem:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.drpdwnLoadCoordinateSystem.Click()
+        objNameMapping.lstItems.ClickItem(drpLoadCoordinateSystem)
+        Log.Message("Selected " & drpLoadCoordinateSystem & "in the 'LoadCoordinateSystem' drop down")
+      End If
+   End If 
+   
+'ReportAllowbaleLoads field 
+   If(chkReportAllowbaleLoads = "1") Then
+     'Change the checked condition of "ReportAllowbaleLoads"
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.chkboxReportAllowbaleLoads.Click()
+        Log.Message("Check box 'ReportAllowbaleLoads' check condition changed ")  
+      End If
+   End If
+      
+'ForcesFX field
+   If(intForcesFX <> "NA") Then
+      'Write to "ForcesFX" field
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.fldForcesFX.Keys(intForcesFX)
+        Log.Message("Entered " & intForcesFX & " in the 'ForcesFX' field")
+      End If
+   End If
+   
+'ForcesFY field
+   If(intForcesFY <> "NA") Then
+      'Write to "ForcesFY" field
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.fldForcesFY.Keys(intForcesFY)
+        Log.Message("Entered " & intForcesFY & " in the 'ForcesFY' field")
+      End If
+   End If
+   
+'ForcesFZ field
+   If(intForcesFZ <> "NA") Then
+      'Write to "ForcesFZ" field
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.fldForcesFZ.Keys(intForcesFZ)
+        Log.Message("Entered " & intForcesFZ & " in the 'ForcesFZ' field")
+      End If
+   End If
+     
+'MomentsMX field
+   If(intMomentsMX <> "NA") Then
+      'Write to "MomentsMX" field
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.fldMomentsMx.Keys(intMomentsMX)
+        Log.Message("Entered " & intMomentsMX & " in the 'MomentsMX' field")
+      End If
+   End If
+   
+'MomentsMY field
+   If(intMomentsMY <> "NA") Then
+      'Write to "MomentsMY" field
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.fldMomentsMY.Keys(intMomentsMY)
+        Log.Message("Entered " & intMomentsMY & " in the 'MomentsMY' field")
+      End If
+   End If
+'MomentsMZ field
+   If(intMomentsMZ <> "NA") Then
+      'Write to "MomentsMZ" field
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.fldMomentsMZ.Keys(intMomentsMZ)
+        Log.Message("Entered " & intMomentsMZ & " in the 'MomentsMZ' field")
+      End If
+   End If
+
+'RefPointResultsToNozzle field 
+   If(chkRefPointResultsToNozzle = "1") Then
+     'Change the checked condition of "RefPointResultsToNozzle"
+      If(objNameMapping.WaitAliasChild("dlgReferencePoint", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgReferencePoint.chkboxRefPointResultsToNozzle.Click()
+        Log.Message("Check box 'RefPointResultsToNozzle' check condition changed ")  
+      End If
+   End If
+   Call dlgReferencePoint.btnOK.Click()   
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "OutOfRoundness" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         OutOfRoundness table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub OutOfRoundness(objNameMapping, objRow, strOpenDialog, strHotKey)
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Log.AppendFolder("Using the 'Insert Out Of Roundness' dialog")
+Set dlgOutOfRoundness = objNameMapping.dlgOutOfRoundness
+
+Dim drpType : drpType = "*"&objRow.Item("drpType")&"*"
+Dim intRatio : intRatio = objRow.Item("intRatio")
+
+Select Case strOpenDialog
+  Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+'Type drop down options'
+    If(drpType <> "*NA*") Then
+      'Select the option provide in "Type:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgOutOfRoundness", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgOutOfRoundness.drpdwnType.Click()
+        objNameMapping.lstItems.ClickItem(drpType)
+        Log.Message("Selected " & drpType & "in the 'Type' drop down")
+      End If
+   End If  
+   
+'Ratio field
+   If(intRatio <> "NA") Then
+      'Write to "Ratio" field
+      If(objNameMapping.WaitAliasChild("dlgOutOfRoundness", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgOutOfRoundness.fldRatio.Keys(intRatio)
+        Log.Message("Entered " & intRatio & " in the 'Ratio' field")
+      End If
+   End If
+
+   Call dlgOutOfRoundness.btnOK.Click()   
+    
+End Sub
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "GrossDiscontinuity" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         GrossDiscontinuity table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub GrossDiscontinuity(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+Log.AppendFolder("Using the 'Insert Gross Discontinuity' dialog")
+Set dlgGrossDiscontinuity = objNameMapping.dlgGrossDiscontinuity
+
+Dim drpThermalCase : drpThermalCase = "*"&objRow.Item("drpThermalCase")&"*"
+Dim intMinStress : intMinStress = objRow.Item("intMinStress")
+Dim intMaxStress : intMaxStress = objRow.Item("intMaxStress")
+
+Select Case strOpenDialog
+  Case "Shortcut"
+           'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+'Thermal Case drop down options'
+    If(drpThermalCase <> "*NA*") Then
+      'Select the option provide in "Thermal Case:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgGrossDiscontinuity", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgGrossDiscontinuity.drpdwnThermalCase.Click()
+        objNameMapping.lstItems.ClickItem(drpThermalCase)
+        Log.Message("Selected " & drpThermalCase & "in the 'Thermal Case' drop down")
+      End If
+   End If  
+   
+'Min Stress field
+   If(intMinStress <> "NA") Then
+      'Write to "Min Stress" field
+      If(objNameMapping.WaitAliasChild("dlgGrossDiscontinuity", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgGrossDiscontinuity.fldMinStress.Keys(intMinStress)
+        Log.Message("Entered " & intMinStress & " in the 'Min Stress' field")
+      End If
+   End If
+
+   'Max Stress field
+   If(intMaxStress <> "NA") Then
+      'Write to "Max Stress" field
+      If(objNameMapping.WaitAliasChild("dlgGrossDiscontinuity", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgGrossDiscontinuity.fldMaxStress.Keys(intMaxStress)
+        Log.Message("Entered " & intMaxStress & " in the 'Max Stress' field")
+      End If
+   End If
+   
+   Call dlgGrossDiscontinuity.btnOK.Click()   
+    
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "PipingRestraintOptions" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         PipingRestraintOptions table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Sumbal.Khan 
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub PipingRestraintOptions(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+Log.AppendFolder("Using the 'Insert Piping Restraint Options' dialog")
+Set dlgPipingRestraintOptions = objNameMapping.dlgPipingRestraintOptions
+
+Dim drpStressEquations : drpStressEquations = "*"&objRow.Item("drpStressEquations")&"*"
+
+Select Case strOpenDialog
+  Case "Shortcut"
+           ' aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+  Case "Ribbon"
+  ' Ribbon is not accessable 
+End Select 
+    
+'Stress Equations drop down options'
+    If(drpStressEquations <> "*NA*") Then
+      'Select the option provide in "Stress Equations:"drop down list'
+      If(objNameMapping.WaitAliasChild("dlgPipingRestraintOptions", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgPipingRestraintOptions.drpdwnStressEqu.Click()
+        objNameMapping.lstItems.ClickItem(drpStressEquations)
+        Log.Message("Selected " & drpStressEquations & "in the 'Stress Equations' drop down")
+      End If
+   End If  
+
+   Call dlgPipingRestraintOptions.btnOK.Click()   
+    
+End Sub
+
+

@@ -1,0 +1,335 @@
+[1mdiff --git a/APTAF/APTAF-TestSuite.mds.tcLS b/APTAF/APTAF-TestSuite.mds.tcLS[m
+[1mnew file mode 100644[m
+[1mindex 0000000..122dff1[m
+[1m--- /dev/null[m
+[1m+++ b/APTAF/APTAF-TestSuite.mds.tcLS[m
+[36m@@ -0,0 +1,74 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8" standalone="no"?>[m
+[32m+[m[32m<!DOCTYPE Nodes [[m
+[32m+[m
+[32m+[m[32m<!ENTITY % NameValue "CDATA">[m
+[32m+[m[32m<!ENTITY % PropType "(I|S|D|L|H|B)">[m
+[32m+[m[32m<!ENTITY % VersionValue "CDATA">[m
+[32m+[m
+[32m+[m[32m<!ELEMENT Prp (#PCDATA)>[m
+[32m+[m[32m<!ELEMENT Node (Node|Prp)*>[m
+[32m+[m[32m<!ELEMENT Nodes (Node)+>[m
+[32m+[m
+[32m+[m[32m<!ATTLIST Nodes version CDATA "1">[m
+[32m+[m
+[32m+[m[32m<!ATTLIST Node name CDATA #REQUIRED>[m
+[32m+[m
+[32m+[m[32m<!ATTLIST Prp name CDATA #REQUIRED>[m
+[32m+[m[32m<!ATTLIST Prp type CDATA #REQUIRED>[m
+[32m+[m[32m<!ATTLIST Prp value CDATA #REQUIRED>[m
+[32m+[m[32m]>[m
+[32m+[m[32m<Nodes version="1">[m
+[32m+[m	[32m<Node name="root">[m
+[32m+[m		[32m<Node name="data">[m
+[32m+[m			[32m<Node name="logs">[m
+[32m+[m				[32m<Prp name="key" type="S" value="{303EEE05-FFF2-47D0-938B-40EBD994FC37}"/>[m
+[32m+[m				[32m<Prp name="relpath" type="S" value="Log"/>[m
+[32m+[m			[32m</Node>[m
+[32m+[m			[32m<Node name="variables">[m
+[32m+[m				[32m<Node name="datav3">[m
+[32m+[m					[32m<Node name="var0">[m
+[32m+[m						[32m<Prp name="name" type="S" value="RoundingTolerance"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var1">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strInputDBName"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var10">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strTPFolderPath"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var11">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strTPReportName"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var12">[m
+[32m+[m						[32m<Prp name="name" type="S" value="intLogLevel"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var2">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strInputDBType"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var3">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strOpenDialog"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var4">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strInputDBPathX"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var5">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strOperatorX"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var6">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strReportFolderPathX"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var7">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strTestScriptNameX"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var8">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strTestPlanNameX"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m					[32m<Node name="var9">[m
+[32m+[m						[32m<Prp name="name" type="S" value="strPipingCode"/>[m
+[32m+[m					[32m</Node>[m
+[32m+[m				[32m</Node>[m
+[32m+[m				[32m<Prp name="version" type="I" value="3"/>[m
+[32m+[m			[32m</Node>[m
+[32m+[m		[32m</Node>[m
+[32m+[m		[32m<Prp name="signature" type="S" value="{49FC0C30-9EF7-4DBD-97A8-B7A00E79A2AF}"/>[m
+[32m+[m	[32m</Node>[m
+[32m+[m[32m</Nodes>[m
+\ No newline at end of file[m
+[1mdiff --git a/APTAF/APTAF.mds b/APTAF/APTAF.mds[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cb0fd6f[m
+[1m--- /dev/null[m
+[1m+++ b/APTAF/APTAF.mds[m
+[36m@@ -0,0 +1,650 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<Root signature="{362A8EE5-675E-43A9-869D-06ECE80B0CB4}" version="14.0">[m
+[32m+[m	[32m<children>[m
+[32m+[m		[32m<folder name="Advanced" moniker="{69583268-92F3-49FA-B573-C831F5ABC27B}">[m
+[32m+[m			[32m<child name="Events" key="{BF21A5BA-2726-480D-B4D6-3432378D5241}" type="Events" typeId="{E7ABA87F-E873-4452-9921-6F4BAAEB2BCC}" pluginName="" path="Events\Events.tcAX" />[m
+[32m+[m			[32m<child name="Script" key="{D7433423-2841-468B-B883-DFE47702D67D}" type="Script" typeId="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" pluginName="Script" path="Script\Script.tcScript" />[m
+[32m+[m		[32m</folder>[m
+[32m+[m		[32m<child name="KeywordTests" key="{A8A242BB-8B87-4423-A7B4-B6F234A309E4}" type="Keyword Testing" typeId="{9576DAFD-0ADD-41A8-9897-C72F150AF6BB}" pluginName="Keyword Testing" path="KeywordTests\KeywordTests.tcKDT" />[m
+[32m+[m		[32m<child name="TestedApps" key="{503E3A70-9BC2-497D-BA5E-64BD9B3C649F}" type="Tested Applications" typeId="{90D101C8-80C7-48D4-9055-2E451B9BCD75}" pluginName="" path="TestedApps\TestedApps.tcTAs" />[m
+[32m+[m		[32m<child name="Stores" key="{8312C470-7DFB-48E6-9592-6483D7DDA044}" type="Stores" typeId="{5238AF17-5FE2-48FF-8BCC-9803A975A4F4}" pluginName="Stores" path="Stores\Stores.tcStores" />[m
+[32m+[m		[32m<child name="NameMapping" key="{9C4E2ED1-6B02-4964-97E5-F236E7759930}" type="Name Mapping" typeId="{5DCBAC3B-D39C-497C-9BE8-744CBADD37AA}" pluginName="NameMapping" path="NameMapping\NameMapping.tcNM" />[m
+[32m+[m	[32m</children>[m
+[32m+[m	[32m<config language="{897793E3-73F3-4895-A956-3D41D3A24A45}" />[m
+[32m+[m	[32m<testItems key="{D63E0521-76EF-4F26-989A-6FC59E731BFE}" version="14">[m
+[32m+[m		[32m<children>[m
+[32m+[m			[32m<testItem name="AutoPIPESmoke" key="{9AF56B73-E004-4392-923C-4C71728C89C7}" group="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="2" description="" tmsData="" testCase="True">[m
+[32m+[m				[32m<testParameters />[m
+[32m+[m				[32m<children>[m
+[32m+[m					[32m<testItem name="SmokeTestPlan" key="{B43EF591-2170-47E4-96CD-C9AF2FB079DA}" group="False" enabled="True" testMoniker="{56D9650C-3C41-48A7-8FA8-B25E19296FC5}SmokeTestMain" count="1" timeout="0" stopOnError="2" stopOnException="2" description="" tmsData="" testCase="True">[m
+[32m+[m						[32m<testParameters />[m
+[32m+[m						[32m<children>[m
+[32m+[m							[32m<testItem name="Category-Run" key="{CA89CDCC-B88C-49E5-B451-3510AD479C61}" group="False" enabled="True" testMoniker="{56D9650C-3C41-48A7-8FA8-B25E19296FC5}RunTCat" count="1" timeout="0" stopOnError="2" stopOnException="2" description="" tmsData="" testCase="True">[m
+[32m+[m								[32m<testParameters />[m
+[32m+[m								[32m<children />[m
+[32m+[m							[32m</testItem>[m
+[32m+[m							[32m<testItem name="Category-Bend" key="{189A7E19-954D-4472-9B87-BAD91D6E3C5E}" group="False" enabled="False" testMoniker="{56D9650C-3C41-48A7-8FA8-B25E19296FC5}BendTCat" count="1" timeout="0" stopOnError="2" stopOnException="2" description="" tmsData="" testCase="True">[m
+[32m+[m								[32m<testParameters />[m
+[32m+[m								[32m<children />[m
+[32m+[m							[32m</testItem>[m
+[32m+[m						[32m</children>[m
+[32m+[m					[32m</testItem>[m
+[32m+[m				[32m</children>[m
+[32m+[m			[32m</testItem>[m
+[32m+[m		[32m</children>[m
+[32m+[m	[32m</testItems>[m
+[32m+[m	[32m<variables key="{61779DFE-13BE-4CAF-AAAF-162F26870DC4}">[m
+[32m+[m		[32m<data Version="3">[m
+[32m+[m			[32m<Items>[m
+[32m+[m				[32m<Variable Name="RoundingTolerance" Type="{88422C25-DDF4-4EA1-B7CC-95779A023F5D}" Local="False" Descr="Tolarance value used in CheckLine By Line routine">[m
+[32m+[m					[32m<DefValue IntValue="0" />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strInputDBName" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strInputDBType" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue StrValue="45007800630065006C00" />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strOpenDialog" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue StrValue="530068006F0072007400630075007400" />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strInputDBPathX" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strOperatorX" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strReportFolderPathX" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strTestScriptNameX" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strTestPlanNameX" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strPipingCode" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strTPFolderPath" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="strTPReportName" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m				[32m<Variable Name="intLogLevel" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False" Descr="Variable keeping log level">[m
+[32m+[m					[32m<DefValue />[m
+[32m+[m				[32m</Variable>[m
+[32m+[m			[32m</Items>[m
+[32m+[m		[32m</data>[m
+[32m+[m	[32m</variables>[m
+[32m+[m	[32m<settings key="{99915F38-0DF6-4C32-8A53-A84EAE2C471A}">[m
+[32m+[m		[32m<settingsVersion value="14.10" />[m
+[32m+[m		[32m<setting name="AgOpenApp_ExtendedSilverlightObjectTree" type="1" value="False" />[m
+[32m+[m		[32m<setting name="ApplicationHangingProcessFilterMode" type="6" rowIndex="4" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data>[m
+[32m+[m				[32m<row val0="Use all processes" />[m
+[32m+[m				[32m<row val0="Use only tested applications" />[m
+[32m+[m				[32m<row val0="Use only selected processes" />[m
+[32m+[m				[32m<row val0="Ignore selected processes" />[m
+[32m+[m				[32m<row val0="Ignore all processes" />[m
+[32m+[m			[32m</data>[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="ApplicationHangingProcessList" type="6" rowIndex="-1" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data />[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="ApplicationHangingTimeout" type="2" value="30000" />[m
+[32m+[m		[32m<setting name="CLRBridge_PreferredApartmentModel" type="6" rowIndex="0" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data>[m
+[32m+[m				[32m<row val0="Does not matter" />[m
+[32m+[m				[32m<row val0="Single-threaded apartment" />[m
+[32m+[m				[32m<row val0="Multi-threaded apartment" />[m
+[32m+[m			[32m</data>[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="CLRBridge_PreferredArchitecture" type="6" rowIndex="1" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data>[m
+[32m+[m				[32m<row val0="The same as the operating system" />[m
+[32m+[m				[32m<row val0="32-bit" />[m
+[32m+[m				[32m<row val0="64-bit" />[m
+[32m+[m			[32m</data>[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="CLRBridge_SelectedComponents" type="6" rowIndex="-1" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m				[32m<column type="1" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data />[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="CountProcessesOfAllUsers" type="1" value="True" />[m
+[32m+[m		[32m<setting name="DbgServices_Active" type="1" value="True" />[m
+[32m+[m		[32m<setting name="DbgServices_DepthShown" type="2" value="10" />[m
+[32m+[m		[32m<setting name="DbgServices_EnableEvents" type="1" value="True" />[m
+[32m+[m		[32m<setting name="DbgServices_Priority" type="6" rowIndex="3" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data>[m
+[32m+[m				[32m<row val0="pmLowest" />[m
+[32m+[m				[32m<row val0="pmLower" />[m
+[32m+[m				[32m<row val0="pmNormal" />[m
+[32m+[m				[32m<row val0="pmHigher" />[m
+[32m+[m				[32m<row val0="pmHighest" />[m
+[32m+[m			[32m</data>[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="DbgServices_UseExtendedDebugger" type="1" value="True" />[m
+[32m+[m		[32m<setting name="DraggingDelay" type="2" value="5" />[m
+[32m+[m		[32m<setting name="General_CurrentImageFormat" type="5" value="126_0_0_0_97_113_115_111_1_0_0_0_4_0_0_0_114_0_111_0_111_0_116_0_1_0_0_0_9_0_0_0_102_0_111_0_114_0_109_0_97_0_116_0_107_0_101_0_121_0_1_0_0_0_38_0_0_0_123_0_66_0_65_0_55_0_52_0_53_0_49_0_54_0_57_0_45_0_70_0_51_0_52_0_68_0_45_0_52_0_55_0_49_0_48_0_45_0_66_0_51_0_55_0_70_0_45_0_68_0_53_0_69_0_70_0_69_0_56_0_65_0_53_0_49_0_51_0_51_0_57_0_125_0_1_0_0_0_16_0_0_0_112_0_110_0_103_0_99_0_111_0_110_0_102_0_105_0_103_0_117_0_114_0_97_0_116_0_105_0_111_0_110_0_2_0_0_0_16_0_0_0_99_0_111_0_109_0_112_0_114_0_101_0_115_0_115_0_105_0_111_0_110_0_108_0_101_0_118_0_101_0_108_0_0_0_0_0_4_0_0_0_10_0_0_0_105_0_110_0_116_0_101_0_114_0_108_0_97_0_99_0_101_0_100_0_5_0_0_0_0_0_0_0_0_0_" />[m
+[32m+[m		[32m<setting name="General_DisableDWMBeforeCapturingImage" type="1" value="True" />[m
+[32m+[m		[32m<setting name="General_ImageFormat" type="5" value="Format: PNG; Compression level: 4" />[m
+[32m+[m		[32m<setting name="General_ObjectTreeModel" type="6" rowIndex="0" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data>[m
+[32m+[m				[32m<row val0="Tree" />[m
+[32m+[m				[32m<row val0="Flat" />[m
+[32m+[m			[32m</data>[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="General_ProjectLogLocation" type="5" value="Log" />[m
+[32m+[m		[32m<setting name="General_UnitsEncoding" type="6" rowIndex="1" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data>[m
+[32m+[m				[32m<row val0="UTF-16" />[m
+[32m+[m				[32m<row val0="UTF-8" />[m
+[32m+[m				[32m<row val0="ANSI" />[m
+[32m+[m				[32m<row val0="Auto" />[m
+[32m+[m			[32m</data>[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="HipTest_ProjectID" type="2" value="-1" />[m
+[32m+[m		[32m<setting name="HipTest_ProjectName" type="5" value="The current project is not bound to HipTest." />[m
+[32m+[m		[32m<setting name="HipTest_SaveResults" type="1" value="True" />[m
+[32m+[m		[32m<setting name="HipTest_SynchronizeBeforeRun" type="1" value="True" />[m
+[32m+[m		[32m<setting name="HipTest_SynchronizeOnOpening" type="1" value="True" />[m
+[32m+[m		[32m<setting name="HipTest_SynchronizeTestRun" type="1" value="False" />[m
+[32m+[m		[32m<setting name="HipTest_TestRunID" type="5" value="" />[m
+[32m+[m		[32m<setting name="HipTest_TestRunName" type="5" value="[Test run created last]" />[m
+[32m+[m		[32m<setting name="JavaBridge_Classes" type="6" rowIndex="-1" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data />[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="JavaBridge_ClassPaths" type="6" rowIndex="-1" colIndex="0">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data />[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="JavaFXOpenApp_DoNotRecognizeJavaFXStageAsAWTComponent" type="1" value="True" />[m
+[32m+[m		[32m<setting name="JavaFXOpenApp_ExposedCustomNodes" type="6" rowIndex="-1" colIndex="2">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="1" enabled="True" />[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data />[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="JavaFXOpenApp_NodeByClassNameFilters" type="6" rowIndex="7" colIndex="2">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="1" enabled="True" />[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m				[32m<column type="1" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data>[m
+[32m+[m				[32m<row val0="False" val1="*" val2="False" />[m
+[32m+[m				[32m<row val0="True" val1="javafx.scene.SubScene" val2="True" />[m
+[32m+[m				[32m<row val0="True" val1="javafx.scene.control.Control" val2="True" />[m
+[32m+[m				[32m<row val0="True" val1="javafx.scene.web.WebView" val2="False" />[m
+[32m+[m				[32m<row val0="False" val1="javafx.scene.canvas.Canvas" val2="True" />[m
+[32m+[m				[32m<row val0="False" val1="javafx.scene.image.ImageView" val2="True" />[m
+[32m+[m				[32m<row val0="False" val1="javafx.scene.media.MediaView" val2="True" />[m
+[32m+[m				[32m<row val0="True" val1="com.sun.javafx.scene.control.skin.ContextMenuContent$MenuItemContainer" val2="True" />[m
+[32m+[m			[32m</data>[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="JavaOpenApp_DoNotRecognizeChildSWTAsParent" type="1" value="False" />[m
+[32m+[m		[32m<setting name="KeyPressingDelay" type="2" value="0" />[m
+[32m+[m		[32m<setting name="MouseMovementDelay" type="2" value="0" />[m
+[32m+[m		[32m<setting name="ObjectMapping_Objects" type="6" rowIndex="-1" colIndex="3">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m				[32m<column type="2" enabled="True" />[m
+[32m+[m				[32m<column type="2" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data />[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="OpenApps_ActivateSystemProcesses" type="1" value="False" />[m
+[32m+[m		[32m<setting name="OpenApps_DbgAgent_AdvancedExceptionHandling" type="1" value="True" />[m
+[32m+[m		[32m<setting name="OpenApps_DbgAgent_CombineClassDefinitions" type="1" value="False" />[m
+[32m+[m		[32m<setting name="OpenApps_DbgAgent_EnableDebugAgent" type="1" value="True" />[m
+[32m+[m		[32m<setting name="OpenApps_DbgAgent_StringLengthLimit" type="2" value="1024" />[m
+[32m+[m		[32m<setting name="OpenApps_DbgAgent_UseStaticLibs" type="1" value="True" />[m
+[32m+[m		[32m<setting name="OpenApps_EnableMultipleNamesForObjects" type="1" value="False" />[m
+[32m+[m		[32m<setting name="OpenApps_FlashFlex_InstallFlashInjector" type="1" value="False" />[m
+[32m+[m		[32m<setting name="OpenApps_FlashFlex_TrustedLocations" type="6" rowIndex="0" colIndex="1">[m
+[32m+[m			[32m<columns>[m
+[32m+[m				[32m<column type="1" enabled="True" />[m
+[32m+[m				[32m<column type="5" enabled="True" />[m
+[32m+[m			[32m</columns>[m
+[32m+[m			[32m<data>[m
+[32m+[m				[32m<row val0="True" val1="%PRODUCT_LOCATION%\Open Apps\Flex\FlashInjector.swf" />[m
+[32m+[m			[32m</data>[m
+[32m+[m		[32m</setting>[m
+[32m+[m		[32m<setting name="OpenApps_MethodInvokeTimeout" type="2" value="3000" />[m
+[32m+[m		[32m<setting name="OpenApps_MSAA_ListOfAcceptedWindows" type="6" rowIndex="11" colIndex="1">[

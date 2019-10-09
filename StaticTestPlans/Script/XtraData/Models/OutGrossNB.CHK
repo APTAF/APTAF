@@ -1,0 +1,24 @@
+--------------------------------------------------------------------------------------------------------------------------------
+OutGrossNB                                                                                                                      
+09/25/2019                                                                        BENTLEY                                       
+04:18 AM                                                                          AutoPIPE Nuclear 12.02.00.12   CHECK  PAGE   1
+--------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2143-95:A Stress intensity(Sm) value of less than or equal to 1.00000 psi is detected on some points.                     
+     This may affect eq.9 allowable.                                            
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2164-106:The following pipe ID's are using a depreciated fatigue curve, limited to 1E6 cycles:                            
+                                                                                
+     12                                                                         
+ 
+ 
+  No error     2 Warning(s)                                                     
+ 
+

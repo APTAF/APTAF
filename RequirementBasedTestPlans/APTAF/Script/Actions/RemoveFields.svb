@@ -1,0 +1,148 @@
+﻿''''''''''''''''''''''''' TEMPLATE '''''''''''''''''''''''''''''''''''''''''
+'Case "dlgZZZ"
+'      Main = ZZZ(strDlgNameMap,objData, strVerificationType, objNameMapping)
+'  Function ZZZ(strDlgNameMap,objData, strVerificationType, objNameMapping)
+'   Select Case strVerificationType
+'       'CASE VALIDATION 
+'        Case "dialogvalidation"
+'            arrSkipList = Array("TestCase")
+'            Open = arrSkipList
+'       Case else 'CASE  ACTION
+'            arrSkipList = Array("TestCase")
+' End Select 
+'End Function
+Function Main(strDlgNameMap,objData, strVerificationType, objNameMapping)
+  Select Case strDlgNameMap
+    Case "dlgOpen"
+      Main = Open(strDlgNameMap,objData, strVerificationType, objNameMapping)
+   Case "dlgSaveAs"
+      Main = SaveAs(strDlgNameMap,objData, strVerificationType, objNameMapping)
+    Case "dlgBend"
+      Main = Bend(strDlgNameMap,objData, strVerificationType, objNameMapping)
+    Case "dlgFlexibleJoint"
+      Main = FlexibleJoint(strDlgNameMap,objData, strVerificationType, objNameMapping)
+    Case "dlgReducer"
+      Main = Reducer(strDlgNameMap,objData, strVerificationType, objNameMapping)
+    Case "dlgTee"
+      Main = Tee(strDlgNameMap,objData, strVerificationType, objNameMapping)
+    Case "dlgPipeProperties"
+      Main = PipeProperties(strDlgNameMap,objData, strVerificationType, objNameMapping)
+    Case "dlgBeamSectionProperties"
+      Main = BeamSectionProperties(strDlgNameMap,objData, strVerificationType, objNameMapping)
+  'Flange,Nozzle,Run,Segment
+  'OperatingPT,RigidOptionsOverRange
+  'Anchor,Support
+  'JointTypeAndUserSIF,AdditionalWeight,ConcentratedForce,ImposedDisplacement,HydrodynamicData,CutShort,UserWeldEfficiencyFactor,EarthquakeScaleFactor
+  '--continued--ReferencePoint,
+  'Beam
+   Case Else
+    Dim arrSkipList  
+    arrSkipList = Array("TestCase")
+    Main= arrSkipList    
+  End Select 
+End Function
+''''''''''''''''''''''''' Open ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' 
+Function Open(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim arrSkipList
+ Select Case strVerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Open = arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase","strPath","drpType","strPipingCode","Comments")
+            Open= arrSkipList
+ End Select 
+End Function
+''''''''''''''''''''''''' SaveAs '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ Function SaveAs(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim arrSkipList
+ Select Case strVerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase","intVerificationRow")
+            SaveAs = arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase","strPath", "drpSaveAsType", "btnReplaceYesNo")
+            SaveAs= arrSkipList
+ End Select 
+End Function
+ ''''''''''''''''''''''''' PipingComponents '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' 
+Function Bend(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim arrSkipList
+ Select Case strVerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase" , "drpAddPointBeforeAfter","intRunOffsetDX"  , "intRunOffsetDY" , "intRunOffsetDZ")
+            Bend = arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            Bend= arrSkipList
+ End Select 
+End Function
+
+Function FlexibleJoint(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim arrSkipList
+ Select Case strVerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase","drpJointEndType","chkFlangeBothSides")
+            FlexibleJoint = arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            FlexibleJoint= arrSkipList
+ End Select 
+End Function
+
+Function Reducer(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim arrSkipList
+ Select Case strVerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("cmbPipeID")
+            Reducer = arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            Reducer= arrSkipList
+ End Select 
+End Function
+
+Function Tee(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim arrSkipList
+ Select Case strVerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("drpAddPointBeforeAfter", "cmbPipeID","intPadThickness")
+            Tee = arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            Tee= arrSkipList
+ End Select 
+End Function
+''''''''''''''''''''''''' Properties ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Function PipeProperties(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim arrSkipList
+ Select Case strVerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase","cmbstrPipeIdentifier")
+            PipeProperties = arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            PipeProperties= arrSkipList
+ End Select 
+End Function
+
+''''''''''''''''''''''''' STRUCTURE ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Function BeamSectionProperties(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim arrSkipList
+ Select Case strVerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase","intSectionID")
+            BeamSectionProperties = arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase,drpSectionID")
+            BeamSectionProperties= arrSkipList
+ End Select 
+End Function

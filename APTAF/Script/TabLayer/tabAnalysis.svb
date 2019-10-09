@@ -1,0 +1,28 @@
+﻿'USEUNIT Main
+
+'------------------------------------------------------------------------------------**/
+' Summary: Open Analyze All.     
+' Remarks:
+' Actions:
+'              All-> Execute All Rows one by one
+'              0 ->  Press OK button with default values
+'              Numeric Value -> Values of that specific row of the table will be used as input      
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub AnalyzeAll(intTestData)
+    
+    'Log.PopLogFolder
+    Log.AppendFolder("Analyze the model")    
+    Dim strTableName: strTableName = "tblAnalyzeAll"               ' Table Name 
+    Dim strHotKey: strHotKey = "AA"                               'Shortcut Key
+    Dim strUIMethod  : strUIMethod = "Analyze.AnalyzeAll"         'Procedure Name
+    Dim strDlgNameMap : strDlgNameMap ="dlgAnalyzeAll"
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+     
+    Log.PopLogFolder
+End Sub

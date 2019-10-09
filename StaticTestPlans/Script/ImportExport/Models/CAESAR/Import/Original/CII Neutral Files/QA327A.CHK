@@ -1,0 +1,80 @@
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+03/01/2018 PROJECT:                                               BENTLEY                                       
+02:16 PM                                                          AutoPIPE Nuclear 11.03.00.03   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2216-201:Operating Pressure & temperature data has been updated for following points.                     
+                                                                                
+                                                                                
+     2        T1    T2    T3                                                    
+                                                                                
+     4        T1    T2    T3                                                    
+                                                                                
+     4X       T1    T2    T3                                                    
+                                                                                
+     2        T1    T2    T3                                                    
+                                                                                
+     10       T1    T2    T3                                                    
+                                                                                
+     20       T1    T2    T3                                                    
+                                                                                
+     30       T1    T2    T3                                                    
+                                                                                
+     40  N    T1    T2    T3                                                    
+                                                                                
+     40       T1    T2    T3                                                    
+                                                                                
+     40  M    T1    T2    T3                                                    
+                                                                                
+     40  F    T1    T2    T3                                                    
+                                                                                
+     50       T1    T2    T3                                                    
+                                                                                
+     60       T1    T2    T3                                                    
+                                                                                
+     70       T1    T2    T3                                                    
+                                                                                
+     80  N    T1    T2    T3                                                    
+                                                                                
+     80       T1    T2    T3                                                    
+                                                                                
+     80  M    T1    T2    T3                                                    
+                                                                                
+     80  F    T1    T2    T3                                                    
+                                                                                
+     90       T1    T2    T3                                                    
+                                                                                
+     100 N    T1    T2    T3                                                    
+                                                                                
+     100      T1    T2    T3                                                    
+                                                                                
+     100 F    T1    T2    T3                                                    
+                                                                                
+     110      T1    T2    T3                                                    
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA327A                                                                                                          
+03/01/2018 PROJECT:                                               BENTLEY                                       
+02:16 PM                                                          AutoPIPE Nuclear 11.03.00.03   CHECK  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-7:   Pipe diameter change without a reducer at following point(s)     
+                                                                                
+     50, 80  F                                                                  
+ 
+ 
+  No error    71 Warning(s)                                                     
+ 
+

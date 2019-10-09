@@ -1,0 +1,1084 @@
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+<IGNORE>
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+<IGNORE>
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA324B                                          
+ 
+ 
+          PROJECT ID  : QA324B                                  
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                             1                   
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2016                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-16 
+ 
+<IGNORE>
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    2                      
+     Segment Data....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A , LINE # LBC-39-0014                                             
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DZ= 1.35 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 1.35 ft, Valve weight = 1200 lb, Surface factor= 5.00,                    
+   End type= Weld neck, SIF= 1.00                                               
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 16.00P1, Material= HC, Poisson= 0.300, Nom Size= 16 in, OD= 16.000 inch, Sch= STD,                  
+   Wall Thk= 0.375 inch, Mill= 0.047 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                          
+   Pipe Unit Wgt= 62.51 lb/ft, Content Sp Gr= 0.890, Content Unit Wgt= 70.44 lb/ft, Insul Thk= 0 inch,          
+   Cladding Thickness = 0 inch, Lining Thk= 0 inch, Long Weld E factor= 1.00, Long Modulus= 29.20000 E6 psi,    
+   Hoop Modulus= 29.20000 E6 psi, Shear Modulus= 11.23077 E6 psi, Sc= 15000.0 psi, Syc= 40000.0 psi             
+ 
+ OPERATING DATA (A00 M to A01):                                                 
+   P1= 19.33 psi, T1= 75.00 deg F, Exp1= 0.03846 in/100ft, E1= 29.17692 E6 psi, Sh1= 15000.01 psi               
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A00 M, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.68 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DZ= 0.42 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 1.35 ft                         
+   A01, Flange= WELDNECK, Rating= 150, Flange Weight= 155.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck, 
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DZ= 5.44 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 16.00P2, Mill= 0.047 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 62.51 lb/ft,               
+   Content Sp Gr= 0.890, Content Unit Wgt= 70.44 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 1.77 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A03 to A04, DZ= 1.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A03, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 7.21 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A04 to A05, DZ= 1.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A04):                                      
+   B16.9 welding tee, SIF= 3.21                                                 
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 8.21 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A05 to A06, DZ= 0.43 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A05, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 9.21 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A06 to A07, DZ= 1.33 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Globe Valve, Type = Globe Valve,       
+   MainEnd = FL, Rating= NS, Length= 1.33 ft, Valve weight = 1200 lb, Surface factor= 0.00, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   A06, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 9.63 ft                         
+   A06, Flange= SLIP-ON, Rating= 150, Flange Weight= 155.00 lb, Bolt/Nut Weight= 0.00 lb,                       
+   End type= Double Weld Slip-on, SIF= 1.20, Perform ANSI check= No             
+   A06 M, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 10.30 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From A07 to A08, DZ= 0.43 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A07, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 10.97 ft                        
+   A07, Flange= WELDNECK, Rating= 150, Flange Weight= 155.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck, 
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From A08 to A09, DX= 0.00 ft, DY= 0.14 ft, DZ= 1.17 ft, L= 1.17 ft         Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 1.17 ft, SIF= 2.00                                                   
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 16.00P3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 62.51 lb/ft, Content Sp Gr= 0.890,           
+   Content Unit Wgt= 70.44 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 11.39 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From A09 to A10, DZ= 0.39 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12.00P1, Nom Size= 12 in, OD= 12.750 inch, Pipe Density= 489.00 lb/cu.ft,                           
+   Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 0.890, Content Unit Wgt= 43.62 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   A09, Coordinates, X= 0.00 ft, Y= 0.14 ft, Z= 12.56 ft                        
+   A10, Coordinates, X= 0.00 ft, Y= 0.14 ft, Z= 12.95 ft                        
+   A10, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ SUPPORT DATA:                                                                  
+   A10, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B , LINE # LBC-39-0027                                             
+ 
+ -------------------------------------------------------------------------------
+ From B00 to B01, DZ= 1.19 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Swing Check Valve,                     
+   Type = Swing Check Valve, MainEnd = FL, Rating= 150, Length= 1.19 ft, Valve weight = 681 lb,                 
+   Surface factor= 4.00, End type= Weld neck, SIF= 1.00                         
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12.00P2, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 0.890,           
+   Content Unit Wgt= 43.62 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   B00, Coordinates, X= -5.89 ft, Y= -0.33 ft, Z= 2.04 ft                       
+   B00 M, Coordinates, X= -5.89 ft, Y= -0.33 ft, Z= 2.63 ft                     
+ 
+ SUPPORT DATA:                                                                  
+   B00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From B01 to B03, DZ= 1.38 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B01, Coordinates, X= -5.89 ft, Y= -0.33 ft, Z= 3.23 ft                       
+   B01, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From B03 to B04, DX= -4.95 ft                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= B03, Near= B03 N, Far= B03 F):                      
+   Short Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 1, Flex= Auto, SIF= 2.63                
+ 
+ POINT DATA:                                                                    
+   B03, Coordinates, X= -5.89 ft, Y= -0.33 ft, Z= 4.60 ft                       
+   B03 N, Coordinates, X= -5.89 ft, Y= -0.33 ft, Z= 3.60 ft                     
+   B03 F, Coordinates, X= -6.89 ft, Y= -0.33 ft, Z= 4.60 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From B04 to B05, DX= -0.83 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   B04, Coordinates, X= -10.84 ft, Y= -0.33 ft, Z= 4.60 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From B05 to B06, DX= -0.83 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= B05):                                      
+   B16.9 welding tee, SIF= 2.74                                                 
+ 
+ POINT DATA:                                                                    
+   B05, Coordinates, X= -11.68 ft, Y= -0.33 ft, Z= 4.60 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From B06 to B07, DX= -6.50 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   B06, Coordinates, X= -12.51 ft, Y= -0.33 ft, Z= 4.60 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From B07 to B08, DZ= 2.63 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= B07, Near= B07 N, Far= B07 F):                      
+   Long Elbow, Radius= 18.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 2.86                 
+ 
+ POINT DATA:                                                                    
+   B07, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 4.60 ft                      
+   B07 N, Coordinates, X= -17.51 ft, Y= -0.33 ft, Z= 4.60 ft                    
+   B07 F, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 6.10 ft                    
+ 
+ -------------------------------------------------------------------------------
+ From B08 to B09, DZ= 0.83 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B08, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 7.23 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From B09 to B10, DZ= 0.83 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= B09):                                      
+   B16.9 welding tee, SIF= 2.74                                                 
+ 
+ POINT DATA:                                                                    
+   B09, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 8.07 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From B10 to B11, DZ= 1.16 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B10, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 8.90 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From B11 to B12, DZ= 0.39 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B11, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 10.06 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From B12 to B13, DZ= 1.17 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Swing Check Valve,                     
+   Type = Swing Check Valve, MainEnd = FL, Rating= 150, Length= 1.17 ft, Valve weight = 681 lb,                 
+   Surface factor= 4.00, End type= Weld neck, SIF= 1.00                         
+ 
+ POINT DATA:                                                                    
+   B12, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 10.45 ft                     
+   B12, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+   B12 M, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 11.03 ft                   
+ 
+ -------------------------------------------------------------------------------
+ From B13 to B14, DZ= 0.39 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B13, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 11.62 ft                     
+   B13, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From B14 to B15, DY= 0.08 ft, DZ= 0.67 ft, L= 0.67 ft                      Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 0.67 ft, SIF= 2.00                                                   
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12.00P1, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 0.890,           
+   Content Unit Wgt= 43.62 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   B14, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 12.00 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From B15 to B16, DZ= 0.34 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 10.00P1, Nom Size= 10 in, OD= 10.750 inch, Wall Thk= 0.365 inch, Mill= 0.046 inch,                  
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 40.44 lb/ft, Content Sp Gr= 0.890,                             
+   Content Unit Wgt= 30.41 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   B15, Coordinates, X= -19.01 ft, Y= -0.24 ft, Z= 12.67 ft                     
+   B16, Coordinates, X= -19.01 ft, Y= -0.24 ft, Z= 13.01 ft                     
+   B16, Flange= WELDNECK, Rating= 150, Flange Weight= 60.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ SUPPORT DATA:                                                                  
+   B16, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C , LINE # LBC-39-0027                                             
+ 
+ -------------------------------------------------------------------------------
+ From B09 to C01, DX= 0.83 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= B09):                                      
+   B16.9 welding tee, SIF= 2.74                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12.00P2, Nom Size= 12 in, OD= 12.750 inch, Wall Thk= 0.375 inch, Mill= 0.047 inch,                  
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 0.890,                             
+   Content Unit Wgt= 43.62 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   B09, Coordinates, X= -19.01 ft, Y= -0.33 ft, Z= 8.07 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From C01 to C02, DX= 2.20 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C01, Coordinates, X= -18.18 ft, Y= -0.33 ft, Z= 8.07 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From C02 to C03, DX= 3.20 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= C02):                                      
+   B16.9 welding tee, SIF= 2.74                                                 
+ 
+ POINT DATA:                                                                    
+   C02, Coordinates, X= -15.98 ft, Y= -0.33 ft, Z= 8.07 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From C03 to C04, DZ= 2.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= C03, Near= C03 N, Far= C03 F):                      
+   Short Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 3.75                
+ 
+ POINT DATA:                                                                    
+   C03, Coordinates, X= -12.78 ft, Y= -0.33 ft, Z= 8.07 ft                      
+   C03 N, Coordinates, X= -13.78 ft, Y= -0.33 ft, Z= 8.07 ft                    
+   C03 F, Coordinates, X= -12.78 ft, Y= -0.33 ft, Z= 9.07 ft                    
+ 
+ -------------------------------------------------------------------------------
+ From C04 to C05, DZ= 0.39 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C04, Coordinates, X= -12.78 ft, Y= -0.33 ft, Z= 10.06 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From C05 to C06, DZ= 1.17 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 1.17 ft, Valve weight = 681 lb, Surface factor= 4.00, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   C05, Coordinates, X= -12.78 ft, Y= -0.33 ft, Z= 10.45 ft                     
+   C05, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+   C05 M, Coordinates, X= -12.78 ft, Y= -0.33 ft, Z= 11.03 ft                   
+ 
+ -------------------------------------------------------------------------------
+ From C06 to C07, DZ= 0.39 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C06, Coordinates, X= -12.78 ft, Y= -0.33 ft, Z= 11.62 ft                     
+   C06, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From C07 to C08, DY= 0.08 ft, DZ= 0.67 ft, L= 0.67 ft                      Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 0.67 ft, SIF= 2.00                                                   
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12.00P1, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 0.890,           
+   Content Unit Wgt= 43.62 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   C07, Coordinates, X= -12.78 ft, Y= -0.33 ft, Z= 12.00 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From C08 to C09, DZ= 0.34 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 10.00P1, Nom Size= 10 in, OD= 10.750 inch, Wall Thk= 0.365 inch, Mill= 0.046 inch,                  
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 40.44 lb/ft, Content Sp Gr= 0.890,                             
+   Content Unit Wgt= 30.41 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   C08, Coordinates, X= -12.78 ft, Y= -0.24 ft, Z= 12.67 ft                     
+   C09, Coordinates, X= -12.78 ft, Y= -0.24 ft, Z= 13.01 ft                     
+   C09, Flange= WELDNECK, Rating= 150, Flange Weight= 60.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ SUPPORT DATA:                                                                  
+   C09, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT D , LINE # LBC-39-0027                                             
+ 
+ -------------------------------------------------------------------------------
+ From C02 to D01, DY= -0.66 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= C02):                                      
+   B16.9 welding tee, SIF= 2.74                                                 
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 2.000P1, Nom Size= 2.000, OD= 2.375 inch, Sch= 80, Wall Thk= 0.218 inch, Mill= 0.027 inch,          
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 5.02 lb/ft, Content Sp Gr= 0.890, Content Unit Wgt= 1.14 lb/ft 
+ 
+ POINT DATA:                                                                    
+   C02, Coordinates, X= -15.98 ft, Y= -0.33 ft, Z= 8.07 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From D01 to D02, DY= -0.90 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   D01, Coordinates, X= -15.98 ft, Y= -0.98 ft, Z= 8.07 ft                      
+   D01, Added Weight= 1.75 lb                                                   
+ 
+ -------------------------------------------------------------------------------
+ From D02 to D03, DY= -0.50 ft                                              Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 600,     
+   Length= 0.50 ft, Valve weight = 20 lb, Surface factor= 0.00, End type= Socket welded, SIF= 1.30              
+ 
+ POINT DATA:                                                                    
+   D02, Coordinates, X= -15.98 ft, Y= -1.89 ft, Z= 8.07 ft                      
+   D02 M, Coordinates, X= -15.98 ft, Y= -2.14 ft, Z= 8.07 ft                    
+ 
+ -------------------------------------------------------------------------------
+ From D03 to D04, DY= -0.40 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   D03, Coordinates, X= -15.98 ft, Y= -2.39 ft, Z= 8.07 ft                      
+   D04, Coordinates, X= -15.98 ft, Y= -2.79 ft, Z= 8.07 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   D04, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT E , LINE # LBC-39-0016                                             
+ 
+ -------------------------------------------------------------------------------
+ From A04 to E01, DX= -1.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A04):                                      
+   B16.9 welding tee, SIF= 3.21                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 16.00P2, Nom Size= 16 in, OD= 16.000 inch, Sch= STD, Wall Thk= 0.375 inch, Mill= 0.047 inch,        
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 62.51 lb/ft, Content Sp Gr= 0.890,                             
+   Content Unit Wgt= 70.44 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 8.21 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From E01 to E02, DX= -2.28 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   E01, Coordinates, X= -1.00 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E02 to E03, DX= -2.28 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= E02):                                      
+   B16.9 welding tee, SIF= 3.21                                                 
+ 
+ POINT DATA:                                                                    
+   E02, Coordinates, X= -3.28 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E03 to E04, DX= -1.00 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   E03, Coordinates, X= -5.56 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E04 to E05, DX= -1.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= E04):                                      
+   B16.9 welding tee, SIF= 3.21                                                 
+ 
+ POINT DATA:                                                                    
+   E04, Coordinates, X= -6.56 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E05 to E06, DX= -1.17 ft                                              Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 1.17 ft, SIF= 2.00                                                   
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 16.00P3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 62.51 lb/ft, Content Sp Gr= 0.890,           
+   Content Unit Wgt= 70.44 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   E05, Coordinates, X= -7.56 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E06 to E07, DX= -0.01 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12.00P2, Nom Size= 12 in, OD= 12.750 inch, Pipe Density= 489.00 lb/cu.ft,                           
+   Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 0.890, Content Unit Wgt= 43.62 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   E06, Coordinates, X= -8.73 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E07 to E08, DX= -0.38 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   E07, Coordinates, X= -8.74 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From E08 to E09, DX= -1.19 ft                                              Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Check Valves,                          
+   Type = Tilting Disc Check, MainEnd = FL, Rating= 150, Length= 1.19 ft, Valve weight = 681 lb,                
+   Surface factor= 4.00, End type= Weld neck, SIF= 1.00                         
+ 
+ POINT DATA:                                                                    
+   E08, Coordinates, X= -9.11 ft, Y= 0.00 ft, Z= 8.21 ft                        
+   E08, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+   E08 M, Coordinates, X= -9.71 ft, Y= 0.00 ft, Z= 8.21 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From E09 to E11, DX= -1.38 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   E09, Coordinates, X= -10.30 ft, Y= 0.00 ft, Z= 8.21 ft                       
+   E09, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From E11 to E12, DY= -0.25 ft, DZ= -2.77 ft, L= 2.78 ft                    Bend
+ 
+ COMPONENT DATA (Bend, TIP= E11, Near= E11 N, Far= E11 F):                      
+   Short Elbow, Radius= 12.00 inch, Bend angle= 90.00 deg, End flanges= 1, Flex= Auto, SIF= 2.63                
+ 
+ POINT DATA:                                                                    
+   E11, Coordinates, X= -11.68 ft, Y= 0.00 ft, Z= 8.21 ft                       
+   E11 N, Coordinates, X= -10.68 ft, Y= 0.00 ft, Z= 8.21 ft                     
+   E11 F, Coordinates, X= -11.68 ft, Y= -0.09 ft, Z= 7.21 ft                    
+ 
+ -------------------------------------------------------------------------------
+ From E12 to B05, DY= -0.08 ft, DZ= -0.83 ft, L= 0.83 ft                    Run 
+ 
+ POINT DATA:                                                                    
+   E12, Coordinates, X= -11.68 ft, Y= -0.25 ft, Z= 5.43 ft                      
+   B05, Coordinates, X= -11.68 ft, Y= -0.33 ft, Z= 4.60 ft                      
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT F , LINE # LBC-39-0016                                             
+ 
+ -------------------------------------------------------------------------------
+ From E02 to F01, DY= -0.79 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= E02):                                      
+   B16.9 welding tee, SIF= 3.21                                                 
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 2.000P1, Nom Size= 2.000, OD= 2.375 inch, Sch= 80, Wall Thk= 0.218 inch, Mill= 0.027 inch,          
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 5.02 lb/ft, Content Sp Gr= 0.890, Content Unit Wgt= 1.14 lb/ft 
+ 
+ POINT DATA:                                                                    
+   E02, Coordinates, X= -3.28 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From F01 to F02, DY= -0.83 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   F01, Coordinates, X= -3.28 ft, Y= -0.79 ft, Z= 8.21 ft                       
+   F01, Added Weight= 1.75 lb                                                   
+ 
+ -------------------------------------------------------------------------------
+ From F02 to F03, DY= -0.50 ft                                              Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 600,     
+   Length= 0.50 ft, Valve weight = 20 lb, Surface factor= 0.00, End type= Socket welded, SIF= 1.30              
+ 
+ POINT DATA:                                                                    
+   F02, Coordinates, X= -3.28 ft, Y= -1.63 ft, Z= 8.21 ft                       
+   F02 M, Coordinates, X= -3.28 ft, Y= -1.88 ft, Z= 8.21 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From F03 to F04, DY= -0.33 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   F03, Coordinates, X= -3.28 ft, Y= -2.13 ft, Z= 8.21 ft                       
+   F04, Coordinates, X= -3.28 ft, Y= -2.46 ft, Z= 8.21 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   F04, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT G , LINE # LBC-39-0016                                             
+ 
+ -------------------------------------------------------------------------------
+ From E04 to G01, DZ= 1.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= E04):                                      
+   B16.9 welding tee, SIF= 3.21                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 16.00P2, Nom Size= 16 in, OD= 16.000 inch, Sch= STD, Wall Thk= 0.375 inch, Mill= 0.047 inch,        
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 62.51 lb/ft, Content Sp Gr= 0.890,                             
+   Content Unit Wgt= 70.44 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   E04, Coordinates, X= -6.56 ft, Y= 0.00 ft, Z= 8.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From G01 to G02, DZ= 0.43 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 16.00P3, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 62.51 lb/ft, Content Sp Gr= 0.890,           
+   Content Unit Wgt= 70.44 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   G01, Coordinates, X= -6.56 ft, Y= 0.00 ft, Z= 9.21 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From G02 to G03, DZ= 1.33 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 1.33 ft, Valve weight = 1200 lb, Surface factor= 5.00,                    
+   End type= Weld neck, SIF= 1.00                                               
+ 
+ POINT DATA:                                                                    
+   G02, Coordinates, X= -6.56 ft, Y= 0.00 ft, Z= 9.63 ft                        
+   G02, Flange= WELDNECK, Rating= 150, Flange Weight= 155.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck, 
+   SIF= 1.00, Perform ANSI check= No                                            
+   G02 M, Coordinates, X= -6.56 ft, Y= 0.00 ft, Z= 10.30 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From G03 to G04, DZ= 0.43 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   G03, Coordinates, X= -6.56 ft, Y= 0.00 ft, Z= 10.97 ft                       
+   G03, Flange= WELDNECK, Rating= 150, Flange Weight= 155.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck, 
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From G04 to G05, DX= 0.00 ft, DY= 0.14 ft, DZ= 1.17 ft, L= 1.17 ft         Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 1.17 ft, SIF= 2.00                                                   
+ 
+ POINT DATA:                                                                    
+   G04, Coordinates, X= -6.56 ft, Y= 0.00 ft, Z= 11.39 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From G05 to G06, DZ= 0.39 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12.00P2, Nom Size= 12 in, OD= 12.750 inch, Pipe Density= 489.00 lb/cu.ft,                           
+   Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 0.890, Content Unit Wgt= 43.62 lb/ft                              
+ 
+ POINT DATA:                                                                    
+   G05, Coordinates, X= -6.56 ft, Y= 0.14 ft, Z= 12.56 ft                       
+   G06, Coordinates, X= -6.56 ft, Y= 0.14 ft, Z= 12.95 ft                       
+   G06, Flange= WELDNECK, Rating= 150, Flange Weight= 88.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ SUPPORT DATA:                                                                  
+   G06, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 88 + 0 + 0 = 88          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+        11172.7 lb     +      3522.7 lb     =       14695.4 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A , LINE # LBC-39-0014                                             
+ A00            0.00        0.00        0.00                                    
+ A00 M          0.00        0.00        0.68                                    
+ A01            0.00        0.00        1.35                                    
+ A02            0.00        0.00        1.77                                    
+ A03            0.00        0.00        7.21                                    
+ A04            0.00        0.00        8.21                                    
+ A05            0.00        0.00        9.21                                    
+ A06            0.00        0.00        9.63                                    
+ A06 M          0.00        0.00       10.30                                    
+ A07            0.00        0.00       10.97                                    
+ A08            0.00        0.00       11.39                                    
+ A09            0.00        0.14       12.56                                    
+ A10            0.00        0.14       12.95                                    
+ 
+ *** SEGMENT B , LINE # LBC-39-0027                                             
+ B00           -5.89       -0.33        2.04                                    
+ B00 M         -5.89       -0.33        2.63                                    
+ B01           -5.89       -0.33        3.23                                    
+ B03 N         -5.89       -0.33        3.60                                    
+ B03           -5.89       -0.33        4.60                                    
+ B03 F         -6.89       -0.33        4.60                                    
+ B04          -10.84       -0.33        4.60                                    
+ B05          -11.68       -0.33        4.60                                    
+ B06          -12.51       -0.33        4.60                                    
+ B07 N        -17.51       -0.33        4.60                                    
+ B07          -19.01       -0.33        4.60                                    
+ B07 F        -19.01       -0.33        6.10                                    
+ B08          -19.01       -0.33        7.23                                    
+ B09          -19.01       -0.33        8.07                                    
+ B10          -19.01       -0.33        8.90                                    
+ B11          -19.01       -0.33       10.06                                    
+ B12          -19.01       -0.33       10.45                                    
+ B12 M        -19.01       -0.33       11.03                                    
+ B13          -19.01       -0.33       11.62                                    
+ B14          -19.01       -0.33       12.00                                    
+ B15          -19.01       -0.24       12.67                                    
+ B16          -19.01       -0.24       13.01                                    
+ 
+ *** SEGMENT C , LINE # LBC-39-0027                                             
+ B09          -19.01       -0.33        8.07                                    
+ C01          -18.18       -0.33        8.07                                    
+ C02          -15.98       -0.33        8.07                                    
+ C03 N        -13.78       -0.33        8.07                                    
+ C03          -12.78       -0.33        8.07                                    
+ C03 F        -12.78       -0.33        9.07                                    
+ C04          -12.78       -0.33       10.06                                    
+ C05          -12.78       -0.33       10.45                                    
+ C05 M        -12.78       -0.33       11.03                                    
+ C06          -12.78       -0.33       11.62                                    
+ C07          -12.78       -0.33       12.00                                    
+ C08          -12.78       -0.24       12.67                                    
+ C09          -12.78       -0.24       13.01                                    
+ 
+ *** SEGMENT D , LINE # LBC-39-0027                                             
+ C02          -15.98       -0.33        8.07                                    
+ D01          -15.98       -0.98        8.07                                    
+ D02          -15.98       -1.89        8.07                                    
+ D02 M        -15.98       -2.14        8.07                                    
+ D03          -15.98       -2.39        8.07                                    
+ D04          -15.98       -2.79        8.07                                    
+ 
+ *** SEGMENT E , LINE # LBC-39-0016                                             
+ A04            0.00        0.00        8.21                                    
+ E01           -1.00        0.00        8.21                                    
+ E02           -3.28        0.00        8.21                                    
+ E03           -5.56        0.00        8.21                                    
+ E04           -6.56        0.00        8.21                                    
+ E05           -7.56        0.00        8.21                                    
+ E06           -8.73        0.00        8.21                                    
+ E07           -8.74        0.00        8.21                                    
+ E08           -9.11        0.00        8.21                                    
+ E08 M         -9.71        0.00        8.21                                    
+ E09          -10.30        0.00        8.21                                    
+ E11 N        -10.68        0.00        8.21                                    
+ E11          -11.68        0.00        8.21                                    
+ E11 F        -11.68       -0.09        7.21                                    
+ E12          -11.68       -0.25        5.43                                    
+ B05          -11.68       -0.33        4.60                                    
+ 
+ *** SEGMENT F , LINE # LBC-39-0016                                             
+ E02           -3.28        0.00        8.21                                    
+ F01           -3.28       -0.79        8.21                                    
+ F02           -3.28       -1.63        8.21                                    
+ F02 M         -3.28       -1.88        8.21                                    
+ F03           -3.28       -2.13        8.21                                    
+ F04           -3.28       -2.46        8.21                                    
+ 
+ *** SEGMENT G , LINE # LBC-39-0016                                             
+ E04           -6.56        0.00        8.21                                    
+ G01           -6.56        0.00        9.21                                    
+ G02           -6.56        0.00        9.63                                    
+ G02 M         -6.56        0.00       10.30                                    
+ G03           -6.56        0.00       10.97                                    
+ G04           -6.56        0.00       11.39                                    
+ G05           -6.56        0.14       12.56                                    
+ G06           -6.56        0.14       12.95                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A T A   L I S T I N G                                                     
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       A00    A10    LBC-39-0014                    No    No     No           
+ B       B00    B16    LBC-39-0027                    No    No     No           
+ C       B09    C09    LBC-39-0027                    No    No     No           
+ D       C02    D04    LBC-39-0027                    No    No     No           
+ E       A04    B05    LBC-39-0016                    No    No     No           
+ F       E02    F04    LBC-39-0016                    No    No     No           
+ G       E04    G06    LBC-39-0016                    No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    E/  Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  W/  Steel Group/          
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 16.00P1       16 16.000 0.375    0 0.05    0    0  0.89    0.000  62.51     0   133 1.00                       
+ HC           STD                                           0.000  70.44     0       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 16.00P2       16 16.000 0.375    0 0.05    0    0  0.89    0.000  62.51     0   133 1.00                       
+ HC           STD                                           0.000  70.44     0       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 16.00P3       16 16.000 0.375    0 0.05    0    0  0.89    0.000  62.51     0   133 1.00                       
+ HC           STD                                           0.000  70.44     0       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 12.00P1       12 12.750 0.375    0 0.05    0    0  0.89    0.000  49.51     0 93.13 1.00                       
+ HC           STD                                           0.000  43.62     0       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 12.00P2       12 12.750 0.375    0 0.05    0    0  0.89    0.000  49.51     0 93.13 1.00                       
+ HC           STD                                           0.000  43.62     0       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 10.00P1       10 10.750 0.365    0 0.05    0    0  0.89    0.000  40.44     0 70.85 1.00                       
+ HC           STD                                           0.000  30.41     0       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 2.000P1     2.000 2.375 0.218    0 0.03    0    0  0.89    0.000   5.02     0  6.16 1.00                       
+ HC           80                                            0.000   1.14     0       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ HC          16.00P1     489.0  0.30    70.0   29.200   29.200   11.231                              
+                                        75.0   29.177                     0.0385
+ 
+ HC          16.00P2     489.0  0.30    70.0   29.200   29.200   11.231                              
+                                        75.0   29.177                     0.0385
+ 
+ HC          16.00P3     489.0  0.30    70.0   29.200   29.200   11.231                              
+                                        75.0   29.177                     0.0385
+ 
+ HC          12.00P1     489.0  0.30    70.0   29.200   29.200   11.231                              
+                                        75.0   29.177                     0.0385
+ 
+ HC          12.00P2     489.0  0.30    70.0   29.200   29.200   11.231                              
+                                        75.0   29.177                     0.0385
+ 
+ HC          10.00P1     489.0  0.30    70.0   29.200   29.200   11.231                              
+                                        75.0   29.177                     0.0385
+ 
+ HC          2.000P1     489.0  0.30    70.0   29.200   29.200   11.231                              
+                                        75.0   29.177                     0.0385
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Weld Reduction Factor                                           
+    Name     Pipe ID  deg F   psi      psi               W                                                      
+------------ -------- ------- -------- -------- ---------------------                                           
+ HC          16.00P1     70.0  15000.0  40000.0       1.000
+                         75.0  15000.0                1.000
+ 
+ HC          16.00P2     70.0  15000.0  40000.0       1.000
+                         75.0  15000.0                1.000
+ 
+ HC          16.00P3     70.0  15000.0  40000.0       1.000
+                         75.0  15000.0                1.000
+ 
+ HC          12.00P1     70.0  15000.0  40000.0       1.000
+                         75.0  15000.0                1.000
+ 
+ HC          12.00P2     70.0  15000.0  40000.0       1.000
+                         75.0  15000.0                1.000
+ 
+ HC          10.00P1     70.0  15000.0  40000.0       1.000
+                         75.0  15000.0                1.000
+ 
+ HC          2.000P1     70.0  15000.0  40000.0       1.000
+                         75.0  15000.0                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA324B                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A , LINE # LBC-39-0014                   
+ A00   T1     19.33  75.00     0.038     29.177     15000*                    
+ A10    Same as previous point.          
+ 
+ *** SEGMENT B , LINE # LBC-39-0027                   
+ B00   T1     19.33  75.00     0.038     29.177     15000*                    
+ B16    Same as previous point.          
+ 
+ *** SEGMENT C , LINE # LBC-39-0027                   
+ B09   T1     19.33  75.00     0.038     29.177     15000*                    
+ C09    Same as previous point.          
+ 
+ *** SEGMENT D , LINE # LBC-39-0027                   
+ C02   T1     19.33  75.00     0.038     29.177     15000*                    
+ D04    Same as previous point.          
+ 
+ *** SEGMENT E , LINE # LBC-39-0016                   
+ A04   T1     19.33  75.00     0.038     29.177     15000*                    
+ B05    Same as previous point.          
+ 
+ *** SEGMENT F , LINE # LBC-39-0016                   
+ E02   T1     19.33  75.00     0.038     29.177     15000*                    
+ F04    Same as previous point.          
+ 
+ *** SEGMENT G , LINE # LBC-39-0016                   
+ E04   T1     19.33  75.00     0.038     29.177     15000*                    
+ G06    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+

@@ -1,0 +1,133 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabDelete
+'USEUNIT tabModify
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "DeleteComponents"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+'''''''''''Delete Run'''''''''''''''''''''''''''''''''''''''
+
+Sub Cat8TS1TC1
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("2","AutoPIPE Database")
+
+''Tests 
+   tabSelect.Point("C19 N")
+   tabDelete.Bend("Yes")
+   tabSelect.Bend("0")
+   tabDelete.Bend("Yes")
+   
+   tabSelect.Point("A05")
+   tabDelete.Flange("1=Flange1")   
+   tabSelect.Flange("0")
+   tabDelete.Flange("Yes")
+   
+   tabSelect.Point("D02")
+   tabDelete.FlexibleJoint("Yes")
+   tabSelect.FlexibleJoint("0")
+   tabDelete.FlexibleJoint("Yes")
+   
+   tabSelect.Point("B07")
+   tabDelete.Nozzle("Yes")   
+   tabSelect.Point("D23")
+   tabDelete.Nozzle("Yes")
+    '''''shortcutkey to select nozzle 'SZ' is not  working
+'   tabSelect.Nozzle("0")
+'   tabDelete.Nozzle("Yes")
+   tabResult.InputlistReport(0)
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+'''''''''''Delete Segment'''''''''''''''''''''''''''''''''''''''
+
+Sub Cat8TS1TC4
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("3","Autopipe database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+
+''Tests 
+   
+   tabDelete.Segment("Yes")
+   tabResult.InputlistReport(0)
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+'''''''''''Delete Reducer'''''''''''''''''''''''''''''''''''''''
+''''''done separately as it was causing problems in the data of Nozzle 
+Sub Cat8TS1TC5
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("4","AutoPIPE Database")
+
+''Tests 
+   tabSelect.Point("B06")
+   tabDelete.Reducer("Yes")
+   tabSelect.Reducer("0")
+   tabDelete.Reducer("Yes")
+   
+   tabResult.InputlistReport(0)
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+
+'''''''''''Delete Supports'''''''''''''''''''''''''''''''''''''''
+
+Sub Cat8TS2TC1
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("4","Autopipe database")
+   Call tabFile.SaveAs("5","AutoPIPE Database")
+
+''Tests 
+   tabSelect.Anchor("0")
+   tabDelete.Anchor("Yes")
+   tabSelect.Supports("All")
+   tabDelete.Support("Yes")
+   tabSelect.Supports("Grounded")
+   tabDelete.Support("Yes")
+   tabSelect.Supports("Connected")
+   tabDelete.Support("Yes")
+''''''''''''''''add individual options 
+   tabResult.InputlistReport(0)
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub

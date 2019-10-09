@@ -1,0 +1,107 @@
+﻿'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function ZZZ(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            ZZZ= arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            ZZZ= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+   Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set ZZZ= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set ZZZ = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No post-test validation action performed")
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+
+'Function ZZZ( Action, objData, FieldName , VerificationType, objNameMapping)
+'  Dim Result
+'  Dim arrSkipList
+'
+'  Select Case Action
+'    Case "RemoveFields"
+'      Select Case VerificationType
+'        Case "positive", "positive+report","negative", "report", "image"
+'            arrSkipList = Array("TestCase")
+'            ZZZ = arrSkipList
+'        Case "dialogvalidation"
+'            arrSkipList = Array("TestCase")
+'            ZZZ = arrSkipList
+'      End Select
+'    
+'    Case "ModifyFields"
+'            Dim objVerifySchema
+'            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+''            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+''            objVerifySchema.Add "drpBendType", "cmbRadius"    
+'            Set ZZZ = objVerifySchema
+'
+'    Case "PreTestModifyFields"
+'          Dim objActionSchema
+'          Set objActionSchema = CreateObject("Scripting.Dictionary")
+''          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+''          objActionSchema.Add "intSIFout", "intCrotchThickness"
+'          Set ZZZ = objActionSchema
+'
+'    Case "PreTest"
+'        AppendLogFolder("Pre-Test Actions")
+'        Log.Message("No pre-test actions found")
+'        PopLogFolder
+'  
+'    Case "PostTest"
+'        AppendLogFolder("Post-Test Actions")
+'        Log.Message("No post-test actions found")
+'        PopLogFolder
+'    End Select
+'End Function

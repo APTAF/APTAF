@@ -1,0 +1,19 @@
+----------------------------------------------------------------------------------------------------------------
+QA322D                                                                                                          
+09/26/2019 CHECK OF BS 7159                                       BENTLEY                                       
+11:16 AM   CODE STRESS CALCULATIONS                               AutoPIPE Nuclear 12.02.00.12   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2164-37: Extruded tee does not meet minimum crotch radius requirement at  at following point(s)           
+                                                                                
+     A03                                                                        
+ 
+ 
+  No error     1 Warning(s)                                                     
+ 
+

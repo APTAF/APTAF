@@ -1,0 +1,651 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT tabInsert
+'USEUNIT Main
+'
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Beam" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Beam table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     9/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Beam (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgBeam = objNameMapping.dlgBeam
+
+Dim strBeamID : strBeamID = objRow.item("strBeamID")
+Dim strFromPointI : strFromPointI = objRow.item("strFromPointI")
+Dim intFromPointX : intFromPointX = objRow.item("intFromPointX")
+Dim intFromPointY : intFromPointY = objRow.item("intFromPointY")
+Dim intFromPointZ : intFromPointZ = objRow.item("intFromPointZ")
+Dim strToPointJ : strToPointJ = objRow.item("strToPointJ")
+Dim intToPointDX : intToPointDX = objRow.item("intToPointDX")
+Dim intToPointDY : intToPointDY = objRow.item("intToPointDY")
+Dim intToPointDZ : intToPointDZ = objRow.item("intToPointDZ")
+Dim strShape : strShape = objRow.item("strShape")
+Dim cmbSectionID : cmbSectionID =objRow.Item("cmbSectionID")
+Dim strMaterialName : strMaterialName = objRow.item("strMaterialName")
+Dim intBetaAngle : intBetaAngle = objRow.item("intBetaAngle")
+Dim chkOffset  : chkOffset = objRow.item("chkOffset")
+Dim strRigidLengthEndI  : strRigidLengthEndI = objRow.item("strRigidLengthEndI")
+Dim strRigidLengthEndJ : strRigidLengthEndJ = objRow.item("strRigidLengthEndJ")
+Dim chkEndIAxial : chkEndIAxial = objRow.item("chkEndIAxial")
+Dim chkEndJAxial  : chkEndJAxial = objRow.item("chkEndJAxial")
+Dim chkEndIYY : chkEndIYY = objRow.item("chkEndIYY")
+Dim chkEndJYY : chkEndJYY = objRow.item("chkEndJYY")
+Dim chkEndJZZ  : chkEndJZZ = objRow.item("chkEndJZZ")
+Dim chkEndIZZ : chkEndIZZ = objRow.item("chkEndIZZ")
+Dim chkboxApplyWindLoad : chkboxApplyWindLoad = objRow.item("chkboxApplyWindLoad")
+
+  
+    Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(2000)
+    
+    'strBeamID 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strBeamID <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldBeamID.Keys(strBeamID)
+          dlgBeam.fldBeamID.Keys("[Tab]")
+         Log.Message("Entered in the fldBeamID field")
+    End If
+  End If
+'End If   
+    
+    ''''strFromPointI
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strFromPointI <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldFromPointI.Keys(strFromPointI)
+          dlgBeam.fldFromPointI.Keys("[Tab]")
+         Log.Message("Entered in the strFromPointI field")
+    End If
+  End If
+'End If
+    '''' intFromPointX 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intFromPointX <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldFromPointX.Keys(intFromPointX)
+          dlgBeam.fldFromPointX.Keys("[Tab]")
+         Log.Message("Entered in the intFromPointX field")
+    End If
+  End If
+End If
+    ''''intFromPointY 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intFromPointY <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldFromPointY.Keys(intFromPointY)
+          dlgBeam.fldFromPointY.Keys("[Tab]")
+         Log.Message("Entered in the intFromPointY field")
+    End If
+  End If
+End If
+    '''' intFromPointZ
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intFromPointZ <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldFromPointZ.Keys(intFromPointZ)
+          dlgBeam.fldFromPointZ.Keys("[Tab]")
+         Log.Message("Entered in the intFromPointZ field")
+    End If
+  End If
+End If
+    
+    '''' strToPointJ
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strToPointJ <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldToPointJ.Keys(strToPointJ)
+          dlgBeam.fldToPointJ.Keys("[Tab]")
+         Log.Message("Entered in the strToPointJ field")
+    End If
+  End If
+End If 
+    
+    '''' intToPointDX
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intToPointDX <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldToPointDX.Keys(intToPointDX)
+          dlgBeam.fldToPointDX.Keys("[Tab]")
+         Log.Message("Entered in the intToPointDX field")
+    End If
+  End If
+End If 
+    
+    
+    ''''' intToPointDY 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intToPointDY <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldToPointDY.Keys(intToPointDY)
+          dlgBeam.fldToPointDY.Keys("[Tab]")
+         Log.Message("Entered in the intToPointDY field")
+    End If
+  End If
+End If    
+    
+    '''' intToPointDZ 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intToPointDZ <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldToPointDZ.Keys(intToPointDZ)
+          dlgBeam.fldToPointDZ.Keys("[Tab]")
+         Log.Message("Entered in the intToPointDZ field")
+    End If
+  End If
+End If
+
+    '''' cmbSectionID
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbSectionID <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgBeam", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.cmbboxSectionID.keys(cmbSectionID)
+          Log.Message("Entered " & cmbSectionID & " in the cmbSectionID field")
+      End If       
+  End If
+End If
+
+    ''''' strShape 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strShape <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldShape.Keys(strShape)
+          dlgBeam.fldShape.Keys("[Tab]")
+         Log.Message("Entered in the strShape field")
+    End If
+  End If
+End If
+    
+    
+    '''' strMaterialName
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strMaterialName <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldMaterialName.Keys(strMaterialName)
+          dlgBeam.fldMaterialName.Keys("[Tab]")
+         Log.Message("Entered in the strMaterialName field")
+    End If
+  End If
+End If
+
+    ''''' intBetaAngle
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intBetaAngle <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldBetaAngle.Keys(intBetaAngle)
+          dlgBeam.fldBetaAngle.Keys("[Tab]")
+         Log.Message("Entered in the intBetaAngle field")
+    End If
+  End If
+End If
+    
+    '''' chkOffset 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkOffset <>  "NA") Then
+ state = dlgBeam.chkboxOffset.wState 
+    If( CInt(chkOffset) <> CInt(state) )then
+    dlgBeam.chkboxOffset.Click()
+    Log.Message("chkOffset set")
+    End If
+  End If
+End If
+
+
+    '''' strRigidLengthEndI
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strRigidLengthEndI <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldRigidLengthEndI.Keys(strRigidLengthEndI)
+          dlgBeam.fldRigidLengthEndI.Keys("[Tab]")
+         Log.Message("Entered in the strRigidLengthEndI field")
+    End If
+  End If
+End If
+    
+    ''''strRigidLengthEndJ 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strRigidLengthEndJ <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeam", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeam.fldRigidLengthEndJ.Keys(strRigidLengthEndJ)
+          dlgBeam.fldRigidLengthEndJ.Keys("[Tab]")
+         Log.Message("Entered in the strRigidLengthEndJ field")
+    End If
+  End If
+End If
+    
+'''chkEndIAxial 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkEndIAxial <>  "NA") Then
+ state = dlgBeam.chkboxEndIAxial.wState 
+    If( CInt(chkEndIAxial) <> CInt(state) )then
+    dlgBeam.chkboxEndIAxial.Click()
+    Log.Message("chkEndIAxial set")
+    End If
+  End If
+End If
+
+    '''' chkEndJAxial  
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkEndJAxial <>  "NA") Then
+ state = dlgBeam.chkboxEndJAxial.wState 
+    If( CInt(chkEndJAxial) <> CInt(state) )then
+    dlgBeam.chkboxEndJAxial.Click()
+    Log.Message("chkboxEndJAxial set")
+    End If
+  End If
+End If
+    
+    ' chkEndIYY 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkEndIYY <>  "NA") Then
+ state = dlgBeam.chkboxEndIYY.wState 
+    If( CInt(chkEndIYY) <> CInt(state) )then
+    dlgBeam.chkboxEndIYY.Click()
+    Log.Message("chkEndIYY set")
+    End If
+  End If
+End If
+
+    ''' chkEndJYY 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkEndJYY <>  "NA") Then
+ state = dlgBeam.chkboxEndJYY.wState 
+    If( CInt(chkEndJYY) <> CInt(state) )then
+    dlgBeam.chkboxEndJYY.Click()
+    Log.Message("chkboxEndJYY set")
+    End If
+  End If
+End If
+
+    
+    ''''chkEndJZZ
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkEndJZZ <>  "NA") Then
+ state = dlgBeam.chkboxEndJZZ.wState 
+    If( CInt(chkEndJZZ) <> CInt(state) )then
+    dlgBeam.chkboxEndJZZ.Click()
+    Log.Message("chkboxEndJZZ set")
+    End If
+  End If
+End If
+
+    
+    
+    '''' chkEndIZZ 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkEndIZZ <>  "NA") Then
+ state = dlgBeam.chkboxEndIZZ.wState 
+    If( CInt(chkEndIZZ) <> CInt(state) )then
+    dlgBeam.chkboxEndIZZ.Click()
+    Log.Message("chkEndIZZ set")
+    End If
+  End If
+End If
+    
+'''' chkboxApplyWindLoad
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkboxApplyWindLoad <>  "NA") Then
+ state = dlgBeam.chkboxApplyWindLoad.wState 
+    If( CInt(chkboxApplyWindLoad) <> CInt(state) )then
+    dlgBeam.chkboxApplyWindLoad.Click()
+    Log.Message("chkboxApplyWindLoad set")
+    End If
+  End If
+End If
+        
+   aqUtils.Delay(2000)
+   dlgBeam.btnOK.Click()
+
+
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "BeamSectionProperties" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Beam table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     9/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub BeamSectionProperties (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+  Set dlgBeamSectionProperties = objNameMapping.dlgBeamSectionProperties
+  'Set dlgSectionProfileDatabase = ObjNameMapping.dlgSectionProfileDatabase
+
+Dim intSectionID : intSectionID = "*"&objRow.Item("intSectionID")&"*"
+
+''''''''''''''''''''''Section Type'''''''''''''''''''''''''''''
+Dim radioStandard :radioStandard = objRow.item("radioStandard")
+Dim radioNonStandard :radioNonStandard = objRow.item("radioNonStandard")
+Dim strCountry :strCountry = objRow.item("strCountry") 
+
+Dim drpShape :drpShape="*"&objRow.Item("drpShape")&"*"
+Dim strSectionName :strSectionName=objRow.Item("strSectionName")
+''''''''''''''''''''''Section Dimensions'''''''''''''''''''''''
+Dim intWidth :intWidth =objRow.Item("intWidth")
+Dim intDepth :intDepth =objRow.item("intDepth")
+Dim intFlangeThickness :intFlangeThickness =objRow.item("intFlangeThickness")
+Dim intWebThickness : intWebThickness =objRow.item("intWebThickness")
+Dim intSpacing :intSpacing =objRow.item("intSpacing")
+''''''''''''''''''''''Section Properties'''''''''''''''''''''''
+Dim intAxialArea :intAxialArea =objRow.item("intAxialArea")
+Dim intYYShear :intYYShear =objRow.item("intYYShear")
+Dim intZZShear :intZZShear =objRow.item("intZZShear")
+Dim intTorsionInertia :intTorsionInertia =objRow.item("intTorsionInertia")
+Dim intZZBending :intZZBending =objRow.item("intZZBending")
+
+'''''''''''''''''''''''''Material''''''''''''''''''''''''''''''
+Dim cmbMaterialName : cmbMaterialName =objRow.Item("cmbMaterialName")
+Dim intModulus : intModulus =objRow.item("intModulus")
+Dim intPoissonRatio : intPoissonRatio =objRow.item("intPoissonRatio")
+Dim intDensity : intDensity =objRow.item("intDensity")
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(2000)
+  
+'''intSectionID 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intSectionID <> "*NA*") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldSectionID.Keys(intSectionID)
+          dlgBeamSectionProperties.fldSectionID.Keys("[Tab]")
+         Log.Message("Entered in the intSectionID field")
+    End If
+  End If
+End If     
+
+    
+    
+
+''' radioStandard 
+If(radioStandard  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.radioStandard.Click()
+          Log.Message("Set 'radioStandard' checkbox")
+  End If
+End If
+ 
+
+'''' radioNonStandard 
+If(radioNonStandard  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.radioNonStandard.Click()
+          Log.Message("Set 'radioNonStandard' checkbox")
+  End If
+End If
+
+''' strCountry 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strCountry <> "*NA*") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldCountry.Keys(strCountry)
+          dlgBeamSectionProperties.fldCountry.Keys("[Tab]")
+         Log.Message("Entered in the strCountry field")
+    End If
+  End If
+End If     
+ 
+
+
+'''' drpShape 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpShape  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgBeamSectionProperties.drpdwnShape.ClickItem(drpShape)
+            dlgBeamSectionProperties.drpdwnShape.Keys("[Tab]")
+          Log.Message("Entered drpShape' field")
+        End If
+    End If 
+End If
+
+ 
+'''' strSectionName
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(strSectionName <> "*NA*") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldSectionName.SetText(strSectionName)
+          dlgBeamSectionProperties.fldSectionName.Keys("[Tab]")
+         Log.Message("Entered in the fldSectionName field")
+    End If
+  End If
+End If     
+ 
+
+'''''''''''''''''''''''Section Dimensions'''''''''''''''''''''''
+'''' intDepth
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intDepth <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldDepth.SetText(intDepth)
+          dlgBeamSectionProperties.fldDepth.Keys("[Tab]")
+         Log.Message("Entered in the intDepth field")
+    End If
+  End If
+End If     
+
+
+'''' intWidth
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWidth <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldWidth.SetText(intWidth)
+          dlgBeamSectionProperties.fldWidth.Keys("[Tab]")
+         Log.Message("Entered in the intWidth field")
+    End If
+  End If
+End If     
+
+
+
+'''' intFlangeThickness
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intFlangeThickness <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldFlangeThickness.SetText(intFlangeThickness)
+          dlgBeamSectionProperties.fldFlangeThickness.Keys("[Tab]")
+         Log.Message("Entered in the intFlangeThickness field")
+    End If
+  End If
+End If  
+
+''' intWebThickness
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWebThickness <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldWebThickness.SetText(intWebThickness)
+          dlgBeamSectionProperties.fldWebThickness.Keys("[Tab]")
+         Log.Message("Entered in the intWebThickness field")
+    End If
+  End If
+End If  
+
+'''' intSpacing 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intSpacing <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldSpacing.SetText(intSpacing)
+          dlgBeamSectionProperties.fldSpacing.Keys("[Tab]")
+         Log.Message("Entered in the intSpacing field")
+    End If
+  End If
+End If  
+
+'''''''''''''''''''''''Section Properties'''''''''''''''''''''''
+''' intAxialArea
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intAxialArea <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldAxialArea.SetText(intAxialArea)
+          dlgBeamSectionProperties.fldAxialArea.Keys("[Tab]")
+         Log.Message("Entered in the intAxialArea field")
+    End If
+  End If
+End If  
+
+''''intYYShear
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intYYShear <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldYYShear.SetText(intYYShear)
+          dlgBeamSectionProperties.fldYYShear.Keys("[Tab]")
+         Log.Message("Entered in the intYYShear field")
+    End If
+  End If
+End If 
+ 
+''' intZZShear
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intZZShear <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldZZShear.SetText(intZZShear)
+          dlgBeamSectionProperties.fldZZShear.Keys("[Tab]")
+         Log.Message("Entered in the intZZShear field")
+    End If
+  End If
+End If
+
+''' intTorsionInertia
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intTorsionInertia <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldTorsionInertia.SetText(intTorsionInertia)
+          dlgBeamSectionProperties.fldTorsionInertia.Keys("[Tab]")
+         Log.Message("Entered in the fldTorsionInertia field")
+    End If
+  End If
+End If
+
+''' intZZBending 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intZZBending <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldZZBending.SetText(intZZBending)
+          dlgBeamSectionProperties.fldZZBending.Keys("[Tab]")
+         Log.Message("Entered in the fldZZBending field")
+    End If
+  End If
+End If
+
+aqUtils.Delay(2000)
+''''''''''''''''''''''''''Material''''''''''''''''''''''''''''''
+'''' cmbMaterialName
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(cmbMaterialName  <> "NA") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 60000).WaitProperty("Exists", true, 10)) Then
+        ' dlgBeamSectionProperties.cmbboxMaterialName.ClickItem(cmbboxMaterialName)
+         dlgBeamSectionProperties.cmbboxMaterialName.Keys(cmbMaterialName)
+            dlgBeamSectionProperties.cmbboxMaterialName.Keys("[Tab]")
+          Log.Message("Entered cmbMaterialName' field")
+        End If
+    End If 
+End If
+    '''      
+''' intModulus 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intModulus <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldModulus.SetText(intModulus)
+          dlgBeamSectionProperties.fldModulus.Keys("[Tab]")
+         Log.Message("Entered in the intModulus field")
+    End If
+  End If
+End If
+
+''' intPoissonRatio 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intPoissonRatio <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldPoissonRatio.SetText(intPoissonRatio)
+          dlgBeamSectionProperties.fldPoissonRatio.Keys("[Tab]")
+         Log.Message("Entered in the intPoissonRatio field")
+    End If
+  End If
+End If
+
+'''' intDensity
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intDensity <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBeamSectionProperties", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBeamSectionProperties.fldDensity.SetText(intDensity)
+          dlgBeamSectionProperties.fldDensity.Keys("[Tab]")
+         Log.Message("Entered in the intDensity field")
+    End If
+  End If
+End If
+
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   dlgBeamSectionProperties.btnOK.Click()
+End If
+    
+End Sub
+
+
+

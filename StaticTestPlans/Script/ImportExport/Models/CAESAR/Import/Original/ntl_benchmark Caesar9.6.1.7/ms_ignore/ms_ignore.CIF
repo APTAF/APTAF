@@ -1,0 +1,35 @@
+---------------------------------------------------------------------------------------------------------------------------
+
+                              C A E S A R   R I G I D   C O M P O N E N T S   I M P O R T                                  
+
+---------------------------------------------------------------------------------------------------------------------------
+
+ Selected Standard : B16-47 2006 & B16-5 2009
+
+ Selected Type     : All
+
+ Selected Rating   : All
+
+ NPS Tolerance     :  5.0 %
+
+ Length Tolerance  : 10.0 %
+
+ From      To        Standard        Pipe OD   Actual NPS  Actual Len     Actual    Type          Lib.       Comments      
+                                                Lib. NPS    Lib. Len      Weight                 Rating*                   
+                                      (in)        (in)       (inch)        (lb)                                              
+ ------  ------  -----------------  ---------  ----------  -----------  ---------- ----------  ----------  ----------------
+   2020    2030  B16-5 2009            10.750      10.000       17.000     500.000  Weldneck      2500     Mapped to Flange
+                                                   10.000       16.500  
+   2065    2070  B16-5 2009             8.625       8.000       12.000     200.000  Weldneck      2500     Mapped to Flange
+                                                    8.000       12.500  
+   2070    2075          -             12.750      12.000       24.000     400.000     -           -       Mapped to Valve
+
+    212     213          -             18.000      18.000       20.250    1626.000     -           -       Mapped to Valve
+
+    450     460          -             16.000      16.000       47.000    4000.000     -           -       Mapped to Valve
+
+    520     530          -             16.000      16.000       78.000    5500.000     -           -       Mapped to Valve
+
+
+   * Library flange rating is the rating value of matching flange record from flange dimension library.
+     Rating of flanges in imported AutoPIPE model may be different and is dependent on piping code of the model.

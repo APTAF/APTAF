@@ -1,0 +1,26 @@
+----------------------------------------------------------------------------------------------------------------
+QA321A                                                                                                          
+11/16/2016 QA TEST FOR DXF EXPORT TO AUTOCAD                      BENTLEY                                       
+03:22 PM   SYSTEM CONTAINS ALL COMPONENTS                         AutoPIPE Nuclear 11.00.00.12   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2164-111:Reset properties to defaults for following beam section material(s).                             
+                                                                                
+     A36                                                                        
+                                                                                
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-64:  Effective radius of miter bend is less than limit at following point(s)                          
+                                                                                
+     A16 N                                                                      
+ 
+ 
+  No error     2 Warning(s)                                                     
+ 
+

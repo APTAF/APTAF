@@ -1,0 +1,22 @@
+----------------------------------------------------------------------------------------------------------------
+CRYISM                                                                                                          
+03/19/2018                                                        BENTLEY                                       
+02:57 PM                                                          AutoPIPE Nuclear 11.03.00.05   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2164-159:The value of "Stiffness" or "Spring Rate" is zero for following supports.                        
+                                                                                
+     Support ID     Support Type     Point Name                                 
+     ----------     ------------     ----------                                 
+     80   1         Spring           80                                         
+                                                                                
+ 
+ 
+  No error     1 Warning(s)                                                     
+ 
+

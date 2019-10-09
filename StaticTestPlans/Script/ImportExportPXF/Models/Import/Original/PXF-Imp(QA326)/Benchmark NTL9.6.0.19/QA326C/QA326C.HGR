@@ -1,0 +1,30 @@
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+10/01/2014                                                            BENTLEY                                   
+01:07 PM                                                              AutoPIPE Nuclear 9.6.0.19  HANGER PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+ Rigid hanger displacement criteria :  0.10  in       
+ Permissible load variation     :      0.25
+ Spring manufacturer :  Anvil/Grinnell      
+
+----------------------------------------------------------------------------------------------------------------
+QA326C                                                                                                          
+10/01/2014                                                            BENTLEY                                   
+01:07 PM                                                              AutoPIPE Nuclear 9.6.0.19  HANGER PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                           SPRING SELECTION RESULTS                                                             
+                                                                                                                
+ Point  Thermal   Hot    Cold   Spring    Load     Spring   Range        Total                                  
+ Name   Movement  Load  Preload Rate    Variation  Size     I.D.         # Reqd.                                
+         (inch)  (lbf )  (lbf ) (lb/in) (Percent)                                                               
+ -----  -------- ------ ------- ------- ---------  ------   -----------  -------                                
+ 
+ C02    Tag No.: <None>                                                         
+       -0.010     268.1     * * * Rigid hanger * * *                       1 *  
+ 
+                                                                                
+ 
+ NOTE : * - Selected Spring                                                     
+

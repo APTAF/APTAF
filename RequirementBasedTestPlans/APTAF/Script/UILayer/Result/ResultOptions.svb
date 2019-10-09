@@ -1,0 +1,754 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT tabHome
+'USEUNIT Main
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Result" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Result table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     8/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+sub Result (objNameMapping, objRow, strOpenDialog, strHotKey)
+   
+'''''''''''''''''''''''''''''''''
+  Set ObjNameMapping = Aliases.autopipe
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+set dlgResult = objNameMapping.dlgResult
+
+Dim strFormatNodeCombin : strFormatNodeCombin =  objRow.item("strFormatNodeCombin")
+Dim intDisplacementScale : intDisplacementScale =  objRow.item("intDisplacementScale")
+Dim strForceGlobalLocal: strForceGlobalLocal =  objRow.item("strForceGlobalLocal")
+Dim intRangeReductionFactor:intRangeReductionFactor =  objRow.item("intRangeReductionFactor")
+Dim chkboxIncludeAxialForce: chkboxIncludeAxialForce =  objRow.item("chkboxIncludeAxialForce")
+Dim intWeldEffFacEi: intWeldEffFacEi =  objRow.item("intWeldEffFacEi")
+Dim chkboxOverwriteOutputFile:chkboxOverwriteOutputFile =  objRow.item("chkboxOverwriteOutputFile")
+Dim intYfactor:intYfactor =  objRow.item("intYfactor")
+Dim chkboxUseNominalThickness:chkboxUseNominalThickness =  objRow.item("chkboxUseNominalThickness")
+Dim intDesignFactorf: intDesignFactorf =  objRow.item("intDesignFactorf")
+Dim chkboxUseNomforHoop:chkboxUseNomforHoop =  objRow.item("chkboxUseNomforHoop")
+Dim strTemperDeratingFactor :strTemperDeratingFactor =  objRow.item("strTemperDeratingFactor")
+Dim chkboxSetSusSIF1nobends:chkboxSetSusSIF1nobends =  objRow.item("chkboxSetSusSIF1nobends")
+Dim intDesignPressureFactor:intDesignPressureFactor =  objRow.item("intDesignPressureFactor")
+Dim chkboxSetSusOccSIF1:chkboxSetSusOccSIF1 =  objRow.item("chkboxSetSusOccSIF1")
+Dim intMinimumStressRatio:intMinimumStressRatio =  objRow.item("intMinimumStressRatio")
+Dim chkboxSetSusOccSIF:chkboxSetSusOccSIF = objRow.item("chkboxSetSusOccSIF")
+Dim intHoopSafetyFactor:intHoopSafetyFactor = objRow.item("intHoopSafetyFactor")
+Dim chkboxIncludeTorsion:chkboxIncludeTorsion =  objRow.item("chkboxIncludeTorsion")
+Dim intLongSafetyFactor:intLongSafetyFactor =  objRow.item("intLongSafetyFactor")
+Dim chkboxSingleSIFattees:chkboxSingleSIFattees =  objRow.item("chkboxSingleSIFattees")
+Dim intShearAllowableFactor:intShearAllowableFactor = objRow.item("intShearAllowableFactor")
+Dim chkboxIncludeResultsDesc:chkboxIncludeResultsDesc = objRow.item("chkboxIncludeResultsDesc")
+Dim intTotalAllowableFactor:intTotalAllowableFactor = objRow.item("intTotalAllowableFactor")
+Dim chkboxIncludeBendOvaling:chkboxIncludeBendOvaling = objRow.item("chkboxIncludeBendOvaling")
+Dim intIntermStressPoints:intIntermStressPoints = objRow.item("intIntermStressPoints")
+Dim chkboxIncludehoopbending:chkboxIncludehoopbending = objRow.item("chkboxIncludehoopbending")
+Dim intNoOfThermalRanges:intNoOfThermalRanges = objRow.item("intNoOfThermalRanges")
+Dim strDirectShearNRA:strDirectShearNRA = objRow.item("strDirectShearNRA")
+Dim chkboxIncludeMaxRangecomb:chkboxIncludeMaxRangecomb = objRow.item("chkboxIncludeMaxRangecomb")
+Dim strTotalStressOctMax:strTotalStressOctMax = objRow.item("strTotalStressOctMax")
+Dim chkboxIncAxialPcaseinSus:chkboxIncAxialPcaseinSus = objRow.item("chkboxIncAxialPcaseinSus")
+Dim chkboxUsecodecase178:chkboxUsecodecase178 = objRow.item("chkboxUsecodecase178")
+Dim chkboxUseAltOccAllowable:chkboxUseAltOccAllowable = objRow.item("chkboxUseAltOccAllowable")
+Dim chkboxApplymodulusratio :chkboxApplymodulusratio = objRow.item("chkboxApplymodulusratio")
+Dim chkboxApplycircWCfactor :chkboxApplycircWCfactor = objRow.item("chkboxApplycircWCfactor")
+Dim chkboxApplyTeeSummation :chkboxApplyTeeSummation = objRow.item("chkboxApplyTeeSummation")
+Dim chkboxUseTheoreticalSecMod:chkboxUseTheoreticalSecMod = objRow.item("chkboxUseTheoreticalSecMod")
+Dim strSustainMarginYNE:strSustainMarginYNE = objRow.item("strSustainMarginYNE")
+Dim intLongPressuePAMN:intLongPressuePAMN = objRow.item("intLongPressuePAMN")
+Dim chkboxUseminsustainedmargin:chkboxUseminsustainedmargin = objRow.item("chkboxUseminsustainedmargin")
+Dim chkboxShowRigidTeeStress:chkboxShowRigidTeeStress = objRow.item("chkboxShowRigidTeeStress")
+Dim chkboxUseForAcceleration:chkboxUseForAcceleration = objRow.item("chkboxUseForAcceleration")
+Dim strApplyCSACriteria : strApplyCSACriteria = objRow.item("strApplyCSACriteria")
+Dim chkboxUseMinTeeAllowable:chkboxUseMinTeeAllowable = objRow.item("chkboxUseMinTeeAllowable")
+Dim chkboxPressCorrForUsrSIF:chkboxPressCorrForUsrSIF = objRow.item("chkboxPressCorrForUsrSIF")
+Dim chkboxModalTimestepTeeSum:chkboxModalTimestepTeeSum = objRow.item("chkboxModalTimestepTeeSum")
+Dim chkboxUseResultantMethod:chkboxUseResultantMethod = objRow.item("chkboxUseResultantMethod")
+Dim intForce:intForce = objRow.item("intForce")
+Dim intStress:intStress = objRow.item("intStress")
+Dim intDisp:intDisp = objRow.item("intDisp")
+Dim intFreq:intFreq = objRow.item("intFreq")
+
+   
+   
+aqUtils.Delay(2000)
+
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select 
+aqUtils.Delay(2000)
+'''''strFormatNodeCombin 
+if(strFormatNodeCombin <> "NA") then
+        'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldFormatNodeCombin.Keys(strFormatNodeCombin)
+         
+          Log.Message("Entered in the strFormatNodeCombin field")
+        End If
+    End If
+'
+''''intDisplacementScale 
+if( intDisplacementScale <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldDisplacementScale.Keys(intDisplacementScale)
+         
+          Log.Message("Entered in the intDisplacementScale  field")
+        End If
+    End If
+
+'''' strForceGlobalLocal
+if( strForceGlobalLocal <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldForceGlobalLocal.Keys(strForceGlobalLocal)
+         
+          Log.Message("Entered in the strForceGlobalLocal  field")
+        End If
+    End If
+
+''' intRangeReductionFactor
+if( intRangeReductionFactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldRangeReductionFactor.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldRangeReductionFactor.Keys(intRangeReductionFactor)
+         
+          Log.Message("Entered in the strForceGlobalLocal  field")
+        End If
+    End If
+    End If
+
+'''' chkboxIncludeAxialForce
+If(chkboxIncludeAxialForce  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeAxialForce.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeAxialForce.Enabled) Then
+          dlgResult.chkboxIncludeAxialForce.Click()
+          Log.Message("Set 'chkboxIncludeAxialForce' checkbox")
+        End If
+        End If
+        End If
+
+''''intWeldEffFacEi
+if( intWeldEffFacEi <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldWeldEffFacEi.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldWeldEffFacEi.Keys(intWeldEffFacEi)
+         
+          Log.Message("Entered in the strForceGlobalLocal  field")
+        End If
+    End If
+    End If
+
+
+
+''''chkboxOverwriteOutputFile
+If(chkboxOverwriteOutputFile  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxOverwriteOutputFile.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxOverwriteOutputFile.Enabled) Then
+          dlgResult.chkboxOverwriteOutputFile.Click()
+          Log.Message("Set 'chkboxOverwriteOutputFile' checkbox")
+        End If
+        End If
+        End If
+
+
+''' intYfactor
+if( intYfactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldYfactor.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldYfactor.Keys(intWeldEffFacEi)
+         
+          Log.Message("Entered in the fldYfactor  field")
+        End If
+    End If
+    End If
+
+'''' chkboxUseNominalThickness
+If(chkboxUseNominalThickness  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseNominalThickness.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseNominalThickness.Enabled) Then
+          dlgResult.chkboxUseNominalThickness.Click()
+          Log.Message("Set 'chkboxUseNominalThickness' checkbox")
+        End If
+        End If
+        End If
+
+''''intDesignFactorf
+if( intDesignFactorf <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldDesignFactorf.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldDesignFactorf.Keys(intDesignFactorf)
+         
+          Log.Message("Entered in the fldYfactor  field")
+        End If
+    End If
+    End If
+    
+    
+'''''''''''intYfactor
+if( intYfactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldYfactor.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldYfactor.Keys(intYfactor)
+         
+          Log.Message("Entered in the fldYfactor  field")
+        End If
+    End If
+    End If
+
+''' chkboxUseNomforHoop
+If(chkboxUseNomforHoop  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseNomforHoop.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseNomforHoop.Enabled) Then
+          dlgResult.chkboxUseNomforHoop.Click()
+          Log.Message("Set 'chkboxUseNomforHoop' checkbox")
+        End If
+        End If
+        End If
+        
+'''strTemperDeratingFactor 
+if( strTemperDeratingFactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldTemperDeratingFactor.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldTemperDeratingFactor.Keys(strTemperDeratingFactor)
+         
+          Log.Message("Entered in the strTemperDeratingFactor  field")
+        End If
+    End If
+    End If
+
+''' chkboxSetSusSIF1nobends
+If(chkboxSetSusSIF1nobends  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxSetSusSIF1nobends.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxSetSusSIF1nobends.Enabled) Then
+          dlgResult.chkboxSetSusSIF1nobends.Click()
+          Log.Message("Set 'chkboxSetSusSIF1nobends' checkbox")
+        End If
+        End If
+        End If
+
+'''intDesignPressureFactor
+if( intDesignPressureFactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldDesignPressureFactor.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldDesignPressureFactor.Keys(intDesignPressureFactor)
+         
+          Log.Message("Entered in the intDesignPressureFactor  field")
+        End If
+    End If
+    End If
+
+
+''' chkboxSetSusOccSIF1
+If(chkboxSetSusOccSIF1  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxSetSusOccSIF1.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxSetSusOccSIF1.Enabled) Then
+          dlgResult.chkboxSetSusOccSIF1.Click()
+          Log.Message("Set 'chkboxSetSusOccSIF1' checkbox")
+        End If
+        End If
+        End If
+
+
+'Dim intMinimumStressRatio
+if( intMinimumStressRatio <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldMinimumStressRatio.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldMinimumStressRatio.Keys(intDesignPressureFactor)
+         
+          Log.Message("Entered in the intMinimumStressRatio  field")
+        End If
+    End If
+    End If
+
+
+''' chkboxSetSusOccSIF
+If(chkboxSetSusOccSIF  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxSetSusOccSIF.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxSetSusOccSIF.Enabled) Then
+          dlgResult.chkboxSetSusOccSIF.Click()
+          Log.Message("Set 'chkboxSetSusOccSIF' checkbox")
+        End If
+        End If
+        End If
+
+
+''' intHoopSafetyFactor
+if( intHoopSafetyFactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldHoopSafetyFactor.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldHoopSafetyFactor.Keys(intHoopSafetyFactor)
+         
+          Log.Message("Entered in the intHoopSafetyFactor  field")
+        End If
+    End If
+    End If
+
+''' chkboxIncludeTorsion
+If(chkboxIncludeTorsion  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeTorsion.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeTorsion.Enabled) Then
+          dlgResult.chkboxIncludeTorsion.Click()
+          Log.Message("Set 'chkboxIncludeTorsion' checkbox")
+        End If
+        End If
+        End If
+
+'Dim intLongSafetyFactor:intLongSafetyFactor = objRow("intLongSafetyFactor")
+
+''' chkboxSingleSIFattees
+If(chkboxSingleSIFattees  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxSingleSIFattees.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxSingleSIFattees.Enabled) Then
+          dlgResult.chkboxSingleSIFattees.Click()
+          Log.Message("Set 'chkboxSingleSIFattees' checkbox")
+        End If
+        End If
+        End If
+
+
+''' intShearAllowableFactor
+if( intShearAllowableFactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldShearAllowableFactor.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldShearAllowableFactor.Keys(intShearAllowableFactor)
+         
+          Log.Message("Entered in the intShearAllowableFactor  field")
+        End If
+    End If
+    End If
+
+''' chkboxIncludeResultsDesc
+If(chkboxIncludeResultsDesc  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeResultsDesc.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeResultsDesc.Enabled) Then
+          dlgResult.chkboxIncludeResultsDesc.Click()
+          Log.Message("Set 'chkboxIncludeResultsDesc' checkbox")
+        End If
+        End If
+        End If
+
+''' intTotalAllowableFactor
+if( intTotalAllowableFactor <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldTotalAllowableFactor.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldTotalAllowableFactor.Keys(intTotalAllowableFactor)
+         
+          Log.Message("Entered in the fldTotalAllowableFactor  field")
+        End If
+    End If
+    End If
+
+''' chkboxIncludeBendOvaling
+If(chkboxIncludeBendOvaling  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeBendOvaling.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeBendOvaling.Enabled) Then
+          dlgResult.chkboxIncludeBendOvaling.Click()
+          Log.Message("Set 'chkboxIncludeBendOvaling' checkbox")
+        End If
+        End If
+        End If
+
+
+''''intIntermStressPoints
+if( intIntermStressPoints <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldIntermStressPoints.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldIntermStressPoints.Keys(intIntermStressPoints)
+         
+          Log.Message("Entered in the intIntermStressPoints  field")
+        End If
+    End If
+    End If
+
+
+''' chkboxIncludehoopbending
+If(chkboxIncludehoopbending  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludehoopbending.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludehoopbending.Enabled) Then
+          dlgResult.chkboxIncludehoopbending.Click()
+          Log.Message("Set 'chkboxIncludehoopbending' checkbox")
+        End If
+        End If
+        End If
+
+
+
+''' intNoOfThermalRanges
+if( intNoOfThermalRanges <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldNoOfThermalRanges.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldNoOfThermalRanges.Keys(intNoOfThermalRanges)
+         
+          Log.Message("Entered in the intNoOfThermalRanges  field")
+        End If
+    End If
+    End If
+
+'''strDirectShearNRA
+if( strDirectShearNRA <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldDirectShearNRA.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldDirectShearNRA.Keys(strDirectShearNRA)
+         
+          Log.Message("Entered in the fldDirectShearNRA  field")
+        End If
+    End If
+    End If
+
+''' chkboxIncludeMaxRangecomb
+If(chkboxIncludeMaxRangecomb  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeMaxRangecomb.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncludeMaxRangecomb.Enabled) Then
+          dlgResult.chkboxIncludeMaxRangecomb.Click()
+          Log.Message("Set 'chkboxIncludeMaxRangecomb' checkbox")
+        End If
+        End If
+        End If
+
+'''' strTotalStressOctMax
+if( strTotalStressOctMax <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldTotalStressOctMax.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldTotalStressOctMax.Keys(strTotalStressOctMax)
+         
+          Log.Message("Entered in the strTotalStressOctMax  field")
+        End If
+    End If
+    End If
+
+''' chkboxIncAxialPcaseinSus
+If(chkboxIncAxialPcaseinSus  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncAxialPcaseinSus.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxIncAxialPcaseinSus.Enabled) Then
+          dlgResult.chkboxIncAxialPcaseinSus.Click()
+          Log.Message("Set 'chkboxIncAxialPcaseinSus' checkbox")
+        End If
+        End If
+        End If
+
+
+''' chkboxUsecodecase178
+If(chkboxUsecodecase178  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUsecodecase178.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUsecodecase178.Enabled) Then
+          dlgResult.chkboxUsecodecase178.Click()
+          Log.Message("Set 'chkboxUsecodecase178' checkbox")
+        End If
+        End If
+        End If
+
+''' chkboxUseAltOccAllowable
+If(chkboxUseAltOccAllowable  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseAltOccAllowable.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseAltOccAllowable.Enabled) Then
+          dlgResult.chkboxUseAltOccAllowable.Click()
+          Log.Message("Set 'chkboxUseAltOccAllowable' checkbox")
+        End If
+        End If
+        End If
+
+''' chkboxApplymodulusratio 
+If(chkboxApplymodulusratio  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxApplymodulusratio.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxApplymodulusratio.Enabled) Then
+          dlgResult.chkboxApplymodulusratio.Click()
+          Log.Message("Set 'chkboxApplymodulusratio' checkbox")
+        End If
+        End If
+        End If
+
+
+''' chkboxApplycircWCfactor 
+
+If(chkboxApplycircWCfactor  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxApplycircWCfactor.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxApplycircWCfactor.Enabled) Then
+          dlgResult.chkboxApplycircWCfactor.Click()
+          Log.Message("Set 'chkboxApplycircWCfactor' checkbox")
+        End If
+        End If
+        End If
+
+
+
+''' chkboxApplyTeeSummation 
+If(chkboxApplyTeeSummation  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxApplyTeeSummation.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxApplyTeeSummation.Enabled) Then
+          dlgResult.chkboxApplyTeeSummation.Click()
+          Log.Message("Set 'chkboxApplyTeeSummation' checkbox")
+        End If
+        End If
+        End If
+
+
+
+'''' chkboxUseTheoreticalSecMod
+If(chkboxUseTheoreticalSecMod  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseTheoreticalSecMod.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseTheoreticalSecMod.Enabled) Then
+          dlgResult.chkboxUseTheoreticalSecMod.Click()
+          Log.Message("Set 'chkboxUseTheoreticalSecMod' checkbox")
+        End If
+        End If
+        End If
+
+''''strSustainMarginYNE
+if( strSustainMarginYNE <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldSustainMarginYNE.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldSustainMarginYNE.Keys(strSustainMarginYNE)
+         
+          Log.Message("Entered in the strSustainMarginYNE  field")
+        End If
+    End If
+    End If
+
+'''' intLongPressuePAMN
+if( intLongPressuePAMN <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldLongPressuePAMN.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldLongPressuePAMN.Keys(intLongPressuePAMN)
+         
+          Log.Message("Entered in the fldLongPressuePAMN  field")
+        End If
+    End If
+    End If
+
+
+'''' chkboxUseminsustainedmargin
+If(chkboxUseminsustainedmargin  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseminsustainedmargin.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseminsustainedmargin.Enabled) Then
+          dlgResult.chkboxUseminsustainedmargin.Click()
+          Log.Message("Set 'chkboxUseminsustainedmargin' checkbox")
+        End If
+        End If
+        End If
+''''chkboxShowRigidTeeStress
+If(chkboxShowRigidTeeStress  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxShowRigidTeeStress.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxShowRigidTeeStress.Enabled) Then
+          dlgResult.chkboxShowRigidTeeStress.Click()
+          Log.Message("Set 'chkboxShowRigidTeeStress' checkbox")
+        End If
+        End If
+        End If
+'''' chkboxUseForAcceleration
+If(chkboxUseForAcceleration  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseForAcceleration.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseForAcceleration.Enabled) Then
+          dlgResult.chkboxUseForAcceleration.Click()
+          Log.Message("Set 'chkboxUseForAcceleration' checkbox")
+        End If
+        End If
+        End If
+
+
+'''strApplyCSACriteria
+if( strApplyCSACriteria <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldApplyCSACriteria.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldApplyCSACriteria.Keys(intWeldEffFacEi)
+         
+          Log.Message("Entered in the fldApplyCSACriteria  field")
+        End If
+    End If
+    End If
+'''' chkboxUseMinTeeAllowable
+If(chkboxUseMinTeeAllowable  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseMinTeeAllowable.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseMinTeeAllowable.Enabled) Then
+          dlgResult.chkboxUseMinTeeAllowable.Click()
+          Log.Message("Set 'chkboxUseMinTeeAllowable' checkbox")
+        End If
+        End If
+        End If
+'''' chkboxPressCorrForUsrSIF
+If(chkboxPressCorrForUsrSIF  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxPressCorrForUsrSIF.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxPressCorrForUsrSIF.Enabled) Then
+          dlgResult.chkboxPressCorrForUsrSIF.Click()
+          Log.Message("Set 'chkboxPressCorrForUsrSIF' checkbox")
+        End If
+        End If
+        End If
+''' chkboxModalTimestepTeeSum
+If(chkboxModalTimestepTeeSum  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxModalTimestepTeeSum.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxModalTimestepTeeSum.Enabled) Then
+          dlgResult.chkboxModalTimestepTeeSum.Click()
+          Log.Message("Set 'chkboxModalTimestepTeeSum' checkbox")
+        End If
+        End If
+        End If
+''' chkboxUseResultantMethod
+If(chkboxUseResultantMethod  =  "1") Then
+        'Write to "Name Of Point" field
+       ' If(objNameMapping.WaitAliasChild("dlgResult", 600).WaitProperty("Exists", true, 10)) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseResultantMethod.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.chkboxUseResultantMethod.Enabled) Then
+          dlgResult.chkboxUseResultantMethod.Click()
+          Log.Message("Set 'chkboxUseResultantMethod' checkbox")
+        End If
+        End If
+        End If
+'''' intForce
+if( intForce <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldForce.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldForce.Keys(intForce)
+         
+          Log.Message("Entered in the intForce  field")
+        End If
+    End If
+    End If
+    
+''' intStress
+if( intStress <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldStress.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldStress.Keys()
+         
+          Log.Message("Entered in the intStress  field")
+        End If
+    End If
+    End If
+    
+''' intDisp
+if( intDisp <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldDisp.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldDisp.Keys(intDisp)
+         
+          Log.Message("Entered in the fldDisp  field")
+        End If
+    End If
+    End If
+    
+''' intFreq
+if( intFreq <> "NA") Then
+'Write to  field
+        If(NameMapping.Sys.autopipe.dlgResult.Exists) Then
+        if(NameMapping.Sys.autopipe.dlgResult.fldFreq.Enabled)Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgResult.fldFreq.Keys(intFreq)
+         
+          Log.Message("Entered in the fldFreq  field")
+        End If
+    End If
+    End If
+
+
+objNameMapping.dlgResult.btnOK()
+
+
+End Sub

@@ -1,0 +1,664 @@
+﻿'USEUNIT Main
+'USEUNIT PipingComponents
+'USEUNIT ModelOptions
+'USEUNIT ConnectionClient
+'USEUNIT License
+'USEUNIT Orphan
+'USEUNIT Properties
+'USEUNIT Model
+'USEUNIT RemoveFields
+'USEUNIT PreAction
+'USEUNIT PostAction
+'USEUNIT ModifyFields
+'------------------------------------------------------------------------------------**/
+' Summary: 
+'         If verificationType = 'dialogvalidation' and intVerification <> 'NA' Then
+'           1. Get new objData 2. Filter 3. Modify 4. Execute
+'Second Case : intVerification value is null and verificationType = 'dialogvalidation'
+' 1. Use exisiting objData 2. Filter 3. Modify 4. Execute
+' Remarks: Done
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       Bend table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey:      Bend dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub UIEngineMain(objNameMapping,objData, strOpenDialog, strHotKey, strDlgNameMap, strUIMethod, strTableName, strDlgVerification, strDlgNegativeTest)
+'    Dim objVerificationRow
+    Dim objVerifyRowNum
+    Dim objDialog
+    Dim objDataCopy
+    Dim arrSkipList
+ '   Dim filteredDataFiltered
+    '//Set Dialog Mapped Name e-g objDialog = Aliases.AutoPIPE.dlgRun
+    Execute "Set objDialog = objNameMapping." & strDlgNameMap
+    
+'..Set Verification Type of the automated test. If strDlgNegativeTest is yes, set Verificatoin Type = positive else set it with user input.
+    If (strDlgNegativeTest <> "no") Then
+      strVerificationType = LCase(Project.Variables.strTCTestType)
+    Else
+      strVerificationType = "positive"
+    End If
+ 
+'..Open Dialog with Shortcut key
+    Select Case strOpenDialog
+      Case "Shortcut"
+
+'      While  objNameMapping.wndAutoPIPE.Enabled = False
+'      Delay(500)
+'      Wend     
+      
+      If (objNameMapping.wndAutoPIPE.Enabled) Then
+          If strHotKey <> "" Then
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)
+          End If
+
+      Else 
+          Delay(1000)
+          If (objNameMapping.wndAutoPIPE.Enabled) Then
+            If strHotKey <> "" Then
+              objNameMapping.wndAutoPIPE.Keys(strHotKey)
+            End If
+          End If
+      End If
+
+      
+      
+      
+'      delayms = 500
+'      strLogMessage = "Delaying test run for " & ms & "milliseconds."
+'      aqUtils.Delay ms, strLogMessage
+        
+'        If strHotKey <> "" Then
+'          objNameMapping.wndAutoPIPE.Keys(strHotKey)
+'        End If
+      Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select 
+    
+    ' If shortcut failed to open dialog and an Error dialog popup.Press Error dialogs's OK button and press Left and Righ arrow keys.Re-try to open the dialog from shortcut
+      If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Then
+        objNameMapping.dlgError.btnOK.Click()
+        objNameMapping.wndAutoPIPE.Keys("[Left][Right]")
+        objNameMapping.wndAutoPIPE.Keys(strHotKey)
+      If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Then
+        objNameMapping.dlgError.btnOK.Click()
+      End If
+    End If
+   
+     
+    Set ObjDataProcessed = objProcessData(strDlgNameMap,objData,strTableName,strVerificationType,objNameMapping, strUIMethod)
+    
+    If strVerificationType <> "dialogvalidation" Then
+      '.. Count of the executed TC
+      Project.Variables.intTCExecuted = Project.Variables.intTCExecuted + 1
+      For Each FieldName In ObjDataProcessed.Keys
+      strLength = aqString.GetLength(FieldName)
+      FieldName = aqString.SubString(FieldName,3,strLength)
+      FieldNames = FieldNames&","&FieldName
+      Next
+      AppendLogFolder("Test Case:" &ObjData.Item("TestCase")& FieldNames)
+    End If  
+   '..Execute Pre-Test
+  
+     'Execute "Call " &  strUIMethod & "(""PreAction"", objData,  """", strVerificationType, objNameMapping)"     
+     Call PreAction.Main(strDlgNameMap,objData,strVerificationType,objNameMapping,strHotKey) 
+'..Process objData
+  '  Set ObjDataProcessed = objProcessData(strDlgNameMap,objData,strTableName,strVerificationType,objNameMapping, strUIMethod)
+'..Triverse through the DataProcess object and call UI Execute for each object
+    For Each FieldName In ObjDataProcessed.Keys
+        Dim strFieldName
+     Dim FieldValue:FieldValue = ObjDataProcessed.Item(FieldName)
+'.. Call UIExecute function
+        Call UIExecute(FieldName, FieldValue, objDialog, objNameMapping,strHotKey, strVerificationType, strDlgNameMap, strUIMethod)
+    Next
+
+'.. Close Dialog
+    Call CloseDialog (objNameMapping, objData, strOpenDialog, strHotKey, strVerificationType,objDialog, strDlgNameMap, strUIMethod, strTableName, strDlgNegativeTest)
+
+    Call PopupsClose(objNameMapping)  
+   'Execute "Call " &  strUIMethod & "(""PostAction"", objData,  """", strVerificationType, objNameMapping)"
+   Call PostAction.Main(strDlgNameMap,objData,strVerificationType,objNameMapping,strHotKey)  
+    
+'..Dialog Verification     
+    If (strVerificationType = "positive" OR strVerificationType = "positive+report") AND LCase(strDlgVerification) = "yes"  Then
+    
+      Call DialogVerification(objNameMapping, objData, strOpenDialog, strHotKey, strDlgNameMap, strUIMethod, strTableName, strDlgVerification, strDlgNegativeTest)
+    End If
+    
+'..Exit Verification pass of the function
+  IF strVerificationType = "dialogvalidation" Then
+    Exit Sub
+  End If
+ 
+'..Execute PostAction function
+   'Dim strPostTest
+    'Execute "Call " & strUIMethod & "(""PostAction"", objData,  """", strVerificationType, objNameMapping)"       
+    
+    PopLogFolder
+   End Sub
+
+ 
+Function objProcessData(strDlgNameMap,ByVal filteredData,strTableName,strVerificationType,objNameMapping,strUIMethod)
+  'Dim filteredData: Set filteredData = objData
+  Dim arrSkipList
+ ' Dim filteredDataFiltered
+  Dim objModifyList
+  
+  '.. Remove items having 'NA' in value and items in 'arrSkipList' function
+ ' Execute "arrSkipList =" &  strUIMethod & "(""RemoveFields"", filteredData,  """", strVerificationType, objNameMapping)"
+  'If NOT ISEmpty(arrSkipList) Then
+  '  Set filteredData =  objDataFilter(filteredData,arrSkipList)
+  'End If
+
+  
+    
+''''if verification is dialogvalidation
+'''''''if there is a verify rownum, get the benchhmark row from excel
+'''''''remove extra fields
+'''''''modify the fields after removal of extra fields 
+''''else
+'''''''remove the extra fields
+'''''''execute pre-action modify
+
+ 
+  IF (strVerificationType = "dialogvalidation") Then
+    IF (filteredData.Item("VerifyRowNum") <> "NA") Then
+      VerifyRowNum = filteredData.Item("VerifyRowNum") 
+     '//Get benchmark ObjData from Excel
+      Execute "Set filteredData = GetRow(VerifyRowNum, " & """" & strTableName & """" & ")" ' objData data changed to verification row 
+    End If
+
+    'Execute "arrSkipList =" &  strUIMethod & "(""RemoveFields"", filteredData,  """", strVerificationType, objNameMapping)"
+    arrSkipList = RemoveFields.Main(strDlgNameMap,filteredData, strVerificationType, objNameMapping)
+     ' Execute "arrSkipList =" &  RemoveFields.Main(strDlgNameMap,filteredData, strVerificationType, objNameMapping)
+  
+   'If NOT ISEmpty(arrSkipList) Then
+    Set filteredData =  objDataFilter(filteredData,arrSkipList)
+   
+    'Execute "Set objModifyList =" &  strUIMethod & "(""ModifyFields"", filteredData,  """", strVerificationType, objNameMapping)"
+    ' if doesn't work try set objModifyList =
+    Set objModifyList = ModifyFields.Main(strDlgNameMap,filteredData, strVerificationType, objNameMapping)
+   
+    If NOT ISEmpty(objModifyList) Then
+      Set filteredData = objDataModify(filteredData,objModifyList)
+    End If
+   
+  
+  Else 
+
+   ' Execute "arrSkipList =" &  strUIMethod & "(""RemoveFields"", filteredData,  """", strVerificationType, objNameMapping)"
+     arrSkipList =  RemoveFields.Main(strDlgNameMap,filteredData, strVerificationType, objNameMapping)
+'     Execute "arrSkipList = RemoveFields.Main" & "(""strDlgNameMap"",filteredData, strVerificationType, objNameMapping)"
+  
+   'If NOT ISEmpty(arrSkipList) Then
+    Set filteredData =  objDataFilter(filteredData,arrSkipList)
+  'Execute "Call " &  strUIMethod & "(""PreAction"", filteredData,  """", strVerificationType, objNameMapping)"
+   
+   
+   'Execute "Set objModifyList =" &  strUIMethod & "(""ModifyFields"", filteredData,  """", strVerificationType, objNameMapping)"
+   Set objModifyList = ModifyFields.Main(strDlgNameMap,filteredData, strVerificationType, objNameMapping)
+  
+   If NOT ISEmpty(objModifyList) Then 
+    Set filteredData = objDataModify(filteredData,objModifyList)    
+    End If      
+  End If
+
+  'End If
+    '// Remove items from the benchmark ObjData where items found in an Array 'arrSkipList'. Call objDataFilter function to remove items. 
+  
+'  If (strVerificationType = "dialogvalidation") Then
+'log.message("Verification")
+'For Each value4 In filteredData.Keys
+'value5 = filteredData.Item(value4)
+'log.Message(Value5 & " & " & value4)
+'Next
+'End If
+
+  
+ Set objProcessData = filteredData
+End Function
+ 
+ 
+ 
+Sub UIExecute(FieldName, FieldValue, objDialog,objNameMapping,ByVal ShortcutKey, strVerificationType, strDlgNameMap, strUIMethod)
+Dim Enabled
+If FieldName = "cmbFileName" And strDlgNameMap = "dlgSaveAs" Then
+FieldName = "SaveAs"
+End If
+
+  strFieldType = aqString.SubString(FieldName,0,3)
+
+  
+  If (strDlgNameMap = "dlgExport" And FieldName="strPath" ) Then
+  'Aliases.autopipe.dlgExport.Container1.Container2.Container3.cmbBoxFileName.fldFileName
+  strFieldType = "export"
+  End If
+  
+  If (strDlgNameMap = "dlgImport" And FieldName="strPath" ) Then
+  'Aliases.autopipe.dlgImport.Container1.cmbBoxFileName.fldFileName
+  strFieldType = "import"
+  End If
+  
+  If (strDlgNameMap = "dlgInsertModel" And FieldName="strPath" ) Then
+  'Aliases.autopipe.dlgInsertModel.cmbboxFileName.cmbboxFileName.fldFileName
+  strFieldType = "InsertModel"
+  End If
+
+  
+  
+  If strFieldType = "cmb" Then
+    cmbFieldType = aqString.SubString(FieldName,0,6)
+  '  If cmbFieldType = "cmbfld"   Then
+  '    strFieldType = "cmbfld"
+    '  strFieldName = aqString.SubString(FieldName,6,aqString.GetLength(FieldName))
+    ' elseIf cmbFieldType = "cmbstr"   Then
+      If cmbFieldType = "cmbstr"   Then
+      strFieldType = "cmbstr"
+      strFieldName = aqString.SubString(FieldName,6,aqString.GetLength(FieldName))
+    elseIf cmbFieldType = "cmbint"   Then
+      strFieldType = "cmbint"
+      strFieldName = aqString.SubString(FieldName,6,aqString.GetLength(FieldName))   
+    Else 
+      strFieldName = aqString.SubString(FieldName,3,aqString.GetLength(FieldName))
+    End If
+  ElseIf strFieldType = "cbx" Then
+    cbxFieldType = aqString.SubString(FieldName,0,9)
+    If cbxFieldType = "cbxcmbfld" Then
+      strFieldType = "cbx"
+      strFieldName = aqString.SubString(FieldName,9,aqString.GetLength(FieldName))
+    End If
+  Else
+    strFieldName = aqString.SubString(FieldName,3,aqString.GetLength(FieldName))
+  End IF
+  'objField = "fld" & strFieldName
+
+  Select Case LCase(strFieldType)
+    Case "int" , "str"
+  
+      objField = "fld" & strFieldName
+   
+    Case "cmbstr","cmbint"
+      objField = "cmbbox" & strFieldName & ".fld" & strFieldName
+      
+    Case "drp"
+      objField = "drpdwn" & strFieldName
+    Case "rad"
+      objField = "radio" & strFieldName
+    Case "cmb"
+      objField = "cmbbox" & strFieldName
+    Case "chk"  
+      objField = "chkbox" & strFieldName
+
+    Case "cbx"
+      objField = "cbx"  & strFieldName & ".cmb" & strFieldName & ".fld" & strFieldName 
+    Case "sav"
+      objField = "DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName"
+    Case "export"
+      objField = "Container1.Container2.Container3.cmbBoxFileName.fldFileName"
+    Case "import"
+      objField = "Container1.cmbBoxFileName.fldFileName"
+    Case "insertmodel"
+      objField = "cmbboxFileName.cmbboxFileName.fldFileName"
+    Case Else
+      Exit Sub
+  End Select
+
+
+  'FieldName = strFieldType & strFieldName
+  If ShortcutKey <> "" Then
+  ModifiedShortcutKey = Ucase(aqString.GetChar(ShortcutKey,0))
+  Else 
+  ModifiedShortcutKey = "noSK"
+  End IF
+  If(FieldValue <> "NA" AND FieldValue <> "*NA*") Then
+    If(objNameMapping.WaitAliasChild(""&strDlgNameMap&"", 70000).WaitProperty("Exists", true, 10)) Then
+      Select Case strVerificationType
+        Case "positive" , "image" , "positive+report", "report"
+'          Select Case ModifiedShortcutKey
+'            Case "F","E","V","O","S","I","D","L","A","R","T","P","B","H","N","noSK","M"
+              Select Case LCase(strFieldType)
+
+                Case "int", "str", "cmbstr","cmbint", "cbx", "sav" , "import", "export", "insertmodel" '1st Case
+                  Dim FieldExists
+                  Execute "FieldExists = objDialog." & objField & ".Enabled"
+                  If FieldExists Then
+                    Execute "objDialog." & objField & ".Keys("& """" & FieldValue & """" & ")"
+                    Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+                    Log.Message("Entered '" & FieldValue & "' in the '"&strFieldName&"' field")
+                  End If
+                Case "drp", "cmb"  '2nd Case
+                  Dim DropDownExists
+                  '\\Check the dropdown is enabled or disabled. If enabled then select value.
+                  Execute "DropDownExists = objDialog." & objField & ".Enabled"
+                  If DropDownExists Then
+                    Log.Message("Selected '" & FieldValue & "' from the '"&strFieldName&"' dropdown")
+                    FieldValue = "*" & FieldValue & "*"
+                    Execute "objDialog." & objField & ".ClickItem("& """" & FieldValue & """" & ")"
+                    Delay(20)
+                    If Aliases.autopipe.WaitAliasChild("dlgWarning",60).Exists Then
+                      Aliases.autopipe.dlgWarning.btnOK.Click()
+                    Else 'For Flange dialog 
+                      Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+                    End IF
+                  End If
+                Case "chk" '3rd Case
+                Dim intState
+                  Execute "intState = objDialog." & objField & ".wState" 
+                  If( CInt(FieldValue) <> CInt(intState) )Then
+                    Execute "objDialog." & objField & ".Click"
+                    Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+                  End If
+                  IF (FieldValue = "1") Then 
+                    Log.Message("Checkbox '" & strFieldName &"' has been checked ")
+                  Else                  
+                    Log.Message("Checkbox '" & strFieldName &"' has been unchecked ")
+                   End If
+                Case "rad" '4th Case
+                    Execute "objDialog." & objField & ".Click"
+                    Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+
+                End Select
+
+ 
+        Case "negative"
+          Select Case strFieldType
+           Case "int", "str", "cmbfld","cmbstr","cmbint", "cbx", "sav"
+                Execute "objDialog." & objField & ".Keys("& """" & FieldValue & """" & ")"
+                Delay(20)
+                'Execute T1
+                Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+                Delay(20)
+                'Execute T2
+                If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) OR (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+                  Call Main.NegativeTest(objNameMapping)
+                  Execute "objDialog." & objField & ".Keys(""^z"")"
+                  Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+                  'Execute T3
+                  Log.Message("The Value '" &  FieldValue & "' in '"& strFieldName &"' field not accepted.Changes reverted")
+                Else 
+                  Log.Error("The Value '" &  FieldValue & "' in '"& strFieldName &"' field accepted.Changes reverted")
+                  Project.Variables.strTestResult = "Fail"      
+                End If
+                'Exception : If the Ctrl-Z not work and the field need a value to move the test
+                If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) OR (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+                  Call Main.NegativeTest(objNameMapping)
+                  Select Case strFieldType
+                  Case "int"
+                    intValue = "1"
+                    Execute "objDialog." & objField & ".Keys("& """" & intValue & """" & ")"
+                  Case "str"
+                  strValue = "RIGID"
+                    Execute "objDialog." & objField & ".Keys("& """" & strValue & """" & ")"
+                  End Select
+                End If  
+      
+            Case "drp", "cmb"
+            FieldValue = "*" & FieldValue & "*"
+                    Execute "objDialog." & objField & ".ClickItem("& """" & FieldValue & """" & ")"
+            
+            Case "chk"
+                  Dim chkState
+                  Execute "chkState = objDialog." & objField & ".wState" 
+                  
+                  If( CInt(FieldValue) <> CInt(chkState) )Then
+                    Execute "objDialog." & objField & ".Click"
+                    'Execute T1
+                    Log.Message("Checkbox '" & strFieldName &" state has been changed ")
+                  End If
+             Case "rad"
+          End Select
+
+        Case "dialogvalidation"
+          Select Case strFieldType
+            Case "str","int"
+              Dim strBenchmarkValue
+              Execute "strBenchmarkValue = objDialog." & objField & ".wText" 
+              '.. Tab the field
+              'Dim Enabled
+              Execute "Enabled = objDialog." & objField & ".Enabled"
+              If Enabled Then
+              Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+              End IF
+          
+              '..Check Value is numeric or string
+              If IsNumeric(strBenchmarkValue)Then
+                If (INT(FieldValue) <> INT(strBenchmarkValue)) Then 
+                Project.Variables.strTestResult = "Fail"
+                Log.Error("'"& strFieldName &"'- Actual value: '"& Trim(strBenchmarkValue)  &"' is not matching with expected '" & FieldValue  &"' value")
+                Else
+                Log.Message("'"& strFieldName &"'- Actual value: '"& Trim(strBenchmarkValue)  &"' has been matched with expected '" & FieldValue  &"' value")
+                End If
+              Else
+              'Execute T3
+              If (LCase(Trim(FieldValue)) <> LCase(Trim(strBenchmarkValue))) Then 
+                Project.Variables.strTestResult = "Fail"
+                Log.Error("'"& strFieldName &"'- Actual value: '"& Trim(strBenchmarkValue)  &"' is not matching with expected '" & FieldValue  &"' value")
+              Else
+                Log.Message("'"& strFieldName &"'- Actual value: '"& Trim(strBenchmarkValue)  &"' has been matched with expected '" & FieldValue  &"' value")
+              End If
+             End If 
+            Case "intDelete" 'Delete the CASE if all tests passes
+              Dim intValue
+              Execute "intValue = objDialog." & objField & ".wText"
+              '.. Tab the field
+              'Dim Enabled
+              Execute "Enabled = objDialog." & objField & ".Enabled"
+              If Enabled Then
+              Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+              End IF
+              
+               
+              'If (CINT(FieldValue) <> CINT(intValue)) Then 
+              
+              
+              
+          If (INT(FieldValue) <> INT(intValue)) Then 
+                Project.Variables.strTestResult = "Fail"
+                Log.Error("'"& strFieldName &"'- Actual value: '"& Trim(intValue)  &"' is not matching with expected '" & FieldValue  &"' value")
+              Else
+                Log.Message("'"& strFieldName &"'- Actual value: '"& Trim(intValue)  &"' has been matched with expected '" & FieldValue  &"' value")
+              End If
+ 
+            Case "drp"
+              Dim drpValue
+              ''if objDialog.objfield
+              Execute "drpValue =" & "objDialog." & objField &".wItem(objDialog." & objField &".wSelectedItem)" 'objdialog.cmbboxPipeIdentifier.fldPipeIdentifier
+            
+             
+              '.. Tab the field
+              'Dim Enabled
+              Execute "Enabled = objDialog." & objField & ".Enabled"
+              If Enabled Then
+              Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+              End IF
+              If (LCase(Trim(FieldValue)) <> LCase(Trim(drpValue))) Then
+                Project.Variables.strTestResult = "Fail"
+                Log.Error("'"& strFieldName &"'- Actual value: '"& Trim(FieldValue)  &"' is not matching with expected '" & Trim(drpValue)  &"' value")
+              Else
+                Log.Message("'"& strFieldName &"'- Actual value: '"& Trim(FieldValue)  &"' has been matched with expected '" & Trim(drpValue)  &"' value")
+              End If
+           Case "cmb","cmbfld","cmbstr","cmbint"
+              Dim cmbValue
+              ''if objDialog.objfield
+              'Aliases.autopipe.dlgBeamSectionProperties.cmbboxMaterialName.fldMaterialName.wText
+            '  Execute "cmbValue =" & "objDialog." & objField &".wText" 'objdialog.cmbboxPipeIdentifier.fldPipeIdentifier
+             Execute "cmbValue = objDialog." & objField & ".wText" 
+             
+              '.. Tab the field
+              'Dim Enabled
+              Execute "Enabled = objDialog." & objField & ".Enabled"
+              If Enabled Then
+              Execute "objDialog." & objField & ".Keys(""[Tab]"")"
+              End IF
+              If (LCase(Trim(FieldValue)) <> LCase(Trim(cmbValue))) Then
+                Project.Variables.strTestResult = "Fail"
+                Log.Error("'"& strFieldName &"'- Actual value: '"& Trim(FieldValue)  &"' is not matching with expected '" & Trim(cmbValue)  &"' value")
+              Else
+                Log.Message("'"& strFieldName &"'- Actual value: '"& Trim(FieldValue)  &"' has been matched with expected '" & Trim(cmbValue)  &"' value")
+              End If
+             
+
+            Case "Delete"
+              objField = "cmbbox" & strFieldName
+            Case "chk"  
+'              objField = "chkbox" & strFieldName
+                Dim chkboxState
+                  Execute "chkboxState = objDialog." & objField & ".wState" 
+                  If( CInt(FieldValue) = CInt(chkboxState) )Then
+                    'Execute "objDialog." & objField & ".Click"
+                    'Execute T1
+                    Log.Message("Checkbox '" & strFieldName &" state matched ")
+                  Else
+                    Log.Error("Checkbox '" & strFieldName &" state not matched ")
+                  End If
+
+            Case "rad"
+        End Select
+           
+      End Select
+    End If     
+  End If
+
+End Sub
+
+Sub CloseDialog (objNameMapping,objData, strOpenDialog, strHotKey, strVerificationType,objDialog, strDlgNameMap, strUIMethod, strTableName, strDlgNegativeTest)
+Select Case strVerificationType
+  
+Case "dialogvalidation"      
+ 
+  Execute "objDialog" & ".btnCancel.Click()"
+
+      
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+ 
+''''''   'For each myKey in objRow.Keys
+''''''    Log.Message("Key :" & myKey )
+''''''        For each myKey in objRow.Keys
+''''''    Log.Message("Key :" & myKey )
+''''''    Log.Message("Value :" & objRow.Item(myKey) )
+'''''    Next
+   
+'' if verification type is fild verification
+'''select inserted value from dropdown
+'''click ok
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+  Case "negative"
+        'Call dlgBend.btnCancel.Click()
+        Execute "objDialog" & ".btnCancel.Click()"
+  
+  Case "image"
+        Dim imgDialog : imgDialog = "objNameMapping."&strDlgNameMap
+  
+        If(Project.Variables.strBenchmarkImage <> "") Then
+          If Not Regions.Compare(Project.Variables.strBenchmarkImage, imgDialog) Then 'Compare benchmark snap against the object open on screen
+            Log.Error("Dialog Bend snapTest Failed")
+            Project.Variables.strTestResult = "Fail"                                          'Set global test variable to Fail
+          Else
+            Log.Message (strDlgNameMap & " snapTest Passed")
+          End If
+          
+          Execute "objDialog" & ".btnOK.Click()"
+          Log.Message (strDlgNameMap & " Closed with OK")
+        End If
+        Log.Message (strDlgNameMap & " Closed with OK")
+        Execute "objDialog" & ".btnOK.Click()" ' Close the dialog
+  Case "positive","positive+report", "report"
+  
+      
+        Execute "objDialog" & ".btnOK.Click()"
+        
+        
+        Log.Message (strDlgNameMap & " Closed with OK")
+
+
+  Case "report"
+        Execute "objDialog" & ".btnOK.Click()"
+        Log.Message (strDlgNameMap & " Closed with OK")
+End Select
+
+End Sub
+
+Sub DialogVerification(objNameMapping, objData, strOpenDialog, strHotKey, strDlgNameMap, strUIMethod, strTableName, strDlgVerification, strDlgNegativeTest)
+  
+    Dim replace
+    strOrigionalVerificationType = Project.Variables.strTCTestType
+    strOriginalHotKeyKey =  strHotKey
+    replace   = aqString.SubString(strHotKey,0,1)
+    strHotKey = aqstring.Replace(strHotKey,replace,"M")
+
+'..Modify variables for field verification test
+    Project.Variables.strTCTestType = "dialogvalidation"
+    AppendLogFolder("Dialog Verification")
+    'Log.Message("Fields Verification")
+   'Call same function for field verification
+    Call UIEngineMain( objNameMapping, objData, strOpenDialog, strHotKey, strDlgNameMap, strUIMethod, strTableName, strDlgVerification, strDlgNegativeTest)
+    strHotKey = strOriginalHotKeyKey ' Revert shortcut key to the Original
+    Project.Variables.strTCTestType = strOrigionalVerificationType
+    PopLogFolder
+End Sub
+
+Function objDataFilter(objData, arrSkipList)
+  If ISEmpty(arrSkipList) Then
+  Set objDataFilter = objData
+    Exit Function
+  End If
+  
+  Dim objRowCopy
+  Set objRowCopy = CreateObject("Scripting.Dictionary")
+  
+  For Each objRowKey In objData.Keys
+      objRowValue = objData.Item(objRowKey)
+      objRowCopy.Add objRowKey,objRowValue
+  Next
+  
+  For Each objRowCopyKey In objRowCopy.Keys
+    For Each SkipFieldName in arrSkipList
+      IF objRowCopyKey = SkipFieldName And objRowCopy.Exists(objRowCopyKey) Then
+        objRowCopy.Remove(objRowCopyKey)
+      End If 
+    Next
+  Next
+      
+  For Each RowCopyKey In objRowCopy.Keys
+    value = objRowCopy.Item(RowCopyKey)
+    IF value = "NA" Then
+      objRowCopy.Remove(RowCopyKey)
+    End If
+  Next
+  Set objDataFilter = objRowCopy
+
+End Function
+
+Function objDataModify(objRowFiltered,objModifyList)
+  
+  For Each ModifyField In objModifyList.Keys  
+      For Each ObjRowFilterKey In objRowFiltered.Keys
+          If ObjRowFilterKey = ModifyField Then
+              strKey = objModifyList.Item(ModifyField)
+              strValue = objRowFiltered.Item(ObjRowFilterKey)
+              If objRowFiltered.Exists(strKey) Then
+                objRowFiltered.Remove strKey
+              End If
+              'objRowFiltered.Remove ObjRowFilterKey
+              'objRowFiltered.add strKey,strValue
+              objRowFiltered.Key(ObjRowFilterKey) = strKey
+          End If
+      Next
+  Next
+
+'    If strVerificationType = "dialogvalidation" Then
+'        For each myKey in objRow.Keys
+'    Log.Message("Key :" & myKey )
+'    Log.Message("Value :" & objRow.Item(myKey) )
+'    Next
+'    End If
+
+Set objDataModify = objRowFiltered
+End Function
+

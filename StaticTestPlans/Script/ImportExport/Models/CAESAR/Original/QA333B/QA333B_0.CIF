@@ -1,0 +1,71 @@
+---------------------------------------------------------------------------------------------------------------------------
+
+                              C A E S A R   R I G I D   C O M P O N E N T S   I M P O R T                                  
+
+---------------------------------------------------------------------------------------------------------------------------
+
+ Selected Standard : B16-47 2006 & B16-5 2009
+
+ Selected Type     : All
+
+ Selected Rating   : All
+
+ NPS Tolerance     :  5.0 %
+
+ Length Tolerance  : 10.0 %
+
+ From      To        Standard        Pipe OD   Actual NPS  Actual Len     Actual    Type          Lib.       Comments      
+                                                Lib. NPS    Lib. Len      Weight                 Rating*                   
+                                      (mm)        (mm)        (mm)         (Kg)                                            
+ ------  ------  -----------------  ---------  ----------  -----------  ---------- ----------  ----------  ----------------
+     30      35          -             60.324      50.000        0.254     113.400     -           -       Mapped to Valve
+
+     65      70          -            165.559     150.000        2.540      23.587     -           -       Mapped to Valve
+
+     70      80          -            165.559     150.000      915.223     290.304     -           -       Mapped to Valve
+
+     80      85          -            165.559     150.000        2.540      23.587     -           -       Mapped to Valve
+
+    135     140          -            268.416     250.000        2.540       2.268     -           -       Mapped to Valve
+
+    150     160          -            268.416     250.000     1218.600       9.254     -           -       Mapped to Valve
+
+    190     195          -            268.416     250.000        2.540       2.948     -           -       Mapped to Valve
+
+    195     205          -            268.416     250.000      304.800       4.536     -           -       Mapped to Valve
+
+    205     210          -            268.416     250.000        2.540       3.402     -           -       Mapped to Valve
+
+    220     230  B16-5 2009           268.416     250.000      457.200      21.319  Weldneck      2500     Mapped to Flange
+                                                  250.000      419.100  
+    240     250  B16-5 2009           268.416     250.000      457.200      20.866  Weldneck      2500     Mapped to Flange
+                                                  250.000      419.100  
+    270     280  B16-5 2009           268.416     250.000      457.200       4.536  Weldneck      2500     Mapped to Flange
+                                                  250.000      419.100  
+    290     295          -            268.416     250.000        2.540       8.618     -           -       Mapped to Valve
+
+    295     300          -            268.416     250.000        2.540       8.618     -           -       Mapped to Valve
+
+    320     330  B16-5 2009           268.416     250.000      381.000      32.659  Weldneck      2500     Mapped to Flange
+                                                  250.000      419.100  
+    340     350          -            268.416     250.000      304.800       4.536     -           -       Mapped to Valve
+
+    360     365          -            268.416     250.000        2.540      41.700     -           -       Mapped to Valve
+
+    390     400          -            268.416     250.000      368.300      58.968     -           -       Mapped to Valve
+
+    410     420  B16-5 2009           268.416     250.000      381.000       4.536  Weldneck      2500     Mapped to Flange
+                                                  250.000      419.100  
+    430     440  B16-5 2009           268.416     250.000      457.200     283.500  Weldneck      2500     Mapped to Flange
+                                                  250.000      419.100  
+    600     605          -            268.416     250.000        2.540       2.268     -           -       Mapped to Valve
+
+    725     735          -            414.632     400.000      915.223     290.304     -           -       Mapped to Valve
+
+    795     805          -            351.558     350.000     1218.600      62.397     -           -       Mapped to Valve
+
+    835     840          -            351.558     350.000        2.540       2.948     -           -       Mapped to Valve
+
+
+   * Library flange rating is the rating value of matching flange record from flange dimension library.
+     Rating of flanges in imported AutoPIPE model may be different and is dependent on piping code of the model.

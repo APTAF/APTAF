@@ -1,0 +1,315 @@
+----------------------------------------------------------------------------------------------------------------
+ModelB311                                                                                                       
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+<IGNORE>
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+<IGNORE>
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+ModelB311                                                                                                       
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : ModelB311                                       
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2016                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-16 
+ 
+<IGNORE>
+
+----------------------------------------------------------------------------------------------------------------
+ModelB311                                                                                                       
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                              D E S C R I P T I O N                                                             
+                              ---------------------                                                             
+                                                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+ModelB311                                                                                                       
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Valve...........................................................................    1                      
+
+----------------------------------------------------------------------------------------------------------------
+ModelB311                                                                                                       
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    V A L V E   D A T A   L I S T I N G                                                         
+                              Valve   Actuator       Actuator                            Size  Type             
+ Point          Dnom  Length  Weight  Weight    DX      DY      DZ          Joint        /Avg. /Max.            
+ Name   Type    (in)   (ft)   (lb)    (lb)     (ft)    (ft)    (ft)    SAF  Type    SIF  (in)  (in)             
+ ----- -------- ---- -------- ------  ------  ------- ------- ------- ----- ------- ---- ----- -----            
+ 
+ Tag No. : <None>                                                               
+ A01   CATALOG    12     1.65    580                                   4.00 BW      1.00  0.00  0.00            
+ 
+ Tag No. : <None>                                                               
+ A02   CATALOG    12     1.17    650                                   4.00 BWT     1.42  0.00                  
+ 
+ Tag No. : <None>                                                               
+ A03   CATALOG    12     1.65    890                                   5.00 DWSO    1.20                        
+ 
+ Tag No. : <None>                                                               
+ A04   CATALOG    12     1.65   1020                                   5.00 LJ      1.60                        
+ 
+ Tag No. : <None>                                                               
+ A05   CATALOG    12     2.50      0                                   5.50 SW      1.30                        
+ 
+ Tag No. : <None>                                                               
+ A06   CATALOG    12     2.75   1800                                   7.00 SWN     1.30                        
+ 
+ Tag No. : <None>                                                               
+ A07   CATALOG    12     2.75   2100                                   7.00 TJ      2.30                        
+ 
+ Tag No. : <None>                                                               
+ A08   CATALOG    12     1.90      0                                   2.00 TJ      2.30                        
+ 
+ Tag No. : <None>                                                               
+ A09   CATALOG    12     3.17   2900                                   7.20 USER   999.0                        
+ 
+ Tag No. : <None>                                                               
+ A10   CATALOG    12     3.17   3400                                   7.20 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A11   CATALOG    12     3.71   6300                                   2.00 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A12   CATALOG    12     3.71   7300                                   2.00 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A13   CATALOG    12     4.67      0                                   2.00 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A14   CATALOG    12     1.00      0                                   0.00 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A15   CATALOG    12     2.08   1289                                   0.00 WN      1.00                        
+ 
+ 
+ Size/Avg. = Weld Size for SO/SW, Avg. offset for BW, Joint offset for BWT      
+ Type/Max. = Socket welding type for SW, Maximum offset for BW,                 
+             Concave or Convex for SW and SO (JSME)                             
+
+----------------------------------------------------------------------------------------------------------------
+ModelB311                                                                                                       
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : A01                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A02                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : FL                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A03                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 300                                                              
+                                                                                
+ Point Name  : A04                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : FL                                                               
+ Rating      : 300                                                              
+                                                                                
+ Point Name  : A05                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 400                                                              
+                                                                                
+ Point Name  : A06                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 600                                                              
+                                                                                
+ Point Name  : A07                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : FL                                                               
+ Rating      : 600                                                              
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+ModelB311                                                                                                       
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : A08                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 800                                                              
+                                                                                
+ Point Name  : A09                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 900                                                              
+                                                                                
+ Point Name  : A10                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : FL                                                               
+ Rating      : 900                                                              
+                                                                                
+ Point Name  : A11                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 1500                                                             
+                                                                                
+ Point Name  : A12                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : FL                                                               
+ Rating      : 1500                                                             
+                                                                                
+ Point Name  : A13                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 2500                                                             
+                                                                                
+ Point Name  : A14                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Ball Valves                                                      
+ Type        : Ball Valve Side Entry                                            
+ Main End    : FL                                                               
+ Rating      : 75                                                               
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+ModelB311                                                                                                       
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : A15                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Ball Valves                                                      
+ Type        : Ball Valve Side Entry                                            
+ Main End    : FL                                                               
+ Rating      : 150                                                              
+                                                                                
+

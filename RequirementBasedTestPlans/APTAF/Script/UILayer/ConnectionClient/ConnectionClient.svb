@@ -1,0 +1,57 @@
+﻿'USEUNIT Main
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "Connection Client" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : Table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : Dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   Bilal.Tahir
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function Signin( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+      
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase", "intVerificationRow", "Comments")
+            Signin = arrSkipList
+            case else
+            arrSkipList = Array("TestCase", "VerificationRow", "Comments")
+            Signin = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+          Dim objVerifySchema
+          Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+          Set Signin = objVerifySchema     
+
+    Case "PreAction"
+     Select Case VerificationType
+     case "dialogvalidation"
+       Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+           Set Signin = objActionSchema
+     case else
+          Call AppendLogFolder("Pre-Test Actions")
+          Log.Message("No pre-test action performed")
+          Call PopLogFolder
+  end select
+    Case "PostAction"
+          Call AppendLogFolder("Post-Test Actions")
+          Log.Message("No post-test action performed")
+          Call PopLogFolder
+    End Select
+End Function
+
+

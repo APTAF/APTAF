@@ -1,0 +1,193 @@
+﻿'USEUNIT tabFile
+'USEUNIT Main
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                   Save                      ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function SaveAs( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+
+  Dim arrSkipList
+
+  Select Case Action
+    
+    Case "RemoveFields"
+      Select Case VerificationType
+       
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase", "intVerificationRow", "Comments")
+            SaveAs = arrSkipList
+       Case else
+            arrSkipList = Array("TestCase", "strPath", "drpSaveAsType", "btnReplaceYesNo")
+            SaveAs = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+    Select Case VerificationType
+       
+        Case "dialogvalidation"
+           Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+            Set SaveAs = objVerifySchema
+        Case Else
+             Dim objVerifySchema1
+            Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+            Set SaveAs = objVerifySchema1
+          End select
+
+    Case "PreAction"
+     Select Case VerificationType
+     Case "dialogvalidation"
+      AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions performed")
+        PopLogFolder
+'      Dim objActionSchema
+'      Set objActionSchema = CreateObject("Scripting.Dictionary")
+'      Set SaveAs = objActionSchema
+     Case else
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions performed")
+        PopLogFolder
+     End Select
+  
+    Case "PostAction"
+    Select Case VerificationType
+     Case "dialogvalidation"
+        AppendLogFolder("Post-Test Actions")
+        Call PopupsClose(objNameMapping)
+
+        PopLogFolder
+         Case else
+        AppendLogFolder("Post-Test Actions")
+        Call PopupsClose(objNameMapping)
+
+        PopLogFolder
+    End Select
+    End Select
+End Function
+'  Function SaveAs( Action, objData, FieldName , VerificationType, objNameMapping)
+'  Dim Result
+'
+'  Dim arrSkipList
+'
+'  Select Case Action
+'    
+'    Case "RemoveFields"
+'      Select Case VerificationType
+'        Case "positive", "positive+report","negative", "report", "image"
+'            arrSkipList = Array("TestCase", "strPath", "drpSaveAsType", "btnReplaceYesNo")
+'            SaveAs = arrSkipList
+'        Case "dialogvalidation"
+'            arrSkipList = Array("TestCase", "intVerificationRow", "Comments")
+'            SaveAs = arrSkipList
+'      End Select
+'    
+'    Case "ModifyFields"
+'                Dim objVerifySchema
+'            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            Set SaveAs = objVerifySchema
+'
+'    Case "PreTestModifyFields"
+'      Dim objActionSchema
+'      Set objActionSchema = CreateObject("Scripting.Dictionary")
+'      Set SaveAs = objActionSchema
+'
+'    Case "PreTest"
+'        AppendLogFolder("Pre-Test Actions")
+'        Log.Message("No pre-test actions performed")
+'        PopLogFolder
+'  
+'    Case "PostTest"
+'        AppendLogFolder("Post-Test Actions")
+'        Call PopupsClose(objNameMapping)
+'
+'    PopLogFolder
+'
+'    End Select
+'  End Function
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "SaveAs" model dialog   
+' Remarks:
+' Parameters:
+'           
+'           ObjNameMapping: TestComplete name mapping for the app.
+'           objRow:    SaveAs table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click
+'           strHotKey 
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function SaveAs1( Action, objRowCopy,  FieldName , strVerificationType, objNameMapping)
+
+
+'Log.PopLogFolder
+'    Log.AppendFolder("Using the 'SaveAS' dialog")
+    Set dlgSaveAs = objNameMapping.dlgSaveAs
+   
+ 
+    Dim strPath :  strPath = objRow.Item("strPath") 
+    Dim cmbFileName : cmbFileName = objRow.Item("cmbFileName")
+    Dim strFileName: strFileName = strPath & "\" & cmbFileName
+
+    Select Case strOpenDialog
+        Case "Shortcut"
+        'aqutils.Delay(600)
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+'Get file name and location
+    If(strPath = "Temp") then
+        'strPath = Sys.OSInfo.TempDirectory    
+        strPath = "%temp%"
+        strFileName = strPath &"\"& cmbFileName
+    End If
+    If(cmbFileName <> "NA") Then
+     'Write to the "File Name" field
+        If(objNameMapping.WaitAliasChild("dlgSaveAs", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSaveAs.DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName.Keys(strFileName)
+          dlgSaveAs.DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName.Keys("[Tab]")
+          Log.Message("Entered " & cmbFileName & " in the 'File Name' combo-box")
+        End If       
+    End If
+   'aqutils.Delay(200)
+    Call dlgSaveAs.btnSave.Click()
+    
+    
+    If(objNameMapping.WaitAliasChild("dlgConfirmSaveAs", 60).WaitProperty("Exists", true, 10)) Then
+         Aliases.autopipe.dlgConfirmSaveAs.CtrlNotifySink.CtrlNotifySink.btnYes.ClickButton
+          Log.Message("Model replaced")
+     End If 
+     If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Then
+         Aliases.autopipe.dlgError.btnOK.ClickButton()
+          Log.Message("ERROR: OK button Clicked - Message: E512-67: The model cannot be saved as at the new directory for editing")
+     End If 
+     Aliases.autopipe.dlgError
+           
+      If(objNameMapping.WaitAliasChild("dlgNote", 60).WaitProperty("Exists", true, 10)) Then
+        objNameMapping.dlgNote.btnOK.Click()
+        Log.Message(dlgNote & " OK button click. Message :"& objNameMapping.dlgNote.lblTitle)
+      End If
+      
+      
+
+End Function

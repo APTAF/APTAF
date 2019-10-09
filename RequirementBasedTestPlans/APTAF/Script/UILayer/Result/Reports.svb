@@ -1,0 +1,2534 @@
+﻿'USEUNIT tabInsert
+'USEUNIT tabModify
+'USEUNIT Main
+'USEUNIT UIEngine
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function OutputReport( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase", "VerificationRow", "Comments")
+            OutputReport = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase", "intVerificationRow", "Comments")
+            OutputReport = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set OutputReport = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set OutputReport = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function InputListReport(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            InputListReport= arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            InputListReport= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+
+   Select Case VerificationType
+            
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set InputListReport= objVerifySchema
+      'CASE  ACTION
+      Case Else
+       
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set InputListReport= objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No post-test validation action performed")
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+
+Function InputListReport2( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+
+  Dim arrSkipList
+
+  Select Case Action
+    
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            InputListReport = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            InputListReport = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            'Dim objRowModify
+            'Set objRowModify = CreateObject("Scripting.Dictionary")
+'            objRowModify.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objRowModify.Add "drpBendType", "cmbRadius"    
+            Set InputListReport = objData
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+    
+    Case "PreTestModifyFields"
+      Dim objRowModify1
+      Set objRowModify1 = CreateObject("Scripting.Dictionary")
+      
+      Set InputListReport = objRowModify1
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+       
+
+  
+End Select
+End Function
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ShowLiftOffSupports" dialog   
+' Remarks: 
+' Parameters:
+'           strOperator:    Insert or Modify
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       ShowLiftOffSupports table object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:      ShowLiftOffSupports dialog shortcut key
+
+' Modified By:Bismah khalid
+' Date 7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+
+Sub ShowLiftOffSupports(objNameMapping, objRow, strOpenDialog, strHotKey)
+'
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+   Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+             'Ribbon is not accessable 
+    End Select
+
+  End Sub
+  
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "CodeStressResultFilter" dialog   
+' Remarks: 
+' Parameters:
+'           strOperator:    Insert or Modify
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         CodeStressResultFilter table object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:      CodeStressResultFilter dialog shortcut key
+
+' Modified By:Bismah khalid
+' Date 7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+
+Sub CodeStressResultFilter (objNameMapping, objRow, strOpenDialog, strHotKey)
+'
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+set dlgCodeStressResultFilter = objNameMapping.dlgCodeStressResultFilter
+'''''''''''''''''''
+
+Dim drpdwnLogicalMethod : drpdwnLogicalMethod = objRow.item("drpdwnLogicalMethod")
+Dim chkboxCodeStress : chkboxCodeStress= objRow.item("chkboxCodeStress")
+Dim chkboxStressRatio : chkboxStressRatio= objRow.item("chkboxStressRatio")
+Dim intCodeStress1 : intCodeStress1=  objRow.item("intCodeStress1")
+Dim intCodeStress2 : intCodeStress2=  objRow.item("intCodeStress2")
+Dim intStressRatio1 : intStressRatio1=  objRow.item("intStressRatio1")
+Dim intStressRatio2 : intStressRatio2=  objRow.item("intStressRatio2")
+Dim drpdwnCodeStress : drpdwnCodeStress=  objRow.item("drpdwnCodeStress")
+Dim drpdwnStressRatio : drpdwnStressRatio=  objRow.item("drpdwnStressRatio")
+
+  aqUtils.Delay(2000)
+   Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+             'Ribbon is not accessable 
+    End Select
+  aqUtils.Delay(2000)
+    
+'Dim drpdwnLogicalMethod 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnLogicalMethod  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgCodeStressResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgCodeStressResultFilter.drpdwnLogicalMethod.Keys(drpdwnLogicalMethod)
+          Log.Message("Entered drpdwnLogicalMethod field")
+        End If       
+    End If
+End If
+
+'Dim chkboxCodeStress : chkboxCodeStress= objRow.item("chkboxCodeStress")
+ If(chkboxCodeStress  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgCodeStressResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgCodeStressResultFilter.chkboxCodeStress.Click()
+         
+          Log.Message("entered value in chkboxCodeStress field")
+        End If
+    End If  
+    
+' chkboxStressRatio
+ If(chkboxStressRatio  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgCodeStressResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgCodeStressResultFilter.chkboxStressRatio.Click()
+         
+          Log.Message("entered value in chkboxStressRatio field")
+        End If
+    End If  
+
+' intCodeStress1
+ If(intCodeStress1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgCodeStressResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          
+           If(objNameMapping.dlgCodeStressResultFilter.fldCodeStress1.Enabled) Then
+           dlgCodeStressResultFilter.fldCodeStress1.Keys(intCodeStress1)
+          Log.Message("Entered in the intCodeStress1 field")
+           
+    
+        End If
+    End If
+    End If
+    
+'''''' intCodeStress2 
+If(intCodeStress2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgCodeStressResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          
+           If(objNameMapping.dlgCodeStressResultFilter.fldCodeStress2.Enabled) Then
+           dlgCodeStressResultFilter.fldCodeStress2.Keys(intCodeStress2)
+          Log.Message("Entered in the intCodeStress2 field")
+           
+    
+        End If
+    End If
+    End If
+    
+'''' intStressRatio1
+If(intStressRatio1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgCodeStressResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          
+           If(objNameMapping.dlgCodeStressResultFilter.fldStressRatio1.Enabled) Then
+           dlgCodeStressResultFilter.fldStressRatio1.Keys(intStressRatio1)
+          Log.Message("Entered in the intStressRatio1 field")
+           
+    
+        End If
+    End If
+    End If
+
+'''' intStressRatio2 
+If(intStressRatio2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgCodeStressResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+          
+           If(objNameMapping.dlgCodeStressResultFilter.fldStressRatio2.Enabled) Then
+           dlgCodeStressResultFilter.fldStressRatio2.Keys(intStressRatio2)
+          Log.Message("Entered in the intStressRatio2 field")
+           
+    
+        End If
+    End If
+    End If
+
+' drpdwnCodeStress
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnCodeStress  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgCodeStressResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgCodeStressResultFilter.drpdwnCodeStress.Keys(drpdwnCodeStress)
+          Log.Message("Entered drpdwnCodeStress field")
+        End If       
+    End If
+End If
+
+' drpdwnStressRatio 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnStressRatio  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgCodeStressResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgCodeStressResultFilter.drpdwnStressRatio.Keys(drpdwnStressRatio)
+          Log.Message("Entered drpdwnStressRatio field")
+        End If       
+    End If
+End If
+   aqUtils.Delay(3000)
+  dlgCodeStressResultFilter.btnOK.Click()
+    
+
+
+  End Sub
+  
+    
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Displacement" dialog   
+' Remarks: 
+' Parameters:
+'           strOperator:    Insert or Modify
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       Input list report table object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:      Input list report dialog shortcut key
+
+' Modified By:Bismah khalid
+' Date 7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+
+Sub Displacement (objNameMapping, objRow, strOpenDialog, strHotKey)
+'
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+set dlgDisplacement = objNameMapping.dlgDisplacement
+
+'''''''''''''''''''
+Dim drpdwnLogicalMethod : drpdwnLogicalMethod = objRow.item("drpdwnLogicalMethod")
+Dim chkboxDX : chkboxDX=  objRow.item("chkboxDX")
+Dim chkboxDXAbs: chkboxDXAbs= objRow.item("chkboxDXAbs")
+Dim intDXAbs1: intDXAbs1= objRow.item("intDXAbs1")
+Dim intDXAbs2: intDXAbs2= objRow.item("intDXAbs2")
+Dim chkboxDY: chkboxDY= objRow.item("chkboxDY")
+Dim chkboxDYAbs: chkboxDYAbs= objRow.item("chkboxDYAbs")
+Dim drpdwnDYAbs: drpdwnDYAbs= objRow.item("drpdwnDYAbs")
+Dim intDYAbs1: intDYAbs1= objRow.item("intDYAbs1")
+Dim intDYAbs2: intDYAbs2= objRow.item("intDYAbs2")
+Dim chkboxDZ: chkboxDZ= objRow.item("chkboxDZ")
+Dim chkboxDZAbs: chkboxDZAbs= objRow.item("chkboxDZAbs")
+Dim drpdwnDZAbs: drpdwnDZAbs= objRow.item("drpdwnDZAbs")
+Dim intDZAbs1: intDZAbs1= objRow.item("intDZAbs1")
+Dim intDZAbs2: intDZAbs2= objRow.item("intDZAbs2")
+Dim chkboxRX: chkboxRX= objRow.item("chkboxRX")
+Dim chkboxRXAbs: chkboxRXAbs= objRow.item("chkboxRXAbs")
+Dim drpdwnRXAbs: drpdwnRXAbs= objRow.item("drpdwnRXAbs")
+Dim intRXAbs1: intRXAbs1= objRow.item("intRXAbs1")
+Dim intRXAbs2: intRXAbs2= objRow.item("intRXAbs2")
+Dim chkboxRY: chkboxRY= objRow.item("chkboxRY")
+Dim chkboxRYAbs: chkboxRYAbs= objRow.item("chkboxRYAbs")
+Dim drpdwnRYAbs: drpdwnRYAbs= objRow.item("drpdwnRYAbs")
+Dim intRYAbs1: intRYAbs1= objRow.item("intRYAbs1")
+Dim intRYAbs2: intRYAbs2= objRow.item("intRYAbs2")
+Dim chkboxRZ: chkboxRZ= objRow.item("chkboxRZ")
+Dim chkboxRZAbs: chkboxRZAbs= objRow.item("chkboxRZAbs")
+Dim drpdwnRZAbs: drpdwnRZAbs= objRow.item("drpdwnRZAbs")
+Dim intRZAbs1: intRZAbs1= objRow.item("intRZAbs1")
+Dim intRZAbs2: intRZAbs2= objRow.item("intRZAbs2")
+
+  aqUtils.Delay(2000)
+   Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+             'Ribbon is not accessable 
+    End Select
+  aqUtils.Delay(2000)
+ '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''' drpdwnLogicalMethod 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnLogicalMethod  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.drpdwnLogicalMethod.Keys(drpdwnLogicalMethod)
+          Log.Message("Entered drpdwnLogicalMethod field")
+        End If       
+    End If
+End If
+
+'''' chkboxDX
+ If(chkboxDX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxDX.Click()
+         
+          Log.Message("entered value in chkboxDX field")
+        End If
+    End If  
+    
+'Dim chkboxDXAbs: 
+If(chkboxDXAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxDXAbs.Click()
+         
+          Log.Message("entered value in chkboxDXAbs field")
+        End If
+    End If  
+
+'''' intDXAbs1
+If(intDXAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldDXAbs1.Enabled) Then
+           dlgDisplacement.fldDXAbs1.Keys(intDXAbs1)
+          Log.Message("Entered in the intDXAbs1 field")
+           
+        End If
+    End If
+    End If
+    
+'''intDXAbs2
+If(intDXAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldDXAbs2.Enabled) Then
+           dlgDisplacement.fldDXAbs2.Keys(intDXAbs2)
+          Log.Message("Entered in the intDXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+'''' chkboxDY:
+If(chkboxDY  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxDY.Click()
+         
+          Log.Message("entered value in chkboxDY field")
+        End If
+    End If  
+    
+'''' chkboxDYAbs
+If(chkboxDYAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxDYAbs.Click()
+         
+          Log.Message("entered value in chkboxDYAbs field")
+        End If
+    End If  
+
+''' drpdwnDYAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnDYAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.drpdwnDYAbs.Keys(drpdwnDYAbs)
+          Log.Message("Entered drpdwnDYAbs field")
+        End If       
+    End If
+End If
+
+''' intDYAbs1
+If(intDYAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldDYAbs1.Enabled) Then
+           dlgDisplacement.fldDYAbs1.Keys(intDYAbs1)
+          Log.Message("Entered in the intDXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+''' intDYAbs2
+If(intDYAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldDYAbs2.Enabled) Then
+           dlgDisplacement.fldDYAbs2.Keys(intDYAbs2)
+          Log.Message("Entered in the intDYAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+    
+''' chkboxDZ
+If(chkboxDX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxDX.Click()
+         
+          Log.Message("entered value in chkboxDX field")
+        End If
+    End If  
+'Dim chkboxDZAbs
+If(chkboxDZAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxDZAbs.Click()
+         
+          Log.Message("entered value in chkboxDZAbs field")
+        End If
+    End If
+
+''' drpdwnDZAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnDZAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.drpdwnDZAbs.Keys(drpdwnDZAbs)
+          Log.Message("Entered drpdwnDZAbs field")
+        End If       
+    End If
+End If
+
+'''' intDZAbs1
+If(intDZAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldDZAbs1.Enabled) Then
+           dlgDisplacement.fldDZAbs1.Keys(intDZAbs1)
+          Log.Message("Entered in the intDZAbs1 field")
+           
+        End If
+    End If
+    End If
+
+'Dim intDZAbs2
+If(intDZAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldDZAbs2.Enabled) Then
+           dlgDisplacement.fldDZAbs2.Keys(intDZAbs2)
+          Log.Message("Entered in the intDZAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+'Dim chkboxRX
+If(chkboxRX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxRX.Click()
+         
+          Log.Message("entered value in chkboxRX field")
+        End If
+    End If
+    
+''' chkboxRXAbs
+If(chkboxRXAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxRXAbs.Click()
+         
+          Log.Message("entered value in chkboxRXAbs field")
+        End If
+    End If
+''' drpdwnRXAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnRXAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.drpdwnRXAbs.Keys(drpdwnRXAbs)
+          Log.Message("Entered drpdwnRXAbs field")
+        End If       
+    End If
+End If
+
+''' intRXAbs1
+If(intRXAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldRXAbs1.Enabled) Then
+           dlgDisplacement.fldRXAbs1.Keys(intRXAbs1)
+          Log.Message("Entered in the intDZAbs2 field")
+           
+        End If
+    End If
+    End If
+
+''' intRXAbs2
+If(intRXAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldRXAbs2.Enabled) Then
+           dlgDisplacement.fldRXAbs2.Keys(intRXAbs2)
+          Log.Message("Entered in the intDZAbs2 field")
+           
+        End If
+    End If
+    End If
+
+'''' chkboxRY
+If(chkboxRY  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxRY.Click()
+         
+          Log.Message("entered value in chkboxRY field")
+        End If
+    End If  
+
+''' chkboxRYAbs
+If(chkboxRYAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxRYAbs.Click()
+         
+          Log.Message("entered value in chkboxRYAbs field")
+        End If
+    End If  
+    
+'''' drpdwnRYAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnRYAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.drpdwnRYAbs.Keys(drpdwnRYAbs)
+          Log.Message("Entered drpdwnRYAbs field")
+        End If       
+    End If
+End If
+
+''' intRYAbs1
+If(intRYAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldRYAbs1.Enabled) Then
+           dlgDisplacement.fldRYAbs1.Keys(intRYAbs1)
+          Log.Message("Entered in the intRYAbs1 field")
+            End If
+    End If
+    End If
+    
+''' intRYAbs2
+If(intRYAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldRYAbs2.Enabled) Then
+           dlgDisplacement.fldRYAbs2.Keys(intRYAbs2)
+          Log.Message("Entered in the intRYAbs2 field")
+            End If
+    End If
+    End If
+
+''' chkboxRZ: 
+If(chkboxRZ  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxRZ.Click()
+         
+          Log.Message("entered value in chkboxRZ field")
+        End If
+    End If  
+
+'Dim chkboxRZAbs
+If(chkboxRZAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.chkboxRZAbs.Click()
+         
+          Log.Message("entered value in chkboxRZAbs field")
+        End If
+    End If  
+
+'''' drpdwnRZAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnRZAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgDisplacement", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDisplacement.drpdwnRZAbs.Keys(drpdwnRZAbs)
+          Log.Message("Entered drpdwnRZAbs field")
+        End If       
+    End If
+End If
+
+''' intRZAbs1
+If(intRZAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldRZAbs1.Enabled) Then
+           dlgDisplacement.fldRZAbs1.Keys(intRZAbs1)
+          Log.Message("Entered in the intRZAbs1 field")
+           
+        End If
+    End If
+    End If
+
+'Dim intRZAbs2 
+ If(intRZAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgDisplacement.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgDisplacement.fldRZAbs2.Enabled) Then
+           dlgDisplacement.fldRZAbs2.Keys(intRZAbs2)
+          Log.Message("Entered in the intRZAbs2 field")
+           
+        End If
+    End If
+    End If 
+  aqUtils.Delay(3000)
+  dlgDisplacement.btnOK.Click()
+    
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "AnchorResultFilter" dialog   
+' Remarks: 
+' Parameters:
+'           strOperator:    Insert or Modify
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       AnchorResultFilter table object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:      AnchorResultFilter dialog shortcut key
+
+' Modified By:Bismah khalid
+' Date 7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+
+Sub AnchorResultFilter (objNameMapping, objRow, strOpenDialog, strHotKey)
+'
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+set dlgAnchorResultFilter = objNameMapping.dlgAnchorResultFilter
+
+'''''''''''''''''''
+Dim drpdwnLogicalMethod : drpdwnLogicalMethod = objRow.item("drpdwnLogicalMethod")
+Dim chkboxFX : chkboxFX=  objRow.item("chkboxFX")
+Dim chkboxFXAbs: chkboxFXAbs= objRow.item("chkboxFXAbs")
+Dim drpdwnFXAbs : drpdwnFXAbs =objRow.item("drpdwnFXAbs")
+Dim intFXAbs1: intFXAbs1= objRow.item("intFXAbs1")
+Dim intFXAbs2: intFXAbs2= objRow.item("intFXAbs2")
+Dim chkboxFY: chkboxFY= objRow.item("chkboxFY")
+Dim chkboxFYAbs: chkboxFYAbs= objRow.item("chkboxFYAbs")
+Dim drpdwnFYAbs: drpdwnFYAbs= objRow.item("drpdwnFYAbs")
+Dim intFYAbs1: intFYAbs1= objRow.item("intFYAbs1")
+Dim intFYAbs2: intFYAbs2= objRow.item("intFYAbs2")
+Dim chkboxFZ: chkboxFZ= objRow.item("chkboxFZ")
+Dim chkboxFZAbs: chkboxFZAbs= objRow.item("chkboxFZAbs")
+Dim drpdwnFZAbs: drpdwnFZAbs= objRow.item("drpdwnFZAbs")
+Dim intFZAbs1: intFZAbs1= objRow.item("intFZAbs1")
+Dim intFZAbs2: intFZAbs2= objRow.item("intFZAbs2")
+Dim chkboxMX: chkboxMX= objRow.item("chkboxMX")
+Dim chkboxMXAbs: chkboxMXAbs= objRow.item("chkboxMXAbs")
+Dim drpdwnMXAbs: drpdwnMXAbs= objRow.item("drpdwnMXAbs")
+Dim intMXAbs1: intMXAbs1= objRow.item("intMXAbs1")
+Dim intMXAbs2: intMXAbs2= objRow.item("intMXAbs2")
+Dim chkboxMY: chkboxMY= objRow.item("chkboxMY")
+Dim chkboxMYAbs: chkboxMYAbs= objRow.item("chkboxMYAbs")
+Dim drpdwnMYAbs: drpdwnMYAbs= objRow.item("drpdwnMYAbs")
+Dim intMYAbs1: intMYAbs1= objRow.item("intMYAbs1")
+Dim intMYAbs2: intMYAbs2= objRow.item("intMYAbs2")
+Dim chkboxMZ: chkboxMZ= objRow.item("chkboxMZ")
+Dim chkboxMZAbs: chkboxMZAbs= objRow.item("chkboxMZAbs")
+Dim drpdwnMZAbs: drpdwnMZAbs= objRow.item("drpdwnMZAbs")
+Dim intMZAbs1: intMZAbs1= objRow.item("intMZAbs1")
+Dim intMZAbs2: intMZAbs2= objRow.item("intMZAbs2")
+Dim chkboxFR : chkboxFR = objRow.item("chkboxFR")
+Dim chkboxMR : chkboxMR = objRow.item("chkboxMR")
+Dim chkboxFRAbs : chkboxFRAbs = objRow.item("chkboxFRAbs")
+Dim chkboxMRAbs : chkboxMRAbs = objRow.item("chkboxMRAbs")
+Dim drpdwnFRAbs : drpdwnFRAbs = objRow.item("drpdwnFRAbs")
+Dim drpdwnMRAbs : drpdwnMRAbs = objRow.item("drpdwnMRAbs")
+Dim intFRAbs1 : intFRAbs1 = objRow.item("intFRAbs1")
+Dim intFRAbs2 : intFRAbs2 = objRow.item("intFRAbs2")
+Dim intMRAbs1 : intMRAbs1 = objRow.item("intMRAbs1")
+Dim intMRAbs2 : intMRAbs2 = objRow.item("intMRAbs2")
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+  aqUtils.Delay(2000)
+   Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+             'Ribbon is not accessable 
+    End Select
+  aqUtils.Delay(2000)
+  
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  '''' drpdwnLogicalMethod 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnLogicalMethod  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.drpdwnLogicalMethod.Keys(drpdwnLogicalMethod)
+          Log.Message("Entered drpdwnLogicalMethod field")
+        End If       
+    End If
+End If
+
+'''' chkboxFX
+ If(chkboxFX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgAnchorResultFilter.chkboxFX.Enabled) Then
+          dlgAnchorResultFilter.chkboxFX.Click()
+         
+          Log.Message("entered value in chkboxFX field")
+        End If
+    End If 
+    End If 
+    'aqUtils.Delay(2000)
+'Dim chkboxFXAbs: 
+If(chkboxFXAbs  =  "1") Then
+    aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgAnchorResultFilter.chkboxFXAbs.Exists) Then
+        If(objNameMapping.dlgAnchorResultFilter.chkboxFXAbs.Enabled) Then
+
+          dlgAnchorResultFilter.chkboxFXAbs.Click()
+         
+          Log.Message("entered value in chkboxFXAbs field")
+        End If
+    End If  
+    End If
+    End If
+    
+    ''''''''drpdwnFXAbs
+    
+    If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFXAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.drpdwnFXAbs.Keys(drpdwnFXAbs)
+          Log.Message("Entered drpdwnFXAbs field")
+        End If       
+    End If
+End If
+    
+'''' intFXAbs1
+If(intFXAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldFXAbs1.Enabled) Then
+           dlgAnchorResultFilter.fldFXAbs1.Keys(intFXAbs1)
+          Log.Message("Entered in the intFXAbs1 field")
+           
+        End If
+    End If
+    End If
+    
+'''intFXAbs2
+If(intFXAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldFXAbs2.Enabled) Then
+           dlgAnchorResultFilter.fldFXAbs2.Keys(intFXAbs2)
+          Log.Message("Entered in the intFXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+'''' chkboxFY:
+If(chkboxFY  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgAnchorResultFilter.chkboxFY.Enabled) Then
+          dlgAnchorResultFilter.chkboxFY.Click()
+         
+          Log.Message("entered value in chkboxFY field")
+        End If
+    End If  
+    End If
+    
+'''' chkboxFYAbs
+If(chkboxFYAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgAnchorResultFilter.chkboxFYAbs.Enabled) Then
+          dlgAnchorResultFilter.chkboxFYAbs.Click()
+         
+          Log.Message("entered value in chkboxFYAbs field")
+        End If
+    End If  
+    End If
+''' drpdwnFYAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFYAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgAnchorResultFilter.drpdwnFYAbs.Enabled)then
+          dlgAnchorResultFilter.drpdwnFYAbs.Keys(drpdwnFYAbs)
+          Log.Message("Entered drpdwnFYAbs field")
+        End If       
+    End If
+End If
+End If
+
+''' intFYAbs1
+If(intFYAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldFYAbs1.Enabled) Then
+           dlgAnchorResultFilter.fldFYAbs1.Keys(intFYAbs1)
+          Log.Message("Entered in the intFXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+''' intFYAbs2
+If(intFYAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldFYAbs2.Enabled) Then
+           dlgAnchorResultFilter.fldFYAbs2.Keys(intFYAbs2)
+          Log.Message("Entered in the intFYAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+    
+''' chkboxFZ
+If(chkboxFZ  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgAnchorResultFilter.chkboxFZ.Enabled) Then
+          dlgAnchorResultFilter.chkboxFZ.Click()
+         
+          Log.Message("entered value in chkboxFZ field")
+        End If
+    End If 
+    End If
+    
+     
+'Dim chkboxFZAbs
+If(chkboxFZAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgAnchorResultFilter.chkboxFZAbs.Enabled) Then
+          dlgAnchorResultFilter.chkboxFZAbs.Click()
+         
+          Log.Message("entered value in chkboxFZAbs field")
+        End If
+    End If
+    End If
+''' drpdwnFZAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFZAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgAnchorResultFilter.drpdwnFRAbs.Enabled)then
+          dlgAnchorResultFilter.drpdwnFZAbs.Keys(drpdwnFZAbs)
+          Log.Message("Entered drpdwnFZAbs field")
+        End If       
+    End If
+End If
+End If
+'''' intFZAbs1
+If(intFZAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldFZAbs1.Enabled) Then
+           dlgAnchorResultFilter.fldFZAbs1.Keys(intFZAbs1)
+          Log.Message("Entered in the intFZAbs1 field")
+           
+        End If
+    End If
+    End If
+
+'Dim intFZAbs2
+If(intFZAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldFZAbs2.Enabled) Then
+           dlgAnchorResultFilter.fldFZAbs2.Keys(intFZAbs2)
+          Log.Message("Entered in the intFZAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+'Dim chkboxMX
+If(chkboxMX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgAnchorResultFilter.chkboxMX.Enabled)then
+          dlgAnchorResultFilter.chkboxMX.Click()
+         
+          Log.Message("entered value in chkboxMX field")
+        End If
+    End If
+    End If
+    
+''' chkboxMXAbs
+If(chkboxMXAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgAnchorResultFilter.chkboxMXAbs.Enabled)then
+          dlgAnchorResultFilter.chkboxMXAbs.Click()
+         
+          Log.Message("entered value in chkboxMXAbs field")
+        End If
+    End If
+    End If
+''' drpdwnMXAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnMXAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgAnchorResultFilter.drpdwnMXAbs.Enabled)then
+          dlgAnchorResultFilter.drpdwnMXAbs.Keys(drpdwnMXAbs)
+          Log.Message("Entered drpdwnMXAbs field")
+        End If       
+    End If
+End If
+End If
+
+''' intMXAbs1
+If(intMXAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldMXAbs1.Enabled) Then
+           dlgAnchorResultFilter.fldMXAbs1.Keys(intMXAbs1)
+          Log.Message("Entered in the intMZAbs2 field")
+           
+        End If
+    End If
+    End If
+
+''' intMXAbs2
+If(intMXAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldMXAbs2.Enabled) Then
+           dlgAnchorResultFilter.fldMXAbs2.Keys(intMXAbs2)
+          Log.Message("Entered in the intMZAbs2 field")
+           
+        End If
+    End If
+    End If
+
+'''' chkboxMY
+If(chkboxMY  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgAnchorResultFilter.chkboxMY.Enabled)then
+          dlgAnchorResultFilter.chkboxMY.Click()
+         
+          Log.Message("entered value in chkboxMY field")
+        End If
+    End If  
+    End If
+    
+''' chkboxMYAbs
+If(chkboxMYAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+            If(objNameMapping.dlgAnchorResultFilter.chkboxMYAbs.Enabled)then
+          dlgAnchorResultFilter.chkboxMYAbs.Click()
+         
+          Log.Message("entered value in chkboxMYAbs field")
+        End If
+    End If  
+    End If 
+'''' drpdwnMYAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnMYAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgAnchorResultFilter.drpdwnMYAbs.Enabled)then
+          dlgAnchorResultFilter.drpdwnMYAbs.Keys(drpdwnMYAbs)
+          Log.Message("Entered drpdwnMYAbs field")
+        End If       
+    End If
+End If
+End If
+''' intMYAbs1
+If(intMYAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldMYAbs1.Enabled) Then
+           dlgAnchorResultFilter.fldMYAbs1.Keys(intMYAbs1)
+          Log.Message("Entered in the intMYAbs1 field")
+            End If
+    End If
+    End If
+    
+''' intMYAbs2
+If(intMYAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.Sys.autopipe.dlgAnchorResultFilter.fldMYAbs2.Enabled) Then
+           dlgAnchorResultFilter.fldMYAbs2.Keys(intMYAbs2)
+          Log.Message("Entered in the intMYAbs2 field")
+            End If
+    End If
+    End If
+
+''' chkboxMZ: 
+If(chkboxMZ  =  "1") Then
+
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+             If(objNameMapping.dlgAnchorResultFilter.chkboxMZ.Enabled)then
+          dlgAnchorResultFilter.chkboxMZ.Click()
+         
+          Log.Message("entered value in chkboxMZ field")
+        End If
+    End If  
+    End If 
+    
+'Dim chkboxMZAbs
+If(chkboxMZAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+              If(objNameMapping.dlgAnchorResultFilter.chkboxMZAbs.Enabled)then
+          dlgAnchorResultFilter.chkboxMZAbs.Click()
+         
+          Log.Message("entered value in chkboxMZAbs field")
+        End If
+    End If 
+    End If   
+
+'''' drpdwnMZAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnMZAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          If(objNameMapping.dlgAnchorResultFilter.drpdwnMZAbs.Enabled) Then
+          dlgAnchorResultFilter.drpdwnMZAbs.Keys(drpdwnMZAbs)
+          Log.Message("Entered drpdwnMZAbs field")
+        End If       
+    End If
+End If
+End If
+''' intMZAbs1
+If(intMZAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.autopipe.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.autopipe.dlgAnchorResultFilter.fldMZAbs1.Enabled) Then
+           dlgAnchorResultFilter.fldMZAbs1.Keys(intMZAbs1)
+          Log.Message("Entered in the intMZAbs1 field")
+           
+        End If
+    End If
+    End If
+
+'Dim intMZAbs2 
+ If(intMZAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgAnchorResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgAnchorResultFilter.fldMZAbs2.Enabled) Then
+           dlgAnchorResultFilter.fldMZAbs2.Keys(intMZAbs2)
+          Log.Message("Entered in the intMZAbs2 field")
+           
+        End If
+    End If
+    End If 
+    
+'''' chkboxFR
+If(chkboxFR  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.chkboxFR.Click()
+         
+          Log.Message("entered value in chkboxFR field")
+        End If
+    End If  
+    
+''' chkboxMR
+If(chkboxMR  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.chkboxMR.Click()
+         
+          Log.Message("entered value in chkboxMR field")
+        End If
+    End If 
+     
+'Dim chkboxFRAbs
+If(chkboxFRAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.chkboxFRAbs.Click()
+         
+          Log.Message("entered value in chkboxFRAbs field")
+        End If
+    End If 
+
+'''' chkboxMRAbs 
+If(chkboxMRAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.chkboxMRAbs.Click()
+         
+          Log.Message("entered value in chkboxMRAbs field")
+        End If
+    End If 
+
+''' drpdwnFRAbs
+If(drpdwnFRAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          If(objNameMapping.dlgAnchorResultFilter.drpdwnFRAbs.Enabled) Then
+          dlgAnchorResultFilter.drpdwnFRAbs.Click()
+         
+          Log.Message("entered value in drpdwnFRAbs field")
+        End If
+    End If 
+    End If
+'Dim drpdwnMRAbs : drpdwnMRAbs = objRow.item("drpdwnMRAbs")
+If(drpdwnMRAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.drpdwnMRAbs.Click()
+         
+          Log.Message("entered value in drpdwnMRAbs field")
+        End If
+    End If 
+    
+''' intFRAbs1
+If(intFRAbs1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.intFRAbs1.Click()
+         
+          Log.Message("entered value in intFRAbs1 field")
+        End If
+    End If 
+    
+'''' intFRAbs2
+If(intFRAbs2  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.intFRAbs2.Click()
+         
+          Log.Message("entered value in intFRAbs2 field")
+        End If
+    End If 
+    
+''' intMRAbs1
+If(intMRAbs1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.intMRAbs1.Click()
+         
+          Log.Message("entered value in intMRAbs1 field")
+        End If
+    End If 
+
+''' intMRAbs2
+ If(intMRAbs2  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgAnchorResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgAnchorResultFilter.intMRAbs2.Click()
+         
+          Log.Message("entered value in intMRAbs2 field")
+        End If
+    End If    
+    
+  aqUtils.Delay(3000)
+  dlgAnchorResultFilter.btnOK.Click()
+  
+  
+  
+  End Sub
+  
+  '------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "SupportResultFilter" dialog   
+' Remarks: 
+' Parameters:
+'          
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       SupportResultFilter table object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:      SupportResultFilter dialog shortcut key
+
+' Modified By:Bismah khalid
+' Date 7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+
+Sub SupportResultFilter (objNameMapping, objRow, strOpenDialog, strHotKey)
+'
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+set dlgSupportResultFilter = objNameMapping.dlgSupportResultFilter
+
+'''''''''''''''''''
+Dim drpdwnLogicalMethod : drpdwnLogicalMethod = objRow.item("drpdwnLogicalMethod")
+Dim chkboxSelectliftoffSupports : chkboxSelectliftoffSupports = objRow.item("chkboxSelectliftoffSupports")
+dim chkboxSpring : chkboxSpring = objRow.item("chkboxSpring")
+Dim chkboxVStop : chkboxVStop=  objRow.item("chkboxVStop")
+Dim chkboxConstant :chkboxConstant=  objRow.item("chkboxConstant")
+Dim chkboxLineStop : chkboxLineStop= objRow.item("chkboxLineStop")
+Dim chkboxInclined : chkboxInclined=  objRow.item("chkboxInclined")
+Dim chkboxGuide : chkboxGuide=  objRow.item("chkboxGuide")
+Dim chkboxDamper : chkboxDamper=  objRow.item("chkboxDamper")
+Dim chkboxRotation : chkboxRotation=  objRow.item("chkboxRotation")
+Dim chkboxTieLink : chkboxTieLink=  objRow.item("chkboxTieLink")
+Dim chkboxFX : chkboxFX=  objRow.item("chkboxFX")
+Dim chkboxFXAbs: chkboxFXAbs= objRow.item("chkboxFXAbs")
+Dim drpdwnFXAbs : drpdwnFXAbs =objRow.item("drpdwnFXAbs")
+Dim intFXAbs1: intFXAbs1= objRow.item("intFXAbs1")
+Dim intFXAbs2: intFXAbs2= objRow.item("intFXAbs2")
+Dim chkboxFY: chkboxFY= objRow.item("chkboxFY")
+Dim chkboxFYAbs: chkboxFYAbs= objRow.item("chkboxFYAbs")
+Dim drpdwnFYAbs: drpdwnFYAbs= objRow.item("drpdwnFYAbs")
+Dim intFYAbs1: intFYAbs1= objRow.item("intFYAbs1")
+Dim intFYAbs2: intFYAbs2= objRow.item("intFYAbs2")
+Dim chkboxFZ: chkboxFZ= objRow.item("chkboxFZ")
+Dim chkboxFZAbs: chkboxFZAbs= objRow.item("chkboxFZAbs")
+Dim drpdwnFZAbs: drpdwnFZAbs= objRow.item("drpdwnFZAbs")
+Dim intFZAbs1: intFZAbs1= objRow.item("intFZAbs1")
+Dim intFZAbs2: intFZAbs2= objRow.item("intFZAbs2")
+Dim chkboxDX : chkboxDX=  objRow.item("chkboxDX")
+Dim chkboxDXAbs: chkboxDXAbs= objRow.item("chkboxDXAbs")
+Dim intDXAbs1: intDXAbs1= objRow.item("intDXAbs1")
+Dim intDXAbs2: intDXAbs2= objRow.item("intDXAbs2")
+Dim chkboxDY: chkboxDY= objRow.item("chkboxDY")
+Dim chkboxDYAbs: chkboxDYAbs= objRow.item("chkboxDYAbs")
+Dim drpdwnDYAbs: drpdwnDYAbs= objRow.item("drpdwnDYAbs")
+Dim intDYAbs1: intDYAbs1= objRow.item("intDYAbs1")
+Dim intDYAbs2: intDYAbs2= objRow.item("intDYAbs2")
+Dim chkboxDZ: chkboxDZ= objRow.item("chkboxDZ")
+Dim chkboxDZAbs: chkboxDZAbs= objRow.item("chkboxDZAbs")
+Dim drpdwnDZAbs: drpdwnDZAbs= objRow.item("drpdwnDZAbs")
+Dim intDZAbs1: intDZAbs1= objRow.item("intDZAbs1")
+Dim intDZAbs2: intDZAbs2= objRow.item("intDZAbs2")
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+  aqUtils.Delay(2000)
+   Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+             'Ribbon is not accessable 
+    End Select
+  aqUtils.Delay(2000)
+  
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  '''' drpdwnLogicalMethod 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnLogicalMethod  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.drpdwnLogicalMethod.Keys(drpdwnLogicalMethod)
+          Log.Message("Entered drpdwnLogicalMethod field")
+        End If       
+    End If
+End If
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''chkboxSelectliftoffSupports
+If(chkboxSelectliftoffSupports  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxSelectliftoffSupports.Enabled) Then
+          dlgSupportResultFilter.chkboxSelectliftoffSupports.Click()
+         
+          Log.Message("entered value in chkboxSelectliftoffSupports field")
+        End If
+    End If 
+    End If 
+
+'dim chkboxSpring
+If(chkboxSpring  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxSpring.Enabled) Then
+          dlgSupportResultFilter.chkboxSpring.Click()
+         
+          Log.Message("entered value in chkboxSpring field")
+        End If
+    End If 
+    End If 
+
+
+'Dim chkboxVStop
+If(chkboxVStop  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxVStop.Enabled) Then
+          dlgSupportResultFilter.chkboxVStop.Click()
+         
+          Log.Message("entered value in chkboxVStop field")
+        End If
+    End If 
+    End If 
+
+'Dim chkboxConstant 
+If(chkboxConstant  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxConstant.Enabled) Then
+          dlgSupportResultFilter.chkboxConstant.Click()
+         
+          Log.Message("entered value in chkboxConstant field")
+        End If
+    End If 
+    End If 
+
+
+'Dim chkboxLineStop 
+If(chkboxLineStop  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxLineStop.Enabled) Then
+          dlgSupportResultFilter.chkboxLineStop.Click()
+         
+          Log.Message("entered value in chkboxLineStop field")
+        End If
+    End If 
+    End If 
+
+''' chkboxInclined 
+If(chkboxInclined  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxInclined.Enabled) Then
+          dlgSupportResultFilter.chkboxInclined.Click()
+         
+          Log.Message("entered value in chkboxInclined field")
+        End If
+    End If 
+    End If
+    
+'''' chkboxGuide
+If(chkboxGuide  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxGuide.Enabled) Then
+          dlgSupportResultFilter.chkboxGuide.Click()
+         
+          Log.Message("entered value in chkboxGuide field")
+        End If
+    End If 
+    End If
+
+
+'''' chkboxDamper 
+If(chkboxDamper  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxDamper.Enabled) Then
+          dlgSupportResultFilter.chkboxDamper.Click()
+         
+          Log.Message("entered value in chkboxDamper field")
+        End If
+    End If 
+    End If
+
+
+'Dim chkboxRotation 
+If(chkboxRotation  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxRotation.Enabled) Then
+          dlgSupportResultFilter.chkboxRotation.Click()
+         
+          Log.Message("entered value in chkboxRotation field")
+        End If
+    End If 
+    End If
+
+
+'Dim chkboxTieLink
+If(chkboxTieLink  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxTieLink.Enabled) Then
+          dlgSupportResultFilter.chkboxTieLink.Click()
+         
+          Log.Message("entered value in chkboxTieLink field")
+        End If
+    End If 
+    End If
+
+
+'''' chkboxFX
+ If(chkboxFX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxFX.Enabled) Then
+          dlgSupportResultFilter.chkboxFX.Click()
+         
+          Log.Message("entered value in chkboxFX field")
+        End If
+    End If 
+    End If 
+    'aqUtils.Delay(2000)
+'Dim chkboxFXAbs: 
+If(chkboxFXAbs  =  "1") Then
+    aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxFXAbs.Exists) Then
+        If(objNameMapping.dlgSupportResultFilter.chkboxFXAbs.Enabled) Then
+
+          dlgSupportResultFilter.chkboxFXAbs.Click()
+         
+          Log.Message("entered value in chkboxFXAbs field")
+        End If
+    End If  
+    End If
+    End If
+    
+    ''''''''drpdwnFXAbs
+    
+    If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFXAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.drpdwnFXAbs.Keys(drpdwnFXAbs)
+          Log.Message("Entered drpdwnFXAbs field")
+        End If       
+    End If
+End If
+    
+'''' intFXAbs1
+If(intFXAbs1 <> "NA") then
+        'Write to  field
+        If(NameMapping.Sys.autopipe.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(NameMapping.Sys.autopipe.dlgSupportResultFilter.fldFXAbs1.Enabled) Then
+           dlgSupportResultFilter.fldFXAbs1.Keys(intFXAbs1)
+          Log.Message("Entered in the intFXAbs1 field")
+           
+        End If
+    End If
+    End If
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''intFXAbs2
+If(intFXAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldFXAbs2.Enabled) Then
+           dlgSupportResultFilter.fldFXAbs2.Keys(intFXAbs2)
+          Log.Message("Entered in the intFXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+'''' chkboxFY:
+If(chkboxFY  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgSupportResultFilter.chkboxFY.Enabled) Then
+          dlgSupportResultFilter.chkboxFY.Click()
+         
+          Log.Message("entered value in chkboxFY field")
+        End If
+    End If  
+    End If
+    
+'''' chkboxFYAbs
+If(chkboxFYAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxFYAbs.Enabled) Then
+          dlgSupportResultFilter.chkboxFYAbs.Click()
+         
+          Log.Message("entered value in chkboxFYAbs field")
+        End If
+    End If  
+    End If
+''' drpdwnFYAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFYAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgSupportResultFilter.drpdwnFYAbs.Enabled)then
+          dlgSupportResultFilter.drpdwnFYAbs.Keys(drpdwnFYAbs)
+          Log.Message("Entered drpdwnFYAbs field")
+        End If       
+    End If
+End If
+End If
+
+''' intFYAbs1
+If(intFYAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldFYAbs1.Enabled) Then
+           dlgSupportResultFilter.fldFYAbs1.Keys(intFYAbs1)
+          Log.Message("Entered in the intFXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+''' intFYAbs2
+If(intFYAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldFYAbs2.Enabled) Then
+           dlgSupportResultFilter.fldFYAbs2.Keys(intFYAbs2)
+          Log.Message("Entered in the intFYAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+    
+''' chkboxFZ
+If(chkboxFZ  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgSupportResultFilter.chkboxFZ.Enabled) Then
+          dlgSupportResultFilter.chkboxFZ.Click()
+         
+          Log.Message("entered value in chkboxFZ field")
+        End If
+    End If 
+    End If
+    
+     
+'Dim chkboxFZAbs
+If(chkboxFZAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgSupportResultFilter.chkboxFZAbs.Enabled) Then
+          dlgSupportResultFilter.chkboxFZAbs.Click()
+         
+          Log.Message("entered value in chkboxFZAbs field")
+        End If
+    End If
+    End If
+''' drpdwnFZAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFZAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgSupportResultFilter.drpdwnFRAbs.Enabled)then
+          dlgSupportResultFilter.drpdwnFZAbs.Keys(drpdwnFZAbs)
+          Log.Message("Entered drpdwnFZAbs field")
+        End If       
+    End If
+End If
+End If
+'''' intFZAbs1
+If(intFZAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldFZAbs1.Enabled) Then
+           dlgSupportResultFilter.fldFZAbs1.Keys(intFZAbs1)
+          Log.Message("Entered in the intFZAbs1 field")
+           
+        End If
+    End If
+    End If
+
+'Dim intFZAbs2
+If(intFZAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldFZAbs2.Enabled) Then
+           dlgSupportResultFilter.fldFZAbs2.Keys(intFZAbs2)
+          Log.Message("Entered in the intFZAbs2 field")
+           
+        End If
+    End If
+    End If
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''' chkboxDX
+ If(chkboxDX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.chkboxDX.Click()
+         
+          Log.Message("entered value in chkboxDX field")
+        End If
+    End If  
+    
+'Dim chkboxDXAbs: 
+If(chkboxDXAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.chkboxDXAbs.Click()
+         
+          Log.Message("entered value in chkboxDXAbs field")
+        End If
+    End If  
+
+'''' intDXAbs1
+If(intDXAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldDXAbs1.Enabled) Then
+           dlgSupportResultFilter.fldDXAbs1.Keys(intDXAbs1)
+          Log.Message("Entered in the intDXAbs1 field")
+           
+        End If
+    End If
+    End If
+    
+'''intDXAbs2
+If(intDXAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldDXAbs2.Enabled) Then
+           dlgSupportResultFilter.fldDXAbs2.Keys(intDXAbs2)
+          Log.Message("Entered in the intDXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+'''' chkboxDY:
+If(chkboxDY  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.chkboxDY.Click()
+         
+          Log.Message("entered value in chkboxDY field")
+        End If
+    End If  
+    
+'''' chkboxDYAbs
+If(chkboxDYAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.chkboxDYAbs.Click()
+         
+          Log.Message("entered value in chkboxDYAbs field")
+        End If
+    End If  
+
+''' drpdwnDYAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnDYAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.drpdwnDYAbs.Keys(drpdwnDYAbs)
+          Log.Message("Entered drpdwnDYAbs field")
+        End If       
+    End If
+End If
+
+''' intDYAbs1
+If(intDYAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldDYAbs1.Enabled) Then
+           dlgSupportResultFilter.fldDYAbs1.Keys(intDYAbs1)
+          Log.Message("Entered in the intDXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+''' intDYAbs2
+If(intDYAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldDYAbs2.Enabled) Then
+           dlgSupportResultFilter.fldDYAbs2.Keys(intDYAbs2)
+          Log.Message("Entered in the intDYAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+    
+''' chkboxDZ
+If(chkboxDX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.chkboxDX.Click()
+         
+          Log.Message("entered value in chkboxDX field")
+        End If
+    End If  
+'Dim chkboxDZAbs
+If(chkboxDZAbs  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.chkboxDZAbs.Click()
+         
+          Log.Message("entered value in chkboxDZAbs field")
+        End If
+    End If
+
+''' drpdwnDZAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnDZAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgSupportResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSupportResultFilter.drpdwnDZAbs.Keys(drpdwnDZAbs)
+          Log.Message("Entered drpdwnDZAbs field")
+        End If       
+    End If
+End If
+
+'''' intDZAbs1
+If(intDZAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldDZAbs1.Enabled) Then
+           dlgSupportResultFilter.fldDZAbs1.Keys(intDZAbs1)
+          Log.Message("Entered in the intDZAbs1 field")
+           
+        End If
+    End If
+    End If
+
+'Dim intDZAbs2
+If(intDZAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgSupportResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgSupportResultFilter.fldDZAbs2.Enabled) Then
+           dlgSupportResultFilter.fldDZAbs2.Keys(intDZAbs2)
+          Log.Message("Entered in the intDZAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+    
+   aqUtils.Delay(2000) 
+dlgSupportResultFilter.btnOK.Click()
+
+
+End Sub 
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ForceMomentsResultFilter" dialog   
+' Remarks: 
+' Parameters:
+'           strOperator:    Insert or Modify
+'           intDbTestRow:   ForceMomentsResultFilter to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ForceMomentsResultFilter table object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:      ForceMomentsResultFilter dialog shortcut key
+
+' Modified By:Bismah khalid
+' Date 7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+
+Sub ForceMomentsResultFilter (objNameMapping, objRow, strOpenDialog, strHotKey)
+'
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+set dlgForceMomentsResultFilter = objNameMapping.dlgForceMomentsResultFilter
+'''''''''''''''''''
+Dim drpdwnLogicalMethod : drpdwnLogicalMethod = objRow.item("drpdwnLogicalMethod")
+Dim chkboxFX : chkboxFX=  objRow.item("chkboxFX")
+Dim chkboxFXAbs: chkboxFXAbs= objRow.item("chkboxFXAbs")
+Dim drpdwnFXAbs : drpdwnFXAbs =objRow.item("drpdwnFXAbs")
+Dim intFXAbs1: intFXAbs1= objRow.item("intFXAbs1")
+Dim intFXAbs2: intFXAbs2= objRow.item("intFXAbs2")
+Dim chkboxFY: chkboxFY= objRow.item("chkboxFY")
+Dim chkboxFYAbs: chkboxFYAbs= objRow.item("chkboxFYAbs")
+Dim drpdwnFYAbs: drpdwnFYAbs= objRow.item("drpdwnFYAbs")
+Dim intFYAbs1: intFYAbs1= objRow.item("intFYAbs1")
+Dim intFYAbs2: intFYAbs2= objRow.item("intFYAbs2")
+Dim chkboxFZ: chkboxFZ= objRow.item("chkboxFZ")
+Dim chkboxFZAbs: chkboxFZAbs= objRow.item("chkboxFZAbs")
+Dim drpdwnFZAbs: drpdwnFZAbs= objRow.item("drpdwnFZAbs")
+Dim intFZAbs1: intFZAbs1= objRow.item("intFZAbs1")
+Dim intFZAbs2: intFZAbs2= objRow.item("intFZAbs2")
+Dim chkboxMX: chkboxMX= objRow.item("chkboxMX")
+Dim chkboxMXAbs: chkboxMXAbs= objRow.item("chkboxMXAbs")
+Dim drpdwnMXAbs: drpdwnMXAbs= objRow.item("drpdwnMXAbs")
+Dim intMXAbs1: intMXAbs1= objRow.item("intMXAbs1")
+Dim intMXAbs2: intMXAbs2= objRow.item("intMXAbs2")
+Dim chkboxMY: chkboxMY= objRow.item("chkboxMY")
+Dim chkboxMYAbs: chkboxMYAbs= objRow.item("chkboxMYAbs")
+Dim drpdwnMYAbs: drpdwnMYAbs= objRow.item("drpdwnMYAbs")
+Dim intMYAbs1: intMYAbs1= objRow.item("intMYAbs1")
+Dim intMYAbs2: intMYAbs2= objRow.item("intMYAbs2")
+Dim chkboxMZ: chkboxMZ= objRow.item("chkboxMZ")
+Dim chkboxMZAbs: chkboxMZAbs= objRow.item("chkboxMZAbs")
+Dim drpdwnMZAbs: drpdwnMZAbs= objRow.item("drpdwnMZAbs")
+Dim intMZAbs1: intMZAbs1= objRow.item("intMZAbs1")
+Dim intMZAbs2: intMZAbs2= objRow.item("intMZAbs2")
+Dim chkboxFR : chkboxFR = objRow.item("chkboxFR")
+Dim chkboxMR : chkboxMR = objRow.item("chkboxMR")
+Dim chkboxFRAbs : chkboxFRAbs = objRow.item("chkboxFRAbs")
+Dim chkboxMRAbs : chkboxMRAbs = objRow.item("chkboxMRAbs")
+Dim drpdwnFRAbs : drpdwnFRAbs = objRow.item("drpdwnFRAbs")
+Dim drpdwnMRAbs : drpdwnMRAbs = objRow.item("drpdwnMRAbs")
+Dim intFRAbs1 : intFRAbs1 = objRow.item("intFRAbs1")
+Dim intFRAbs2 : intFRAbs2 = objRow.item("intFRAbs2")
+Dim intMRAbs1 : intMRAbs1 = objRow.item("intMRAbs1")
+Dim intMRAbs2 : intMRAbs2 = objRow.item("intMRAbs2")
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+  aqUtils.Delay(2000)
+   Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+             'Ribbon is not accessable 
+    End Select
+  aqUtils.Delay(2000)
+  
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  '''' drpdwnLogicalMethod 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnLogicalMethod  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.drpdwnLogicalMethod.Keys(drpdwnLogicalMethod)
+          Log.Message("Entered drpdwnLogicalMethod field")
+        End If       
+    End If
+End If
+
+'''' chkboxFX
+ If(chkboxFX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgForceMomentsResultFilter.chkboxFX.Enabled) Then
+          dlgForceMomentsResultFilter.chkboxFX.Click()
+         
+          Log.Message("entered value in chkboxFX field")
+        End If
+    End If 
+    End If 
+    'aqUtils.Delay(2000)
+'Dim chkboxFXAbs: 
+If(chkboxFXAbs  =  "1") Then
+    aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgForceMomentsResultFilter.chkboxFXAbs.Exists) Then
+        If(objNameMapping.dlgForceMomentsResultFilter.chkboxFXAbs.Enabled) Then
+
+          dlgForceMomentsResultFilter.chkboxFXAbs.Click()
+         
+          Log.Message("entered value in chkboxFXAbs field")
+        End If
+    End If  
+    End If
+    End If
+    
+    ''''''''drpdwnFXAbs
+    
+    If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFXAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.drpdwnFXAbs.Keys(drpdwnFXAbs)
+          Log.Message("Entered drpdwnFXAbs field")
+        End If       
+    End If
+End If
+    
+'''' intFXAbs1
+If(intFXAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldFXAbs1.Enabled) Then
+           dlgForceMomentsResultFilter.fldFXAbs1.Keys(intFXAbs1)
+          Log.Message("Entered in the intFXAbs1 field")
+           
+        End If
+    End If
+    End If
+    
+'''intFXAbs2
+If(intFXAbs2 <> "NA") then
+        'Write to  field
+        If(chkboxAnalysisAutomatically.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldFXAbs2.Enabled) Then
+           dlgForceMomentsResultFilter.fldFXAbs2.Keys(intFXAbs2)
+          Log.Message("Entered in the intFXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+'''' chkboxFY:
+If(chkboxFY  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgForceMomentsResultFilter.chkboxFY.Enabled) Then
+          dlgForceMomentsResultFilter.chkboxFY.Click()
+         
+          Log.Message("entered value in chkboxFY field")
+        End If
+    End If  
+    End If
+    
+'''' chkboxFYAbs
+If(chkboxFYAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgForceMomentsResultFilter.chkboxFYAbs.Enabled) Then
+          dlgForceMomentsResultFilter.chkboxFYAbs.Click()
+         
+          Log.Message("entered value in chkboxFYAbs field")
+        End If
+    End If  
+    End If
+''' drpdwnFYAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFYAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgForceMomentsResultFilter.drpdwnFYAbs.Enabled)then
+          dlgForceMomentsResultFilter.drpdwnFYAbs.Keys(drpdwnFYAbs)
+          Log.Message("Entered drpdwnFYAbs field")
+        End If       
+    End If
+End If
+End If
+
+''' intFYAbs1
+If(intFYAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldFYAbs1.Enabled) Then
+           dlgForceMomentsResultFilter.fldFYAbs1.Keys(intFYAbs1)
+          Log.Message("Entered in the intFXAbs2 field")
+           
+        End If
+    End If
+    End If
+
+''' intFYAbs2
+If(intFYAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldFYAbs2.Enabled) Then
+           dlgForceMomentsResultFilter.fldFYAbs2.Keys(intFYAbs2)
+          Log.Message("Entered in the intFYAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+    
+''' chkboxFZ
+If(chkboxFZ  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgForceMomentsResultFilter.chkboxFZ.Enabled) Then
+          dlgForceMomentsResultFilter.chkboxFZ.Click()
+         
+          Log.Message("entered value in chkboxFZ field")
+        End If
+    End If 
+    End If
+    
+     
+'Dim chkboxFZAbs
+If(chkboxFZAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.Sys.autopipe.dlgForceMomentsResultFilter.chkboxFZAbs.Enabled) Then
+          dlgForceMomentsResultFilter.chkboxFZAbs.Click()
+         
+          Log.Message("entered value in chkboxFZAbs field")
+        End If
+    End If
+    End If
+''' drpdwnFZAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFZAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgForceMomentsResultFilter.drpdwnFZAbs.Enabled)then
+          dlgForceMomentsResultFilter.drpdwnFZAbs.Keys(drpdwnFZAbs)
+          Log.Message("Entered drpdwnFZAbs field")
+        End If       
+    End If
+End If
+End If
+'''' intFZAbs1
+If(intFZAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldFZAbs1.Enabled) Then
+           dlgForceMomentsResultFilter.fldFZAbs1.Keys(intFZAbs1)
+          Log.Message("Entered in the intFZAbs1 field")
+           
+        End If
+    End If
+    End If
+
+'Dim intFZAbs2
+If(intFZAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldFZAbs2.Enabled) Then
+           dlgForceMomentsResultFilter.fldFZAbs2.Keys(intFZAbs2)
+          Log.Message("Entered in the intFZAbs2 field")
+           
+        End If
+    End If
+    End If
+    
+'Dim chkboxMX
+If(chkboxMX  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgForceMomentsResultFilter.chkboxMX.Enabled)then
+          dlgForceMomentsResultFilter.chkboxMX.Click()
+         
+          Log.Message("entered value in chkboxMX field")
+        End If
+    End If
+    End If
+    
+''' chkboxMXAbs
+If(chkboxMXAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgForceMomentsResultFilter.chkboxMXAbs.Enabled)then
+          dlgForceMomentsResultFilter.chkboxMXAbs.Click()
+         
+          Log.Message("entered value in chkboxMXAbs field")
+        End If
+    End If
+    End If
+''' drpdwnMXAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnMXAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgForceMomentsResultFilter.drpdwnMXAbs.Enabled)then
+          dlgForceMomentsResultFilter.drpdwnMXAbs.Keys(drpdwnMXAbs)
+          Log.Message("Entered drpdwnMXAbs field")
+        End If       
+    End If
+End If
+End If
+
+''' intMXAbs1
+If(intMXAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldMXAbs1.Enabled) Then
+           dlgForceMomentsResultFilter.fldMXAbs1.Keys(intMXAbs1)
+          Log.Message("Entered in the intMZAbs2 field")
+           
+        End If
+    End If
+    End If
+
+''' intMXAbs2
+If(intMXAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldMXAbs2.Enabled) Then
+           dlgForceMomentsResultFilter.fldMXAbs2.Keys(intMXAbs2)
+          Log.Message("Entered in the intMZAbs2 field")
+           
+        End If
+    End If
+    End If
+
+'''' chkboxMY
+If(chkboxMY  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+        If(objNameMapping.dlgForceMomentsResultFilter.chkboxMY.Enabled)then
+          dlgForceMomentsResultFilter.chkboxMY.Click()
+         
+          Log.Message("entered value in chkboxMY field")
+        End If
+    End If  
+    End If
+    
+''' chkboxMYAbs
+If(chkboxMYAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+            If(objNameMapping.dlgForceMomentsResultFilter.chkboxMYAbs.Enabled)then
+          dlgForceMomentsResultFilter.chkboxMYAbs.Click()
+         
+          Log.Message("entered value in chkboxMYAbs field")
+        End If
+    End If  
+    End If 
+'''' drpdwnMYAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnMYAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+         If(objNameMapping.dlgForceMomentsResultFilter.drpdwnMYAbs.Enabled)then
+          dlgForceMomentsResultFilter.drpdwnMYAbs.Keys(drpdwnMYAbs)
+          Log.Message("Entered drpdwnMYAbs field")
+        End If       
+    End If
+End If
+End If
+''' intMYAbs1
+If(intMYAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldMYAbs1.Enabled) Then
+           dlgForceMomentsResultFilter.fldMYAbs1.Keys(intMYAbs1)
+          Log.Message("Entered in the intMYAbs1 field")
+            End If
+    End If
+    End If
+    
+''' intMYAbs2
+If(intMYAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldMYAbs2.Enabled) Then
+           dlgForceMomentsResultFilter.fldMYAbs2.Keys(intMYAbs2)
+          Log.Message("Entered in the intMYAbs2 field")
+            End If
+    End If
+    End If
+
+''' chkboxMZ: 
+If(chkboxMZ  =  "1") Then
+
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+             If(objNameMapping.dlgForceMomentsResultFilter.chkboxMZ.Enabled)then
+          dlgForceMomentsResultFilter.chkboxMZ.Click()
+         
+          Log.Message("entered value in chkboxMZ field")
+        End If
+    End If  
+    End If 
+    
+'Dim chkboxMZAbs
+If(chkboxMZAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+              If(objNameMapping.dlgForceMomentsResultFilter.chkboxMZAbs.Enabled)then
+          dlgForceMomentsResultFilter.chkboxMZAbs.Click()
+         
+          Log.Message("entered value in chkboxMZAbs field")
+        End If
+    End If 
+    End If   
+
+'''' drpdwnMZAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnMZAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          If(objNameMapping.Sys.autopipe.dlgForceMomentsResultFilter.drpdwnMZAbs.Enabled) Then
+          dlgForceMomentsResultFilter.drpdwnMZAbs.Keys(drpdwnMZAbs)
+          Log.Message("Entered drpdwnMZAbs field")
+        End If       
+    End If
+End If
+End If
+''' intMZAbs1
+If(intMZAbs1 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldMZAbs1.Enabled) Then
+           dlgForceMomentsResultFilter.fldMZAbs1.Keys(intMZAbs1)
+          Log.Message("Entered in the intMZAbs1 field")
+           
+        End If
+    End If
+    End If
+
+'Dim intMZAbs2 
+ If(intMZAbs2 <> "NA") then
+        'Write to  field
+        If(objNameMapping.dlgForceMomentsResultFilter.Exists) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then  
+       If(objNameMapping.dlgForceMomentsResultFilter.fldMZAbs2.Enabled) Then
+           dlgForceMomentsResultFilter.fldMZAbs2.Keys(intMZAbs2)
+          Log.Message("Entered in the intMZAbs2 field")
+           
+        End If
+    End If
+    End If 
+    
+'''' chkboxFR
+If(chkboxFR  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.chkboxFR.Click()
+         
+          Log.Message("entered value in chkboxFR field")
+        End If
+    End If  
+    
+''' chkboxMR
+If(chkboxMR  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.chkboxMR.Click()
+         
+          Log.Message("entered value in chkboxMR field")
+        End If
+    End If 
+     
+'Dim chkboxFRAbs
+If(chkboxFRAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.chkboxFRAbs.Click()
+         
+          Log.Message("entered value in chkboxFRAbs field")
+        End If
+    End If 
+
+'''' chkboxMRAbs 
+If(chkboxMRAbs  =  "1") Then
+ aqUtils.Delay(2000)
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.chkboxMRAbs.Click()
+         
+          Log.Message("entered value in chkboxMRAbs field")
+        End If
+    End If 
+
+''' drpdwnFRAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFRAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          If(objNameMapping.dlgForceMomentsResultFilter.drpdwnFRAbs.Enabled) Then
+          dlgForceMomentsResultFilter.drpdwnFRAbs.Keys(drpdwnFRAbs)
+          Log.Message("Entered drpdwnFRAbs field")
+        End If       
+    End If
+End If
+End If
+''' drpdwnMRAbs
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnMRAbs  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 60000).WaitProperty("Exists", true, 10)) Then
+          If(objNameMapping.dlgForceMomentsResultFilter.drpdwnMRAbs.Enabled) Then
+          dlgForceMomentsResultFilter.drpdwnMRAbs.Keys(drpdwnMRAbs)
+          Log.Message("Entered drpdwnMRAbs field")
+        End If       
+    End If
+End If
+end If
+''' intFRAbs1
+If(intFRAbs1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.intFRAbs1.Click()
+         
+          Log.Message("entered value in intFRAbs1 field")
+        End If
+    End If 
+    
+'''' intFRAbs2
+If(intFRAbs2  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.intFRAbs2.Click()
+         
+          Log.Message("entered value in intFRAbs2 field")
+        End If
+    End If 
+    
+''' intMRAbs1
+If(intMRAbs1  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.intMRAbs1.Click()
+         
+          Log.Message("entered value in intMRAbs1 field")
+        End If
+    End If 
+
+''' intMRAbs2
+ If(intMRAbs2  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgForceMomentsResultFilter", 6000).WaitProperty("Exists", true, 10)) Then
+          dlgForceMomentsResultFilter.intMRAbs2.Click()
+         
+          Log.Message("entered value in intMRAbs2 field")
+        End If
+    End If    
+    
+  aqUtils.Delay(3000)
+  dlgForceMomentsResultFilter.btnOK.Click()
+  
+  
+  End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ModalRange" dialog   
+' Remarks: 
+' Parameters:
+'           strOperator:    Insert or Modify
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ModalRange table object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:     ModalRange dialog shortcut key
+
+' Modified By:Bismah khalid
+' Date 7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+'
+
+Sub ModalRange (objNameMapping, objRow, strOpenDialog, strHotKey)
+'
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+set dlgModalRange = objNameMapping.dlgModalRange
+'''''''''''''''''''
+Dim drpdwnFromModeShape : drpdwnFromModeShape = objRow.item("drpdwnLogicalMethod")
+Dim drpdwnToModeShape : drpdwnToModeShape = objRow.item("drpdwnToModeShape")
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+  aqUtils.Delay(2000)
+   Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+             'Ribbon is not accessable 
+    End Select
+  aqUtils.Delay(2000)
+  
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  '''' drpdwnFromModeShape 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnFromModeShape  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgModalRange", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgModalRange.drpdwnFromModeShape.Keys(drpdwnFromModeShape)
+          Log.Message("Entered drpdwnFromModeShape field")
+        End If       
+    End If
+End If
+'''' drpdwnToModeShape 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+   If(drpdwnToModeShape  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgModalRange", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgModalRange.drpdwnToModeShape.Keys(drpdwnToModeShape)
+          Log.Message("Entered drpdwnFromModeShape field")
+        End If       
+    End If
+End If
+aqUtils.Delay(2000)
+dlgModalRange.btnOK.Click()
+
+End Sub

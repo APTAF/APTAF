@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="data">
+			<Node name="{19f20013-83c9-4f3a-a2f9-ba6e396cc7ad}">
+				<Prp name="relpath" type="S" value="Database\Database.mds.tcLS"/>
+			</Node>
+			<Node name="{1ef2009e-abb9-4f1c-9733-5ec653086534}">
+				<Prp name="relpath" type="S" value="AutoPIPERegression\AutoPIPERegression.mds.tcLS"/>
+			</Node>
+			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
+				<Prp name="default project" type="S" value="{7085E2EC-9304-413A-A1AE-AE1B6E532C04}"/>
+			</Node>
+			<Node name="{3ab6c25a-1b7b-47cb-b2a0-5ca3db6d5a31}">
+				<Prp name="relpath" type="S" value="Vessel\Vessel.mds.tcLS"/>
+			</Node>
+			<Node name="{5a6ef4de-631d-4fa3-abb4-c99671754850}">
+				<Prp name="relpath" type="S" value="AutoPIPEQAVerification\AutoPIPEQAVerification.mds.tcLS"/>
+			</Node>
+			<Node name="{639111e8-4a06-4fec-9c96-56e6f1cc6ba2}">
+				<Prp name="relpath" type="S" value="DynamicTestPlans\DynamicTestPlans.mds.tcLS"/>
+			</Node>
+			<Node name="{7085e2ec-9304-413a-a1ae-ae1b6e532c04}">
+				<Prp name="relpath" type="S" value="APTAF\APTAF.mds.tcLS"/>
+			</Node>
+			<Node name="{8d7d9fa5-47d3-4404-80c8-a7e35b06c098}">
+				<Prp name="relpath" type="S" value="AutoPIPEStaticTestSuite\Static-TestSuite.mds.tcLS"/>
+			</Node>
+			<Node name="{8e850c84-5112-4e8e-b2d6-c31507eddc99}">
+				<Prp name="relpath" type="S" value="ConnectLicensing\ConnectLicensing.mds.tcLS"/>
+			</Node>
+			<Node name="{92fc1451-74b0-4286-acc4-bda381730003}">
+				<Prp name="relpath" type="S" value="AutoPIPEInstaller\AutoPIPEInstaller.mds.tcLS"/>
+			</Node>
+			<Node name="{9da25220-b2bf-4d7d-8eb1-72e17a7d5445}">
+				<Prp name="relpath" type="S" value="StaticTestSuite\AutoPIPEStaticTestSuite.mds.tcLS"/>
+			</Node>
+			<Node name="{a0de5c6c-6129-4ed4-9472-ea40658d4fbd}">
+				<Prp name="relpath" type="S" value="AutoPIPE-RequirementBasedTestSuite\RequirementBased-TestSuite.mds.tcLS"/>
+			</Node>
+			<Node name="{a40f98a2-2b4d-4558-94a4-fb5e232211df}">
+				<Prp name="relpath" type="S" value="StaticTestPlans\StaticTestPlans.mds.tcLS"/>
+			</Node>
+			<Node name="{bfac4b57-4676-4176-b1e3-6b160bafe2e7}">
+				<Prp name="relpath" type="S" value="AutoPIPERegression\AutoPIPERegression.mds.tcLS"/>
+			</Node>
+			<Node name="{c027e997-1acc-4381-9c9e-944688c8750b}">
+				<Prp name="relpath" type="S" value="RequirementBasedTestPlans\RequirementBasedTestPlans.mds.tcLS"/>
+			</Node>
+			<Node name="{c21f6024-0d55-4818-adff-52eed4b8b97a}">
+				<Prp name="relpath" type="S" value="AutoPIPESmoke\APTAF.mds.tcLS"/>
+			</Node>
+			<Node name="{c234463d-eb1a-472e-b31f-3fa0a05e756d}">
+				<Prp name="relpath" type="S" value="AutoPIPEDynamicTestSuite\Dynamic-TestSuite.mds.tcLS"/>
+			</Node>
+			<Node name="{e4a170db-4f70-4aae-9ab2-8ec8a084d42d}">
+				<Prp name="relpath" type="S" value="AutoPIPETutorial\AutoPIPETutorial.mds.tcLS"/>
+			</Node>
+			<Node name="{f113a956-f873-402d-b671-90c2219a7eee}">
+				<Prp name="relpath" type="S" value="TestProject1\TestProject1.mds.tcLS"/>
+			</Node>
+			<Node name="{f608f937-d6f9-4787-834c-91d1e4d75de8}">
+				<Prp name="relpath" type="S" value="AutoPIPE_Common\AutoPIPE_Common.mds.tcLS"/>
+			</Node>
+			<Node name="envmngrlogs">
+				<Prp name="key" type="S" value="{E4D3A355-A0CF-4D2A-9515-434499C896A9}"/>
+			</Node>
+			<Node name="logs">
+				<Prp name="key" type="S" value="{C7564626-DFB2-4A36-8F56-5A77BB83C66C}"/>
+				<Prp name="relpath" type="S" value="Log"/>
+			</Node>
+			<Node name="variables"/>
+		</Node>
+		<Prp name="signature" type="S" value="{71078212-FAEB-4856-A901-B237C89E6B5C}"/>
+	</Node>
+</Nodes>

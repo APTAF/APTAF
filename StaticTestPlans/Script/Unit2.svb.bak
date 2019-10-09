@@ -1,0 +1,451 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT Main
+'USEUNIT FSO_Functions
+'USEUNIT App_Common
+'USEUNIT tabSelect
+
+
+'.. Detect dialog type and act accordingly
+sub q
+Aliases.autopipe.dlgRun.btnOK.Click
+If (Aliases.AutoPIPE.wndAutoPIPE.Enabled) Then
+Aliases.AutoPIPE.wndAutoPIPE.Keys("IB")
+Else 
+Delay(500)
+Aliases.AutoPIPE.wndAutoPIPE.Keys("IB")
+End If
+End Sub
+Sub chk
+dim ObjNameMapping: ObjNameMapping = Aliases.AutoPIPE
+dim strDlgNameMap : strDlgNameMap=
+  if ObjNameMapping.strDlgNameMap.btnOK.exists = true then 
+                    Execute "ObjNameMapping."&strDlgNameMap&".btnOK.Click()"
+                    end if
+End Sub
+Sub copyribbon
+  dim roam : roam = aqEnvironment.GetEnvironmentVariable("appdata") & "\"
+ Dim sourceFile : sourceFile = "\\isbprdfs03\QA\TestingProjects\AlphaTesting\CAE\AutoPIPE\AutoPIPERegression\Common\APInstallationDir\RibbonUI.xml"
+  dim wshShell : Set wshShell = CreateObject("WScript.Shell")
+  dim folder : folder =  wshShell.ExpandEnvironmentStrings("%PROGRAMFILES(x86)%")
+'  dim folder
+'  set folder = FSO_Functions.FSOGetFolder("C:\Program Files (x86)")
+  'Dim toProgramFiles: toProgramFiles = wshShell & "\Bentley\AutoPIPE CONNECT v12\" 
+'    Dim toProgramFiles: toProgramFiles = "C:\Program Files (x86)\Bentley\AutoPIPE CONNECT v12\" 
+    'Dim folder : folder = wshShell.SpecialFolders("%PROGRAMFILES(x86)%")
+    WScript.Echo objWShell.ExpandEnvironmentStrings("%PROGRAMFILES(x86)\Bentley\AutoPIPE CONNECT v12\")
+    Dim toProgramFiles: toProgramFiles = folder & "\Bentley\AutoPIPE CONNECT v12\" 
+     
+    Dim toRoaming: toRoaming = roam & "Bentley\AutoPIPE CONNECT v12\" 
+    
+    Call  FSO_Functions.FSOCopyFile(sourceFile,toProgramFiles)
+    Log.Message("RibbonUI copied to Program Files")
+    
+    Call FSO_Functions.FSOCopyFile(sourceFile,toRoaming)
+    Log.Message("RibbonUI copied to Roaming")
+  ' 
+End Sub
+
+sub abc123
+    'Aliases.autopipe.dlgGrossDiscontinuity.fldMinStress.Keys("3")
+          Aliases.AutoPIPE.wndAutoPIPE.Keys("SF")
+
+End Sub
+
+
+Sub ClosePopups
+
+
+  Do While (Aliases.AutoPIPE.WaitAliasChild("dlgConfirm", 60).WaitProperty("Exists", true, 10))Or (Aliases.AutoPIPE.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10))
+  
+  Flag = 0
+    dlgName = Sys.Process("autopipe").Window("#32770", "*", 1).WndCaption
+
+    Select Case dlgName
+   
+    Case "Confirm"
+      If (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = " Database (*.dat) already exists. Do you want to replace it during conversion? ") Then
+        Aliases.autopipe.dlgConfirm.btnOK.Click()
+        Flag = 1
+        Log.Message("Confirm dialog closed with Yes click. MESSAGE-Database (*.dat) already exists. Do you want to replace it during conversion? ")
+      ElseIf (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = " The model is already opened. Do you want to re-open it?") Then
+        Aliases.autopipe.dlgConfirm.btnOK.Click()
+        Flag = 1
+        Log.Message("Confirm dialog closed with Yes click. MESSAGE-Database (*.dat) already exists. Do you want to replace it during conversion?")
+'      ElseIf (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = "Review consistency check warning messages :") Then
+'       Aliases.autopipe.dlgConfirm.btnNo.Click()
+'       Flag = 1
+'       Log.Message("Confirm dialog closed with No button. Message-Review consistency check warning messages.  ")
+       ElseIf (Aliases.autopipe.dlgConfirm.lblConfirmTxt.WndCaption = " Review consistency check warning messages :") Then
+       Aliases.autopipe.dlgConfirm.btnNo.Click()
+       Flag = 1
+       Log.Message("Confirm dialog closed with No button. MESSAGE-Review consistency check warning messages.   ")
+      End If
+
+    Case "Warning"
+      Aliases.autopipe.dlgWarning.btnOK
+      Flag = 1
+        
+    Case "Error"
+      Aliases.autopipe.dlgError.btnOK
+      Flag = 1
+    End Select
+
+
+  'End IF
+  Delay(2000)
+  Loop
+'End IF
+  If Flag = 0 Then
+  Log.Message("No dialog found")
+  End If
+End Sub
+'....................................................
+
+Sub PicComp
+  Dim result
+  
+  If Not Regions.Compare("dlgRun", Aliases.autopipe.dlgRun) Then
+  Log.Message " ERROR"
+  End If
+  
+End Sub
+
+Sub BeamTest
+Configuration
+cmbPipeIdentifier = 12
+
+   set objNameMapping = Aliases.autopipe
+   set dlgPipePropertieserties = objNameMapping.dlgpi
+    If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(cmbPipeIdentifier  <> "NA") Then
+        If(objNameMapping.WaitAliasChild("dlgPipePropertieserties", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgPipePropertieserties.cmbboxPipeIdentifier.fldfldPipeIdentifier.Keys(cmbPipeIdentIfier)
+          Log.Message("Entered " & cmbPipeIdentifier  & " in the 'Pipe Identifier' field")
+        End If
+    End If 
+End If 
+
+End Sub
+
+Sub PP
+
+NameMapping.Sys.autopipe.dlgPipeProperties.cmbboxPipeIdentifier.ClickItem("10.000")
+
+End Sub
+
+Sub Test765
+
+strSource = aqFileSystem.ExpandFileName("./Script")
+
+Call Configuration
+
+Dim strTCAction          : strTCAction          =  Project.Variables.strTPFolderName&"_ActionScript.Cat1TS1TC1" ' TPName_ActionScript.Cat1TS1TC1
+                              
+CallTestCase = "Call Runner.CallMethod(" & """" & strTCAction &"""" &")" 'Call CAT1TS1TC1'
+
+Execute CallTestCase
+'Call Runner.CallMethod(SmokeTest_ActionScript.Cat1TS1TC1)
+  Dim strTPFolderPath : strTPFolderPath = aqFileSystem.ExpandFileName(Project.Variables.strTPFolderPath)
+  Call Log.Message("Project.Variables.strTPFolderPath :" & strTPFolderPath)
+  'Call Log.Message("TPFolderPath aqFileSystem.ExpandFileName : "   & aqFileSystem.ExpandFileName(Project.Variables.strTPFolderPath))
+  'Call Log.Message("TPFolderPath :"   & Project.Variables.strTPFolderPath)
+  'Dim strInputDBName  : strInputDBName  = Project.Variables.strInputDBName
+End sub
+
+
+
+
+
+
+
+
+sub Test5556
+
+Dim objFile
+      
+      Set objFile = Files.Items("C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\Tools\Benchmark\asme1986.src")
+End Sub
+
+
+
+
+Sub FlageTest123
+
+Dim ColumnName:ColumnName = "INTLength"
+
+ColumnName = LCase(Left(ColumnName,3))
+
+
+Select Case ColumnName
+
+Case "int"
+Dim intZZZ : intZZZ = objRow.Item("intZZZ")
+      'Get value to enter in the "ZZZ" field
+      If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          If (intZZZ  <> "NA") Then
+              'Write to "Name Of Point" field
+              If(objNameMapping.WaitAliasChild("dlgZZZ", 60000).WaitProperty("Exists", true, 10)) Then
+                dlgZZZ.fldZZZ.Keys(intZZZ)
+                dlgZZZ.fldZZZ.Keys("[Tab]")
+                Log.Message("Entered " & intZZZ  & " in the 'ZZZ' field")
+              End If
+          End If       
+      End If
+Case "str"
+
+Case "drp"
+
+Case "cmb"
+End Select 
+
+End Sub
+
+
+Sub AddToStore(sPath)
+  'sPath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\Sinequanon\Benchmark"
+Set objFileCollection = GetFileCollection(sPath)
+
+For each file in objFileCollection
+    ' Verify that StoredItemName is not taken
+  If Files.Contains(file.Name) Then
+    Log.Message ("The Files collection already contains this file.")
+  End If
+  If Files.Add(sPath&"\"&file.Name,file.Name) Then
+  Log.Message ("The file has been successfully saved in Stores.")
+   Else
+    Log.Message (Files.LastError)
+  End If
+
+Next
+
+End Sub
+
+Sub RemoveFromStore
+  Aliases.autopipe.dlgTee.btnOK.Click
+'StoreCleanup("Files")
+End Sub
+
+Sub AppView
+'aliases.apipview2.
+
+End Sub
+
+Sub Test1
+  Call Aliases.apipview2.frmMain.StripMainMenu.Click("File|Exit")
+End Sub
+
+Sub Test2
+  Call Aliases.apipview.frmMain.StripMainMenu.Click("File|Exit")
+End Sub
+
+Sub Test3
+  Call Aliases.apipview.Close
+End Sub
+
+Sub RemoveText123
+  sPath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\Sinequanon\Benchmark\Cat.RPT"
+  aText = Array("BENTLEY","AutoPIPE Nuclear","Version")
+  Call RemoveText(sPath,aText)
+End Sub
+
+Sub ImagCompar
+'Set objAutoPIPE = NameMapping.Sys.autopipe
+Set objWindow = Aliases.autopipe.dlgRun
+bPicture = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Stores\Regions\DlgRun.png"
+
+
+Call CheckImage("AutoPIPE",objWindow,bPicture,True,false,0)
+  
+End Sub
+
+
+Sub myRemove
+  'sPath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\Sinequanon\Benchmark\Cat.RPT"
+  'sPath = Files.FileNameByName("Cat1TS1TC1_RPT")
+  strBenchFileName = Files.FileNameByName("Cat1TS1TC1.RPT")
+
+arrRemoveText = Array("BENTLEY","AutoPIPE Nuclear","Version")  
+Call RemoveText(strBenchFileName,arrRemoveText)
+End Sub
+
+sub mytest123
+Configuration
+strSheetName = "Insert"
+strTSID = "TS2"
+strCatID = "Cat1"
+'Select OnOff,TCID,TSID,CatID,strTCComments,strBenchmarkFileName,strActualFileName,strVerificationType,strTCTitle from tpTestCase WHERE CatID ='Cat1' And TSID = 'TS2'
+
+    Dim tblName :tblName  = "tpTestCase"
+    Dim strQuery:strQuery = "Select OnOff,TCID,TSID,CatID,strTCComments,strBenchmarkFileName,strActualFileName,strVerificationType,strTCTitle from tpTestCase WHERE CatID =1 And TSID = 2"
+    arrTestCases          = GetDBRecord(strQuery)
+    
+
+End Sub
+
+
+Sub TestXMLDOM
+  ' Create a COM object 
+  ' If you have MSXML 4: 
+  'Set Doc = Sys.OleObject("Msxml2.DOMDocument.4.0")
+  ' If you have MSXML 6: 
+  Set Doc = Sys.OleObject("Msxml2.DOMDocument.6.0")
+
+  Doc.async = False
+  
+  ' Load data from a file
+  ' We use the file created earlier
+  Call Doc.load("C:\Delete\NameMapping.tcnm")
+  
+  ' Report an error, if, for instance, the markup or file structure is invalid 
+  If Doc.parseError.errorCode <> 0 Then
+    s = "Reason:" + Chr(9) + Doc.parseError.reason + Chr(13) + Chr(10) + _
+        "Line:" + Chr(9) + CStr(Doc.parseError.line) + Chr(13) + Chr(10) + _
+        "Pos:" + Chr(9) + CStr(Doc.parseError.linePos) + Chr(13) + Chr(10) + _
+        "Source:" + Chr(9) + Doc.parseError.srcText
+    ' Post an error to the log and exit
+    Call Log.Error("Cannot parse the document.", s) 
+    Exit Sub
+  End If
+  
+  ' Obtain the node
+  'Set Node = Doc.documentElement
+  Set Node = Doc.selectSingleNode("//Root/Nodes/Children/Child/Children/Child/Children")
+ Dim myArray(99,55)
+  ' Process the node
+  Call ParentNode(Node,myArray)
+  PopLogFolder
+  Call FilterArray(myArray)
+End Sub
+
+
+
+Sub ParentNode(ANode,myArray())
+
+'Dim myArray(92,15)
+
+  PopLogFolder
+  ' If the node value is not null, output it 
+  If aqObject.GetVarType(ANode.nodeValue) <> 1 Then
+    Log.Message "Value: " + ANode.nodeValue
+  End If
+  
+   ' Process the node's attributes
+  If Left(ANode.nodeName, 1) <> "#" And ANode.nodeName = "Child" Then ' Exclude helper nodes from processing
+
+    ' Obtain the attribute collection and 
+    ' output the attributes to the log
+    Set Attrs = ANode.attributes
+
+    If (Attrs.length > 0) Then
+        myJ=0
+        strNodeValue = Attrs.item(0).nodeValue
+        AppendLogFolder(strNodeValue)
+        myI = myI +1
+        myArray(myI,myJ)= strNodeValue
+         
+    End If
+
+  End If
+    
+  ' Obtain the collection of child nodes
+  Set ChildNodes = ANode.childNodes
+  ' Processes each node of the collection
+  For i = 0 to ChildNodes.length - 1
+      If ChildNodes.item(i).nodename = "Child" Then
+        
+        Call ParentNode(ChildNodes.item(i),myArray)
+      ElseIf  ChildNodes.item(i).nodename = "Children" Then
+         Call ChildNode(ChildNodes.item(i),myArray)
+      End If
+'End If 
+  Next
+  
+  ' Close the log folder
+  'Log.PopLogFolder
+End Sub
+
+Sub ChildNode(ANode,myArray())
+
+
+  If aqObject.GetVarType(ANode.nodeValue) <> 1 Then
+    Log.Message "Value: " + ANode.nodeValue
+  End If
+  
+   ' Process the node's attributes
+  If Left(ANode.nodeName, 1) <> "#" And ANode.nodeName = "Child" Then ' Exclude helper nodes from processing
+
+    ' Obtain the attribute collection and 
+    ' output the attributes to the log
+    Set Attrs = ANode.attributes
+    If (Attrs.length > 0) Then
+      myJ = myJ +1
+      strNodeValue = Attrs.item(0).nodeValue
+      Log.Message strNodeValue
+       myArray(myI,myJ)= strNodeValue
+        
+    End If
+  End If
+    
+  ' Obtain the collection of child nodes
+  Set ChildNodes = ANode.childNodes
+  ' Processes each node of the collection
+  For i = 0 to ChildNodes.length - 1
+      If(ChildNodes.item(i).nodeName = "Child") Then
+        Call ChildNode(ChildNodes.item(i),myArray) 
+      End If
+  Next
+
+End Sub
+
+Sub FilterArray(myArray)
+strDirection = "horizontal" 
+'Call WriteToExcelReport(strTestPlanName,strSheetName,arrHeaderValues(),strDirection,intStartCol,intStartRow)
+Call CreateTables("C:\delete\TestData.xlsx","MyTables",myArray,strDirection,2,2)
+
+
+End Sub
+
+Sub CreateTables(strTestPlanName,strSheetName,arrHeaderValues(),strDirection,intStartCol,intStartRow)
+
+  Dim Excelapp, objTestPlan, objSheet
+  Dim intArrLength:intArrLength = UBound(arrHeaderValues)+1
+   
+  Set Excelapp = Sys.OleObject("Excel.Application")
+  Set objTestPlan = Excelapp.Workbooks.Open(strTestPlanName)
+  Set objSheet = objTestPlan.Sheets(strSheetName)
+  Excelapp.DisplayAlerts = False
+  
+
+  Dim i : i = 0
+  
+  Select Case strDirection
+  
+    
+  Case "horizontal"
+      For k=0 To  intArrLength-1
+          strTableType = Left(arrHeaderValues(k,0),3)
+          If strTableType = "dlg" Then
+          objSheet.Cells(intStartRow, intStartCol) = arrHeaderValues(k,0)
+          intStartRow = intStartRow + 1
+          For j=1 To  UBound(arrHeaderValues,2)
+              strColType = Left(arrHeaderValues(k,j),3)
+              If strColType <> "btn" Then
+              objSheet.Cells(intStartRow, intStartCol) = arrHeaderValues(k,j)
+              intStartCol = intStartCol + 1
+              End If
+          Next
+          intStartCol = 2
+          intStartRow = intStartRow + 2
+          End If
+       Next
+          'intStartRow = 2
+ End Select 
+  
+  Call objTestPlan.Save
+  Call objTestPlan.Close
+  Call Excelapp.Quit
+
+      set Excelapp = Nothing
+      set objTestPlan = nothing
+End Sub
+

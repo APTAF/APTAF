@@ -1,0 +1,138 @@
+﻿'USEUNIT APP_Common
+'USEUNIT FSO_Functions
+
+Sub File_Finder(BasePath,TestPath)
+
+  Indicator.PushText("Removing Files from Store...")
+  Call StoreCleanup("Files")
+  Indicator.PopText
+  
+  Indicator.PushText("Comparing Files")
+  
+  'define and initialize FSO variables 
+  Dim objFSO : Set objFSO = CreateObject("Scripting.FileSystemObject")
+  Dim objParentFolder : Set objParentFolder = objFSO.GetFolder(BasePath)
+  Dim nOUT,nRPT,nHGR,nFLR
+  Dim cOUT,cRPT, cDAT, cHGR, cFLR
+  cOUT = 0
+  cRPT = 0
+  cHGR = 0
+  cFLR = 0
+  
+  'Define some more variables
+  Dim SubFolder,colFiles,File
+  
+  'Go through each folder and add required files
+  For Each SubFolder in objParentFolder.SubFolders
+    
+    'Folder Appender
+    Set colFiles = SubFolder.Files  
+    
+    For Each File in colFiles
+      
+      If objFSO.GetExtensionName(File)= "OUT" OR objFSO.GetExtensionName(File)= "RPT" OR objFSO.GetExtensionName(File)= "HGR" OR objFSO.GetExtensionName(File)= "FLR" OR objFSO.GetExtensionName(File)= "TSM" Then
+        
+        'Get the full file paths and names       
+        Dim BasefullPath : BasefullPath = ObjFSO.GetAbsolutePathName(SubFolder) & "\" & objFSO.GetFileName(File)
+        Dim TestfullPath : TestfullPath = TestPath & "\" & objFSO.GetFileName(File)
+  
+        If objFSO.FileExists(TestfullPath) Then
+        
+          Call RemoveUnwanted(BasefullPath,TestfullPath)
+          Call Validator(BasefullPath,TestfullPath)
+            If objFSO.GetExtensionName(File)="OUT" then
+            cOUT = cOUT + 1
+            nOUT = nOUT & objFSO.GetFileName(File) & vbCrLf
+          ElseIf objFSO.GetExtensionName(File)="RPT" Then
+            cRPT = cRPT + 1
+            nRPT = nRPT & objFSO.GetFileName(File) & vbCrLf
+          ElseIf objFSO.GetExtensionName(File)="HGR" Then
+            cHGR = cHGR + 1
+            nHGR = nHGR & objFSO.GetFileName(File) & vbCrLf
+          ElseIf objFSO.GetExtensionName(File)="FLR" Then
+            cFLR = cFLR + 1
+            nFLR = nFLR & objFSO.GetFileName(File) & vbCrLf
+          Else
+            Log.Message("Invalid file type")
+          End If
+        End If
+        
+      End If    
+    
+    Next
+    
+   ' Call File_Finder(SubFolder)
+  Next
+
+  cDAT = GetFileCount("C:\RegTest\DAT")
+  
+  nOUT = Replace(nOUT,".OUT","")
+  nRPT = Replace(nRPT,".RPT","")
+  nHGR = Replace(nHGR,".HGR","")
+  nFLR = Replace(nFLR,".FLR","")
+  
+  If FSOFolderExists("C:\jenkins-agent\workspace\AutoPIPE_Custom_Alpha_Component_Verification") Then
+    CreateTXTFile("C:\jenkins-agent\workspace\AutoPIPE_Custom_Alpha_Component_Verification\RegressionReport.txt")
+    Call WriteToTXTFile("C:\jenkins-agent\workspace\AutoPIPE_Custom_Alpha_Component_Verification\RegressionReport.txt","Total number of test models in regression set:"& cDAT&_
+  vbCrLf& vbCrLf & "Number of OUT Files Compared:"&cOUT  & vbCrLf & nOUT & vbCrLf & "Number of RPT Files Compared:" & cRPT & vbCrLf&_
+  nRPT & vbCrLf & "Number of HGR Files Compared:"&cHGR & vbCrLf & nHGR & vbCrLf & "Number of FLR Files Compared:"& cFLR & vbCrLf&_
+  nFLR,True)
+  
+  Else
+    CreateTXTFile("C:\jenkins-agent\workspace\AutoPIPE_Custom_Nightly_Component_Verification\RegressionReport.txt")
+    Call WriteToTXTFile("C:\jenkins-agent\workspace\AutoPIPE_Custom_Nightly_Component_Verification\RegressionReport.txt","Total number of test models in regression set:"& cDAT&_
+  vbCrLf& vbCrLf & "Number of OUT Files Compared:"&cOUT  & vbCrLf & nOUT & vbCrLf & "Number of RPT Files Compared:" & cRPT & vbCrLf&_
+  nRPT & vbCrLf & "Number of HGR Files Compared:"&cHGR & vbCrLf & nHGR & vbCrLf & "Number of FLR Files Compared:"& cFLR & vbCrLf&_
+  nFLR,True)
+  
+  End If
+  
+  Indicator.PopText
+  
+End Sub
+
+Function GetFileCount(TestPath)
+
+  'create object of File System Object
+  Dim objFSO : Set objFSO = CreateObject("Scripting.FileSystemObject")
+  Dim objFiles,objFile
+  Dim totalFiles,datFile
+  datFile = 0
+  'Get the number total number of files inside TestPath
+  Set objFiles = objFSO.GetFolder(TestPath).Files
+  
+  'iterating from each file in directory
+  For Each objFile in objFiles
+  'check if the extension of file is DAT or dat
+    If objFSO.getExtensionName(objFile) = "DAT" OR objFSO.getExtensionName(objFile) = "dat" then
+      
+      datFile=datFile + 1
+    
+    End If
+  Next
+  
+  GetFileCount = datFile
+
+End Function
+
+
+Sub Validator(sBase,sTest)
+  
+  Dim objFSO : Set objFSO = CreateObject("Scripting.FileSystemObject")
+  'get name of file from file path
+  Files.Add sBase,objFSO.GetFileName(sBase)
+  'side by side comparison
+  Call CheckText(objFSO.GetFileName(sBase),sTest,"Diff")
+  
+End Sub
+
+Sub RemoveUnwanted(sBase,sTest)
+    'unwanted text and lines to remove from baseline and test files
+    Dim aUnwanted
+    aUnwanted = Array("DIFFERENT"," PM "," AM ","Version:","REVISION","/","revision","Revision")
+    'remove text from baseline file
+    Call RemoveText(sBase,aUnwanted)
+    'remove text from test file
+    Call RemoveText(sTest,aUnwanted)
+    
+End Sub

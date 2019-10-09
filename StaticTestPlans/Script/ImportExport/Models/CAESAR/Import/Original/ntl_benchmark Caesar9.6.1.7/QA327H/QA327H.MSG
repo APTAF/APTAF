@@ -1,0 +1,170 @@
+------------------------------------------------------------
+----------------  . C I I    T O   . N T L  ----------------
+------------  E R R O R S   A N D   W A R N I N G S --------
+------------------------------------------------------------
+
+ *** WARNING ***
+ Node greater than 10000, new name generated 000A @ Node 10000                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 010A @ Node 10010                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 020A @ Node 10020                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 030A @ Node 10030                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 040A @ Node 10040                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 050A @ Node 10050                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 060A @ Node 10060                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 070A @ Node 10070                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 080A @ Node 10080                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 090A @ Node 10090                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 100A @ Node 10100                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 110A @ Node 10110                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 120A @ Node 10120                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 130A @ Node 10130                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 140A @ Node 10140                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 150A @ Node 10150                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 160A @ Node 10160                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 170A @ Node 10170                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 180A @ Node 10180                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 190A @ Node 10190                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 200A @ Node 10200                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 210A @ Node 10210                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 190A @ Node 10190                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 220A @ Node 10220                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 000B @ Node 11000                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 010B @ Node 11010                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 020B @ Node 11020                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 030B @ Node 11030                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 040B @ Node 11040                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 050B @ Node 11050                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 060B @ Node 11060                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 070B @ Node 11070                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 080B @ Node 11080                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 090B @ Node 11090                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 100B @ Node 11100                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 110B @ Node 11110                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 120B @ Node 11120                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 130B @ Node 11130                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 140B @ Node 11140                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 150B @ Node 11150                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 000A @ Node 10000                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 220A @ Node 10220                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 050A @ Node 10050                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 130A @ Node 10130                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 000B @ Node 11000                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 130B @ Node 11130                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 130B @ Node 11130                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 000A @ Node 10000                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 220A @ Node 10220                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 000B @ Node 11000                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 190A @ Node 10190                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 220A @ Node 10220                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 190A @ Node 10190                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 190A @ Node 10190                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 000A @ Node 10000                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 030A @ Node 10030                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 070A @ Node 10070                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 150A @ Node 10150                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 000B @ Node 11000                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 010B @ Node 11010                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 020B @ Node 11020                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 070B @ Node 11070                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 090B @ Node 11090                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 120B @ Node 11120                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 140B @ Node 11140                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 050B @ Node 11050                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 060B @ Node 11060                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 030B @ Node 11030                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 040B @ Node 11040                  
+ *** WARNING ***
+ Node greater than 10000, new name generated 100B @ Node 11100                  
+ 
+********* AUTOPIPE BATCH NTL FILE: QA327H.NTL
+ 
+********* NUMBER OF ERRORS   =    0
+********* NUMBER OF WARNINGS =   70
+
+
+
+
+          * * * *  APIN MESSAGE FILE  * * * * 
+
+
+*** LAST NODE PROCESSED: 3280 
+INCL 3105         W               0.2500 1000.0000    0.0000    0.0000    0.0000
+          *** NOTE: SUPPORT NAMES GENERATED BY TRANSLATOR
+
+
+      DATABASE ARRAY SIZE IS  99271.  MAXIMUM ALLOWABLE IS   10000000
+
+
+
+ ********** NUMBER OF ERRORS:   0
+ ********** NUMBER OF WARNINGS:   0
+
+

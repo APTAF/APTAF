@@ -1,0 +1,1747 @@
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                                         BENTLEY                      
+05:46 PM                                                                           AutoPIPE Nuclear 11.00.00.14 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.14                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                                         BENTLEY                      
+05:46 PM                                                                           AutoPIPE Nuclear 11.00.00.14 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA326F                                          
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                             0                   
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2014                            
+ 
+          VERTICAL AXIS          : Z
+ 
+          AMBIENT TEMPERATURE    :   15.0 deg C    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-14 
+ 
+          MODEL REVISION NUMBER  :     2
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                                         BENTLEY                      
+05:46 PM                                                                           AutoPIPE Nuclear 11.00.00.14 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    2                      
+     Segment Data....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+     Bend............................................................................    8                      
+     Tee.............................................................................    9                      
+     Valve...........................................................................   10                      
+     Flange..........................................................................   12                      
+     Reducer.........................................................................   13                      
+     Rigid Pipe......................................................................   14                      
+     Center of Gravity...............................................................   15                      
+     Load Case Description...........................................................   16                      
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= -593.16 mm                                            Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 50MMP1, Material= HC, Poisson= 0.300, Nom Size= 50 mm, OD= 60.325 mm, Sch= STD, Wall Thk= 3.912 mm, 
+   Mill= 0.489 mm, Cor= 0 mm, Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 5.43 Kg/m, Content Sp Gr= 0.890,      
+   Content Unit Wgt= 1.93 Kg/m, Insul Thk= 0 mm, Cladding Thickness = 0 mm, Lining Thk= 0 mm,                   
+   Long Weld factor= 1.00, Circ Weld factor= 1.00, Long Modulus= 2.05706 E6Kg/cm2,                              
+   Hoop Modulus= 2.05706 E6Kg/cm2, Shear Modulus= 0.79118 E6Kg/cm2, Sc= 1054.6 Kg/cm2, Syc= 2812.3 Kg/cm2       
+ 
+ OPERATING DATA:                                                                
+   P1= 19.330 Kg/cm2, T1= 75.00 deg C, Exp1= 0.68920 mm/m, E1= 2.02149 E6Kg/cm2, Sh1= 1054.60 Kg/cm2            
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 mm, Y= 0.00 mm, Z= 0.00 mm                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DY= 254.00 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= A01, Near= A01 N, Far= A01 F):                      
+   Elbow, Radius= 126.99 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.23                       
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= -593.16 mm, Y= 0.00 mm, Z= 0.00 mm                      
+   A01 N, Coordinates, X= -466.17 mm, Y= 0.00 mm, Z= 0.00 mm                    
+   A01 F, Coordinates, X= -593.16 mm, Y= 126.99 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DX= 327.00 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= A02, Near= A02 N, Far= A02 F):                      
+   Elbow, Radius= 126.99 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.23                       
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= -593.16 mm, Y= 254.00 mm, Z= 0.00 mm                    
+   A02 N, Coordinates, X= -593.16 mm, Y= 127.01 mm, Z= 0.00 mm                  
+   A02 F, Coordinates, X= -466.17 mm, Y= 254.00 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A03 to A04, DY= 682.95 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= A03, Near= A03 N, Far= A03 F):                      
+   Elbow, Radius= 199.99 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.00                       
+ 
+ POINT DATA:                                                                    
+   A03, Coordinates, X= -266.16 mm, Y= 254.00 mm, Z= 0.00 mm                    
+   A03 N, Coordinates, X= -466.15 mm, Y= 254.00 mm, Z= 0.00 mm                  
+   A03 F, Coordinates, X= -266.16 mm, Y= 453.99 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A04 to A05, DX= -738.43 mm, DY= 25.79 mm, L= 738.88 mm                Bend
+ 
+ COMPONENT DATA (Bend, TIP= A04, Near= A04 N, Far= A04 F):                      
+   Elbow, Radius= 76.19 mm, Bend angle= 88.00 deg, End flanges= 0, Flex= Auto, SIF= 1.73                        
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= -266.16 mm, Y= 936.95 mm, Z= 0.00 mm                    
+   A04 N, Coordinates, X= -266.16 mm, Y= 863.37 mm, Z= 0.00 mm                  
+   A04 F, Coordinates, X= -339.69 mm, Y= 939.52 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A05 to A06, DY= 137.09 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= A05, Near= A05 N, Far= A05 F):                      
+   Elbow, Radius= 76.19 mm, Bend angle= 88.00 deg, End flanges= 0, Flex= Auto, SIF= 1.73                        
+ 
+ POINT DATA:                                                                    
+   A05, Coordinates, X= -1004.59 mm, Y= 962.74 mm, Z= 0.00 mm                   
+   A05 N, Coordinates, X= -931.06 mm, Y= 960.17 mm, Z= 0.00 mm                  
+   A05 F, Coordinates, X= -1004.59 mm, Y= 1036.32 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A06 to A07, DX= -69.69 mm, DY= 69.69 mm, L= 98.56 mm                  Bend
+ 
+ COMPONENT DATA (Bend, TIP= A06, Near= A06 N, Far= A06 F):                      
+   Elbow, Radius= 153.29 mm, Bend angle= 45.00 deg, End flanges= 0, Flex= Auto, SIF= 1.09                       
+ 
+ POINT DATA:                                                                    
+   A06, Coordinates, X= -1004.59 mm, Y= 1099.83 mm, Z= 0.00 mm                  
+   A06 N, Coordinates, X= -1004.59 mm, Y= 1036.34 mm, Z= 0.00 mm                
+   A06 F, Coordinates, X= -1049.49 mm, Y= 1144.73 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A07 to A08, DX= -111.25 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= A07, Near= A07 N, Far= A07 F):                      
+   Elbow, Radius= 84.61 mm, Bend angle= 45.00 deg, End flanges= 0, Flex= Auto, SIF= 1.62                        
+ 
+ POINT DATA:                                                                    
+   A07, Coordinates, X= -1074.28 mm, Y= 1169.52 mm, Z= 0.00 mm                  
+   A07 N, Coordinates, X= -1049.50 mm, Y= 1144.74 mm, Z= 0.00 mm                
+   A07 F, Coordinates, X= -1109.33 mm, Y= 1169.52 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A08 to A09, DY= -325.76 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= A08, Near= A08 N, Far= A08 F):                      
+   Elbow, Radius= 76.19 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.73                        
+ 
+ PIPE DATA (A08 F to A09):                                                      
+   Pipe Id= 40MMP1, Nom Size= 40 mm, OD= 48.260 mm, Wall Thk= 3.683 mm, Mill= 0.460 mm,                         
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 4.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 1.17 Kg/m     
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= -1185.53 mm, Y= 1169.52 mm, Z= 0.00 mm                  
+   A08 N, Coordinates, X= -1109.34 mm, Y= 1169.52 mm, Z= 0.00 mm                
+   A08 F, Coordinates, X= -1185.53 mm, Y= 1093.33 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A09 to A10, DY= -79.38 mm                                             Run 
+ 
+ COMPONENT DATA (Run):                                                          
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ POINT DATA:                                                                    
+   A09, Coordinates, X= -1185.53 mm, Y= 843.76 mm, Z= 0.00 mm                   
+ 
+ -------------------------------------------------------------------------------
+ From A10 to A11, DY= -66.67 mm                                             Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 40MMP2, Sch= 80, Wall Thk= 5.080 mm, Mill= 0.635 mm, Pipe Density= 7833.03 Kg/m3,                   
+   Pipe Unit Wgt= 5.40 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 1.01 Kg/m  
+ 
+ POINT DATA:                                                                    
+   A10, Coordinates, X= -1185.53 mm, Y= 764.38 mm, Z= 0.00 mm                   
+ 
+ -------------------------------------------------------------------------------
+ From A11 to A12, DX= -657.13 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= A11, Near= A11 N, Far= A11 F):                      
+   Elbow, Radius= 63.49 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.15                        
+ 
+ PIPE DATA (A11 F to A12):                                                      
+   Pipe Id= 40MMP1, Sch= STD, Wall Thk= 3.683 mm, Mill= 0.460 mm, Pipe Density= 7833.03 Kg/m3,                  
+   Pipe Unit Wgt= 4.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 1.17 Kg/m  
+ 
+ POINT DATA:                                                                    
+   A11, Coordinates, X= -1185.53 mm, Y= 697.71 mm, Z= 0.00 mm                   
+   A11 N, Coordinates, X= -1185.53 mm, Y= 761.20 mm, Z= 0.00 mm                 
+   A11 F, Coordinates, X= -1249.02 mm, Y= 697.71 mm, Z= 0.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From A12 to A13, DX= -101.60 mm                                            Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 101.60 mm, SIF= 2.00                                                 
+ 
+ POINT DATA:                                                                    
+   A12, Coordinates, X= -1842.66 mm, Y= 697.71 mm, Z= 0.00 mm                   
+ 
+ -------------------------------------------------------------------------------
+ From A13 to A14, DX= -1215.41 mm                                           Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP1, Nom Size= 100 mm, OD= 114.30 mm, Wall Thk= 6.020 mm, Mill= 0.752 mm,                       
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 16.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m    
+ 
+ POINT DATA:                                                                    
+   A13, Coordinates, X= -1944.26 mm, Y= 697.71 mm, Z= 0.00 mm                   
+ 
+ -------------------------------------------------------------------------------
+ From A14 to A15, DY= -406.40 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= A14, Near= A14 N, Far= A14 F):                      
+   Elbow, Radius= 304.79 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.23                       
+ 
+ POINT DATA:                                                                    
+   A14, Coordinates, X= -3159.67 mm, Y= 697.71 mm, Z= 0.00 mm                   
+   A14 N, Coordinates, X= -2854.88 mm, Y= 697.71 mm, Z= 0.00 mm                 
+   A14 F, Coordinates, X= -3159.67 mm, Y= 392.92 mm, Z= 0.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From A15 to A16, DX= -254.00 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= A15, Near= A15 N, Far= A15 F):                      
+   Elbow, Radius= 101.59 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 2.56                       
+ 
+ POINT DATA:                                                                    
+   A15, Coordinates, X= -3159.67 mm, Y= 291.31 mm, Z= 0.00 mm                   
+   A15 N, Coordinates, X= -3159.67 mm, Y= 392.90 mm, Z= 0.00 mm                 
+   A15 F, Coordinates, X= -3261.26 mm, Y= 291.31 mm, Z= 0.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From A16 to A17, DY= -829.53 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= A16, Near= A16 N, Far= A16 F):                      
+   Elbow, Radius= 152.39 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.95                       
+ 
+ POINT DATA:                                                                    
+   A16, Coordinates, X= -3413.67 mm, Y= 291.31 mm, Z= 0.00 mm                   
+   A16 N, Coordinates, X= -3261.28 mm, Y= 291.31 mm, Z= 0.00 mm                 
+   A16 F, Coordinates, X= -3413.67 mm, Y= 138.92 mm, Z= 0.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From A17 to A18, DY= -400.00 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A17, Coordinates, X= -3413.67 mm, Y= -538.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A18 to A19, DX= -400.00 mm                                            Bend
+ 
+ COMPONENT DATA (Bend, TIP= A18, Near= A18 N, Far= A18 F):                      
+   Elbow, Radius= 299.99 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.24                       
+ 
+ POINT DATA:                                                                    
+   A18, Coordinates, X= -3413.67 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A18 N, Coordinates, X= -3413.67 mm, Y= -638.23 mm, Z= 0.00 mm                
+   A18 F, Coordinates, X= -3713.66 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A19 to A20, DX= -261.81 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A19, Coordinates, X= -3813.67 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A20 to A21, DX= -457.81 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A20):                                      
+   Unreinforced tee, SIF= 3.89                                                  
+ 
+ POINT DATA:                                                                    
+   A20, Coordinates, X= -4075.48 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A21 to A22, DX= -339.12 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A21):                                      
+   Unreinforced tee, SIF= 3.89                                                  
+ 
+ POINT DATA:                                                                    
+   A21, Coordinates, X= -4533.29 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A22 to A23, DX= -339.12 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A22, Coordinates, X= -4872.41 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A23 to A24, DX= -1120.43 mm                                           Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A23):                                      
+   Unreinforced tee, SIF= 3.89                                                  
+ 
+ POINT DATA:                                                                    
+   A23, Coordinates, X= -5211.53 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A24 to A25, DX= -104.65 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A24, Coordinates, X= -6331.96 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A25 to A26, DX= -104.65 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A25):                                      
+   B16.9 welding tee, SIF= 1.83                                                 
+ 
+ POINT DATA:                                                                    
+   A25, Coordinates, X= -6436.61 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A26 to A27, DX= -104.65 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A26, Coordinates, X= -6541.26 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A27 to A28, DX= -104.65 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A27):                                      
+   B16.9 welding tee, SIF= 1.83                                                 
+ 
+ POINT DATA:                                                                    
+   A27, Coordinates, X= -6645.91 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A28 to A29, DX= -104.65 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A28, Coordinates, X= -6750.56 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A29 to A30, DX= -104.65 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A29):                                      
+   Other, SIF= 1.00                                                             
+ 
+ POINT DATA:                                                                    
+   A29, Coordinates, X= -6855.21 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A30 to A31, DX= -104.65 mm                                            Run 
+ 
+ POINT DATA:                                                                    
+   A30, Coordinates, X= -6959.86 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A31 to A32, DX= -104.65 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A31):                                      
+   Other, SIF= 1.00                                                             
+ 
+ POINT DATA:                                                                    
+   A31, Coordinates, X= -7064.51 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A32 to A33, DX= -76.20 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   A32, Coordinates, X= -7169.16 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A33 to A34, DX= -342.90 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A33):                                      
+   B16.9 welding tee, SIF= 1.83                                                 
+ 
+ POINT DATA:                                                                    
+   A33, Coordinates, X= -7245.36 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A34 to A35, DX= -304.80 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 304.80 mm, Valve weight = 0 Kg, Surface factor= 0.00, End type= Butt welded, SIF= 1.00,              
+   Avg offset= 0.000 mm, Max offset= 0.000 mm                                   
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP2, Sch= 80, Wall Thk= 8.560 mm, Mill= 1.070 mm, Pipe Density= 7833.03 Kg/m3,                  
+   Pipe Unit Wgt= 22.27 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 6.60 Kg/m 
+ 
+ POINT DATA:                                                                    
+   A34, Coordinates, X= -7588.26 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A34 M, Coordinates, X= -7740.66 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A35 to A36, DX= -304.80 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = BW, Rating= 150, Length= 304.80 mm, Valve weight = 43 Kg, Surface factor= 4.20,                    
+   End type= Butt welded, SIF= 1.00, Avg offset= 0.000 mm, Max offset= 0.000 mm 
+ 
+ POINT DATA:                                                                    
+   A35, Coordinates, X= -7893.06 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A35 M, Coordinates, X= -8045.46 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A36 to A37, DX= -292.10 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Globe Valve, Type = Globe Valve,       
+   MainEnd = BW, Rating= 150, Length= 292.10 mm, Valve weight = 51 Kg, Surface factor= 4.20,                    
+   End type= Butt welded, SIF= 1.00, Avg offset= 0.000 mm, Max offset= 0.000 mm 
+ 
+ POINT DATA:                                                                    
+   A36, Coordinates, X= -8197.86 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A36 M, Coordinates, X= -8343.91 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A37 to A38, DX= -74.68 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   A37, Coordinates, X= -8489.96 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A38 to A39, DX= -58.80 mm                                             Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 58.80 mm, Valve weight = 0 Kg, Surface factor= 0.00, End type= Butt welded, SIF= 1.00,               
+   Avg offset= 0.000 mm, Max offset= 0.000 mm                                   
+ 
+ POINT DATA:                                                                    
+   A38, Coordinates, X= -8564.64 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A38, Flange= WELDNECK, Rating= 150, Flange Weight= 7.26 Kg, Bolt/Nut Weight= 0.00 Kg, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   A38 M, Coordinates, X= -8594.04 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A39 to A40, DX= -77.85 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   A39, Coordinates, X= -8623.44 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A39, Flange= WELDNECK, Rating= 150, Flange Weight= 7.26 Kg, Bolt/Nut Weight= 0.00 Kg, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From A40 to A41, DX= -74.68 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   A40, Coordinates, X= -8701.29 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A41 to A42, DX= -58.80 mm                                             Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 58.80 mm, Valve weight = 0 Kg, Surface factor= 0.00, End type= Weld neck, SIF= 1.00                  
+ 
+ POINT DATA:                                                                    
+   A41, Coordinates, X= -8775.97 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A41, Flange= WELDNECK, Rating= 150, Flange Weight= 7.26 Kg, Bolt/Nut Weight= 0.00 Kg, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   A41 M, Coordinates, X= -8805.37 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A42 to A43, DX= -77.85 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   A42, Coordinates, X= -8834.77 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A42, Flange= WELDNECK, Rating= 150, Flange Weight= 7.26 Kg, Bolt/Nut Weight= 0.00 Kg, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From A43 to A44, DX= -74.68 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   A43, Coordinates, X= -8912.62 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A44 to A45, DX= -230.19 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 150, Length= 230.19 mm, Valve weight = 50 Kg, Surface factor= 4.20,                    
+   End type= Weld neck, SIF= 1.00                                               
+ 
+ POINT DATA:                                                                    
+   A44, Coordinates, X= -8987.30 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A44, Flange= WELDNECK, Rating= 150, Flange Weight= 7.26 Kg, Bolt/Nut Weight= 0.00 Kg, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   A44 M, Coordinates, X= -9102.40 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A45 to A46, DX= -319.09 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 319.09 mm, Valve weight = 0 Kg, Surface factor= 0.00, End type= Weld neck, SIF= 1.00                 
+ 
+ POINT DATA:                                                                    
+   A45, Coordinates, X= -9217.49 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A45 M, Coordinates, X= -9377.04 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A46 to A47, DX= -204.79 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 204.79 mm, Valve weight = 0 Kg, Surface factor= 0.00, End type= Weld neck, SIF= 1.00                 
+ 
+ POINT DATA:                                                                    
+   A46, Coordinates, X= -9536.58 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A46 M, Coordinates, X= -9638.98 mm, Y= -938.22 mm, Z= 0.00 mm                
+ 
+ -------------------------------------------------------------------------------
+ From A47 to A48, DX= -3.05 mm                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A47):                                      
+   B16.9 welding tee, SIF= 1.43                                                 
+ 
+ POINT DATA:                                                                    
+   A47, Coordinates, X= -9741.37 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From A48 to A49, DX= -200.15 mm                                            Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 200.15 mm, Valve weight = 0 Kg, Surface factor= 0.00, End type= Butt welded, SIF= 1.00,              
+   Avg offset= 0.000 mm, Max offset= 0.000 mm                                   
+ 
+ POINT DATA:                                                                    
+   A48, Coordinates, X= -9744.42 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   A48 M, Coordinates, X= -9844.50 mm, Y= -938.22 mm, Z= 0.00 mm                
+   A49, Coordinates, X= -9944.57 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   A49, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A20 to B01, DY= 829.30 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A20):                                      
+   Unreinforced tee, SIF= 3.89                                                  
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP1, Sch= STD, Wall Thk= 6.020 mm, Mill= 0.752 mm, Pipe Density= 7833.03 Kg/m3,                 
+   Pipe Unit Wgt= 16.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m 
+ 
+ POINT DATA:                                                                    
+   A20, Coordinates, X= -4075.48 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   B01, Coordinates, X= -4075.48 mm, Y= -108.92 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   B01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A21 to C01, DY= 812.36 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A21):                                      
+   Unreinforced tee, SIF= 3.89                                                  
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 80MMP1, Nom Size= 80 mm, OD= 88.900 mm, Wall Thk= 5.486 mm, Mill= 0.686 mm,                         
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 11.26 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 4.24 Kg/m    
+ 
+ POINT DATA:                                                                    
+   A21, Coordinates, X= -4533.29 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   C01, Coordinates, X= -4533.29 mm, Y= -125.86 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   C01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT D , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A23 to D01, DY= 95.25 mm                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A23):                                      
+   Unreinforced tee, SIF= 3.89                                                  
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP1, Nom Size= 100 mm, OD= 114.30 mm, Wall Thk= 6.020 mm, Mill= 0.752 mm,                       
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 16.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m    
+ 
+ POINT DATA:                                                                    
+   A23, Coordinates, X= -5211.53 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From D01 to D02, DY= 632.43 mm                                             Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 50MMP1, Nom Size= 50 mm, OD= 60.325 mm, Wall Thk= 3.912 mm, Mill= 0.489 mm,                         
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 5.43 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 1.93 Kg/m     
+ 
+ POINT DATA:                                                                    
+   D01, Coordinates, X= -5211.53 mm, Y= -842.97 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From D02 to D03, DY= 85.74 mm                                              Run 
+ 
+ COMPONENT DATA (Run):                                                          
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ POINT DATA:                                                                    
+   D02, Coordinates, X= -5211.53 mm, Y= -210.54 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From D03 to D05, DY= 286.84 mm                                             Run 
+ 
+ POINT DATA:                                                                    
+   D03, Coordinates, X= -5211.53 mm, Y= -124.80 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From D05 to D06, DX= 211.14 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= D05, Near= D05 N, Far= D05 F):                      
+   Elbow, Radius= 76.19 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.32                        
+ 
+ PIPE DATA (D05 N to D05 F):                                                    
+   Pipe Id= 50MMP2, Sch= 80, Wall Thk= 5.537 mm, Mill= 0.692 mm, Pipe Density= 7833.03 Kg/m3,                   
+   Pipe Unit Wgt= 7.47 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 1.69 Kg/m  
+ 
+ POINT DATA:                                                                    
+   D05, Coordinates, X= -5211.53 mm, Y= 162.04 mm, Z= 0.00 mm                   
+   D05 N, Coordinates, X= -5211.53 mm, Y= 85.85 mm, Z= 0.00 mm                  
+   D05 F, Coordinates, X= -5135.34 mm, Y= 162.04 mm, Z= 0.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From D06 to D07, DY= 211.14 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= D06, Near= D06 N, Far= D06 F):                      
+   Elbow, Radius= 76.19 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.32                        
+ 
+ POINT DATA:                                                                    
+   D06, Coordinates, X= -5000.39 mm, Y= 162.04 mm, Z= 0.00 mm                   
+   D06 N, Coordinates, X= -5076.58 mm, Y= 162.04 mm, Z= 0.00 mm                 
+   D06 F, Coordinates, X= -5000.39 mm, Y= 238.23 mm, Z= 0.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From D07 to D09, DY= 241.30 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= D07):                                      
+   B16.9 welding tee, SIF= 1.23                                                 
+ 
+ POINT DATA:                                                                    
+   D07, Coordinates, X= -5000.39 mm, Y= 373.18 mm, Z= 0.00 mm                   
+ 
+ -------------------------------------------------------------------------------
+ From D09 to D10, DX= 441.67 mm                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= D09, Near= D09 N, Far= D09 F):                      
+   Elbow, Radius= 106.35 mm, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 1.90                       
+ 
+ PIPE DATA (D09 N to D09 F):                                                    
+   Pipe Id= 100MMP2, Nom Size= 100 mm, OD= 114.30 mm, Wall Thk= 8.560 mm, Mill= 1.070 mm,                       
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 22.27 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 6.60 Kg/m    
+ 
+ PIPE DATA (D09 F to D10):                                                      
+   Pipe Id= 100MMP1, Sch= STD, Wall Thk= 6.020 mm, Mill= 0.752 mm, Pipe Density= 7833.03 Kg/m3,                 
+   Pipe Unit Wgt= 16.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m 
+ 
+ POINT DATA:                                                                    
+   D09, Coordinates, X= -5000.39 mm, Y= 614.48 mm, Z= 0.00 mm                   
+   D09 N, Coordinates, X= -5000.39 mm, Y= 508.13 mm, Z= 0.00 mm                 
+   D09 F, Coordinates, X= -4894.04 mm, Y= 614.48 mm, Z= 0.00 mm                 
+ 
+ -------------------------------------------------------------------------------
+ From D10 to D11, DX= 120.65 mm                                             Run 
+ 
+ COMPONENT DATA (Run):                                                          
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP2, Sch= 80, Wall Thk= 8.560 mm, Mill= 1.070 mm, Pipe Density= 7833.03 Kg/m3,                  
+   Pipe Unit Wgt= 22.27 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 6.60 Kg/m 
+ 
+ POINT DATA:                                                                    
+   D10, Coordinates, X= -4558.72 mm, Y= 614.48 mm, Z= 0.00 mm                   
+ 
+ -------------------------------------------------------------------------------
+ From D11 to D12, DX= 193.04 mm                                             Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP1, Sch= STD, Wall Thk= 6.020 mm, Mill= 0.752 mm, Pipe Density= 7833.03 Kg/m3,                 
+   Pipe Unit Wgt= 16.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m 
+ 
+ POINT DATA:                                                                    
+   D11, Coordinates, X= -4438.07 mm, Y= 614.48 mm, Z= 0.00 mm                   
+   D12, Coordinates, X= -4245.03 mm, Y= 614.48 mm, Z= 0.00 mm                   
+ 
+ SUPPORT DATA:                                                                  
+   D12, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT E , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A25 to E01, DY= 104.65 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A25):                                      
+   B16.9 welding tee, SIF= 1.83                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP1, Mill= 0.752 mm, Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 16.04 Kg/m,                    
+   Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m                            
+ 
+ POINT DATA:                                                                    
+   A25, Coordinates, X= -6436.61 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   E01, Coordinates, X= -6436.61 mm, Y= -833.57 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   E01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT F , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From D07 to F01, DX= 76.20 mm                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= D07):                                      
+   B16.9 welding tee, SIF= 1.23                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 50MMP2, Nom Size= 50 mm, OD= 60.325 mm, Sch= 80, Wall Thk= 5.537 mm, Mill= 0.692 mm,                
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 7.47 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 1.69 Kg/m     
+ 
+ POINT DATA:                                                                    
+   D07, Coordinates, X= -5000.39 mm, Y= 373.18 mm, Z= 0.00 mm                   
+ 
+ -------------------------------------------------------------------------------
+ From F01 to F02, DX= 42.86 mm                                              Run 
+ 
+ COMPONENT DATA (Run):                                                          
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ POINT DATA:                                                                    
+   F01, Coordinates, X= -4924.19 mm, Y= 373.18 mm, Z= 0.00 mm                   
+   F02, Coordinates, X= -4881.33 mm, Y= 373.18 mm, Z= 0.00 mm                   
+ 
+ SUPPORT DATA:                                                                  
+   F02, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT G , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A27 to G01, DY= 98.55 mm                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A27):                                      
+   B16.9 welding tee, SIF= 1.83                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 80MMP1, Nom Size= 80 mm, OD= 88.900 mm, Sch= STD, Wall Thk= 5.486 mm, Mill= 0.686 mm,               
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 11.26 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 4.24 Kg/m    
+ 
+ POINT DATA:                                                                    
+   A27, Coordinates, X= -6645.91 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   G01, Coordinates, X= -6645.91 mm, Y= -839.67 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   G01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT H , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From H00 to A29, DY= -104.78 mm                                            Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP1, Nom Size= 100 mm, OD= 114.30 mm, Wall Thk= 6.020 mm, Mill= 0.752 mm,                       
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 16.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m    
+ 
+ POINT DATA:                                                                    
+   H00, Coordinates, X= -6855.21 mm, Y= -833.44 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   H00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From A29 to H01, DY= -104.78 mm                                            Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A29):                                      
+   Other, SIF= 1.00                                                             
+ 
+ POINT DATA:                                                                    
+   A29, Coordinates, X= -6855.21 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   H01, Coordinates, X= -6855.21 mm, Y= -1043.00 mm, Z= 0.00 mm                 
+ 
+ SUPPORT DATA:                                                                  
+   H01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT I , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From I00 to A31, DY= -98.55 mm                                             Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 80MMP1, Nom Size= 80 mm, OD= 88.900 mm, Wall Thk= 5.486 mm, Mill= 0.686 mm,                         
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 11.26 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 4.24 Kg/m    
+ 
+ POINT DATA:                                                                    
+   I00, Coordinates, X= -7064.51 mm, Y= -839.67 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   I00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From A31 to I01, DY= -98.55 mm                                             Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A31):                                      
+   Other, SIF= 1.00                                                             
+ 
+ POINT DATA:                                                                    
+   A31, Coordinates, X= -7064.51 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   I01, Coordinates, X= -7064.51 mm, Y= -1036.77 mm, Z= 0.00 mm                 
+ 
+ SUPPORT DATA:                                                                  
+   I01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT J , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A33 to J01, DX= -242.47 mm, DY= 242.47 mm, L= 342.90 mm               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A33):                                      
+   B16.9 welding tee, SIF= 1.83                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP1, Nom Size= 100 mm, OD= 114.30 mm, Wall Thk= 6.020 mm, Mill= 0.752 mm,                       
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 16.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m    
+ 
+ POINT DATA:                                                                    
+   A33, Coordinates, X= -7245.36 mm, Y= -938.22 mm, Z= 0.00 mm                  
+   J01, Coordinates, X= -7487.83 mm, Y= -695.75 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   J01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT K , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A47 to K01, DY= 3.05 mm                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A47):                                      
+   B16.9 welding tee, SIF= 1.43                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP2, Sch= 80, Wall Thk= 8.560 mm, Mill= 1.070 mm, Pipe Density= 7833.03 Kg/m3,                  
+   Pipe Unit Wgt= 22.27 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 6.60 Kg/m 
+ 
+ POINT DATA:                                                                    
+   A47, Coordinates, X= -9741.37 mm, Y= -938.22 mm, Z= 0.00 mm                  
+ 
+ -------------------------------------------------------------------------------
+ From K01 to K02, DY= 200.15 mm                                             Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 200.15 mm, Valve weight = 0 Kg, Surface factor= 0.00, End type= Butt welded, SIF= 1.00,              
+   Avg offset= 0.000 mm, Max offset= 0.000 mm                                   
+ 
+ POINT DATA:                                                                    
+   K01, Coordinates, X= -9741.37 mm, Y= -935.17 mm, Z= 0.00 mm                  
+   K01 M, Coordinates, X= -9741.37 mm, Y= -835.10 mm, Z= 0.00 mm                
+   K02, Coordinates, X= -9741.37 mm, Y= -735.02 mm, Z= 0.00 mm                  
+ 
+ SUPPORT DATA:                                                                  
+   K02, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT L , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From L00 to L01, DY= 68.26 mm                                              Run 
+ 
+ COMPONENT DATA (Run):                                                          
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 100MMP1, Sch= STD, Wall Thk= 6.020 mm, Mill= 0.752 mm, Pipe Density= 7833.03 Kg/m3,                 
+   Pipe Unit Wgt= 16.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 7.31 Kg/m 
+ 
+ POINT DATA:                                                                    
+   L00, Coordinates, X= -3413.66 mm, Y= 291.29 mm, Z= 0.00 mm                   
+ 
+ SUPPORT DATA:                                                                  
+   L00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From L01 to L02, DY= 361.99 mm                                             Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 40MMP1, Nom Size= 40 mm, OD= 48.260 mm, Wall Thk= 3.683 mm, Mill= 0.460 mm,                         
+   Pipe Density= 7833.03 Kg/m3, Pipe Unit Wgt= 4.04 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 1.17 Kg/m     
+ 
+ POINT DATA:                                                                    
+   L01, Coordinates, X= -3413.66 mm, Y= 359.55 mm, Z= 0.00 mm                   
+ 
+ -------------------------------------------------------------------------------
+ From L02 to L03, DY= 133.35 mm                                             Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 2500,    
+   Length= 133.35 mm, Valve weight = 0 Kg, Surface factor= 0.00, End type= Socket welded, SIF= 1.30             
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 40MMP2, Sch= 80, Wall Thk= 5.080 mm, Mill= 0.635 mm, Pipe Density= 7833.03 Kg/m3,                   
+   Pipe Unit Wgt= 5.40 Kg/m, Content Sp Gr= 0.890, Content Unit Wgt= 1.01 Kg/m  
+ 
+ POINT DATA:                                                                    
+   L02, Coordinates, X= -3413.66 mm, Y= 721.54 mm, Z= 0.00 mm                   
+   L02 M, Coordinates, X= -3413.66 mm, Y= 788.22 mm, Z= 0.00 mm                 
+   L03, Coordinates, X= -3413.66 mm, Y= 854.89 mm, Z= 0.00 mm                   
+ 
+ SUPPORT DATA:                                                                  
+   L03, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 146 + 0 + 0 = 146        
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+          385.1 Kg     +       100.3 Kg     =         485.3 Kg                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (mm   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A , LINE # L100                                                    
+ A00            0.00        0.00        0.00                                    
+ A01 N       -466.17        0.00        0.00                                    
+ A01         -593.16        0.00        0.00                                    
+ A01 F       -593.16      126.99        0.00                                    
+ A02 N       -593.16      127.01        0.00                                    
+ A02         -593.16      254.00        0.00                                    
+ A02 F       -466.17      254.00        0.00                                    
+ A03 N       -466.15      254.00        0.00                                    
+ A03         -266.16      254.00        0.00                                    
+ A03 F       -266.16      453.99        0.00                                    
+ A04 N       -266.16      863.37        0.00                                    
+ A04         -266.16      936.95        0.00                                    
+ A04 F       -339.69      939.52        0.00                                    
+ A05 N       -931.06      960.17        0.00                                    
+ A05        -1004.59      962.74        0.00                                    
+ A05 F      -1004.59     1036.32        0.00                                    
+ A06 N      -1004.59     1036.34        0.00                                    
+ A06        -1004.59     1099.83        0.00                                    
+ A06 F      -1049.49     1144.73        0.00                                    
+ A07 N      -1049.50     1144.74        0.00                                    
+ A07        -1074.28     1169.52        0.00                                    
+ A07 F      -1109.33     1169.52        0.00                                    
+ A08 N      -1109.34     1169.52        0.00                                    
+ A08        -1185.53     1169.52        0.00                                    
+ A08 F      -1185.53     1093.33        0.00                                    
+ A09        -1185.53      843.76        0.00                                    
+ A10        -1185.53      764.38        0.00                                    
+ A11 N      -1185.53      761.20        0.00                                    
+ A11        -1185.53      697.71        0.00                                    
+ A11 F      -1249.02      697.71        0.00                                    
+ A12        -1842.66      697.71        0.00                                    
+ A13        -1944.26      697.71        0.00                                    
+ A14 N      -2854.88      697.71        0.00                                    
+ A14        -3159.67      697.71        0.00                                    
+ A14 F      -3159.67      392.92        0.00                                    
+ A15 N      -3159.67      392.90        0.00                                    
+ A15        -3159.67      291.31        0.00                                    
+ A15 F      -3261.26      291.31        0.00                                    
+ A16 N      -3261.28      291.31        0.00                                    
+ A16        -3413.67      291.31        0.00                                    
+ A16 F      -3413.67      138.92        0.00                                    
+ A17        -3413.67     -538.22        0.00                                    
+ A18 N      -3413.67     -638.23        0.00                                    
+ A18        -3413.67     -938.22        0.00                                    
+ A18 F      -3713.66     -938.22        0.00                                    
+ A19        -3813.67     -938.22        0.00                                    
+ A20        -4075.48     -938.22        0.00                                    
+ A21        -4533.29     -938.22        0.00                                    
+ A22        -4872.41     -938.22        0.00                                    
+ A23        -5211.53     -938.22        0.00                                    
+ A24        -6331.96     -938.22        0.00                                    
+ A25        -6436.61     -938.22        0.00                                    
+ A26        -6541.26     -938.22        0.00                                    
+ A27        -6645.91     -938.22        0.00                                    
+ A28        -6750.56     -938.22        0.00                                    
+ A29        -6855.21     -938.22        0.00                                    
+ A30        -6959.86     -938.22        0.00                                    
+ A31        -7064.51     -938.22        0.00                                    
+ A32        -7169.16     -938.22        0.00                                    
+ A33        -7245.36     -938.22        0.00                                    
+ A34        -7588.26     -938.22        0.00                                    
+ A34 M      -7740.66     -938.22        0.00                                    
+ A35        -7893.06     -938.22        0.00                                    
+ A35 M      -8045.46     -938.22        0.00                                    
+ A36        -8197.86     -938.22        0.00                                    
+ A36 M      -8343.91     -938.22        0.00                                    
+ A37        -8489.96     -938.22        0.00                                    
+ A38        -8564.64     -938.22        0.00                                    
+ A38 M      -8594.04     -938.22        0.00                                    
+ A39        -8623.44     -938.22        0.00                                    
+ A40        -8701.29     -938.22        0.00                                    
+ A41        -8775.97     -938.22        0.00                                    
+ A41 M      -8805.37     -938.22        0.00                                    
+ A42        -8834.77     -938.22        0.00                                    
+ A43        -8912.62     -938.22        0.00                                    
+ A44        -8987.30     -938.22        0.00                                    
+ A44 M      -9102.40     -938.22        0.00                                    
+ A45        -9217.49     -938.22        0.00                                    
+ A45 M      -9377.04     -938.22        0.00                                    
+ A46        -9536.58     -938.22        0.00                                    
+ A46 M      -9638.98     -938.22        0.00                                    
+ A47        -9741.37     -938.22        0.00                                    
+ A48        -9744.42     -938.22        0.00                                    
+ A48 M      -9844.50     -938.22        0.00                                    
+ A49        -9944.57     -938.22        0.00                                    
+ 
+ *** SEGMENT B , LINE # L100                                                    
+ A20        -4075.48     -938.22        0.00                                    
+ B01        -4075.48     -108.92        0.00                                    
+ 
+ *** SEGMENT C , LINE # L100                                                    
+ A21        -4533.29     -938.22        0.00                                    
+ C01        -4533.29     -125.86        0.00                                    
+ 
+ *** SEGMENT D , LINE # L100                                                    
+ A23        -5211.53     -938.22        0.00                                    
+ D01        -5211.53     -842.97        0.00                                    
+ D02        -5211.53     -210.54        0.00                                    
+ D03        -5211.53     -124.80        0.00                                    
+ D05 N      -5211.53       85.85        0.00                                    
+ D05        -5211.53      162.04        0.00                                    
+ D05 F      -5135.34      162.04        0.00                                    
+ D06 N      -5076.58      162.04        0.00                                    
+ D06        -5000.39      162.04        0.00                                    
+ D06 F      -5000.39      238.23        0.00                                    
+ D07        -5000.39      373.18        0.00                                    
+ D09 N      -5000.39      508.13        0.00                                    
+ D09        -5000.39      614.48        0.00                                    
+ D09 F      -4894.04      614.48        0.00                                    
+ D10        -4558.72      614.48        0.00                                    
+ D11        -4438.07      614.48        0.00                                    
+ D12        -4245.03      614.48        0.00                                    
+ 
+ *** SEGMENT E , LINE # L100                                                    
+ A25        -6436.61     -938.22        0.00                                    
+ E01        -6436.61     -833.57        0.00                                    
+ 
+ *** SEGMENT F , LINE # L100                                                    
+ D07        -5000.39      373.18        0.00                                    
+ F01        -4924.19      373.18        0.00                                    
+ F02        -4881.33      373.18        0.00                                    
+ 
+ *** SEGMENT G , LINE # L100                                                    
+ A27        -6645.91     -938.22        0.00                                    
+ G01        -6645.91     -839.67        0.00                                    
+ 
+ *** SEGMENT H , LINE # L100                                                    
+ H00        -6855.21     -833.44        0.00                                    
+ A29        -6855.21     -938.22        0.00                                    
+ H01        -6855.21    -1043.00        0.00                                    
+ 
+ *** SEGMENT I , LINE # L100                                                    
+ I00        -7064.51     -839.67        0.00                                    
+ A31        -7064.51     -938.22        0.00                                    
+ I01        -7064.51    -1036.77        0.00                                    
+ 
+ *** SEGMENT J , LINE # L100                                                    
+ A33        -7245.36     -938.22        0.00                                    
+ J01        -7487.83     -695.75        0.00                                    
+ 
+ *** SEGMENT K , LINE # L100                                                    
+ A47        -9741.37     -938.22        0.00                                    
+ K01        -9741.37     -935.17        0.00                                    
+ K01 M      -9741.37     -835.10        0.00                                    
+ K02        -9741.37     -735.02        0.00                                    
+ 
+ *** SEGMENT L , LINE # L100                                                    
+ L00        -3413.66      291.29        0.00                                    
+ L01        -3413.66      359.55        0.00                                    
+ L02        -3413.66      721.54        0.00                                    
+ L02 M      -3413.66      788.22        0.00                                    
+ L03        -3413.66      854.89        0.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A  T A   L I S T I N G                                                    
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       A00    A49    L100                           No    No     No           
+ B       A20    B01    L100                           No    No     No           
+ C       A21    C01    L100                           No    No     No           
+ D       A23    D12    L100                           No    No     No           
+ E       A25    E01    L100                           No    No     No           
+ F       D07    F02    L100                           No    No     No           
+ G       A27    G01    L100                           No    No     No           
+ H       H00    H01    L100                           No    No     No           
+ I       I00    I01    L100                           No    No     No           
+ J       A33    J01    L100                           No    No     No           
+ K       A47    K02    L100                           No    No     No           
+ L       L00    L03    L100                           No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(mm  )----- Spec  InsuDen/   Weight(Kg/m  )    ZL/ Composition/          
+ Material     Sch  mm    W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC/                       
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        Kg/m3           Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 50MMP1        50 60.325 3.912    0 0.49    0    0  0.89    0.000   5.43     0  7.36 1.00                       
+ HC           STD                                           0.000   1.93     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 40MMP1        40 48.260 3.683    0 0.46    0    0  0.89    0.000   4.04     0  5.21 1.00                       
+ HC           STD                                           0.000   1.17     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 40MMP2        40 48.260 5.080    0 0.63    0    0  0.89    0.000   5.40     0  6.41 1.00                       
+ HC           80                                            0.000   1.01     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 100MMP1      100 114.30 6.020    0 0.75    0    0  0.89    0.000  16.04     0 23.35 1.00                       
+ HC           STD                                           0.000   7.31     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 100MMP2      100 114.30 8.560    0 1.07    0    0  0.89    0.000  22.27     0 28.87 1.00                       
+ HC           80                                            0.000   6.60     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 80MMP1        80 88.900 5.486    0 0.69    0    0  0.89    0.000  11.26     0 15.50 1.00                       
+ HC           STD                                           0.000   4.24     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 50MMP2        50 60.325 5.537    0 0.69    0    0  0.89    0.000   7.47     0  9.16 1.00                       
+ HC           80                                            0.000   1.69     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6Kg/cm2     Expans.  Composition                    
+    Name     Pipe ID  Kg/m3    Ratio deg C    Axial     Hoop    Shear   mm/m                                    
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ HC          50MMP1     7833.0  0.30    15.0   2.0571   2.0571   0.7912                              
+                                        75.0   2.0215                     0.6892
+ 
+ HC          40MMP1     7833.0  0.30    15.0   2.0571   2.0571   0.7912                              
+                                        75.0   2.0215                     0.6892
+ 
+ HC          40MMP2     7833.0  0.30    15.0   2.0571   2.0571   0.7912                              
+                                        75.0   2.0215                     0.6892
+ 
+ HC          100MMP1    7833.0  0.30    15.0   2.0571   2.0571   0.7912                              
+                                        75.0   2.0215                     0.6892
+ 
+ HC          100MMP2    7833.0  0.30    15.0   2.0571   2.0571   0.7912                              
+                                        75.0   2.0215                     0.6892
+ 
+ HC          80MMP1     7833.0  0.30    15.0   2.0571   2.0571   0.7912                              
+                                        75.0   2.0215                     0.6892
+ 
+ HC          50MMP2     7833.0  0.30    15.0   2.0571   2.0571   0.7912                              
+                                        75.0   2.0215                     0.6892
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Weld Reduction Factor                                           
+    Name     Pipe ID  deg C   Kg/cm2   Kg/cm2            W                                                      
+------------ -------- ------- -------- -------- ---------------------                                           
+ HC          50MMP1      15.0   1054.6   2812.3       1.000
+                         75.0   1054.6                1.000
+ 
+ HC          40MMP1      15.0   1054.6   2812.3       1.000
+                         75.0   1054.6                1.000
+ 
+ HC          40MMP2      15.0   1054.6   2812.3       1.000
+                         75.0   1054.6                1.000
+ 
+ HC          100MMP1     15.0   1054.6   2812.3       1.000
+                         75.0   1054.6                1.000
+ 
+ HC          100MMP2     15.0   1054.6   2812.3       1.000
+                         75.0   1054.6                1.000
+ 
+ HC          80MMP1      15.0   1054.6   2812.3       1.000
+                         75.0   1054.6                1.000
+ 
+ HC          50MMP2      15.0   1054.6   2812.3       1.000
+                         75.0   1054.6                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN Kg/cm2                                                                          
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  Kg/cm2 deg C   mm/m        E6Kg/cm    STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A , LINE # L100                          
+ A00   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ A49    Same as previous point.          
+ 
+ *** SEGMENT B , LINE # L100                          
+ A20   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ B01    Same as previous point.          
+ 
+ *** SEGMENT C , LINE # L100                          
+ A21   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ C01    Same as previous point.          
+ 
+ *** SEGMENT D , LINE # L100                          
+ A23   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ D12    Same as previous point.          
+ 
+ *** SEGMENT E , LINE # L100                          
+ A25   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ E01    Same as previous point.          
+ 
+ *** SEGMENT F , LINE # L100                          
+ D07   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ F02    Same as previous point.          
+ 
+ *** SEGMENT G , LINE # L100                          
+ A27   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ G01    Same as previous point.          
+ 
+ *** SEGMENT H , LINE # L100                          
+ H00   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ H01    Same as previous point.          
+ 
+ *** SEGMENT I , LINE # L100                          
+ I00   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ I01    Same as previous point.          
+ 
+ *** SEGMENT J , LINE # L100                          
+ A33   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ J01    Same as previous point.          
+ 
+ *** SEGMENT K , LINE # L100                          
+ A47   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ K02    Same as previous point.          
+ 
+ *** SEGMENT L , LINE # L100                          
+ L00   T1    19.330  75.00     0.689     2.0215    1054.6*                    
+ L03    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (mm)   (deg)   (mm)   (mm)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+ A01   Elbow    127   90.0    60.3    3.9 HC           0/0  1.23   1.23    1           2.64     None            
+ A02   Elbow    127   90.0    60.3    3.9 HC           0/0  1.23   1.23    1           2.64     None            
+ A03   Elbow    200   90.0    60.3    3.9 HC           0/0  1.00   1.00    1           1.68     None            
+ A04   Elbow     76   88.0    60.3    3.9 HC           0/0  1.73   1.73    1           4.40     None            
+ A05   Elbow     76   88.0    60.3    3.9 HC           0/0  1.73   1.73    1           4.40     None            
+ A06   Elbow    153   45.0    60.3    3.9 HC           0/0  1.09   1.09    1           2.19     None            
+ A07   Elbow     85   45.0    60.3    3.9 HC           0/0  1.62   1.62    1           3.97     None            
+ A08   Elbow     76   90.0    60.3    3.9 HC           0/0  1.73   1.73    1           4.40     None            
+ A11   Elbow     63   90.0    48.3    5.1 HC           0/0  1.15   1.15    1           2.38     None            
+ A14   Elbow    305   90.0   114.3    6.0 HC           0/0  1.23   1.23    1           2.64     None            
+ A15   Elbow    102   90.0   114.3    6.0 HC           0/0  2.56   2.56    1           7.91     None            
+ A16   Elbow    152   90.0   114.3    6.0 HC           0/0  1.95   1.95    1           5.27     None            
+ A18   Elbow    300   90.0   114.3    6.0 HC           0/0  1.24   1.24    1           2.68     None            
+ D05   Elbow     76   90.0    60.3    5.5 HC           0/0  1.32   1.32    1           2.93     None            
+ D06   Elbow     76   90.0    60.3    5.5 HC           0/0  1.32   1.32    1           2.93     None            
+ D09   Elbow    106   90.0   114.3    8.6 HC           0/0  1.90   1.90    1           5.07     None            
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (mm)    (mm)               Type     (mm)   (mm)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ A20   A-Header  114.3    6.0  HC          Unreinfo                 3.89   3.89 
+       B-Branch  114.3    6.0  HC                                               
+                                                                                
+ A21   A-Header  114.3    6.0  HC          Unreinfo                 3.89   3.89 
+       C-Branch   88.9    5.5  HC                                               
+                                                                                
+ A23   A-Header  114.3    6.0  HC          Unreinfo                 3.89   3.89 
+       D-Branch  114.3    6.0  HC                                               
+                                                                                
+ A25   A-Header  114.3    6.0  HC          Welding                  1.83   1.83 
+       E-Branch  114.3    6.0  HC                                               
+                                                                                
+ A27   A-Header  114.3    6.0  HC          Welding                  1.83   1.83 
+       G-Branch   88.9    5.5  HC                                               
+                                                                                
+ A29   A-Branch  114.3    6.0  HC          Other                    1.00   1.00 
+       H-Header  114.3    6.0  HC                                               
+                                                                                
+ A31   A-Branch  114.3    6.0  HC          Other                    1.00   1.00 
+       I-Header   88.9    5.5  HC                                               
+                                                                                
+ A33   A-Header  114.3    6.0  HC          Welding                  1.83   1.83 
+       J-Branch  114.3    6.0  HC                                               
+                                                                                
+ A47   A-Header  114.3    8.6  HC          Welding                  1.43   1.43 
+       K-Branch  114.3    8.6  HC                                               
+                                                                                
+ D07   D-Header   60.3    5.5  HC          Welding                  1.23   1.23 
+       F-Branch   60.3    5.5  HC                                               
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+                    V A L V E   D A T A   L I S T I N G                                                         
+                              Valve   Actuator       Actuator                            Size  Type             
+ Point          Dnom  Length  Weight  Weight    DX      DY      DZ          Joint        /Avg. /Max.            
+ Name   Type    (mm)   (mm)   (Kg)    (Kg)     (mm)    (mm)    (mm)    SAF  Type    SIF  (mm)  (mm)             
+ ----- -------- ---- -------- ------  ------  ------- ------- ------- ----- ------- ---- ----- -----            
+ 
+ Tag No. : <None>                                                               
+ A34   CATALOG   100   304.80      0                                   0.00 BW      1.00   0.0   0.0            
+ 
+ Tag No. : <None>                                                               
+ A35   CATALOG   100   304.80     43                                   4.20 BW      1.00   0.0   0.0            
+ 
+ Tag No. : <None>                                                               
+ A36   CATALOG   100   292.10     51                                   4.20 BW      1.00   0.0   0.0            
+ 
+ Tag No. : <None>                                                               
+ A38   CATALOG   100    58.80      0                                   0.00 BW      1.00   0.0   0.0            
+ 
+ Tag No. : <None>                                                               
+ A41   CATALOG   100    58.80      0                                   0.00 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A44   CATALOG   100   230.19     50                                   4.20 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A45   CATALOG   100   319.09      0                                   0.00 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A46   CATALOG   100   204.79      0                                   0.00 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ A48   CATALOG   100   200.15      0                                   0.00 BW      1.00   0.0   0.0            
+ 
+ Tag No. : <None>                                                               
+ K01   CATALOG   100   200.15      0                                   0.00 BW      1.00   0.0   0.0            
+ 
+ Tag No. : <None>                                                               
+ L02   CATALOG    40   133.35      0                                   0.00 SW      1.30                        
+ 
+ 
+ Size/Avg. = Weld Size for SO/SW, Avg. offset for BW, Joint offset for BWT      
+ Type/Max. = Socket welding type for SW, Maximum offset for BW,                 
+             Concave or Convex for SW and SO (JSME)                             
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : A34                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A35                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A36                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Globe Valve                                                      
+ Type        : Globe Valve                                                      
+ Main End    : BW                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A38                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A41                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A44                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : FL                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A45                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A46                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : A48                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : K01                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : L02                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : 2500                                                             
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+                    F L A N G E   D A T A   L I S T I N G                                                       
+                                   Flange  Bolt               Size  Type                                        
+ Point FLG            Dnom         Weight Weight Joint        /Avg. /Max. ANSI                                  
+ Name  No.   Type     (mm)  Rating  (Kg)   (Kg)  Type    SIF  (mm)  (mm)  Check                                 
+ ----- ---- -------- ------ ------ ------ ------ ------- ---- ----- ----- -----                                 
+ Tag No. : <None>                                                               
+ A38    1   WELDNECK    100    150   7.26   0.00 WN      1.00             No    
+ Tag No. : <None>                                                               
+ A39    1   WELDNECK    100    150   7.26   0.00 WN      1.00             No    
+ Tag No. : <None>                                                               
+ A41    1   WELDNECK    100    150   7.26   0.00 WN      1.00             No    
+ Tag No. : <None>                                                               
+ A42    1   WELDNECK    100    150   7.26   0.00 WN      1.00             No    
+ Tag No. : <None>                                                               
+ A44    1   WELDNECK    100    150   7.26   0.00 WN      1.00             No    
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+                R E D U C E R   D A T A   L I S T I N G                                                         
+                        OD      OD     Thk    Thk                 Cone                                          
+ From  To     Length   From     To     From   To     From         Angle  SIF                                    
+ Point Point   (mm)    (mm)    (mm)    (mm)   (mm)  Material      (deg)                                         
+ ----- ----- ------- ------- -------  -----  -----  ------------  ----- ------                                  
+ A12   A13    101.60    48.3   114.3    3.7    6.0  HC                    2.00t 
+ 
+                                                                                
+ t = Use SIF of 2.0                                                             
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+          R I G I D   P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ From   To      Include   Include     Rigid                                                                     
+ Point  Point   Weight    Expansion   Factor                                                                    
+ -----  -----   -------   ---------   ------                                                                    
+ A09    A10       Yes       Yes       1000.0                                    
+ A23    D01       Yes       Yes       1000.0                                    
+ D02    D03       Yes       Yes       1000.0                                    
+ D10    D11       Yes       Yes       1000.0                                    
+ F01    F02       Yes       Yes       1000.0                                    
+ L00    L01       Yes       Yes       1000.0                                    
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+                        C E N T E R    O F    G R A V I T Y    R E P O R T                                      
+                                                                                                                
+  Description                                                   Weight       X CoG       Y CoG       Z CoG      
+                                                                  (Kg)        (mm)        (mm)        (mm)      
+  -----------                                                ---------   ---------   ---------   ---------      
+  Valve                                                  :      143.79    -8517.67     -938.22        0.00      
+  Support                                                :        0.00        0.00        0.00        0.00      
+  Flange                                                 :       36.29    -8757.23     -938.22        0.00      
+  Flexible Joint                                         :        0.00        0.00        0.00        0.00      
+  Additional Weight                                      :        0.00        0.00        0.00        0.00      
+  Pipes (Run, Bend, Tee, Reducer)                        :      205.00    -4498.15     -305.22        0.00      
+ 
+  PipeTot (Valve+Support+Flange+Flex. Jt.+Add. Wt.+Pipes):      385.08    -6400.43     -601.24        0.00      
+ 
+  Insulation                                             :        0.00        0.00        0.00        0.00      
+  Cladding                                               :        0.00        0.00        0.00        0.00      
+  Lining                                                 :        0.00        0.00        0.00        0.00      
+  Contents                                               :      100.27    -5129.44     -420.31        0.00      
+  Beam                                                   :        0.00        0.00        0.00        0.00      
+ 
+  PipeTot + Ins.                                         :      385.08    -6400.43     -601.24        0.00      
+  PipeTot + Ins. + Clad.                                 :      385.08    -6400.43     -601.24        0.00      
+  PipeTot + Ins. + Clad. + Lin.                          :      385.08    -6400.43     -601.24        0.00      
+  PipeTot + Ins. + Clad. + Lin. + Cont.                  :      485.34    -6137.86     -563.86        0.00      
+ 
+  PipeTot + Beam                                         :      385.08    -6400.43     -601.24        0.00      
+  PipeTot + Ins. + Beam                                  :      385.08    -6400.43     -601.24        0.00      
+  PipeTot + Ins. + Clad. + Beam                          :      385.08    -6400.43     -601.24        0.00      
+  PipeTot + Ins. + Clad. + Lin. + Beam                   :      385.08    -6400.43     -601.24        0.00      
+  PipeTot + Ins. + Clad. + Lin. + Cont. + Beam           :      485.34    -6137.86     -563.86        0.00      
+ 
+  NOTE: COG report only includes the currently visible beams and segments.      
+  All pipe segments are included.                                               
+  No beams present in the model.                                                
+                                                                                
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA326F                                                                                                          
+11/23/2016                                                        BENTLEY                                       
+05:46 PM                                                          AutoPIPE Nuclear 11.00.00.14   MODEL  PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+          L O A D    C A S E    D E S C R I P T I O N                                                           
+                                                                                                                
+  Load Case     Load Case Name     Description                                                                  
+  ---------     --------------     -----------------------------------------------------------------------------
+  GR            Gravity                                                                                         
+  T1            Thermal 1                                                                                       
+  P1            Press 1                                                                                         

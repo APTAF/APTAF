@@ -1,0 +1,1261 @@
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+<IGNORE>
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+<IGNORE>
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA321C                                          
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2004                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-04 
+ 
+<IGNORE>
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Coordinates.....................................................................    1                      
+     Components......................................................................    7                      
+     Pipe Properties.................................................................   13                      
+     Material Properties.............................................................   14                      
+     Material Allowables.............................................................   15                      
+     Temperature and Pressure........................................................   16                      
+     Bend............................................................................   18                      
+     Tee.............................................................................   19                      
+     Valve...........................................................................   20                      
+     Flange..........................................................................   23                      
+     Reducer.........................................................................   24                      
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    P O I N T   D A T A   L I S T I N G                                                         
+                                                                                                                
+ POINT      ---------OFFSETS (ft   )--------                                                                    
+ NAME  TYPE     X          Y          Z      DESCRIPTION                                                        
+ ----- ---- ---------- ---------- ---------- ----------------------------------                                 
+ *** SEGMENT A                                                                  
+ A1    Run      -17.43          0     -14.70 PIPE ID = 10XSTD                   
+ A2    Redu          0          0       1.87 SIF = 2.00                         
+ A3    Run           0          0       0.58 PIPE ID = 6XSTD                    
+ A4    Bend          0          0       0.75 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ A5    Bend      -1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ A6    Run           0          0       3.66                                    
+ 
+ *** SEGMENT B                                                                  
+ B1    Run      -15.41          0      -7.84 PIPE ID = 6XSTD                    
+ B2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ B3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 1, Flex = Auto       
+                                             SIF = 1.80                         
+ 
+ B4    Valv          0          0      -0.76 Rating = 150                       
+                                             Valve Weight =   165 lb            
+                                             Surface factor = 4.30              
+                                             Butt welded, SIF = 1.00            
+                                             Avg. offset = 0.000 inch           
+                                             Max. offset = 0.000 inch           
+ 
+ B5    Run           0          0      -1.31                                    
+ 
+ *** SEGMENT C                                                                  
+ C1    Run      -10.84          0      -7.84 PIPE ID = 6XSTD                    
+ C2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ C3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ C3  F Far                                   PIPE ID = FLAN3                    
+ C4    Valv          0          0      -1.04 PIPE ID = 6XSTD                    
+                                             Rating = 150                       
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    P O I N T   D A T A   L I S T I N G                                                         
+                                                                                                                
+ POINT      ---------OFFSETS (ft   )--------                                                                    
+ NAME  TYPE     X          Y          Z      DESCRIPTION                                                        
+ ----- ---- ---------- ---------- ---------- ----------------------------------                                 
+                                             Valve Weight =   165 lb            
+                                             Surface factor = 4.30              
+                                             Weld neck, SIF = 1.00              
+ 
+ C5    Run           0          0      -1.18                                    
+ 
+ *** SEGMENT D                                                                  
+ D1    Run       -7.27          0      -7.84 PIPE ID = 6XSTD                    
+ D2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ D3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 1, Flex = Auto       
+                                             SIF = 1.80                         
+ 
+ D3  F Far                                   PIPE ID = FLAN3                    
+ D4    Run           0          0      -1.00                                    
+ 
+ *** SEGMENT E                                                                  
+ E1    Tee      -21.03          0     -25.67 PIPE ID = 6XSTD                    
+ E2    Bend          0          0       1.38 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ E3    Bend      -1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ E4    Run           0          0       3.66                                    
+ 
+ *** SEGMENT F                                                                  
+ F1    Run      -20.32          0     -25.67 PIPE ID = 10XSTD                   
+ E1    Tee       -0.71          0          0                                    
+ F2    Run       -0.71          0          0                                    
+ 
+ *** SEGMENT G                                                                  
+ G1    Run      -19.13          0     -20.63 PIPE ID = 6XSTD                    
+ G2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ G3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    P O I N T   D A T A   L I S T I N G                                                         
+                                                                                                                
+ POINT      ---------OFFSETS (ft   )--------                                                                    
+ NAME  TYPE     X          Y          Z      DESCRIPTION                                                        
+ ----- ---- ---------- ---------- ---------- ----------------------------------                                 
+ G4    Tee           0          0      -1.22                                    
+ G5    Run           0          0      -0.47                                    
+ 
+ *** SEGMENT H                                                                  
+ H1    Run      -17.16          0     -25.51 PIPE ID = 6XSTD                    
+ G4    Tee       -0.47          0          0                                    
+ H2    Run       -0.47          0          0                                    
+ 
+ *** SEGMENT I                                                                  
+ I1    Run      -22.53          0      -7.84 PIPE ID = 6XSTD                    
+ I2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ I3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ I4    Run           0          0      -2.78                                    
+ 
+ *** SEGMENT J                                                                  
+ J1    Run      -15.72          0     -20.63 PIPE ID = 6XSTD                    
+ J2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ J3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ J4    Tee           0          0      -1.04                                    
+ J5    Run           0          0      -1.21                                    
+ 
+ *** SEGMENT K                                                                  
+ J4    Tee      -14.22          0     -25.33 PIPE ID = 6XSTD                    
+ K1    Run        0.85          0      -0.85                                    
+ 
+ *** SEGMENT L                                                                  
+ L1    Run      -11.73          0     -20.63 PIPE ID = 6XSTD                    
+ L2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ L3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 1, Flex = Auto       
+                                             SIF = 1.80                         
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    P O I N T   D A T A   L I S T I N G                                                         
+                                                                                                                
+ POINT      ---------OFFSETS (ft   )--------                                                                    
+ NAME  TYPE     X          Y          Z      DESCRIPTION                                                        
+ ----- ---- ---------- ---------- ---------- ----------------------------------                                 
+ L4    Valv          0          0      -0.76 Rating = Non-standard              
+                                             Valve Weight =     0 lb            
+                                             Surface factor = 0.00              
+                                             Butt welded, SIF = 1.00            
+                                             Avg. offset = 0.000 inch           
+                                             Max. offset = 0.000 inch           
+ 
+ L5    Tee           0          0      -1.09                                    
+ L6    Valv          0          0      -0.01 Rating = Non-standard              
+                                             Valve Weight =     0 lb            
+                                             Surface factor = 0.00              
+                                             Butt welded, SIF = 1.00            
+                                             Avg. offset = 0.000 inch           
+                                             Max. offset = 0.000 inch           
+ 
+ L7    Run           0          0      -1.09                                    
+ 
+ *** SEGMENT M                                                                  
+ M1    Valv      -9.12          0     -26.14 PIPE ID = 6XSTD                    
+                                             Rating = Non-standard              
+                                             Valve Weight =     0 lb            
+                                             Surface factor = 0.00              
+                                             Butt welded, SIF = 1.00            
+                                             Avg. offset = 0.000 inch           
+                                             Max. offset = 0.000 inch           
+ 
+ L5    Tee       -1.10          0          0                                    
+ M2    Valv      -0.01          0          0 Rating = Non-standard              
+                                             Valve Weight =     0 lb            
+                                             Surface factor = 0.00              
+                                             Butt welded, SIF = 1.00            
+                                             Avg. offset = 0.000 inch           
+                                             Max. offset = 0.000 inch           
+ 
+ M3    Run       -1.09          0          0                                    
+ 
+ *** SEGMENT N                                                                  
+ N1    Run       -7.66          0     -20.63 PIPE ID = 6XSTD                    
+ N2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ N3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 1, Flex = Auto       
+                                             SIF = 1.80                         
+ 
+ N4    Valv          0          0      -0.76 Rating = Non-standard              
+                                             Valve Weight =     0 lb            
+                                             Surface factor = 0.00              
+                                             Butt welded, SIF = 1.00            
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    P O I N T   D A T A   L I S T I N G                                                         
+                                                                                                                
+ POINT      ---------OFFSETS (ft   )--------                                                                    
+ NAME  TYPE     X          Y          Z      DESCRIPTION                                                        
+ ----- ---- ---------- ---------- ---------- ----------------------------------                                 
+                                             Avg. offset = 0.000 inch           
+                                             Max. offset = 0.000 inch           
+ 
+ N5    Valv          0          0      -0.66 Rating = Non-standard              
+                                             Valve Weight =     0 lb            
+                                             Surface factor = 0.00              
+                                             Butt welded, SIF = 1.00            
+                                             Avg. offset = 0.000 inch           
+                                             Max. offset = 0.000 inch           
+ 
+ N6    Run        0.67          0          0                                    
+ 
+ *** SEGMENT O                                                                  
+ O1    Run       -3.63          0     -20.63 PIPE ID = 6XSTD                    
+ O2    Bend          0          0      -3.66 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ O3    Bend       1.50          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.27                         
+ 
+ O3  F Far                                   PIPE ID = FLAN3                    
+ O4    Flex          0          0      -1.04 PIPE ID = 6XSTD                    
+                                             Wt= 0 lb , Ar= 0.0 sq.in           
+                                             Stiff Tr: lb/in, Rot: ft-lb/deg    
+                                             Axial=RIGID Tors=RIGID             
+                                             Y-Shear=RIGID Bend=RIGID           
+                                             Z-Shear=RIGID Bend=RIGID           
+ 
+ O5    Run           0          0      -1.00                                    
+ 
+ *** SEGMENT P                                                                  
+ P1    Run       -3.93          0      -7.01 PIPE ID = 6XSTD                    
+ P2    Bend          0          0      -4.49 Elbow, Radius = 6.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 0, Flex = Auto       
+                                             SIF = 2.97                         
+ 
+ P2  F Far                                   PIPE ID = FLAN3                    
+ P3    Run        0.79          0          0                                    
+ P5  N Near                                  PIPE ID = 6X80                     
+ P5    Bend       1.05          0          0 Elbow, Radius = 9.00 inch          
+                                             Bend angle change = 90.00 deg      
+                                             End flanges = 1, Flex = Auto       
+                                             SIF = 1.41                         
+ 
+ P5  F Far                                   PIPE ID = FLAN3                    
+ P6    Run           0          0      -1.00 PIPE ID = FLAN4                    
+ P7    Run           0          0      -0.26 PIPE ID = 4XSTD                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    P O I N T   D A T A   L I S T I N G                                                         
+                                                                                                                
+ POINT      ---------OFFSETS (ft   )--------                                                                    
+ NAME  TYPE     X          Y          Z      DESCRIPTION                                                        
+ ----- ---- ---------- ---------- ---------- ----------------------------------                                 
+ P8    Run           0          0      -1.56                                    
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         1973.3 lb     +         0.0 lb     =        1973.3 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT ------COORDINATE(ft   )------  DATA                                                                      
+ NAME      X         Y         Z      TYPE  DESCRIPTION                                                         
+ ----- --------- --------- --------- ------ ------------------------------------                                
+ *** SEGMENT A                                                                  
+ A1       -17.43      0.00    -14.70 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ A2       -17.43      0.00    -12.83                                            
+ A3       -17.43      0.00    -12.24                                            
+ A4  N    -17.43      0.00    -12.24                                            
+ A4       -17.43      0.00    -11.49 TI                                         
+ A4  F    -18.18      0.00    -11.49                                            
+ A5  N    -18.19      0.00    -11.49                                            
+ A5       -18.93      0.00    -11.49 TI                                         
+ A5  F    -18.93      0.00    -10.74                                            
+ A6       -18.93      0.00     -7.84 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT B                                                                  
+ B1       -15.41      0.00     -7.84 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ B2  N    -15.41      0.00    -10.74                                            
+ B2       -15.41      0.00    -11.49 TI                                         
+ B2  F    -14.66      0.00    -11.49                                            
+ B3  N    -14.66      0.00    -11.49                                            
+ B3       -13.91      0.00    -11.49 TI                                         
+ B3  F    -13.91      0.00    -12.24                                            
+ B4       -13.91      0.00    -12.25                                            
+ B4  M    -13.91      0.00    -12.91                                            
+ B5       -13.91      0.00    -13.57 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT C                                                                  
+ C1       -10.84      0.00     -7.84 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ C2  N    -10.84      0.00    -10.74                                            
+ C2       -10.84      0.00    -11.49 TI                                         
+ C2  F    -10.09      0.00    -11.49                                            
+ C3  N    -10.08      0.00    -11.49                                            
+ C3        -9.34      0.00    -11.49 TI                                         
+ C3  F     -9.34      0.00    -12.24                                            
+ C4        -9.34      0.00    -12.54 FLANGE WELDNECK, Butt welded, SIF = 1.00   
+                                            Rating = 150                        
+                                            Flange Weight = 25.00 lb            
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+                                            Avg. offset = 0.000 inch            
+                                            Max. offset = 0.000 inch            
+ C4  M     -9.34      0.00    -13.12                                            
+ C5        -9.34      0.00    -13.71 ANCHOR Connected to: Ground                
+                                            Rigid                               
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT ------COORDINATE(ft   )------  DATA                                                                      
+ NAME      X         Y         Z      TYPE  DESCRIPTION                                                         
+ ----- --------- --------- --------- ------ ------------------------------------                                
+                                            Thermal movements : None            
+ 
+ *** SEGMENT D                                                                  
+ D1        -7.27      0.00     -7.84 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ D2  N     -7.27      0.00    -10.74                                            
+ D2        -7.27      0.00    -11.49 TI                                         
+ D2  F     -6.52      0.00    -11.49                                            
+ D3  N     -6.52      0.00    -11.49                                            
+ D3        -5.77      0.00    -11.49 TI                                         
+ D3  F     -5.77      0.00    -12.24                                            
+ D4        -5.77      0.00    -12.49 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+                                     FLANGE NS      , Butt welded, SIF = 1.00   
+                                            Rating = 150                        
+                                            Flange Weight = 0.00 lb             
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+                                            Avg. offset = 0.000 inch            
+                                            Max. offset = 0.000 inch            
+ 
+ *** SEGMENT E                                                                  
+ E1       -21.03      0.00    -25.67 TEE    B16.9 welding tee                   
+                                            SIF = 1.97                          
+ E2  N    -21.03      0.00    -25.04                                            
+ E2       -21.03      0.00    -24.29 TI                                         
+ E2  F    -21.78      0.00    -24.29                                            
+ E3  N    -21.78      0.00    -24.29                                            
+ E3       -22.53      0.00    -24.29 TI                                         
+ E3  F    -22.53      0.00    -23.54                                            
+ E4       -22.53      0.00    -20.63 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT F                                                                  
+ F1       -20.32      0.00    -25.67 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ E1       -21.03      0.00    -25.67 TEE    B16.9 welding tee                   
+                                            SIF = 1.97                          
+ F2       -21.74      0.00    -25.67 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT G                                                                  
+ G1       -19.13      0.00    -20.63 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ G2  N    -19.13      0.00    -23.54                                            
+ G2       -19.13      0.00    -24.29 TI                                         
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT ------COORDINATE(ft   )------  DATA                                                                      
+ NAME      X         Y         Z      TYPE  DESCRIPTION                                                         
+ ----- --------- --------- --------- ------ ------------------------------------                                
+ G2  F    -18.38      0.00    -24.29                                            
+ G3  N    -18.38      0.00    -24.29                                            
+ G3       -17.63      0.00    -24.29 TI                                         
+ G3  F    -17.63      0.00    -25.04                                            
+ G4       -17.63      0.00    -25.51 TEE    Other                               
+                                            SIF = 1.00                          
+ G5       -17.63      0.00    -25.97 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT H                                                                  
+ H1       -17.16      0.00    -25.51 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ G4       -17.63      0.00    -25.51 TEE    Other                               
+                                            SIF = 1.00                          
+ H2       -18.10      0.00    -25.51 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT I                                                                  
+ I1       -22.53      0.00     -7.84 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ I2  N    -22.53      0.00    -10.74                                            
+ I2       -22.53      0.00    -11.49 TI                                         
+ I2  F    -21.78      0.00    -11.49                                            
+ I3  N    -21.78      0.00    -11.49                                            
+ I3       -21.03      0.00    -11.49 TI                                         
+ I3  F    -21.03      0.00    -12.24                                            
+ I4       -21.03      0.00    -14.27 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT J                                                                  
+ J1       -15.72      0.00    -20.63 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ J2  N    -15.72      0.00    -23.54                                            
+ J2       -15.72      0.00    -24.29 TI                                         
+ J2  F    -14.97      0.00    -24.29                                            
+ J3  N    -14.97      0.00    -24.29                                            
+ J3       -14.22      0.00    -24.29 TI                                         
+ J3  F    -14.22      0.00    -25.04                                            
+ J4       -14.22      0.00    -25.33 TEE    B16.9 welding tee                   
+                                            SIF = 1.69                          
+ J5       -14.22      0.00    -26.54 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT K                                                                  
+ J4       -14.22      0.00    -25.33 TEE    B16.9 welding tee                   
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT ------COORDINATE(ft   )------  DATA                                                                      
+ NAME      X         Y         Z      TYPE  DESCRIPTION                                                         
+ ----- --------- --------- --------- ------ ------------------------------------                                
+                                            SIF = 1.69                          
+ K1       -13.36      0.00    -26.18 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT L                                                                  
+ L1       -11.73      0.00    -20.63 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ L2  N    -11.73      0.00    -23.54                                            
+ L2       -11.73      0.00    -24.29 TI                                         
+ L2  F    -10.98      0.00    -24.29                                            
+ L3  N    -10.97      0.00    -24.29                                            
+ L3       -10.23      0.00    -24.29 TI                                         
+ L3  F    -10.23      0.00    -25.04                                            
+ L4       -10.23      0.00    -25.05                                            
+ L4  M    -10.23      0.00    -25.59                                            
+ L5       -10.23      0.00    -26.14 TEE    Other                               
+                                            SIF = 1.00                          
+ L6       -10.23      0.00    -26.15                                            
+ L6  M    -10.23      0.00    -26.70                                            
+ L7       -10.23      0.00    -27.25 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT M                                                                  
+ M1        -9.12      0.00    -26.14 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ M1  M     -9.68      0.00    -26.14                                            
+ L5       -10.23      0.00    -26.14 TEE    Other                               
+                                            SIF = 1.00                          
+ M2       -10.24      0.00    -26.14                                            
+ M2  M    -10.78      0.00    -26.14                                            
+ M3       -11.33      0.00    -26.14 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT N                                                                  
+ N1        -7.66      0.00    -20.63 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ N2  N     -7.66      0.00    -23.54                                            
+ N2        -7.66      0.00    -24.29 TI                                         
+ N2  F     -6.91      0.00    -24.29                                            
+ N3  N     -6.91      0.00    -24.29                                            
+ N3        -6.16      0.00    -24.29 TI                                         
+ N3  F     -6.16      0.00    -25.04                                            
+ N4        -6.16      0.00    -25.05                                            
+ N4  M     -6.16      0.00    -25.38                                            
+ N5        -6.16      0.00    -25.70                                            
+ N5  M     -5.82      0.00    -25.70                                            
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT ------COORDINATE(ft   )------  DATA                                                                      
+ NAME      X         Y         Z      TYPE  DESCRIPTION                                                         
+ ----- --------- --------- --------- ------ ------------------------------------                                
+ N6        -5.49      0.00    -25.70 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ *** SEGMENT O                                                                  
+ O1        -3.63      0.00    -20.63 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ O2  N     -3.63      0.00    -23.54                                            
+ O2        -3.63      0.00    -24.29 TI                                         
+ O2  F     -2.88      0.00    -24.29                                            
+ O3  N     -2.88      0.00    -24.29                                            
+ O3        -2.13      0.00    -24.29 TI                                         
+ O3  F     -2.13      0.00    -25.04                                            
+ O4        -2.13      0.00    -25.33 FLANGE WELDNECK, Butt welded, SIF = 1.00   
+                                            Rating = 150                        
+                                            Flange Weight = 25.00 lb            
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+                                            Avg. offset = 0.000 inch            
+                                            Max. offset = 0.000 inch            
+                                     FLANGE NS      , Weld neck, SIF = 1.00     
+                                            Non standard                        
+                                            Flange Weight = 0.00 lb             
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+ O5        -2.13      0.00    -26.33 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+                                     FLANGE NS      , Weld neck, SIF = 1.00     
+                                            Non standard                        
+                                            Flange Weight = 0.00 lb             
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+ 
+ *** SEGMENT P                                                                  
+ P1        -3.93      0.00     -7.01 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ P2  N     -3.93      0.00    -10.99                                            
+ P2        -3.93      0.00    -11.49 TI                                         
+ P2  F     -3.43      0.00    -11.49                                            
+ P3        -3.14      0.00    -11.49 FLANGE WELDNECK, Butt welded, SIF = 1.00   
+                                            Rating = 150                        
+                                            Flange Weight = 25.00 lb            
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+                                            Avg. offset = 0.000 inch            
+                                            Max. offset = 0.000 inch            
+                                     FLANGE WELDNECK, Butt welded, SIF = 1.00   
+                                            Rating = 150                        
+                                            Flange Weight = 25.00 lb            
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT ------COORDINATE(ft   )------  DATA                                                                      
+ NAME      X         Y         Z      TYPE  DESCRIPTION                                                         
+ ----- --------- --------- --------- ------ ------------------------------------                                
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+                                            Avg. offset = 0.000 inch            
+                                            Max. offset = 0.000 inch            
+ P5  N     -2.84      0.00    -11.49                                            
+ P5        -2.09      0.00    -11.49 TI                                         
+ P5  F     -2.09      0.00    -12.24                                            
+ P6        -2.09      0.00    -12.49 FLANGE NS      , Butt welded, SIF = 1.00   
+                                            Rating = 150                        
+                                            Flange Weight = 0.00 lb             
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+                                            Avg. offset = 0.000 inch            
+                                            Max. offset = 0.000 inch            
+                                     FLANGE WELDNECK, Butt welded, SIF = 1.00   
+                                            Rating = 150                        
+                                            Flange Weight = 16.00 lb            
+                                            Bolt/Nut Weight = 0.00 lb           
+                                            Perform ANSI check = No             
+                                            Avg. offset = 0.000 inch            
+                                            Max. offset = 0.000 inch            
+ P7        -2.09      0.00    -12.75                                            
+ P8        -2.09      0.00    -14.31 ANCHOR Connected to: Ground                
+                                            Rigid                               
+                                            Thermal movements : None            
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 155 + 0 + 0 = 155        
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    ZL/ Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC/                       
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 10XSTD        10 10.750 0.365    0 0.05    0    0     0    0.000  40.44     0 40.44 1.00                       
+ A53-A        STD                                           0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 6XSTD          6  6.625 0.280    0 0.04    0    0     0    0.000  18.95     0 18.95 1.00                       
+ A53-A        STD                                           0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ FLAN3          6  6.625 0.280    0 0.04    0    0     0    0.000      0     0     0 1.00                       
+ NS           STD                                           0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 6X80           6  6.625 0.432    0 0.05    0    0     0    0.000  28.54     0 28.54 1.00                       
+ A53-A        80                                            0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ FLAN4          4  4.500 0.237    0 0.03    0    0     0    0.000      0     0     0 1.00                       
+ NS           STD                                           0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 4XSTD          4  4.500 0.237    0 0.03    0    0     0    0.000  10.78     0 10.78 1.00                       
+ A53-A        STD                                           0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ A53-A       10XSTD      489.0  0.30    70.0   29.500   29.500   11.346                              
+ 
+ A53-A       6XSTD       489.0  0.30    70.0   29.500   29.500   11.346                              
+ 
+ NS          FLAN3         0.0  0.30    70.027900.00027900.00010730.770                              
+ 
+ A53-A       6X80        489.0  0.30    70.0   29.500   29.500   11.346                              
+ 
+ NS          FLAN4         0.0  0.30    70.027900.00027900.00010730.770                              
+ 
+ A53-A       4XSTD       489.0  0.30    70.0   29.500   29.500   11.346                              
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield                                                                    
+    Name     Pipe ID  deg F   psi      psi                                                                      
+------------ -------- ------- -------- --------                                                                 
+ A53-A       10XSTD      70.0  12000.0  30000.0
+                         70.0  12000.0
+ 
+ A53-A       6XSTD       70.0  12000.0  30000.0
+                         70.0  12000.0
+ 
+ NS          FLAN3       70.0      0.0  30000.0
+                         70.0      0.0
+ 
+ A53-A       6X80        70.0  12000.0  30000.0
+                         70.0  12000.0
+ 
+ NS          FLAN4       70.0      0.0  30000.0
+                         70.0      0.0
+ 
+ A53-A       4XSTD       70.0  12000.0  30000.0
+                         70.0  12000.0
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A 
+ A1    T1         0  70.00     0.000     29.500     12000                     
+ A6     Same as previous point.          
+ 
+ *** SEGMENT B 
+ B1    T1         0  70.00     0.000     29.500     12000                     
+ B5     Same as previous point.          
+ 
+ *** SEGMENT C 
+ C1    T1         0  70.00     0.000     29.500     12000                     
+ C3  F T1         0  70.00     0.000* 27900.000*        0*                    
+ C4    T1         0  70.00     0.000     29.500     12000                     
+ C5     Same as previous point.          
+ 
+ *** SEGMENT D 
+ D1    T1         0  70.00     0.000     29.500     12000                     
+ D3  F T1         0  70.00     0.000* 27900.000*        0*                    
+ D4     Same as previous point.          
+ 
+ *** SEGMENT E 
+ E1    T1         0  70.00     0.000     29.500     12000                     
+ E4     Same as previous point.          
+ 
+ *** SEGMENT F 
+ F1    T1         0  70.00     0.000     29.500     12000                     
+ F2     Same as previous point.          
+ 
+ *** SEGMENT G 
+ G1    T1         0  70.00     0.000     29.500     12000                     
+ G5     Same as previous point.          
+ 
+ *** SEGMENT H 
+ H1    T1         0  70.00     0.000     29.500     12000                     
+ H2     Same as previous point.          
+ 
+ *** SEGMENT I 
+ I1    T1         0  70.00     0.000     29.500     12000                     
+ I4     Same as previous point.          
+ 
+ *** SEGMENT J 
+ J1    T1         0  70.00     0.000     29.500     12000                     
+ J5     Same as previous point.          
+ 
+ *** SEGMENT K 
+ J4    T1         0  70.00     0.000     29.500     12000                     
+ K1     Same as previous point.          
+ 
+ *** SEGMENT L 
+ L1    T1         0  70.00     0.000     29.500     12000                     
+ L7     Same as previous point.          
+ 
+ *** SEGMENT M 
+ M1    T1         0  70.00     0.000     29.500     12000                     
+ M3     Same as previous point.          
+ 
+ *** SEGMENT N 
+ N1    T1         0  70.00     0.000     29.500     12000                     
+ N6     Same as previous point.          
+ 
+ *** SEGMENT O 
+ O1    T1         0  70.00     0.000     29.500     12000                     
+ O3  F T1         0  70.00     0.000* 27900.000*        0*                    
+ O4    T1         0  70.00     0.000     29.500     12000                     
+ O5     Same as previous point.          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ *** SEGMENT P 
+ P1    T1         0  70.00     0.000     29.500     12000                     
+ P2  F T1         0  70.00     0.000* 27900.000*        0*                    
+ P5  N T1         0  70.00     0.000     29.500     12000                     
+ P5  F T1         0  70.00     0.000* 27900.000*        0*                    
+ P7    T1         0  70.00     0.000     29.500     12000                     
+ P8     Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^  SIF   Analysis  Flexibility  Pressure Case          
+ Name  Type   (in)   (deg)   (in)   (in)             /Cuts          Set         (K)                             
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  --------  -----------  --------------         
+ A4    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ A5    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ B2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ B3    Elbow   9.00   90.0   6.625  0.280 A53-A        1/0  1.80    1           5.23     None                   
+ C2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ C3    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ D2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ D3    Elbow   9.00   90.0   6.625  0.280 A53-A        1/0  1.80    1           5.23     None                   
+ E2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ E3    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ G2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ G3    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ I2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ I3    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ J2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ J3    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ L2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ L3    Elbow   9.00   90.0   6.625  0.280 A53-A        1/0  1.80    1           5.23     None                   
+ N2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ N3    Elbow   9.00   90.0   6.625  0.280 A53-A        1/0  1.80    1           5.23     None                   
+ O2    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ O3    Elbow   9.00   90.0   6.625  0.280 A53-A        0/0  2.27    1           6.59     None                   
+ P2    Elbow   6.00   90.0   6.625  0.280 A53-A        0/0  2.97    1           9.89     None                   
+ P5    Elbow   9.00   90.0   6.625  0.432 A53-A        1/0  1.41    1           3.50     None                   
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (in)    (in)               Type     (in)   (in)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ E1    F-Header 10.750  0.365  A53-A       Welding                  1.97   1.97 
+       E-Branch  6.625  0.280  A53-A                                            
+                                                                                
+ G4    G-Branch  6.625  0.280  A53-A       Other                    1.00   1.00 
+       H-Header  6.625  0.280  A53-A                                            
+                                                                                
+ J4    J-Header  6.625  0.280  A53-A       Welding                  1.69   1.69 
+       K-Branch  6.625  0.280  A53-A                                            
+                                                                                
+ L5    L-Branch  6.625  0.280  A53-A       Other                    1.00   1.00 
+       M-Header  6.625  0.280  A53-A                                            
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    V A L V E   D A T A   L I S T I N G                                                         
+                              Valve   Actuator       Actuator                            Size  Type             
+ Point          Dnom  Length  Weight  Weight    DX      DY      DZ          Joint        /Avg. /Max.            
+ Name   Type    (in)   (ft)   (lb)    (lb)     (ft)    (ft)    (ft)    SAF  Type    SIF  (in)  (in)             
+ ----- -------- ---- -------- ------  ------  ------- ------- ------- ----- ------- ---- ----- -----            
+ 
+ Tag No. : <None>                                                               
+ B4    CATALOG     6     1.31    165                                   4.30 BW      1.00  0.00  0.00            
+ 
+ Tag No. : <None>                                                               
+ C4    CATALOG     6     1.18    165                                   4.30 WN      1.00                        
+ 
+ Tag No. : <None>                                                               
+ L4    CATALOG     6     1.09      0                                   0.00 BW      1.00  0.00  0.00            
+ 
+ Tag No. : <None>                                                               
+ L6    CATALOG     6     1.09      0                                   0.00 BW      1.00  0.00  0.00            
+ 
+ Tag No. : <None>                                                               
+ M1    CATALOG     6     1.10      0                                   0.00 BW      1.00  0.00  0.00            
+ 
+ Tag No. : <None>                                                               
+ M2    CATALOG     6     1.09      0                                   0.00 BW      1.00  0.00  0.00            
+ 
+ Tag No. : <None>                                                               
+ N4    CATALOG     6     0.66      0                                   0.00 BW      1.00  0.00  0.00            
+ 
+ Tag No. : <None>                                                               
+ N5    CATALOG     6     0.67      0                                   0.00 BW      1.00  0.00  0.00            
+ 
+ 
+ Size/Avg. = Weld Size for SO/SW, Avg. offset for BW, Joint offset for BWT      
+ Type/Max. = Socket welding type for SW, Maximum offset for BW,                 
+             Concave or Convex for SW and SO (JSME)                             
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : B4                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : BW                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : C4                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Swing Check Valve                                                
+ Type        : Swing Check Valve                                                
+ Main End    : FL                                                               
+ Rating      : 150                                                              
+                                                                                
+ Point Name  : L4                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+ Point Name  : L6                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+ Point Name  : M1                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+ Point Name  : M2                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+ Point Name  : N4                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : N5                                                               
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : NS                                                               
+ Sub Category: NS                                                               
+ Type        : NS                                                               
+ Main End    : NS                                                               
+ Rating      : NS                                                               
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    F L A N G E   D A T A   L I S T I N G                                                       
+                                   Flange  Bolt               Size  Type                                        
+ Point FLG            Dnom         Weight Weight Joint        /Avg. /Max. ANSI                                  
+ Name  No.   Type     (in)  Rating  (lb)   (lb)  Type    SIF  (in)  (in)  Check                                 
+ ----- ---- -------- ------ ------ ------ ------ ------- ---- ----- ----- -----                                 
+ Tag No. : <None>                                                               
+ C4     1   WELDNECK      6    150  25.00   0.00 BW      1.00  0.00  0.00 No    
+ Tag No. : <None>                                                               
+ D4     1   NS            6    150   0.00   0.00 BW      1.00  0.00  0.00 No    
+ Tag No. : <None>                                                               
+ O4     1   WELDNECK      6    150  25.00   0.00 BW      1.00  0.00  0.00 No    
+ Tag No. : <None>                                                               
+ O4     2   NS            6 NS       0.00   0.00 WN      1.00             No    
+ Tag No. : <None>                                                               
+ O5     1   NS            6 NS       0.00   0.00 WN      1.00             No    
+ Tag No. : <None>                                                               
+ P3     1   WELDNECK      6    150  25.00   0.00 BW      1.00  0.00  0.00 No    
+ Tag No. : <None>                                                               
+ P3     2   WELDNECK      6    150  25.00   0.00 BW      1.00  0.00  0.00 No    
+ Tag No. : <None>                                                               
+ P6     1   NS            4    150   0.00   0.00 BW      1.00  0.00  0.00 No    
+ Tag No. : <None>                                                               
+ P6     2   WELDNECK      4    150  16.00   0.00 BW      1.00  0.00  0.00 No    
+ 
+ 
+ Size/Avg. = Weld Size for SO/SW, Average offset for BW                         
+ Type/Max. = Socket welding type for SW, Maximum offset for BW,                 
+             Concave or Convex for SW and SO (JSME)                             
+
+----------------------------------------------------------------------------------------------------------------
+QA321C                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                R E D U C E R   D A T A   L I S T I N G                                                         
+                        OD      OD     Thk    Thk                 Cone                                          
+ From  To     Length   From     To     From   To     From         Angle  SIF                                    
+ Point Point   (ft)    (in)    (in)    (in)   (in)  Material      (deg)                                         
+ ----- ----- ------- ------- -------  -----  -----  ------------  ----- ------                                  
+ A2    A3       0.58  10.750   6.625  0.365  0.280  A53-A                 2.00t 
+ 
+                                                                                
+ t = Use SIF of 2.0                                                             
+

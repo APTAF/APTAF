@@ -1,0 +1,2617 @@
+﻿Option Explicit
+'USEUNIT DatabaseFunctions
+'USEUNIT FSO_Functions
+'USEUNIT GEN_Common
+'USEUNIT GlobalConstants
+
+
+
+Sub CopyToTemp(strfilePath)
+  dim source: source = strfilePath
+  dim dest : dest = aqEnvironment.GetEnvironmentVariable("TEMP") & "\"
+  Call FSOCopyFile(source,dest)
+  
+End Sub
+
+'Index
+'StartApp 
+'Starts a tested application
+Sub StartApp(appName,sLic)
+  
+  'Declare
+  Dim objApp,objProc,bLic,i
+  
+  'Launch the application
+  Set objApp = TestedApps.Items(appName)
+  Set objProc = objApp.run
+  
+  'Wait for process
+  If sys.WaitProcess(objProc.ProcessName, 10000, 1).Exists Then
+    
+    'Log message
+    log.Message(objProc.ProcessName & " process is alive, watch for dialogs...")
+    
+    'Select app
+    Select Case True
+    
+      'MAXSURF, Multiframe, MOSES, SACSHullMesher
+      Case InStr(appName,"MAXSURF") <> 0 Or InStr(appName,"MULTIFRAME") <> 0 or InStr(appName,"MOSES") <> 0 or InStr(appName,"Mesher") <> 0
+      
+        'Flag
+        bLic = False
+  
+        'Nearly always clear prefs, so wait
+        Do
+          If objProc.WaitWindow("#32770", "*", 1, 1000).WaitWindow("Static", "*preferences*", 2, 1000).Exists Then
+      
+            'Clear preferences
+            Call objProc.Window("#32770", "*", 1).Window("Button", "&Yes").Click
+        
+            'Release shift
+            Call llplayer.KeyUp(VK_SHIFT,500)
+            
+            'Exit
+            Exit Do
+          Else
+            If objProc.WaitWindow("#32770", "License Configuration*", 1, 1000).Exists Then
+              
+              'Select license
+              If sLic <> "" Then
+                Call objProc.Window("#32770", "License Configuration*", 1).Window("Button", sLic).Click 
+                
+                'ok
+                Call objProc.Window("#32770", "License Configuration*", 1).Window("Button", "OK").Click
+              
+                'Watch
+                If objProc.WaitWindow("#32770", "*", 1, 2000).WaitWindow("Static", "Please confirm*", 2, 3000).Exists Then
+                  Call objProc.Window("#32770", "*", 1).Window("Button", "&Yes").Click
+                End If  
+              Else
+                
+                'ok
+                Call objProc.Window("#32770", "License Configuration*", 1).Window("Button", "OK").Click
+                  
+              End If
+             
+              'Flag
+              bLic = True
+              
+              'Exit
+              Exit Do
+            End If
+          End If
+        Loop
+          
+        'Always select license, so wait
+        If bLic = False and InStr(appName,"SACS") = 0 Then
+          Do
+            If objProc.WaitWindow("#32770", "License Configuration*", 1, 1000).Exists Then
+      
+              'Select license
+              If sLic <> "" Then
+                Call objProc.Window("#32770", "License Configuration*", 1).Window("Button", sLic).Click
+                
+                'Ok
+                Call objProc.Window("#32770", "License Configuration*", 1).Window("Button", "OK").Click
+              
+                'Watch
+                If objProc.WaitWindow("#32770",Left(appName,5) & "*", 1, 2000).WaitWindow("Static", "Please confirm*", 2, 3000).Exists Then
+                  Call objProc.Window("#32770", Left(appName,5) & "*", 1).Window("Button", "&Yes").Click
+                End If
+              Else
+              
+                'Leave default
+                Call objProc.Window("#32770", "License Configuration*", 1).Window("Button", "OK").Click  
+              End If
+              
+              'Exit
+              Exit Do
+            End If
+          Loop
+        End If
+        
+        'Watch for Bentley license dialog
+        If objProc.WaitWindow("#32770", "*Activation Status", 1, 2000).Exists Then
+      
+          'Close
+          Call objProc.Window("#32770", "*Activation Status", 1).Window("Button", "Close").Click
+        End If
+        
+        'Watch for News
+        i = 0
+        Do While i < 30
+       
+          'Move mouse wheel to trigger event
+          Call LLPlayer.MouseWheel(120,100) 
+          
+          'Watch for dialog
+          If objProc.WaitWindow("#32770", "News", 1, 2000).Exists Then
+            Call objProc.Window("#32770", "News", 1).Window("Button", "Close").Click
+        
+            'Exit loop
+            Exit Do
+          End If
+          i = i + 1
+        Loop
+      
+      'Precede
+      Case InStr(appName,"Precede") <> 0
+      
+        'Wait for new model options dialog
+        Do
+          If objProc.WaitWindow("#32770", "New Model*", 1, 1000).Exists Then
+        
+            'Cancel
+            Call objProc.Window("#32770", "New*", 1).Window("Button", "Cancel").Click 
+        
+            'Exit
+            Exit Do
+          End If
+        Loop
+        
+      'Other apps
+      Case Else
+      
+    End Select
+  Else
+  
+    'Post an error to the log
+    Log.Error(appName & " process is not alive, stopping run...")
+    Runner.Stop()
+  End If
+  
+  'Destroy objects
+  Set objApp = Nothing
+  Set objProc = Nothing
+End Sub
+
+Sub Avant_Test(sName)
+ 
+  'Declare
+  Dim sPath,sBuildloc,bZip,sCmd,sBit,sOSBit,sType
+  
+  'Kill
+  Call KillProcess(Left(sName,4) & "*")
+  
+  'Set empty
+  sType = ""
+  
+  'Get config from build parameters
+  If Builtin.ParamCount <> 0 Then
+  
+    'Get
+    Call ReadParams(sType,sBit,bZip)
+    
+    'Debug
+    Log.Message "Test started using these parameters",sType & " " & sBit & " " & bZip
+    
+  'Set manually, manual test run
+  Else
+    sBit = Project.Variables.sOverbit
+    
+    'Cmd line
+    sCmd = chr(34) & ProjectSuite.Path & "BatchFiles\Depends.bat" & chr(34) & chr(32) & sName & chr(32) & "Empty" & chr(32) & "Manual" &_
+    chr(32) & False & chr(32) & sBit
+  
+    'Copy test build, register COM
+    Call ShellRun(sCmd, 1, True)
+  End If
+  
+  'Set variable
+  ProjectSuite.Variables.sBit = sBit
+    
+  'Run only once per test
+  If Project.Variables.bCon = False Then
+  
+    'Make application name
+    Call GetAppName(sName)
+    
+    'Flag
+    Project.Variables.bCon = True
+    
+    'Set
+    ProjectSuite.Variables.cApp = sName
+    ProjectSuite.Variables.sRun = sType
+  End If
+End Sub
+ 
+Sub ReadParams(sType,sBit,bZip)
+
+  'Declare
+  Dim sParam,i
+  
+  'Loop params
+  For i = 0 To Builtin.ParamCount
+    
+    'Name
+    sParam = Builtin.ParamStr(i)
+    
+    'Select
+    Select Case True
+    
+      'Test type
+      Case InStr(sParam,"SelfService") <> 0 Or InStr(sParam,"Auto") <> 0
+      
+        'Set
+        sType = Replace(sParam,"/","")
+      
+      'Bitness
+      Case InStr(sParam,"x64") <> 0 Or InStr(sParam,"x86") <> 0
+      
+        'Set
+        If InStr(sParam,"x64") <> 0 Then
+          sBit = "x64"
+        Else
+          sBit = "x86"
+        End If
+      
+      'Detect zip
+      Case InStr(sParam,"zip") <> 0 Or InStr(sParam,"Zip") <> 0 Or InStr(sParam,"exe") <> 0
+      
+        'Set
+        If InStr(sParam,"zip") <> 0 Or InStr(sParam,"Zip") <> 0 Then
+          bZip = True
+        Else
+          bZip = False
+        End If
+    End Select
+  Next
+End Sub
+
+'Performs post test activities
+Sub PostTest(sApp)
+
+  'Make application name
+  Call GetAppName(sApp)
+    
+  'Close the app
+  Call CloseApp(sApp)
+ 
+  'Stop if self service
+  If ProjectSuite.Variables.sRun = "SelfService" Then
+    Runner.Stop()
+  End If
+End Sub
+
+Sub ExportCellData(FileName,WindowID,TabID,bAlldp,sApp)
+ 
+  'Create Object
+  Dim XMLGrid
+  Set XMLGrid = CreateObject(sApp & ".XMLGrid")
+  
+  'Active window
+  If WindowID = "Active" Then
+    XMLGrid.PopulateWithActive TabID, bAlldp
+   
+    'Wait then populate again
+    Builtin.Delay(500)
+    XMLGrid.PopulateWithActive TabID, bAlldp
+  
+  'Properties pane
+  ElseIf WindowID = "PropertiesPane" Then
+    XMLGrid.PopulateWithPropSheet
+  
+  'Window id
+  Else
+    XMLGrid.Populate WindowID, TabID, bAlldp
+    
+    'Wait then populate again
+    Builtin.Delay(500)
+    XMLGrid.Populate WindowID, TabID, bAlldp
+  End If
+  
+  'Save
+  XMLGrid.Save FileName
+  
+  'Destroy COM Object
+  Set XMLGrid = Nothing
+End Sub
+
+Sub SetGridValue(sApp,Row,Column,Value,WindowID,Grid)
+ 
+  'Create object
+  Dim XMLGrid
+  set XMLGrid = CreateObject(sApp & ".XMLGrid")
+  
+  'Get the current active grid
+  If WindowID = "Active" Then
+    XMLGrid.PopulateWithActive(Grid)
+    
+    'Set the cell value
+    XMLGrid.SetCell Row,Column,Value
+    
+  'Properties pane
+  ElseIf WindowID = "PropertiesPane" Then
+    XMLGrid.PopulateWithPropSheet
+    
+    'Set the cell value
+    XMLGrid.SetPropSheetCell Row,Value
+  
+  'Else
+  Else
+    XMLGrid.Populate WindowID, Grid
+    
+    'Set the cell value
+    XMLGrid.SetCell Row,Column,Value
+  End If
+  
+  'Destroy object
+  set XMLGrid = Nothing
+End Sub
+
+Sub GetCellCoords(sApp,Row,Column,WindowID,TabID,x,y)
+  
+  'Declare
+  Dim XMLGrid,Coords
+  
+  'Create object
+  set XMLGrid = CreateObject(sApp & ".XMLGrid")
+  
+  'Get the current active grid
+  If WindowID = "Active" Then
+    XMLGrid.PopulateWithActive(TabID)
+    
+    'Get coordinates
+    Coords = XMLGrid.CellCoords(Row,Column)
+  
+  ElseIf WindowID = "PropertiesSheet" Then
+    XMLGrid.PopulateWithPropSheet
+    
+    'Get coordinates 
+    Coords = XMLGrid.PropSheetCellCoords(Row)
+  Else
+    XMLGrid.Populate WindowID, TabID
+    
+    'Get coordinates
+    Coords = XMLGrid.CellCoords(Row,Column)
+  End If
+   
+  'Split dword
+  y = HiWord(CLng(Coords))
+  x = LoWord(CLng(Coords))
+  
+  'Destroy
+  Set XMLGrid = Nothing
+End Sub
+
+Sub SelectGridRow(sApp,Row,WindowID,TabId)
+ 
+  'Create object
+  Dim XMLGrid
+  set XMLGrid = CreateObject(sApp & ".XMLGrid")
+ 
+  'Get the current active grid
+  If WindowID = "Active" Then
+    XMLGrid.PopulateWithActive(TabId)
+  Else
+    XMLGrid.Populate WindowID, TabId
+  End If
+  
+  'Select Row
+  XMLGrid.SelectRow Row
+  
+  'Destroy object
+  set XMLGrid = Nothing
+End Sub
+
+Sub MoreDP(app,numDP)
+ 
+  'Create Object
+  Dim objApp
+  set objApp = CreateObject(app & ".Application")
+  
+  'Number of decimal places
+  objApp.TableOutputMinNumDecimalPlaces = numDp
+  
+  'Destroy Object
+  set objApp = Nothing
+End Sub
+
+Sub ResultsToLog(sResults,sTestObj,sLog)
+  If IsEmpty(sResults) or IsNull(sResults) or InStr(sResults,"Expected:") = 0 Then
+    Log.Message sLog &_
+    " completed with 0 warnings/errors",_
+    "Test Object: " & sTestObj & chr(13) &_
+    sResults & chr(13)
+  Else
+    Log.Warning sLog &_
+    " completed with warnings/errors",_
+    "Test Object: " & sTestObj & chr(13) &_
+    sResults & chr(13)
+  End If
+End Sub
+
+Sub TestedAppRtn(sName,sProp,Rtn)
+ 
+  'Tested app object
+  Dim AppIndex,AppName,AppPath,sExeDest
+  AppIndex = TestedApps.Find(sName)
+  Set AppName = TestedApps.Items(AppIndex)
+      
+  Select Case sProp
+    Case "FilePath"
+  
+      'Get location of test exe
+      Rtn = AppName.FullFileName
+      
+    Case "FileName"
+    
+      Rtn = AppName.FileName
+      
+    Case "Path"
+    
+      Rtn = AppName.Path
+      
+    Case "Name"
+    
+      Rtn = AppName.Name  
+  End Select
+  
+  'Destroy
+  Set AppName = Nothing
+End Sub
+
+Sub AddTestedApplication(sName)
+  
+  'Add
+  Call testedapps.Add(sName)
+End Sub
+
+Sub DeleteTestedApplication(sName)
+  
+  'Delete
+  Call testedapps.delete(sName)
+End Sub
+
+Sub ValidateProps(objStatic,objApplic,objTolerances,strWarn,sDebug)
+  
+  'Flags
+  Dim bMissing,sMissing
+  bMissing = False
+  
+  'The static data is the definitive benchmark so processing each property in this object
+  Dim Prop
+  For Each Prop In objStatic
+  
+    'Check for missing property or "DONOTCOMPARE"
+    If objApplic.Exists(Prop) <> True or objStatic.Item(Prop) = "DONOTCOMPARE" Then
+    
+      'Propery does not exist in the application but does in the baseline data
+      If objApplic.Exists(Prop) <> True and IsNull(objStatic.Item(Prop)) <> True and Prop <> "Row" Then
+    
+        'Set flag
+        bMissing = True
+        sMissing = sMissing & prop & vbNewLine
+      End If
+    
+    'Property exists in the application and in the static data so comparison can be performed
+    Else
+    
+      'Select numerical, textual or other comparison
+      Dim aData
+      Select Case CBool(True)
+      
+        'Both values are numeric and may require a tolerance for comparison
+        Case IsNumeric(objStatic.Item(Prop)) And IsNumeric(objApplic.Item(Prop))
+    
+          'If the tolerance object is empty use global variable value
+          Dim perTolerance
+          If IsObject(objTolerances) = True Then
+      
+            'Use project rounding tolerance
+            perTolerance = CDbl(objTolerances.Item(Prop))
+          Else
+      
+            'Get the rounding tolerance
+            perTolerance = Project.Variables.RoundingTolerance
+          End If
+    
+          'If the tolerance value is 999 we skip the property validation
+          If perTolerance <> 999 Then
+          
+            'Locale
+            Dim s
+            Select Case GetLocale()
+            
+              'French
+              Case 1036
+                s = Split(objStatic.Item(Prop),",")
+              
+              'Else
+              Case Else
+                s = Split(objStatic.Item(Prop),".")
+            End Select
+            
+            'Get the number of decimal places to round to from the static data value
+            Dim iRound,fNum
+            If UBound(s) <> 1 Then
+              iRound = 0
+            Else
+              iRound = Len(s(1))          
+            End If
+            
+            'Prep number props
+            Dim dApp,dBase
+            dBase = Round(CDbl(objApplic.Item(Prop)),CInt(iRound))
+            dApp = Round(CDbl(objStatic.Item(Prop)),CInt(iRound))
+          
+            'Difference
+            Dim dDiff,pDiff
+            dDiff = dBase - dApp
+            
+            'Percentage difference
+            If dDiff = 0 Then
+              pDiff = 0
+            'Can't divide by 0
+            ElseIf dBase = 0 Then
+                pDiff = 100
+            Else
+              pDiff = Round(dDiff/dBase*100,2)
+            End If
+          
+            If Abs(pDiff) > perTolerance Then
+              
+              'Update differences
+              If InStr(sDebug,"Update") <> 0 Then
+                
+                'Database info array
+                aData = Split(sDebug,",")
+                
+                'Update
+                Call WriteToDatatable("UPDATE " & aData(2) & " SET " & Prop & "='" & Round(CDbl(objApplic.Item(Prop)),CInt(iRound)) & "'" &_
+                " WHERE Row" & "=" & aData(3),aData(1))
+                
+                'Add to string
+                strWarn = strWarn & "THIS PROPERTY HAS BEEN UPDATED AUTOMATICALLY" & chr(13)
+              End If
+              
+              'Create warning string
+              strWarn = strWarn & "[" & Prop & "] Expected: " & Round(CDbl(objStatic.Item(Prop)),iRound) & chr(13) &_
+              "[" & Prop & "] Actual: " & Round(CDbl(objApplic.Item(Prop)),iRound) & chr(13) &_
+              "[% Difference] " & pDiff & Chr(13) &_
+              "[% Allowed Tolerance] " & perTolerance & chr(13) & chr(13)
+            End If
+            
+            'Clear variables
+            dDiff = Empty
+            pDiff = Empty
+          End If
+          
+        'Both values are textual
+        Case TypeName(objStatic.Item(Prop)) = "String" and TypeName(objApplic.Item(Prop)) = "String" or InStr(objStatic.Item(Prop),",") > 0
+    
+          'Process differences
+          If CStr(objStatic.Item(Prop)) <> CStr(objApplic.Item(Prop)) Then
+          
+            'Update differences
+            If InStr(sDebug,"Update") <> 0 Then
+                
+              'Database info array
+              aData = Split(sDebug,",")
+                
+              'Update
+              Call WriteToDatatable("UPDATE " & aData(2) & " SET " & Prop & "='" & CStr(objApplic.Item(Prop)) & "'" &_
+              " WHERE Row" & "=" & aData(3),aData(1))
+                
+              'Add to string
+              strWarn = strWarn & "THIS PROPERTY HAS BEEN UPDATED AUTOMATICALLY" & chr(13)
+            End If
+                  
+           'Create warning string
+            strWarn = strWarn & "Expected: [" & Prop & "] Property Value: " & CStr(objStatic.Item(Prop)) & chr(13) &_
+           "Actual: [" & Prop & "] Property Value: " & CStr(objApplic.Item(Prop)) & vbNewLine & vbNewLine
+          End If
+          
+        'Attempt to directly compare
+        Case Else
+          If objStatic.Item(Prop) <> objApplic.Item(Prop) Then 
+            
+            'Create warning string
+            strWarn = strWarn & "Expected: [" & Prop & "] Property Value: " & objStatic.Item(Prop) & chr(13) &_
+            "Actual: [" & Prop & "] Property Value: " & objApplic.Item(Prop) & vbNewLine & vbNewLine
+          End If    
+      End Select
+    End If
+    
+  'Next Property  
+  Next
+  
+  'Log Missing properties
+  If CBool(bMissing) = True Then
+    Log.Message "The following property values were found to be missing from the application, please verify" ,sMissing
+  End If
+End Sub
+
+Sub CloseApp(appName)
+ 
+  'Tested app object
+  Dim app,bClose
+  Set app = TestedApps.Items(appName)
+  bClose = app.Terminate
+  
+  'Check app has terminated
+  If CBool(bClose) <> True Then
+    Log.Warning(appName & " did not terminate")
+  End If
+  
+  'Destroy
+  Set app = Nothing
+End Sub
+
+Sub GetTimeDiff(tStart,tFinish,TimeDiff)
+  
+  'Calculate the time interval
+  Dim interval
+  interval = aqDateTime.TimeInterval(tStart,tFinish)
+
+  'Difference
+  TimeDiff = aqConvert.TimeIntervalToStr(interval)
+End Sub
+
+Sub GetParentTestItemName(sName)
+ 
+  Dim TestItem
+  Set TestItem = Project.TestItems.Current
+  sName = TestItem.Parent.Name
+  
+  'Destroy objects
+  Set TestItem = Nothing
+End Sub
+
+Sub GetTestItemName(sName)
+ 
+  Dim TestItem
+  Set TestItem = Project.TestItems.Current
+  sName = TestItem.Name
+  
+  'Destroy objects
+  Set TestItem = Nothing
+End Sub
+
+Sub SaveResults(sName,LogFormat)
+  
+  'Save the results
+  Dim bSave
+  bSave = False
+  
+  Dim i
+  i = 0
+  Do 
+    bSave = Log.SaveResultsAs(sName,LogFormat)
+    i = i + 1
+  Loop Until bSave = True or i = 10
+End Sub
+
+Sub ZipFiles(sFolder,sName)
+ 
+  'Get the list of files and zip
+  Dim FileList
+  FileList = slPacker.GetFileListFromFolder(sFolder)
+  Call slPacker.Pack(FileList,sFolder,sName)
+End Sub
+
+Sub StartTestedApp(sName)
+ 
+  'Tested app object
+  Dim app
+  Set app = TestedApps.Items(sName)
+  
+  'Launch the application
+  app.run
+  
+  'Destroy object
+  Set app = Nothing
+End Sub
+
+Function IsProcessRunning(Name)
+  
+  'Wait
+  If sys.WaitProcess(Name,0).Exists Then
+    IsProcessRunning = True
+  Else
+    IsProcessRunning = False
+  End If
+End Function
+
+Function IsWinVisible(objWindow)
+  
+  'Watch
+  If objWindow.VisibleOnScreen Then
+    IsWinVisible = True
+  Else
+    IsWinVisible = False
+  End If
+End Function
+
+Function CheckRows(sType,sPath,DataWindow,DataTabId,bAlldp,sRef,tName,bWarn,locDatatable)
+  
+  'Export the results to XML
+  Call ExportCellData(sPath & "TmpData.XML",DataWindow,DataTabId,bAlldp,sRef)
+  
+  'Get node count of exported results
+  Dim NodeCount
+  If InStr(sType,"PropertiesPane") <> 0 Then
+    Call XMLNodeCount(sPath,"/PropSheet/Row",NodeCount)
+    
+    'Always a single row
+    CheckRows = NodeCount
+    
+    'Exit
+    Exit Function
+  Else
+    Call XMLNodeCount(sPath & "TmpData.XML","/DataGrid/Row",NodeCount)
+  End If
+  
+  'Get number of rows of static data
+  Dim RowCount
+  If sType = "Dynamic" Then
+    Call XMLNodeCount(sPath & tName & "_Base.XML","/DataGrid/Row",RowCount)
+  Else
+    RowCount = Datatable_Get_Row_Count("Excel","SELECT * FROM " & tName,locDatatable)
+  End if
+  
+  'Node count of exported results should be the same as the number of rows of static data
+  If NodeCount <> RowCount Then
+    CheckRows = False
+    
+    'Log warning
+    If bWarn = True Then
+      log.Warning("Row count comparison has failed")
+    End if
+  Else
+    CheckRows = NodeCount
+  End If
+End Function
+
+Sub CheckData(sType,tName,DataWindow,DataTabId,iStep,bAlldp,aExc,bTol,locDatatable)
+ 
+  'Get local temp directory
+  Dim FilePath
+  FilePath = GetTempDirLoc()
+  
+  'Get com reference
+  Dim sRef
+  sRef = GetReference()
+  
+  'Check number of data rows
+  Dim nCount   
+  nCount = CheckRows(sType,FilePath,DataWindow,DataTabId,bAlldp,sRef,tName,False,locDatatable)
+    
+  'Warn and exit if number of rows is different to expected
+  If nCount = False Then
+    Call Log.Warning("Number of data rows does not match static data, exiting test...")
+    Exit Sub
+  End If
+  
+  'Tolerance data rows
+  Dim nTol
+  If CBool(bTol) = True Then
+    nTol = Datatable_Get_Row_Count("Excel",tName & "_" & "Tolerances",locDatatable)
+  End If
+        
+  'Flag
+  Dim bRep
+  bRep = True
+  
+  'Get db connection
+  Dim objCon
+  If sType <> "Dynamic" Then
+    Set objCon = GetConn("Excel",locDatatable)
+  End If
+  
+  'Iterate through each row of data
+  Dim Row,objStatic,objApplic,tempResults,sResults,sDebug,objTol
+  For Row = 1 to nCount Step iStep
+    
+    'Apply tolerances
+    If CBool(bTol) = True Then
+    
+      'Repeat
+      If bRep = True Then
+      
+        'Single row
+        If nTol = 1 Then
+          Set objTol = Datatable("Excel",tName & "_" & "Tolerances",nTol,objCon,locDatatable)
+        
+          'Flag
+          bRep = False
+        Else
+          Set objTol = Datatable("Excel",tName & "_" & "Tolerances",Row,objCon,locDatatable)
+        End If
+      End If
+    Else
+      objTol = Empty
+    End If
+    
+    'Check typei wi
+    Select Case True
+    
+      'Dynamic
+      Case sType = "Dynamic"
+      
+        'Baseline data
+        Set objStatic = GetAppData(FilePath & tName & "_Base.XML","/DataGrid/Row [@Id='" & Row & "']",True)
+        
+        'App data
+        Set objApplic = GetAppData(FilePath & "TmpData.XML","/DataGrid/Row [@Id='" & Row & "']",True)
+      
+      'Properties pane
+      Case InStr(sType,"PropertiesPane") <> 0
+      
+        'Get row
+        Dim iRow
+        iRow = Split(sType,",")
+        
+        'Baseline data
+        Set objStatic = Datatable("Excel",tName,iRow(1),objCon,locDatatable)
+        
+        'App data
+        Set objApplic = GetAppData(FilePath & "TmpData.XML","/DataGrid/Row [@Id='" & Row & "']",True)
+         
+      'Else
+      Case Else
+      
+        'Baseline data
+        Set objStatic = Datatable("Excel",tName,Row,objCon,locDatatable)
+        
+        'App data
+        Set objApplic = GetAppData(FilePath & "TmpData.XML","/DataGrid/Row [@Id='" & Row & "']",True)
+    End Select
+  
+    'Sort static data
+    Call SortStrings(objStatic)
+    
+    'Application specific changes
+    If IsArray(aExc) Then
+      Call Apptize(objStatic,objApplic,aExc)
+    End If
+    
+    'Compare or update
+    Call ValidateProps(objStatic,objApplic,objTol,tempResults,"")
+    
+    'Construct log text
+    If IsEmpty(tempResults) <> True Then
+      sResults = sResults & "RESULTS DATA ROW: " & row & vbNewLine & tempResults
+    End if
+        
+    'Empty variable
+    tempResults = Empty
+        
+    'Destroy objects
+    Set objStatic = Nothing
+    Set objApplic = Nothing
+          
+  'Next row
+  Next
+    
+  'Post results to log
+  Call ResultsToLog(sResults,tName,"Validation of design data")
+      
+  'Empty variable
+  sResults = Empty
+  
+  'Destroy object
+  Set objCon = Nothing
+  Set objTol = Nothing
+End Sub
+
+Sub UpdateData(sType,tName,DataWindow,DataTabId,iStep,bAlldp,aExc,bTol,locDatatable)
+ 
+  'Get local temp directory
+  Dim FilePath
+  FilePath = GetTempDirLoc()
+  
+  'Get com reference
+  Dim sRef
+  sRef = GetReference()
+  
+  'Check number of data rows
+  Dim nCount   
+  nCount = CheckRows(sType,FilePath,DataWindow,DataTabId,bAlldp,sRef,tName,False,locDatatable)
+    
+  'Warn and exit if number of rows is different to expected
+  If nCount = False Then
+    Call Log.Warning("Number of data rows does not match static data, exiting test...")
+    Exit Sub
+  End If
+  
+  'Iterate through each row of data
+  Dim Row,objStatic,objApplic,tempResults,sResults,sDebug,objTol
+  For Row = 1 to nCount Step iStep
+
+    'Baseline data
+    Set objStatic = Datatable("Excel",tName,Row,Null,locDatatable)
+        
+    'App data
+    Set objApplic = GetAppData(FilePath & "TmpData.XML","/DataGrid/Row [@Id='" & Row & "']",True)
+   
+    'Sort static data
+    Call SortStrings(objStatic)
+    
+    'Application specific changes
+    If IsArray(aExc) Then
+      Call Apptize(objStatic,objApplic,aExc)
+    End If
+    
+    'Compare or update
+    Call ValidateProps(objStatic,objApplic,objTol,tempResults,"Update" & "," & locDatatable & "," & tName & "," & Row)
+    
+    'Construct log text
+    If IsEmpty(tempResults) <> True Then
+      sResults = sResults & "RESULTS DATA ROW: " & row & vbNewLine & tempResults
+    End if
+        
+    'Empty variable
+    tempResults = Empty
+        
+    'Destroy objects
+    Set objStatic = Nothing
+    Set objApplic = Nothing
+          
+  'Next row
+  Next
+    
+  'Post results to log
+  Call ResultsToLog(sResults,tName,"Validation of design data")
+      
+  'Empty variable
+  sResults = Empty
+End Sub
+
+Function GetReference()
+  
+  'Iterate project tested applications
+  Dim i
+  For i = 0 To TestedApps.Count - 1
+    
+    'Check if running
+    Dim sApp
+    If IsProcessRunning(TestedApps.items(i).ItemName) = True Then
+      sApp = TestedApps.items(i).ItemName
+      
+      'Exit
+      Exit For
+    End If
+  Next
+  
+  'Select
+  Select Case True
+  
+    'Multiframe
+    Case InStr(sApp,"MULTIFRAME") <> 0 or InStr(sApp,"Mesher") <> 0
+      GetReference = "Multiframe"
+      
+    'Resistance
+    Case InStr(sApp,"Resistance") <> 0
+      GetReference = "BentleyResistance"
+      
+    'Modeler
+    Case InStr(sApp,"Modeler") <> 0
+      GetReference = "BentleyModeler"
+      
+    'Stability
+    Case InStr(sApp,"Stability") <> 0
+      GetReference = "BentleyStability"
+      
+    'Motions
+    Case InStr(sApp,"Motions") <> 0
+      GetReference = "BentleyMotions"
+      
+    'Structure
+    Case InStr(sApp,"Structure") <> 0
+      GetReference = "BentleyStructure"
+  End Select
+End Function
+
+Sub Apptize(objStatic,objInputs,aExc)
+  
+  'Select app
+  Dim i,item,aFields,sField,yTmp,zTmp,y,aAngles,p,s1,s2,z1,z2,y1,y2
+  Select Case aExc(0)
+  
+    'Moses HullMesher
+    Case "MOSES","SACS"
+      
+      'Iterate array
+      For i = 1 To UBound(aExc)
+        
+        'Look for match
+        Select Case True
+        
+          'Remove date from Analysis Summary db3 table
+          Case InStr(aExc(i),"RemoveRevision") <> 0
+          
+            'Find and remove
+            For Each p in objStatic
+              If InStr(p,"Revision") <> 0 Then
+                objStatic.Remove(p)
+              End If
+            Next
+            
+          'Remove date from Analysis Summary db3 table
+          Case InStr(aExc(i),"RemoveDate") <> 0
+          
+            'Find and remove
+            For Each p in objStatic
+              If InStr(p,"Date") <> 0 Then
+                objStatic.Remove(p)
+              End If
+            Next
+          
+          'MOSES CGRAOs bitness differences
+          Case InStr(aExc(i),"RemoveRollPhase") <> 0
+          
+            'Remove roll phase due to x64 / x86 consistency
+            For Each p in objStatic
+              If InStr(p,"RollPhase") <> 0 Then
+                objStatic.Remove(p)
+              End If
+            Next
+          
+          'Fix member Geometry data
+          Case InStr(aExc(i),"FixMemberGeometry") <> 0
+                    
+            'Change Beam to Member
+            If aExc(0) = "Moses" Then
+              objInputs.Key("Beam") = "Member"
+            End If
+
+            'Remove from comparison
+            objStatic.Remove("Joint1")
+            objStatic.Remove("Joint2")
+            objStatic.Remove("Member")
+            
+            'Remove SACS
+            If aExc(0) = "SACS" Then
+              objStatic.Remove("Label")
+            End If
+            
+            'Offset values
+            For Each p in objStatic
+              If InStr(p,"Yoffset1") Then
+              
+                'Y = Z in SACS
+                y1 = objStatic.Item(p)
+                
+                'Switch
+                objStatic.Item(p) = objStatic.Item(Replace(p,"Y","Z"))
+                objStatic.Item(Replace(p,"Y","Z")) = y1
+                
+              ElseIf InStr(p,"Yoffset2") Then
+              
+                'Y = Z in SACS
+                y2 = objStatic.Item(p)
+                
+                'Switch
+                objStatic.Item(p) = objStatic.Item(Replace(p,"Y","Z"))
+                objStatic.Item(Replace(p,"Y","Z")) = y2
+              End If
+            Next
+            
+          'Remove Patch fields
+          Case InStr(aExc(i),"FixPatches") <> 0
+          
+            'Fields array
+            aFields = Array("Patch","StaticSelfWeight","PressureCoeff","AreaReductionFactor","FrictionDragCoeff","UserCoeff","Buoyancy","Hydrostatic")
+            
+            'Remove
+            For Each sField in aFields
+              If objStatic.Exists(sField) Then
+                objStatic.Remove(sField)
+              End If
+            Next
+            
+            'Material group and color will be different
+            objStatic.Item("MaterialGroup") = objInputs.Item("MaterialGroup")
+            objStatic.Item("Color") = objInputs.Item("Color")
+            
+            'Corners can not be fixed
+            If aExc(0) = "SACS" Then 
+              objStatic.Item("Corners") = objInputs.Item("Corners")
+            End If
+          
+          Case InStr(aExc(i),"FixOpenings") <> 0 
+          
+            'Corners can not be fixed
+            If aExc(0) = "SACS" Then 
+              objStatic.Remove("Corners")
+              
+              'Remove from comparison
+              objStatic.Key("Patch") = "Panel"
+            End If
+              
+          'Fix plate data
+          Case InStr(aExc(i),"FixPlates") <> 0
+          
+            'Colour will be difference
+            objStatic.Item("Color") = objInputs.Item("Color")
+            
+          'Fix Joint data
+          Case InStr(aExc(i),"FixJoints") <> 0
+          
+            'Remove some fields
+            aFields = Array("Type","Øx","Øy","Øz")
+                
+            'Remove
+            For Each sField in aFields
+              objStatic.Remove(sField)
+            Next
+            
+            'Remove
+            If InStr(aExc(0),"SACS") <> 0 Then
+              objStatic.Remove("Joint") 
+            End If
+              
+            'y = z
+            For Each p in objStatic
+              If InStr(p,"z") <> 0 Then
+                
+                'Prop value
+                z1 = objStatic.Item(p)
+                  
+                'Switch
+                objStatic.Item(p) = objStatic.Item(Replace(p,"z","y"))
+                
+                If InStr(aExc(0),"SACS") <> 0 Then
+                  z1 = InvertNumber(z1)
+                  objStatic.Item(Replace(p,"z","y")) = z1
+                Else
+                  objStatic.Item(Replace(p,"z","y")) = z1
+                End If
+                
+              ElseIf InStr(p,"x") <> 0 Then
+                
+                'Invert
+                If InStr(aExc(0),"MOSES") <> 0 Then
+                  objStatic.Item(p) = InvertNumber(objStatic.Item(p))  
+                End If
+              End If
+            Next 
+        End Select
+          
+      'Next object item
+      Next
+      
+    'Modeler
+    Case "ModelerDGN"
+      
+      'Array
+      aFields = Array("Color","CuttingSurfs")
+      
+      'Remove
+      For Each sField in aFields
+        If objStatic.Exists(sField) Then
+        
+          'Cutting surfaces should be none
+          If sField = "CuttingSurfs" Then
+          
+            'Iterate several cutting surfaces
+            For Each item in objStatic
+              If InStr(item,"CuttingSurfs") <> 0 Then 
+                objStatic.Item(item) = "none"
+              End If
+            Next
+          Else
+            objStatic.Remove(sField)
+          End If
+        End If
+      Next      
+  End Select
+End Sub
+
+Sub SortStrings(objData)
+ 
+  'Errors expected
+  On Error Resume Next
+  
+  'Itertate through the data object and handle strings in numerical data
+  Dim prop
+  For Each prop in objData
+  
+    Select Case True
+      
+      '() in numbers
+      Case InStr(objData.Item(prop),"(") <> 0
+    
+        'Split the value
+        Dim aParts
+        aParts = Split(objData.Item(prop))
+        
+        'Reduce to a single numerical value
+        If UBound(aParts) > 0 and UBound(aParts) <= 2 Then
+          If IsNumeric(aParts(0)) Then
+            objData.Item(prop) = aParts(0) 
+          End If
+          
+        'Else just remove ()
+        Else
+          objData.Item(prop) = Replace(Replace(objData.Item(prop),"(",""),")","")
+        End If
+        
+        'Now check prop name
+        If InStr(prop,"_") <> 0 or InStr(prop,"MINUS") <> 0 or InStr(prop,"DECIMALPLACE") <> 0 Then
+          nItem = Replace(prop,"_","")
+          nItem = Replace(nItem,"MINUS","")
+          nItem = Replace(nItem,"DECIMALPLACE","")
+          objData.Key(prop) = nItem
+        End if
+      
+      'Remove unwanted characters from array data
+      Case InStr(objData.Item(prop)," %") <> 0
+      
+        objData.Item(prop) = Replace(objData.Item(prop)," %","")
+        
+      'Remove unwanted characters from array keys
+      Dim nItem
+      Case InStr(prop,"_") <> 0,InStr(prop,"MINUS") <> 0,InStr(prop,"DECIMALPLACE") <> 0     
+      
+        nItem = Replace(prop,"I_II","I-II")
+        nItem = Replace(nItem,"_","")
+        nItem = Replace(nItem,"MINUS","")
+        nItem = Replace(nItem,"DECIMALPLACE","")
+        objData.Key(prop) = nItem
+
+        'If key already exists remove it and replace
+        If err.number = 457 Then
+        
+          'Clear error
+          err.clear
+          
+          'Remove
+          objData.Remove(nItem)
+          
+          'Add
+          objData.Key(prop) = nItem
+        End If
+     End Select
+      
+  'Next property
+  Next
+End Sub
+
+Function GetAppData(sName,sQuery,bSort)
+ 
+  'Load the XML into memory
+  Dim objDoc,d
+  Set objDoc = LoadXML(sName)
+  
+  'Create Dictionary object
+  Set d = CreateObject("Scripting.Dictionary")
+  
+  'Get node
+  Dim objNode
+  Set objNode = objDoc.SelectSingleNode(sQuery)
+      
+  'Get child elements
+  Dim objChilds,i,Child
+  Set objChilds = objNode.childNodes
+      
+  'Counter
+  i = 1
+  
+  'Iterate child
+  Dim Prop,Value
+  For Each Child in objChilds
+  
+    'Node name and text values
+    Prop = Child.nodeName
+    Value = Child.text
+    
+    'Check for element exists
+    If d.Exists(Prop) <> True Then
+      
+      'Add node name and node text to dictionary
+      d.Add Prop, Value
+    Else
+    
+      'Add node name and node text to dictionary
+      d.Add Prop & i, Value
+      
+      'increase counter
+      i = i + 1
+    End If
+    
+  'Next child
+  Next
+  
+  'Sort
+  If bSort = True Then
+    Call SortStrings(d)
+  End If
+  
+  'Set Function
+  Set GetAppData = d
+  
+  'Destroy objects
+  Set objDoc = Nothing
+  Set d = Nothing
+  Set objNode = Nothing
+  Set objChilds = Nothing
+End Function
+
+Sub XMLToText(sXML,sPath)
+ 
+  'Load the XML into memory
+  Dim objDoc,d,i,objChilds,c,objNode,objXML,sText,sHead
+  
+  'Load XML file
+  Set objDoc = LoadXML(sXML)
+  
+  'Get XML
+  Set objXML = objDoc.SelectNodes("/DataGrid/Row")
+  
+  'Iterate
+  For i = 0 To objXML.Length - 1
+  
+    'Get child nodes
+    Set objChilds = objXML.Item(i).ChildNodes
+      
+    'Iterate children
+    For c = 0 To objChilds.Length - 1
+    
+      'Get child node
+      Set objNode = objChilds.item(c)
+      
+      If i = 0 Then
+      
+        'Get node name
+        If c = objChilds.Length - 1 Then
+          sHead = sHead & objNode.nodeName & vbCrlf
+        Else
+          sHead = sHead & objNode.nodeName & vbTab
+        End If
+      End If
+      
+      'Get node text
+      If c = objChilds.Length - 1 Then
+        sText = sText & objNode.Text & vbCrlf
+      Else
+        sText = sText & objNode.Text & vbTab
+      End If
+      
+      'Destroy
+      Set objNode = Nothing
+    Next
+    
+    'Destroy
+    Set objChilds = Nothing
+  Next
+  
+  'join
+  sText = Replace(sHead,"DECIMALPLACE",".") & sText    
+  
+  'Write
+  Call WriteToTXTFile(sPath,sText,True)
+  
+  'Destroy
+  Set objDoc = Nothing
+  Set objXML = Nothing
+End Sub
+
+Sub SortData(Prop,Value,bInvert)
+ 
+  'Unwanted characters
+  Dim aChars,sChar
+  aChars = Array("MINUS","DECIMALPLACE","_","%")
+  
+  'Remove characters from property name and property values
+  For Each sChar in aChars
+    Prop = Replace(Prop,sChar,"")
+    Value = Replace(Value,sChar,"")
+  Next
+  
+  'Handle values with multiple parts like 12.3(Some other value)
+  If InStr(Value,"(") <> 0 Then
+  
+    'Split the value
+    Dim aParts
+    aParts = Split(Value)
+        
+    'Reduce to a single numerical value
+    If UBound(aParts) > 0 and UBound(aParts) <= 2 Then
+      If IsNumeric(aParts(0)) Then
+        Value = aParts(0) 
+      End If
+          
+    'Else just remove ()
+    Else
+      Value = Replace(Replace(Value,"(",""),")","")
+    End If
+  End If
+     
+  'Invert
+  If bInvert = True Then
+  
+    'Specific data cases
+    Select Case True
+  
+      'Stability LCF from zero pt.
+      Case InStr(Prop,"LCFfromzeropt")
+        Prop = Replace(Prop,"aft","fwd")
+      
+      'Stability LCB from zero pt.
+      Case InStr(Prop,"LCBfromzeropt")
+        Prop = Replace(Prop,"aft","fwd") 
+      
+    End Select
+  End If
+End Sub
+
+Sub GetBitness(OSType)
+  
+  'Get the bitness
+  Dim OSInfo
+  Set OSInfo = Sys.OSInfo
+  If OSInfo.Windows64bit = True Then
+    OSType = "x64"
+  Else
+    OSType = "x86"
+  End If
+End Sub
+
+Function GetOSObject()
+ 
+  'Get OS obj
+  Dim OSInfo
+  Set GetOSObject = Sys.OSInfo
+End Function
+
+Sub SavePictureToFile(objPic,sName)
+ 
+  'Save
+  Call objPic.SaveToFile(sName)
+End Sub
+
+Sub GetNodeLoc(DocName,XMLQuery,prop,aExcludes,numNode)
+  
+  'Load the XML into memory
+  Dim XMLDoc,d
+  Set XMLDoc = LoadXML(DocName)
+  
+  'Create Dictionary object
+  Set d = CreateObject("Scripting.Dictionary")
+ 
+  'Create node object
+  Dim XMLNode
+  Set XMLNode = XMLDoc.SelectSingleNode(XMLQuery)
+  
+  'Process child nodes
+  Dim XMLChilds
+  Set XMLChilds = XMLNode.childNodes
+  
+  Dim i,Child,nName,aItems,Item,name
+  i = 1
+  For Each Child in XMLChilds
+    name = Child.nodeName
+    If IsNull(aExcludes) <> True Then
+      For Each Item in aExcludes
+        name = Replace(name,Item,"")
+      Next
+    End If 
+    If name = Prop Then
+      numNode = i
+      Exit For
+    Else
+      i = i + 1
+    End If 
+  Next
+  
+  'Destroy Objects
+  Set XMLDoc = Nothing
+  Set XMLNode = Nothing
+  Set XMLChilds = Nothing
+End Sub
+
+Sub PopulateDataGrid(objInputs,Row,WindowId,TabId,sApp,aExcludes)
+  
+  'Get local temp directory
+  Dim FilePath
+  FilePath = GetTempDirLoc()
+  
+  'Export data
+  Call ExportCellData(FilePath & "GridData.XML",WindowId,TabId,True,sApp)
+          
+  'Parse XML to get node number of each property being set
+  Dim prop,numNode
+  
+  'Empty variable
+  numNode = Empty
+      
+  For each prop in objInputs
+    If IsNull(objInputs.Item(prop)) <> True Then
+    
+      'Get the column number of the current property
+      Call GetNodeLoc(FilePath & "GridData.XML","/DataGrid/Row",prop,aExcludes,numNode)
+    
+      'Set grid value
+      If IsEmpty(numNode) <> True Then Call SetGridValue(sApp,Row,numNode,objInputs.Item(prop),WindowId,TabId)
+    
+      'Empty variable
+      numNode = Empty
+    End If
+  Next
+End Sub
+
+Function GetAppName(sApp)
+  
+  'Get OS bitness of the test machine
+  Dim OSType
+  Call GetBitness(OSType)
+  
+  'Get bitness of tested application
+  Dim AppBitness
+  AppBitness = ProjectSuite.Variables.sBit
+  
+  'Select test platform configuration
+  Select Case True
+  
+    'x64 tested application on x64 OS
+    Case AppBitness = "x64" and OSType = "x64"
+      sApp = sApp & "64"
+    
+    'x86 tested application on x86 OS
+    Case AppBitness = "x86" and OSType = "x86"
+      sApp = sApp
+    
+    'x86 tested application on x64 OS (WOW)
+    Case AppBitness = "x86" and OSType = "x64"
+      sApp = sApp & "WOW"
+  End Select
+  
+  'Return
+  GetAppName = sApp
+End Function
+
+Function GetObjWin(sProc,sWinName)
+  
+  'Process object
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild(sProc, 2000)
+  
+  Select Case sWinName
+  
+    Case "Main"
+      Set GetObjWin = appProcess.MainWnd
+  
+    Case "Frame","Active Structure"
+      Set GetObjWin = appProcess.MainWnd.MDIClient.FrameWnd.FrameView
+      
+    Case "Load"
+      Set GetObjWin = appProcess.MainWnd.MDIClient.LoadWnd.LoadView
+      
+    Case "Plot"
+      Set GetObjWin = appProcess.MainWnd.MDIClient.PlotWnd.PlotView
+  End Select
+  
+  'Destroy objects
+  Set appProcess = Nothing
+End Function
+
+Sub WindowAction(sProc,objWindow,sAction)
+ 
+  'App process
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild(sProc, 2000)
+  
+  'Action
+  Select Case sAction
+    
+    'Maximize
+    Case "Maximize"
+      objWindow.Maximize
+  
+    'Minimize
+  
+    'Position
+    
+  End Select
+End Sub
+
+Sub ClickXY(sProc,x,y,shift,objWindow)
+ 
+  'Process object
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild(sProc, 2000)
+  
+  'Click screen point
+  Call objWindow.Click(x,y,shift)
+  
+  'Destroy objects
+  Set appProcess = Nothing
+End Sub
+
+Sub DoubleClickXY(sProc,x,y,objWindow)
+ 
+  'Process object
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild(sProc, 2000)
+  
+  'Double click screen point
+  Call objWindow.DblClick(x,y)
+  
+  'Destroy objects
+  Set appProcess = Nothing
+End Sub
+
+Sub RightClickXY(sProc,x,y,objWindow,sAction)
+ 
+  'Give the process mapping a sensible name
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild(sProc, 2000)
+  
+  'Dragging from 5 pixels below to 5 pixels above y
+  Call objWindow.ClickR(x,y)
+  
+  'Context menu
+  If sAction <> "" Then
+    Call objWindow.PopupMenu.Click(sAction)
+  End If
+  
+  'Destoy objects
+  Set appProcess = Nothing
+End Sub
+
+Sub DragXY(sProc,x,y,xDrag,yDrag,objWindow)
+ 
+  'Give the process mapping a sensible name
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild(sProc, 2000)
+  
+  'Drag
+  Call objWindow.Drag(x,y,xDrag,yDrag)
+  
+  'Destoy objects
+  Set appProcess = Nothing
+End Sub
+
+Function FindObject(sProc,objParent,aProp,aVal)
+ 
+  'Process mapping
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild(sProc, 2000)
+  
+  'Set function
+  Set FindObject = objParent.FindChild(aProp,aVal,20000,True)
+  
+  'Destoy objects
+  Set appProcess = Nothing
+End Function
+
+Sub SetIgnoreText(sFile,sPat)
+ 
+  'Create file system object
+  Dim FSO
+  Set FSO = GetFileSystemObject()
+  
+  'Wait
+  Do While FSO.FileExists(sFile) <> True
+    Builtin.Delay(1000)
+  Loop
+  
+  'Open file
+  Dim objFile
+  Set objFile = FSO.OpenTextFile(sFile,ForReading)
+  
+  'Read all
+  Dim sText,nText
+  sText = objFile.ReadAll
+  objFile.Close
+  
+  'Create regular expression object
+  Dim objRegEx
+  Set objRegEx = CreateObject("VBScript.RegExp")
+
+  'Expression pattern
+  objRegEx.Global = True 
+  objRegEx.Pattern = sPat
+  
+  'Replace text if found
+  sText = objRegEx.Replace(sText,"<ignore>")
+  
+  'Open file for writing
+  Set objFile = FSO.OpenTextFile(sFile,ForWriting)
+  objFile.Write(sText)
+  objFile.Close
+  
+  'Destroy objects
+  Set FSO = Nothing 
+  Set objFile = Nothing
+  Set objRegEx = Nothing
+End Sub
+
+Sub SizeWindow(sProc,objWindow,x,y,Height,Width)
+ 
+  'App process
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild(sProc, 2000)
+  
+  'Resize window
+  Call objWindow.Position(x,y,Height,Width)
+   
+  'Destroy objects
+  Set appProcess = Nothing
+End Sub
+
+Sub CheckImage(sProc,objWindow,sPicture,bTrans,bMouse,nTol)
+ 
+  'App process
+  Dim appProcess
+  
+  Set appProcess = NameMapping.Sys.WaitNamedChild(sProc, 2000)
+  
+  'Call the image comparison function
+  Dim bResult
+  bResult = Regions.Compare(sPicture,objWindow,bTrans,bMouse,True,nTol,lmWarning)
+  
+  'Log result
+  If Cbool(bResult) = True Then
+    Log.Message(sPicture & " baseline image is identical to the tested application...")
+  Else
+    Log.Warning(sPicture & " baseline image comparison to the tested application has failed...")
+  End If
+
+  'Destroy objects
+  Set appProcess = Nothing
+End Sub
+
+Sub CheckMyText(sBase,sTest,sType,bLocale)
+
+  'Get locale
+  If CBool(bLocale) = True Then
+    Select Case GetLocale()
+  
+      'French
+      Case 1036
+        Call ModForLocale(Files.FileNameByName(sBase))
+    End Select
+  End If
+
+  'Check
+  Call CheckText(sBase,sTest,sType)
+End Sub
+
+Sub ModForLocale(sPath)
+
+  'Get locale
+  Select Case GetLocale()
+  
+    'French
+    Case 1036
+      Call InsertText(sPath,".",",")
+  End Select
+End Sub
+
+Function CheckText(sBase,sTest,sHow)
+
+  'Compare files
+  Dim bResult
+  bResult = Files.Compare(sBase,sTest,0,True,0)
+  
+  'Binary comparison
+  If bResult <> True Then
+  
+    'Diff
+    If sHow = "Diff" Then
+      
+      'Diff files
+      Dim objFile
+      
+      Set objFile = Files.Items(sBase)
+      objFile.Check(sTest)
+      
+      'Destroy object
+      Set objFile = Nothing
+      CheckText = bResult
+    Else
+     
+      'Check line by line
+      Dim sWarn
+      Call CheckLines(sTest,Files.FileNameByName(sBase),sWarn)
+    
+      'Write results to the log
+      Call ResultsToLog(sWarn,sBase & vbNewLine & "Output listing: " & sBase & vbNewLine,"File comparison")
+    
+      sWarn = Empty
+     
+    End If
+    
+  Else
+   CheckText = bResult
+    Log.Message "File comparison was successful",sTest & vbNewLine & sBase
+  End If
+End Function
+
+Sub CompareFileSize(sBase,sTest)
+ 
+  'Get baseline file size
+  Dim iBase,iTest
+  iBase = GetFileProps(sBase,"Size")
+  
+  'Get test file size
+  iTest = GetFileProps(sBase,"Size")
+  
+  'Compare
+  If iBase <> iTest Then
+    Log.Warning "File size comparison was not successful",sTest & Chr(32) & iTest & vbNewLine & sBase & Chr(32) & iBase
+  Else
+    Log.Message "File size comparison was successful",sTest & vbNewLine & sBase  
+  End If
+End Sub
+
+Sub ExcludeTextLines(sPath,aText)
+  
+  'Declare
+  Dim objStream,sLine,sText,objTmp,bLine,sContent
+ 
+  'Create objects
+  Set objStream = CreateObject("ADODB.Stream")
+  Set objTmp = CreateObject("ADODB.Stream")
+
+  'Stream props
+  objStream.Type = adTypeText
+  objStream.LineSeparator = adCRLF    
+  objStream.Charset = "ascii" 
+  
+  'Open
+  objStream.Open       
+  objStream.LoadFromFile(sPath)
+
+  'Read
+  Do Until objStream.EOS
+      sLine = objStream.ReadText(adReadLine)
+      
+      'Look for text match
+      For Each sText in aText
+        If InStr(LCase(sLine),LCase(sText)) = 0 Then
+          bLine = True 
+        Else
+          bLine = False
+          Exit For
+        End If
+      Next
+    
+      'Write test
+      If bLine = True Then
+        sContent = sContent & sLine & vbCrLf
+      Else
+        sContent = sContent & "<LINE REMOVED FROM COMPARISON>" & vbCrLf
+      End If
+  Loop
+  
+  'Stream props
+  objTmp.Type = adTypeText
+  objTmp.LineSeparator = adCRLF    
+  objTmp.Charset = "ascii"
+  
+  'Write file
+  objTmp.Open
+  objTmp.WriteText sContent,1
+  objTmp.SaveToFile sPath,2
+  
+  'Close
+  objStream.Close
+  objTmp.Close
+  
+  'Destroy
+  Set objStream = Nothing
+  Set objTmp = Nothing
+End Sub
+ 
+Sub RemoveText(sPath,aText)
+ 
+  'Create file system object
+  Dim fso
+  Set fso = GetFileSystemObject()
+
+  'Open static (known good) text file into memory
+  Dim objFile
+  Set objFile = fso.OpenTextFile(sPath,ForReading)
+  
+  'Parse each line
+  Dim sLine,sText,sContent,bLine
+  bLine = False
+  Do
+    'Read line
+    sLine = objFile.ReadLine
+    
+    'Look for text match
+    For Each sText in aText
+      If InStr(sLine,sText) = 0 Then
+        bLine = True 
+      Else
+        bLine = False
+        Exit For
+      End If
+    Next
+    
+    'Write test
+    If bLine = True Then
+      sContent = sContent & sLine & vbCrLf
+    Else
+      sContent = sContent & "<IGNORE>" & vbCrLf
+    End If
+    
+  'Next line
+  Loop Until objFile.AtEndOfStream = True
+    
+  'Close the text files
+  objFile.Close
+   
+  'Destroy objects
+  Set objFile = Nothing
+  
+  'Open for writing
+  Set objFile = fso.OpenTextFile(sPath,ForWriting)
+  objFile.Write sContent
+  
+  'Close
+  objFile.Close
+   
+  'Destroy objects
+  Set fso = Nothing
+  Set objFile = Nothing
+End Sub
+
+Sub ApplyTolerance(sBase,sTest,sSplit,iRound,iTol)
+ 
+  'Declare
+  Dim objBase,sLine,sText,objTmp,sLineb,sLinet,_
+  aData,d,aSetb,aSett,dDiff,pDiff,bFail
+ 
+  'Create objects
+  Set objBase = CreateObject("ADODB.Stream")
+  Set objTmp = CreateObject("ADODB.Stream")
+
+  'Stream props
+  objBase.Type = adTypeText
+  objBase.LineSeparator = adCRLF    
+  objBase.Charset = "ascii" 
+  
+  'Stream props
+  objTmp.Type = adTypeText
+  objTmp.LineSeparator = adCRLF    
+  objTmp.Charset = "ascii" 
+  
+  'Open baseline
+  objBase.Open      
+  objBase.LoadFromFile(sBase)
+  
+  'Open test file
+  objTmp.Open
+  objTmp.LoadFromFile(sTest)
+  
+  'Read
+  Do Until objBase.EOS
+  
+    'Flag
+    bFail = False
+    
+    'Read line from baseline
+    sLineb = objBase.ReadText(adReadLine)
+      
+    'Read line from test file
+    sLinet = objTmp.ReadText(adReadLine)
+    
+    'Check for differences
+    If sLineb <> sLinet Then
+      
+      'Split
+      aSetb = Split(sLineb,sSplit)
+      aSett = Split(sLinet,sSplit)
+      
+      'Iterate
+      For d = 0 To UBound(aSetb)
+      
+        'Only numbers
+        If IsNumeric(aSetb(d)) Then
+        
+          'Check with tolerance
+          If Round(aSetb(d),iRound) <> Round(aSett(d),iRound) Then
+          
+            'Percent difference
+            pDiff = (aSetb(d)-aSett(d))/aSetb(d)*100
+          
+            'Check tolerance
+            If Abs(pDiff) > iTol Then
+              bFail = True
+            
+              'Exit
+              Exit For
+            End If
+          End If
+        End If
+      Next
+      
+      'Construct text
+      If bFail = True Then
+        sText = sText & sLinet & vbCrLf
+      Else
+        sText = sText & sLineb & vbCrLf
+      End If
+    Else
+    
+      'Construct text
+      sText = sText & sLineb & vbCrLf
+    End If
+  Loop
+  
+  'Close test file
+  objTmp.Close
+  
+  'Write file
+  objTmp.Open
+  objTmp.WriteText sText,0
+  objTmp.SaveToFile sTest,2
+  
+  'Close
+  objBase.Close
+  objTmp.Close
+  
+  'Destroy
+  Set objBase = Nothing
+  Set objTmp = Nothing
+End Sub
+
+Sub CheckLines(fApplic,fStatic,sWarn)
+ 
+  'Create file system object
+  Dim fso
+  Set fso = GetFileSystemObject()
+
+  'Open static (known good) text file into memory
+  Dim objStatic
+  Set objStatic = fso.OpenTextFile(fStatic,ForReading)
+  
+  'Open application generated text file into memory
+  Dim objApplic
+  Set objApplic = fso.OpenTextFile(fApplic,ForReading)
+  
+  'Iterate through each line of the static text file
+  Dim strLineStatic,strLineApplic,i,w
+  i = 0
+  w = 0
+  Do
+    'increase counter
+    i = i + 1
+     
+    'Read lines
+    strLineStatic = objStatic.ReadLine
+    strLineApplic = objApplic.ReadLine
+    
+    'Compare the 2 lines of text
+    If strLineStatic <> strLineApplic Then
+    
+      'increase warning counter
+      w = w + 1
+        
+      'Process the 2 sets of data
+      Dim aData,DataSet,objApp,objBase,d
+      aData = Array(strLineApplic,strLineStatic)
+      For d = 0 To UBound(aData)
+          
+        'Fix data
+        Call FixCard(aData(d))
+            
+        'Create an array of values from the line of text by splitting using whitespace
+        DataSet = Split(aData(d))
+            
+        'Remove empty elements from the array
+        Call RemoveEmptyElements(DataSet)
+            
+        'Format numbers
+        Call FormatNumbers(DataSet,10,0)
+            
+        'Convert the array to a dictionary object
+        If d = 0 Then 
+          Set objApp = ConvertToDictionary(Right(fApplic,len(fApplic) - InstrRev(fApplic,"\"))  & " Line " & i & " Column ",DataSet)
+        Else
+          Set objBase = ConvertToDictionary(Right(fApplic,len(fApplic) - InstrRev(fApplic,"\")) & " Line " & i & " Column ",DataSet)
+        End If    
+      Next
+          
+      'Compare data
+      Call ValidateProps(objBase,objApp,NULL,sWarn,False)
+    
+      'Destroy objects
+      Set objApp = Nothing
+      Set objBase = Nothing
+      
+      'Exit if too many warnings
+      If w > 100 Then
+        sWarn = sWarn & vbNewLine & "Over 100 warnings, exiting..."
+        Exit Do
+      End If
+    End if
+    
+  'Next line
+  Loop Until objStatic.AtEndOfStream = True
+    
+  If err.Number = 62 Then
+    Log.Warning("File sizes are different")
+    err.clear
+  End If
+    
+  'Close the text files
+  objStatic.Close
+  objApplic.Close
+    
+  'Destroy objects
+  Set fso = Nothing
+  Set objStatic = Nothing
+  Set objApplic = Nothing
+End Sub
+
+Sub FixCard(sData)
+ 
+  'Start
+  Dim Start,pos
+  Start = 1
+  Do While InStr(Start,sData,"E") <> 0
+    pos = InStr(Start,sData,"E")
+    If Mid(sData,pos + 4,1) = "-" Then
+      sData = Replace(sData,Left(sData,pos + 3),Left(sData,pos + 3) & " ")
+    End If
+    Start = pos + 1 
+  Loop
+End Sub
+
+Function ConvertToDictionary(ItemName,aName)
+ 
+  'Dictionary object
+  Dim d
+  Set d = CreateObject("Scripting.Dictionary")
+
+  'Add
+  Dim Element,i
+  i = 0
+  For Each Element in aName
+    d.Add ItemName & i + 1,Element
+    i = i + 1
+  Next
+  
+  'Set
+  Set ConvertToDictionary = d
+End Function
+
+Sub ImportOptions(sApp,Row,objInputs,locDatatable)
+ 
+  'Process mapping
+  Dim appProcess
+  Set appProcess = NameMapping.SystemProcess.WaitNamedChild("AppProcess", 2000)
+  
+  'Wait for dialog to appear
+  Do
+    Builtin.Delay(1000)
+  Loop Until AppProcess.ImportOptionsDlg.VisibleOnScreen = True
+  
+  'Configurations
+  If objInputs.Item("ImportConfiguration") = "na" Then
+  
+    'Add config
+    Call AppProcess.ImportOptionsDlg.Window("Button", "Add").Click
+    
+    'Get Import Options
+    Dim objImports
+    Set objImports = Datatable("Excel","ImportOptions_Input_Matrix",Row,NULL,locDatatable)
+    
+    'Check to see if name already exists
+    Dim i,sConfig
+    For i = 1 To AppProcess.ImportOptionsDlg.ConfigurationsListBox.wItemCount -1
+      If AppProcess.ImportOptionsDlg.ConfigurationsListBox.wItem(i) = objImports.Item("ConfigName") Then
+        sConfig = Left(sApp,5) & Date
+        Exit For
+      Else
+        sConfig = Left(sApp,5)
+      End If
+    Next
+    
+    'Name
+    Dim Editbox
+    Set Editbox = AppProcess.ImportOptionsDlg.ConfigEdit
+    Editbox.SetFocus
+    Editbox.wText = sConfig
+      
+    'Right
+    Dim aRight
+    aRight = Split(objImports.Item("Right"),",")
+        
+    If aRight(0) = "+ve" Then
+      Call AppProcess.ImportOptionsDlg.RightPositiveRad.Click
+    Else
+      Call AppProcess.ImportOptionsDlg.RightNegativeRad.Click
+    End if 
+          
+    Select Case aRight(1)
+        
+      'X
+      Case "X"
+        Call AppProcess.ImportOptionsDlg.RightXRad.Click
+            
+      'Y
+      Case "Y"
+        Call AppProcess.ImportOptionsDlg.RightYRad.Click
+            
+      'Z
+      Case "Z"
+        Call AppProcess.ImportOptionsDlg.RightZRad.Click
+    End Select      
+        
+    'Left
+    Dim aUp
+    aUp = Split(objImports.Item("Up"),",")
+        
+    If aUp(0) = "+ve" Then
+      Call AppProcess.ImportOptionsDlg.UpPositiveRad.Click
+    Else
+      Call AppProcess.ImportOptionsDlg.UpNegativeRad.Click
+    End if
+        
+    Select Case aUp(1)
+        
+      'X
+      Case "X"
+        Call AppProcess.ImportOptionsDlg.UpXRad.Click
+            
+      'Y
+      Case "Y"
+        Call AppProcess.ImportOptionsDlg.UpYRad.Click
+            
+      'Z
+      Case "Z"
+        Call AppProcess.ImportOptionsDlg.UpZRad.Click
+    End Select
+        
+        
+    'Front
+    Dim aFront
+    aFront = Split(objImports.Item("Front"),",")
+        
+    If aFront(0) = "+ve" Then
+      Call AppProcess.ImportOptionsDlg.FrontPositiveRad.Click
+    Else
+      Call AppProcess.ImportOptionsDlg.FrontNegativeRad.Click
+    End if
+        
+    Select Case aFront(1)
+        
+      'X
+      Case "X"
+        Call AppProcess.ImportOptionsDlg.FrontXRad.Click
+            
+      'Y
+      Case "Y"
+        Call AppProcess.ImportOptionsDlg.FrontYRad.Click
+            
+      'Z
+      Case "Z"
+        Call AppProcess.ImportOptionsDlg.FrontZRad.Click
+    End Select
+        
+        
+    'Units
+    Select Case objImports.Item("Units")
+        
+      'mm
+      Case "mm"
+          
+      'cm
+      Case "cm"
+        Call AppProcess.ImportOptionsDlg.CMRad.Click 
+          
+      'metres
+      Case "metres"
+          
+      'feet
+      Case "feet"
+        Call AppProcess.ImportOptionsDlg.FeetRad.Click
+            
+      'inches
+      Case "inches"
+        
+    End Select
+        
+    'Arc length
+    Set Editbox = AppProcess.ImportOptionsDlg.ArcLengthEdit
+    Editbox.SetFocus
+    Editbox.wText = objImports.Item("ArcLength")
+      
+  Else
+  
+    'If using default check app
+    Dim sImport
+    If objInputs.Item("ImportConfiguration") = "Default" Then
+    
+      'Use application default
+      Select Case True
+      
+        'Multiframe
+        Case InStr(sApp,"MULTI") <> 0
+          sImport = "Default - Multiframe"
+          
+        'Moses
+        Case InStr(sApp,"MOSES") <> 0
+          sImport = "Default - MOSES"
+          
+        'SACS
+        Case InStr(sApp,"SACS") <> 0
+          sImport = "Default - SACS"
+          
+        'Maxsurf
+        Case InStr(sApp,"MAXSURF") <> 0
+          sImport = "Default - Maxsurf"
+      End Select
+    
+      'Select
+      Call AppProcess.ImportOptionsDlg.ConfigurationsListBox.ClickItem(sImport)
+      
+    'Use specified config
+    Else
+      Call AppProcess.ImportOptionsDlg.ConfigurationsListBox.ClickItem(objInputs.Item("ImportConfiguration"))
+    End If
+  End If
+      
+  'ok
+  Call AppProcess.ImportOptionsDlg.Window("Button", "OK").Click 
+  
+  'Watch
+  If AppProcess.WaitWindow("#32770", " Multiframe*", -1, 2000).Exists or AppProcess.WaitWindow("#32770", "*Hull Mesher", 1, 2000).Exists Then
+    
+    Call AppProcess.Window("#32770", "*", 1).Window("Button", "OK").Click
+     
+    'Import options
+    Call ImportOptions(sApp,Row,objInputs,locDatatable)
+  End If
+  
+  'Watch
+  If appProcess.WaitWindow("#32770", UCase("M*"), 1, 2000).Exists Then
+    Call appProcess.Window("#32770", UCase("M*"), 1).Window("Button", "&Yes").Click
+  End If
+  
+  'Wait
+  Do
+    Builtin.Delay(1000)
+  Loop While appProcess.MainWnd.Statusbar.wText(0) <> "Ready"
+  
+  'Destroy objects
+  Set Editbox = Nothing
+  Set appProcess = Nothing
+End Sub
+
+Sub GetScreenPoint(sApp,objWindow,ViewId,Lon,Offset,Height,x,y)
+ 
+  'Create UI object
+  Dim appUI
+  Set appUI = CreateObject(sApp & ".UserInterface")
+  
+  Dim xWin,yWin
+  xWin = appUI.GetScreenCoordX(ViewId,Lon,Offset,Height)
+  yWin = appUI.GetScreenCoordY(ViewId,Lon,Offset,Height)
+  
+  'Convert sceen coordinates to relative windows coordinates
+  Dim sCords
+  Set sCords = objWindow.ScreenToWindow(xWin,yWin)
+  x = sCords.x
+  y = sCords.y
+  
+  'Destroy object
+  Set appUI = Nothing
+End Sub
+
+Sub AddFile(sPath,sName,bCopy)
+  
+  'Add
+  Call Files.Add(sPath,sName,bCopy)
+End Sub
+
+Sub SQLComparison(sQuery,sTable,locBase,locTest,aExc,locDatatable)
+  
+  'Get number of rows of baseline data
+  Dim iRows,iRow
+  iRows = Datatable_Get_Row_Count("SQLite","SELECT * FROM " & sTable,locBase)
+  
+  'Iterate
+  For iRow = 1 To iRows
+  
+    'Get baseline data row
+    Dim objBase
+    Set objBase = Datatable("SQLite",sTable,iRow,NULL,locBase)
+    
+    'Get application data row
+    Dim objApp
+    Set objApp = Datatable("SQLite",sTable,iRow,NULL,locTest)
+    
+    'Application specific changes
+    If IsArray(aExc) Then
+      Call Apptize(objBase,objApp,aExc)
+    End If
+    
+    'Get tolerances
+    Dim objTol,sWarn,sResults
+    If sQuery <> "" Then
+      Set objTol = Datatable("Excel",sQuery & "_" & "Tolerances",1,locDatatable)
+      
+      'Compare
+      Call ValidateProps(objBase,objApp,objTol,sWarn,False)
+    Else
+      'Compare without tolerances
+      Call ValidateProps(objBase,objApp,Null,sWarn,False)
+    End If
+  
+    'Results
+    If IsEmpty(sWarn) <> True Then
+      sResults = sResults & "RESULTS DATA ROW: " & iRow & vbNewLine & sWarn
+    End if
+        
+    'Empty variable
+    sWarn = Empty
+        
+    'Destroy objects
+    Set objBase = Nothing
+    Set objApp = Nothing
+    Set objTol = Nothing
+          
+  'Next row
+  Next
+    
+  'Post results to log
+  Call ResultsToLog(sResults,locBase & vbNewLine & locTest & vbNewLine & sTable,"Comparison of SQLite databases")
+End Sub
+
+Sub GeneralEvents_OnLogError(Sender, LogParams)
+  
+  'Tested application name
+  Dim sName
+  sName = Project.Variables.tApp
+  
+  'handle specific error
+  Select Case True
+  
+    'Object not found
+    Case InStr(LogParams.MessageText,"The object does not exist") <> 0 Or InStr(LogParams.MessageText,"Unable to find the object") <> 0
+  
+      'Kill app
+      Call CloseApp(sName)
+      
+      'Start app
+      Call StartApp(sName,"")
+      
+      'Stop current test item
+      Runner.Stop(True)
+      
+    'Crash
+    Case InStr(LogParams.MessageText,"process crashed") <> 0 and InStr(LogParams.MessageText,"notepad++") = 0
+  
+      'Kill
+      Call KillProcess(Left(sName,4) & "*")
+      
+      'Start app
+      Call StartApp(sName,"")
+
+      'Stop current test item
+      Runner.Stop(True)
+      
+    'Notepad++ crash only for Precede
+    Case InStr(LogParams.MessageText,"notepad++") <> 0
+      
+      'Re-launch editor
+      TestedApps.notepad__.Run
+      
+  End Select
+End Sub
+
+Function GetFileVersion(sPath)
+  
+  'Create object
+  Dim objWMI,objFiles,objFile
+  Set objWMI = GetObject("winmgmts:\\.\root\cimv2")
+
+  'Get file
+  Set objFiles = objWMI.ExecQuery _
+  ("Select * from CIM_Datafile Where Name = '" & Replace(sPath,"\","\\") & "'")
+
+  'Get version
+  For Each objFile in objFiles
+    GetFileVersion = objFile.Version
+  Next
+  
+  'Destroy objects
+  Set objWMI = Nothing
+  Set objFiles = Nothing
+End Function
+
+Function CreateCOM64Object(sProg)
+  
+  'Create object
+  Dim objDll
+  Set objDll = DLL.DefineDLL("COM64Helper")
+  
+  'Path
+  Dim sPath
+  sPath = ProjectSuite.Path + "\ProjectSuiteResources\COM64Helper.dll"
+  
+  'Load lib
+  Dim objLib
+  Set objLib = DLL.Load(sPath, "COM64Helper")
+  
+  'Register the function type in TestComplete
+  Call objDll.DefineProc("CreateComObject", vt_lpwstr, vt_dispatch)
+  
+  'Create object reference
+  Set CreateCOM64Object = objLib.CreateComObject(sProg)  
+End Function
+
+Sub ExportCellData2()
+ 
+  'Create Object
+  Dim XMLGrid
+  Set XMLGrid = CreateObject("BentleyStability.XMLGrid")
+  
+  
+  XMLGrid.Populate 29,2,True
+    
+ 
+  'Save
+  XMLGrid.Save "C:\Test.XML"
+  
+  'Destroy COM Object
+  Set XMLGrid = Nothing
+End Sub
+
+Sub SelectGridRow2()
+ 
+  'Create object
+  Dim XMLGrid
+  set XMLGrid = Sys.OleObject("BentleyStability.XMLGrid")
+ 
+  
+  XMLGrid.Populate 29, 1
+  
+  
+  'Select Row
+  XMLGrid.SelectRow 1
+  
+  'Destroy object
+  set XMLGrid = Nothing
+End Sub
+
+'Routine for cleaning up of store
+Sub StoreCleanup(sType)
+  
+  Dim aFiles
+  Dim sFile
+  Select Case sType
+  
+    Case "Files"
+      'Only remove files if it contains something.
+      If Files.Count > 0 Then
+      'make array of all files in store 
+       aFiles = split(Files.NamesList,vbnewline) 
+      'loop to remove all files from stores
+        For Each sFile in aFiles
+          Files.Remove sFile
+        Next 
+      End If
+    'Remove regions
+    Case "Regions"
+    'If number of regions are greater than zero
+      If Regions.Count > 0 Then
+      'split the list of region into array so that they can be removed from baseline
+        aFiles = Split(Regions.NamesList,vbnewLine)
+        
+          For Each sFile in aFiles
+          'remove baseline regions one by one
+            Regions.Remove sFile
+          Next
+      
+      End If
+  
+  End Select
+  
+  'log.Message("Store cleaned... Tests can carry on now... message sponsored by StoreCleanup routine")
+End Sub
+
+Function CreateAppObject(sApp)
+  
+  'Create object
+  Set CreateAppObject = CreateObject(sApp & ".Application")
+End Function 

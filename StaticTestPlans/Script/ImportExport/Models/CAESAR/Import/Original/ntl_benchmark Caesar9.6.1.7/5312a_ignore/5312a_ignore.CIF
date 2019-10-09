@@ -1,0 +1,41 @@
+---------------------------------------------------------------------------------------------------------------------------
+
+                              C A E S A R   R I G I D   C O M P O N E N T S   I M P O R T                                  
+
+---------------------------------------------------------------------------------------------------------------------------
+
+ Selected Standard : B16-47 2006 & B16-5 2009
+
+ Selected Type     : All
+
+ Selected Rating   : All
+
+ NPS Tolerance     :  5.0 %
+
+ Length Tolerance  : 10.0 %
+
+ From      To        Standard        Pipe OD   Actual NPS  Actual Len     Actual    Type          Lib.       Comments      
+                                                Lib. NPS    Lib. Len      Weight                 Rating*                   
+                                      (in)        (in)       (inch)        (lb)                                              
+ ------  ------  -----------------  ---------  ----------  -----------  ---------- ----------  ----------  ----------------
+     20      30          -            219.075     219.075       29.000     148.200     -           -       Mapped to Valve
+
+     30      40          -            219.075     219.075       29.000     148.200     -           -       Mapped to Valve
+
+     70      80          -            219.075     219.075       60.000     296.000     -           -       Mapped to Valve
+
+    160     170          -            219.075     219.075       29.000     148.500     -           -       Mapped to Valve
+
+    170     180          -            219.075     219.075       29.000     148.000     -           -       Mapped to Valve
+
+    190     200          -            219.075     219.075       29.000     148.500     -           -       Mapped to Valve
+
+    200     210          -            219.075     219.075       29.000     153.000     -           -       Mapped to Valve
+
+    260     270          -            219.075     219.075       29.000     153.000     -           -       Mapped to Valve
+
+    270     280          -            219.075     219.075       29.000     148.200     -           -       Mapped to Valve
+
+
+   * Library flange rating is the rating value of matching flange record from flange dimension library.
+     Rating of flanges in imported AutoPIPE model may be different and is dependent on piping code of the model.

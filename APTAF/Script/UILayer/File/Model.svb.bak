@@ -1,0 +1,418 @@
+﻿'USEUNIT tabInsert
+'USEUNIT DatabaseFunctions
+'USEUNIT Main
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                   Model                      ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function Open( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+
+  Dim arrSkipList
+
+  Select Case Action
+    
+    Case "RemoveFields"
+      Select Case VerificationType
+        
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase","Comments")
+            Open = arrSkipList
+        Case else
+            arrSkipList = Array("TestCase","strPath","drpType","strPipingCode","Comments")
+            Open = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+     Select Case VerificationType
+     Case "dialogvalidation"
+            Dim objRowModify3
+            Set objRowModify3 = CreateObject("Scripting.Dictionary")
+            Set Open = objRowModify3
+     Case Else
+            'Dim objRowModify4
+            Set objRowModify3 = CreateObject("Scripting.Dictionary")
+            Set Open = objRowModify3
+            
+    End Select
+
+    Case "PreAction"
+    Select Case VerificationType
+     Case "dialogvalidation"
+       AppendLogFolder("Pre-Test Actions")
+       Log.Message("No pre-test Validation actions found")
+       PopLogFolder
+     Case else
+      AppendLogFolder("Pre-Test Actions")
+         Dim btnSaveYesNo : btnSaveYesNo  = objData.Item("btnSaveYesNo")
+  
+          If(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10))Then
+            IF(((btnSaveYesNo <>"NA") OR (btnSaveYesNo <>"" ))) Then
+              Select Case btnSaveYesNo
+                Case "Yes"
+                    objNameMapping.dlgConfirm.btnYes.Click()
+                    Log.Message("'Save existing Model changes 'Confirm Dialog YES button click ")
+                Case "No"
+                    objNameMapping.dlgConfirm.btnNO.Click()
+                    Log.Message("'Save existing Model changes 'Confirm Dialog NO button click ")
+                Case "Cancel"
+                    objNameMapping.dlgConfirm.btnCancel.Click()
+                    Log.Message("'Save existing Model changes 'Confirm Dialog CANCEL button click ")
+              End Select
+            Else 
+              MsgBox "Enter valid value in 'btnSaveYesNo' attribute of INPUT DB"
+              Runner.Stop
+            End IF
+        End IF       
+    PopLogFolder    
+   End select
+  
+
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+
+     Select Case VerificationType  
+
+     Case "dialogvalidation"
+    
+         
+       Log.Message("No post-test validation action performed")
+      
+         Case Else  
+          
+       Log.Message("No post-test action performed")
+      
+      End select 
+        PopLogFolder
+       
+'  Case "PreTestModifyFields"
+'     objRowModify1
+'    Set objRowModify1 = CreateObject("Scripting.Dictionary")
+'      
+'    Set Open = objRowModify1
+'  
+End Select
+End Function
+
+'Function Open( Action, objData, FieldName , VerificationType, objNameMapping)
+'Dim Result
+'
+'  Dim arrSkipList
+'
+'  Select Case Action
+'    
+'    Case "RemoveFields"
+'      Select Case VerificationType
+'        Case "positive", "positive+report","negative", "report", "image"
+'            arrSkipList = Array("TestCase")
+'            Open = arrSkipList
+'        Case "dialogvalidation"
+'            arrSkipList = Array("TestCase")
+'            Open = arrSkipList
+'      End Select
+'    
+'    Case "ModifyFields"
+'     Select Case VerificationType
+'     Case "dialogvalidation"
+'            Dim objRowModify
+'            Set objRowModify = CreateObject("Scripting.Dictionary")
+''            objRowModify.Add "cmbRadius", "drpAddPointBeforeAfter"
+''            objRowModify.Add "drpBendType", "cmbRadius"    
+'            Set Open = objRowModify
+'            case Else
+'              Dim objRowModify1
+'            Set objRowModify1 = CreateObject("Scripting.Dictionary")
+''            objRowModify.Add "cmbRadius", "drpAddPointBeforeAfter"
+''            objRowModify.Add "drpBendType", "cmbRadius"    
+'            Set Open = objRowModify1
+'            
+'    End Select
+'
+'    Case "PreAction"
+'   Select Case VerificationType
+'     Case "dialogvalidation"
+'       AppendLogFolder("Pre-Test Actions")
+'       Log.Message("No pre-test actions found")
+'       PopLogFolder
+'   case else
+'          AppendLogFolder("Pre-Test Actions")
+'              Dim btnSaveYesNo : btnSaveYesNo  = objData.Item("btnSaveYesNo")
+'  
+'      If(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10))Then
+'        IF(((btnSaveYesNo <>"NA") OR (btnSaveYesNo <>"" ))) Then
+'          Select Case btnSaveYesNo
+'            Case "Yes"
+'                objNameMapping.dlgConfirm.btnYes.Click()
+'                Log.Message("'Save existing Model changes 'Confirm Dialog YES button click ")
+'            Case "No"
+'                objNameMapping.dlgConfirm.btnNO.Click()
+'                Log.Message("'Save existing Model changes 'Confirm Dialog NO button click ")
+'            Case "Cancel"
+'                objNameMapping.dlgConfirm.btnCancel.Click()
+'                Log.Message("'Save existing Model changes 'Confirm Dialog CANCEL button click ")
+'          End Select
+'        Else 
+'          MsgBox "Enter valid value in 'btnSaveYesNo' attribute of INPUT DB"
+'          Runner.Stop
+'        End IF
+'    End IF
+'        
+'    PopLogFolder    
+'   end select
+'  
+'
+'    Case "PostAction"
+'        AppendLogFolder("Post-Test Actions")
+'        If (Aliases.AutoPIPE.WaitAliasChild("dlgConfirm", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgError", 60).WaitProperty("Exists", true, 10)) Or (Aliases.AutoPIPE.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", true, 10)) Then
+'          Call PopupsClose(objNameMapping)
+'        Else 
+'                Log.Message("No post-test actions found")
+'        End If 
+'
+'                
+'
+'        PopLogFolder
+'       
+''  Case "PreTestModifyFields"
+''     objRowModify1
+''    Set objRowModify1 = CreateObject("Scripting.Dictionary")
+''      
+''    Set Open = objRowModify1
+''  
+'End Select
+'End Function
+
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Open" model dialog   
+' Remarks:
+' Parameters:
+'           
+'           ObjNameMapping: TestComplete name mapping for the app.
+'           objRowRun:    tabOpen table  object
+'           strOpenDialog:  By shortcut key or by Ribbon click
+'           strHotKey 
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function Open2( Action, objRowCopy,  FieldName , strVerificationType, objNameMapping)
+Dim Result
+'Set objFilterRow = CreateObject("Scripting.Dictionary")
+'
+'For Each FieldName In objRow.Keys
+'strValue = objRow.Item(FieldName)
+'
+'objFilterRow.Add FieldName,strValue
+'Next
+
+    Select Case Action
+    
+  Case "objRowFilter"
+'          ' objFilterRow = objRow
+'          'objRow.RemoveAll
+'          
+'          For Each FieldName In objRowCopy.Keys
+'            Select Case strVerificationType
+'              Case "dialogvalidation"
+'                Select Case FieldName
+'                  Case "TestCase"    
+'                    objRowCopy.Remove(FieldName)
+'                End Select
+'            Case Else
+'              Select Case FieldName
+'                Case "TestCase"     
+'                  objRowCopy.Remove(FieldName)
+'              End Select
+'           End Select
+'          Next
+'          Set Open = objRowCopy
+
+  Case "PreTest"
+'TestCase	strPath	cbxcmbfldFileNameFileName	drpType	strPipingCode	btnSaveYesNo	btnReopenExistingYesNo	btnReplaceDatYesNo  
+  
+        Dim arrSkipList
+        arrSkipList = Array("TestCase" , "strPath", "drpType", "strPipingCode", "btnSaveYesNo", "btnReopenExistingYesNo", "btnReplaceDatYesNo")
+        For Each SkipName In arrSkipList
+            If (FieldName = SkipName) Then
+                FieldName = "Skip"
+                Exit For
+            End If  
+        Next
+        
+        
+        
+  
+  
+      Dim btnSaveYesNo : btnSaveYesNo  = objRowCopy.Item("btnSaveYesNo")
+  
+      If(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10))Then
+        IF(((btnSaveYesNo <>"NA") OR (btnSaveYesNo <>"" ))) Then
+          Select Case btnSaveYesNo
+            Case "Yes"
+                objNameMapping.dlgConfirm.btnYes.Click()
+                Log.Message("'Save existing Model changes 'Confirm Dialog YES button click ")
+            Case "No"
+                objNameMapping.dlgConfirm.btnNO.Click()
+                Log.Message("'Save existing Model changes 'Confirm Dialog NO button click ")
+            Case "Cancel"
+                objNameMapping.dlgConfirm.btnCancel.Click()
+                Log.Message("'Save existing Model changes 'Confirm Dialog CANCEL button click ")
+          End Select
+        Else 
+          MsgBox "Enter valid value in 'btnSaveYesNo' attribute of INPUT DB"
+          Runner.Stop
+        End IF
+    End IF
+
+  
+    
+'    Dim strPath :  strPath = objRowCopy.Item("strPath") 
+'    Dim cmbFileName : cmbFileName = objRowCopy.Item("cmbFileName")
+'    Dim strFileName: strFileName = strPath & "\" & cmbFileName
+'    Dim drpType : drpType = objRowCopy.Item("drpType")
+'    objNameMapping.dlgOpen.OpenFile(cmbFileName)
+
+  
+  'dlgOpen.cbxFileName.cmbFileName.fldFileName.Keys(strFileName)
+  
+  
+  Result = FieldName
+  
+  
+  Open = Result
+  
+'  
+'        IF FieldName = "drpAddPointBeforeAfter" Then
+'           Select Case strVerificationType
+'               Case "dialogvalidation"
+'               Log.Message("Dropdown 'Add Point [B]Before/[A]After' can not be verifed")
+'               'Exit For
+'           End Select     
+'        ElseIf FieldName = "cmbRadius" Then
+'          Select Case strVerificationType
+'              Case "dialogvalidation"
+'              FieldName = "drpAddPointBeforeAfter"
+'          End Select
+'        ElseIf FieldName = "drpBendType" Then
+'          Select Case strVerificationType
+'              Case "dialogvalidation"
+'              FieldName = "cmbRadius"
+'          End Select
+'        End If
+'        Open = FieldName
+  Case "PostTest"
+  
+       
+  
+  if(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10))Then
+    If((btnReopenExistingYesNo <>"NA") OR (btnReopenExistingYesNo <>"" )) Then
+      Select Case btnReopenExistingYesNo
+          Case "Yes"
+              objNameMapping.dlgConfirm.btnYes.Click()
+              Log.Message("'Re-open existing open Model 'Confirm Dialog YES button click ")
+          Case "No"
+              objNameMapping.dlgConfirm.btnNO.Click()
+              Log.Message("'Re-open existing open Model 'Confirm Dialog NO button click ")
+          Case "Cancel"
+              objNameMapping.dlgConfirm.btnCancel.Click()
+              Log.Message("'Re-open existing open Model 'Confirm Dialog CANCEL button click ")
+      End Select
+    Else 
+        MsgBox "Enter valid value in 'btnReopenExistingYesNo' attribute of INPUT DB"
+        Runner.Stop
+    End IF
+     End IF
+ 'If you want to Replace dat file of existing open Model
+    if(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10))Then
+    If(((btnReplaceDatYesNo <>"NA") OR (btnReplaceDatYesNo <>"" ))) Then
+      Select Case btnReplaceDatYesNo
+          Case "Yes"
+              objNameMapping.dlgConfirm.btnYes.Click()
+              Log.Message("'Replace dat file of existing open Model'Confirm Dialog YES button click ")
+          Case "No"
+              objNameMapping.dlgConfirm.btnNO.Click()
+              Log.Message("'Replace dat file of existing open Model'Confirm Dialog NO button click ")
+          Case "Cancel"
+              objNameMapping.dlgConfirm.btnCancel.Click()
+              Log.Message("'Replace dat file of existing open Model'Confirm Dialog CANCEL button click ")
+      End Select
+    Else 
+        MsgBox "Enter valid value in 'btnReplaceDatYesNo' attribute of INPUT DB"
+        Runner.Stop
+    End IF
+    End If
+    If(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10)) Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+    End If
+  
+  
+  
+  End Select
+
+End Function
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "New" model dialog   
+' Remarks:
+' Parameters:
+'           
+'           ObjNameMapping: TestComplete name mapping for the app.
+'           objRowRun:    tabOpen table  object
+'           strOpenDialog:  By shortcut key or by Ribbon click
+'           strHotKey 
+' Author:   Bilal.Tahir
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub dlgNew1(ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''' Delete
+Set ObjNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+    Set dlgNew = objNameMapping.dlgNew
+    Dim strPath :  strPath = objRow.Item("strPath") 
+    Dim cmbFileName : cmbFileName = objRow.Item("cmbFileName")
+    Dim strFileName: strFileName = strPath & "\" & cmbFileName
+
+    Select Case strOpenDialog
+        Case "Shortcut"
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+'Get file name and location
+    If(cmbFileName <> "NA") Then
+     'Write to the "File Name" field
+        If(objNameMapping.WaitAliasChild("dlgNew", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNew.cmbboxFileName.fldFileName.Keys(strFileName)
+          Log.Message("Entered " & cmbFileName & " in the 'File Name' combo-box")
+          
+        End If       
+    End If
+    Call dlgNew.btnSave.Click()
+    
+    If(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10)) Then
+        objNameMapping.dlgConfirm.btnNo.Click()
+    End If
+
+End Sub

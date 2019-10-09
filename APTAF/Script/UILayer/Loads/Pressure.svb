@@ -1,0 +1,111 @@
+﻿'USEUNIT tabLoads
+'USEUNIT DatabaseFunctions
+'USEUNIT Main
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "IncidentalPressure" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         IncidentalPressure table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub IncidentalPressure (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgIncidentalPressure = objNameMapping.dlgIncidentalPressure
+
+Dim intSpecificGravity                : intSpecificGravity                = objRow.Item("intSpecificGravity")
+Dim intExternalWaterElev              : intExternalWaterElev              = objRow.Item("intExternalWaterElev")
+Dim intElevRefPoint                   : intElevRefPoint                   = objRow.Item("intElevRefPoint")
+Dim intRefDesignPress                 : intRefDesignPress                 = objRow.Item("intRefDesignPress")
+Dim intIncidentalDesignPress          : intIncidentalDesignPress          = objRow.Item("intIncidentalDesignPress")
+Dim intSpecificGravityOfInternalFluid : intSpecificGravityOfInternalFluid = objRow.Item("intSpecificGravityOfInternalFluid")
+Dim cmbSelectPressureCase             : cmbSelectPressureCase             = objRow.Item("cmbSelectPressureCase")
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(200)
+  
+'Dim intSpecificGravity 
+'Dim intExternalWaterElev 
+
+''' intElevRefPoint 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intElevRefPoint <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgIncidentalPressure", 600).WaitProperty("Exists", true, 10)) Then
+          dlgIncidentalPressure.fldElevRefPoint.Keys(intElevRefPoint)
+          dlgIncidentalPressure.fldElevRefPoint.Keys("[Tab]")
+         Log.Message("Entered " & intElevRefPoint & " in the intElevRefPoint field")
+    End If
+  End If
+'End If  
+  
+'
+'''intRefDesignPress 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intRefDesignPress <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgIncidentalPressure", 600).WaitProperty("Exists", true, 10)) Then
+          dlgIncidentalPressure.fldRefDesignPress.Keys(intRefDesignPress)
+          dlgIncidentalPressure.fldRefDesignPress.Keys("[Tab]")
+         Log.Message("Entered " & intRefDesignPress & " in the intRefDesignPress field")
+    End If
+  End If
+'End If  
+
+'''' intIncidentalDesignPress
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intIncidentalDesignPress <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgIncidentalPressure", 600).WaitProperty("Exists", true, 10)) Then
+          dlgIncidentalPressure.fldIncidentalDesignPress.Keys(intIncidentalDesignPress)
+          dlgIncidentalPressure.fldIncidentalDesignPress.Keys("[Tab]")
+         Log.Message("Entered " & intIncidentalDesignPress & " in the intIncidentalDesignPress field")
+    End If
+  End If
+'End If  
+
+
+''' intSpecificGravityOfInternalFluid 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intSpecificGravityOfInternalFluid <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgIncidentalPressure", 600).WaitProperty("Exists", true, 10)) Then
+          dlgIncidentalPressure.fldSpecificGravityOfInternalFluid.Keys(intSpecificGravityOfInternalFluid)
+          dlgIncidentalPressure.fldSpecificGravityOfInternalFluid.Keys("[Tab]")
+         Log.Message("Entered " & intSpecificGravityOfInternalFluid & " in the intSpecificGravityOfInternalFluid field")
+    End If
+  End If
+'End If  
+
+'''cmbSelectPressureCase
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbSelectPressureCase <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgIncidentalPressure", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgIncidentalPressure.cmbboxSelectPressureCase.keys(cmbSelectPressureCase)
+          Log.Message("Entered " & cmbSelectPressureCase & " in the cmbSelectPressureCase field")
+      End If       
+  End If
+'End If
+
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+dlgIncidentalPressure.btnUpdate.Click()
+dlgIncidentalPressure.btnOK.Click()
+End If
+
+End Sub

@@ -1,0 +1,77 @@
+﻿'USEUNIT Main
+'USEUNIT tabAnalysis
+'USEUNIT DatabaseFunctions
+
+'------------------------------------------------------------------------------------**/
+' Summary: Generate OUTPUT report.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g OutputReport("All")
+'              0              -  Press OK button with default values                                        E-g OutputReport("0") or OutputReport(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g OutputReport("5") Or OutputReport(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g OutputReport("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub OutputReport(TestData)
+      Call AppendLogFolder("Generate model's 'OUT Report'")
+      Dim strTableName: strTableName = "tblBatchReport"                 'DB mapped Table Name 
+      Dim strHotKey: strHotKey = "RR"                                   'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Reports.OutputReport"           'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgBatchReport"               'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"  
+'Call Main
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+      
+      Delay(2000)
+      If(Aliases.apipview.Exists) Then
+'        If(Aliases.apipview.FormSaveSettings.Exists) Then
+'          Aliases.apipview.FormSaveSettings.SetFocus()
+'          Aliases.apipview.FormSaveSettings.btnOK.Click()
+'        End If
+'        Aliases.apipview.frmMain.SetFocus()
+'        Aliases.apipview.frmMain.Close()
+        Sys.Process("ApipView").Terminate()
+		    Log.Message("OUTPUT Report Closed")
+      Call PopLogFolder
+      End If
+      Call PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Generate Input Report.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g InputlistReport("All")
+'              0              -  Press OK button with default values                                        E-g Run("0") or Run(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Run("5") Or Run(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Run("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub InputlistReport(TestData)
+    
+    Call AppendLogFolder("Generate model's 'Input Listing Report'")
+      
+      Dim strTableName: strTableName = "tblInputListReport"           'DB mapped Table Name 
+      Dim strHotKey: strHotKey = "RI"                                 'Dialog Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Reports.InputListReport"      'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgInputListReport"         'Dialog mapped name  
+      Dim strDlgVerification : strDlgVerification =  "no" 
+      Dim strDlgNegativeTest: strDlgNegativeTest = "no"
+      
+      Call Main.TAFMain(TestData, strTableName, strHotKey, strUIMethod, strDlgNameMap, strDlgVerification, strDlgNegativeTest)
+     
+      Delay(2000)
+      If(Aliases.apipview.Exists) Then
+'        Aliases.apipview.frmMain.SetFocus()
+'        Aliases.apipview.frmMain.Close()
+        Sys.Process("ApipView").Terminate()
+		    Log.Message("Input Listing Report Closed")
+        Call PopLogFolder
+      End If
+      Call PopLogFolder
+End Sub
+
+

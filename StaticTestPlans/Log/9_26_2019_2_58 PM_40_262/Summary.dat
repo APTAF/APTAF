@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewAwADUAOQA5ADkANQBDAEMALQAzADAAQgBDAC0ANAAxAEMAQwAtAEEANQA1AEQALQA5ADYAOQA1ADYAOABCAEMAMwA5ADQARAB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="durationwithoutchildren" type="I" value="1484"/>
+						<Prp name="name" type="S" value="EndApplication"/>
+						<Prp name="starttime" type="D" value="43734.6253207986"/>
+						<Prp name="duration" type="I" value="1484"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewAwADcAMQAwADcAQgA3AEMALQBBADIAMQAyAC0ANAA4ADgANgAtADkAQwBCADIALQBBAEIANgA3AEQARQAzAEEAMQAyADQAMAB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="durationwithoutchildren" type="I" value="3573"/>
+						<Prp name="name" type="S" value="ApplicationStartStop"/>
+						<Prp name="starttime" type="D" value="43734.6240909954"/>
+						<Prp name="duration" type="I" value="3573"/>
+					</Node>
+				</Node>
+				<Prp name="starttime" type="D" value="43734.6240909954"/>
+				<Prp name="duration" type="I" value="5057"/>
+				<Prp name="name" type="S" value="StaticTestPlans"/>
+				<Prp name="failedtests" type="I" value="0"/>
+			</Node>
+		</Node>
+		<Prp name="stop" type="D" value="43734.6253390972"/>
+		<Prp name="testname" type="S" value="StaticTestPlans"/>
+		<Prp name="user" type="S" value="Tayyabaa.Mehreen"/>
+		<Prp name="failedtests" type="I" value="0"/>
+		<Prp name="key" type="S" value="{19F5E173-7538-4ABB-B117-511A13798E45}"/>
+		<Prp name="tests" type="I" value="2"/>
+		<Prp name="starttime" type="D" value="43734.6240771759"/>
+		<Prp name="host" type="S" value="ASIA13894"/>
+		<Prp name="name" type="S" value="AutoPIPE Automated Testing Suite"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="warningtests" type="I" value="0"/>
+	</Node>
+</Nodes>

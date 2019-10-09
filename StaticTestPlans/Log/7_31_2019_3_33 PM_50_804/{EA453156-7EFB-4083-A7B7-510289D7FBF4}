@@ -1,0 +1,3433 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="message 106">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490044676"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="dlgOpenPressTemp Closed with OK"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="106"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="488"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 170">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotAllow1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 11))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491315741"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="170"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 103">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490011458"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow4' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="103"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 159">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotMod1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 6))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491219213"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="159"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 114">
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.drpdwnSelectCases&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APCOMBOBOX&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490508681"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The combo box item '  1 to 5  ' was selected."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="114"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="282"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485360764"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="All Files removed"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="581"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 107">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490211921"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Post-Test Actions"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="107"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 36">
+			<Prp name="remarks" type="S" value="A click at point (24, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSelectPoint.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;INPUT&quot;, &quot;&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;OK&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6488938773"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="36"/>
+			<Prp name="unit id" type="I" value="5"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="21"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 72">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489740046"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '70' in the 'Temp4' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="72"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 73">
+			<Prp name="remarks" type="S" value="'70' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp5&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 10))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489760764"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="73"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 127">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490783796"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '0.1' in the 'Press4' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="127"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 92">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489933218"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '32' in the 'HotMod3' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="92"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 54">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489461806"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '5' in the 'Press3' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="54"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 167">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491298148"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod3' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="167"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6486390394"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered 'C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\Properties\Models\ModelB311.dat' in the 'FileName' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="14"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 33">
+			<Prp name="remarks" type="S" value="'SO' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6488882523"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="33"/>
+			<Prp name="unit id" type="I" value="5"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 147">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoExp1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491113079"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="147"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="remarks" type="S" value="'FOD' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485805671"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="8"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 38">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6488946528"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Insert Operating PT in the model"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="38"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 79">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489823727"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp3' has been unchecked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="79"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="304"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 3">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485361574"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Benchmark Files added to Store"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 93">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489934607"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod4' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="93"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 87">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotMod3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 8))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489876968"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="87"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 191">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6492336574"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Generate model's 'Input Listing Report'"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="191"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 177">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotAllow3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 13))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491395833"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="177"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 123">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490728009"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="123"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 179">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491418634"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow3' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="179"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 53">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489454282"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="53"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="remarks" type="S" value="A click at point (55, 16) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpen.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Open&quot;, 1).Window(&quot;Button&quot;, &quot;&amp;Open&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6486403819"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="15"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="line no" type="I" value="485"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 32">
+			<Prp name="remarks" type="S" value="'SC' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.648880787"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="32"/>
+			<Prp name="unit id" type="I" value="5"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="15"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 145">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491079861"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '800' in the 'Temp5' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="145"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 169">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491301157"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod5' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="169"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 102">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490009722"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '33700' in the 'HotAllow3' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="102"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 164">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491261458"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod2' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="164"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485535648"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="MODELB311.RPT file has been successfully added in Store."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="561"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 43">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489206597"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Selected '1 to 5' from the 'SelectCases' dropdown"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="43"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="280"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 66">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489640509"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '70' in the 'Temp2' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="66"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 186">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491622569"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Insert Run in the model"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="186"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 189">
+			<Prp name="remarks" type="S" value="A click at point (24, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgRun.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Run Point&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;OK&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649232662"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="189"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="186"/>
+			<Prp name="line no" type="I" value="85"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 192">
+			<Prp name="remarks" type="S" value="'RI' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6492455324"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="192"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="191"/>
+			<Prp name="line no" type="I" value="80"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 124">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490735648"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '-50' in the 'Press3' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="124"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 16">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6486435995"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="dlgOpen Closed with OK"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="16"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="line no" type="I" value="488"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 149">
+			<Prp name="remarks" type="S" value="'10' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldExp1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 11))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491127662"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="149"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 30">
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgConfirmSaveAs.CtrlNotifySink.CtrlNotifySink.btnYes&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Confirm Save As&quot;, 1).UIAObject(&quot;Confirm_Save_As&quot;).Window(&quot;CtrlNotifySink&quot;, &quot;&quot;, 7).Window(&quot;Button&quot;, &quot;&amp;Yes&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6488086921"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The button was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="30"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="29"/>
+			<Prp name="line no" type="I" value="662"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 23">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487455787"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="No pre-test actions performed"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="23"/>
+			<Prp name="unit id" type="I" value="4"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="22"/>
+			<Prp name="line no" type="I" value="53"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 137">
+			<Prp name="remarks" type="S" value="'200' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 8))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490958681"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="137"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 42">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489194213"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="No pre-test actions found"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="42"/>
+			<Prp name="unit id" type="I" value="6"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="41"/>
+			<Prp name="line no" type="I" value="162"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 99">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489975347"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow3' has been unchecked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="99"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="304"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 135">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp2&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 7))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490926389"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="135"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="item 1">
+			<Prp name="line no" type="I" value="265"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="VerifyResult"/>
+		</Node>
+		<Node name="message 37">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6488946296"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Point 'A01' selected"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="37"/>
+			<Prp name="unit id" type="I" value="5"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="22"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 62">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 6))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489588194"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="62"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 181">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491423495"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow5' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="181"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 58">
+			<Prp name="remarks" type="S" value="'5' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldpress5&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 5))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489525231"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="58"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 56">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress4&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 4))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489498727"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="56"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 117">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490627315"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="117"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 142">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491032986"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '500' in the 'Temp4' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="142"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485896644"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Pre-Test Actions"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="11"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 138">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 8))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490979051"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="138"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 40">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.648919375"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Test Case:1,SelectCases,Press1,Press2,Press3,Press4,Press5,Temp1,Temp2,Temp3,Temp4,Temp5,AutoExp1,AutoExp3,Exp3,AutoExp4,AutoExp5,AutoHotMod1,AutoHotMod2,AutoHotMod3,HotMod3,AutoHotMod4,AutoHotMod5,AutoHotAllow1,AutoHotAllow2,AutoHotAllow3,HotAllow3,AutoHotAllow4,AutoHotAllow5,ments"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="40"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="38"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 153">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoExp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491169676"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="153"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 110">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649045706"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Test Case:2,SelectCases,Press1,Press2,Press3,Press4,Press5,Temp1,Temp2,Temp3,Temp4,Temp5,AutoExp1,Exp1,AutoExp2,AutoExp3,AutoExp4,AutoExp5,AutoHotMod1,HotMod1,AutoHotMod2,AutoHotMod3,AutoHotMod4,AutoHotMod5,AutoHotAllow1,HotAllow1,AutoHotAllow2,AutoHotAllow3,AutoHotAllow4,AutoHotAllow5,ments"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="110"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="38"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 5" type="S" value="{6C2E1644-DAC0-4A06-9398-7FC24F03DE92}"/>
+			<Prp name="unit 6" type="S" value="{E61AEE24-9BD0-4D94-8B54-69BDEE44C1D7}"/>
+			<Prp name="unit 8" type="S" value="{2F0CC17A-CB99-4318-A9FF-9668D8FA8D5C}"/>
+			<Prp name="unit 10" type="S" value="{A9276C84-D75A-4B01-898B-A56FB91AB829}"/>
+			<Prp name="unit 3" type="S" value="{02574557-9F7D-4802-B069-D5B5627AAA2C}"/>
+			<Prp name="unit 1" type="S" value="{D385C7A4-7574-4A86-B9FB-7E6124A25B1B}"/>
+			<Prp name="unit 2" type="S" value="{0815D52E-3D7F-47DB-B298-BCD46ECA9E92}"/>
+			<Prp name="unit 9" type="S" value="{C5144B0F-FEA2-4547-AA69-978139DB4787}"/>
+			<Prp name="unit 4" type="S" value="{87D08DC6-943F-4433-96B4-4BA57B5E137E}"/>
+			<Prp name="unit 0" type="S" value="{EA02F85F-C8F3-4FEA-B901-E5BDCE85BA6C}"/>
+			<Prp name="unit 7" type="S" value="{C57BCA48-5432-4625-ABF3-7483B4F9E415}"/>
+		</Node>
+		<Node name="message 95">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.64899375"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow1' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="95"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 131">
+			<Prp name="remarks" type="S" value="'70' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 6))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490861111"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="131"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 63">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489596181"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '70' in the 'Temp1' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="63"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 182">
+			<Prp name="remarks" type="S" value="A click at point (24, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;OK&quot;, 17))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491445602"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="182"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="485"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 180">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491420255"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow4' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="180"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 120">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress2&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 2))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490675"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="120"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 168">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491299769"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod4' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="168"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 13">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpen.cbxFileName.cmbFileName.fldFileName&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Open&quot;, 1).Window(&quot;ComboBoxEx32&quot;, &quot;&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1).Window(&quot;Edit&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6486381713"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="13"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 139">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490987037"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '200' in the 'Temp3' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="139"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 134">
+			<Prp name="remarks" type="S" value="'-20' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp2&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 7))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490908565"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="134"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 80">
+			<Prp name="remarks" type="S" value="'20' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldExp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 13))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489833565"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="80"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 111">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490457292"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Pre-Test Actions"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="111"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 200">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6493458912"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Model 'Closed' without Saving "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="200"/>
+			<Prp name="unit id" type="I" value="8"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="197"/>
+			<Prp name="line no" type="I" value="165"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 90">
+			<Prp name="remarks" type="S" value="'32' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldHotMod3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 18))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489909028"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="90"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 175">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491379051"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '33700' in the 'HotAllow1' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="175"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 144">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp5&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 10))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491072222"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="144"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 26">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487575"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '%temp%\ModelB311.dat' in the 'eAs' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="26"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 75">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489785995"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '70' in the 'Temp5' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="75"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="item 5">
+			<Prp name="line no" type="I" value="23"/>
+			<Prp name="unit id" type="I" value="10"/>
+			<Prp name="stacktext" type="S" value="Configuration"/>
+		</Node>
+		<Node name="message 203">
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;This test has a log associated with it.&lt;/p&gt;&lt;p style=&quot;margin-top: 12px;&quot;&gt;&lt;a href=&quot;logchild://{ACC0F13E-8761-4CD2-A861-56192D1072B8}&quot;&gt;View this child log&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="child index" type="I" value="0"/>
+			<Prp name="date" type="D" value="43677.649464213"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="File Comparison Result [Cat3TS1TC1.RPT]"/>
+			<Prp name="link" type="S" value="&lt;a rel=&quot;child&quot; href=&quot;0&quot;&gt;Details&lt;/a&gt;"/>
+			<Prp name="id" type="I" value="203"/>
+			<Prp name="unit id" type="I" value="9"/>
+			<Prp name="type" type="I" value="6"/>
+			<Prp name="owner id" type="I" value="202"/>
+			<Prp name="line no" type="I" value="1799"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 96">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489939005"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow2' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="96"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 196">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6493331134"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Input Listing Report Closed"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="196"/>
+			<Prp name="unit id" type="I" value="7"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="191"/>
+			<Prp name="line no" type="I" value="70"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 61">
+			<Prp name="remarks" type="S" value="'70' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 6))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489571644"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="61"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 59">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldpress5&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 5))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489541435"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="59"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 176">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491380671"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow2' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="176"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 165">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotMod3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 8))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649127581"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="165"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 48">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489369213"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '5' in the 'Press1' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="48"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 76">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489787037"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp1' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="76"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 204">
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;a href=&quot;projectnode://{68F03E83-1C77-4DF6-A03D-A0843ED0EC2B}&quot;&gt; Click here to show or modify data of the checkpoint &quot;Cat3TS1TC1.RPT&quot;. &lt;/a&gt;&lt;br&gt;&lt;br&gt;The files &quot;Cat3TS1TC1.RPT&quot; and &quot;C:\Users\TAYYAB~1.MEH\AppData\Local\Temp\cat3ts1tc1.rpt&quot; are not equal. The files are of different size. 685 bytes are different.&lt;br&gt;The size of the file &quot;Cat3TS1TC1.RPT&quot; is 7407 bytes.&lt;br&gt;The size of the file &quot;C:\Users\TAYYAB~1.MEH\AppData\Local\Temp\cat3ts1tc1.rpt&quot; is 7007 bytes.&lt;br&gt;&lt;br&gt;&lt;p&gt;&lt;a href=&quot;logchild://{ACC0F13E-8761-4CD2-A861-56192D1072B8}&quot;&gt;Show comparison results.&lt;/a&gt;&lt;/p&gt;The difference between the files is 9 %.&lt;br&gt;The difference between the compared files is significant. It is not recommended to increase the value of the Allowed Difference parameter as in this case, the different files will be considered as the same. &lt;a href=&quot;aqa-help://3061&quot;&gt;See help for more information.&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href=&quot;checkpointupdate://1|{0606873D-1781-4B99-BDCE-942B429A6D53}|{A40F98A2-2B4D-4558-94A4-FB5E232211DF}|Cat3TS1TC1.RPT|CheckpointData\checkpoint_7_31_2019.bin|&quot;&gt;Update the &quot;Cat3TS1TC1.RPT&quot; checkpoint data.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6494678125"/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="message" type="S" value="The file checkpoint &quot;Cat3TS1TC1.RPT&quot; failed. See Additional Information for details."/>
+			<Prp name="stack beginning" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="204"/>
+			<Prp name="unit id" type="I" value="9"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="owner id" type="I" value="202"/>
+			<Prp name="line no" type="I" value="1799"/>
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="stack end" type="I" value="5"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 128">
+			<Prp name="remarks" type="S" value="'0.001' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldpress5&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 5))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490815278"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="128"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 91">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldHotMod3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 18))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489925347"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="91"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 193">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6492818519"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="No dialog found"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="193"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="191"/>
+			<Prp name="line no" type="I" value="696"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 21">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487455324"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Test Case:1,FileName,ments"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="21"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="19"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 122">
+			<Prp name="remarks" type="S" value="'-50' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490710995"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="122"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 121">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490682639"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '100' in the 'Press2' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="121"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 101">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldHotAllow3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 23))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490001852"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="101"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 158">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotMod1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 6))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491206134"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="158"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 100">
+			<Prp name="remarks" type="S" value="'33700' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldHotAllow3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 23))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489988889"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="100"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="item 0">
+			<Prp name="line no" type="I" value="1799"/>
+			<Prp name="unit id" type="I" value="9"/>
+			<Prp name="stacktext" type="S" value="CheckText"/>
+		</Node>
+		<Node name="message 129">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldpress5&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 5))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490833565"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="129"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 195">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6493089931"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Using the 'Reports.InputListReport' dialog with default values"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="195"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="191"/>
+			<Prp name="line no" type="I" value="87"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 86">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489863657"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod2' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="86"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 150">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldExp1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 11))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491139583"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="150"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 50">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress2&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 2))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489409722"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="50"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 171">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotAllow1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 11))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491328009"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="171"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 45">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.drpdwnSelectCases&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APCOMBOBOX&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489336111"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="45"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="287"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 155">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491191898"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp3' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="155"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 44">
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.drpdwnSelectCases&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APCOMBOBOX&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.648924456"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The combo box item '  1 to 5  ' was selected."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="44"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="282"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 202">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6493459954"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Positive test with Report Verificatoin"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="202"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="owner id" type="I" value="201"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 184">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491619676"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Post-Test Actions"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="184"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 83">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489860417"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp4' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="83"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 104">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490013079"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow5' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="104"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 31">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.648809919"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Model replaced"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="31"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="29"/>
+			<Prp name="line no" type="I" value="663"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 162">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldHotMod1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 16))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491252546"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="162"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 140">
+			<Prp name="remarks" type="S" value="'500' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp4&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 9))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491010301"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="140"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 132">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 6))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490879861"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="132"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 154">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoExp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491183912"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="154"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485188426"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="There is (are) 1 running instance(s) of &quot;C:\Program Files (x86)\Bentley\AutoPIPE CONNECT v12\autopipe.exe&quot;. New instances will not be launched."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="type" type="I" value="2"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="7"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="500"/>
+		</Node>
+		<Node name="item 2">
+			<Prp name="line no" type="I" value="505"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="Verification"/>
+		</Node>
+		<Node name="message 126">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress4&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 4))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490775231"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="126"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 85">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.64898625"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod1' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="85"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 81">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldExp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 13))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.648985162"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="81"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 18">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487131944"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="No post-test actions found"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="18"/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="17"/>
+			<Prp name="line no" type="I" value="80"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 118">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490634954"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '5' in the 'Press1' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="118"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 105">
+			<Prp name="remarks" type="S" value="A click at point (24, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;OK&quot;, 17))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490035301"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="105"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="485"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 34">
+			<Prp name="remarks" type="S" value="A click at point (25, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSelectPoint.fldPoint&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;INPUT&quot;, &quot;&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6488907407"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was double-clicked by the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="34"/>
+			<Prp name="unit id" type="I" value="5"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="19"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 174">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldHotAllow1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 21))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491370833"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="174"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 156">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649119294"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp4' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="156"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 78">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoExp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489816088"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="78"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 112">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490457523"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="No pre-test actions found"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="112"/>
+			<Prp name="unit id" type="I" value="6"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="111"/>
+			<Prp name="line no" type="I" value="162"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 133">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490887384"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '70' in the 'Temp1' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="133"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="item 4">
+			<Prp name="line no" type="I" value="67"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="DTPMain"/>
+		</Node>
+		<Node name="message 201">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6493459607"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Verification:"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="201"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="owner id" type="I" value="6"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 183">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491454977"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="dlgOpenPressTemp Closed with OK"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="183"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="488"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 17">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6486919444"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Post-Test Actions"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="17"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 146">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoExp1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491099421"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="146"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 51">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489417593"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '5' in the 'Press2' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="51"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 172">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649133588"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotAllow1' has been unchecked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="172"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="304"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 8">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485616898"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Open Model"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="8"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 157">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491194097"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp5' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="157"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485189468"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Files removed from the Store"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 70">
+			<Prp name="remarks" type="S" value="'70' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp4&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 9))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489710301"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="70"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 187">
+			<Prp name="remarks" type="S" value="'IR' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491699537"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="187"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="186"/>
+			<Prp name="line no" type="I" value="80"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 82">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489859375"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '20' in the 'Exp3' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="82"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 35">
+			<Prp name="remarks" type="S" value="'A01' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSelectPoint.fldPoint&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;INPUT&quot;, &quot;&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6488922338"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="35"/>
+			<Prp name="unit id" type="I" value="5"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="20"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 49">
+			<Prp name="remarks" type="S" value="'5' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress2&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 2))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489389815"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="49"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 163">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491260301"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '40' in the 'HotMod1' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="163"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 25">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSaveAs.DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Save As&quot;, 1).Window(&quot;DUIViewWndClassName&quot;, &quot;&quot;, 1).UIAObject(&quot;Explorer_Pane&quot;).Window(&quot;FloatNotifySink&quot;, &quot;&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1).Window(&quot;Edit&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487566898"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="25"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485448727"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Cat3TS1TC1.RPT file has been successfully added in Store."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="561"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 109">
+			<Prp name="remarks" type="S" value="'IE' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490367708"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="109"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="38"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 197">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6493331829"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Close the model"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="197"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="6"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 119">
+			<Prp name="remarks" type="S" value="'100' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress2&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 2))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490658218"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="119"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 116">
+			<Prp name="remarks" type="S" value="'5' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490612847"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="116"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 161">
+			<Prp name="remarks" type="S" value="'40' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldHotMod1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 16))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491235995"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="161"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 28">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487601736"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="dlgSaveAs Closed with OK"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="28"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="line no" type="I" value="488"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 47">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489361806"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="47"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 98">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotAllow3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 13))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489967708"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="98"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 97">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotAllow3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 13))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489956481"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="97"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 39">
+			<Prp name="remarks" type="S" value="'IE' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489108449"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="39"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="38"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="message 69">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489689583"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '100' in the 'Temp3' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="69"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 188">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6492058912"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="No dialog found"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="188"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="186"/>
+			<Prp name="line no" type="I" value="696"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 20">
+			<Prp name="remarks" type="S" value="'FAD' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487371875"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="20"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="19"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 19">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487133102"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="SaveAs Model"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="19"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="7"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 143">
+			<Prp name="remarks" type="S" value="'800' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp5&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 10))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649105463"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="143"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 141">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp4&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 9))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491025231"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="141"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 41">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489193981"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Pre-Test Actions"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="41"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 136">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490934143"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '-20' in the 'Temp2' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="136"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 108">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490212384"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="No post-test actions found"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="108"/>
+			<Prp name="unit id" type="I" value="6"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="107"/>
+			<Prp name="line no" type="I" value="167"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 67">
+			<Prp name="remarks" type="S" value="'100' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 8))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489664815"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="67"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 185">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649162037"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="No post-test actions found"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="185"/>
+			<Prp name="unit id" type="I" value="6"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="184"/>
+			<Prp name="line no" type="I" value="167"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 65">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp2&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 7))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489632755"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="65"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 148">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491120718"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp1' has been unchecked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="148"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="304"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 160">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491226968"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod1' has been unchecked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="160"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="304"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485896181"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Test Case:1,cmbfldFileName"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="8"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 166">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotMod3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 8))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491289931"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="166"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 152">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491149421"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp2' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="152"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485615162"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Insert_OperatingPT_AllFields"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="child data">
+			<Prp name="child 0" type="S" value="{ACC0F13E-8761-4CD2-A861-56192D1072B8}"/>
+		</Node>
+		<Node name="message 77">
+			<Prp name="remarks" type="S" value="A click at point (9, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoExp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489803819"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="77"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="298"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 84">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489861458"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoExp5' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="84"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 55">
+			<Prp name="remarks" type="S" value="'5' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress4&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 4))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489483102"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="55"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 57">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489506481"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '5' in the 'Press4' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="57"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 27">
+			<Prp name="remarks" type="S" value="A click at point (55, 16) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSaveAs.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Save As&quot;, 1).Window(&quot;Button&quot;, &quot;&amp;Save&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487584375"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="27"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="line no" type="I" value="485"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 7">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6485615625"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Actions:"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="6"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="item 3">
+			<Prp name="line no" type="I" value="125"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="TestCaseExecution"/>
+		</Node>
+		<Node name="message 130">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490841782"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '0.001' in the 'Press5' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="130"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 199">
+			<Prp name="remarks" type="S" value="A click at point (50, 16) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgConfirm.btnNo&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Confirm&quot;, 1).Window(&quot;Button&quot;, &quot;&amp;No&quot;, 2))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6493451157"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="199"/>
+			<Prp name="unit id" type="I" value="8"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="197"/>
+			<Prp name="line no" type="I" value="164"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 88">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotMod3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 8))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.648989294"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="88"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 178">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.chkboxAutoHotAllow3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;&quot;, 13))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491410995"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="178"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 151">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491147106"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '10' in the 'Exp1' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="151"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 12">
+			<Prp name="remarks" type="S" value="'C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\Properties\Models\ModelB311.dat' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpen.cbxFileName.cmbFileName.fldFileName&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Open&quot;, 1).Window(&quot;ComboBoxEx32&quot;, &quot;&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1).Window(&quot;Edit&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6486365162"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="12"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="10"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 29">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487792014"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Post-Test Actions"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="29"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 74">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp5&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 10))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489778356"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="74"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 94">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489936111"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod5' has been checked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="94"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="302"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 194">
+			<Prp name="remarks" type="S" value="A click at point (24, 9) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgInputListReport.btnOK&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Model Input List Report&quot;, 1).Window(&quot;APBUTTON&quot;, &quot;OK&quot;, 33))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649308044"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="194"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="191"/>
+			<Prp name="line no" type="I" value="85"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 89">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489900694"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Checkbox 'AutoHotMod3' has been unchecked "/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="89"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="304"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 60">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489549306"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Entered '5' in the 'Press5' field"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="60"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="273"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 190">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6492336111"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Using the 'PipingComponents.Run' dialog with default values"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="190"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="186"/>
+			<Prp name="line no" type="I" value="87"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 125">
+			<Prp name="remarks" type="S" value="'0.1' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress4&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 4))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490758333"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="125"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 173">
+			<Prp name="remarks" type="S" value="'33700' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldHotAllow1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 21))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6491353588"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="173"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 52">
+			<Prp name="remarks" type="S" value="'5' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 3))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489437847"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="52"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 46">
+			<Prp name="remarks" type="S" value="'5' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldPress1&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489349884"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="46"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 115">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.drpdwnSelectCases&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APCOMBOBOX&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6490598611"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="115"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="287"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 24">
+			<Prp name="remarks" type="S" value="'%temp%\ModelB311.dat' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgSaveAs.DUIView.ExplorerPane.cmbFileName.cmboxFileName.fldFileName&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;#32770&quot;, &quot;Save As&quot;, 1).Window(&quot;DUIViewWndClassName&quot;, &quot;&quot;, 1).UIAObject(&quot;Explorer_Pane&quot;).Window(&quot;FloatNotifySink&quot;, &quot;&quot;, 1).Window(&quot;ComboBox&quot;, &quot;&quot;, 1).Window(&quot;Edit&quot;, &quot;&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487551273"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="24"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 22">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6487455556"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Pre-Test Actions"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="22"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="21"/>
+			<Prp name="line no" type="I" value="354"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 113">
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.649046956"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Selected '1 to 5' from the 'SelectCases' dropdown"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="113"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="110"/>
+			<Prp name="line no" type="I" value="280"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 71">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp4&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 9))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489730093"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="71"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 198">
+			<Prp name="remarks" type="S" value="'FC' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.wndAutoPIPE&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;Afx:00400000:0&quot;, &quot;Bentley AutoPIPE Nuclear - (ModelB311)&quot;, 1))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6493432639"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="198"/>
+			<Prp name="unit id" type="I" value="8"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="197"/>
+			<Prp name="line no" type="I" value="153"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 68">
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp3&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 8))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489681944"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="68"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="272"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 64">
+			<Prp name="remarks" type="S" value="'70' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.autopipe.dlgOpenPressTemp.fldTemp2&#xA;(Sys.Process(&quot;autopipe&quot;).Window(&quot;FORM&quot;, &quot;Operating Pressure &amp; Temperature&quot;, 1).Window(&quot;APEDIT&quot;, &quot;&quot;, 7))"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6489615509"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="id" type="I" value="64"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="40"/>
+			<Prp name="line no" type="I" value="271"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+		</Node>
+		<Node name="message 209">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="207"/>
+			<Prp name="date" type="D" value="43677.6495001389"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="id" type="I" value="209"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="Test cases execution time in minutes: 1.412565"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="80"/>
+		</Node>
+		<Node name="message 206">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="205"/>
+			<Prp name="date" type="D" value="43677.6494997917"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="id" type="I" value="206"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="All Files removed"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="581"/>
+		</Node>
+		<Node name="message 208">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="207"/>
+			<Prp name="date" type="D" value="43677.6495000926"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="id" type="I" value="208"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="Test cases executed in this DTP: 4"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="79"/>
+		</Node>
+		<Node name="message 207">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6494999306"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="id" type="I" value="207"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="DTP Execution Summary"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="354"/>
+		</Node>
+		<Node name="message 205">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="43677.6494822222"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="id" type="I" value="205"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="Files removed from the Store"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="354"/>
+		</Node>
+		<Prp name="status" type="I" value="2"/>
+	</Node>
+</Nodes>

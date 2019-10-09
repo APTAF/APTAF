@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="folders"/>
+		<Node name="logs">
+			<Node name="log idx=0000">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43747.5253421181"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{3F9DA805-B7C1-42E3-A6F5-7C866698EF58}"/>
+				<Prp name="nameofroot" type="S" value="Script Test Log [DeleteProperties_Soil_StructureActionScript\Configuration]"/>
+				<Prp name="relpath" type="S" value="10_9_2019_12_36 PM_29_559\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0001">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43747.5265143519"/>
+				<Prp name="description" type="S" value="Script Test Log [DeleteProperties_Soil_Structure_ActionScript\Configuration]"/>
+				<Prp name="key" type="S" value="{9A305889-38A9-43FA-BDE8-0EBE024B6CEA}"/>
+				<Prp name="nameofroot" type="S" value="Script Test Log [DeleteProperties_Soil_Structure_ActionScript\Configuration]"/>
+				<Prp name="relpath" type="S" value="10_9_2019_12_38 PM_10_840\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0002">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43747.5292170718"/>
+				<Prp name="description" type="S" value="Script Test Log [DeleteProperties_Soil_Structure_ActionScript\Configuration]"/>
+				<Prp name="key" type="S" value="{A5828521-BD5E-47F7-8994-A5FE84DBA76E}"/>
+				<Prp name="nameofroot" type="S" value="Script Test Log [DeleteProperties_Soil_Structure_ActionScript\Configuration]"/>
+				<Prp name="relpath" type="S" value="10_9_2019_12_42 PM_04_355\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0003">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43747.5332242477"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{3EA21F98-CC43-4909-A6BF-F249445D4E68}"/>
+				<Prp name="nameofroot" type="S" value="Script Test Log [DeleteProperties_Soil_Structure_ActionScript\Configuration]"/>
+				<Prp name="relpath" type="S" value="10_9_2019_12_47 PM_50_575\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0004">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43747.5344482176"/>
+				<Prp name="description" type="S" value="Script Test Log [DeleteProperties_Soil_Structure_ActionScript\Configuration]"/>
+				<Prp name="key" type="S" value="{A2CB141B-5959-485D-A74D-8731555DA62C}"/>
+				<Prp name="nameofroot" type="S" value="Script Test Log [DeleteProperties_Soil_Structure_ActionScript\Configuration]"/>
+				<Prp name="relpath" type="S" value="10_9_2019_12_49 PM_36_326\Description.tcLog"/>
+				<Prp name="status" type="I" value="1"/>
+			</Node>
+		</Node>
+		<Prp name="signature" type="S" value="{681DCC69-A39F-4C4D-8E7D-B2D9362FAF4F}"/>
+		<Prp name="version" type="S" value="11.0"/>
+	</Node>
+</Nodes>

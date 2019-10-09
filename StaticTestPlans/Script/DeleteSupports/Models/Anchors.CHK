@@ -1,0 +1,26 @@
+----------------------------------------------------------------------------------------------------------------
+Anchors                                                                                                         
+10/09/2019                                                        BENTLEY                                       
+10:26 AM                                                          AutoPIPE Nuclear 12.02.00.11   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-8:   Kink in straight run at following point(s)                       
+                                                                                
+     A05       179.9  deg                                                       
+                                                                                
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-93:  Zero weight flange found at following point(s)                   
+                                                                                
+     A02, A04                                                                   
+ 
+ 
+  No error     3 Warning(s)                                                     
+ 
+

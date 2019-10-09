@@ -1,0 +1,410 @@
+﻿'USEUNIT GlobalConstants
+Option Explicit
+Sub CreateTXTFile(sFilename)
+  
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'If the text file does not exist create it
+  If fso.FileExists(sFilename) = False Then
+    fso.createtextfile sFilename
+  End If
+  
+  'Destroy objects
+  Set fso = Nothing
+End Sub
+
+Sub WriteToTXTFile(txtFile,sText,bWrite)
+  
+  'Create Object
+  Dim fso,f
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'Open the text file
+  If CBool(bWrite) = True Then
+    Set f = fso.OpenTextFile(txtFile,ForWriting,True)
+  Else
+    Set f = fso.OpenTextFile(txtFile,ForAppending,True)
+  End If
+  
+  'Write the text to the file
+  f.Write(sText)
+  
+  'Close the text file
+  f.close
+  
+  'Destroy objects
+  Set f = Nothing
+  Set fso = Nothing
+End Sub
+
+Sub FSODeleteFile(sFilename)
+  
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'If the file exists delete it
+  If fso.FileExists(sFilename) = True Then
+    fso.DeleteFile sFilename
+  End If
+  
+  'Destroy objects
+  Set fso = Nothing
+End Sub
+
+Sub FSODeleteFiles(sFolder)
+  
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'Get root folder
+  Dim objFolder
+  Set objFolder = FSOGetFolder(sFolder)
+  
+  'Get files
+  Dim objFiles,file
+  Set objFiles = objFolder.Files
+  
+  'Delete
+  For Each file in objFiles
+    file.delete
+  Next
+  
+  'Destroy objects
+  Set fso = Nothing
+  Set objFolder = Nothing
+  Set objFiles = Nothing
+End Sub
+
+Sub FSOCopyFile(sFileOrig,sFileDest)
+  
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'If the file exists delete it
+  If fso.FileExists(sFileOrig) = True Then
+    fso.CopyFile sFileOrig , sFileDest, True 
+  End If
+  
+  'Destroy objects
+  Set fso = Nothing
+End Sub
+
+Sub FSOCopyFolder(Source,Dest)
+ 
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'If the file exists delete it
+  If fso.FolderExists(Source) = True Then
+    fso.CopyFolder Source , Dest, True 
+  End If
+  
+  'Destroy objects
+  Set fso = Nothing
+End Sub
+Sub FSORenameFolder(Source,Dest)
+ 
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'If the file exists delete it
+  If fso.FolderExists(Source) = True Then
+    fso.MoveFolder Source , Dest, True 
+  End If
+  
+  'Destroy objects
+  Set fso = Nothing
+End Sub
+Sub FSORenameFile(Source,Dest)
+ 
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'If the file exists delete it
+  If fso.FileExists(Source) = True Then
+    fso.MoveFile Source , Dest
+  End If
+  
+  'Destroy objects
+  Set fso = Nothing
+End Sub
+Sub FSOCreateFolder(sName)
+  
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'Create the folder
+  Call fso.createfolder(sName)
+  
+  'Wait until folder exists
+  Dim i
+  i = 0
+  Do While fso.FolderExists(sName) <> True and i < 10
+    Builtin.Delay(1000)
+    i = i + 1
+  Loop
+  
+  'Destroy objects
+  Set fso = Nothing
+End Sub
+
+Function FSOFileExists(sName)
+  
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'check to see if the file exists
+  FSOFileExists = fso.FileExists(sName)
+  
+  'Destroy objects
+  Set fso = Nothing
+End Function
+
+Function FSOFolderExists(sName)
+ 
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  'check to see if the folder exists
+  FSOFolderExists = fso.FolderExists(sName)
+  
+  'Destroy objects
+  Set fso = Nothing
+End Function
+
+Function GetFileProps(sName,Prop)
+ 
+  'Create object
+  Dim fso,f
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set f = fso.GetFile(sName)
+  
+  'Property
+  Select Case Prop
+    Case "LastModified"
+      GetFileProps = f.DateLastModified
+    Case "DateCreated"
+      GetFileProps = f.DateCreated
+    Case "Size"
+      GetFileProps = f.Size
+    Case "Name"
+      GetFileProps = f.Name
+  End Select 
+ 
+  'Destroy objects
+  Set fso = Nothing
+End Function
+
+Function FSOGetFolder(sPath)
+ 
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set FSOGetFolder = fso.GetFolder(sPath)
+  
+  'Destroy objects
+  Set fso = Nothing
+End Function
+
+Function GetFileSystemObject()
+ 
+  'Create object
+  Set GetFileSystemObject = CreateObject("Scripting.FileSystemObject")
+End Function
+
+Sub FSODeleteFolder(sPath)
+ 
+  'Create object
+  Dim fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  
+  If fso.FolderExists(sPath) = True Then
+    fso.DeleteFolder(sPath)
+  End If
+  
+   'Destroy objects
+  Set fso = Nothing
+End Sub
+
+Function GetFileCollection(sPath)
+  
+  'Create file system object
+  Dim FSO
+  Set FSO = GetFileSystemObject()
+  
+  'Get folder and files
+  Dim Folder
+  Set Folder = fso.GetFolder(sPath)
+  Set GetFileCollection = Folder.Files
+  
+   'Destroy objects
+  Set FSO = Nothing
+  Set Folder = Nothing
+End Function
+
+Sub FixTextFileFormat(fName)
+ 
+  'Create file system object
+  Dim FSO
+  Set FSO = GetFileSystemObject()
+  
+  'Open application generated text file into memory
+  Dim objFile,lines
+  Set objFile = fso.OpenTextFile(fName,ForReading)
+    
+  'Get text
+  lines = objFile.ReadAll()
+  
+  'Is file empty
+  If err.Number = 62 Then Exit Sub
+  Set objFile = Nothing
+  
+  'Check for normal windows formatting
+  If InStr(lines,VbCrLf) = 0 Then
+  
+    'Open file for writing
+    Set objFile = fso.OpenTextFile(fName,ForWriting)
+    
+    'Unix format
+    If InStr(lines,vbLf) <> 0 Then
+      lines = Replace(lines,vbLf,vbCrLf)
+    'Mac format
+    ElseIf InStr(lines,vbCr) <> 0 Then
+      lines = Replace(lines,vbCr,vbCrLf)
+    End If
+    
+    'Write to file
+    objFile.Write lines
+    objFile.Close
+  End If
+
+  'Destroy objects
+  Set FSO = Nothing
+  Set objFile = Nothing
+End Sub
+
+Sub InsertText(sFile,rText,sText)
+ 
+  'Create file system object
+  Dim FSO
+  Set FSO = GetFileSystemObject()
+  
+  'Put text in memory
+  Dim mText
+  Call GetText(sFile,mText)
+
+  'Open file for writing and replace text
+  Dim objFile,lines
+  Set objFile = fso.OpenTextFile(sFile,ForWriting)
+  lines = Replace(mText,rText,sText)
+  
+  'Write to file
+  objFile.Write lines
+  objFile.Close
+  
+  'Destroy objects
+  Set FSO = Nothing
+  Set objFile = Nothing
+End Sub
+
+Sub DeleteAllText()
+ 
+  'Create file system object
+  Dim FSO
+  Set FSO = GetFileSystemObject()
+
+  'Open file for writing and replace text
+  Dim objFile
+  Set objFile = FSO.OpenTextFile("C:\ProgramData\Bentley\Licensing\license.db",ForReading)
+  
+  'Write to file
+  objFile.Write ""
+  objFile.Close
+  
+  'Destroy objects
+  Set FSO = Nothing
+  Set objFile = Nothing
+End Sub
+
+Sub GetText(sFile,sText)
+ 
+  'Create file system object
+  Dim FSO
+  Set FSO = GetFileSystemObject()
+  
+  'Open application generated text file into memory
+  Dim objFile,lines
+  Set objFile = fso.OpenTextFile(sFile,ForReading)
+    
+  'Get text
+  sText = objFile.ReadAll()
+  objFile.Close
+  
+  'Destroy objects
+  Set FSO = Nothing
+  Set objFile = Nothing
+End Sub
+
+Function GetShortPath(sPath,sType)
+ 
+  'Create file system object
+  Dim FSO
+  Set FSO = GetFileSystemObject()
+  
+  'File or Folder
+  Dim f
+  If sType = "Folder" Then
+    Set f = FSO.GetFolder(sPath)
+  Else
+    Set f = FSO.GetFile(sPath)
+  End If
+    
+  'Short name
+  GetShortPath = f.ShortPath
+  
+  'Destroy objects
+  Set FSO = Nothing
+  Set f = Nothing
+End Function
+
+Function IsWriteAccessible(sPath)
+ 
+  'Declare
+  Dim FSO,objFile
+  
+  'Handle errors
+  On Error Resume Next
+  
+  'Create object 
+  Set FSO = GetFileSystemObject()
+
+  'Get file
+  Set objFile = FSO.OpenTextFile(sPath, ForAppending)
+   
+  'Watch 
+  If Err.Number = 0 Then
+    objFile.Close
+    IsWriteAccessible = True
+  Else
+    IsWriteAccessible = False  
+  End If
+  
+  'Clear
+  Err.clear
+  
+  'Destroy objects
+  Set objFile = Nothing
+  Set FSO = Nothing
+End Function
+

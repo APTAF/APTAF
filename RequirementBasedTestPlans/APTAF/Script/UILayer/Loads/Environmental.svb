@@ -1,0 +1,838 @@
+﻿'USEUNIT tabLoads
+'USEUNIT DatabaseFunctions
+'USEUNIT Main
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "SeismicThermalLoad" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         SeismicThermalLoad table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub SeismicThermalLoad (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgSeismicThermalLoad = objNameMapping.dlgSeismicThermalLoad
+
+Dim cmbThermalLoad      : cmbThermalLoad      = objRow.Item("cmbThermalLoad")
+Dim cmbSoilId           : cmbSoilId           = objRow.Item("cmbSoilId")
+Dim drpSoilInput        : drpSoilInput        = "*"&objRow.Item("drpSoilInput")&"*"
+Dim chkTemperatureAuto  : chkTemperatureAuto  = objRow.Item("chkTemperatureAuto")
+Dim intTempAssigned     : intTempAssigned     = objRow.Item("intTempAssigned")
+Dim chkExpansionAuto    : chkExpansionAuto    = objRow.Item("chkExpansionAuto")
+Dim intExpAssigned      : intExpAssigned      = objRow.Item("intExpAssigned")
+Dim radNone             : radNone             = objRow.Item("radNone")
+Dim radAllNonsoilPoints : radAllNonsoilPoints = objRow.Item("radAllNonsoilPoints")
+Dim radAllSoilAndNonSoil: radAllSoilAndNonSoil= objRow.Item("radAllNonsoilPoints")
+Dim chkAxialBending     : chkAxialBending     = objRow.Item("chkAxialBending")
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(200)
+  
+'''' cmbThermalLoad
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbThermalLoad <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgSeismicThermalLoad", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSeismicThermalLoad.cmbboxThermalLoad.keys(cmbThermalLoad)
+          Log.Message("Entered " & cmbThermalLoad & " in the cmbThermalLoad field")
+      End If       
+  End If
+End If
+
+'''' cmbSoilId
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbSoilId <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgSeismicThermalLoad", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSeismicThermalLoad.cmbboxSoilId.keys(cmbSoilId)
+          Log.Message("Entered " & cmbSoilId & " in the cmbSoilId field")
+      End If       
+  End If
+End If
+
+'''' drpSoilInput
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(drpSoilInput <> "*NA*") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgSeismicThermalLoad", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSeismicThermalLoad.drpdwnSoilInput.ClickItem(drpSoilInput)
+          Log.Message("Entered " & drpSoilInput & " in the drpSoilInput field")
+      End If       
+  End If
+End If
+
+''' chkTemperatureAuto
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkTemperatureAuto <>  "NA") Then
+ state = dlgSeismicThermalLoad.chkboxTemperatureAuto.wState 
+    If( CInt(chkTemperatureAuto) <> CInt(state) )then
+    dlgSeismicThermalLoad.chkboxTemperatureAuto.Click()
+    Log.Message("Entered " & chkTemperatureAuto & " in the chkTemperatureAuto field")
+    End If
+  End If
+End If
+
+
+'''' intTempAssigned
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intTempAssigned <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgSeismicThermalLoad", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSeismicThermalLoad.fldTempAssigned.Keys(intTempAssigned)
+          dlgSeismicThermalLoad.fldTempAssigned.Keys("[Tab]")
+         Log.Message("Entered " & intTempAssigned & " in the intTempAssigned field")
+    End If
+  End If
+End If    
+
+'Dim chkExpansionAuto  
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkExpansionAuto <>  "NA") Then
+ state = dlgSeismicThermalLoad.chkboxExpansionAuto.wState 
+    If( CInt(chkExpansionAuto) <> CInt(state) )then
+    dlgSeismicThermalLoad.chkboxExpansionAuto.Click()
+    Log.Message("Entered " & chkExpansionAuto & " in the chkExpansionAuto field")
+    End If
+  End If
+End If
+
+
+'Dim intExpAssigned 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intExpAssigned <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgSeismicThermalLoad", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSeismicThermalLoad.fldExpAssigned.Keys(intExpAssigned)
+          dlgSeismicThermalLoad.fldExpAssigned.Keys("[Tab]")
+         Log.Message("Entered " & intExpAssigned & " in the intExpAssigned field")
+    End If
+  End If
+End If  
+
+
+'Dim radNone   
+If(radNone  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSeismicThermalLoad", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSeismicThermalLoad.radioNone.Click()
+          Log.Message("Entered " & radNone & " in the radNone field")
+  End If
+End If
+
+'Dim radAllNonsoilPoints
+If(radAllNonsoilPoints  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSeismicThermalLoad", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSeismicThermalLoad.radioAllNonsoilPoints.Click()
+          Log.Message("Entered " & radAllNonsoilPoints & " in the radAllNonsoilPoints field")
+  End If
+End If
+
+'''' radAllSoilAndNonSoil
+If(radAllSoilAndNonSoil  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgSeismicThermalLoad", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSeismicThermalLoad.radioAllSoilAndNonSoil.Click()
+          Log.Message("Entered " & radAllSoilAndNonSoil & " in the radAllSoilAndNonSoil field")
+  End If
+End If
+
+'''' chkAxialBending 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkAxialBending <>  "NA") Then
+ state = dlgSeismicThermalLoad.chkboxAxialBending.wState 
+    If( CInt(chkAxialBending) <> CInt(state) )then
+    dlgSeismicThermalLoad.chkboxAxialBending.Click()
+    Log.Message("Entered " & chkAxialBending & " in the chkAxialBending field")
+    End If
+  End If
+End If
+
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+dlgSeismicThermalLoad.btnOK.Click()
+End If
+
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Snow" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Snow table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Snow (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgSnowLoad = objNameMapping.dlgSnowLoad
+
+Dim drpMethod           : drpMethod           = "*"&objRow.Item("drpMethod")&"*"
+Dim intMethod           : intMethod           = objRow.Item("intMethod")        
+Dim intHeight           : intHeight           = objRow.Item("intHeight")
+Dim chkApplyAllSegments : chkApplyAllSegments = objRow.Item("chkApplyAllSegments")
+
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(2000)
+    
+
+'''' drpMethod 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(drpMethod <> "*NA*") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgSnowLoad", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSnowLoad.drpdwnMethod.ClickItem(drpMethod)
+          Log.Message("Entered " & drpMethod & " in the drpMethod field")
+      End If       
+  End If
+'End If
+        
+'''' intMethod
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intMethod <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgSnowLoad", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSnowLoad.fldMethod.Settext(intMethod)
+          dlgSnowLoad.fldMethod.Keys("[Tab]")
+         Log.Message("Entered " & intMethod & " in the intMethod field")
+    End If
+  End If
+'End If  
+           
+''''' intHeight 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intHeight <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgSnowLoad", 600).WaitProperty("Exists", true, 10)) Then
+          dlgSnowLoad.fldHeight.Keys(intHeight)
+          dlgSnowLoad.fldHeight.Keys("[Tab]")
+         Log.Message("Entered " & intHeight & " in the intMethod field")
+    End If
+  End If
+'End If  
+   
+     
+''''chkApplyAllSegments 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkApplyAllSegments <>  "NA") Then
+ state = dlgSnowLoad.chkboxApplyAllSegments.wState 
+    If( CInt(chkApplyAllSegments) <> CInt(state) )then
+    dlgSnowLoad.chkboxApplyAllSegments.Click()
+    Log.Message("Entered " & chkApplyAllSegments & " in the chkApplyAllSegments field")
+    End If
+  End If
+'End If
+  
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+
+dlgSnowLoad.btnOK.Click()
+
+End If
+
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Buoyancy" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Buoyancy table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Buoyancy(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgBuoyancy = objNameMapping.dlgBuoyancy
+
+Dim intWaterSurfaceElev       : intWaterSurfaceElev       = objRow.item("intWaterSurfaceElev")
+Dim intSpecificGravityOfWater : intSpecificGravityOfWater = objRow.item("intSpecificGravityOfWater")
+Dim intAddedMassCoeff          : intAddedMassCoeff          = objRow.item("intAddedMassCoeff")
+Dim intWindExposureFac        : intWindExposureFac        = objRow.item("intWindExposureFac")
+Dim chkboxApplyBuoyancy       : chkboxApplyBuoyancy       = objRow.item("chkboxApplyBuoyancy")
+
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(2000)
+    
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWaterSurfaceElev <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBuoyancy", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBuoyancy.fldWaterSurfaceElev.Keys(intWaterSurfaceElev)
+          dlgBuoyancy.fldWaterSurfaceElev.Keys("[Tab]")
+         Log.Message("Entered " & intWaterSurfaceElev & " in the intWaterSurfaceElev field")
+    End If
+  End If
+'End If   
+ 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intSpecificGravityOfWater <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBuoyancy", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBuoyancy.fldSpecificGravityOfWater.Keys(intSpecificGravityOfWater)
+          dlgBuoyancy.fldSpecificGravityOfWater.Keys("[Tab]")
+         Log.Message("Entered " & intSpecificGravityOfWater & " in the intWaterSurfaceElev field")
+    End If
+  End If
+'End If   
+
+''''' intddedMassCoeff  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intAddedMassCoeff <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBuoyancy", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBuoyancy.fldAddedMassCoeff.Keys(intAddedMassCoeff)
+          dlgBuoyancy.fldAddedMassCoeff.Keys("[Tab]")
+         Log.Message("Entered " & intAddedMassCoeff & " in the intAddedMassCoeff field")
+    End If
+  End If
+'End If   
+
+
+'''' intWindExposureFac   
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWindExposureFac <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgBuoyancy", 600).WaitProperty("Exists", true, 10)) Then
+          dlgBuoyancy.fldWindExposureFac.Keys(intWindExposureFac)
+          dlgBuoyancy.fldWindExposureFac.Keys("[Tab]")
+         Log.Message("Entered " & intWindExposureFac & " in the intWindExposureFac field")
+    End If
+  End If
+'End If   
+
+'''' chkboxApplyBuoyancy 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(chkApplyBuoyancy <>  "NA") Then
+ state = dlgBuoyancy.chkboxApplyBuoyancy.wState 
+    If( CInt(chkApplyBuoyancy) <> CInt(state) )then
+    dlgBuoyancy.chkboxApplyBuoyancy.Click()
+    Log.Message("Entered " & chkApplyBuoyancy & " in the chkApplyBuoyancy field")
+    End If
+  End If
+'End If
+
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+dlgBuoyancy.btnOK.Click()
+End If
+
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Wave" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Wave table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Wave(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgWave = objNameMapping.dlgWave
+
+Dim cmbWaveName     : cmbWaveName       = objRow.item("cmbWaveName")
+Dim cmbWaveType     : cmbWaveType       = objRow.item("cmbWaveType")
+Dim cmbLoadCase     : cmbLoadCase       = objRow.item("cmbLoadCase")
+Dim intWaterElev    : intWaterElev      = objRow.item("intWaterElev")
+Dim intDepth        : intDepth          = objRow.item("intDepth")
+Dim intWaterDensity : intWaterDensity   = objRow.item("intWaterDensity")
+Dim intPhase        : intPhase          = objRow.item("intPhase")
+Dim intWaveHeight   : intWaveHeight     = objRow.item("intWaveHeight")
+Dim intPeriod       : intPeriod         = objRow.item("intPeriod")
+Dim intCoeffDrag    : intCoeffDrag      = objRow.item("intCoeffDrag")
+Dim intInertia      : intInertia        = objRow.item("intInertia")
+Dim intDX           : intDX             = objRow.item("intDX")
+Dim intDY           : intDY             = objRow.item("intDY")
+Dim intDZ           : intDZ             = objRow.item("intDZ")
+Dim intWDepth1      : intWDepth1        = objRow.item("intWDepth1")
+Dim intCVelocity1   : intCVelocity1     = objRow.item("intCVelocity1")
+Dim intMGrowth1     : intMGrowth1       = objRow.item("intMGrowth1")
+Dim intWDepth2      : intWDepth2        = objRow.item("intWDepth2")
+Dim intCVelocity2   : intCVelocity2     = objRow.item("intCVelocity2")
+Dim intMGrowth2     : intMGrowth2       = objRow.item("intMGrowth2")
+Dim intWDepth3      : intWDepth3        = objRow.item("intWDepth3")
+Dim intCVelocity3   : intCVelocity3     = objRow.item("intCVelocity3")
+Dim intMGrowth3     : intMGrowth3       = objRow.item("intMGrowth3")
+Dim intWDepth4      : intWDepth4        = objRow.item("intWDepth4")
+Dim intCVelocity4   : intCVelocity4     = objRow.item("intCVelocity4")
+Dim intMGrowth4     : intMGrowth4       = objRow.item("intMGrowth4")
+Dim intWDepth5      : intWDepth5        = objRow.item("intWDepth5")
+Dim intCVelocity5   : intCVelocity5     = objRow.item("intCVelocity5")
+Dim intMGrowth5     : intMGrowth5       = objRow.item("intMGrowth5")
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(2000)
+    
+
+
+''' cmbWaveName 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbWaveName <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgWave", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgWave.cmbboxWaveName.keys(cmbWaveName)
+          Log.Message("Entered " & cmbWaveName & " in the cmbWaveName field")
+      End If       
+  End If
+'End If
+
+
+'''' cmbWaveType 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbWaveType <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgWave", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgWave.cmbboxWaveType.keys(cmbWaveType)
+          Log.Message("Entered " & cmbWaveType & " in the cmbWaveType field")
+      End If       
+  End If
+'End If
+
+''' cmbLoadCase 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(cmbLoadCase <> "NA") Then
+     'Write to thedrpdwnSectionID field
+        If(objNameMapping.WaitAliasChild("dlgWave", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgWave.cmbboxLoadCase.keys(cmbLoadCase)
+          Log.Message("Entered " & cmbLoadCase & " in the cmbWaveType field")
+      End If       
+  End If
+'End If
+
+''' intWaterElev 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWaterElev <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldWaterElev.Keys(intWaterElev)
+          dlgWave.fldWaterElev.Keys("[Tab]")
+         Log.Message("Entered " & intWaterElev & " in the intWaterElev field")
+    End If
+  End If
+'End If   
+
+'''' intDepth
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intDepth <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldDepth.Keys(intDepth)
+          dlgWave.fldDepth.Keys("[Tab]")
+         Log.Message("Entered " & intDepth & " in the intDepth field")
+    End If
+  End If
+'End If   
+
+
+''' intWaterDensity
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWaterDensity <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldWaterDensity.Keys(intWaterDensity)
+          dlgWave.fldWaterDensity.Keys("[Tab]")
+         Log.Message("Entered " & intWaterDensity & " in the intWaterDensity field")
+    End If
+  End If
+'End If   
+
+
+'Dim intPhase        : intPhase        = objRow.item("intPhase")
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intPhase <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldPhase.Keys(intPhase)
+          dlgWave.fldPhase.Keys("[Tab]")
+         Log.Message("Entered " & intPhase & " in the intPhase field")
+    End If
+  End If
+'End If   
+
+'''' intWaveHeight
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWaveHeight <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldWaveHeight.Keys(intWaveHeight)
+          dlgWave.fldWaveHeight.Keys("[Tab]")
+         Log.Message("Entered " & intWaveHeight & " in the intPhase field")
+    End If
+  End If
+'End If   
+
+'''' intPeriod
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intPeriod <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldPeriod.Keys(intPeriod)
+          dlgWave.fldPeriod.Keys("[Tab]")
+         Log.Message("Entered " & intPeriod & " in the intPeriod field")
+    End If
+  End If
+'End If   
+
+'Dim intCoeffDrag    : intCoeffDrag    = objRow.item("intCoeffDrag")
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intCoeffDrag <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldCoeffDrag.Keys(intCoeffDrag)
+          dlgWave.fldCoeffDrag.Keys("[Tab]")
+         Log.Message("Entered " & intCoeffDrag & " in the intCoeffDrag field")
+    End If
+  End If
+'End If   
+
+'Dim intInertia  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intCoeffDrag <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldCoeffDrag.Keys(intCoeffDrag)
+          dlgWave.fldCoeffDrag.Keys("[Tab]")
+         Log.Message("Entered " & intCoeffDrag & " in the intCoeffDrag field")
+    End If
+  End If
+'End If   
+
+'''' intDX
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intDX <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldDX.Keys(intDX)
+          dlgWave.fldDX.Keys("[Tab]")
+         Log.Message("Entered " & intDX & " in the intDX field")
+    End If
+  End If
+'End If   
+
+
+'Dim intDY 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intDY <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldDY.Keys(intDY)
+          dlgWave.fldDY.Keys("[Tab]")
+         Log.Message("Entered " & intDY & " in the intDY field")
+    End If
+  End If
+'End If 
+
+'Dim intDZ 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intDZ <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldDZ.Keys(intDZ)
+          dlgWave.fldDZ.Keys("[Tab]")
+         Log.Message("Entered " & intDZ & " in the intDZ field")
+    End If
+  End If
+'End If 
+
+'Dim intWDepth1    
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWDepth1 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldWDepth1.Keys(intWDepth1)
+          dlgWave.fldWDepth1.Keys("[Tab]")
+         Log.Message("Entered " & intWDepth1 & " in the intWDepth1 field")
+    End If
+  End If
+'End If 
+
+'Dim intCVelocity1
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intCVelocity1 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldCVelocity1.Keys(intCVelocity1)
+          dlgWave.fldCVelocity1.Keys("[Tab]")
+         Log.Message("Entered " & intCVelocity1 & " in the intCVelocity1 field")
+    End If
+  End If
+'End If 
+
+'''' intMGrowth1
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intMGrowth1 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldMGrowth1.Keys(intMGrowth1)
+          dlgWave.fldMGrowth1.Keys("[Tab]")
+         Log.Message("Entered " & intMGrowth1 & " in the intMGrowth1 field")
+    End If
+  End If
+'End If 
+
+'''' intWDepth2 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWDepth2 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldWDepth2.Keys(intWDepth2)
+          dlgWave.fldWDepth2.Keys("[Tab]")
+         Log.Message("Entered " & intWDepth2 & " in the intWDepth2 field")
+    End If
+  End If
+'End If 
+
+'Dim intCVelocity2
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intCVelocity2 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldCVelocity2.Keys(intCVelocity2)
+          dlgWave.fldCVelocity2.Keys("[Tab]")
+         Log.Message("Entered " & intCVelocity2 & " in the intCVelocity2 field")
+    End If
+  End If
+'End If 
+
+
+'''' intMGrowth2 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intMGrowth2 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldMGrowth2.Keys(intMGrowth2)
+          dlgWave.fldMGrowth2.Keys("[Tab]")
+         Log.Message("Entered " & intMGrowth2 & " in the intMGrowth2 field")
+    End If
+  End If
+'End If 
+
+
+'Dim intWDepth3      : intWDepth3      = objRow.item("intWDepth3")
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWDepth3 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldWDepth3.Keys(intWDepth3)
+          dlgWave.fldWDepth3.Keys("[Tab]")
+         Log.Message("Entered " & intWDepth3 & " in the intWDepth3 field")
+    End If
+  End If
+'End If 
+
+'Dim intCVelocity3 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intCVelocity3 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldCVelocity3.Keys(intCVelocity3)
+          dlgWave.fldCVelocity3.Keys("[Tab]")
+         Log.Message("Entered " & intCVelocity3 & " in the intCVelocity3 field")
+    End If
+  End If
+'End If 
+
+
+'Dim intMGrowth3  
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intMGrowth3 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldMGrowth3.Keys(intMGrowth3)
+          dlgWave.fldMGrowth3.Keys("[Tab]")
+         Log.Message("Entered " & intMGrowth3 & " in the intMGrowth3 field")
+    End If
+  End If
+'End If 
+
+
+'''' intWDepth4
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWDepth4 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldWDepth4.Keys(intWDepth4)
+          dlgWave.fldWDepth4.Keys("[Tab]")
+         Log.Message("Entered " & intWDepth4 & " in the intWDepth4 field")
+    End If
+  End If
+'End If 
+
+'''' intCVelocity4
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intCVelocity4 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldCVelocity4.Keys(intCVelocity4)
+          dlgWave.fldCVelocity4.Keys("[Tab]")
+         Log.Message("Entered " & intCVelocity4 & " in the intCVelocity4 field")
+    End If
+  End If
+'End If 
+
+
+'''' intMGrowth4
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intMGrowth4 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldMGrowth4.Keys(intMGrowth4)
+          dlgWave.fldMGrowth4.Keys("[Tab]")
+         Log.Message("Entered " & intMGrowth4 & " in the intMGrowth4 field")
+    End If
+  End If
+'End If 
+
+
+'''' intWDepth5 
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intWDepth5 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldWDepth5.Keys(intWDepth5)
+          dlgWave.fldWDepth5.Keys("[Tab]")
+         Log.Message("Entered " & intWDepth5 & " in the intWDepth5 field")
+    End If
+  End If
+'End If 
+
+'Dim intCVelocity5
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intCVelocity5 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldCVelocity5.Keys(intCVelocity5)
+          dlgWave.fldCVelocity5.Keys("[Tab]")
+         Log.Message("Entered " & intCVelocity5 & " in the intCVelocity5 field")
+    End If
+  End If
+'End If 
+
+
+'''' intMGrowth5
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(intMGrowth5 <> "NA") Then
+        'Write to  field
+    If(objNameMapping.WaitAliasChild("dlgWave", 600).WaitProperty("Exists", true, 10)) Then
+          dlgWave.fldMGrowth5.Keys(intMGrowth5)
+          dlgWave.fldMGrowth5.Keys("[Tab]")
+         Log.Message("Entered " & intMGrowth5 & " in the intMGrowth5 field")
+    End If
+  End If
+'End If 
+
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+dlgWave.btnOK.Click()
+End If    
+
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "WaveDel" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         Buoyancy table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     10/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub WaveDel(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgWaveDel = objNameMapping.dlgWaveDel
+
+Dim drpWaveDataName : drpWaveDataName   = "*"&objRow.Item("drpWaveDataName")&"*"
+
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    
+    aqUtils.Delay(2000)
+    
+    '''drpWaveDataName
+'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+    If(drpWaveDataName  <> "*NA*") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgWaveDel", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgWaveDel.drpdwnWaveDataName.ClickItem(drpWaveDataName)
+            dlgWaveDel.drpdwnWaveDataName.Keys("[Tab]")
+         Log.Message("Entered " & drpWaveDataName & " in the drpWaveDataName field")
+        End If
+    End If 
+'End If    
+ 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+dlgWaveDel.btnOK.Click()
+End If    
+   
+
+End Sub

@@ -1,0 +1,18 @@
+﻿'USEUNIT APP_COMMON 
+'USEUNIT FSO_Functions
+ ''''close app 
+ Sub Main
+   call EndTests
+ End Sub
+ Sub EndApplication
+  Dim curDate : curDate =  Month(Date) & "_" & Day(Date) & "_" & Year(Date)
+  Dim sourceFolder : sourceFolder = aqEnvironment.GetEnvironmentVariable("TEMP")& "\" & "Discrepencies" & curDate
+
+   
+  Dim destFolder: destFolder = "\\isbprdfs03\QA\TestingProjects\AlphaTesting\CAE\AutoPIPE\AutoPIPERegression\UIAutomation\Discrepancies\" 
+ 
+  If FSO_Functions.FSOFolderExists(destFolder) = True then   
+    Call  FSO_Functions.FSOCopyFolder(sourceFolder,destFolder)
+  End If 
+
+  END Sub 

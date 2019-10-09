@@ -1,0 +1,1656 @@
+﻿'USEUNIT tabInsert
+'USEUNIT tabModify
+'USEUNIT Main
+'USEUNIT UIEngine
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                   Piping Components                      ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "Run" dialog   
+' Remarks:
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:    Run table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey: Run dialog shortcut key/
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function Run(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Run= arrSkipList
+       Case else
+            arrSkipList = Array("TestCase")
+            Run= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+   Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set Run= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set Run = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No post-test validation action performed")
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+Function Run2( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Run = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Run = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set Run = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set Run = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+
+Function Run1(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Run = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("drpAddPointBeforeAfter", "intLength", "cmbPipeID", "intGeneratePoints")
+            Run = arrSkipList
+      End Select
+    
+  Case "ModifyFields"
+      	
+        Set objRowModify = CreateObject("Scripting.Dictionary")
+        objRowModify.Add "intLength", "intGeneratePoints"
+        objRowModify.Add "intOffsetDX", "intLength" 
+        objRowModify.Add "intOffsetDY", "intOffsetDX"
+        objRowModify.Add "intOffsetDZ", "intOffsetDY"
+        objRowModify.Add "intTheta", "intOffsetDZ"
+        objRowModify.Add "intRad", "intTheta"
+        objRowModify.Add "intElv", "intRad"
+ 
+        Set Run = objRowModify
+  
+  Case "PreTestModifyFields"
+      Dim objRowModify1
+      Set objRowModify1 = CreateObject("Scripting.Dictionary")
+      Set Run = objRowModify1
+
+  Case "PreTest"
+     	  AppendLogFolder("Pre-Test Actions")
+ 	      Log.Message("No pre-test actions found")
+  	    PopLogFolder
+
+  Case "PostAction"
+    	  AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+
+End Select
+End Function
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the Bend dialog   
+' Remarks: Done
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       Bend table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey:      Bend dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function Bend(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("drpAddPointBeforeAfter","intRunOffsetDX"  , "intRunOffsetDY" , "intRunOffsetDZ")
+            Bend= arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            Bend= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+
+   Select Case VerificationType
+            
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set Bend= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set Bend = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+   Select Case VerificationType 
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+       Log.Message("No pre-test validation action performed")  
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    'intentionally written here as it was required as the post-action of validation
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"     
+        Dim intRunOffsetsDX : intRunOffsetsDX = objData.Item("RunOffsetDX")
+        Dim intRunOffsetsDY : intRunOffsetsDY = objData.Item("RunOffsetDY")
+        Dim intRunOffsetsDZ : intRunOffsetsDZ = objData.Item("RunOffsetDZ")
+
+  ' '''''''''''''''''''' Run Dialog '''''''''''''''''''''''''''''''''''''''
+  'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+        'Select Case strOpenDialog
+                  Set dlgRun = objNameMapping.dlgRun
+                  strHotKey = "IR"
+          objNameMapping.wndAutoPIPE.Keys(strHotKey)
+ 
+              'field Run offsetDX
+              If(intRunOffsetsDX <> "NA") Then
+                  If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.fldOffsetDX.Keys(intRunOffsetsDX)
+                      Log.Message("Entered '" & RunOffsetsDX & "' in the 'Run offsets DX' field of Run")
+                  End If     
+              End If
+    
+              'field Run offsetDY
+              If(intRunOffsetsDY <> "NA") Then
+                  'Write to "Name Of Point" field
+                  If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.fldOffsetDY.Keys(intRunOffsetsDY)
+                      Log.Message("Entered '" & RunOffsetsDY & "' in the 'Run offsets DY' field of Run")
+                  End If     
+              End If
+              'field Run offsetDZ
+              If(intRunOffsetsDZ <> "NA") Then
+                  'Write to "Name Of Point" field
+                  If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.fldOffsetDZ.Keys(intRunOffsetsDZ)
+                      Log.Message("Entered '" & RunOffsetsDZ & "' in the 'Run offsets DZ' field of Run")
+                  End If     
+              End If
+ 
+
+    Call dlgRun.btnOK.Click() 
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+
+Function Bend2(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Bend = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("intRunOffsetDX"  , "intRunOffsetDY" , "intRunOffsetDZ")
+            Bend = arrSkipList
+      End Select
+
+  Case "PreTestModifyFields"
+      Dim objRowModify1
+      Set objRowModify1 = CreateObject("Scripting.Dictionary")
+      
+      Set Bend = objRowModify1
+            
+  Case "ModifyFields"
+    
+            'Dim objRowModify
+            Set objRowModify = CreateObject("Scripting.Dictionary")
+            objRowModify.Add "cmbRadius", "drpAddPointBeforeAfter"
+            objRowModify.Add "drpBendType", "cmbRadius"    
+            
+            Set Bend = objRowModify
+
+
+  Case "PreTest"
+     AppendLogFolder("Pre-Test Actions")
+      Log.Message("No pre-test actions found")
+     PopLogFolder
+
+  
+  Case "PostAction"
+  AppendLogFolder("Post-Test Actions")
+        Dim intRunOffsetsDX : intRunOffsetsDX = objData.Item("RunOffsetDX")
+        Dim intRunOffsetsDY : intRunOffsetsDY = objData.Item("RunOffsetDY")
+        Dim intRunOffsetsDZ : intRunOffsetsDZ = objData.Item("RunOffsetDZ")
+
+  ' '''''''''''''''''''' Run Dialog '''''''''''''''''''''''''''''''''''''''
+  'If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+        'Select Case strOpenDialog
+                  Set dlgRun = objNameMapping.dlgRun
+                  strHotKey = "IR"
+          objNameMapping.wndAutoPIPE.Keys(strHotKey)
+ 
+              'field Run offsetDX
+              If(intRunOffsetsDX <> "NA") Then
+                  If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.fldOffsetDX.Keys(intRunOffsetsDX)
+                      Log.Message("Entered '" & RunOffsetsDX & "' in the 'Run offsets DX' field of Run")
+                  End If     
+              End If
+    
+              'field Run offsetDY
+              If(intRunOffsetsDY <> "NA") Then
+                  'Write to "Name Of Point" field
+                  If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.fldOffsetDY.Keys(intRunOffsetsDY)
+                      Log.Message("Entered '" & RunOffsetsDY & "' in the 'Run offsets DY' field of Run")
+                  End If     
+              End If
+              'field Run offsetDZ
+              If(intRunOffsetsDZ <> "NA") Then
+                  'Write to "Name Of Point" field
+                  If(objNameMapping.WaitAliasChild("dlgRun", 60000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.fldOffsetDZ.Keys(intRunOffsetsDZ)
+                      Log.Message("Entered '" & RunOffsetsDZ & "' in the 'Run offsets DZ' field of Run")
+                  End If     
+              End If
+ 
+
+    Call dlgRun.btnOK.Click()   
+    PopLogFolder
+End Select
+
+End Function
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the Tee dialog   
+' Remarks: Done
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       Tee table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey:      Tee dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function Tee(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+       
+        Case "dialogvalidation"
+            arrSkipList = Array("drpAddPointBeforeAfter", "cmbPipeID","intPadThickness")
+            Tee = arrSkipList
+       Case else
+            arrSkipList = Array("TestCase")
+            Tee = arrSkipList
+      End Select
+      
+     
+  
+    Case "ModifyFields"
+             Select Case VerificationType         
+    'CASE VALIDATION 
+          
+    Case "dialogvalidation"
+      
+     Set objVerifySchema = CreateObject("Scripting.Dictionary")
+      Set Tee= objVerifySchema
+      'CASE  ACTION
+    case Else
+      Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+      Set Tee = objVerifySchema1
+  End Select
+
+    Case "PreAction"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+ 
+  End Select
+  End Function
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the Reducer dialog   
+' Remarks: Under-construction
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       Reducer table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey:      Reducer dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function Reducer(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("cmbPipeID")
+            Reducer= arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            Reducer= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+
+   Select Case VerificationType
+            
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set Reducer= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set Reducer = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No post-test validation action performed")
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+
+Function Reducer2( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Reducer = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("cmbPipeID")
+            Reducer = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+            Set Reducer = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+          Set Reducer = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+'        Delay(200)
+'        If(objNameMapping.WaitAliasChild("dlgOpenPressTemp", 60).WaitProperty("Exists", true, 10)) Then
+'          'objNameMapping.dlgOpenPressTemp.
+'          objNameMapping.dlgOpenPressTemp.SetFocus
+'          objNameMapping.dlgOpenPressTemp.btnOK.Click()
+'          Log.Message("Operating Pressure&Temperature dialog closed with default values")
+'        End If
+
+        PopLogFolder
+    End Select
+End Function
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the Flange dialog   
+' Remarks: Done
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.objRow
+'           objRow:       Flange table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey:      Flange dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function Flange(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Flange= arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            Flange= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+
+   Select Case VerificationType
+            
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set Flange= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set Flange = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set dlgRun = objNameMapping.dlgRun
+                  strHotKey = "IR"
+                  objNameMapping.wndAutoPIPE.Keys(strHotKey)
+                      If(objNameMapping.WaitAliasChild("dlgRun", 6000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.btnOk.Click()
+                      Log.Message("Inserted Run with default values")
+                  End If 
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+
+Function Flange2( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Flange = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Flange = arrSkipList
+      End Select
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+          Set Flange = objActionSchema
+
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+            Set Flange = objVerifySchema
+          
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Set dlgRun = objNameMapping.dlgRun
+                  strHotKey = "IR"
+                  objNameMapping.wndAutoPIPE.Keys(strHotKey)
+                      If(objNameMapping.WaitAliasChild("dlgRun", 6000).WaitProperty("Exists", true, 10)) Then
+                      dlgRun.btnOk.Click()
+                      Log.Message("Inserted Run with default values")
+                  End If   
+        PopLogFolder
+    End Select
+End Function
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "Valve" dialog   
+' Remarks:
+' Parameters:
+'           
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       Flange table row object
+'           strOpenDialog:  Open dialog by shortcut key or by Ribbon click 
+'           strHotKey:      Valve dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Function Valve(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Valve= arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            Valve= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+
+   Select Case VerificationType
+            
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set Valve= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set Valve = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No post-test validation action performed")
+     'CASE  ACTION
+       Case Else 
+       Log.Message("No post-test validation action performed")
+  
+
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+
+Function Valve2( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Valve = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Valve = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+            Set Valve = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+          Set Valve = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+'               Set dlgRun = objNameMapping.dlgRun
+'                  strHotKey = "IR"
+'                  objNameMapping.wndAutoPIPE.Keys(strHotKey)
+'                      If(objNameMapping.WaitAliasChild("dlgRun", 6000).WaitProperty("Exists", true, 10)) Then
+'                      dlgRun.btnOk.Click()
+'                      Log.Message("Inserted Run with default values")
+'                  End If   
+
+        PopLogFolder
+    End Select
+End Function
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the FlexibleJoint dialog   
+' Remarks: Done
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       FlexibleJoint table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey:      FlexibleJoint dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function FlexibleJoint(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("drpJointEndType","chkFlangeBothSides")
+            FlexibleJoint= arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            FlexibleJoint= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+
+   Select Case VerificationType
+            
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set FlexibleJoint= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set FlexibleJoint = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No post-test validation action performed")
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+
+Function FlexibleJoint2( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            FlexibleJoint = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("drpJointEndType","chkFlangeBothSides")
+            FlexibleJoint = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set FlexibleJoint = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set FlexibleJoint = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the Nozzle dialog   
+' Remarks: Done
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       Nozzle table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey:      Nozzle dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function Nozzle(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Nozzle= arrSkipList
+       Case else
+            arrSkipList = Array("TestCase")
+            Nozzle= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+   Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set Nozzle= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set Nozzle = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No post-test validation action performed")
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+Function Nozzle2( Action, objData, FieldName , VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Nozzle = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Nozzle = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+Set objPreTestModifySchema = CreateObject("Scripting.Dictionary")
+          strFlexibilityMethod = objData.Item("drpFlexibilityMethod")
+          
+          If strFlexibilityMethod = "ASME" Then
+            objPreTestModifySchema.Add "intLengthL1", "intVesselLengthL1"
+          
+          ElseIf strFlexibilityMethod = "API 650" Then
+            objPreTestModifySchema.Add "strReinfOnNozzleShell", "strConfiguration"
+            objPreTestModifySchema.Add "intNozzleHeight", "intVesselLengthL1"
+            objPreTestModifySchema.Add "intFillingHeight", "intSlopOffset"
+            objPreTestModifySchema.Add "strVesselAtNearFarEnd", "intSlopAngle"
+            objPreTestModifySchema.Add "strVesselAtNearFarEnd", "intSlopAngle"
+            objPreTestModifySchema.Add "intLiquidSpGr", "strRad"
+            objPreTestModifySchema.Add "intInclineX", "intInclineY"
+            objPreTestModifySchema.Add "intInclineY", "intInclineZ"
+            objPreTestModifySchema.Add "intInclineZ", "intInclineZ1"            
+
+          ElseIf strFlexibilityMethod = "WRC 297" Then
+            objPreTestModifySchema.Add "intVesselLengthL1", "strConfiguration"
+            objPreTestModifySchema.Add "intVesselLengthL2", "intVesselLengthL1"
+            objPreTestModifySchema.Add "strRad", "intSlopOffset"
+            objPreTestModifySchema.Add "strCir", "intSlopAngle"
+            objPreTestModifySchema.Add "strLong", "strRad"
+            objPreTestModifySchema.Add "intInclineX", "strCir"
+            objPreTestModifySchema.Add "intInclineY", "strLong"
+            objPreTestModifySchema.Add "intInclineZ", "intInclineX"            
+            
+          ElseIf strFlexibilityMethod = "Bijlaard" Then
+            objPreTestModifySchema.Add "intVesselLengthL1", "strConfiguration"
+            objPreTestModifySchema.Add "intVesselLengthL2", "intVesselLengthL1"
+            objPreTestModifySchema.Add "strRad", "intSlopOffset"
+            objPreTestModifySchema.Add "strCir", "intSlopAngle"
+            objPreTestModifySchema.Add "strLong", "strRad"
+            objPreTestModifySchema.Add "intInclineX", "strCir"
+            objPreTestModifySchema.Add "intInclineY", "strLong"
+            objPreTestModifySchema.Add "intInclineZ", "intInclineX"            
+
+          ElseIf strFlexibilityMethod = "Spherical" Then
+            objPreTestModifySchema.Add "intNozzleDiameter", "strConfiguration"
+            objPreTestModifySchema.Add "strRad", "intVesselLengthL1"
+            objPreTestModifySchema.Add "intBend", "intSlopOffset"
+
+          ElseIf strFlexibilityMethod = "User" Then
+            objPreTestModifySchema.Add "strRad", "strConfiguration"
+            objPreTestModifySchema.Add "strCir", "intVesselLengthL1"
+            objPreTestModifySchema.Add "strLong", "intSlopOffset"
+            objPreTestModifySchema.Add "intInclineX", "intSlopAngle"
+            objPreTestModifySchema.Add "intInclineY", "strRad"
+            objPreTestModifySchema.Add "intInclineZ", "strCir"            
+          
+          End If 
+          'objPreTestModifySchema.Add "intSIFout", "intCrotchThickness"
+
+
+
+          Set Nozzle = objPreTestModifySchema
+
+    Case "PreTestModifyFields"
+          Dim strFlexibilityMethod
+          Dim objPreTestModifySchema
+          Set objPreTestModifySchema = CreateObject("Scripting.Dictionary")
+          strFlexibilityMethod = objData.Item("drpFlexibilityMethod")
+          
+          If strFlexibilityMethod = "ASME" Then
+            objPreTestModifySchema.Add "intLengthL1", "intVesselLengthL1"
+          
+          ElseIf strFlexibilityMethod = "API 650" Then
+            objPreTestModifySchema.Add "strReinfOnNozzleShell", "strConfiguration"
+            objPreTestModifySchema.Add "intNozzleHeight", "intVesselLengthL1"
+            objPreTestModifySchema.Add "intFillingHeight", "intSlopOffset"
+            objPreTestModifySchema.Add "strVesselAtNearFarEnd", "intSlopAngle"
+            objPreTestModifySchema.Add "strVesselAtNearFarEnd", "intSlopAngle"
+            objPreTestModifySchema.Add "intLiquidSpGr", "strRad"
+            objPreTestModifySchema.Add "intInclineX", "intInclineY"
+            objPreTestModifySchema.Add "intInclineY", "intInclineZ"
+            objPreTestModifySchema.Add "intInclineZ", "intInclineZ1"            
+
+          ElseIf strFlexibilityMethod = "WRC 297" Then
+            objPreTestModifySchema.Add "intVesselLengthL1", "strConfiguration"
+            objPreTestModifySchema.Add "intVesselLengthL2", "intVesselLengthL1"
+            objPreTestModifySchema.Add "strRad", "intSlopOffset"
+            objPreTestModifySchema.Add "strCir", "intSlopAngle"
+            objPreTestModifySchema.Add "strLong", "strRad"
+            objPreTestModifySchema.Add "intInclineX", "strCir"
+            objPreTestModifySchema.Add "intInclineY", "strLong"
+            objPreTestModifySchema.Add "intInclineZ", "intInclineX"            
+            
+          ElseIf strFlexibilityMethod = "Bijlaard" Then
+            objPreTestModifySchema.Add "intVesselLengthL1", "strConfiguration"
+            objPreTestModifySchema.Add "intVesselLengthL2", "intVesselLengthL1"
+            objPreTestModifySchema.Add "strRad", "intSlopOffset"
+            objPreTestModifySchema.Add "strCir", "intSlopAngle"
+            objPreTestModifySchema.Add "strLong", "strRad"
+            objPreTestModifySchema.Add "intInclineX", "strCir"
+            objPreTestModifySchema.Add "intInclineY", "strLong"
+            objPreTestModifySchema.Add "intInclineZ", "intInclineX"            
+
+          ElseIf strFlexibilityMethod = "Spherical" Then
+            objPreTestModifySchema.Add "intNozzleDiameter", "strConfiguration"
+            objPreTestModifySchema.Add "strRad", "intVesselLengthL1"
+            objPreTestModifySchema.Add "intBend", "intSlopOffset"
+
+          ElseIf strFlexibilityMethod = "User" Then
+            objPreTestModifySchema.Add "strRad", "strConfiguration"
+            objPreTestModifySchema.Add "strCir", "intVesselLengthL1"
+            objPreTestModifySchema.Add "strLong", "intSlopOffset"
+            objPreTestModifySchema.Add "intInclineX", "intSlopAngle"
+            objPreTestModifySchema.Add "intInclineY", "strRad"
+            objPreTestModifySchema.Add "intInclineZ", "strCir"            
+          
+          End If 
+          'objPreTestModifySchema.Add "intSIFout", "intCrotchThickness"
+
+
+
+          Set Nozzle = objPreTestModifySchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sub Nozzle1(objNameMapping, objRow, strOpenDialog, strHotKey)
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+    Set dlgNozzle = objNameMapping.dlgNozzle
+
+    Dim strFarEndPointName: strFarEndPointName = objRow.Item("strFarEndPointName")
+    Dim intLength : intLength = objRow.Item("intLength")
+    Dim chkApplyOffset :  chkApplyOffset = objRow.Item("chkApplyOffset")
+    Dim intVesselRadius : intVesselRadius = objRow.Item("intVesselRadius")
+    Dim intVesselThickness : intVesselThickness = objRow.Item("intVesselThickness")
+    Dim drpFlexibilityMethod: drpFlexibilityMethod = objRow.Item("drpFlexibilityMethod")
+    Dim strConfiguration: strConfiguration = objRow.Item("strConfiguration")
+    Dim intLengthL1 : intLengthL1 = objRow.Item("intLengthL1")
+    Dim intSlopOffset : intSlopOffset = objRow.Item("intSlopOffset")
+    Dim intSlopAngle : intSlopAngle = objRow.Item("intSlopAngle")
+   
+   Dim strReinfOnNozzleShell : strReinfOnNozzleShell = objRow.Item("strReinfOnNozzleShell")
+   Dim intNozzleHeight : intNozzleHeight = objRow.Item("intNozzleHeight")
+   Dim intSillingHeight : intSillingHeight = objRow.Item("intSillingHeight")
+   Dim strVesselAtNearFarEnd : strVesselAtNearFarEnd = objRow.Item("strVesselAtNearFarEnd")
+   Dim intLiquidSpGr : intLiquidSpGr = objRow.Item("intLiquidSpGr")
+   Dim intVesselLengthL1 : intVesselLengthL1 = objRow.Item("intVesselLengthL1")
+   Dim intVesselLengthL2 : intVesselLengthL2 = objRow.Item("intVesselLengthL2")
+   Dim intNozzleDiameter : intNozzleDiameter = objRow.Item("intNozzleDiameter")
+   Dim intBend : intBend = objRow.Item("intBend")
+   'Dim intSlopAngle : intSlopAngle = objRow.Item("intSlopAngle")
+    
+    Dim strRad : strRad = objRow.Item("strRad")
+    Dim intCir : intCir = objRow.Item("intCir")
+    Dim intLong : intLong = objRow.Item("intLong")
+    Dim drpVesselAxis: drpVesselAxis = objRow.Item("drpVesselAxis")
+    Dim intInclineX : intInclineX = objRow.Item("intInclineX")
+    Dim intInclineY : intInclineY = objRow.Item("intInclineY")
+    Dim intInclineZ : intInclineZ = objRow.Item("intInclineZ")
+    Dim intInclineZ1 : intInclineZ1 = objRow.Item("intInclineZ1")
+   
+  
+    Select Case strOpenDialog
+        Case "Shortcut"
+              'aqutils.Delay(200)
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+'field fldName
+    If(strFarEndPointName <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldFarEndPointName.Keys(strFarEndPointName)
+          Log.Message("Entered " & strFarEndPointName & " in the 'intFIELDNAME' field")
+        End If
+    End If 
+
+'field Length
+    If(intLength <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldLength.Keys(intLength)
+          Log.Message("Entered " & intLength & " in the 'Length' field")
+        End If
+    End If 
+'Checkbox Apply Offset
+    If(chkApplyOffset  =  "1") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.chkboxApplyOffset.Click()
+          Log.Message("Set 'Apply Offset' checkbox")
+        End If
+    End If
+'field Vessel Radius
+    If(intVesselRadius <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldVesselRadius.Keys(intVesselRadius)
+          Log.Message("Entered " & intVesselRadius & " in the 'Vessel Radius' field")
+        End If
+    End If 
+
+'field Vessel Thickness
+    If(intVesselThickness <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldVesselThickness.Keys(intVesselThickness)
+          Log.Message("Entered " & intVesselThickness & " in the 'Vessel Thickness' field")
+        End If
+    End If
+'Dropdown Flexibility Method
+    If(drpFlexibilityMethod  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.drpdwnFlexibilityMethod.Click()
+          objNameMapping.lstItems.ClickItem(drpFlexibilityMethod)
+          Log.Message("Selected " & drpFlexibilityMethod & " from 'Flexibility Method' drop-down")
+        End If
+    End If   
+'field Configuration
+    If(strConfiguration <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldConfiguration.Keys(strConfiguration)
+          Log.Message("Entered " & strConfiguration & " in the 'Configuration' field")
+        End If
+    End If  
+'field LengthL1
+    If(intLengthL1 <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldLengthL1.Keys(intLengthL1)
+          Log.Message("Entered " & intLengthL1 & " in the 'LengthL1' field")
+        End If
+    End If  
+'field Slop Offset
+    If(intSlopOffset <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldSlopOffset.Keys(intSlopOffset)
+          Log.Message("Entered " & intSlopOffset & " in the 'Slop Offset' field")
+        End If
+    End If
+ 'field Slop Angle
+    If(intSlopAngle <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldSlopAngle.Keys(intSlopAngle)
+          Log.Message("Entered " & intSlopAngle & " in the 'Slop Angle' field")
+        End If
+    End If    
+
+
+'field Reinf On Nozzle/Shell
+    If(strReinfOnNozzleShell <> "NA"  and drpFlexibilityMethod = "API 650") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldConfiguration.Keys(strReinfOnNozzleShell)
+          Log.Message("Entered " & strReinfOnNozzleShell & " in the 'Reinf On Nozzle/Shell' field")
+        End If
+    End If
+
+'field Nozzle Height
+    If(intNozzleHeight <> "NA" and drpFlexibilityMethod = "API 650") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldLengthL1.Keys(intNozzleHeight)
+          Log.Message("Entered " & intNozzleHeight & " in the 'Nozzle Height' field")
+        End If
+    End If
+
+'field Silling Height
+    If(intSillingHeight <> "NA" and drpFlexibilityMethod = "API 650") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldSlopOffset.Keys(intSillingHeight)
+          Log.Message("Entered " & intSillingHeight & " in the 'Silling Height' field")
+        End If
+    End If
+'field Vessel At Near/Far End
+    If(strVesselAtNearFarEnd <> "NA" and drpFlexibilityMethod = "API 650") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldSlopAngle.Keys(strVesselAtNearFarEnd)
+          Log.Message("Entered " & strVesselAtNearFarEnd & " in the 'Vessel At Near/Far End' field")
+        End If
+    End If
+'field intLiquidSpGr
+    If(intLiquidSpGr <> "NA" and drpFlexibilityMethod = "API 650") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldRad.Keys(intLiquidSpGr)
+          Log.Message("Entered " & intLiquidSpGr & " in the 'Liquid Sp. Gr.' field")
+        End If
+    End If
+'field Vessel Length L1
+    If(intVesselLengthL1 <> "NA" and drpFlexibilityMethod = "WRC 297" OR drpFlexibilityMethod = "Bijlaard") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldConfiguration.Keys(intVesselLengthL1)
+          Log.Message("Entered " & intVesselLengthL1 & " in the 'Vessel Length L1' field")
+        End If
+    End If
+'field Vessel Length L2
+    If(intVesselLengthL2 <> "NA"  and drpFlexibilityMethod = "WRC 297" OR drpFlexibilityMethod = "Bijlaard") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldLengthL1.Keys(intVesselLengthL2)
+          Log.Message("Entered " & intVesselLengthL2 & " in the 'Vessel Length L2' field")
+        End If
+    End If
+'field Nozzle Diameter
+    If(intNozzleDiameter <> "NA"  and drpFlexibilityMethod = "Spherical") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.fldConfiguration.Keys(intNozzleDiameter)
+          Log.Message("Entered " & intNozzleDiameter & " in the 'Nozzle Diameter' field")
+        End If
+    End If
+'field Nozzle stiffness Bend
+    If(intBend <> "NA")Then
+      'Write to "Bend" field
+       If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists",true,10))Then
+          dlgNozzle.fldSlopOffset.Keys(intBend)
+          Log.Message("Entered " & intBend & "in the Nozzle stiffnes 'Bend' field")
+       End if
+    End If
+
+    
+'field Rad
+    If(intRad <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          
+          Select Case  drpFlexibilityMethod
+          Case "ASME"          
+          dlgNozzle.fldRad.Keys(intRad)
+          Case "API 650"
+          dlgNozzle.fldCir.Keys(intRad)
+          Case "WRC 297"
+          dlgNozzle.fldSlopOffset.Keys(intRad)
+          Case "Bijlaard"
+          dlgNozzle.fldSlopOffset.Keys(intRad)
+          Case "Spherical" 
+          dlgNozzle.fldLengthL1.Keys(intRad)
+          Case "User"
+          dlgNozzle.fldConfiguration.Keys(intRad)
+          End Select 
+          Log.Message("Entered " & intRad & " in the 'Rad' field")
+        End If
+    End If     
+'field Cir
+    If(intCir <> "NA") Then
+        'Write to "Cir" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+       
+          Select Case  drpFlexibilityMethod
+          Case "ASME"          
+          dlgNozzle.fldCir.Keys(intCir)
+          Case "API 650"
+          dlgNozzle.fldLong.Keys(intCir)
+          Case "WRC 297"
+          dlgNozzle.fldSlopAngle.Keys(intCir)
+          Case "Bijlaard"
+          dlgNozzle.fldSlopAngle.Keys(intCir)
+'          Case "Spherical" 
+'          dlgNozzle.fldLengthL1.Keys(intRad)
+          Case "User"
+          dlgNozzle.fldLengthL1.Keys(intCir)
+          End Select 
+ 
+         Log.Message("Entered " & intCir & " in the 'Cir' field")
+        End If
+    End If
+'field intLong
+    If(intLong <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          Select Case  drpFlexibilityMethod
+          Case "ASME"          
+          dlgNozzle.fldLong.Keys(intLong)
+          Case "API 650"
+          dlgNozzle.fldInclineX.Keys(intLong)
+          Case "WRC 297"
+          dlgNozzle.fldRad.Keys(intLong)
+          Case "Bijlaard"
+          dlgNozzle.fldRad.Keys(intLong)
+'          Case "Spherical" 
+'          dlgNozzle.fldLengthL1.Keys(intLong)
+          Case "User"
+          dlgNozzle.fldSlopOffset.Keys(intLong)
+          End Select 
+          
+          dlgNozzle.fldLong.Keys(intLong)
+          Log.Message("Entered " & intLong & " in the 'Long' field")
+        End If
+    End If
+'Select Vessel Axis
+    If(drpVesselAxis  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgNozzle.drpdwnVesselAxis.Click()
+          objNameMapping.lstItems.ClickItem(drpVesselAxis)
+          Log.Message("Selected " & drpVesselAxis & " from 'Vessel Axis' drop-down")
+        End If
+    End If
+'field Incline X
+    If(intInclineX <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          
+          Select Case  drpFlexibilityMethod
+          Case "ASME"          
+          dlgNozzle.fldInclineX.Keys(intInclineX)
+          Case "API 650"
+          dlgNozzle.fldInclineY.Keys(intInclineX)
+          Case "WRC 297"
+          dlgNozzle.fldCir.Keys(intInclineX)
+          Case "Bijlaard"
+          dlgNozzle.fldCir.Keys(intInclineX)
+          Case "User"
+          dlgNozzle.fldSlopAngle.Keys(intInclineX)
+          End Select 
+          
+          Log.Message("Entered " & intInclineX & " in the 'Incline X' field")
+        End If
+    End If   
+'field Incline Y
+    If(intInclineY <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          
+          Select Case  drpFlexibilityMethod
+          Case "ASME"          
+          dlgNozzle.fldInclineX.Keys(intInclineY)
+          Case "API 650"
+          dlgNozzle.fldInclineZ.Keys(intInclineY)
+          Case "WRC 297"
+          dlgNozzle.fldLong.Keys(intInclineY)
+          Case "Bijlaard"
+          dlgNozzle.fldLong.Keys(intInclineY)
+          Case "User"
+          dlgNozzle.fldRad.Keys(intInclineY)
+          End Select 
+          
+          Log.Message("Entered " & intInclineY & " in the 'Incline Y' field")
+        End If
+    End If 
+'field Incline Z
+    If(intInclineZ <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgNozzle", 60000).WaitProperty("Exists", true, 10)) Then
+          
+          Select Case  drpFlexibilityMethod
+          Case "ASME"          
+          dlgNozzle.fldInclineZ.Keys(intInclineZ)
+          Case "API 650"
+          dlgNozzle.fldInclineZ1.Keys(intInclineZ)
+          Case "WRC 297"
+          dlgNozzle.fldInclineX.Keys(intInclineZ)
+          Case "Bijlaard"
+          dlgNozzle.fldInclineX.Keys(intInclineZ)
+          Case "User"
+          dlgNozzle.fldCir.Keys(intInclineZ)
+          End Select 
+          Log.Message("Entered " & intInclineZ & " in the 'Incline Z' field")
+        End If
+    End If
+
+Call dlgNozzle.btnOK.Click()
+    
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the Segment dialog   
+' Remarks: Done
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:       Segment table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey:      Segment dialog shortcut key
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Function Segment(Action, objData, FieldName, VerificationType, objNameMapping)
+Dim Result
+Dim objRowModify
+Dim arrSkipList
+
+Select Case Action
+  Case "RemoveFields"
+      Select Case VerificationType
+       'CASE VALIDATION 
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Segment= arrSkipList
+       Case else 'CASE  ACTION
+            arrSkipList = Array("TestCase")
+            Segment= arrSkipList
+      End Select
+   
+  Case "ModifyFields"
+
+   Select Case VerificationType
+            
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set Segment= objVerifySchema
+      'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set Segment = objVerifySchema1
+    End Select
+
+  Case "PreAction"
+    AppendLogFolder("Pre-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No pre-test validation action performed")
+    'CASE  ACTION
+       Case Else 
+        Log.Message("No pre-test action performed")
+     End Select
+    PopLogFolder  
+  
+  Case "PostAction"
+    AppendLogFolder("Post-Test Actions")
+    Select Case VerificationType         
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Log.Message("No post-test validation action performed")
+     'CASE  ACTION
+       Case Else 
+        Log.Message("No post-test action performed")
+     End Select 
+   PopLogFolder
+   End Select
+  End Function
+
+Function Segment2( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            Segment = arrSkipList
+        Case "dialogvalidation"
+            arrSkipList = Array("TestCase")
+            Segment = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set Segment = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set Segment = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostAction"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+Sub Segment1(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+    Set dlgSegment = objNameMapping.dlgSegment
+
+    Dim strSegmentName: strSegmentName = objRow.Item("strSegmentName")
+    Dim strNameFirstPoint: strNameFirstPoint = objRow.Item("strNameFirstPoint")
+    Dim strOffsetFrom: strOffsetFrom = objRow.Item("strOffsetFrom")
+    
+    Dim intOffsetDX : intOffsetDX = objRow.Item("intOffsetDX") 
+    Dim intOffsetDY : intOffsetDY = objRow.Item("intOffsetDY") 
+    Dim intOffsetDZ : intOffsetDZ = objRow.Item("intOffsetDZ")
+    
+    Dim cmbPipeID: cmbPipeID = objRow.Item("cmbPipeID") 
+    
+    
+
+    Select Case strOpenDialog
+        Case "Shortcut"
+              'aqutils.Delay(200)
+              objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+
+
+'field Segment Name
+    If(strSegmentName <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgSegment", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSegment.fldSegmentName.Keys(strSegmentName)
+          Log.Message("Entered " & strSegmentName & " in the 'strSegmentName' field")
+        End If
+    End If 
+'field Name First Point
+    If(strNameFirstPoint <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgSegment", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSegment.fldNameFirstPoint.Keys(strNameFirstPoint)
+          Log.Message("Entered " & strNameFirstPoint & " in the 'strNameFirstPoint' field")
+        End If
+    End If 
+'field Offset From Point
+    If(strOffsetFrom <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgSegment", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSegment.fldOffsetFromPoint.Keys(strOffsetFrom)
+          Log.Message("Entered " & strOffsetFrom & " in the 'strOffsetFrom' field")
+        End If
+    End If 
+'field fldName
+    If(intOffsetDX <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgSegment", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSegment.fldOffsetDX.Keys(intOffsetDX)
+          Log.Message("Entered " & intOffsetDX & " in the 'intOffsetDX' field")
+        End If
+    End If 
+'field fldName
+    If(intOffsetDY <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgSegment", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSegment.fldOffsetDY.Keys(intOffsetDY)
+          Log.Message("Entered " & intOffsetDY & " in the 'intOffsetDY' field")
+        End If
+    End If 
+'field OffsetDZ
+    If(intOffsetDZ <> "NA") Then
+        'Write to "Max" field
+        If(objNameMapping.WaitAliasChild("dlgSegment", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSegment.fldOffsetDZ.Keys(intOffsetDZ)
+          Log.Message("Entered " & intOffsetDZ & " in the 'intOffsetDZ' field")
+        End If
+    End If 
+'field PipeID
+    If(cmbPipeID  <> "NA") Then
+        'Write to "Name Of Point" fieldna
+        If(objNameMapping.WaitAliasChild("dlgSegment", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgSegment.cmbboxPipeID.fldPipeID.Keys(cmbPipeID)
+          Log.Message("Entered " & cmbPipeID  & " in the 'cmbPipeID' field")
+        End If
+    End If    
+
+Call dlgSegment.btnOK.Click()
+    
+End Sub
+

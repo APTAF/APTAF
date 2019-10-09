@@ -1,0 +1,451 @@
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                                         BENTLEY                      
+11:16 AM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.12                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                                         BENTLEY                      
+11:16 AM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : B31-1                                           
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2004                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   68.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-04 
+ 
+          MODEL REVISION NUMBER  :     3
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                                         BENTLEY                      
+11:16 AM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    5                      
+     Pipe Properties.................................................................    6                      
+     Material Properties.............................................................    7                      
+     Material Allowables.............................................................    8                      
+     Temperature and Pressure........................................................    9                      
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 4.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6, Material= A369-FP12, Poisson= 0.300, Nom Size= 6 in, OD= 6.625 inch, Sch= 10S,                   
+   Wall Thk= 0.134 inch, Mill= 0.017 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                          
+   Pipe Unit Wgt= 9.28 lb/ft, Insul Thk= 0 inch, Cladding Thickness = 0 inch, Lining Thk= 0 inch,               
+   Long Weld factor= 1.00, Circ Weld factor= 1.00, Long Modulus= 29.70824 E6 psi, Hoop Modulus= 29.70824 E6 psi,
+   Shear Modulus= 11.42624 E6 psi, Sc= 15000.0 psi, Syc= 32000.0 psi            
+ 
+ OPERATING DATA:                                                                
+   P1= 0 psi, P2= 10.00 psi, P3= 20.00 psi, T1= 70.00 deg F, T2= 80.00 deg F, T3= 90.00 deg F,                  
+   Exp1= 0.01471 in/100ft, Exp2= 0.09163 in/100ft, Exp3= 0.16855 in/100ft, E1= 29.70000 E6 psi,                 
+   E2= 29.64615 E6 psi, E3= 29.59231 E6 psi, Sh1= 15000.00 psi, Sh2= 15000.00 psi, Sh3= 15000.00 psi            
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A10, DX= 1.38 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 300, Length= 1.38 ft, Valve weight = 500 lb, Surface factor= 5.10, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 4.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A01, Flange= SLIP-ON, Rating= 150, Flange Weight= 27.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   A01 M, Coordinates, X= 4.69 ft, Y= 0.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A10 to A02, DX= 2.62 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A10, Coordinates, X= 5.38 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A10, Flange= SLIP-ON, Rating= 150, Flange Weight= 27.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DY= 4.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= A02, Near= A02 N, Far= A02 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 3.82                  
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 8.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A02 N, Coordinates, X= 7.25 ft, Y= 0.00 ft, Z= 0.00 ft                       
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   A02 F, Coordinates, X= 8.00 ft, Y= 0.75 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A03 to A04, DY= 4.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A03, Coordinates, X= 8.00 ft, Y= 4.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A04 to A05, DY= 1.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= 8.00 ft, Y= 8.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A05 to A06, DX= 4.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= A05, Near= A05 N, Far= A05 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 3.82                  
+ 
+ POINT DATA:                                                                    
+   A05, Coordinates, X= 8.00 ft, Y= 9.00 ft, Z= 0.00 ft                         
+   A05 N, Coordinates, X= 8.00 ft, Y= 8.25 ft, Z= 0.00 ft                       
+   A05 F, Coordinates, X= 8.75 ft, Y= 9.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A06 to A07, DX= 1.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A06, Coordinates, X= 12.00 ft, Y= 9.00 ft, Z= 0.00 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From A07 to A08, DZ= -4.00 ft                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= A07, Near= A07 N, Far= A07 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 3.82                  
+ 
+ POINT DATA:                                                                    
+   A07, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= 0.00 ft                        
+   A07 N, Coordinates, X= 12.25 ft, Y= 9.00 ft, Z= 0.00 ft                      
+   A07 F, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -0.75 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From A08 to A09, DZ= -4.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A08):                                      
+   B16.9 welding tee, SIF= 2.81                                                 
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+   A09, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -8.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   A08, V-Stop, Support Id= A08  1, Connected to Ground, Comp.Wt = 0.000 lb     
+   A09, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A08 to B01, DX= 4.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A08):                                      
+   B16.9 welding tee, SIF= 2.81                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 9.28 lb/ft         
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+   B01, Coordinates, X= 17.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   B01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From C00 to C01, DX= -3.00 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 9.28 lb/ft         
+ 
+ POINT DATA:                                                                    
+   C00, Coordinates, X= 13.00 ft, Y= 11.00 ft, Z= -10.50 ft                     
+ 
+ SUPPORT DATA:                                                                  
+   C00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From C01 to C02, DX= -2.00 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   C01, Coordinates, X= 10.00 ft, Y= 11.00 ft, Z= -10.50 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From C02 to C03, DZ= 2.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= C02, Near= C02 N, Far= C02 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 3.82                  
+ 
+ POINT DATA:                                                                    
+   C02, Coordinates, X= 8.00 ft, Y= 11.00 ft, Z= -10.50 ft                      
+   C02 N, Coordinates, X= 8.75 ft, Y= 11.00 ft, Z= -10.50 ft                    
+   C02 F, Coordinates, X= 8.00 ft, Y= 11.00 ft, Z= -9.75 ft                     
+   C03, Coordinates, X= 8.00 ft, Y= 11.00 ft, Z= -8.50 ft                       
+ 
+ SUPPORT DATA:                                                                  
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   C03, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 30 + 0 + 0 = 30          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+          909.7 lb     +         0.0 lb     =         909.7 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ A00            0.00        0.00        0.00                                    
+ A01            4.00        0.00        0.00                                    
+ A01 M          4.69        0.00        0.00                                    
+ A10            5.38        0.00        0.00                                    
+ A02 N          7.25        0.00        0.00                                    
+ A02            8.00        0.00        0.00                                    
+ A02 F          8.00        0.75        0.00                                    
+ A03            8.00        4.00        0.00                                    
+ A04            8.00        8.00        0.00                                    
+ A05 N          8.00        8.25        0.00                                    
+ A05            8.00        9.00        0.00                                    
+ A05 F          8.75        9.00        0.00                                    
+ A06           12.00        9.00        0.00                                    
+ A07 N         12.25        9.00        0.00                                    
+ A07           13.00        9.00        0.00                                    
+ A07 F         13.00        9.00       -0.75                                    
+ A08           13.00        9.00       -4.00                                    
+ A09           13.00        9.00       -8.00                                    
+ 
+ *** SEGMENT B                                                                  
+ A08           13.00        9.00       -4.00                                    
+ B01           17.00        9.00       -4.00                                    
+ 
+ *** SEGMENT C                                                                  
+ C00           13.00       11.00      -10.50                                    
+ C01           10.00       11.00      -10.50                                    
+ C02 N          8.75       11.00      -10.50                                    
+ C02            8.00       11.00      -10.50                                    
+ C02 F          8.00       11.00       -9.75                                    
+ C03            8.00       11.00       -8.50                                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    ZL/ Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC/                       
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 6              6  6.625 0.134    0 0.02    0    0     0    0.000   9.28     0  9.28 1.00                       
+ A369-FP12    10S                                           0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ A369-FP12   6           489.0  0.30    68.0   29.708   29.708   11.426                              
+                                        70.0   29.700                     0.0147
+                                        80.0   29.646                     0.0916
+                                        90.0   29.592                     0.1686
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield                                                                    
+    Name     Pipe ID  deg F   psi      psi                                                                      
+------------ -------- ------- -------- --------                                                                 
+ A369-FP12   6           68.0  15000.0  32000.0
+                         70.0  15000.0
+                         80.0  15000.0
+                         90.0  15000.0
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016                                                        BENTLEY                                       
+11:16 AM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A 
+ A00   T1         0  70.00     0.015     29.700     15000                     
+       T2     10.00  80.00     0.092     29.646     15000                     
+       T3     20.00  90.00     0.169     29.592     15000                     
+ A09    Same as previous point.          
+ 
+ *** SEGMENT B 
+ A08   T1         0  70.00     0.015     29.700     15000                     
+       T2     10.00  80.00     0.092     29.646     15000                     
+       T3     20.00  90.00     0.169     29.592     15000                     
+ B01    Same as previous point.          
+ 
+ *** SEGMENT C 
+ C00   T1         0  70.00     0.015     29.700     15000                     
+       T2     10.00  80.00     0.092     29.646     15000                     
+       T3     20.00  90.00     0.169     29.592     15000                     
+ C03    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+

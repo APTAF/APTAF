@@ -1,0 +1,35 @@
+﻿Function Main(strDlgNameMap,objData, strVerificationType, objNameMapping)
+  Select Case strDlgNameMap
+    Case "dlgZZZ"
+      Main = ZZZ(strDlgNameMap,objData, strVerificationType, objNameMapping)
+  'Open,Bend,Flange,FlexibleJoint,Nozzle,Reducer,Run,Segment,Tee,Valve
+  'PipeProperties,OperatingPT,RigidOptionsOverRange
+  'Anchor,Support
+  'JointTypeAndUserSIF,AdditionalWeight,ConcentratedForce,ImposedDisplacement,HydrodynamicData,CutShort,UserWeldEfficiencyFactor,EarthquakeScaleFactor
+   '--continued--ReferencePoint,
+     'Beam
+   Case Else
+       Dim objVerifySchema
+       Set objVerifySchema = CreateObject("Scripting.Dictionary")
+       Set Main= objVerifySchema
+  End Select 
+End Function
+
+''''''''''''''''''''''''' PipingComponents '''''''''''''''''''''''''
+
+''''''''''''''''''''''''' ZZZ '''''''''''''''''''''''''
+
+
+Function ZZZ(strDlgNameMap,objData, strVerificationType, objNameMapping)
+Dim objRowModify
+Select Case strVerificationType           
+    'CASE VALIDATION 
+      Case "dialogvalidation"
+        Set objVerifySchema = CreateObject("Scripting.Dictionary")
+        Set ZZZ= objVerifySchema
+    'CASE  ACTION
+      Case Else
+        Set objVerifySchema1 = CreateObject("Scripting.Dictionary")
+        Set ZZZ = objVerifySchema1
+    End Select
+End Function

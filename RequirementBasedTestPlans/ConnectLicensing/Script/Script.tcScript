@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Common" />
+		<folder name="ConnectLicense">
+			<child name="PreActivation" key="{04796FBB-562A-427F-B85C-7B4C9F8FA650}" path="PreActivation.svb" />
+			<child name="ConnectLicensing" key="{3AB0E15F-F513-4150-9FEF-EEF9EA646486}" path="ConnectLicensing.svb" />
+			<child name="AutoPIPE" key="{675581C7-64D1-4BCF-A8B9-342CD4A6D02A}" path="AutoPIPE.svb" />
+			<child name="SupportingRoutines" key="{AC7B72FB-3D27-4600-A8A6-850DD57ACBBD}" path="SupportingRoutines.svb" />
+		</folder>
+	</children>
+</Root>

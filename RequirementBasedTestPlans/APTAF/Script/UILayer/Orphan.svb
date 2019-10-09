@@ -1,0 +1,420 @@
+﻿'USEUNIT Main
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function ImportCaesarII( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            ImportCaesarII = arrSkipList
+        Case "fieldverification"
+            arrSkipList = Array("TestCase")
+            ImportCaesarII = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set ImportCaesarII = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set ImportCaesarII = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "ZZZ" dialog   
+' Remarks:
+' Parameters:
+'           Action: RemoveFields, ModifyFields, PreTest, PostTest  
+'           objData       : zzz table row object
+'           strOpenDialog : By shortcut key or by Ribbon click 
+'           strHotKey     : zzz dialog shortcut key
+'           VerificationType : Positive, Report, Negative, Positive+Report,Image
+' Author:   ZZZ
+' Date:     Z/20ZZ
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+
+Function CaesarIIImportFlangeSettings( Action, objData, FieldName , VerificationType, objNameMapping)
+  Dim Result
+  Dim arrSkipList
+
+  Select Case Action
+    Case "RemoveFields"
+      Select Case VerificationType
+        Case "positive", "positive+report","negative", "report", "image"
+            arrSkipList = Array("TestCase")
+            CaesarIIImportFlangeSettings = arrSkipList
+        Case "fieldverification"
+            arrSkipList = Array("TestCase")
+            CaesarIIImportFlangeSettings = arrSkipList
+      End Select
+    
+    Case "ModifyFields"
+            Dim objVerifySchema
+            Set objVerifySchema = CreateObject("Scripting.Dictionary")
+'            objVerifySchema.Add "cmbRadius", "drpAddPointBeforeAfter"
+'            objVerifySchema.Add "drpBendType", "cmbRadius"    
+            Set CaesarIIImportFlangeSettings = objVerifySchema
+
+    Case "PreTestModifyFields"
+          Dim objActionSchema
+          Set objActionSchema = CreateObject("Scripting.Dictionary")
+'          Dim strTeeType : strTeeType = objData.Item("drpTypeOfTee")
+'          objActionSchema.Add "intSIFout", "intCrotchThickness"
+          Set CaesarIIImportFlangeSettings = objActionSchema
+
+    Case "PreTest"
+        AppendLogFolder("Pre-Test Actions")
+        Log.Message("No pre-test actions found")
+        PopLogFolder
+  
+    Case "PostTest"
+        AppendLogFolder("Post-Test Actions")
+        Log.Message("No post-test actions found")
+        PopLogFolder
+    End Select
+End Function
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ImportCeaserII" model dialog   
+' Remarks:
+' Parameters:
+'           
+'           ObjNameMapping: TestComplete name mapping for the app.
+'           objRowRun:    tblImportCeaserIINeutral table  object
+'           strOpenDialog:  By shortcut key or by Ribbon click
+'           strHotKey 
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub ImportCaesarII2(ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''' Delete
+Set ObjNameMapping = Aliases.autopipe
+'''''''''''''''''''
+ 
+'New Dialog will pop up which is dlgImportCeaserII    
+    Set dlgImportCeaserII = objNameMapping.dlgImportCeaserII    
+   
+    Dim drpAutoPIPEunits : drpAutoPIPEunits = "*"&objRow.Item("drpAutoPIPEunits")&"*"
+    Dim drpCeaserIIunits : drpCeaserIIunits = "*"&objRow.Item("drpCeaserIIunits")&"*"
+    
+    If((objNameMapping.WaitAliasChild("dlgImportCeaserII", 600).WaitProperty("Exists", true, 10)))Then
+    ' Then do not execute shortcut
+    Else
+      Select Case strOpenDialog
+          Case "Shortcut"
+                objNameMapping.wndAutoPIPE.Keys(strHotkey)
+          Case "Ribbon"
+              ' Ribbon is not accessable 
+      End Select
+    End If
+      
+
+'Set the file type in AutoPIPE units dropdown    
+    If(drpAutoPIPEunits <> "*NA*") Then
+     'Select the option provide in "AutoPIPE units:" drop down list'
+       If(objNameMapping.WaitAliasChild("dlgImportCeaserII", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgImportCeaserII.drpdwnAutoPIPEunits.Click()
+        objNameMapping.lstItems.ClickItem(drpAutoPIPEunits)
+        Log.Message("Selected " & drpAutoPIPEunits & "in the 'AutoPIPE units' drop down")
+       End If       
+    End If        
+'Set the file type in CeaserII units dropdown    
+    If(drpCeaserIIunits <> "*NA*") Then
+     'Select the option provide in "CeaserII units:" drop down list'
+       If(objNameMapping.WaitAliasChild("dlgImportCeaserII", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgImportCeaserII.drpdwnCeaserIIunits.Click()
+         objNameMapping.lstItems.ClickItem(drpCeaserIIunits)
+        Log.Message("Selected " & drpCeaserIIunits & "in the 'CeaserII units' drop down")
+       End If       
+    End If       
+    
+'Close Import Dialog by clicking open
+    Call dlgImportCeaserII.btnOK.Click()  
+    
+ End Sub   
+ 
+ '------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "CaesarIIImportFlangeSettings" model dialog   
+' Remarks:
+' Parameters:
+'           
+'           ObjNameMapping: TestComplete name mapping for the app.
+'           objRowRun:    tblImportCeaserIINeutral table  object
+'           strOpenDialog:  By shortcut key or by Ribbon click
+'           strHotKey 
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub CaesarIIImportFlangeSettings1(ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''' Delete
+Set ObjNameMapping = Aliases.autopipe
+'''''''''''''''''''
+'New Dialog will pop up which is dlgImportCeaserII    
+    Set dlgCaesarIIImportFlangeSettings = objNameMapping.dlgCaesarIIImportFlangeSettings
+    
+    Dim drpStandard : drpStandard = "*"&objRow.Item("drpStandard")&"*"
+    Dim drpFlangeType : drpFlangeType = "*"&objRow.Item("drpFlangeType")&"*"
+    Dim drpRating : drpRating = "*"&objRow.Item("drpRating")&"*"
+    Dim intNominalPipeSizeTolerance :  intNominalPipeSizeTolerance = objRow.Item("intNominalPipeSizeTolerance") 
+    Dim intLengthTolerance :  intLengthTolerance = objRow.Item("intLengthTolerance") 
+    Dim chkShowImportReport :  chkShowImportReport = objRow.Item("chkShowImportReport") 
+    Dim chkUseBothB16 :  chkUseBothB16 = objRow.Item("chkUseBothB16")   
+    
+
+       
+      If((objNameMapping.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 600).WaitProperty("Exists", true, 10)))Then
+    ' Then do not execute shortcut
+    Else
+      Select Case strOpenDialog
+          Case "Shortcut"
+                objNameMapping.wndAutoPIPE.Keys(strHotkey)
+          Case "Ribbon"
+              ' Ribbon is not accessable 
+      End Select
+    End If
+      
+'Set the file type in "Standard" dropdown    
+    If(drpStandard <> "*NA*") Then
+     'Select the option provide in "Standard:" drop down list'
+       If(objNameMapping.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgCaesarIIImportFlangeSettings.drpdwnStandard.Click()
+        objNameMapping.lstItems.ClickItem(drpStandard)
+        Log.Message("Selected " & drpStandard & "in the 'Standard' drop down")
+       End If       
+    End If      
+    
+'Set the file type in "Flange Type" dropdown    
+    If(drpFlangeType <> "*NA*") Then
+     'Select the option provide in "Flange Type:" drop down list'
+       If(objNameMapping.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgCaesarIIImportFlangeSettings.drpdwnFlangeType.Click()
+        objNameMapping.lstItems.ClickItem(drpFlangeType)
+        Log.Message("Selected " & drpFlangeType & "in the 'Flange Type' drop down")
+       End If       
+    End If    
+    
+'Set the file type in "Rating" dropdown    
+    If(drpRating <> "*NA*") Then
+     'Select the option provide in "Rating:" drop down list'
+       If(objNameMapping.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60000).WaitProperty("Exists", true, 10)) Then
+         dlgCaesarIIImportFlangeSettings.drpdwnRating.Click()
+        objNameMapping.lstItems.ClickItem(drpRating)
+        Log.Message("Selected " & drpRating & "in the 'Rating' drop down")
+       End If       
+    End If    
+    
+'Get Nominal Pipe Size Tolerance
+    If(intNominalPipeSizeTolerance <> "NA") Then
+     'Write to the "Nominal Pipe Size Tolerance" field
+        If(objNameMapping.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgCaesarIIImportFlangeSettings.fldNominalPipeSizeTolerance.Keys(intNominalPipeSizeTolerance)
+          Log.Message("Entered " & intNominalPipeSizeTolerance & " in the 'Nominal Pipe Size Tolerance' combo-box")
+          
+        End If       
+    End If
+    
+'Get Length Tolerance
+    If(intLengthTolerance <> "NA") Then
+     'Write to the "Length Tolerance" field
+        If(objNameMapping.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgCaesarIIImportFlangeSettings.fldLengthTolerance.Keys(intLengthTolerance)
+          Log.Message("Entered " & intLengthTolerance & " in the 'Length Tolerance' combo-box")
+        End If       
+    End If  
+
+'Show Import Report field 
+   If(chkShowImportReport = "1") Then
+     'Change the checked condition of "Show Import Report"
+      If(objNameMapping.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgCaesarIIImportFlangeSettings.chkboxShowImportReport.Click()
+        Log.Message("Check box 'Show Import Report' check condition changed ")  
+      End If
+   End If
+        
+'Use Both B16 field 
+   If(chkUseBothB16 = "1") Then
+     'Change the checked condition of "Use Both B16"
+      If(objNameMapping.WaitAliasChild("dlgCaesarIIImportFlangeSettings", 60000).WaitProperty("Exists", true, 10)) Then 
+        dlgCaesarIIImportFlangeSettings.chkboxUseBothB16.Click()
+        Log.Message("Check box 'Use Both B16' check condition changed ")  
+      End If
+   End If
+   
+'Close Import Dialog by clicking open
+    Call dlgCaesarIIImportFlangeSettings.btnOK.Click()  
+            
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: UI Mapping of the "Paste" dialog   
+' Remarks:
+' Parameters:
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:    Run table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+'           strHotKey: Run dialog shortcut key
+' Author:   
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Paste(objNameMapping, objRow, strOpenDialog, strHotKey)
+
+''''''''''''''' Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+    Set dlgPaste = objNameMapping.dlgPaste
+    
+    
+   
+    Dim intZZZ : intZZZ = objRow.Item("intZZZ")
+    Dim chkZZZ : chkZZZ = objRow.Item("chkZZZ")
+    
+
+    Select Case strOpenDialog
+        Case "Shortcut"
+           'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)
+       Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+      'Get value to enter in the "ZZZ" field
+      If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          If (intDX  <> "NA") Then
+              'Write to "Name Of Point" field
+              If(objNameMapping.WaitAliasChild("dlgPaste", 60000).WaitProperty("Exists", true, 10)) Then
+                dlgPaste.fldDX.Keys(intDX)
+                dlgPaste.fldDX.Keys("[Tab]")
+                Log.Message("Entered " & intDX  & " in the 'ZZZ' field")
+              End If
+          End If       
+      End If
+      'Get value to enter in the "ZZZ" field
+      If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          If (intDY  <> "NA") Then
+              'Write to "Name Of Point" field
+              If(objNameMapping.WaitAliasChild("dlgPaste", 60000).WaitProperty("Exists", true, 10)) Then
+                dlgPaste.fldDY.Keys(intDY)
+                dlgPaste.fldDY.Keys("[Tab]")
+                Log.Message("Entered " & intDY  & " in the 'ZZZ' field")
+              End If
+          End If       
+      End If
+      'Get value to enter in the "ZZZ" field
+      If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          If (intDZ  <> "NA") Then
+              'Write to "Name Of Point" field
+              If(objNameMapping.WaitAliasChild("dlgPaste", 60000).WaitProperty("Exists", true, 10)) Then
+                dlgPaste.fldDZ.Keys(intDZ)
+                dlgPaste.fldDZ.Keys("[Tab]")
+                Log.Message("Entered " & intDZ  & " in the 'ZZZ' field")
+              End If
+          End If       
+      End If
+
+      'Checkbox ZZZ
+      If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          If(chkZZZ = "1") Then
+             If(objNameMapping.WaitAliasChild("dlgPaste", 60000).WaitProperty("Exists", true, 10)) Then
+                dlgPaste.chkboxZZZ.click()               
+'                Select Case strHotKey
+'                Case "ZZ"
+'                      dlgPaste.chkboxZZZ.click()
+'                Case "ZZ"
+'                      dlgPaste.chkboxZZZ.Click()
+'                End Select
+                Log.Message("Checkbox ZZZ status been changed")
+              End If
+          End If        
+      End If
+           If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          If(chkUseActualCoordinates = "1") Then
+             If(objNameMapping.WaitAliasChild("dlgPaste", 60000).WaitProperty("Exists", true, 10)) Then
+                dlgPaste.chkboxUseActualCoordinates.click()               
+'                Select Case strHotKey
+'                Case "ZZ"
+'                      dlgPaste.chkboxZZZ.click()
+'                Case "ZZ"
+'                      dlgPaste.chkboxZZZ.Click()
+'                End Select
+                Log.Message("Checkbox Use Actual Coordinates status been changed")
+              End If
+          End If        
+      End If
+           If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          If(chkConnectSelectedPoints = "1") Then
+             If(objNameMapping.WaitAliasChild("dlgPaste", 60000).WaitProperty("Exists", true, 10)) Then
+                dlgPaste.chkboxConnectSelectedPoints.click()               
+'                Select Case strHotKey
+'                Case "ZZ"
+'                      dlgPaste.chkboxZZZ.click()
+'                Case "ZZ"
+'                      dlgPaste.chkboxZZZ.Click()
+'                End Select
+                Log.Message("Checkbox Connect Selected Points status been changed")
+              End If
+          End If        
+      End If
+           If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          If(chkConnectOrigin = "1") Then
+             If(objNameMapping.WaitAliasChild("dlgPaste", 600).WaitProperty("Exists", true, 10)) Then
+                dlgPaste.chkboxConnectOrigin.click()               
+'                Select Case strHotKey
+'                Case "ZZ"
+'                      dlgPaste.chkboxZZZ.click()
+'                Case "ZZ"
+'                      dlgPaste.chkboxZZZ.Click()
+'                End Select
+                Log.Message("Checkbox Connect Origin status been changed")
+              End If
+          End If        
+      End If
+      
+
+    
+      If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+          Call dlgPaste.btnOK.Click()   
+      End If
+End Sub

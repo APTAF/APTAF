@@ -1,0 +1,1069 @@
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+<IGNORE>
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+<IGNORE>
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA326D                                          
+ 
+ 
+          PROJECT ID  : QA326D                                  
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                             0                   
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.3              
+ 
+          YEAR                   : 2016                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B313-16 
+ 
+<IGNORE>
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    2                      
+     Segment Data....................................................................    3                      
+     Pipe Properties.................................................................    4                      
+     Material Properties.............................................................    5                      
+     Material Allowables.............................................................    6                      
+     Temperature and Pressure........................................................    7                      
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DZ= -4.54 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 2+1/2P1, Material= HC, Composition= Carbon Steel, Poisson= 0.300, Nom Size= 2.500, OD= 2.875 inch,  
+   Sch= STD, Wall Thk= 0.203 inch, Mill= 0.025 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                
+   Pipe Unit Wgt= 5.79 lb/ft, Content Sp Gr= 1.230, Content Unit Wgt= 2.55 lb/ft, Insul Thk= 1.550 inch,        
+   Insul Material= AMOSITE ASBESTOS, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 2.39 lb/ft,                 
+   Cladding Thickness = 0 inch, Lining Thk= 0 inch, Long Weld E factor= 1.00, Long Modulus= 29.30000 E6 psi,    
+   Hoop Modulus= 29.30000 E6 psi, Shear Modulus= 11.26923 E6 psi, Sc= 15000.0 psi, Syc= 40000.0 psi             
+ 
+ OPERATING DATA:                                                                
+   P1= 150.00 psi, T1= 170.00 deg F, Exp1= 0.76923 in/100ft, E1= 28.76154 E6 psi, Sh1= 15000.00 psi,            
+   Sy1= 40000.00 psi                                                            
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DZ= -0.46 ft                                              Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 0.46 ft, SIF= 1.00                                                   
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -4.54 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DZ= -15.00 ft                                             Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P1, Composition= Carbon Steel, Nom Size= 6 in, OD= 6.625 inch, Wall Thk= 0.280 inch,               
+   Mill= 0.035 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230,           
+   Content Unit Wgt= 15.40 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 4.42 lb/ft                     
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -5.00 ft                        
+   A03, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= -20.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   A03, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From B00 to B01, DZ= 15.00 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P2, Composition= Carbon Steel, Sch= 40, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft, 
+   Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   B00, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= -20.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   B00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From B01 to B02, DZ= 0.46 ft                                               Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 0.46 ft, SIF= 1.00                                                   
+ 
+ POINT DATA:                                                                    
+   B01, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= -5.00 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From B02 to B03, DZ= 4.54 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 2+1/2P2, Composition= Carbon Steel, Nom Size= 2.500, OD= 2.875 inch, Wall Thk= 0.203 inch,          
+   Mill= 0.025 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 5.79 lb/ft, Content Sp Gr= 1.230,            
+   Content Unit Wgt= 2.55 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 2.39 lb/ft                      
+ 
+ POINT DATA:                                                                    
+   B02, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= -4.54 ft                        
+   B03, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= -0.00 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   B03, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From C00 to C01, DZ= -4.54 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 2+1/2P3, Composition= Carbon Steel, Sch= XXS, Wall Thk= 0.552 inch, Mill= 0.069 inch,               
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 13.68 lb/ft, Content Sp Gr= 1.230,                             
+   Content Unit Wgt= 1.31 lb/ft                                                 
+ 
+ POINT DATA:                                                                    
+   C00, Coordinates, X= 13.00 ft, Y= 0.00 ft, Z= 0.00 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   C00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From C01 to C02, DZ= -0.46 ft                                              Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 0.46 ft, SIF= 1.00                                                   
+ 
+ POINT DATA:                                                                    
+   C01, Coordinates, X= 13.00 ft, Y= 0.00 ft, Z= -4.54 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From C02 to C03, DZ= -15.00 ft                                             Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P3, Composition= Carbon Steel, Nom Size= 6 in, OD= 6.625 inch, Wall Thk= 0.864 inch,               
+   Mill= 0.108 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 53.10 lb/ft, Content Sp Gr= 1.230,           
+   Content Unit Wgt= 10.04 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 4.42 lb/ft                     
+ 
+ POINT DATA:                                                                    
+   C02, Coordinates, X= 13.00 ft, Y= 0.00 ft, Z= -5.00 ft                       
+   C03, Coordinates, X= 13.00 ft, Y= 0.00 ft, Z= -20.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C03, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT D , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From D00 to D01, DZ= 11.00 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12P1, Composition= Carbon Steel, Nom Size= 12 in, OD= 12.750 inch, Sch= STD, Wall Thk= 0.375 inch,  
+   Mill= 0.047 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 1.230,           
+   Content Unit Wgt= 60.28 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 7.74 lb/ft                     
+ 
+ POINT DATA:                                                                    
+   D00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 8.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   D00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From D01 to D02, DZ= 2.08 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 2.08 ft, Valve weight = 0 lb, Surface factor= 0.00, End type= Butt welded, SIF= 1.00,                
+   Offset= 0.000 inch                                                           
+ 
+ POINT DATA:                                                                    
+   D01, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 19.00 ft                        
+   D01 M, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 20.04 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From D02 to D03, DZ= 0.38 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D02, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 21.08 ft                        
+   D03, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 21.46 ft                        
+   D03, Flange= WELDNECK, Rating= 150, Flange Weight= 86.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,  
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ SUPPORT DATA:                                                                  
+   D03, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT E , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From E00 to E01, DZ= 2.12 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 300,     
+   Length= 2.12 ft, Valve weight = 0 lb, Surface factor= 0.00, End type= Weld neck, SIF= 1.00                   
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 49.51 lb/ft,         
+   Content Sp Gr= 1.230, Content Unit Wgt= 60.28 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   E00, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= 19.00 ft                        
+   E00 M, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= 20.06 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   E00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From E01 to E02, DZ= 0.43 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   E01, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= 21.12 ft                        
+   E01, Flange= WELDNECK, Rating= 300, Flange Weight= 140.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck, 
+   SIF= 1.00, Perform ANSI check= No                                            
+   E02, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= 21.55 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   E02, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT F , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From F00 to F01, DZ= 2.50 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 400,     
+   Length= 2.50 ft, Valve weight = 0 lb, Surface factor= 0.00, End type= Weld neck, SIF= 1.00                   
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12P1, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 49.51 lb/ft,         
+   Content Sp Gr= 1.230, Content Unit Wgt= 60.28 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   F00, Coordinates, X= 13.00 ft, Y= 0.00 ft, Z= 19.00 ft                       
+   F00 M, Coordinates, X= 13.00 ft, Y= 0.00 ft, Z= 20.25 ft                     
+ 
+ SUPPORT DATA:                                                                  
+   F00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From F01 to F02, DZ= 0.47 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   F01, Coordinates, X= 13.00 ft, Y= 0.00 ft, Z= 21.50 ft                       
+   F01, Flange= WELDNECK, Rating= 400, Flange Weight= 162.00 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck, 
+   SIF= 1.00, Perform ANSI check= No                                            
+   F02, Coordinates, X= 13.00 ft, Y= 0.00 ft, Z= 21.97 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   F02, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT G , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From G00 to G01, DZ= -0.47 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= G00):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P4, Composition= Carbon Steel, Nom Size= 6 in, OD= 6.625 inch, Sch= 40S, Wall Thk= 0.280 inch,     
+   Mill= 0.035 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230,           
+   Content Unit Wgt= 15.40 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 4.42 lb/ft                     
+ 
+ POINT DATA:                                                                    
+   G00, Coordinates, X= 22.64 ft, Y= 0.00 ft, Z= 8.36 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From G01 to G02, DZ= -1.47 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   G01, Coordinates, X= 22.64 ft, Y= 0.00 ft, Z= 7.90 ft                        
+   G02, Coordinates, X= 22.64 ft, Y= 0.00 ft, Z= 6.42 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   G02, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT H , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From H00 to H01, DZ= 5.79 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P4, Composition= Carbon Steel, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft,          
+   Content Sp Gr= 1.230, Content Unit Wgt= 15.40 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   H00, Coordinates, X= 23.86 ft, Y= 0.00 ft, Z= -5.96 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   H00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From H01 to H02, DZ= 1.50 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = NS, Sub Category = NS, Type = NS, MainEnd = NS, Rating= 150,     
+   Length= 1.50 ft, Valve weight = 0 lb, Surface factor= 0.00, End type= Butt welded, SIF= 1.00,                
+   Offset= 0.000 inch                                                           
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P5, Composition= Carbon Steel, Sch= 10S, Wall Thk= 0.134 inch, Mill= 0.017 inch,                   
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 9.28 lb/ft, Content Sp Gr= 1.230,                              
+   Content Unit Wgt= 16.92 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   H01, Coordinates, X= 23.86 ft, Y= 0.00 ft, Z= -0.17 ft                       
+   H01 M, Coordinates, X= 23.86 ft, Y= 0.00 ft, Z= 0.58 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From H02 to H03, DZ= 7.03 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P4, Composition= Carbon Steel, Sch= 40S, Wall Thk= 0.280 inch, Mill= 0.035 inch,                   
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230,                             
+   Content Unit Wgt= 15.40 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   H02, Coordinates, X= 23.86 ft, Y= 0.00 ft, Z= 1.33 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H03 to G00, DX= -1.22 ft                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= H03, Near= H03 N, Far= H03 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ POINT DATA:                                                                    
+   H03, Coordinates, X= 23.86 ft, Y= 0.00 ft, Z= 8.36 ft                        
+   H03 N, Coordinates, X= 23.86 ft, Y= 0.00 ft, Z= 7.61 ft                      
+   H03 F, Coordinates, X= 23.11 ft, Y= 0.00 ft, Z= 8.36 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From G00 to H04, DX= -0.47 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= G00):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   G00, Coordinates, X= 22.64 ft, Y= 0.00 ft, Z= 8.36 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H04 to H05, DX= -0.47 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   H04, Coordinates, X= 22.17 ft, Y= 0.00 ft, Z= 8.36 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H05 to H06, DX= -0.47 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= H05):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ POINT DATA:                                                                    
+   H05, Coordinates, X= 21.70 ft, Y= 0.00 ft, Z= 8.36 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H06 to H07, DX= -1.07 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   H06, Coordinates, X= 21.23 ft, Y= 0.00 ft, Z= 8.36 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H07 to H08, DX= -0.29 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P5, Composition= Carbon Steel, Sch= 10S, Wall Thk= 0.134 inch, Mill= 0.017 inch,                   
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 9.28 lb/ft, Content Sp Gr= 1.230,                              
+   Content Unit Wgt= 16.92 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   H07, Coordinates, X= 20.16 ft, Y= 0.00 ft, Z= 8.36 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H08 to H09, DX= -1.21 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= H08):                                      
+   B16.9 welding tee, SIFI= 2.91, SIFO= 3.54                                    
+ 
+ POINT DATA:                                                                    
+   H08, Coordinates, X= 19.87 ft, Y= 0.00 ft, Z= 8.36 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H09 to H10, DX= -1.64 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P4, Composition= Carbon Steel, Sch= 40S, Wall Thk= 0.280 inch, Mill= 0.035 inch,                   
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230,                             
+   Content Unit Wgt= 15.40 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   H09, Coordinates, X= 18.66 ft, Y= 0.00 ft, Z= 8.36 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H10 to H11, DZ= 1.50 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= H10, Near= H10 N, Far= H10 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ POINT DATA:                                                                    
+   H10, Coordinates, X= 17.02 ft, Y= 0.00 ft, Z= 8.36 ft                        
+   H10 N, Coordinates, X= 17.77 ft, Y= 0.00 ft, Z= 8.36 ft                      
+   H10 F, Coordinates, X= 17.02 ft, Y= 0.00 ft, Z= 9.11 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From H11 to H12, DX= 2.91 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= H11, Near= H11 N, Far= H11 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.27, SIFO= 1.89     
+ 
+ POINT DATA:                                                                    
+   H11, Coordinates, X= 17.02 ft, Y= 0.00 ft, Z= 9.86 ft                        
+   H11 N, Coordinates, X= 17.02 ft, Y= 0.00 ft, Z= 9.12 ft                      
+   H11 F, Coordinates, X= 17.77 ft, Y= 0.00 ft, Z= 9.86 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From H12 to H13, DX= 0.47 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   H12, Coordinates, X= 19.94 ft, Y= 0.00 ft, Z= 9.86 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H13 to H14, DX= 0.47 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= H13):                                      
+   Other, SIFI= 1.00, SIFO= 1.00                                                
+ 
+ POINT DATA:                                                                    
+   H13, Coordinates, X= 20.41 ft, Y= 0.00 ft, Z= 9.86 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H14 to H15, DX= 2.05 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   H14, Coordinates, X= 20.87 ft, Y= 0.00 ft, Z= 9.86 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From H15 to H16, DZ= 1.14 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= H15, Near= H15 N, Far= H15 F):                      
+   Short Elbow, Radius= 6.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.97, SIFO= 2.47    
+ 
+ POINT DATA:                                                                    
+   H15, Coordinates, X= 22.92 ft, Y= 0.00 ft, Z= 9.86 ft                        
+   H15 N, Coordinates, X= 22.42 ft, Y= 0.00 ft, Z= 9.86 ft                      
+   H15 F, Coordinates, X= 22.92 ft, Y= 0.00 ft, Z= 10.36 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From H16 to H17, DZ= 0.29 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P5, Composition= Carbon Steel, Sch= 10S, Wall Thk= 0.134 inch, Mill= 0.017 inch,                   
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 9.28 lb/ft, Content Sp Gr= 1.230,                              
+   Content Unit Wgt= 16.92 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   H16, Coordinates, X= 22.92 ft, Y= 0.00 ft, Z= 11.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From H17 to H18, DX= 0.53 ft, DZ= 0.53 ft, L= 0.75 ft                      Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= H17):                                      
+   Other, SIFI= 1.00, SIFO= 1.00                                                
+ 
+ POINT DATA:                                                                    
+   H17, Coordinates, X= 22.92 ft, Y= 0.00 ft, Z= 11.30 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From H18 to H19, DX= 1.31 ft, DZ= 1.31 ft, L= 1.85 ft                      Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P4, Composition= Carbon Steel, Sch= 40S, Wall Thk= 0.280 inch, Mill= 0.035 inch,                   
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 18.95 lb/ft, Content Sp Gr= 1.230,                             
+   Content Unit Wgt= 15.40 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   H18, Coordinates, X= 23.45 ft, Y= 0.00 ft, Z= 11.83 ft                       
+   H19, Coordinates, X= 24.76 ft, Y= 0.00 ft, Z= 13.13 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   H19, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT I , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From H05 to I01, DZ= -0.43 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= H05):                                      
+   B16.9 welding tee, SIFI= 1.85, SIFO= 2.14                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 4P1, Composition= Carbon Steel, Nom Size= 4 in, OD= 4.500 inch, Wall Thk= 0.237 inch,               
+   Mill= 0.030 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 10.78 lb/ft, Content Sp Gr= 1.230,           
+   Content Unit Wgt= 6.79 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 3.27 lb/ft                      
+ 
+ POINT DATA:                                                                    
+   H05, Coordinates, X= 21.70 ft, Y= 0.00 ft, Z= 8.36 ft                        
+   I01, Coordinates, X= 21.70 ft, Y= 0.00 ft, Z= 7.94 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   I01, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT J , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From H08 to J01, DX= -0.85 ft, DZ= -0.85 ft, L= 1.21 ft                    Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= H08):                                      
+   B16.9 welding tee, SIFI= 2.91, SIFO= 3.54                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P5, Composition= Carbon Steel, Nom Size= 6 in, OD= 6.625 inch, Sch= 10S, Wall Thk= 0.134 inch,     
+   Mill= 0.017 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 9.28 lb/ft, Content Sp Gr= 1.230,            
+   Content Unit Wgt= 16.92 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 4.42 lb/ft                     
+ 
+ POINT DATA:                                                                    
+   H08, Coordinates, X= 19.87 ft, Y= 0.00 ft, Z= 8.36 ft                        
+   J01, Coordinates, X= 19.01 ft, Y= 0.00 ft, Z= 7.51 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   J01, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT K , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From K00 to H13, DZ= -0.41 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 3P1, Composition= Carbon Steel, Nom Size= 3.000, OD= 3.500 inch, Sch= 40S, Wall Thk= 0.216 inch,    
+   Mill= 0.027 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 7.57 lb/ft, Content Sp Gr= 1.230,            
+   Content Unit Wgt= 3.94 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 2.73 lb/ft                      
+ 
+ POINT DATA:                                                                    
+   K00, Coordinates, X= 20.41 ft, Y= 0.00 ft, Z= 10.27 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   K00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From H13 to K01, DZ= -0.41 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= H13):                                      
+   Other, SIFI= 1.00, SIFO= 1.00                                                
+ 
+ POINT DATA:                                                                    
+   H13, Coordinates, X= 20.41 ft, Y= 0.00 ft, Z= 9.86 ft                        
+   K01, Coordinates, X= 20.41 ft, Y= 0.00 ft, Z= 9.46 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   K01, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT L , LINE # L100                                                    
+ 
+ -------------------------------------------------------------------------------
+ From H17 to L01, DX= -0.53 ft, DZ= 0.53 ft, L= 0.75 ft                     Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= H17):                                      
+   Other, SIFI= 1.00, SIFO= 1.00                                                
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6P5, Composition= Carbon Steel, Nom Size= 6 in, OD= 6.625 inch, Sch= 10S, Wall Thk= 0.134 inch,     
+   Mill= 0.017 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 9.28 lb/ft, Content Sp Gr= 1.230,            
+   Content Unit Wgt= 16.92 lb/ft, Insul Density= 16.00 lb/cu.ft, Insul Unit Wgt= 4.42 lb/ft                     
+ 
+ POINT DATA:                                                                    
+   H17, Coordinates, X= 22.92 ft, Y= 0.00 ft, Z= 11.30 ft                       
+   L01, Coordinates, X= 22.39 ft, Y= 0.00 ft, Z= 11.83 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   L01, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 71 + 0 + 0 = 71          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         3594.2 lb     +      2355.4 lb     =        5949.6 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A , LINE # L100                                                    
+ A00            0.00        0.00        0.00                                    
+ A01            0.00        0.00       -4.54                                    
+ A02            0.00        0.00       -5.00                                    
+ A03            0.00        0.00      -20.00                                    
+ 
+ *** SEGMENT B , LINE # L100                                                    
+ B00            6.00        0.00      -20.00                                    
+ B01            6.00        0.00       -5.00                                    
+ B02            6.00        0.00       -4.54                                    
+ B03            6.00        0.00       -0.00                                    
+ 
+ *** SEGMENT C , LINE # L100                                                    
+ C00           13.00        0.00        0.00                                    
+ C01           13.00        0.00       -4.54                                    
+ C02           13.00        0.00       -5.00                                    
+ C03           13.00        0.00      -20.00                                    
+ 
+ *** SEGMENT D , LINE # L100                                                    
+ D00            0.00        0.00        8.00                                    
+ D01            0.00        0.00       19.00                                    
+ D01 M          0.00        0.00       20.04                                    
+ D02            0.00        0.00       21.08                                    
+ D03            0.00        0.00       21.46                                    
+ 
+ *** SEGMENT E , LINE # L100                                                    
+ E00            6.00        0.00       19.00                                    
+ E00 M          6.00        0.00       20.06                                    
+ E01            6.00        0.00       21.12                                    
+ E02            6.00        0.00       21.55                                    
+ 
+ *** SEGMENT F , LINE # L100                                                    
+ F00           13.00        0.00       19.00                                    
+ F00 M         13.00        0.00       20.25                                    
+ F01           13.00        0.00       21.50                                    
+ F02           13.00        0.00       21.97                                    
+ 
+ *** SEGMENT G , LINE # L100                                                    
+ G00           22.64        0.00        8.36                                    
+ G01           22.64        0.00        7.90                                    
+ G02           22.64        0.00        6.42                                    
+ 
+ *** SEGMENT H , LINE # L100                                                    
+ H00           23.86        0.00       -5.96                                    
+ H01           23.86        0.00       -0.17                                    
+ H01 M         23.86        0.00        0.58                                    
+ H02           23.86        0.00        1.33                                    
+ H03 N         23.86        0.00        7.61                                    
+ H03           23.86        0.00        8.36                                    
+ H03 F         23.11        0.00        8.36                                    
+ G00           22.64        0.00        8.36                                    
+ H04           22.17        0.00        8.36                                    
+ H05           21.70        0.00        8.36                                    
+ H06           21.23        0.00        8.36                                    
+ H07           20.16        0.00        8.36                                    
+ H08           19.87        0.00        8.36                                    
+ H09           18.66        0.00        8.36                                    
+ H10 N         17.77        0.00        8.36                                    
+ H10           17.02        0.00        8.36                                    
+ H10 F         17.02        0.00        9.11                                    
+ H11 N         17.02        0.00        9.12                                    
+ H11           17.02        0.00        9.86                                    
+ H11 F         17.77        0.00        9.86                                    
+ H12           19.94        0.00        9.86                                    
+ H13           20.41        0.00        9.86                                    
+ H14           20.87        0.00        9.86                                    
+ H15 N         22.42        0.00        9.86                                    
+ H15           22.92        0.00        9.86                                    
+ H15 F         22.92        0.00       10.36                                    
+ H16           22.92        0.00       11.00                                    
+ H17           22.92        0.00       11.30                                    
+ H18           23.45        0.00       11.83                                    
+ H19           24.76        0.00       13.13                                    
+ 
+ *** SEGMENT I , LINE # L100                                                    
+ H05           21.70        0.00        8.36                                    
+ I01           21.70        0.00        7.94                                    
+ 
+ *** SEGMENT J , LINE # L100                                                    
+ H08           19.87        0.00        8.36                                    
+ J01           19.01        0.00        7.51                                    
+ 
+ *** SEGMENT K , LINE # L100                                                    
+ K00           20.41        0.00       10.27                                    
+ H13           20.41        0.00        9.86                                    
+ K01           20.41        0.00        9.46                                    
+ 
+ *** SEGMENT L , LINE # L100                                                    
+ H17           22.92        0.00       11.30                                    
+ L01           22.39        0.00       11.83                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                    S E G M E N T   D A T A   L I S T I N G                                                     
+                                                                                                                
+ Segment First  Last   Line Number                    Apply Apply  Apply                                        
+ Name    Node   Node                                  Wind  Bowing Buoyancy                                     
+ ------- ------ ------ ------------------------------ ----- ------ --------                                     
+ A       A00    A03    L100                           No    No     No           
+ B       B00    B03    L100                           No    No     No           
+ C       C00    C03    L100                           No    No     No           
+ D       D00    D03    L100                           No    No     No           
+ E       E00    E02    L100                           No    No     No           
+ F       F00    F02    L100                           No    No     No           
+ G       G00    G02    L100                           No    No     No           
+ H       H00    H19    L100                           No    No     No           
+ I       H05    I01    L100                           No    No     No           
+ J       H08    J01    L100                           No    No     No           
+ K       K00    K01    L100                           No    No     No           
+ L       H17    L01    L100                           No    No     No           
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    E/  Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  W/  Steel Group/          
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f   Tcr                   
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 2+1/2P1     2.500 2.875 0.203    0 0.03 1.55    0  1.23   16.000   5.79     0 10.73 1.00 Carbon Steel          
+ HC           STD                                  Asb      0.000   2.55  2.39       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 6P1            6  6.625 0.280    0 0.04 1.55    0  1.23   16.000  18.95     0 38.77 1.00 Carbon Steel          
+ HC           STD                                  Asb      0.000  15.40  4.42       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 6P2            6  6.625 0.280    0 0.04 1.55    0  1.23   16.000  18.95     0 38.77 1.00 Carbon Steel          
+ HC           40                                   Asb      0.000  15.40  4.42       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 2+1/2P2     2.500 2.875 0.203    0 0.03 1.55    0  1.23   16.000   5.79     0 10.73 1.00 Carbon Steel          
+ HC           40                                   Asb      0.000   2.55  2.39       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 2+1/2P3     2.500 2.875 0.552    0 0.07 1.55    0  1.23   16.000  13.68     0 17.39 1.00 Carbon Steel          
+ HC           XXS                                  Asb      0.000   1.31  2.39       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 6P3            6  6.625 0.864    0 0.11 1.55    0  1.23   16.000  53.10     0 67.56 1.00 Carbon Steel          
+ HC           XXS                                  Asb      0.000  10.04  4.42       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 12P1          12 12.750 0.375    0 0.05 1.55    0  1.23   16.000  49.51     0   118 1.00 Carbon Steel          
+ HC           STD                                  Asb      0.000  60.28  7.74       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 6P4            6  6.625 0.280    0 0.04 1.55    0  1.23   16.000  18.95     0 38.77 1.00 Carbon Steel          
+ HC           40S                                  Asb      0.000  15.40  4.42       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 6P5            6  6.625 0.134    0 0.02 1.55    0  1.23   16.000   9.28     0 30.62 1.00 Carbon Steel          
+ HC           10S                                  Asb      0.000  16.92  4.42       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 4P1            4  4.500 0.237    0 0.03 1.55    0  1.23   16.000  10.78     0 20.84 1.00 Carbon Steel          
+ HC           40S                                  Asb      0.000   6.79  3.27       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 3P1         3.000 3.500 0.216    0 0.03 1.55    0  1.23   16.000   7.57     0 14.24 1.00 Carbon Steel          
+ HC           40S                                  Asb      0.000   3.94  2.73       0.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ HC          2+1/2P1     489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          6P1         489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          6P2         489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          2+1/2P2     489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          2+1/2P3     489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          6P3         489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          12P1        489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          6P4         489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          6P5         489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          4P1         489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+ HC          3P1         489.0  0.30    70.0   29.300   29.300   11.269          Carbon Steel        
+                                       170.0   28.762                     0.7692
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield    Ultimate Weld Reduction Factor                                  
+    Name     Pipe ID  deg F   psi      psi                        W                                             
+------------ -------- ------- -------- -------- -------- ---------------------                                  
+ HC          2+1/2P1     70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          6P1         70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          6P2         70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          2+1/2P2     70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          2+1/2P3     70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          6P3         70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          12P1        70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          6P4         70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          6P5         70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          4P1         70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+ HC          3P1         70.0  15000.0  40000.0      0.0       1.000
+                        170.0  15000.0  40000.0                1.000
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA326D                                                                                                          
+<IGNORE>
+<IGNORE>
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW     YIELD                                              
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS    STRESS                                             
+ ----  ----  ------ ------  --------    -------    ------    ------                                             
+ 
+ *** SEGMENT A , LINE # L100                          
+ A00   T1       150    170     0.769     28.762     15000*    40000*          
+ A03    Same as previous point.          
+ 
+ *** SEGMENT B , LINE # L100                          
+ B00   T1       150    170     0.769     28.762     15000*    40000*          
+ B03    Same as previous point.          
+ 
+ *** SEGMENT C , LINE # L100                          
+ C00   T1       150    170     0.769     28.762     15000*    40000*          
+ C03    Same as previous point.          
+ 
+ *** SEGMENT D , LINE # L100                          
+ D00   T1       150    170     0.769     28.762     15000*    40000*          
+ D03    Same as previous point.          
+ 
+ *** SEGMENT E , LINE # L100                          
+ E00   T1       150    170     0.769     28.762     15000*    40000*          
+ E02    Same as previous point.          
+ 
+ *** SEGMENT F , LINE # L100                          
+ F00   T1       150    170     0.769     28.762     15000*    40000*          
+ F02    Same as previous point.          
+ 
+ *** SEGMENT G , LINE # L100                          
+ G00   T1       150    170     0.769     28.762     15000*    40000*          
+ G02    Same as previous point.          
+ 
+ *** SEGMENT H , LINE # L100                          
+ H00   T1       150    170     0.769     28.762     15000*    40000*          
+ H19    Same as previous point.          
+ 
+ *** SEGMENT I , LINE # L100                          
+ H05   T1       150    170     0.769     28.762     15000*    40000*          
+ I01    Same as previous point.          
+ 
+ *** SEGMENT J , LINE # L100                          
+ H08   T1       150    170     0.769     28.762     15000*    40000*          
+ J01    Same as previous point.          
+ 
+ *** SEGMENT K , LINE # L100                          
+ K00   T1       150    170     0.769     28.762     15000*    40000*          
+ K01    Same as previous point.          
+ 
+ *** SEGMENT L , LINE # L100                          
+ H17   T1       150    170     0.769     28.762     15000*    40000*          
+ L01    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+

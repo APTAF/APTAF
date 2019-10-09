@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="details" type="S" value="{CF1AA61F-AC53-4B40-812A-98FF7B308BF0}"/>
+				<Prp name="name" type="S" value="DistributedLoad_DTP [Script\DistributedLoad_DTP_ActionScript - Configuration]"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="start time" type="D" value="43734.6241323611"/>
+				<Prp name="end time" type="D" value="43734.6253207986"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="details" type="S" value="{07107B7C-A212-4886-9CB2-AB67DE3A1240}"/>
+				<Prp name="name" type="S" value="ApplicationStartStop [Script\ApplicationStartStop - StartApplication]"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="start time" type="D" value="43734.6240909954"/>
+				<Prp name="end time" type="D" value="43734.6241322685"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="start time" type="D" value="43734.6253207986"/>
+				<Prp name="details" type="S" value="{059995CC-30BC-41CC-A55D-969568BC394D}"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="name" type="S" value="EndApplication [Script\EndApplication - EndApplication]"/>
+				<Prp name="end time" type="D" value="43734.6253379051"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

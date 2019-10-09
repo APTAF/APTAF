@@ -1,0 +1,115 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT FSO_Functions
+'USEUNIT SupportingRoutines
+'USEUNIT ConnectLicensing
+'USEUNIT APP_Common
+Sub StaadProDLLVerification()
+
+  Dim locDatatable:locDatatable="C:\hg\amat_testautomation\autopipe\TestAutomation\AutoPIPE Automated Testing Suite\ConnectLicensing\Datatable\AutoPIPE_Data.xlsx"
+     'Get Input data from Excel Sheet
+  Dim objInputs, verNum
+  Set objInputs = Datatable("Excel","StaadPro_Input_Matrix",1,Null,locDatatable)
+
+  IF FSOFileExists(objInputs.Item("DLLPath")) = True Then
+    Log.Message("DLL is present")
+    verNum = VersionInfo(objInputs.Item("DLLPath"))
+    log.Message("Version Number:"& verNum)
+  
+  Else
+    Log.Message("DLL is not present")
+  End If
+  
+End Sub
+
+Sub StaadProAcceptablePerformance()
+
+  Dim locDatatable:locDatatable="C:\hg\amat_testautomation\autopipe\TestAutomation\AutoPIPE Automated Testing Suite\ConnectLicensing\Datatable\AutoPIPE_Data.xlsx"
+    'Get Input data from Excel Sheet
+  Dim objInputs
+  Set objInputs = Datatable("Excel","StaadPro_Input_Matrix",1,Null,locDatatable)
+  
+  'sign in connection client with autoPIPE username and password
+  Call SignInConnectionClient(objInputs.Item("UserEmail1"),objInputs.Item("UserPassword1"))
+  
+  'Start the Application
+  Call StartApp("Bentley_Staad","")
+  
+  'Get Application start time
+  Dim sTime
+  sTime = aqDateTime.Time
+  
+  log.Message("Application Start Time:" & sTime)
+  
+  Dim StaadProProcess
+  Set StaadProProcess = NameMapping.Sys.Process("Bentley.Staad")
+
+  'Select License type from AutoPIPE licensing window
+  Call WelcomeStaadProLicensing(objInputs.Item("LicenseType"))
+  
+        'CLick on Acknowledge button
+  Call SignInDialog("Acknowledge")
+  
+  'CLick on Acknowledge button again
+  Call SignInDialog("Acknowledge")
+  
+  Dim wTime
+
+    'Get working application time
+  wTime = aqDateTime.Now
+  Log.Message("Application Time After License Selection:"& wTime)
+
+  
+  'Open Autopipe model
+ ' Call OpenStaadProModel(objInputs.Item("Model"))
+
+  Dim dTime
+  'get time difference in seconds
+  dTime = GetTimeDiffSec(wTime,sTime)
+  
+  log.Message("Time Difference:"& dTime)
+  'if time difference is less than acceptable startup time it is passed
+  If dTime < objInputs.Item("StartupTime") Then
+  
+    log.Message("Performance Test Passed")
+    
+  Else
+  
+    Log.Error("Performance Test Failed")
+  
+  End If
+  
+    'close the autoPIPE
+  Call CloseApp("Bentley_Staad") 
+  
+  'signout the connection client
+  SignoutConnectionClient()
+  
+  Set AutoPIPEProcess = Nothing
+
+
+End Sub
+
+Sub WelcomeStaadProLicensing(lType)
+  
+  Dim StaadProProcess
+  Set StaadProProcess = NameMapping.Sys.Process("Bentley.Staad")
+  
+  If StaadProProcess.Window("#32770", "Welcome to STAAD.Pro CONNECT Edition Licensing", 1).Exists Then
+  
+    If lType = "Advanced" Then
+      Call StaadProProcess.Window("#32770", "Welcome to STAAD.Pro CONNECT Edition Licensing", 1).Window("Button", "STAAD.Pro Advanced", 2).ClickButton
+    End If
+    
+    Call StaadProProcess.Window("#32770", "Welcome to STAAD.Pro CONNECT Edition Licensing", 1).Window("Button", "Accept", 5).ClickButton
+  End If
+
+
+End Sub
+
+Sub OpenStaadProModel(mType)
+  
+  Dim StaadProProcess
+  Set StaadProProcess = NameMapping.Sys.Process("Bentley.Staad")
+  
+
+End Sub

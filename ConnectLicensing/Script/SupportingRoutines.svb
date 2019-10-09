@@ -1,0 +1,27 @@
+﻿Function GetTimeDiffSec(sTime,wTime)
+
+  Dim dTime
+    
+  dTime = aqDateTime.TimeInterval (wTime,sTime)
+  
+  dTime = aqConvert.DateTimeToFormatStr(dTime,"%S")
+  
+  dTime = aqConvert.StrToInt(dTime)
+
+  GetTimeDiffSec = dTime
+
+End Function
+
+
+
+Function VersionInfo(FileName)
+
+  Dim  verInfo
+  'Get version number of file
+  Set verInfo = aqFileSystem.GetFileInfo(FileName).VersionInfo
+ ' Log.Message("Version Number:"& verInfo.ProductFullVersion)
+  VersionInfo = verInfo.ProductFullVersion
+
+End Function
+
+

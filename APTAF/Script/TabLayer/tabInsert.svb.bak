@@ -1,0 +1,927 @@
+﻿'USEUNIT Main
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Piping Components                 ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Run or Runs with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Run("All")
+'              0              -  Press OK button with default values                                        E-g Run("0") or Run(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Run("5") Or Run(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Run("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Run(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Run in the model")
+'Set Varaibles
+      Dim strDBTableName  : strDBTableName  = "tblRun"                       'DB mapped Table Name 
+      Dim strHotKey     : strHotKey     = "IR"                           'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod   = "PipingComponents.Run"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap = "dlgRun"                       'Dialog mapped name
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Bend or Bends with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Bend("All")
+'              0              -  Press OK button with default values                                        E-g Bend("0") or Bend(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Bend("5") Or Bend(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Bend("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Bend(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Bend in the model")
+ 'Set Varaibles     
+      Dim strDBTableName: strDBTableName = "tblBend"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IB"                                    'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Bend"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgBend"                       'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification =  "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Tee or Tee with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Tee("All")
+'              0              -  Press OK button with default values                                        E-g Tee("0") or Tee(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Tee("5") Or Tee(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Tee("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Tee(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Tee in the model")
+ 'Set Varaibles 
+      Dim strDBTableName: strDBTableName = "tblTee"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IT"                                   'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Tee"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgTee"                       'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+      'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Flange or Flange with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Flange("All")
+'              0              -  Press OK button with default values                                        E-g Flange("0") or Flange(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Flange("5") Or Flange(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Flange("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub Flange(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Flange in the model")
+ 'Set Varaibles 
+      Dim strDBTableName: strDBTableName = "tblFlange"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IF"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Flange"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgFlange"                       'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification =  "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Valve or Valve with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Valve("All")
+'              0              -  Press OK button with default values                                        E-g Valve("0") or Valve(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Valve("5") Or Valve(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Valve("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Valve(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Valve in the model")
+ 'Set Varaibles 
+      Dim strDBTableName: strDBTableName = "tblValve"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IV"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Valve"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgValve"                       'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification =  "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert FlexibleJoint or FlexibleJoint with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g FlexibleJoint("All")
+'              0              -  Press OK button with default values                                        E-g FlexibleJoint("0") or FlexibleJoint(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g FlexibleJoint("5") Or FlexibleJoint(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g FlexibleJoint("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub FlexibleJoint(TestData)
+'Add to Log
+	    AppendLogFolder("Insert FlexibleJoint in the model")
+'Set Varaibles 
+      Dim strDBTableName: strDBTableName = "tblFlexibleJoint"                  ' Table Name 
+      Dim strHotKey: strHotKey = "IJ"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.FlexibleJoint"         'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgFlexibleJoint"                       'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification =  "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Reducer or Reducer with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Reducer("All")
+'              0              -  Press OK button with default values                                        E-g Reducer("0") or Reducer(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Reducer("5") Or Reducer(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Reducer("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Reducer(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Reducer in the model")
+ 'Set Varaibles 
+      Dim strDBTableName: strDBTableName = "tblReducer"                        ' Table Name 
+      Dim strHotKey: strHotKey = "IU"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Reducer"        'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgReducer"                      'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification =  "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Nozzle or Nozzle with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Nozzle("All")
+'              0              -  Press OK button with default values                                        E-g Nozzle("0") or Nozzle(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Nozzle("5") Or Nozzle(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Nozzle("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Nozzle(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Nozzle in the model")
+ 'Set Varaibles 
+      Dim strDBTableName: strDBTableName = "tblNozzle"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IZ"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Nozzle"        'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgNozzle"                      'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification =  "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Segment or Segment with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Segment("All")
+'              0              -  Press OK button with default values                                        E-g Segment("0") or Segment(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Segment("5") Or Segment(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Segment("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Segment(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Segment in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblSegment"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IG"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "PipingComponents.Segment"        'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap ="dlgSegment"                      'Dialog Mapping Name 
+      Dim isDlgVerification : isDlgVerification =  "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+'Log
+      PopLogFolder
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Supports                          ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Anchor or Anchor with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Anchor("All")
+'              0              -  Press OK button with default values                                        E-g Anchor("0") or Anchor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Anchor("5") Or Anchor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Anchor("1-5")    
+' Author:   Bilal.Tahir
+' Date:     7/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Anchor(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Anchor in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblAnchor"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IA"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Supports.Anchor"
+      Dim strDlgNameMap : strDlgNameMap ="dlgAnchor"
+      Dim isDlgVerification : isDlgVerification =  "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+'Log
+      PopLogFolder
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Support or Support with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Anchor("All")
+'              0              -  Press OK button with default values                                        E-g Anchor("0") or Anchor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Anchor("5") Or Anchor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Anchor("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Support(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Support in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblSupport"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IS"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Supports.Support"
+      Dim strDlgNameMap : strDlgNameMap ="dlgSupport"
+      Dim isDlgVerification : isDlgVerification =  "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert SupporSamMsrsSupportGroup with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g SupporSamMsrsSupportGroup("All")
+'              0              -  Press OK button with default values                                        E-g SupporSamMsrsSupportGroup("0") or SupporSamMsrsSupportGroup(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g SupporSamMsrsSupportGroup("5") Or SupporSamMsrsSupportGroup(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g SupporSamMsrsSupportGroup("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub SamMsrsSupportGroup(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Sam MSRS Support Group in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblSamMsrsSupportGroup"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IC"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Supports.SamMsrsSupportGroup"
+      Dim strDlgNameMap : strDlgNameMap ="dlgSamMsrsSupportGroup"
+      
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap)
+ 'Log
+      PopLogFolder
+
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Xtra Data                          ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert JointTypeAndUserSIF with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g JointTypeAndUserSIF("All")
+'              0              -  Press OK button with default values                                        E-g JointTypeAndUserSIF("0") or JointTypeAndUserSIF(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g JointTypeAndUserSIF("5") Or JointTypeAndUserSIF(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g JointTypeAndUserSIF("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub JointTypeAndUserSIF(TestData)
+      'Add to Log
+	    AppendLogFolder("Insert Joint Type And User SIF in the model")
+'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblJointTypeAndUserSIF"     'DB mapped Table Name 
+      Dim strHotKey     : strHotKey      = "I1"        'Dialog Shortcut Key
+      Dim strUIMethod   : strUIMethod    = "XtraData.JointTypeAndUserSIF"    'Procedure Name
+      Dim strDlgNameMap : strDlgNameMap  = "dlgJointTypeAndUserSIF"     'Dialog mapped name  
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert AdditionalWeight with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g AdditionalWeight("All")
+'              0              -  Press OK button with default values                                        E-g AdditionalWeight("0") or AdditionalWeight(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g AdditionalWeight("5") Or AdditionalWeight(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g AdditionalWeight("1-5")    
+' Author:   Sumbal.Khan
+' Date:     8/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub AdditionalWeight(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Additional Weight in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblAdditionalWeight"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I2"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.AdditionalWeight"
+      Dim strDlgNameMap : strDlgNameMap ="dlgAdditionalWeight"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert ConcentratedForce with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g ConcentratedForce("All")
+'              0              -  Press OK button with default values                                        E-g ConcentratedForce("0") or ConcentratedForce(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g ConcentratedForce("5") Or ConcentratedForce(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g ConcentratedForce("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ConcentratedForce(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Concentrated Force in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblConcentratedForce"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I3"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.ConcentratedForce"
+      Dim strDlgNameMap : strDlgNameMap ="dlgConcentratedForce"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert ImposedDisplacement with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g ImposedDisplacement("All")
+'              0              -  Press OK button with default values                                        E-g ImposedDisplacement("0") or ImposedDisplacement(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g ImposedDisplacement("5") Or ImposedDisplacement(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g ImposedDisplacement("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ImposedDisplacement(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Imposed Displacement in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblImposedDisplacements"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I4"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.ImposedDisplacement"
+      Dim strDlgNameMap : strDlgNameMap ="dlgImposedSupportDisplacements"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert HydrodynamicData with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g HydrodynamicData("All")
+'              0              -  Press OK button with default values                                        E-g HydrodynamicData("0") or HydrodynamicData(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g HydrodynamicData("5") Or HydrodynamicData(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g HydrodynamicData("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub HydrodynamicData(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Hydrodynamic Data in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblHydrodynamicData"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I6"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.HydrodynamicData"
+      Dim strDlgNameMap : strDlgNameMap ="dlgHydrodynamicData"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert CutShort with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g CutShort("All")
+'              0              -  Press OK button with default values                                        E-g CutShort("0") or CutShort(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g CutShort("5") Or CutShort(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g CutShort("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub CutShort(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Cut Short in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblCutShort"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I7"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.CutShort"
+      Dim strDlgNameMap : strDlgNameMap ="dlgCutShort"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert UserWeldEfficiencyFactor with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g UserWeldEfficiencyFactor("All")
+'              0              -  Press OK button with default values                                        E-g UserWeldEfficiencyFactor("0") or UserWeldEfficiencyFactor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g UserWeldEfficiencyFactor("5") Or UserWeldEfficiencyFactor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g UserWeldEfficiencyFactor("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub UserWeldEfficiencyFactor(TestData)
+'Add to Log
+	    AppendLogFolder("Insert User Weld Efficiency Factor in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblUserWeldEfficiencyFactor"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I8"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.UserWeldEfficiencyFactor"
+      Dim strDlgNameMap : strDlgNameMap ="dlgUserWeldEfficiencyFactor"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert MemberEarthquakeFactor with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g MemberEarthquakeFactor("All")
+'              0              -  Press OK button with default values                                        E-g MemberEarthquakeFactor("0") or MemberEarthquakeFactor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g MemberEarthquakeFactor("5") Or MemberEarthquakeFactor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g MemberEarthquakeFactor("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub MemberEarthquakeFactor(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Member Earthquake Factor in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblMemberEarthquakeFactor"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I9"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.EarthquakeScaleFactor"
+      Dim strDlgNameMap : strDlgNameMap ="dlgEarthquakeScaleFactor"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert PointEarthquakeFactor with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PointEarthquakeFactor("All")
+'              0              -  Press OK button with default values                                        E-g PointEarthquakeFactor("0") or PointEarthquakeFactor(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PointEarthquakeFactor("5") Or PointEarthquakeFactor(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PointEarthquakeFactor("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub PointEarthquakeFactor(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Point Earthquake Factor in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblPointEarthquakeFactor"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I01"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.EarthquakeScaleFactor"
+      Dim strDlgNameMap : strDlgNameMap ="dlgEarthquakeScaleFactor"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert ReferencePoint with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g ReferencePoint("All")
+'              0              -  Press OK button with default values                                        E-g ReferencePoint("0") or ReferencePoint(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g ReferencePoint("5") Or ReferencePoint(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g ReferencePoint("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub ReferencePoint(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Reference Point in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblReferencePoint"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I02"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.ReferencePoint"
+      Dim strDlgNameMap : strDlgNameMap ="dlgReferencePoint"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest  )
+'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert OutOfRoundness with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g OutOfRoundness("All")
+'              0              - Press OK button with default values                                         E-g OutOfRoundness("0") or OutOfRoundness(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g OutOfRoundness("5") Or OutOfRoundness(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g OutOfRoundness("1-5")    
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub OutOfRoundness(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Out Of Roundness in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblOutOfRoundness"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I03"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.OutOfRoundness"
+      Dim strDlgNameMap : strDlgNameMap ="dlgOutOfRoundness"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert GrossDiscontinuity with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g GrossDiscontinuity("All")
+'              0              -  Press OK button with default values                                        E-g GrossDiscontinuity("0") or GrossDiscontinuity(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g GrossDiscontinuity("5") Or GrossDiscontinuity(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g GrossDiscontinuity("1-5")    
+' Author:   Sumbal.Khan
+' Date:     10/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub GrossDiscontinuity(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Gross Discontinuity in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblGrossDiscontinuity"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I04"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.GrossDiscontinuity"
+      Dim strDlgNameMap : strDlgNameMap ="dlgGrossDiscontinuity"
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+     
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert PipingRestraintOptions with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipingRestraintOptions("All")
+'              0              -  Press OK button with default values                                        E-g PipingRestraintOptions("0") or PipingRestraintOptions(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipingRestraintOptions("5") Or PipingRestraintOptions(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipingRestraintOptions("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub PipingRestraintOptions(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Piping Restraint Options in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblPipingRestraintOptions"                         ' Table Name 
+      Dim strHotKey: strHotKey = "I05"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "XtraData.PipingRestraintOptions"
+      Dim strDlgNameMap : strDlgNameMap ="dlgPipingRestraintOptions"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+'Call Main
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap,isDlgVerification, isDlgNegativeTest )
+'Log
+      PopLogFolder
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Properties                        ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert PipeProperties with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g PipeProperties("All")
+'              0              -  Press OK button with default values                                        E-g PipeProperties("0") or PipeProperties(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g PipeProperties("5") Or PipeProperties(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g PipeProperties("1-5")    
+' Author:   Tayyaba Mehreen
+' Date:     8/2019
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub PipeProperties(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Pipe Properties in the model")
+ 'Set Varaibles
+
+      Dim strDBTableName: strDBTableName = "tblPipeProperties"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IP"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Properties.PipeProperties"
+      Dim strDlgNameMap : strDlgNameMap ="dlgPipeProperties"
+         Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert RigidOptionsOverRange with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g RigidOptionsOverRange("All")
+'              0              -  Press OK button with default values                                        E-g RigidOptionsOverRange("0") or RigidOptionsOverRange(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g RigidOptionsOverRange("5") Or RigidOptionsOverRange(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g RigidOptionsOverRange("1-5")    
+' Author:   Tayyaba Mehreen
+' Date:     8/2019
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub RigidOptionsOverRange(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Rigid Options Over Range in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblRigidOptions"                         ' Table Name 
+      Dim strHotKey: strHotKey = "ID"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Properties.RigidOptionsOverRange"
+      Dim strDlgNameMap : strDlgNameMap ="dlgRigidOptions"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: Insert OperatingPT with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g OperatingPT("All")
+'              0              -  Press OK button with default values                                        E-g OperatingPT("0") or OperatingPT(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g OperatingPT("5") Or OperatingPT(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g OperatingPT("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub OperatingPT(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Operating PT in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblOperatingPT"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IE"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Properties.OperatingPT"
+      Dim strDlgNameMap : strDlgNameMap ="dlgOpenPressTemp"
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+    
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification, isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Structure                         ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert BeamSectionProperties with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g BeamSectionProperties("All")
+'              0              -  Press OK button with default values                                        E-g BeamSectionProperties("0") or BeamSectionProperties(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g BeamSectionProperties("5") Or BeamSectionProperties(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g BeamSectionProperties("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub BeamSectionProperties(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Beam Section Properties in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblBeamSectionProperties"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IN"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Structure.BeamSectionProperties"
+      Dim strDlgNameMap : strDlgNameMap ="dlgBeamSectionProperties"
+       Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"  
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod, strDlgNameMap, isDlgVerification, isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+'------------------------------------------------------------------------------------**/
+' Summary: Insert Beam with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g Beam("All")
+'              0              -  Press OK button with default values                                        E-g Beam("0") or Beam(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g Beam("5") Or Beam(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g Beam("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub Beam(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Beam in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblBeam"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IM"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Structure.Beam"
+      Dim strDlgNameMap : strDlgNameMap ="dlgBeam"
+      Dim isDlgVerification : isDlgVerification = "yes"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "yes"   
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+ 'Log
+      PopLogFolder
+End Sub
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                        Equipment                         ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert RotatingEquipment with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g RotatingEquipment("All")
+'              0              -  Press OK button with default values                                        E-g RotatingEquipment("0") or RotatingEquipment(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g RotatingEquipment("5") Or RotatingEquipment(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g RotatingEquipment("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub RotatingEquipment(TestData)
+'Add to Log
+	    AppendLogFolder("Insert RotatingEquipment in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblRotatingEquipment"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IQ"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Equipment.RotatingEquipment"
+      Dim strDlgNameMap : strDlgNameMap ="dlgRotatingEquipment"
+      
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap)
+ 'Log
+      PopLogFolder
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                              Soil                        ' 
+' 
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert SoilProperties with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g SoilProperties("All")
+'              0              -  Press OK button with default values                                        E-g SoilProperties("0") or SoilProperties(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g SoilProperties("5") Or SoilProperties(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g SoilProperties("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub SoilProperties(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Soil Properties in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblSoilProperties"                         ' Table Name 
+      Dim strHotKey: strHotKey = "II"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Soil.SoilProperties"
+      Dim strDlgNameMap : strDlgNameMap ="dlgSoilProperties"
+      
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap)
+ 'Log
+      PopLogFolder
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'                          Other                           ' 
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: Insert DistributedLoads with default or custom values from Excel sheet.   
+' Remarks:
+' Actions: TestData -> The value could be:
+'              All            - Execute All Rows one by one                                                 E-g DistributedLoads("All")
+'              0              -  Press OK button with default values                                        E-g DistributedLoads("0") or DistributedLoads(0)
+'              Numeric Value  - Values of that specific row of the table will be used as input              E-g DistributedLoads("5") Or DistributedLoads(5)
+'              x-y            - Execut tests between the range. x and y should be any integer number        E-g DistributedLoads("1-5")    
+' Author:   Sumbal.Khan
+' Date:     9/2017
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+Sub DistributedLoads(TestData)
+'Add to Log
+	    AppendLogFolder("Insert Distributed Loads in the model")
+ 'Set Varaibles
+      Dim strDBTableName: strDBTableName = "tblDistributedLoads"                         ' Table Name 
+      Dim strHotKey: strHotKey = "IL"                                      'Shortcut Key
+      Dim strUIMethod  : strUIMethod = "Other.DistributedLoads"
+      Dim strDlgNameMap : strDlgNameMap ="dlgDistributedLoads"
+       Dim isDlgVerification : isDlgVerification =  "no"
+      Dim isDlgNegativeTest : isDlgNegativeTest = "no"
+      Call Main.TAFMain(TestData, strDBTableName, strHotKey, strUIMethod,strDlgNameMap,isDlgVerification,isDlgNegativeTest)
+ 
+ 'Log
+      PopLogFolder
+End Sub

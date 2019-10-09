@@ -1,0 +1,49 @@
+JOB                                                         1.1       
+HED  bp-12-W
+    *
+CTL  B31.3     Y                           English            AUTOPIPE   B313-12
+***  
+SEG  1                 198.500     3.000     6.648          
+RVER 1.7
+PIPE PIPE1               6.000     0.280     0.063
+    *A53-B          
+    *                    0.000     0.000     0.000
+    *
+    *
+    *        1C0031
+RVER 1.1
+OPER 1             1  -459.670          0.000
+RUN  2                   0.000     0.000    -4.308
+RUN  3                   0.000     0.000    -4.604
+RUN  4                   0.000     0.000    -1.987
+UUID RUN  4                   0001388C-0000-0000-9D00-901296474404
+BEND 5                   0.000     0.000    -0.750     9.000    50.000
+UUID BEND 5                   00013885-0000-0000-8703-4883A0472C04
+RUN  5F                  0.000    -0.750     0.000
+RUN  6                   0.000    -4.244     0.000
+UUID RUN  6                   0001388C-0000-0000-8F03-4883A0472C04
+BEND 7                   0.000    -0.750     0.000     9.000    50.000
+UUID BEND 7                   00013885-0000-0000-BE05-4883A0472C04
+RUN  7F                 -0.750     0.000     0.000
+RUN  8                  -2.548     0.000     0.000
+UUID RUN  8                   0001388C-0000-0000-C605-4883A0472C04
+BEND 9                  -0.750     0.000     0.000     9.000    50.000
+UUID BEND 9                   00013885-0000-0000-D705-4883A0472C04
+RUN  9F                  0.000     0.000     0.750
+RUN  10                  0.000     0.000     3.030
+UUID RUN  10                  0001388C-0000-0000-DF05-4883A0472C04
+RUN  11                  0.000     0.000     5.438
+*** ANCHORS AT OPEN ENDS
+ANC  1    
+ANC  11   
+GUID 2                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    T Shaped Frame W4x13 w/ Baseplate
+UUID GUID 2                   00022303-0000-0000-7816-901296474404
+GUID 3                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Inverted T Shaped Frame L3X3X1/4 w/ Baseplate
+UUID GUID 3                   00022303-0000-0000-D80D-F74C97474204
+GUID 10                       0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Assembly DM1 Size 1 Sway Strut Assembly (Option 3) for Pipe Sizes 2in to 36in
+UUID GUID 10                  00022303-0000-0000-F205-4883A0472C04
+***  
+*** END OF FILE

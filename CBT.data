@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root Version="1">
+	<Providers>
+		<Provider version="1" Name="CrossBrowserTesting">
+			<groups>
+				<Group0 Caption="EnvironmentList1" Key="99651CA5x1B40x42D2x9210xD0CCF39E7F33" Enabled="True">
+					<Hosts />
+					<Tests />
+					<TestItems />
+				</Group0>
+			</groups>
+			<tunnels />
+		</Provider>
+	</Providers>
+</Root>

@@ -1,0 +1,78 @@
+----------------------------------------------------------------------------------------------------------------
+QA333A_0                                                                                                        
+09/26/2019                                                        BENTLEY                                       
+02:38 AM                                                          AutoPIPE Nuclear 12.02.00.12   CHECK  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2143-121: Sc > 20 ksi (138 MPa). In calculation Sc will be set to         
+     20 ksi (138 MPa) for expansion allow for pipe(s)                           
+                                                                                
+     PIPE10                                                                     
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2143-123: Sh > 20 ksi (138 MPa). In calculation Sh will be set to         
+     20 ksi (138 MPa) for expansion allow at following point(s)                 
+                                                                                
+     10, 20, 30, 30  M, 35                                                      
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2164-158:Flange(s) with inconsistent CAD length with pipe found at following point(s)                     
+                                                                                
+     230, 250, 280, 330, 420, 440                                               
+
+
+ * * * W A R N I N G - MODEL * * *
+     W2164-22: The cut short at following point(s) is defined at a non user load case.                          
+     This may affect piping stresses for the selected load case which may not be intended.                      
+     Please refer to online help for information on how to properly account for cut short.                      
+                                                                                
+     365                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-10:  User SIF required at junction  at following point(s)             
+                                                                                
+     590                                                                        
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-116: Support will be hidden since all gaps > gap scale factor*Pipe O.D.                               
+     at following support(s)                                                    
+                                                                                
+     95   1  at point 95                                                        
+     170  2  at point 170                                                       
+     340  2  at point 340                                                       
+     420  2  at point 420                                                       
+     500  2  at point 500                                                       
+     510  2  at point 510                                                       
+     755  2  at point 755                                                       
+     860  2  at point 860                                                       
+     910  2  at point 910                                                       
+
+----------------------------------------------------------------------------------------------------------------
+QA333A_0                                                                                                        
+09/26/2019                                                        BENTLEY                                       
+02:38 AM                                                          AutoPIPE Nuclear 12.02.00.12   CHECK  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+     *** GLOBAL CONSISTENCY MESSAGES ***                                                                        
+                                                                                
+
+
+ * * * W A R N I N G - MODEL * * *
+     W726-93:  Zero weight flange found at following point(s)                   
+                                                                                
+     380 N, 460 N, 460 F                                                        
+ 
+ 
+  No error    21 Warning(s)                                                     
+ 
+

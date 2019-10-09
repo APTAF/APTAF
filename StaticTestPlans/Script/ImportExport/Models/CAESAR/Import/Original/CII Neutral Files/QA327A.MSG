@@ -1,0 +1,30 @@
+------------------------------------------------------------
+----------------  . C I I    T O   . N T L  ----------------
+------------  E R R O R S   A N D   W A R N I N G S --------
+------------------------------------------------------------
+
+ 
+********* AUTOPIPE BATCH NTL FILE: QA327A.NTL
+ 
+********* NUMBER OF ERRORS   =    0
+********* NUMBER OF WARNINGS =    0
+
+
+
+
+          * * * *  APIN MESSAGE FILE  * * * * 
+
+
+*** LAST NODE PROCESSED: 2    
+    *A182-F5              0.00                                                  
+          *** WARNING: UNKNOWN MATERIAL. SETTING MATERIAL TO CS.
+
+
+      DATABASE ARRAY SIZE IS  18912.  MAXIMUM ALLOWABLE IS   10000000
+
+
+
+ ********** NUMBER OF ERRORS:   0
+ ********** NUMBER OF WARNINGS:   1
+
+

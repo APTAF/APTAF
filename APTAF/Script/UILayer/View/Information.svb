@@ -1,0 +1,67 @@
+﻿'USEUNIT Main
+'USEUNIT DatabaseFunctions
+'USEUNIT tabView
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "PointProperties " dialog  in home tab. 
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         tblView table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub PointProperties (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+
+Set ObjNameMapping = Aliases.autopipe
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+  
+    aqUtils.Delay(2000)
+  
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select
+  
+  End Sub
+
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "PointOffsets " dialog  in home tab. 
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         tblView table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     7/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub PointOffsets (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+
+Set ObjNameMapping = Aliases.autopipe
+Set dlgPointOffsets = objNameMapping.dlgPointOffsets
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+  
+    aqUtils.Delay(2000)
+  
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select
+  aqUtils.Delay(2000)
+  dlgPointOffsets.btnOK.Click()
+  End Sub
+  

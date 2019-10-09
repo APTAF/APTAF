@@ -1,0 +1,23 @@
+﻿'USEUNIT Main
+'USEUNIT DatabaseFunctions
+'USEUNIT tabView
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub ZoomTypes (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+
+Set ObjNameMapping = Aliases.autopipe
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+  
+    aqUtils.Delay(2000)
+  
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select
+  
+  End Sub

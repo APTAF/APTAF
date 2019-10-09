@@ -1,0 +1,139 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabDelete
+'USEUNIT tabModify
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "DeleteXtraData"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+
+Sub Cat8TS3TC1
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("2","AutoPIPE Database")
+
+''Tests 
+   
+   
+   tabSelect.Point("D16")
+   tabDelete.JointTypeAndUserSIF("Yes")
+ 
+   
+   tabSelect.Point("B06")
+   tabDelete.AdditionalWeight("1=Weight")   
+ 
+   
+   tabSelect.Point("B09")
+   tabDelete.ConcentratedForce("3=Conc for")   
+
+'   
+   tabSelect.Point("D00")
+   tabDelete.ImposedDisplacement("2=Imposed")
+
+   
+   tabSelect.Point("C07")
+   tabDelete.HydrodynamicData("2=Hydro")
+ 
+
+   
+   tabSelect.Point("D07")
+   tabDelete.CutShort("1=cut")
+
+'   
+   tabSelect.Point("D11")
+   tabDelete.UserWeldEfficiencyFactor("1=user")
+
+   
+   
+   tabSelect.Point("D02")
+   tabDelete.PointEarthquakeFactor("Yes")
+
+   
+   tabSelect.Point("D09")
+   tabDelete.ReferencePoint("3=Ref")
+
+
+
+   tabResult.InputlistReport(0)
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+
+Sub Cat8TS3TC2
+''Comments
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+
+''Tests 
+  
+   tabDelete.OutOfRoundness("Yes")
+   
+   tabDelete.GrossDiscontinuity("Yes")
+
+   tabSelect.JointTypeAndUserSIF("0")
+   tabDelete.JointTypeAndUserSIF("Yes")
+   
+
+   tabSelect.AdditionalWeight("0")
+   tabDelete.AdditionalWeight("Yes")
+ 
+   tabSelect.ConcentratedForce("0")
+   tabDelete.ConcentratedForce("Yes")
+'  
+   tabSelect.ImposedDisplacement("0")
+   tabDelete.ImposedDisplacement("Yes")
+   
+
+   tabSelect.HydrodynamicData("0")
+   tabDelete.HydrodynamicData("0=All")
+
+   
+
+   tabSelect.CutShort("0")
+   tabDelete.CutShort("0=All")
+'   
+
+   tabSelect.UserWeldEfficiencyFactor("0")
+   tabDelete.UserWeldEfficiencyFactor("0=All")
+   
+   Call tabSelect.Range("D02","D03")
+   tabDelete.MemberEarthquakeFactor("Yes")
+   
+   tabSelect.PointEarthquakeFactor("0")
+   tabDelete.PointEarthquakeFactor("Yes")
+   
+
+   tabSelect.ReferencePoint("0")
+   tabDelete.ReferencePoint("Yes")
+
+
+   tabResult.InputlistReport(0)
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub

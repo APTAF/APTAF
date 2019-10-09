@@ -1,0 +1,158 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabDelete
+'USEUNIT tabModify
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "DeleteSupports"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+'''''''''''Delete Supports'''''''''''''''''''''''''''''''''''''''
+
+Sub Cat8TS2TC1
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+
+''Tests 
+   tabSelect.Point("B11")
+   tabDelete.Anchor("Yes")
+   tabSelect.Anchor("0")
+   tabDelete.Anchor("Yes")
+   
+   tabSelect.Supports("1")
+   tabDelete.Support("Yes")
+
+   
+   
+''''''''''''''''add individual options 
+   tabResult.InputlistReport(0)
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+Sub Cat8TS2TC2
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("2","AutoPIPE Database")
+
+''Tests 
+
+   
+   tabSelect.Supports("2")
+   tabDelete.Support("Yes")
+   
+''''''''''''''''add individual options 
+   tabResult.InputlistReport(0)
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+Sub Cat8TS2TC3
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+
+''Tests 
+ 
+   
+   tabSelect.Supports("3")
+   tabDelete.Support("Yes")
+  
+''''''''''''''''add individual options 
+   tabResult.InputlistReport(0)
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+Sub Cat8TS2TC4
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+
+''Tests 
+ 
+   tabSelect.Supports("4")
+   tabDelete.Support("Yes")
+
+''''''''''''''''add individual options 
+   tabResult.InputlistReport(0)
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+Sub Cat8TS2TC5
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("4","AutoPIPE Database")
+
+''Tests 
+ 
+   tabSelect.Supports("5")
+   tabDelete.Support("Yes")
+
+''''''''''''''''add individual options 
+   tabResult.InputlistReport(0)
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+Sub Cat8TS2TC6
+''Comments
+
+
+''Pre-Conditions
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("4","AutoPIPE Database")
+
+''Tests 
+ 
+   tabSelect.Supports("6")
+   tabDelete.Support("Yes")
+
+''''''''''''''''add individual options 
+   tabResult.InputlistReport(0)
+
+''Post-Condition
+   tabFile.Close("No")  
+
+End Sub
+

@@ -1,0 +1,835 @@
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                                         BENTLEY                      
+09:40 AM                                                                           AutoPIPE Nuclear 12.02.00.11 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 12.02.00.11                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                    1065 N. PACIFIC CENTER DRIVE, SUITE 450                     
+                               ANAHEIM, CA   92806                              
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                                         BENTLEY                      
+09:40 AM                                                                           AutoPIPE Nuclear 12.02.00.11 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : ComponentsSupportsLoads                         
+ 
+ 
+          PROJECT ID  :                                         
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                                                 
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.3              
+ 
+          YEAR                   : 2016                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   68.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B313-16 
+ 
+          MODEL REVISION NUMBER  :     5
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                                         BENTLEY                      
+09:40 AM                                                                           AutoPIPE Nuclear 12.02.00.11 
+----------------------------------------------------------------------------------------------------------------
+
+                              D E S C R I P T I O N                                                             
+                              ---------------------                                                             
+                                                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                                         BENTLEY                      
+09:40 AM                                                                           AutoPIPE Nuclear 12.02.00.11 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Hydrotest ......................................................................   12                      
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 3.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12, Material= NS, Composition= Other, Poisson= 0.300, Nom Size= 12 in, OD= 12.750 inch, Sch= NS,    
+   Wall Thk= 0.250 inch, Mill= 0.031 inch, Cor= 0.200 inch, Pipe Density= 489.00 lb/cu.ft,                      
+   Pipe Unit Wgt= 33.34 lb/ft, Content Sp Gr= 0.500, Content Unit Wgt= 24.71 lb/ft, Insul Thk= 0.100 inch,      
+   Insul Material= CELLULAR GLASS, Insul Density= 9.00 lb/cu.ft, Insul Unit Wgt= 0.25 lb/ft,                    
+   Cladding Material = ALUMINUM, Cladding Thickness = 0.200 inch, Cladding Density = 169.00 lb/cu.ft,           
+   Cladding Unit Wgt = 9.70 lb/ft, Lining Thk= 0.100 inch, Lining Density= 0.10 lb/cu.ft,                       
+   Lining Unit Wgt= 0.00 lb/ft, Long Weld E factor= 1.00, Long Weld W factor= 1.00,                             
+   Long Modulus= 29.70000 E6 psi, Hoop Modulus= 29.70000 E6 psi, Shear Modulus= 11.42308 E6 psi, Sc= 0.9 psi,   
+   Syc= 30000.0 psi                                                             
+ 
+ OPERATING DATA:                                                                
+   P1= 26.00 psi, P2= 26.00 psi, P3= 26.00 psi, P4= 26.00 psi, P5= 26.00 psi, T1= 85.00 deg F, T2= 85.00 deg F, 
+   T3= 85.00 deg F, T4= 85.00 deg F, T5= 85.00 deg F, Exp1= 0.11538 in/100ft, Exp2= 0.11538 in/100ft,           
+   Exp3= 0.11538 in/100ft, Exp4= 0.11538 in/100ft, Exp5= 0.11538 in/100ft, E1= 29.61923 E6 psi,                 
+   E2= 29.61923 E6 psi, E3= 29.61923 E6 psi, E4= 29.61923 E6 psi, E5= 29.61923 E6 psi, Sh1= 1000.00 psi,        
+   Sh2= 1000.00 psi, Sh3= 1000.00 psi, Sh4= 1000.00 psi, Sh5= 1000.00 psi, Sy1= 1.00 psi, Sy2= 1.00 psi,        
+   Sy3= 1.00 psi, Sy4= 1.00 psi, Sy5= 1.00 psi                                  
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, Connected to: Ground, KTX= 1 lb/in, KTY= 2 lb/in, KTZ= 3 lb/in, KRX= 44444 ft-lb/deg,           
+   KRY= 556 ft-lb/deg, KRZ= 667 ft-lb/deg, Hanger design release= X/Y/Z/XX/YY/ZZ
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DX= 3.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 3.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DY= 5.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= A02, Near= A02 N, Mid= A02 M, Far= A02 F):          
+   Long Elbow, Radius= 18.00 inch, Bend angle= 90.00 deg, Mid point at 50.00 percent, End flanges= 0,           
+   Flex= Auto, SIFI= 3.73, SIFO= 3.11                                           
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= -0.00 ft                        
+   A02 N, Coordinates, X= 4.50 ft, Y= 0.00 ft, Z= -0.00 ft                      
+   A02 M, Coordinates, X= 5.56 ft, Y= 0.44 ft, Z= -0.00 ft                      
+   A02 M, Joint End Type= User-defined, Circ SIFI= 1.00, Circ SIFO= 1.00, Long SIFI= 1.90, Long SIFO= 1.90,     
+   Override all other values= Yes                                               
+   A02 F, Coordinates, X= 6.00 ft, Y= 1.50 ft, Z= -0.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From A03 to A04, DY= 5.00 ft                                               Run 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ POINT DATA:                                                                    
+   A03, Coordinates, X= 6.00 ft, Y= 5.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A04 to A05, DY= 3.50 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A04):                                      
+   B16.9 welding tee, SIFI= 2.96, SIFO= 3.62                                    
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= 6.00 ft, Y= 10.00 ft, Z= 0.00 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From A05 to A06, DY= 3.50 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A05, Coordinates, X= 6.00 ft, Y= 13.50 ft, Z= 0.00 ft                        
+   A05, Flange= SLIP-ON, Rating= 900, Flange Weight= 308.00 lb, Bolt/Nut Weight= 154.00 lb,                     
+   End type= User-defined, SIF= 1.90, Perform ANSI check= No                    
+   A05, Flange= SLIP-ON, Rating= 900, Flange Weight= 308.00 lb, Bolt/Nut Weight= 154.00 lb,                     
+   End type= User-defined, SIF= 1.90, Perform ANSI check= No                    
+   A06, Coordinates, X= 6.00 ft, Y= 17.00 ft, Z= 0.00 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   A06, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A04 to B01, DX= 3.50 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A04):                                      
+   B16.9 welding tee, SIFI= 2.96, SIFO= 3.62                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12, Material= NS, Composition= Other, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 33.34 lb/ft,    
+   Content Sp Gr= 0.500, Content Unit Wgt= 24.71 lb/ft                          
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= 6.00 ft, Y= 10.00 ft, Z= 0.00 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From B01 to B02, DX= 2.29 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Globe Valve, Type = Globe Valve,       
+   MainEnd = BW, Rating= 150, Length= 2.29 ft, Valve weight = 820 lb, Surface factor= 4.00,                     
+   End type= User-defined, SIF= 1.90                                            
+ 
+ POINT DATA:                                                                    
+   B01, Coordinates, X= 9.50 ft, Y= 10.00 ft, Z= 0.00 ft                        
+   B01 M, Coordinates, X= 10.65 ft, Y= 10.00 ft, Z= 0.00 ft                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ From B02 to B03, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B02, Coordinates, X= 11.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From B03 to B04, DX= 3.00 ft                                               Flex
+ 
+ COMPONENT DATA (Flex Jt):                                                      
+   Length= 3.00 ft, Weight= 2 lb, Area= 0.3 sq.in, Kax= 0.5 lb/in, Kylat= 0.1 lb/in, Kzlat= 0.2 lb/in,          
+   Ktor= 0.3 ft-lb/deg, Kybend= 0.5 ft-lb/deg, Kzbend= 0.4 ft-lb/deg            
+ 
+ POINT DATA:                                                                    
+   B03, Coordinates, X= 13.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+   B03, Flange= WELDNECK, Rating= 2500, Flange Weight= 1608.00 lb, Bolt/Nut Weight= 804.00 lb,                  
+   End type= User-defined, SIF= 1.90, Perform ANSI check= No                    
+ 
+ -------------------------------------------------------------------------------
+ From B04 to B05, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B04, Coordinates, X= 16.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+   B04, Flange= WELDNECK, Rating= 1500, Flange Weight= 690.00 lb, Bolt/Nut Weight= 345.00 lb,                   
+   End type= User-defined, SIF= 1.90, Perform ANSI check= No                    
+ 
+ -------------------------------------------------------------------------------
+ From B05 to B06, DX= 3.00 ft                                               Redu
+ 
+ COMPONENT DATA (Reducer):                                                      
+   Length= 3.00 ft, SIF= 1.00                                                   
+ 
+ POINT DATA:                                                                    
+   B05, Coordinates, X= 18.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From B06 to B07, DX= 2.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6, Material= NS, Composition= Other, Nom Size= 6 in, OD= 6.625 inch, Wall Thk= 1.000 inch,          
+   Mill= 0.125 inch, Pipe Density= 501.00 lb/cu.ft, Pipe Unit Wgt= 61.48 lb/ft, Content Sp Gr= 0.500,           
+   Content Unit Wgt= 3.33 lb/ft, Insul Material= KAYLO 10, Insul Density= 12.50 lb/cu.ft,                       
+   Insul Unit Wgt= 0.18 lb/ft, Cladding Density = 169.00 lb/cu.ft, Cladding Unit Wgt = 5.18 lb/ft,              
+   Lining Density= 0.10 lb/cu.ft, Lining Unit Wgt= 0.00 lb/ft, Long Modulus= 28.29976 E6 psi,                   
+   Hoop Modulus= 28.29976 E6 psi, Shear Modulus= 10.88508 E6 psi, Syc= 29999.6 psi, Suc= 1740.5 psi             
+ 
+ OPERATING DATA:                                                                
+   Exp1= 0.16154 in/100ft, Exp2= 0.16154 in/100ft, Exp3= 0.16154 in/100ft, Exp4= 0.16154 in/100ft,              
+   Exp5= 0.16154 in/100ft, E1= 28.21923 E6 psi, E2= 28.21923 E6 psi, E3= 28.21923 E6 psi, E4= 28.21923 E6 psi,  
+   E5= 28.21923 E6 psi                                                          
+ 
+ POINT DATA:                                                                    
+   B06, Coordinates, X= 21.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+   B06, Added Weight= 50.00 lb, DX= 20.00 ft, DY= 40.00 ft, DZ= 60.00 ft        
+ 
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ From B07 to B08, DX= 4.00 ft                                               Noz 
+ 
+ COMPONENT DATA (Nozzle):                                                       
+   DirX= 0.000, DirY= 0.000, DirZ= 1.000, Krad=5000000.00 lb/in, Kcirc=6000000.50 ft-lb/deg,                    
+   Klong=7000000.00 ft-lb/deg                                                   
+ 
+ POINT DATA:                                                                    
+   B07, Coordinates, X= 23.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From B08 to B09, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B08, Coordinates, X= 27.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From B09 to B10, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B09, Coordinates, X= 29.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+   B09, Forces/Moments, Load= GR, FX= 10 lbf, FY= 20 lbf, FZ= 30 lbf, MX= 40 ft-lb, MY= 50 ft-lb, MZ= 60 ft-lb  
+ 
+ -------------------------------------------------------------------------------
+ From B10 to B11, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   B10, Coordinates, X= 31.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+   B10, Joint End Type= User-defined, SIFI= 1.90, SIFO= 1.90, Override all other values= Yes                    
+   Ref. ID= B10-1, Ref. Side= After, Report actual loads= Yes, Ref. coord.= Global, Ref. dir.= towards B11,     
+   Report allow. loads= Yes, FX= 1 lbf, FY= 2 lbf, FZ= 3 lbf, FR= 4 lbf, MX= 5 ft-lb, MY= 6 ft-lb, MZ= 7 ft-lb, 
+   MR= 8 ft-lb                                                                  
+   B10, EQ Point Factor, EPX= 80.000, EPY= 50.000, EPZ= 20.000                  
+   B11, Coordinates, X= 33.79 ft, Y= 10.00 ft, Z= 0.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   B11, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid,   
+   Hanger design release= X/ZZ                                                  
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT C                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From C00 to C01, DX= 2.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12, Material= NS, Composition= Other, Nom Size= 12 in, OD= 12.750 inch, Wall Thk= 0.250 inch,       
+   Mill= 0.031 inch, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 33.34 lb/ft, Content Sp Gr= 0.500,           
+   Content Unit Wgt= 24.71 lb/ft, Insul Material= CELLULAR GLASS, Insul Density= 9.00 lb/cu.ft,                 
+   Insul Unit Wgt= 0.25 lb/ft, Cladding Density = 169.00 lb/cu.ft, Cladding Unit Wgt = 9.70 lb/ft,              
+   Lining Density= 0.10 lb/cu.ft, Lining Unit Wgt= 0.00 lb/ft, Long Modulus= 29.70000 E6 psi,                   
+   Hoop Modulus= 29.70000 E6 psi, Shear Modulus= 11.42308 E6 psi, Syc= 30000.0 psi, Suc= 0 psi                  
+ 
+ OPERATING DATA:                                                                
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   Exp1= 0.11538 in/100ft, Exp2= 0.11538 in/100ft, Exp3= 0.11538 in/100ft, Exp4= 0.11538 in/100ft,              
+   Exp5= 0.11538 in/100ft, E1= 29.61923 E6 psi, E2= 29.61923 E6 psi, E3= 29.61923 E6 psi, E4= 29.61923 E6 psi,  
+   E5= 29.61923 E6 psi                                                          
+ 
+ POINT DATA:                                                                    
+   C00, Coordinates, X= -30.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C00, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ From C01 to C02, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C01, Coordinates, X= -28.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C01, V-Stop, Support Id= C01  1, Connected to Ground, Tag No.= 1, 1 hanger(s), Comp.Wt = 0.000 lb            
+ 
+ -------------------------------------------------------------------------------
+ From C02 to C03, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C02, Coordinates, X= -26.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C02, Variable Spring Hanger, Support Id= C02  1, Connected to Ground, 1 hanger(s), Comp.Wt = 0.000 lb,       
+   Stiffness= 45 lb/in, Preload= 3 lbf                                          
+ 
+ -------------------------------------------------------------------------------
+ From C03 to C04, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C03, Coordinates, X= -24.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C03, Constant Force Hanger, Support Id= C03  1, Connected to Ground, 2 hanger(s), Comp.Wt = 0.000 lb,        
+   Preload= 150 lbf                                                             
+ 
+ -------------------------------------------------------------------------------
+ From C04 to C05, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C04, Coordinates, X= -22.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C04, Constant Force Hanger, Support Id= C04  1, Connected to Ground, 1 hanger(s), Comp.Wt = 30.000 lb,       
+   Preload= 5 lbf                                                               
+ 
+ -------------------------------------------------------------------------------
+ From C05 to C06, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C05, Coordinates, X= -20.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ SUPPORT DATA:                                                                  
+   C05, Constant Force Hanger, Support Id= C05  1, Connected to Ground, 1 hanger(s), Comp.Wt = 30.000 lb,       
+   Preload= 0 lbf                                                               
+ 
+ -------------------------------------------------------------------------------
+ From C06 to C07, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C06, Coordinates, X= -18.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C06, V-Stop, Support Id= C06  1, Connected to Ground, Tag No.= V-STOP, Comp.Wt = 30.000 lb,                  
+   Gap-Below= 2.00 inch, Gap-Above= 100.00 inch, Friction= 3.00, Gaps setting= As-built                         
+ 
+ -------------------------------------------------------------------------------
+ From C07 to C08, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C07, Coordinates, X= -16.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+   C07, Hydrodynamic, Cm= 111.00, Cd= 111.00, Cl= 111.00                        
+ 
+ SUPPORT DATA:                                                                  
+   C07, Incline, Support Id= C07  1, Connected to Ground, Dir= Inclined, DirX= 0.000, DirY= 1.000, DirZ= 0.000, 
+   Comp.Wt = 30.000 lb, Stiffness= 5 lb/in, Gap-Minus= 10.00 inch, Gap-Plus= 20.00 inch, Friction= 30.00,       
+   Gaps setting= Weightless                                                     
+ 
+ -------------------------------------------------------------------------------
+ From C08 to C09, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C08, Coordinates, X= -14.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C08, Line Stop, Support Id= C08  1, Connected to Ground, Comp.Wt = 30.000 lb, Stiffness= 40 lb/in,           
+   Gap-Back= 30.00 inch, Gap-Forward= 40.00 inch, Gaps setting= Weightless      
+ 
+ -------------------------------------------------------------------------------
+ From C09 to C10, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C09, Coordinates, X= -12.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C09, Guide, Support Id= C09  1, Connected to Ground, Comp.Wt = 30.000 lb, Stiffness= 22 lb/in,               
+   Gap-Down= 1.00 inch, Gap-Above= 2.00 inch, Gap-Left= 3.00 inch, Gap-Right= 4.00 inch, Friction= 5.00,        
+   Gaps setting= Weightless                                                     
+ 
+ -------------------------------------------------------------------------------
+ From C10 to C11, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C10, Coordinates, X= -10.00 ft, Y= 0.00 ft, Z= 10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   C10, Rotation, Support Id= C10  1, Connected to Ground, Dir= Inclined, DirX= 0.000, DirY= 0.000, DirZ= 1.000,
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   Comp.Wt = 40.000 lb, Stiffness= 250 ft-lb/deg                                
+ 
+ -------------------------------------------------------------------------------
+ From C11 to C12, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C11, Coordinates, X= -8.00 ft, Y= 0.00 ft, Z= 10.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   C11, Damper, Support Id= C11  1, Connected to Ground, Active for wind, Dir= Global X, Comp.Wt = 40.000 lb,   
+   Stiffness= 35 lb/in                                                          
+ 
+ -------------------------------------------------------------------------------
+ From C12 to C13, DX= 2.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= HDPE, Material= NS, Composition= Carbon Steel, Poisson= 0.450, Nom Size= 6 in, OD= 6.625 inch,      
+   Wall Thk= 0.204 inch, Mill= 0.025 inch, Cor= 0.020 inch, Pipe Density= 60.40 lb/cu.ft,                       
+   Pipe Unit Wgt= 1.73 lb/ft, Content Sp Gr= 0.500, Content Unit Wgt= 6.16 lb/ft, Insul Material= PERLITE,      
+   Insul Density= 13.00 lb/cu.ft, Insul Unit Wgt= 0.19 lb/ft, Cladding Density = 169.00 lb/cu.ft,               
+   Cladding Unit Wgt = 5.18 lb/ft, Lining Density= 0.10 lb/cu.ft, Lining Unit Wgt= 0.00 lb/ft,                  
+   Long Modulus= 0.02900 E6 psi, Hoop Modulus= 0.02900 E6 psi, Shear Modulus= 0.01000 E6 psi, Sc= 800.0 psi,    
+   Syc= 29999.6 psi, Suc= 1740.5 psi                                            
+ 
+ OPERATING DATA:                                                                
+   Exp1= 1.63200 in/100ft, Exp2= 1.63200 in/100ft, Exp3= 1.63200 in/100ft, Exp4= 1.63200 in/100ft,              
+   Exp5= 1.63200 in/100ft, E1= 0.02540 E6 psi, E2= 0.02540 E6 psi, E3= 0.02540 E6 psi, E4= 0.02540 E6 psi,      
+   E5= 0.02540 E6 psi, Sh1= 741.00 psi, Sh2= 741.00 psi, Sh3= 741.00 psi, Sh4= 741.00 psi, Sh5= 741.00 psi,     
+   Sy1= 0.45 psi, Sy2= 0.45 psi, Sy3= 0.45 psi, Sy4= 0.45 psi, Sy5= 0.45 psi    
+ 
+ POINT DATA:                                                                    
+   C12, Coordinates, X= -6.00 ft, Y= 0.00 ft, Z= 10.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   C12, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+   C12, Tie/Link, Support Id= C12  1, Connected to C00, Comp.Wt = 40.000 lb, Stiffness= 250 lb/in,              
+   Gap-Minus= 3.00 inch, Gap-Plus= 4.00 inch, Friction= 5.00, Gaps setting= Weightless                          
+ 
+ -------------------------------------------------------------------------------
+ From C13 to C14, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C13, Coordinates, X= -4.00 ft, Y= 0.00 ft, Z= 10.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From C14 to C15, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C14, Coordinates, X= -2.00 ft, Y= 0.00 ft, Z= 10.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From C15 to C16, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C15, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 10.00 ft                        
+ 
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ From C16 to C17, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   C16, Coordinates, X= 2.00 ft, Y= 0.00 ft, Z= 10.00 ft                        
+   C17, Coordinates, X= 4.00 ft, Y= 0.00 ft, Z= 10.00 ft                        
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT D                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From D00 to D01, DX= 2.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12, Material= NS, Composition= Other, Poisson= 0.300, Nom Size= 12 in, OD= 12.750 inch,             
+   Wall Thk= 0.250 inch, Mill= 0.031 inch, Cor= 0.200 inch, Pipe Density= 489.00 lb/cu.ft,                      
+   Pipe Unit Wgt= 33.34 lb/ft, Content Sp Gr= 0.500, Content Unit Wgt= 24.71 lb/ft,                             
+   Insul Material= CELLULAR GLASS, Insul Density= 9.00 lb/cu.ft, Insul Unit Wgt= 0.25 lb/ft,                    
+   Cladding Density = 169.00 lb/cu.ft, Cladding Unit Wgt = 9.70 lb/ft, Lining Density= 0.10 lb/cu.ft,           
+   Lining Unit Wgt= 0.00 lb/ft, Long Modulus= 29.70000 E6 psi, Hoop Modulus= 29.70000 E6 psi,                   
+   Shear Modulus= 11.42308 E6 psi, Sc= 0.9 psi, Syc= 30000.0 psi, Suc= 0 psi    
+ 
+ OPERATING DATA:                                                                
+   Exp1= 0.11538 in/100ft, Exp2= 0.11538 in/100ft, Exp3= 0.11538 in/100ft, Exp4= 0.11538 in/100ft,              
+   Exp5= 0.11538 in/100ft, E1= 29.61923 E6 psi, E2= 29.61923 E6 psi, E3= 29.61923 E6 psi, E4= 29.61923 E6 psi,  
+   E5= 29.61923 E6 psi, Sh1= 1000.00 psi, Sh2= 1000.00 psi, Sh3= 1000.00 psi, Sh4= 1000.00 psi,                 
+   Sh5= 1000.00 psi, Sy1= 1.00 psi, Sy2= 1.00 psi, Sy3= 1.00 psi, Sy4= 1.00 psi, Sy5= 1.00 psi                  
+ 
+ POINT DATA:                                                                    
+   D00, Coordinates, X= -30.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+   D00, Displacements, Load= U2, DX= 3.94 in, DY= 4.33 in, DZ= 3.94 in          
+ 
+ SUPPORT DATA:                                                                  
+   D00, Anchor, Connected to: Ground, KTX= 1 lb/in, KTY= 2 lb/in, KTZ= 3 lb/in, KRX= 4 ft-lb/deg,               
+   KRY= 5 ft-lb/deg, KRZ= 6 ft-lb/deg, Hanger design release= X                 
+ 
+ -------------------------------------------------------------------------------
+ From D01 to D02, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D01, Coordinates, X= -28.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+   D01, EQ Point Factor, EPX= 1.000, EPY= 2.000, EPZ= 3.000                     
+   D01 to D02, EQ Member Factor, EMX= 1.000, EMY= 2.000, EMZ= 3.000             
+ 
+ -------------------------------------------------------------------------------
+ From D02 to D03, DX= 2.00 ft                                               Run 
+ 
+ OPERATING DATA:                                                                
+   T1= 86.18 deg F, T2= 86.18 deg F, T3= 86.18 deg F, T4= 86.18 deg F, T5= 86.18 deg F, Exp1= 0.12446 in/100ft, 
+   Exp2= 0.12446 in/100ft, Exp3= 0.12446 in/100ft, Exp4= 0.12446 in/100ft, Exp5= 0.12446 in/100ft,              
+   E1= 29.61288 E6 psi, E2= 29.61288 E6 psi, E3= 29.61288 E6 psi, E4= 29.61288 E6 psi, E5= 29.61288 E6 psi      
+ 
+ POINT DATA:                                                                    
+   D02, Coordinates, X= -26.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   D02, EQ Point Factor, EPX= 1.000, EPY= 2.000, EPZ= 3.000                     
+ 
+ -------------------------------------------------------------------------------
+ From D03 to D04, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D03, Coordinates, X= -24.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From D04 to D05, DX= 2.00 ft                                               Run 
+ 
+ OPERATING DATA:                                                                
+   T1= 85.00 deg F, T2= 85.00 deg F, T3= 85.00 deg F, T4= 85.00 deg F, T5= 85.00 deg F, Exp1= 0.11538 in/100ft, 
+   Exp2= 0.11538 in/100ft, Exp3= 0.11538 in/100ft, Exp4= 0.11538 in/100ft, Exp5= 0.11538 in/100ft,              
+   E1= 29.61923 E6 psi, E2= 29.61923 E6 psi, E3= 29.61923 E6 psi, E4= 29.61923 E6 psi, E5= 29.61923 E6 psi      
+ 
+ POINT DATA:                                                                    
+   D04, Coordinates, X= -22.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+   D04, Dist Load= GR, Id= 1429, DLX= 1 lb/ft, DLY= 2 lb/ft, DLZ= 3 lb/ft       
+ 
+ -------------------------------------------------------------------------------
+ From D05 to D06, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D05, Coordinates, X= -20.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+   D05, Dist Load= GR, Id= 1429, DLX= 4 lb/ft, DLY= 5 lb/ft, DLZ= 6 lb/ft       
+ 
+ -------------------------------------------------------------------------------
+ From D06 to D07, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D06, Coordinates, X= -18.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From D07 to D08, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D07, Coordinates, X= -16.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+   D07, Cut= 0.39 in, Load= U1                                                  
+   D07, Forces/Moments, Load= GR, FX= 0 lbf, FY= 0 lbf, FZ= 1 lbf, MX= 3 ft-lb, MY= 4 ft-lb, MZ= 4 ft-lb        
+ 
+ -------------------------------------------------------------------------------
+ From D08 to D09, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D08, Coordinates, X= -14.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+   D08, Added Weight= 22.05 lb                                                  
+ 
+ -------------------------------------------------------------------------------
+ From D09 to D10, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D09, Coordinates, X= -12.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+   Ref. ID= D09-1, Ref. Side= Before, Report actual loads= Yes, Ref. coord.= Global, Ref. dir.= towards D10,    
+   Report allow. loads= No                                                      
+ 
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ From D10 to D11, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D10, Coordinates, X= -10.00 ft, Y= 0.00 ft, Z= 15.00 ft                      
+ 
+ -------------------------------------------------------------------------------
+ From D11 to D12, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D11, Coordinates, X= -8.00 ft, Y= 0.00 ft, Z= 15.00 ft                       
+   D11, User Weld Factor, Circ. weld factor = 1.00, Override all other values= Yes,                             
+   User Circ. weld "W" factor = 1.00                                            
+ 
+ -------------------------------------------------------------------------------
+ From D12 to D13, DX= 2.00 ft                                               Run 
+ 
+ COMPONENT DATA (Run):                                                          
+   Rigid, Include weight= Yes, Include expansion= Yes                           
+ 
+ POINT DATA:                                                                    
+   D12, Coordinates, X= -6.00 ft, Y= 0.00 ft, Z= 15.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From D13 to D14, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D13, Coordinates, X= -4.00 ft, Y= 0.00 ft, Z= 15.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From D14 to D15, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D14, Coordinates, X= -2.00 ft, Y= 0.00 ft, Z= 15.00 ft                       
+   D14, Joint End Type= User-defined, SIFI= 1.90, SIFO= 1.90, Override all other values= Yes                    
+ 
+ -------------------------------------------------------------------------------
+ From D15 to D16, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D15, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 15.00 ft                        
+   D15, Joint End Type= User-defined, SIFI= 1.90, SIFO= 1.90, Override all other values= Yes                    
+   D15, Displacements, Load= S1                                                 
+   D15, Displacements, Load= S2                                                 
+   D15, Displacements, Load= S3                                                 
+ 
+ SOIL DATA:                                                                     
+   Soil Id= 1, 1 point(s) at 63.75 inch                                         
+   Horz K1= 216000.00 lb/in/ft, Horz P1= 6528.125 lb/ft, Horz K2= 0.100 lb/in/ft, Long K1= 10924.889 lb/in/ft,  
+   Long P1= 2321.539 lb/ft, Long k2= 0.100 lb/in/ft, Vert Up K1= 1566.649 lb/in/ft, Vert Up P1= 8401.156 lb/ft, 
+   Vert Up K2= 0.100 lb/in/ft, Vert Dn K1= 6200.000 lb/in/ft, Vert Dn P1= 7905.000 lb/ft,                       
+   Vert Dn K2= 0.100 lb/in/ft                                                   
+   Soil Id= 1, End at D16                                                       
+ 
+ -------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ From D16 to D17, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D16, Coordinates, X= 2.00 ft, Y= 0.00 ft, Z= 15.00 ft                        
+   D16, Joint End Type= User-defined, SIFI= 1.90, SIFO= 1.90, Override all other values= Yes                    
+ 
+ -------------------------------------------------------------------------------
+ From D17 to D18, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D17, Coordinates, X= 4.00 ft, Y= 0.00 ft, Z= 15.00 ft                        
+   D17, Joint End Type= User-defined, SIFI= 1.90, SIFO= 1.90, Override all other values= Yes                    
+ 
+ -------------------------------------------------------------------------------
+ From D18 to D19, DX= 2.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   D18, Coordinates, X= 6.00 ft, Y= 0.00 ft, Z= 15.00 ft                        
+   D18, Joint End Type= User-defined, SIFI= 1.90, SIFO= 1.90, Override all other values= Yes                    
+   D19, Coordinates, X= 8.00 ft, Y= 0.00 ft, Z= 15.00 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   D19, Anchor, Connected to: Ground, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid    
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 62 + 2 + 1 = 65          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+       530403.6 lb     +      2530.7 lb     =      532934.3 lb                  
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+           HYDROTEST LOAD SUMMARY                                                                               
+                                                                                                                
+ Specific Gravity of Fluid    :    1.000                                        
+                                                                                
+ Hydrotest Pressure Case      : P1                                              
+ Hydrotest Pressure Factor    :    1.250                                        
+                                                                                
+ Hydrotest Temperature Case   : T1                                              
+ Hydrotest Temperature Factor :    1.250                                        
+                                                                                
+ Cut-short Case               : U1                                              
+ Include Insulation & Cladding: Yes                                             
+
+----------------------------------------------------------------------------------------------------------------
+ComponentsSupportsLoads                                                                                         
+10/01/2019                                                        BENTLEY                                       
+09:40 AM                                                          AutoPIPE Nuclear 12.02.00.11   MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+       HYDROTEST TEMPERATURE AND PRESSURE                                                                       
+                                                                                                                
+ POINT    UNFAC. HYDROTEST^     FAC. HYDROTEST*                                                                 
+ NAME     PRESS.    TEMPER.    PRESS.    TEMPER.                                                                
+          psi       deg F      psi       deg F                                                                  
+ ------  --------- ---------  --------- ---------                                                               
+                                                                                
+^ Unfactored Hydrotest: Unfactored Operating Pressure & Temperature case        
+  specified for hydrotest.                                                      
+* Factored Hydrotest: Factored Pressure & Temperature values used during        
+  hydrotest analysis.                                                           
+                                                                                
+  Note: Unfactored Pressure and Temperature values are multiplied by            
+  Pressure & Temperature factors defined in hydrotest properties to get         
+  factored Hydrotest Pressure & Temperature values.                             
+

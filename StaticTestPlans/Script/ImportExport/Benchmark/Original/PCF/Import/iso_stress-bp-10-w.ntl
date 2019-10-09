@@ -1,0 +1,26 @@
+JOB                                                         1.1       
+HED  bp-10-W
+    *
+CTL  B31.3     Y                           English            AUTOPIPE   B313-12
+***  
+SEG  1                 207.000     3.500    -1.500          
+RVER 1.7
+PIPE PIPE1               8.000     0.322     0.063
+    *A53-B          
+    *                    0.000     0.000     0.000
+    *
+    *
+    *        1C0031
+RVER 1.1
+OPER 1             1  -459.670          0.000
+RUN  2                  23.551     0.000     0.000
+UUID RUN  2                   0001388C-0000-0000-F745-901296474404
+RUN  3                   5.914     0.000     0.000
+*** ANCHORS AT OPEN ENDS
+ANC  1    
+ANC  3    
+GUID 2                        0.000000  0.000000  0.000000  0.000000  0.000000  
+    *     DESCRIPTION    Inverted T Shaped Frame L4X4X1/4 w/ Baseplate
+UUID GUID 2                   00022303-0000-0000-510A-67B9C6474A04
+***  
+*** END OF FILE

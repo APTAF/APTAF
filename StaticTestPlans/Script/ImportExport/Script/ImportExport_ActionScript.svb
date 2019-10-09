@@ -1,0 +1,208 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+'USEUNIT APP_Common
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "ImportExport"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName 
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+'.
+'.............Import
+'.
+Sub Cat1TS3TC1
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\5312a_ignore.CII"
+  Call CopyToTemp(strfilePath)
+  
+  Call tabFile.Import("1","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC2
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\cool1a_ignore.CII"
+  Call CopyToTemp(strfilePath)
+  Call tabFile.Import("2","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC3
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327A.CII" 
+  Call CopyToTemp(strfilePath)
+  
+  Call tabFile.Import("3","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC4
+
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327B.CII"
+  Call CopyToTemp(strfilePath)
+  
+  Call tabFile.Import("4","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC5
+
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327C.CII"
+  Call CopyToTemp(strfilePath)
+  
+  Call tabFile.Import("5","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC6
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327D.CII"
+  Call CopyToTemp(strfilePath)
+  Call tabFile.Import("6","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC7
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327E.CII"
+  Call CopyToTemp(strfilePath)
+  Call tabFile.Import("7","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC8
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327F.CII"
+  Call CopyToTemp(strfilePath)
+  Call tabFile.Import("8","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC9
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327G.CII"
+  Call CopyToTemp(strfilePath)
+  Call tabFile.Import("9","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC10
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327H.CII"
+  Call CopyToTemp(strfilePath)
+  Call tabFile.Import("10","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC11
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\QA327I.CII"
+  Call CopyToTemp(strfilePath)
+  Call tabFile.Import("11","caeser ii neutral")
+  Call tabResult.InputlistReport("1")
+  Call tabFile.Close("No")
+End Sub
+Sub Cat1TS3TC12
+  strfilePath = "C:\Hg\amat_testautomation\autopipe\testautomation\AutoPIPE Automated Testing Suite\StaticTestPlans\Script\ImportExport\Models\CAESAR\Import\Restr1_ignore.CII"
+  Call CopyToTemp(strfilePath)
+  Call tabFile.Import("12","caeser ii neutral")
+  Call tabResult.InputlistReport("0")
+  Call tabFile.Close("No")
+End Sub
+
+'.
+'.............Export
+'.
+Sub Cat2TS3TC1
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("1","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC2
+''Pre-Conditions
+   Call tabFile.Open("2","Autopipe database")
+   Call tabFile.SaveAs("2","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("2","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC3
+''Pre-Conditions
+   Call tabFile.Open("3","Autopipe database")
+   Call tabFile.SaveAs("3","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("3","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC4
+   Call tabFile.Open("4","Autopipe database")
+   Call tabFile.SaveAs("4","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("4","ceaser ii neutral")
+''Report
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC5
+   Call tabFile.Open("5","Autopipe database")
+   Call tabFile.SaveAs("5","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("5","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC6
+   Call tabFile.Open("6","Autopipe database")
+   Call tabFile.SaveAs("6","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("6","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC7
+   Call tabFile.Open("7","Autopipe database")
+   Call tabFile.SaveAs("7","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("7","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC8
+   Call tabFile.Open("8","Autopipe database")
+   Call tabFile.SaveAs("8","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("8","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC9
+   Call tabFile.Open("9","Autopipe database")
+   Call tabFile.SaveAs("9","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("9","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+Sub Cat2TS3TC10
+   Call tabFile.Open("10","Autopipe database")
+   Call tabFile.SaveAs("10","AutoPIPE Database")
+''Tests 
+   Call tabFile.Export("10","ceaser ii neutral")
+''Post-Condition
+   tabFile.Close("No")  
+End Sub
+

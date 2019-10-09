@@ -1,0 +1,239 @@
+﻿'USEUNIT Main
+'USEUNIT tabFile
+'USEUNIT tabInsert
+'USEUNIT tabAnalysis
+'USEUNIT tabResult
+'USEUNIT tabConnectionClient
+'USEUNIT DTP
+
+
+
+Sub Configuration
+'' Global Variables
+    Dim strTestPlanFolderName: strTestPlanFolderName = "SupportsTest"  'Update
+    
+    Project.Variables.strTPFolderName   = strTestPlanFolderName 'strTestPlanFolderName
+    Project.Variables.strOpenDialog     = "Shortcut"
+    Project.Variables.RoundingTolerance = 0
+    Project.Variables.strInputDBType    = "Excel"
+    Project.Variables.strInputDBName    = "TestData.xlsx"  
+    'Project.Variables.strTPFolderPath   = aqFileSystem.ExpandFileName("./Script/"&strTestPlanFolderName)
+    Project.Variables.strTPFolderPath = Project.Variables.strProjectPath & "StaticTestPlans\Script\" & strTestPlanFolderName
+    Project.Variables.strTPReportName   = strTestPlanFolderName&"-TestPlan.xlsx"
+     
+    Call DTP.DTPMain
+End Sub
+
+'..
+'...................................Anchor Tests
+'..
+Sub Cat6TS1TC1
+
+    'Pre-Condition
+    Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+      tabInsert.Anchor("1")
+      tabInsert.Run("0")
+      tabInsert.Anchor("2")
+      tabInsert.Run("0")
+      tabInsert.Anchor("3")
+      tabInsert.Run("0")
+      tabInsert.Anchor("4")
+      tabInsert.Run("0")
+      tabInsert.Anchor("5")
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+Sub Cat6TS1TC2
+   Call tabFile.Open("1","Autopipe database")
+    Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+      tabInsert.Anchor("6,7")
+    'Post-Condition
+      tabFile.Close("No")  
+End Sub
+'...................................SUPPORT TESTS
+'.. Spring Support
+'..
+Sub Cat6TS2TC1
+
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+   For i=1 to 4
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. Constant Support
+'..
+Sub Cat6TS2TC2
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    For i=5 to 8
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. V-Stop Support
+'..
+Sub Cat6TS2TC3
+
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    For i=9 to 11
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. Incline Support
+'..
+Sub Cat6TS2TC4
+
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    For i=15 to 19
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. Line Stop Support
+'..
+Sub Cat6TS2TC5
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    For i=20 to 23
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. Guide Support
+'..
+Sub Cat6TS2TC6
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    For i=24 to 27
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. Rotation Support
+'..
+Sub Cat6TS2TC7
+
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    For i=28 to 31
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. Damper Support
+'..
+Sub Cat6TS2TC8
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    For i=32 to 35
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. Tie/link Support
+'..
+Sub Cat6TS2TC9
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("1","AutoPIPE Database")
+    'Test 
+    For i=36 to 39
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+   'Post-Condition
+    tabFile.Close("No")  
+End Sub
+'..
+'.. All Supports Test.
+'..
+Sub Cat6TS2TC10
+    'Pre-Condition
+   Call tabFile.Open("1","Autopipe database")
+   Call tabFile.SaveAs("2","AutoPIPE Database")
+    'Test 
+    For i=1 to 39
+    tabInsert.Support(i)
+    tabInsert.Run("0")
+    Next
+    'Post-Condition
+    tabAnalysis.AnalyzeAll("0")
+    tabResult.OutputReport("1")
+    tabFile.Close("No")  
+End Sub
+
+Sub Cat6TS2TC11
+  
+End Sub
+Sub Cat6TS2TC12
+  
+End Sub
+Sub Cat6TS2TC13
+  
+End Sub
+Sub Cat6TS2TC14
+  
+End Sub
+Sub Cat6TS2TC15
+  
+End Sub
+Sub Cat6TS2TC16
+  
+End Sub
+Sub Cat6TS2TC17
+  
+End Sub
+Sub Cat6TS2TC18
+  
+End Sub
+Sub Cat6TS2TC19
+  
+End Sub

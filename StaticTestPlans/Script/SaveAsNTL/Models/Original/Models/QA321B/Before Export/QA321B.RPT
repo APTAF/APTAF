@@ -1,0 +1,846 @@
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 QA TEST FOR DXF EXPORT TO AUTOCAD                                           BENTLEY                  
+01:27 PM   SYSTEM CONTAINS ALL COMPONENTS                                              AutoPIPE Nuclear 9.6.1.07
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 09.06.01.07                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 QA TEST FOR DXF EXPORT TO AUTOCAD                                           BENTLEY                  
+01:27 PM   SYSTEM CONTAINS ALL COMPONENTS                                              AutoPIPE Nuclear 9.6.1.07
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : QA321B                                          
+ 
+ 
+          PROJECT ID  : TEST OF VERTICAL AXIS                   
+                        X-AXIS                                  
+ 
+ 
+          PREPARED BY  : ______________________________
+                         NZ                      
+ 
+          CHECKED BY   : ______________________________
+                         OA/SC                   
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : GENERAL                 
+ 
+          YEAR                   : 2006                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   70.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : AUTOB314
+ 
+          MODEL REVISION NUMBER  :     2
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 QA TEST FOR DXF EXPORT TO AUTOCAD                                           BENTLEY                  
+01:27 PM   SYSTEM CONTAINS ALL COMPONENTS                                              AutoPIPE Nuclear 9.6.1.07
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    4                      
+     Pipe Properties.................................................................    5                      
+     Material Properties.............................................................    6                      
+     Material Allowables.............................................................    7                      
+     Beam............................................................................    8                      
+     Temperature and Pressure........................................................   12                      
+     Forces and Displacement.........................................................   13                      
+     Seismic Anchor Movements........................................................   14                      
+     Soil Properties.................................................................   15                      
+     Loads Summary...................................................................   17                      
+     Support.........................................................................   23                      
+     Bend............................................................................   24                      
+     Tee.............................................................................   25                      
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 10.00 ft                                              Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 12STD, Material= CS, Poisson= 0.300, Nom Size= 12 in, OD= 12.750 inch, Sch= STD,                    
+   Wall Thk= 0.375 inch, Mill= 0.047 inch, Cor= 0.047 inch, Pipe Density= 489.00 lb/cu.ft,                      
+   Pipe Unit Wgt= 49.51 lb/ft, Content Sp Gr= 1.000, Content Unit Wgt= 49.01 lb/ft, Insul Thk= 0 inch,          
+   Cladding Thickness = 0 inch, Lining Thk= 0 inch, Long Weld factor= 1.00, Circ Weld factor= 1.00,             
+   Long Modulus= 29.50000 E6 psi, Hoop Modulus= 29.50000 E6 psi, Shear Modulus= 11.34615 E6 psi,                
+   Syc= 36000.0 psi                                                             
+ 
+ OPERATING DATA:                                                                
+   P1= 400.00 psi, T1= 200.00 deg F, Exp1= 0.99000 in/100ft, E1= 28.80000 E6 psi, Sy1= 36000.00 psi             
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A00, Displacements, Load= S1, DX= 1.00 in, DY= 2.00 in, DZ= 3.00 in          
+   A00, Dist Load= U2, Id= 6, DLX= 1000 lb/ft, DLY= 2000 lb/ft, DLZ= 3000 lb/ft 
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, KTX= 100000 lb/in, KTY= 200000 lb/in, KTZ= 300000 lb/in, KRX= 100000 ft-lb/deg,                 
+   KRY= 200000 ft-lb/deg, KRZ= 300000 ft-lb/deg                                 
+ 
+ SOIL DATA:                                                                     
+   Soil Id= SOIL1, 1 point(s) at 63.75 inch                                     
+   Horz K1= 1000.000 lb/in/ft, Horz P1= 1000.000 lb/ft, Horz K2= 0.100 lb/in/ft, Long K1= 1000.000 lb/in/ft,    
+   Long P1= 1000.000 lb/ft, Long k2= 0.100 lb/in/ft, Vert Up K1= 1000.000 lb/in/ft, Vert Up P1= 1000.000 lb/ft, 
+   Vert Up K2= 0.100 lb/in/ft, Vert Dn K1= 1000.000 lb/in/ft, Vert Dn P1= 1000.000 lb/ft,                       
+   Vert Dn K2= 0.100 lb/in/ft                                                   
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A02, DX= 10.00 ft                                              Run 
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 10.00 ft, Y= 0.00 ft, Z= 0.00 ft                        
+   A01, Dist Load= U2, Id= 6, DLX= 1000 lb/ft, DLY= 2000 lb/ft, DLZ= 3000 lb/ft 
+ 
+ SUPPORT DATA:                                                                  
+   A01, Variable Spring Hanger, Support Id= A01  1, Connected to Ground, 1 hanger(s), Comp.Wt = 0.000 lb,       
+   Stiffness= 168 lb/in, Preload= 436 lbf                                       
+ 
+ SOIL DATA:                                                                     
+   Soil Id= SOIL1, 1 point(s) at 63.75 inch                                     
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DX= 10.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A02):                                      
+   B16.9 welding tee, SIFI= 1.88, SIFO= 2.17                                    
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 20.00 ft, Y= 0.00 ft, Z= 0.00 ft                        
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ SOIL DATA:                                                                     
+   Soil Id= SOIL1, 1 point(s) at 63.75 inch                                     
+ 
+ -------------------------------------------------------------------------------
+ From A03 to A04, DY= -10.00 ft                                             Bend
+ 
+ COMPONENT DATA (Bend, TIP= A03, Near= A03 N, Far= A03 F):                      
+   Long Elbow, Radius= 18.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIFI= 2.86, SIFO= 2.39    
+ 
+ POINT DATA:                                                                    
+   A03, Coordinates, X= 30.00 ft, Y= 0.00 ft, Z= 0.00 ft                        
+   A03 N, Coordinates, X= 28.50 ft, Y= 0.00 ft, Z= 0.00 ft                      
+   A03 N, Dist Load= U2, Id= 10, DLX= 1000 lb/ft, DLY= 2000 lb/ft, DLZ= 3000 lb/ft                              
+   A03 F, Coordinates, X= 30.00 ft, Y= -1.50 ft, Z= 0.00 ft                     
+   A03 F, Dist Load= U2, Id= 10, DLX= 1000 lb/ft, DLY= 2000 lb/ft, DLZ= 3000 lb/ft                              
+   A04, Coordinates, X= 30.00 ft, Y= -10.00 ft, Z= 0.00 ft                      
+   A04, Dist Load= U2, Id= 10, DLX= 1000 lb/ft, DLY= 2000 lb/ft, DLZ= 3000 lb/ft
+ 
+ SUPPORT DATA:                                                                  
+   A04, Anchor, KTX= 100000 lb/in, KTY= 200000 lb/in, KTZ= 300000 lb/in, KRX= 100000 ft-lb/deg,                 
+   KRY= 200000 ft-lb/deg, KRZ= 300000 ft-lb/deg                                 
+ 
+ SOIL DATA (A03 N to A03 F):                                                    
+   Soil Id= SOIL1, 1 point(s) at 63.75 inch                                     
+ 
+ SOIL DATA (A03 F to A04):                                                      
+   Soil Id= SOIL1, 1 point(s) at 63.75 inch                                     
+   Soil Id= SOIL1, End at A04                                                   
+ 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A02 to B01, DZ= -10.00 ft                                             Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A02):                                      
+   B16.9 welding tee, SIFI= 1.88, SIFO= 2.17                                    
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 8STD, Nom Size= 8 in, OD= 8.625 inch, Wall Thk= 0.322 inch, Mill= 0.040 inch, Cor= 0.040 inch,      
+   Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 28.52 lb/ft, Content Sp Gr= 1.000,                             
+   Content Unit Wgt= 21.68 lb/ft                                                
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 20.00 ft, Y= 0.00 ft, Z= 0.00 ft                        
+ 
+ SUPPORT DATA:                                                                  
+   A02, Constant Force Hanger, Support Id= A02  1, Connected to Ground, 1 hanger(s), Comp.Wt = 0.000 lb,        
+   Preload= 576 lbf                                                             
+ 
+ SOIL DATA:                                                                     
+   Soil Id= SOIL1, 1 point(s) at 63.75 inch                                     
+ 
+ -------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ From B01 to B02, DZ= -10.00 ft                                             Run 
+ 
+ POINT DATA:                                                                    
+   B01, Coordinates, X= 20.00 ft, Y= 0.00 ft, Z= -10.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   B01, V-Stop, Support Id= B01  1, Connected to Ground, Comp.Wt = 0.000 lb     
+ 
+ SOIL DATA:                                                                     
+   Soil Id= SOIL1, 1 point(s) at 63.75 inch                                     
+ 
+ -------------------------------------------------------------------------------
+ From B02 to B03, DZ= -10.00 ft                                             Run 
+ 
+ POINT DATA:                                                                    
+   B02, Coordinates, X= 20.00 ft, Y= 0.00 ft, Z= -20.00 ft                      
+   B03, Coordinates, X= 20.00 ft, Y= 0.00 ft, Z= -30.00 ft                      
+ 
+ SUPPORT DATA:                                                                  
+   B02, Guide, Support Id= B02, Connected to F3, Comp.Wt = 0.000 lb, Stiffness= RIGID                           
+   B03, Anchor, KTX= 100000 lb/in, KTY= 200000 lb/in, KTZ= 300000 lb/in, KRX= 100000 ft-lb/deg,                 
+   KRY= 200000 ft-lb/deg, KRZ= 300000 ft-lb/deg                                 
+ 
+ SOIL DATA:                                                                     
+   Soil Id= SOIL1, 1 point(s) at 63.75 inch                                     
+   Soil Id= SOIL1, End at B03                                                   
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 12 + 5 + 8 = 25          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+         2804.1 lb     +      2579.2 lb     =        5383.3 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ A00            0.00        0.00        0.00                                    
+ A01           10.00        0.00        0.00                                    
+ A02           20.00        0.00        0.00                                    
+ A03 N         28.50        0.00        0.00                                    
+ A03           30.00        0.00        0.00                                    
+ A03 F         30.00       -1.50        0.00                                    
+ A04           30.00      -10.00        0.00                                    
+ 
+ *** SEGMENT B                                                                  
+ A02           20.00        0.00        0.00                                    
+ B01           20.00        0.00      -10.00                                    
+ B02           20.00        0.00      -20.00                                    
+ B03           20.00        0.00      -30.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    ZL/ Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC                        
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/                                  
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 12STD         12 12.750 0.375 0.05 0.05    0    0  1.00    0.000  49.51     0 98.52 1.00                       
+ CS           STD                                           0.000  49.01     0       1.00                       
+                             0                              0.000            0                                  
+                                                                                
+ 
+ 
+ Tag No. : <None>                                                               
+ 8STD           8  8.625 0.322 0.04 0.04    0    0  1.00    0.000  28.52     0 50.20 1.00                       
+ CS           STD                                           0.000  21.68     0       1.00                       
+                             0                              0.000            0                                  
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ CS          12STD       489.0  0.30    70.0   29.500   29.500   11.346                              
+                                       200.0   28.800                     0.9900
+ 
+ CS          8STD        489.0  0.30    70.0   29.500   29.500   11.346                              
+                                       200.0   28.800                     0.9900
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Yield                                                                             
+    Name     Pipe ID  deg F   psi                                                                               
+------------ -------- ------- --------                                                                          
+ CS          12STD       70.0  36000.0
+ 
+ CS          8STD        70.0  36000.0
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+                             BEAM POINT DATA LISTING                                                            
+                                                                                                                
+ POINT ------COORDINATE(ft   )------  DATA                                                                      
+ NAME      X         Y         Z      TYPE  DESCRIPTION                                                         
+ ----- --------- --------- --------- ------ ------------------------------------                                
+ F3        20.00     -1.00    -20.00                                            
+ F4        30.00     -1.00    -20.00                                            
+ F2        10.00     -1.00    -20.00                                            
+ F1        10.00     -6.00    -20.00 ANCHOR Rigid                               
+                                            Thermal movements : None            
+ F5        30.00     -6.00    -20.00 ANCHOR Rigid                               
+                                            Thermal movements : None            
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+                               BEAM DATA LISTING                                                                
+              ( Length - ft   , Rigid End - ft   , Beta Angle - deg  )                                          
+  BEAM          POINT  SEC. ID/                    BETA     RIGID      RELEASE                                  
+   ID           NAME   SEC. NAME       LENGTH      ANGLE    END      Ax  Y-Y Z-Z                                
+ -------        -----  ------------  ----------   -------   -------  --- --- ---                                
+ M1       From  F3     1                  10.00      0.00      0.00   N   N   N 
+          To    F4     W12X14                                  0.00   N   N   N 
+ 
+ M2       From  F3     1                  10.00      0.00      0.00   N   N   N 
+          To    F2     W12X14                                  0.00   N   N   N 
+ 
+ M3       From  F2     2                   5.00     90.00      0.00   N   N   N 
+          To    F1     WT10.5X22                               0.00   N   N   N 
+ 
+ M4       From  F4     3                   5.00      0.00      0.00   N   N   N 
+          To    F5     C10X30                                  0.00   N   N   N 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+                              BEAM CROSS SECTION LISTING                                                        
+                                                                                                                
+ Section ID/                Length(inch )  Area(sq.in  )  Inertia (in**4  )                                     
+ Section Type                                Depth/OD    Width    Thick     Fthk  Spacing                       
+ ID Shape Name/Matl    CC    Axial   Y-Shear  Z-Shear  Torsion Y-Y Bend Z-Z Bend                                
+ --------------------  --   -------  -------  -------  ------- -------- -------- --------                       
+ 0   G  RIGID                                   10.00    10.00     0.00     0.00                                
+     RIGID                     1.00     1.00     1.00    100.0    100.0    100.0
+ 
+ 1   W  W12X14                                  11.91     3.97     0.00     0.00                                
+     A36               US      4.16     2.38     1.19      0.1      2.4     88.6
+ 
+ 2   T  WT10.5X22                               10.33     6.50     0.00     0.00                                
+     A36               US      6.49     3.62     1.95      0.4     10.3     71.1
+ 
+ 3   C  C10X30                                  10.00     3.03     0.00     0.00                                
+     A36               US      8.82     6.73     1.76      1.2      3.9    103.0
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+                           BEAM MATERIAL LISTING                                                                
+                                                                                                                
+                   Elastic                                                                                      
+                   modulus   Poissons   Density                                                                 
+ MATERIAL ID       E6 psi     ratio     lb/cu.ft                                                                
+ ----------------  --------  --------  -----------                                                              
+ RIGID            10000.000     0.300         0.00                              
+ A36                 29.000     0.250       490.00                              
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    YIELD                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A 
+ A00   T1       400    200     0.990     28.800     36000*                    
+ A04    Same as previous point.          
+ 
+ *** SEGMENT B 
+ A02   T1       400    200     0.990     28.800     36000*                    
+ B03    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+                            FORCES AND DISPLACEMENTS                                                            
+   (Force - lbf , Moment - ft-lb , Tran. - in  , Rot. - deg  , Line - lb/ft  )                                  
+    POINT  LOAD                                                                                                 
+    NAME   CASE  TYPE      X        Y        Z        XX       YY       ZZ                                      
+    -----  ----  ----  -------- -------- --------  -------- -------- --------                                   
+    A00    U2    LINE      1000     2000     3000                               
+ 
+    A01    U2    LINE      1000     2000     3000                               
+ 
+    A03 N  U2    LINE      1000     2000     3000                               
+ 
+    A03 F  U2    LINE      1000     2000     3000                               
+ 
+    A04    U2    LINE      1000     2000     3000                               
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+            SEISMIC ANCHOR MOVEMENTS AND DISPLACEMENTS                                                          
+                                                                                                                
+    POINT              PHASE      DX       DY       DZ                                                          
+    NAME   LOAD CASE    NO.     (in  )   (in  )   (in  )                                                        
+    -----  ---------  -------- -------- -------- --------                                                       
+    A00      SAM 1         1       1.00     2.00     3.00                       
+
+
+
+    SAM / MSRS SUPPORT GROUPS : 
+    --------------------------- 
+
+
+    SAM Case     Support     Supports 
+                 Group                
+    ---------    --------    -----------------------------------------------------------------------------------
+       S1           1        A00                                                                               
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            SOIL DATA LISTING                                   
+                            -----------------                                   
+                                                                                
+                                                                                
+                        SOIL STIFFNESS PROPERTIES (SOIL1)                       
+                                                                                
+                    Initial K         Yield P     Final K    Yield disp         
+      Dirn    Auto  (lb/in/ft) Auto  (lb/ft  )   (lb/in/ft)   (in    )          
+      ------- ----  ---------- ----  ----------  ----------  ----------         
+                                                                                
+  Low Stiffness                                                                 
+      Horiz.   N      1000.000  N      1000.000       0.100      1.0000         
+      Long.    N      1000.000  N      1000.000       0.100      1.0000         
+      Vert. Up N      1000.000  N      1000.000       0.100      1.0000         
+      Vert. Dn N      1000.000  N      1000.000       0.100      1.0000         
+                                                                                
+                                                                                
+  High Stiffness                                                                
+      Horiz.   N      1000.000  N      1000.000       0.100      1.0000         
+      Long.    N      1000.000  N      1000.000       0.100      1.0000         
+      Vert. Up N      1000.000  N      1000.000       0.100      1.0000         
+      Vert. Dn N      1000.000  N      1000.000       0.100      1.0000         
+                                                                                
+                                                                                
+  Average Stiffness                                                             
+      Horiz.   N      1000.000  N      1000.000       0.100      1.0000         
+      Long.    N      1000.000  N      1000.000       0.100      1.0000         
+      Vert. Up N      1000.000  N      1000.000       0.100      1.0000         
+      Vert. Dn N      1000.000  N      1000.000       0.100      1.0000         
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                                                                                
+                                SOIL PARAMETERS (SOIL1)                         
+                                -----------------------                         
+                                                                                
+  Calculation Method :  User                                                    
+                                                                                
+  Parameters                                            Low          High       Average                         
+  -----------------------------------------------    ----------   ----------   ----------                       
+  Outside Diameter, D [in]                                 0.00                 
+  Depth to Centerline, H [inch]                            0.00                 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  17
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     EARTHQUAKE LOAD CASES :
+     -----------------------
+
+     Number of load cases :  1
+
+     Load case 1  -  E1 
+
+          Seismic Code :  User-defined                            
+
+          X-Resultant =        0.300    Y-Resultant =        0.400    Z-Resultant =        0.500                
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  18
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     WIND LOAD CASES :
+     -----------------
+
+     Number of load cases :  1
+
+     Ground elevation for wind :       0.00 ft       
+
+     Wind shape factor multiplier :  1.000
+
+     Exposure factor for buried pipes :  1.000
+
+     Exposure factor for submerged pipes :  1.000
+
+     Exposed Segments -  A  B 
+
+     Wind application method : Normal 
+ 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  19
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     Load case 1  -  W1 
+
+     Direction  -  Global Z-axis
+
+     User defined wind profile
+
+              Height (ft)    Press (psf   )
+              -----------    --------------
+     From :      Ground
+       to :     Highest             50.00
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  20
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     WAVE LOAD : WAVE1   
+
+     Wave Type : Current      Load case : User 1    
+
+     Water - Elevation :       10.00 ft       
+                 Depth :       10.00 ft       
+               Density :       62.40 lb/cu.ft 
+
+     Wave - Height :        1.00 ft       
+            Period :        1.00 sec
+             Phase :        0.00 deg      
+
+     Drag    coefficient :   1.00
+     Inertia coefficient :   2.00
+
+     Direction  -      X=   0.000     Y=   0.000     Z=  -1.000
+
+     Water       Current       Marine
+     Depth       Velocity      Growth
+     (ft  )      (in/sec)      (in  )
+     ------      ---------     ------
+      10.00         45.00        2.00
+      20.00         50.00        2.00
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  21
+----------------------------------------------------------------------------------------------------------------
+
+        F L U I D    T R A N S I E N T    I N P U T    D A T A                                                  
+                                  Flow   pressure   Sound     Peak                                              
+                  From   To       Rate     Rise     Speed     Force**                                           
+ Name  Fluid Name Point  Point  lbm/sec    psi      in/sec     lbf                                              
+ ----- ---------- ------ ------ -------- -------- --------- ----------                                          
+ 
+ X1    KEROSINE   A00    A04    -200.000 207.3136  45298.84  23446.607          
+                                                                                
+       Bulk Modulus :     188000.0 psi     , Sp. Gr. : 0.810                    
+       Start Time   :     0.500000 sec                                          
+       Rise Time    :     0.000000 sec     , Linear                             
+                                                                                
+ ** Peak Force corresponds to maximum possible force and applies                
+    for bend-to-bend lengths of L > RiseTime*SoundSpeed.                        
+    For shorter L the force is smaller and is proportional to L.                
+    Actual peak force varies from bend to bend and can be seen in               
+    the created .TIH files.                                                     
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  22
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     RESPONSE SPECTRUM LOAD CASES :
+     ------------------------------
+
+     Number of load cases :  1
+
+     Load case 1  -  R1 
+
+     MSRS analysis : No 
+
+     Missing mass : No 
+     ZPA          : No 
+
+     Modal Combination method : SRSS                     
+
+     Total Acceleration : No 
+
+     Print Modal Reports (.MOD) : No 
+
+     Combine Groups Before Modes: No 
+
+     X-Spectrum :  NRCH2   
+     Multiplier  :   1.00
+     Title       :  2.0 % horizontal design response spectrum                                
+
+     Spectrum Type        :   4. Displacement
+     Interpolation Method : LOG-LOG      
+     Damping Ratio (%)    :   2.0000
+     Code Type            : User defined
+
+   Freq(Hz)  Disp(in     )   Freq(Hz)  Disp(in     )   Freq(Hz)  Disp(in     )
+   --------  -------------   --------  -------------   --------  -------------
+     0.100        90.00        0.250        90.00        2.500         7.50     
+     9.000         0.40       35.000         0.01                               
+
+     Y-Spectrum :  NRCH5   
+     Multiplier  :   1.00
+     Title       :  5.0 % horizontal design response spectrum                                
+
+     Spectrum Type        :   4. Displacement
+     Interpolation Method : LOG-LOG      
+     Damping Ratio (%)    :   5.0000
+     Code Type            : User defined
+
+   Freq(Hz)  Disp(in     )   Freq(Hz)  Disp(in     )   Freq(Hz)  Disp(in     )
+   --------  -------------   --------  -------------   --------  -------------
+     0.100        75.00        0.250        75.00        2.500         5.50     
+     9.000         0.35       35.000         0.01                               
+
+     Z-Spectrum :  NRCH10  
+     Multiplier  :   1.00
+     Title       :  10.0 % horizontal design response spectrum                               
+
+     Spectrum Type        :   4. Displacement
+     Interpolation Method : LOG-LOG      
+     Damping Ratio (%)    :  10.0000
+     Code Type            : User defined
+
+   Freq(Hz)  Disp(in     )   Freq(Hz)  Disp(in     )   Freq(Hz)  Disp(in     )
+   --------  -------------   --------  -------------   --------  -------------
+     0.100        60.00        0.250        60.00        2.500         5.00     
+     9.000         0.20       35.000         0.01                               
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  23
+----------------------------------------------------------------------------------------------------------------
+
+                               S U P P O R T   D A T A   L I S T I N G                                          
+                                                                                                                
+ Point Support  Support Conn.to Comp.Wt  Stiff.     Gap 1   Gap 2  Fric. GapSet Preload Ld.Var Size    Figure   
+ Name   Type      ID     /Dir    (lb)               (in)    (in)   Fact. /#hgr   (lbf)                          
+ ----- -------- ------- ------- ------- ---------- ------- ------- ----- ------ ------- ------ ---- ------------
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ A01   Spr. Hgr A01  1  Ground    0.000    168.000                        1-Und     436  0.250 6    FIG 82      
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ A02   Cons Hgr A02  1  Ground    0.000      0.000                        1-Und     576                         
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ B01   V-stop   B01  1  Ground    0.000 Rigid        0.000   0.000  0.00        
+ 
+ Tag No.: <None>                                Attachment ID: <None>                                           
+ B02   Guide-V  B02     F3        0.000 Rigid        0.000   0.000  0.00        
+       Guide-H  B02     F3        0.000 Rigid        0.000   0.000  0.00        
+ 
+ 
+ Spring Manufacturer: Anvil/Grinnell                                            
+ NOTE 1: Soil supports are present but not listed.                              
+ Gap 1 : V-stop,Guide-V=down, Linestop,Incline,Tie/link=backward, Guide-H=Left  
+ Gap 2 : V-stop,Guide-V=Up  , Linestop,Incline,Tie/link=forward , Guide-H=Right 
+ Stiffness units for rotation support: ft-lb/deg, all others: lb/in             
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  24
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (in)   (deg)   (in)   (in)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+ A03   Elbow  18.00L  90.0  12.750  0.375 CS           0/0  2.86   2.39    1           9.36     None            
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+ L = Long radius                                                                
+
+----------------------------------------------------------------------------------------------------------------
+QA321B                                                                                                          
+08/28/2014 TEST OF VERTICAL AXIS                                      BENTLEY                                   
+01:27 PM   X-AXIS                                                     AutoPIPE Nuclear 9.6.1.07  MODEL  PAGE  25
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (in)    (in)               Type     (in)   (in)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ A02   A-Header 12.750  0.375  CS          welding                  1.88   2.17 
+       B-Branch  8.625  0.322  CS                                               
+ 
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+

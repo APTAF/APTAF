@@ -1,0 +1,2061 @@
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                                              BENTLEY                      
+12:06 PM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+             *                             *******   **  *******   *******      
+            ***               **           **    **  **  **    **  **           
+           ** **            ******         **    **  **  **    **  **           
+          **   **    **   **  **   *****   *******   **  *******   *****        
+         *********   **   **  **  **   **  **        **  **        **           
+        **       **  **   **  **  **   **  **        **  **        **           
+       **         **  *****   **   *****   **        **  **        *******      
+ 
+ 
+ 
+ 
+                     Pipe Stress Analysis and Design Program                    
+                                                                                
+                                Version: 11.00.00.12                            
+                                                                                
+                                Edition: Nuclear                                
+                                                                                
+                           Developed and Maintained by                          
+                                                                                
+                          BENTLEY SYSTEMS, INCORPORATED                         
+                          1600 Riviera Ave., Suite 300                          
+                             Walnut Creek, CA  94596                            
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                                              BENTLEY                      
+12:06 PM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+ 
+ 
+          ************************************************************
+          **                                                        **
+          **              AUTOPIPE SYSTEM INFORMATION               **
+          **                                                        **
+          ************************************************************
+ 
+ 
+ 
+          SYSTEM NAME : B31-1                                           
+ 
+ 
+          PROJECT ID  : LOADCASES AND COMBINATIONS              
+                                                                
+ 
+ 
+          PREPARED BY  : ______________________________
+                         MK                      
+ 
+          CHECKED BY   : ______________________________
+                                                 
+ 
+          1ST APPROVER : ______________________________
+                                                 
+ 
+          2ND APPROVER : ______________________________
+                                                 
+ 
+ 
+          PIPING CODE            : ASME B31.1              
+ 
+          YEAR                   : 2004                            
+ 
+          VERTICAL AXIS          : Y
+ 
+          AMBIENT TEMPERATURE    :   60.0 deg F    
+ 
+          COMPONENT LIBRARY      : AUTOPIPE
+ 
+          MATERIAL LIBRARY       : B311-04 
+ 
+          MODEL REVISION NUMBER  :     3
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                                              BENTLEY                      
+12:06 PM                                                                           AutoPIPE Nuclear 11.00.00.12 
+----------------------------------------------------------------------------------------------------------------
+
+                            T A B L E  O F  C O N T E N T S                     
+                                                                                
+     Components......................................................................    1                      
+     Coordinates.....................................................................    4                      
+     Pipe Properties.................................................................    5                      
+     Material Properties.............................................................    6                      
+     Material Allowables.............................................................    7                      
+     Temperature and Pressure........................................................    8                      
+     Loads Summary...................................................................    9                      
+     Bend............................................................................   16                      
+     Tee.............................................................................   17                      
+     Valve...........................................................................   18                      
+     Flange..........................................................................   20                      
+     Analysis Summary................................................................   21                      
+     Displacement....................................................................   25                      
+     Restraint Reactions.............................................................   28                      
+     Forces & Moments................................................................   29                      
+     General Stress..................................................................   33                      
+     Code Compliance.................................................................   38                      
+     Result Summary..................................................................   43                      
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   1
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ *** SEGMENT A                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A00 to A01, DX= 4.00 ft                                               Run 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6, Material= A234-WP91, Poisson= 0.300, Nom Size= 6 in, OD= 6.625 inch, Sch= 5S,                    
+   Wall Thk= 0.109 inch, Mill= 0.014 inch, Cor= 0 inch, Pipe Density= 489.00 lb/cu.ft,                          
+   Pipe Unit Wgt= 7.58 lb/ft, Insul Thk= 0 inch, Cladding Thickness = 0 inch, Lining Thk= 0 inch,               
+   Long Weld factor= 1.00, Circ Weld factor= 1.00, Long Modulus= 30.94706 E6 psi, Hoop Modulus= 30.94706 E6 psi,
+   Shear Modulus= 11.90271 E6 psi, Sc= 21300.0 psi, Syc= 60000.0 psi            
+ 
+ OPERATING DATA:                                                                
+   P1= 145.04 psi, P2= 145.04 psi, P3= 145.04 psi, T1= 86.00 deg F, T2= 86.00 deg F, T3= 86.00 deg F,           
+   Exp1= 0.17548 in/100ft, Exp2= 0.17548 in/100ft, Exp3= 0.17548 in/100ft, E1= 30.80154 E6 psi,                 
+   E2= 30.80154 E6 psi, E3= 30.80154 E6 psi, Sh1= 21300.00 psi, Sh2= 21300.00 psi, Sh3= 21300.00 psi            
+ 
+ POINT DATA:                                                                    
+   A00, Coordinates, X= 0.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+ 
+ SUPPORT DATA:                                                                  
+   A00, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ From A01 to A10, DX= 1.38 ft                                               Valv
+ 
+ COMPONENT DATA (Valve):                                                        
+   Manufacturer = AutoPIPE Generic, Standard = ANSI/ASME, Sub Category = Gate Valves, Type = Gate Valves,       
+   MainEnd = FL, Rating= 300, Length= 1.38 ft, Valve weight = 500 lb, Surface factor= 5.10, End type= Weld neck,
+   SIF= 1.00                                                                    
+ 
+ POINT DATA:                                                                    
+   A01, Coordinates, X= 4.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A01, Flange= WELDNECK, Rating= 16, Flange Weight= 24.30 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+   A01 M, Coordinates, X= 4.69 ft, Y= 0.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A10 to A02, DX= 2.62 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A10, Coordinates, X= 5.38 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A10, Flange= WELDNECK, Rating= 16, Flange Weight= 24.30 lb, Bolt/Nut Weight= 0.00 lb, End type= Weld neck,   
+   SIF= 1.00, Perform ANSI check= No                                            
+ 
+ -------------------------------------------------------------------------------
+ From A02 to A03, DY= 4.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= A02, Near= A02 N, Far= A02 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 4.40                  
+ 
+ POINT DATA:                                                                    
+   A02, Coordinates, X= 8.00 ft, Y= 0.00 ft, Z= 0.00 ft                         
+   A02 N, Coordinates, X= 7.25 ft, Y= 0.00 ft, Z= 0.00 ft                       
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   2
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+   A02 F, Coordinates, X= 8.00 ft, Y= 0.75 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A03 to A04, DY= 4.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A03, Coordinates, X= 8.00 ft, Y= 4.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A04 to A05, DY= 1.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A04, Coordinates, X= 8.00 ft, Y= 8.00 ft, Z= 0.00 ft                         
+ 
+ -------------------------------------------------------------------------------
+ From A05 to A06, DX= 4.00 ft                                               Bend
+ 
+ COMPONENT DATA (Bend, TIP= A05, Near= A05 N, Far= A05 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 4.40                  
+ 
+ POINT DATA:                                                                    
+   A05, Coordinates, X= 8.00 ft, Y= 9.00 ft, Z= 0.00 ft                         
+   A05 N, Coordinates, X= 8.00 ft, Y= 8.25 ft, Z= 0.00 ft                       
+   A05 F, Coordinates, X= 8.75 ft, Y= 9.00 ft, Z= 0.00 ft                       
+ 
+ -------------------------------------------------------------------------------
+ From A06 to A07, DX= 1.00 ft                                               Run 
+ 
+ POINT DATA:                                                                    
+   A06, Coordinates, X= 12.00 ft, Y= 9.00 ft, Z= 0.00 ft                        
+ 
+ -------------------------------------------------------------------------------
+ From A07 to A08, DZ= -4.00 ft                                              Bend
+ 
+ COMPONENT DATA (Bend, TIP= A07, Near= A07 N, Far= A07 F):                      
+   Long Elbow, Radius= 9.00 inch, Bend angle= 90.00 deg, End flanges= 0, Flex= Auto, SIF= 4.40                  
+ 
+ POINT DATA:                                                                    
+   A07, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= 0.00 ft                        
+   A07 N, Coordinates, X= 12.25 ft, Y= 9.00 ft, Z= 0.00 ft                      
+   A07 F, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -0.75 ft                     
+ 
+ -------------------------------------------------------------------------------
+ From A08 to A09, DZ= -4.00 ft                                              Tee 
+ 
+ COMPONENT DATA (Tee Header, Center= A08):                                      
+   B16.9 welding tee, SIF= 3.23                                                 
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+   A09, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -8.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   A09, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   3
+----------------------------------------------------------------------------------------------------------------
+
+                  C O M P O N E N T   D A T A   L I S T I N G                                                   
+                                                                                                                
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ *** SEGMENT B                                                                  
+ 
+ -------------------------------------------------------------------------------
+ From A08 to B01, DX= 4.00 ft                                               Tee 
+ 
+ COMPONENT DATA (Tee Branch, Center= A08):                                      
+   B16.9 welding tee, SIF= 3.23                                                 
+ 
+ PIPE DATA:                                                                     
+   Pipe Id= 6, Pipe Density= 489.00 lb/cu.ft, Pipe Unit Wgt= 7.58 lb/ft         
+ 
+ POINT DATA:                                                                    
+   A08, Coordinates, X= 13.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+   B01, Coordinates, X= 17.00 ft, Y= 9.00 ft, Z= -4.00 ft                       
+ 
+ SUPPORT DATA:                                                                  
+   B01, Anchor, KTX= Rigid, KTY= Rigid, KTZ= Rigid, KRX= Rigid, KRY= Rigid, KRZ= Rigid                          
+ 
+ -------------------------------------------------------------------------------
+ 
+ 
+ Number of points in the system (Pipe + Frame + Soil): 23 + 0 + 0 = 23          
+ 
+ 
+ Weight of Empty Pipes + Weight of Contents = Total Weight of System            
+          788.4 lb     +         0.0 lb     =         788.4 lb                  
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   4
+----------------------------------------------------------------------------------------------------------------
+
+ C O O R D I N A T E S   D A T A   L I S T I N G                                                                
+                                                                                                                
+ POINT   --------COORDINATE (ft   )---------                                                                    
+ NAME         X           Y           Z                                                                         
+ -----   ----------- ----------- -----------                                                                    
+ *** SEGMENT A                                                                  
+ A00            0.00        0.00        0.00                                    
+ A01            4.00        0.00        0.00                                    
+ A01 M          4.69        0.00        0.00                                    
+ A10            5.38        0.00        0.00                                    
+ A02 N          7.25        0.00        0.00                                    
+ A02            8.00        0.00        0.00                                    
+ A02 F          8.00        0.75        0.00                                    
+ A03            8.00        4.00        0.00                                    
+ A04            8.00        8.00        0.00                                    
+ A05 N          8.00        8.25        0.00                                    
+ A05            8.00        9.00        0.00                                    
+ A05 F          8.75        9.00        0.00                                    
+ A06           12.00        9.00        0.00                                    
+ A07 N         12.25        9.00        0.00                                    
+ A07           13.00        9.00        0.00                                    
+ A07 F         13.00        9.00       -0.75                                    
+ A08           13.00        9.00       -4.00                                    
+ A09           13.00        9.00       -8.00                                    
+ 
+ *** SEGMENT B                                                                  
+ A08           13.00        9.00       -4.00                                    
+ B01           17.00        9.00       -4.00                                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   5
+----------------------------------------------------------------------------------------------------------------
+
+                      P I P E   D A T A   L I S T I N G                                                         
+                                                                                                                
+ Pipe ID/     Nom/ O.D.  -----Thickness(inch)----- Spec  InsuDen/   Weight(lb/ft )    ZL/ Composition/          
+ Material     Sch  inch  W.Th. Corr Mill Insu Ling Grav/ LingDen/  Pipe/ Ling/ Total  ZC/                       
+ CladMaterial            Clad                      InsMt CladDen   Cont  Insu/        f                         
+ ---Line Class---                                        lb/cu.ft        Clad                                   
+ ------------ ---- ----- ----- ---- ---- ---- ---- ----- --------  ----- ----- ----- ---- --------------------  
+ 
+ Tag No. : <None>                                                               
+ 6              6  6.625 0.109    0 0.01    0    0     0    0.000   7.58     0  7.58 1.00                       
+ A234-WP91    5S                                            0.000      0     0       1.00                       
+                             0                              0.000            0       1.00                       
+                                                                                
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   6
+----------------------------------------------------------------------------------------------------------------
+
+               M A T E R I A L   D A T A   L I S T I N G                                                        
+                                                                                                                
+  Material            Density  Pois. Temper.       Modulus E6 psi       Expans.  Composition                    
+    Name     Pipe ID  lb/cu.ft Ratio deg F    Axial     Hoop    Shear   in/100ft                                
+------------ -------- -------- ----- ------- -------- -------- -------- -------- -------------------            
+ A234-WP91   6           489.0  0.30    60.0   30.947   30.947   11.903                              
+                                        86.0   30.802                     0.1755
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   7
+----------------------------------------------------------------------------------------------------------------
+
+         M A T E R I A L   A L L O W A B L E   D A T A   L I S T I N G                                          
+                                                                                                                
+  Material            Temper. Allow.   Yield                                                                    
+    Name     Pipe ID  deg F   psi      psi                                                                      
+------------ -------- ------- -------- --------                                                                 
+ A234-WP91   6           60.0  21300.0  60000.0
+                         86.0  21300.0
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   8
+----------------------------------------------------------------------------------------------------------------
+
+        OPERATING TEMPERATURE AND PRESSURE DATA                                                                 
+                    STRESSES IN psi                                                                             
+                                                                                                                
+ POINT       PRESS. TEMPER  EXPAN.      MODULUS    ALLOW                                                        
+ NAME  CASE  psi    deg F   in/100ft    E6 psi     STRESS                                                       
+ ----  ----  ------ ------  --------    -------    ------                                                       
+ 
+ *** SEGMENT A 
+ A00   T1       145  86.00     0.175     30.802     21300                     
+       T2       145  86.00     0.175     30.802     21300                     
+       T3       145  86.00     0.175     30.802     21300                     
+ A09    Same as previous point.          
+ 
+ *** SEGMENT B 
+ A08   T1       145  86.00     0.175     30.802     21300                     
+       T2       145  86.00     0.175     30.802     21300                     
+       T3       145  86.00     0.175     30.802     21300                     
+ B01    Same as previous point.          
+ 
+ 
+u  User-defined value                                                           
+*  Non-code material for allowable stress;                                      
+   Non-standard material for expansion and modulus                              
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE   9
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     WIND LOAD CASES :
+     -----------------
+
+     Number of load cases :  6
+
+     Ground elevation for wind :       0.00 ft       
+
+     Wind shape factor multiplier :  1.000
+
+     Exposure factor for buried pipes :  0.000
+
+     Exposure factor for submerged pipes :  0.000
+
+     Exposed Segments -  A  B 
+
+     Wind application method : Projected 
+ 
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  10
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     Load case 1  -  W1 
+
+     Direction  -  Global X-axis
+
+     User defined wind profile
+
+              Height (ft)    Press (psf   )
+              -----------    --------------
+     From :      Ground
+       to :        5.00             10.00
+       to :       10.00             20.00
+       to :       15.00             30.00
+       to :       20.00             40.00
+       to :     Highest             40.00
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  11
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     Load case 2  -  W2 
+
+     Direction  -  Global X-axis
+
+     ASCE 7-1998
+
+     Basic wind speed at 33 ft (10m):  85.00 mph  
+
+     Exposure category : C
+
+     Gust effect factor (G) :   0.85
+
+     Force coefficient (Cf), Table 6-10 : Automatic 
+
+     Importance factor (I)  :   1.00
+
+     ASCE 7-98 PARAMETERS AS A FUNCTION OF HEIGHT 
+
+         HEIGHT       Kz          Cf          Qz       Pressure 
+         (ft  )                            (psf   )    (psf   )    
+       ----------  ----------  ----------  ----------  -------- 
+
+            0.0       0.849       0.700      15.701       9.342
+           10.0       0.849       0.700      15.701       9.342
+           20.0       0.902       0.700      16.681       9.925
+           33.0       1.002       0.700      18.536      11.029
+           50.0       1.094       0.700      20.230      12.037
+           75.0       1.191       0.700      22.033      13.110
+          100.0       1.266       0.700      23.409      13.928
+          200.0       1.464       0.700      27.087      16.117
+          500.0       1.776       0.700      32.850      19.546
+         1000.0       2.010       0.700      37.177      22.120
+ 
+     Kz = Velocity pressure exposure coefficient 
+     Cf = Force coefficient or wind shape factor 
+     Qz = Velocity pressure = 0.00256*Kz*Kzt*V^2*I   (Eq. 6-13) 
+     Pressure               = Qz*G*Cf                (Eq. 6-20) 
+ 
+     Per ASCE Table 6-10, wind appl. method should be "Projected"
+     Default Gust Factor G assumes pipe frequency > 1 Hz. 
+     Piping is assumed not to be on an isolated hill (Kzt=1). 
+     Automatic Cf reported uses D=1 ft, program uses actual D 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  12
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     Load case 3  -  W3 
+
+     Direction  -  Global X-axis
+
+     UBC 1997
+
+     Basic wind speed at 33 ft (10m):  70.00 mph  
+
+     Combined factor     Ce - Table 16-G : Automatic 
+
+     Exposure category : C
+
+     Pressure Coeff.     Cq - Table 16-H :    0.80
+
+     Wind stag. pressure qs - Table 16-F : Automatic 
+
+     Importance factor (Iw) :   1.00
+
+     UBC 1997 PARAMETERS AS A FUNCTION OF HEIGHT 
+
+         HEIGHT       Ce          Cq          qs       Pressure 
+         (ft  )                            (psf   )    (psf   )    
+       ----------  ----------  ----------  ----------  -------- 
+
+            0.0       1.060       0.800      12.600      10.685
+           10.0       1.060       0.800      12.600      10.685
+           20.0       1.130       0.800      12.600      11.390
+           33.0       1.254       0.800      12.600      12.640
+           50.0       1.370       0.800      12.600      13.810
+           75.0       1.505       0.800      12.600      15.170
+          100.0       1.610       0.800      12.600      16.229
+          200.0       1.870       0.800      12.600      18.850
+          500.0       2.190       0.800      12.600      22.075
+         1000.0       2.190       0.800      12.600      22.075
+ 
+     Ce = Combined height, exposure and gust coeff. 
+     Cq = Press. coefficient or wind shape factor 
+     qs = Wind stagnation pressure 
+     Pressure = Ce*Cq*qs*Iw (Eq. 20-1) 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  13
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     Load case 4  -  W4 
+
+     Direction  -  Global X-axis
+
+     User defined wind profile
+
+              Height (ft)    Press (psf   )
+              -----------    --------------
+     From :      Ground
+       to :        5.00             10.00
+       to :       10.00             20.00
+       to :       15.00             30.00
+       to :       20.00             40.00
+       to :     Highest             40.00
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  14
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     Load case 5  -  W5 
+
+     Direction  -  Global X-axis
+
+     UBC 1997
+
+     Basic wind speed at 33 ft (10m):  70.00 mph  
+
+     Combined factor     Ce - Table 16-G : Automatic 
+
+     Exposure category : C
+
+     Pressure Coeff.     Cq - Table 16-H :    0.80
+
+     Wind stag. pressure qs - Table 16-F : Automatic 
+
+     Importance factor (Iw) :   1.00
+
+     UBC 1997 PARAMETERS AS A FUNCTION OF HEIGHT 
+
+         HEIGHT       Ce          Cq          qs       Pressure 
+         (ft  )                            (psf   )    (psf   )    
+       ----------  ----------  ----------  ----------  -------- 
+
+            0.0       1.060       0.800      12.600      10.685
+           10.0       1.060       0.800      12.600      10.685
+           20.0       1.130       0.800      12.600      11.390
+           33.0       1.254       0.800      12.600      12.640
+           50.0       1.370       0.800      12.600      13.810
+           75.0       1.505       0.800      12.600      15.170
+          100.0       1.610       0.800      12.600      16.229
+          200.0       1.870       0.800      12.600      18.850
+          500.0       2.190       0.800      12.600      22.075
+         1000.0       2.190       0.800      12.600      22.075
+ 
+     Ce = Combined height, exposure and gust coeff. 
+     Cq = Press. coefficient or wind shape factor 
+     qs = Wind stagnation pressure 
+     Pressure = Ce*Cq*qs*Iw (Eq. 20-1) 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  15
+----------------------------------------------------------------------------------------------------------------
+
+             L O A D S   S U M M A R Y   D A T A   L I S T I N G                                                
+
+     Load case 6  -  W6 
+
+     Direction  -  Global X-axis
+
+     ASCE 7-1998
+
+     Basic wind speed at 33 ft (10m):  85.00 mph  
+
+     Exposure category : C
+
+     Gust effect factor (G) :   0.85
+
+     Force coefficient (Cf), Table 6-10 : Automatic 
+
+     Importance factor (I)  :   1.00
+
+     ASCE 7-98 PARAMETERS AS A FUNCTION OF HEIGHT 
+
+         HEIGHT       Kz          Cf          Qz       Pressure 
+         (ft  )                            (psf   )    (psf   )    
+       ----------  ----------  ----------  ----------  -------- 
+
+            0.0       0.849       0.700      15.701       9.342
+           10.0       0.849       0.700      15.701       9.342
+           20.0       0.902       0.700      16.681       9.925
+           33.0       1.002       0.700      18.536      11.029
+           50.0       1.094       0.700      20.230      12.037
+           75.0       1.191       0.700      22.033      13.110
+          100.0       1.266       0.700      23.409      13.928
+          200.0       1.464       0.700      27.087      16.117
+          500.0       1.776       0.700      32.850      19.546
+         1000.0       2.010       0.700      37.177      22.120
+ 
+     Kz = Velocity pressure exposure coefficient 
+     Cf = Force coefficient or wind shape factor 
+     Qz = Velocity pressure = 0.00256*Kz*Kzt*V^2*I   (Eq. 6-13) 
+     Pressure               = Qz*G*Cf                (Eq. 6-20) 
+ 
+     Per ASCE Table 6-10, wind appl. method should be "Projected"
+     Default Gust Factor G assumes pipe frequency > 1 Hz. 
+     Piping is assumed not to be on an isolated hill (Kzt=1). 
+     Automatic Cf reported uses D=1 ft, program uses actual D 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  16
+----------------------------------------------------------------------------------------------------------------
+
+                    B E N D   D A T A   L I S T I N G                                                           
+                                                                                                                
+ Point Bend  Radius  Angle    OD    tnom  Material   Flan^   SIF   SIF   Analysis  Flexibility  Pressure Case   
+ Name  Type   (in)   (deg)   (in)   (in)             /Cuts   in    out     Set         (K)                      
+ ----- ----- ------- -----  ------  ----- --------   ----- -----  -----  --------  -----------  --------------  
+ A02   Elbow   9.00L  90.0   6.625  0.109 A234-WP91    0/0  4.40   4.40    1          17.85     None            
+ A05   Elbow   9.00L  90.0   6.625  0.109 A234-WP91    0/0  4.40   4.40    1          17.85     None            
+ A07   Elbow   9.00L  90.0   6.625  0.109 A234-WP91    0/0  4.40   4.40    1          17.85     None            
+                                                                                
+                                                                                
+ ^ = Number of bend ends where either a flange or valve is within distance      
+    (L/D) x Nominal diameter, where L/D is defined under Tools > Model options > Edit                           
+ L = Long radius                                                                
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  17
+----------------------------------------------------------------------------------------------------------------
+
+                     T E E   D A T A   L I S T I N G                                                            
+                 Pipe   Pipe                      **Crotch *Crotch                                              
+ Point  Point     OD    Thk.   Material     Tee     Radius  Thick   SIF    SIF                                  
+ Name  Seg-Type  (in)    (in)               Type     (in)   (in)    in     out                                  
+ ----- -------- ------ ------  ---------   -------- ------  ------ -----  -----                                 
+ A08   A-Header  6.625  0.109  A234-WP91   Welding                  3.23   3.23 
+       B-Branch  6.625  0.109  A234-WP91                                        
+ 
+                                                                                
+ * = Pad thickness for reinforced tee.                                          
+ **= Fillet radius for Raised tee or discontinuity dist. for Thickened tee.     
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  18
+----------------------------------------------------------------------------------------------------------------
+
+                    V A L V E   D A T A   L I S T I N G                                                         
+                              Valve   Actuator       Actuator                            Size  Type             
+ Point          Dnom  Length  Weight  Weight    DX      DY      DZ          Joint        /Avg. /Max.            
+ Name   Type    (in)   (ft)   (lb)    (lb)     (ft)    (ft)    (ft)    SAF  Type    SIF  (in)  (in)             
+ ----- -------- ---- -------- ------  ------  ------- ------- ------- ----- ------- ---- ----- -----            
+ 
+ Tag No. : <None>                                                               
+ A01   CATALOG     6     1.38    500                                   5.10 WN      1.00                        
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  19
+----------------------------------------------------------------------------------------------------------------
+
+                   C A T A L O G   V A L V E   D A T A   L I S T I N G                                          
+ Point Name  : A01                                                              
+ Manufacturer: AutoPIPE Generic                                                 
+ Standard    : ANSI/ASME                                                        
+ Sub Category: Gate Valves                                                      
+ Type        : Gate Valves                                                      
+ Main End    : FL                                                               
+ Rating      : 300                                                              
+                                                                                
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   MODEL  PAGE  20
+----------------------------------------------------------------------------------------------------------------
+
+                    F L A N G E   D A T A   L I S T I N G                                                       
+                                   Flange  Bolt               Size  Type                                        
+ Point FLG            Dnom         Weight Weight Joint        /Avg. /Max. ANSI                                  
+ Name  No.   Type     (in)  Rating  (lb)   (lb)  Type    SIF  (in)  (in)  Check                                 
+ ----- ---- -------- ------ ------ ------ ------ ------- ---- ----- ----- -----                                 
+ Tag No. : <None>                                                               
+ A01    1   WELDNECK      6     16  24.30   0.00 WN      1.00             No    
+ Tag No. : <None>                                                               
+ A10    1   WELDNECK      6     16  24.30   0.00 WN      1.00             No    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  21
+----------------------------------------------------------------------------------------------------------------
+
+ 
+                    A N A L Y S I S   S U M M A R Y                             
+ 
+ 
+   Current model revision number : 3                                            
+ 
+     Static - Analysis set number ................... 1                         
+              Date and Time of analysis ............. Nov 17, 2016   12:06 PM   
+              Model Revision Number ................. 3                         
+              Number of load cases .................. 7                         
+              Load cases analyzed ................... GR T1 T2 T3 W4 W5 W6      
+              Description ........................... Load Set No. 1                                            
+              Gaps/Friction/Soil considered ......... No                        
+              Hanger design run ..................... No                        
+              Cut short included .................... No                        
+              Thermal bowing included ............... No                        
+              Include Bourdon rotational effect ..... No                        
+              Pipe radius for Bourdon calculation ... Mean                      
+              Weight of contents included ........... Yes                       
+              Fluid density factor for contents ..... 1.00                      
+              Pressure stiffening case .............. None                      
+              Hot modulus case ...................... None                      
+              Pressure Extension..................... No                        
+              Water elevation for buoyancy loads .... Not considered            
+              Wind analysis method .................. Projected                 
+              Use corroded thickness in analysis .... No                        
+              Rigid stiffness factor ................ 1000.0                    
+              Support rigid stiffness (translation) . 0.100000E+11 lb/in        
+              Support rigid stiffness (rotation) .... 0.145444E+10 ft-lb/deg    
+              Anchor rigid stiffness (translation) .. 0.100000E+11 lb/in        
+              Anchor rigid stiffness (rotation) ..... 0.145444E+10 ft-lb/deg    
+              Remove Lift-Off Supports .............. No                        
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  22
+----------------------------------------------------------------------------------------------------------------
+
+                                        CODE COMPLIANCE COMBINATIONS                                            
+                                                                                                                
+  <Description>                                                                              Allowable          
+  Combination              Category    Method       Case/Combination     Factor M/S K-Factor   (psi)   D/A/P/C  
+  -----------------------  ----------- -------- ------------------------ ------ --- -------- --------- -------  
+  GR + Max P               Sustain     Sum      GR                         1.00              Automatic Y Y Y Y  
+                                                Max Long                   1.00                                 
+ 
+  Max Range                Expansion   Sum      Temp. Range                1.00              Automatic Y Y Y Y  
+ 
+  Amb to T1                Expansion   Sum      T1                         1.00              Automatic Y Y Y Y  
+ 
+  Amb to T2                Expansion   Sum      T2                         1.00              Automatic Y Y Y Y  
+ 
+  Amb to T3                Expansion   Sum      T3                         1.00              Automatic Y Y Y Y  
+ 
+  Sus. + W4                Occasion    Abs sum  W4                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Sus. + W5                Occasion    Abs sum  W5                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Sus. + W6                Occasion    Abs sum  W6                         1.00        1.200 Automatic Y Y Y Y  
+                                                Max Sus                    1.00                                 
+ 
+  Max P                    Hoop        Sum      Max Hoop                   1.00              Automatic Y Y Y Y  
+ 
+ 
+  Notes:                                                                        
+ 
+  D/A/P/C: [D]efault/[A]uto-Update/[P]rint options/[C]Consistent (Y=Yes, N=No)  
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  23
+----------------------------------------------------------------------------------------------------------------
+
+                              NON-CODE COMBINATIONS                                                             
+                                                                                                                
+  <Description>                                                                                                 
+  Combination               Method       Case/Combination     Factor  D/A/P/C                                   
+  -----------------------   -------- ------------------------ ------  -------                                   
+  Gravity                   Sum      GR                         1.00  Y Y Y Y   
+ 
+  Thermal 1                 Sum      T1                         1.00  Y Y Y Y   
+ 
+  Thermal 2                 Sum      T2                         1.00  Y Y Y Y   
+ 
+  Thermal 3                 Sum      T3                         1.00  Y Y Y Y   
+ 
+  Wind 4                    Sum      W4                         1.00  Y Y Y Y   
+ 
+  Wind 5                    Sum      W5                         1.00  Y Y Y Y   
+ 
+  Wind 6                    Sum      W6                         1.00  Y Y Y Y   
+ 
+ 
+  Notes:                                                                        
+ 
+  D/A/P/C: [D]efault/[A]uto-Update/[P]rint options/[C]Consistent (Y=Yes, N=No)  
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  24
+----------------------------------------------------------------------------------------------------------------
+
+ 
+ 
+   CODE COMPLIANCE                                                              
+ 
+   Y - Factor ............................ 0.40                                 
+   Weld efficiency factor Ej.............. 1.00                                 
+   Design Pressure Factor ................ 1.00                                 
+   Minimum stress ratio used in reports... 0.00                                 
+   Number of stress points per span ...... 0                                    
+   Include corrosion in stress calcs. .... Y                                    
+   Include corrosion in Hoop stress calcs. Y                                    
+   Include axial force in code stress .... N                                    
+   Include sustain load margin ........... Only if allowable stress is exceeded 
+   Use minimum sustained margin........... Y                                    
+   Set sustained SIF=1 no bends .......... N                                    
+   Set sustained/occasional SIF = 1 ...... N                                    
+   Set sustained/occasional SIF = 0.75i .. N                                    
+   Apply cold/hot modulus ratio .......... N                                    
+   Disable auto code combinations ........ N                                    
+   Disable auto non-code combinations .... N                                    
+   No. of thermal ranges to report ....... 0                                    
+   Include Max Range combination ......... Y                                    
+   Total stress .......................... Octahedral                           
+   Direct shear .......................... None                                 
+   Longitudinal pressure calculation ..... PD/4t                                
+   Inc. Axial Str and Pcase in Sustained.. N                                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  25
+----------------------------------------------------------------------------------------------------------------
+
+                                       D I S P L A C E M E N T S                                                
+                                                                                                                
+ Point      Load                      TRANSLATIONS (in  )         ROTATIONS (deg  )                             
+ name    combination                   X       Y       Z          X       Y       Z                             
+ ------  ------------------------    ------  ------  ------     ------  ------  ------                          
+ 
+ *** Segment A  begin ***
+ 
+ A00     Gravity                      0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 2                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 3                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 4                       0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 5                       0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 6                       0.000   0.000   0.000      0.000   0.000   0.000                          
+ 
+ A01     Gravity                      0.000  -0.064  -0.004      0.003   0.009  -0.115                          
+         Thermal 1                    0.007  -0.002   0.001      0.001  -0.002  -0.004                          
+         Thermal 2                    0.007  -0.002   0.001      0.001  -0.002  -0.004                          
+         Thermal 3                    0.007  -0.002   0.001      0.001  -0.002  -0.004                          
+         Wind 4                       0.000  -0.001   0.000      0.001   0.000  -0.002                          
+         Wind 5                       0.000  -0.001   0.000      0.001   0.000  -0.001                          
+         Wind 6                       0.000  -0.001   0.000      0.001   0.000  -0.002                          
+ 
+ A01 M   Gravity                      0.000  -0.081  -0.005      0.003   0.009  -0.115                          
+         Thermal 1                    0.008  -0.003   0.001      0.001  -0.002  -0.004                          
+         Thermal 2                    0.008  -0.003   0.001      0.001  -0.002  -0.004                          
+         Thermal 3                    0.008  -0.003   0.001      0.001  -0.002  -0.004                          
+         Wind 4                       0.000  -0.001   0.000      0.001   0.000  -0.002                          
+         Wind 5                       0.000  -0.001   0.000      0.001   0.000  -0.001                          
+         Wind 6                       0.000  -0.001   0.000      0.001   0.000  -0.002                          
+ 
+ A10     Gravity                      0.000  -0.097  -0.007      0.003   0.009  -0.115                          
+         Thermal 1                    0.009  -0.004   0.002      0.001  -0.002  -0.004                          
+         Thermal 2                    0.009  -0.004   0.002      0.001  -0.002  -0.004                          
+         Thermal 3                    0.009  -0.004   0.002      0.001  -0.002  -0.004                          
+         Wind 4                       0.000  -0.001   0.000      0.001   0.000  -0.002                          
+         Wind 5                       0.000  -0.001   0.000      0.001   0.000  -0.001                          
+         Wind 6                       0.000  -0.001   0.000      0.001   0.000  -0.002                          
+ 
+ A02 N   Gravity                      0.000  -0.141  -0.011      0.004   0.011  -0.106                          
+         Thermal 1                    0.013  -0.005   0.003      0.002  -0.003  -0.004                          
+         Thermal 2                    0.013  -0.005   0.003      0.002  -0.003  -0.004                          
+         Thermal 3                    0.013  -0.005   0.003      0.002  -0.003  -0.004                          
+         Wind 4                       0.000  -0.002   0.000      0.002   0.000  -0.003                          
+         Wind 5                       0.000  -0.002   0.000      0.001   0.000  -0.002                          
+         Wind 6                       0.000  -0.002   0.000      0.002   0.000  -0.003                          
+ 
+ A02 F   Gravity                      0.008  -0.152  -0.012      0.007   0.016  -0.017                          
+         Thermal 1                    0.013  -0.003   0.004      0.004  -0.005   0.016                          
+         Thermal 2                    0.013  -0.003   0.004      0.004  -0.005   0.016                          
+         Thermal 3                    0.013  -0.003   0.004      0.004  -0.005   0.016                          
+         Wind 4                       0.001  -0.003   0.000      0.004   0.001  -0.008                          
+         Wind 5                       0.001  -0.002   0.000      0.002   0.001  -0.006                          
+         Wind 6                       0.001  -0.003   0.000      0.003   0.001  -0.008                          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  26
+----------------------------------------------------------------------------------------------------------------
+
+                                       D I S P L A C E M E N T S                                                
+                                                                                                                
+ Point      Load                      TRANSLATIONS (in  )         ROTATIONS (deg  )                             
+ name    combination                   X       Y       Z          X       Y       Z                             
+ ------  ------------------------    ------  ------  ------     ------  ------  ------                          
+ A03     Gravity                      0.015  -0.152  -0.006      0.011   0.019  -0.004                          
+         Thermal 1                    0.001   0.002   0.007      0.004  -0.005   0.017                          
+         Thermal 2                    0.001   0.002   0.007      0.004  -0.005   0.017                          
+         Thermal 3                    0.001   0.002   0.007      0.004  -0.005   0.017                          
+         Wind 4                       0.006  -0.003   0.003      0.004   0.002  -0.005                          
+         Wind 5                       0.004  -0.002   0.002      0.003   0.001  -0.003                          
+         Wind 6                       0.006  -0.003   0.003      0.004   0.002  -0.005                          
+ 
+ A04     Gravity                      0.010  -0.152   0.006      0.019   0.022   0.015                          
+         Thermal 1                   -0.013   0.009   0.010      0.003  -0.006   0.016                          
+         Thermal 2                   -0.013   0.009   0.010      0.003  -0.006   0.016                          
+         Thermal 3                   -0.013   0.009   0.010      0.003  -0.006   0.016                          
+         Wind 4                       0.008  -0.003   0.007      0.004   0.003   0.000                          
+         Wind 5                       0.005  -0.002   0.004      0.003   0.002   0.001                          
+         Wind 6                       0.007  -0.003   0.006      0.004   0.003   0.001                          
+ 
+ A05 N   Gravity                      0.009  -0.152   0.007      0.020   0.023   0.016                          
+         Thermal 1                   -0.014   0.010   0.010      0.003  -0.006   0.015                          
+         Thermal 2                   -0.014   0.010   0.010      0.003  -0.006   0.015                          
+         Thermal 3                   -0.014   0.010   0.010      0.003  -0.006   0.015                          
+         Wind 4                       0.008  -0.003   0.007      0.004   0.003   0.000                          
+         Wind 5                       0.005  -0.002   0.004      0.003   0.002   0.001                          
+         Wind 6                       0.007  -0.003   0.006      0.004   0.003   0.001                          
+ 
+ A05 F   Gravity                      0.001  -0.140   0.010      0.047   0.012   0.108                          
+         Thermal 1                   -0.013   0.011   0.011     -0.001  -0.004  -0.007                          
+         Thermal 2                   -0.013   0.011   0.011     -0.001  -0.004  -0.007                          
+         Thermal 3                   -0.013   0.011   0.011     -0.001  -0.004  -0.007                          
+         Wind 4                       0.008  -0.003   0.007      0.002   0.007   0.003                          
+         Wind 5                       0.005  -0.002   0.004      0.001   0.004   0.002                          
+         Wind 6                       0.007  -0.003   0.006      0.002   0.006   0.003                          
+ 
+ A06     Gravity                      0.001  -0.065   0.002      0.059   0.012   0.107                          
+         Thermal 1                   -0.008   0.006   0.014     -0.003  -0.003  -0.008                          
+         Thermal 2                   -0.008   0.006   0.014     -0.003  -0.003  -0.008                          
+         Thermal 3                   -0.008   0.006   0.014     -0.003  -0.003  -0.008                          
+         Wind 4                       0.008  -0.001   0.002      0.002   0.008   0.002                          
+         Wind 5                       0.005  -0.001   0.001      0.001   0.005   0.002                          
+         Wind 6                       0.007  -0.001   0.002      0.002   0.007   0.003                          
+ 
+ A07 N   Gravity                      0.001  -0.060   0.001      0.060   0.012   0.106                          
+         Thermal 1                   -0.007   0.005   0.014     -0.004  -0.003  -0.008                          
+         Thermal 2                   -0.007   0.005   0.014     -0.004  -0.003  -0.008                          
+         Thermal 3                   -0.007   0.005   0.014     -0.004  -0.003  -0.008                          
+         Wind 4                       0.008  -0.001   0.002      0.002   0.008   0.002                          
+         Wind 5                       0.005   0.000   0.001      0.001   0.005   0.002                          
+         Wind 6                       0.007  -0.001   0.002      0.002   0.007   0.003                          
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  27
+----------------------------------------------------------------------------------------------------------------
+
+                                       D I S P L A C E M E N T S                                                
+                                                                                                                
+ Point      Load                      TRANSLATIONS (in  )         ROTATIONS (deg  )                             
+ name    combination                   X       Y       Z          X       Y       Z                             
+ ------  ------------------------    ------  ------  ------     ------  ------  ------                          
+ A07 F   Gravity                      0.000  -0.040   0.000      0.042   0.001   0.055                          
+         Thermal 1                   -0.006   0.004   0.013     -0.004   0.001  -0.005                          
+         Thermal 2                   -0.006   0.004   0.013     -0.004   0.001  -0.005                          
+         Thermal 3                   -0.006   0.004   0.013     -0.004   0.001  -0.005                          
+         Wind 4                       0.006   0.000   0.000      0.000   0.011   0.001                          
+         Wind 5                       0.004   0.000   0.000      0.000   0.007   0.001                          
+         Wind 6                       0.005   0.000   0.000      0.000   0.010   0.001                          
+ 
+ A08     Gravity                      0.000  -0.014   0.000      0.028   0.000   0.026                          
+         Thermal 1                   -0.007   0.001   0.007     -0.003   0.000  -0.002                          
+         Thermal 2                   -0.007   0.001   0.007     -0.003   0.000  -0.002                          
+         Thermal 3                   -0.007   0.001   0.007     -0.003   0.000  -0.002                          
+         Wind 4                       0.000   0.000   0.000      0.000   0.003   0.000                          
+         Wind 5                       0.000   0.000   0.000      0.000   0.002   0.000                          
+         Wind 6                       0.000   0.000   0.000      0.000   0.003   0.000                          
+ 
+ A09     Gravity                      0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 2                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 3                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 4                       0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 5                       0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 6                       0.000   0.000   0.000      0.000   0.000   0.000                          
+ 
+ *** Segment A  end   ***
+ 
+ *** Segment B  begin ***
+ 
+ A08     Gravity                      0.000  -0.014   0.000      0.028   0.000   0.026                          
+         Thermal 1                   -0.007   0.001   0.007     -0.003   0.000  -0.002                          
+         Thermal 2                   -0.007   0.001   0.007     -0.003   0.000  -0.002                          
+         Thermal 3                   -0.007   0.001   0.007     -0.003   0.000  -0.002                          
+         Wind 4                       0.000   0.000   0.000      0.000   0.003   0.000                          
+         Wind 5                       0.000   0.000   0.000      0.000   0.002   0.000                          
+         Wind 6                       0.000   0.000   0.000      0.000   0.003   0.000                          
+ 
+ B01     Gravity                      0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 1                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 2                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Thermal 3                    0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 4                       0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 5                       0.000   0.000   0.000      0.000   0.000   0.000                          
+         Wind 6                       0.000   0.000   0.000      0.000   0.000   0.000                          
+ 
+ *** Segment B  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  28
+----------------------------------------------------------------------------------------------------------------
+
+                                      R E S T R A I N T   R E A C T I O N S                                     
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ -----------------------   ------ ------ ------ ------ ------- ------- ------- -------                   
+ 
+ A00     Anchor    Tag No.: <None>                                              
+         Gravity                       4   -577    -11    577      25     122   -2408    2412                   
+         Thermal 1                   -11    -16      3     20      10     -31     -82      88                   
+         Thermal 2                   -11    -16      3     20      10     -31     -82      88                   
+         Thermal 3                   -11    -16      3     20      10     -31     -82      88                   
+         Wind 4                       32      0      2     32      12      -4     -20      24                   
+         Wind 5                       28      0      1     28       8      -2     -14      16                   
+         Wind 6                       42      0      2     42      12      -3     -21      25                   
+ 
+ A09     Anchor    Tag No.: <None>                                              
+         Gravity                      -2    -89     13     90     471      -2     221     521                   
+         Thermal 1                  -244      6   -236    339     -43    -483     -21     486                   
+         Thermal 2                  -244      6   -236    339     -43    -483     -21     486                   
+         Thermal 3                  -244      6   -236    339     -43    -483     -21     486                   
+         Wind 4                      -15      0     37     40       3     -28       2      28                   
+         Wind 5                      -11      0     23     25       2     -18       1      18                   
+         Wind 6                      -16      0     34     37       3     -27       2      28                   
+ 
+ B01     Anchor    Tag No.: <None>                                              
+         Gravity                      -2   -123     -2    123     241      -2     513     567                   
+         Thermal 1                   255     11    232    345     -24     469     -49     473                   
+         Thermal 2                   255     11    232    345     -24     469     -49     473                   
+         Thermal 3                   255     11    232    345     -24     469     -49     473                   
+         Wind 4                      142      0    -39    148       2     -48       2      48                   
+         Wind 5                       83      0    -24     86       1     -29       1      29                   
+         Wind 6                      124      0    -36    129       2     -43       2      44                   
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  29
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ 
+ *** Segment A  begin ***
+ 
+ A00     Gravity                      -4    577     11    577     -25    -122    2408    2412                   
+         Thermal 1                    11     16     -3     20     -10      31      82      88                   
+         Thermal 2                    11     16     -3     20     -10      31      82      88                   
+         Thermal 3                    11     16     -3     20     -10      31      82      88                   
+         Wind 4                      -32      0     -2     32     -12       4      20      24                   
+         Wind 5                      -28      0     -1     28      -8       2      14      16                   
+         Wind 6                      -42      0     -2     42     -12       3      21      25                   
+ 
+ A01  -  Gravity                      -4    546     11    546     -25     -76     163     181                   
+         Thermal 1                    11     16     -3     20     -10      17      17      26                   
+         Thermal 2                    11     16     -3     20     -10      17      17      26                   
+         Thermal 3                    11     16     -3     20     -10      17      17      26                   
+         Wind 4                      -32      0     -2     32     -12      -3      20      24                   
+         Wind 5                      -28      0     -1     28      -8      -2      15      17                   
+         Wind 6                      -42      0     -2     42     -12      -3      22      25                   
+ 
+ A01  +  Gravity                      -4    522     11    522     -25     -76     163     181                   
+         Thermal 1                    11     16     -3     20     -10      17      17      26                   
+         Thermal 2                    11     16     -3     20     -10      17      17      26                   
+         Thermal 3                    11     16     -3     20     -10      17      17      26                   
+         Wind 4                      -32      0     -2     32     -12      -3      20      24                   
+         Wind 5                      -28      0     -1     28      -8      -2      15      17                   
+         Wind 6                      -42      0     -2     42     -12      -3      22      25                   
+ 
+ A01 M   Gravity                      -4    272     11    272     -25     -68    -111     133                   
+         Thermal 1                    11     16     -3     20     -10      15       6      19                   
+         Thermal 2                    11     16     -3     20     -10      15       6      19                   
+         Thermal 3                    11     16     -3     20     -10      15       6      19                   
+         Wind 4                      -32      0     -2     32     -12      -5      20      24                   
+         Wind 5                      -28      0     -1     28      -8      -3      15      17                   
+         Wind 6                      -42      0     -2     42     -12      -4      22      25                   
+ 
+ A10  -  Gravity                      -4     22     11     25     -25     -60    -213     223                   
+         Thermal 1                    11     16     -3     20     -10      13      -6      17                   
+         Thermal 2                    11     16     -3     20     -10      13      -6      17                   
+         Thermal 3                    11     16     -3     20     -10      13      -6      17                   
+         Wind 4                      -32      0     -2     32     -12      -6      20      24                   
+         Wind 5                      -28      0     -1     28      -8      -4      15      17                   
+         Wind 6                      -42      0     -2     42     -12      -5      22      25                   
+ 
+ A10  +  Gravity                      -4     -2     11     12     -25     -60    -213     223                   
+         Thermal 1                    11     16     -3     20     -10      13      -6      17                   
+         Thermal 2                    11     16     -3     20     -10      13      -6      17                   
+         Thermal 3                    11     16     -3     20     -10      13      -6      17                   
+         Wind 4                      -32      0     -2     32     -12      -6      20      24                   
+         Wind 5                      -28      0     -1     28      -8      -4      15      17                   
+         Wind 6                      -42      0     -2     42     -12      -5      22      25                   
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  30
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ A02 N   Gravity                      -4    -16     11     20     -25     -39    -195     201                   
+         Thermal 1                    11     16     -3     20     -10       6     -36      38                   
+         Thermal 2                    11     16     -3     20     -10       6     -36      38                   
+         Thermal 3                    11     16     -3     20     -10       6     -36      38                   
+         Wind 4                      -32      0     -2     32     -12      -9      20      25                   
+         Wind 5                      -28      0     -1     28      -8      -6      15      17                   
+         Wind 6                      -42      0     -2     42     -12      -8      22      26                   
+ 
+ A02 F   Gravity                      -4    -25     11     28     -33     -30    -184     189                   
+         Thermal 1                    11     16     -3     20      -7       4     -40      41                   
+         Thermal 2                    11     16     -3     20      -7       4     -40      41                   
+         Thermal 3                    11     16     -3     20      -7       4     -40      41                   
+         Wind 4                      -28      0     -2     28     -11     -10      -2      15                   
+         Wind 5                      -23      0     -1     23      -7      -6      -4      10                   
+         Wind 6                      -35      0     -2     35     -10     -10      -6      15                   
+ 
+ A03     Gravity                      -4    -50     11     51     -70     -30    -197     211                   
+         Thermal 1                    11     16     -3     20       4       4      -3       6                   
+         Thermal 2                    11     16     -3     20       4       4      -3       6                   
+         Thermal 3                    11     16     -3     20       4       4      -3       6                   
+         Wind 4                      -10      0     -2     10      -5     -10     -65      66                   
+         Wind 5                       -4      0     -1      4      -3      -6     -49      49                   
+         Wind 6                       -6      0     -2      7      -5     -10     -73      74                   
+ 
+ A04     Gravity                      -4    -80     11     81    -116     -30    -214     245                   
+         Thermal 1                    11     16     -3     20      18       4      43      47                   
+         Thermal 2                    11     16     -3     20      18       4      43      47                   
+         Thermal 3                    11     16     -3     20      18       4      43      47                   
+         Wind 4                       28      0     -2     28       2     -10     -29      30                   
+         Wind 5                       19      0     -1     19       1      -6     -18      20                   
+         Wind 6                       29      0     -2     29       1     -10     -28      29                   
+ 
+ A05 N   Gravity                      -4    -82     11     83    -119     -30    -215     247                   
+         Thermal 1                    11     16     -3     20      19       4      46      50                   
+         Thermal 2                    11     16     -3     20      19       4      46      50                   
+         Thermal 3                    11     16     -3     20      19       4      46      50                   
+         Wind 4                       31      0     -2     31       2     -10     -21      24                   
+         Wind 5                       21      0     -1     21       1      -6     -13      15                   
+         Wind 6                       31      0     -2     31       2     -10     -20      22                   
+ 
+ A05 F   Gravity                      -4    -91     11     92    -127     -22    -152     200                   
+         Thermal 1                    11     16     -3     20      21       1      42      47                   
+         Thermal 2                    11     16     -3     20      21       1      42      47                   
+         Thermal 3                    11     16     -3     20      21       1      42      47                   
+         Wind 4                       39      0     -2     39       3     -12       4      13                   
+         Wind 5                       25      0     -1     25       2      -7       3       8                   
+         Wind 6                       38      0     -2     38       3     -11       5      12                   
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  31
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ A06     Gravity                      -4   -116     11    116    -127      15     184     225                   
+         Thermal 1                    11     16     -3     20      21     -10     -11      26                   
+         Thermal 2                    11     16     -3     20      21     -10     -11      26                   
+         Thermal 3                    11     16     -3     20      21     -10     -11      26                   
+         Wind 4                       39      0     -2     39       3     -17       5      18                   
+         Wind 5                       25      0     -1     25       2     -11       4      11                   
+         Wind 6                       38      0     -2     38       3     -16       5      17                   
+ 
+ A07 N   Gravity                      -4   -118     11    118    -127      18     213     249                   
+         Thermal 1                    11     16     -3     20      21     -11     -15      28                   
+         Thermal 2                    11     16     -3     20      21     -11     -15      28                   
+         Thermal 3                    11     16     -3     20      21     -11     -15      28                   
+         Wind 4                       39      0     -2     39       3     -18       5      19                   
+         Wind 5                       25      0     -1     25       2     -11       4      12                   
+         Wind 6                       38      0     -2     38       3     -16       5      17                   
+ 
+ A07 F   Gravity                      -4   -127     11    127     -35      24     304     307                   
+         Thermal 1                    11     16     -3     20       9      -5     -27      29                   
+         Thermal 2                    11     16     -3     20       9      -5     -27      29                   
+         Thermal 3                    11     16     -3     20       9      -5     -27      29                   
+         Wind 4                       48      0     -2     48       3      14       5      16                   
+         Wind 5                       30      0     -1     30       2       9       4      10                   
+         Wind 6                       45      0     -2     45       3      14       5      15                   
+ 
+ A08  -  Gravity                      -4   -151     11    152     417      10     304     516                   
+         Thermal 1                    11     16     -3     20     -44      32     -27      61                   
+         Thermal 2                    11     16     -3     20     -44      32     -27      61                   
+         Thermal 3                    11     16     -3     20     -44      32     -27      61                   
+         Wind 4                       84      0     -2     84       4     228       5     228                   
+         Wind 5                       49      0     -1     49       2     137       4     137                   
+         Wind 6                       73      0     -2     73       3     205       5     206                   
+ 
+ A08  +  Gravity                      -2    -59     13     60     176       5     221     283                   
+         Thermal 1                  -244      6   -236    339     -20     492     -21     493                   
+         Thermal 2                  -244      6   -236    339     -20     492     -21     493                   
+         Thermal 3                  -244      6   -236    339     -20     492     -21     493                   
+         Wind 4                      -59      0     37     70       2     119       2     119                   
+         Wind 5                      -34      0     23     41       1      71       1      71                   
+         Wind 6                      -51      0     34     61       1     106       2     106                   
+ 
+ A09     Gravity                      -2    -89     13     90     471      -2     221     521                   
+         Thermal 1                  -244      6   -236    339     -43    -483     -21     486                   
+         Thermal 2                  -244      6   -236    339     -43    -483     -21     486                   
+         Thermal 3                  -244      6   -236    339     -43    -483     -21     486                   
+         Wind 4                      -15      0     37     40       3     -28       2      28                   
+         Wind 5                      -11      0     23     25       2     -18       1      18                   
+         Wind 6                      -16      0     34     37       3     -27       2      28                   
+ 
+ *** Segment A  end   ***
+ 
+ *** Segment B  begin ***
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  32
+----------------------------------------------------------------------------------------------------------------
+
+                             G L O B A L   F O R C E S   &   M O M E N T S                                      
+                                                                                                                
+ Point     Load                         FORCES (lbf   )             MOMENTS (ft-lb  )                           
+ name   combination                 X      Y      Z    Result    X       Y       Z    Result                    
+ ------ ----------------------    ------ ------ ------ ------ ------- ------- ------- -------                   
+ A08     Gravity                      -2    -92     -2     92     241       5      83     255                   
+         Thermal 1                   255     11    232    345     -24    -460      -6     461                   
+         Thermal 2                   255     11    232    345     -24    -460      -6     461                   
+         Thermal 3                   255     11    232    345     -24    -460      -6     461                   
+         Wind 4                      142      0    -39    148       2     109       3     109                   
+         Wind 5                       83      0    -24     86       1      66       2      66                   
+         Wind 6                      124      0    -36    129       2      99       3      99                   
+ 
+ B01     Gravity                      -2   -123     -2    123     241      -2     513     567                   
+         Thermal 1                   255     11    232    345     -24     469     -49     473                   
+         Thermal 2                   255     11    232    345     -24     469     -49     473                   
+         Thermal 3                   255     11    232    345     -24     469     -49     473                   
+         Wind 4                      142      0    -39    148       2     -48       2      48                   
+         Wind 5                       83      0    -24     86       1     -29       1      29                   
+         Wind 6                      124      0    -36    129       2     -43       2      44                   
+ 
+ *** Segment B  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  33
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+ 
+ *** Segment A  begin ***
+ 
+ A00    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0    8094   -8090      41    8094  -8090    8094    3                    
+        Thermal 1                      0     289    -300      16     290   -300     301  159                    
+        Thermal 2                      0     289    -300      16     290   -300     301  159                    
+        Thermal 3                      0     289    -300      16     290   -300     301  159                    
+        Wind 4                         0      82     -53      21      87    -60      89  349                    
+        Wind 5                         0      61     -36      13      64    -40      65  352                    
+        Wind 6                         0      91     -54      19      95    -60      97  352                    
+ 
+ A01    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     604    -600      41     607   -603     608   25                    
+        Thermal 1                      0      76     -86      16      79    -89      91  134                    
+        Thermal 2                      0      76     -86      16      79    -89      91  134                    
+        Thermal 3                      0      76     -86      16      79    -89      91  134                    
+        Wind 4                         0      82     -53      21      87    -60      89   10                    
+        Wind 5                         0      62     -37      13      64    -41      66    8                    
+        Wind 6                         0      92     -55      19      96    -61      98    8                    
+ 
+ A10    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     744    -740      41     746   -742     747  164                    
+        Thermal 1                      0      41     -52      16      47    -56      59   66                    
+        Thermal 2                      0      41     -52      16      47    -56      59   66                    
+        Thermal 3                      0      41     -52      16      47    -56      59   66                    
+        Wind 4                         0      84     -55      21      89    -62      91   16                    
+        Wind 5                         0      63     -38      13      65    -42      67   14                    
+        Wind 6                         0      94     -57      19      98    -63     100   14                    
+ 
+ A02 N- SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     670    -666      41     672   -669     674  169                    
+        Thermal 1                      0     118    -128      16     120   -130     131   10                    
+        Thermal 2                      0     118    -128      16     120   -130     131   10                    
+        Thermal 3                      0     118    -128      16     120   -130     131   10                    
+        Wind 4                         0      88     -59      21      93    -65      95   24                    
+        Wind 5                         0      65     -40      13      68    -44      69   21                    
+        Wind 6                         0      98     -60      19     101    -66     103   21                    
+ 
+ A02 N+ SIFI= 4.40   SIFO= 4.40                                                 
+        Gravity                        0    2942   -2939      41    2943  -2939    2943  169                    
+        Thermal 1                      0     537    -547      16     538   -548     548   10                    
+        Thermal 2                      0     537    -547      16     538   -548     548   10                    
+        Thermal 3                      0     537    -547      16     538   -548     548   10                    
+        Wind 4                         0     337    -308      21     339   -310     339   24                    
+        Wind 5                         0     244    -219      13     245   -220     245   21                    
+        Wind 6                         0     366    -329      19     367   -330     368   21                    
+ 
+ A02 F- SIFI= 4.40   SIFO= 4.40                                                 
+        Gravity                        0    2767   -2744      51    2768  -2745    2768  190                    
+        Thermal 1                      0     590    -605       6     591   -605     605   10                    
+        Thermal 2                      0     590    -605       6     591   -605     605   10                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  34
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+        Thermal 3                      0     590    -605       6     591   -605     605   10                    
+        Wind 4                         0     167    -167      17     169   -169     170  258                    
+        Wind 5                         0     118    -118      11     119   -119     119  239                    
+        Wind 6                         0     177    -177      16     178   -178     179  239                    
+ 
+ A02 F+ SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     637    -614      51     641   -619     643  100                    
+        Thermal 1                      0     128    -143       6     129   -143     143  280                    
+        Thermal 2                      0     128    -143       6     129   -143     143  280                    
+        Thermal 3                      0     128    -143       6     129   -143     143  280                    
+        Wind 4                         0      38     -38      17      45    -45      48  168                    
+        Wind 5                         0      27     -27      11      31    -31      33  149                    
+        Wind 6                         0      40     -40      16      46    -46      49  149                    
+ 
+ A03    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     725    -680      51     728   -684     730  110                    
+        Thermal 1                      0      10     -24       6      13    -26      26  214                    
+        Thermal 2                      0      10     -24       6      13    -26      26  214                    
+        Thermal 3                      0      10     -24       6      13    -26      26  214                    
+        Wind 4                         0     218    -218      17     220   -220     220   95                    
+        Wind 5                         0     164    -164      11     165   -165     165   94                    
+        Wind 6                         0     246    -246      16     247   -247     248   94                    
+ 
+ A04    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     852    -780      51     855   -783     857  118                    
+        Thermal 1                      0     149    -163       6     149   -163     163  113                    
+        Thermal 2                      0     149    -163       6     149   -163     163  113                    
+        Thermal 3                      0     149    -163       6     149   -163     163  113                    
+        Wind 4                         0      96     -96      17      99    -99     101   87                    
+        Wind 5                         0      62     -62      11      64    -64      65   87                    
+        Wind 6                         0      93     -93      16      96    -96      97   87                    
+ 
+ A05 N- SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     861    -787      51     864   -790     865  119                    
+        Thermal 1                      0     158    -173       6     159   -173     173  112                    
+        Thermal 2                      0     158    -173       6     159   -173     173  112                    
+        Thermal 3                      0     158    -173       6     159   -173     173  112                    
+        Wind 4                         0      71     -71      17      75    -75      77   84                    
+        Wind 5                         0      45     -45      11      48    -48      49   85                    
+        Wind 6                         0      68     -68      16      72    -72      73   85                    
+ 
+ A05 N+ SIFI= 4.40   SIFO= 4.40                                                 
+        Gravity                        0    3664   -3590      51    3665  -3591    3665   29                    
+        Thermal 1                      0     723    -737       6     723   -737     737   22                    
+        Thermal 2                      0     723    -737       6     723   -737     737   22                    
+        Thermal 3                      0     723    -737       6     723   -737     737   22                    
+        Wind 4                         0     314    -314      17     315   -315     316  354                    
+        Wind 5                         0     200    -200      11     200   -200     200  355                    
+        Wind 6                         0     299    -299      16     300   -300     300  355                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  35
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+ 
+ A05 F- SIFI= 4.40   SIFO= 4.40                                                 
+        Gravity                        0    2271   -2267     214    2291  -2287    2301  352                    
+        Thermal 1                      0     615    -625      36     617   -628     629  359                    
+        Thermal 2                      0     615    -625      36     617   -628     629  359                    
+        Thermal 3                      0     615    -625      36     617   -628     629  359                    
+        Wind 4                         0     166    -202       6     167   -202     202   69                    
+        Wind 5                         0     107    -129       3     107   -129     129   65                    
+        Wind 6                         0     160    -194       5     160   -194     194   65                    
+ 
+ A05 F+ SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     517    -513     214     594   -591     636  172                    
+        Thermal 1                      0     136    -146      36     145   -154     159  179                    
+        Thermal 2                      0     136    -146      36     145   -154     159  179                    
+        Thermal 3                      0     136    -146      36     145   -154     159  179                    
+        Wind 4                         0      24     -59       6      25    -60      60  249                    
+        Wind 5                         0      15     -38       3      16    -38      39  245                    
+        Wind 6                         0      23     -57       5      24    -58      58  245                    
+ 
+ A06    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     622    -619     214     689   -685     724  355                    
+        Thermal 1                      0      45     -55      36      65    -73      84  317                    
+        Thermal 2                      0      45     -55      36      65    -73      84  317                    
+        Thermal 3                      0      45     -55      36      65    -73      84  317                    
+        Wind 4                         0      42     -78       6      43    -78      78  255                    
+        Wind 5                         0      26     -49       3      27    -49      49  251                    
+        Wind 6                         0      40     -74       5      40    -74      74  251                    
+ 
+ A07 N- SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     721    -717     214     780   -776     810  355                    
+        Thermal 1                      0      58     -68      36      75    -83      92  324                    
+        Thermal 2                      0      58     -68      36      75    -83      92  324                    
+        Thermal 3                      0      58     -68      36      75    -83      92  324                    
+        Wind 4                         0      44     -79       6      45    -80      80  256                    
+        Wind 5                         0      27     -50       3      28    -50      50  252                    
+        Wind 6                         0      41     -75       5      41    -75      75  252                    
+ 
+ A07 N+ SIFI= 4.40   SIFO= 4.40                                                 
+        Gravity                        0    3168   -3164     214    3182  -3178    3189   85                    
+        Thermal 1                      0     271    -281      36     276   -286     288   54                    
+        Thermal 2                      0     271    -281      36     276   -286     288   54                    
+        Thermal 3                      0     271    -281      36     276   -286     288   54                    
+        Wind 4                         0     253    -289       6     254   -289     289  346                    
+        Wind 5                         0     159    -181       3     159   -181     181  342                    
+        Wind 6                         0     238    -272       5     238   -272     272  342                    
+ 
+ A07 F- SIFI= 4.40   SIFO= 4.40                                                 
+        Gravity                        0     627    -617     510     912   -905    1084  304                    
+        Thermal 1                      0     155    -158      46     167   -170     177  299                    
+        Thermal 2                      0     155    -158      46     167   -170     177  299                    
+        Thermal 3                      0     155    -158      46     167   -170     177  299                    
+        Wind 4                         0     218    -220       8     219   -220     220  193                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  36
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+        Wind 5                         0     141    -142       6     141   -142     142  192                    
+        Wind 6                         0     211    -212       9     211   -213     213  192                    
+ 
+ A07 F+ SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0     146    -136     510     589   -583     896  214                    
+        Thermal 1                      0      34     -37      46      66    -68      88  209                    
+        Thermal 2                      0      34     -37      46      66    -68      88  209                    
+        Thermal 3                      0      34     -37      46      66    -68      88  209                    
+        Wind 4                         0      49     -51       8      50    -52      52  103                    
+        Wind 5                         0      32     -33       6      33    -34      34  102                    
+        Wind 6                         0      47     -49       9      49    -50      51  102                    
+ 
+ A08  - SIFI= 3.23   SIFO= 3.23                                                 
+        Gravity                        0    4520   -4510     510    4577  -4567    4605  359                    
+        Thermal 1                      0     585    -588      46     589   -592     593   36                    
+        Thermal 2                      0     585    -588      46     589   -592     593   36                    
+        Thermal 3                      0     585    -588      46     589   -592     593   36                    
+        Wind 4                         0    2467   -2469       8    2467  -2469    2469   91                    
+        Wind 5                         0    1485   -1486       6    1485  -1486    1486   91                    
+        Wind 6                         0    2225   -2227       9    2225  -2227    2227   91                    
+ 
+ A08  + SIFI= 3.23   SIFO= 3.23                                                 
+        Gravity                        0    1908   -1897     371    1978  -1967    2014  358                    
+        Thermal 1                      0    5231   -5443      35    5232  -5443    5443   88                    
+        Thermal 2                      0    5231   -5443      35    5232  -5443    5443   88                    
+        Thermal 3                      0    5231   -5443      35    5232  -5443    5443   88                    
+        Wind 4                         0    1303   -1269       3    1303  -1269    1303  271                    
+        Wind 5                         0     779    -759       2     779   -759     779  271                    
+        Wind 6                         0    1168   -1138       4    1168  -1138    1168  271                    
+ 
+ A09    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0    1588   -1576     371    1671  -1660    1713    0                    
+        Thermal 1                      0    1522   -1733      35    1523  -1734    1735  275                    
+        Thermal 2                      0    1522   -1733      35    1523  -1734    1735  275                    
+        Thermal 3                      0    1522   -1733      35    1523  -1734    1735  275                    
+        Wind 4                         0     111     -78       3     111    -78     112   85                    
+        Wind 5                         0      72     -51       2      72    -51      72   84                    
+        Wind 6                         0     107     -77       4     107    -77     108   84                    
+ 
+ *** Segment A  end   ***
+ 
+ *** Segment B  begin ***
+ 
+ A08    SIFI= 3.23   SIFO= 3.23                                                 
+        Gravity                        0     899    -897     405    1054  -1053    1140  357                    
+        Thermal 1                      0    4873   -5102      40    4873  -5102    5102  271                    
+        Thermal 2                      0    4873   -5102      40    4873  -5102    5102  271                    
+        Thermal 3                      0    4873   -5102      40    4873  -5102    5102  271                    
+        Wind 4                         0    1118   -1246       3    1118  -1246    1246   91                    
+        Wind 5                         0     679    -753       2     679   -753     753   92                    
+        Wind 6                         0    1017   -1129       3    1017  -1129    1129   92                    
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  37
+----------------------------------------------------------------------------------------------------------------
+
+            G E N E R A L   P I P E   S T R E S S   R E P O R T                                                 
+                                        (Stress in psi    )                                                     
+ Point     Load                    Hoop    Longitudinal   Shear     Principal    Total                          
+ name   combination               Stress    Max     Min   Stress   Max     Min   Stress  Loc                    
+ ------ ----------------------    ------  ------  ------  ------  ------ ------  ------  ---                    
+ 
+ B01    SIFI= 1.00   SIFO= 1.00                                                 
+        Gravity                        0    1723   -1721     405    1813  -1811    1860    0                    
+        Thermal 1                      0    1469   -1698      40    1470  -1699    1699   84                    
+        Thermal 2                      0    1469   -1698      40    1470  -1699    1699   84                    
+        Thermal 3                      0    1469   -1698      40    1470  -1699    1699   84                    
+        Wind 4                         0      97    -225       3      97   -225     225  267                    
+        Wind 5                         0      60    -135       2      60   -135     135  267                    
+        Wind 6                         0      90    -202       3      90   -202     202  267                    
+ 
+ *** Segment B  end   ***
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  38
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ 
+ A00    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                   2412                   1.00  (11) SUST   10296   21300                     
+        TR:Amb to T1                                   88   1.00  (13) DISP     296   31950                     
+        Amb to T1                                      88   1.00  (13) DISP     296   31950                     
+        Amb to T2                                      88   1.00  (13) DISP     296   31950                     
+        Amb to T3                                      88   1.00  (13) DISP     296   31950                     
+        Sus. + W4                    2412      24           1.00  (12)  OCC   10375   25560                     
+        Sus. + W5                    2412      16           1.00  (12)  OCC   10351   25560                     
+        Sus. + W6                    2412      25           1.00  (12)  OCC   10379   25560                     
+ 
+ A08  - Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    516                   3.23  (11) SUST    6396   21300                     
+        TR:Amb to T1                                   61   3.23  (13) DISP     657   31950                     
+        Amb to T1                                      61   3.23  (13) DISP     657   31950                     
+        Amb to T2                                      61   3.23  (13) DISP     657   31950                     
+        Amb to T3                                      61   3.23  (13) DISP     657   31950                     
+        Sus. + W4                     516     228           3.23  (12)  OCC    8247   25560                     
+        Sus. + W5                     516     137           3.23  (12)  OCC    7510   25560                     
+        Sus. + W6                     516     206           3.23  (12)  OCC    8066   25560                     
+ 
+ A07 F- Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    307                   4.40  (11) SUST    5607   21300                     
+        TR:Amb to T1                                   29   4.40  (13) DISP     433   31950                     
+        Amb to T1                                      29   4.40  (13) DISP     433   31950                     
+        Amb to T2                                      29   4.40  (13) DISP     433   31950                     
+        Amb to T3                                      29   4.40  (13) DISP     433   31950                     
+        Sus. + W4                     307      16           4.40  (12)  OCC    5779   25560                     
+        Sus. + W5                     307      10           4.40  (12)  OCC    5720   25560                     
+        Sus. + W6                     307      15           4.40  (12)  OCC    5776   25560                     
+ 
+ A08  + Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    283                   3.23  (11) SUST    4500   21300                     
+        TR:Amb to T1                                  493   3.23  (13) DISP    5342   31950                     
+        Amb to T1                                     493   3.23  (13) DISP    5342   31950                     
+        Amb to T2                                     493   3.23  (13) DISP    5342   31950                     
+        Amb to T3                                     493   3.23  (13) DISP    5342   31950                     
+        Sus. + W4                     283     119           3.23  (12)  OCC    5465   25560                     
+        Sus. + W5                     283      71           3.23  (12)  OCC    5077   25560                     
+        Sus. + W6                     283     106           3.23  (12)  OCC    5365   25560                     
+ 
+ A05 N+ Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    247                   4.40  (11) SUST    4945   21300                     
+        TR:Amb to T1                                   50   4.40  (13) DISP     732   31950                     
+        Amb to T1                                      50   4.40  (13) DISP     732   31950                     
+        Amb to T2                                      50   4.40  (13) DISP     732   31950                     
+        Amb to T3                                      50   4.40  (13) DISP     732   31950                     
+        Sus. + W4                     247      24           4.40  (12)  OCC    5207   25560                     
+        Sus. + W5                     247      15           4.40  (12)  OCC    5111   25560                     
+        Sus. + W6                     247      22           4.40  (12)  OCC    5193   25560                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  39
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A07 N+ Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    249                   4.40  (11) SUST    4966   21300                     
+        TR:Amb to T1                                   28   4.40  (13) DISP     421   31950                     
+        Amb to T1                                      28   4.40  (13) DISP     421   31950                     
+        Amb to T2                                      28   4.40  (13) DISP     421   31950                     
+        Amb to T3                                      28   4.40  (13) DISP     421   31950                     
+        Sus. + W4                     249      19           4.40  (12)  OCC    5173   25560                     
+        Sus. + W5                     249      12           4.40  (12)  OCC    5095   25560                     
+        Sus. + W6                     249      17           4.40  (12)  OCC    5160   25560                     
+ 
+ A08    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    255                   3.23  (11) SUST    4275   21300                     
+        TR:Amb to T1                                  461   3.23  (13) DISP    4994   31950                     
+        Amb to T1                                     461   3.23  (13) DISP    4994   31950                     
+        Amb to T2                                     461   3.23  (13) DISP    4994   31950                     
+        Amb to T3                                     461   3.23  (13) DISP    4994   31950                     
+        Sus. + W4                     255     109           3.23  (12)  OCC    5162   25560                     
+        Sus. + W5                     255      66           3.23  (12)  OCC    4812   25560                     
+        Sus. + W6                     255      99           3.23  (12)  OCC    5080   25560                     
+ 
+ B01    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    567                   1.00  (11) SUST    4106   21300                     
+        TR:Amb to T1                                  473   1.00  (13) DISP    1586   31950                     
+        Amb to T1                                     473   1.00  (13) DISP    1586   31950                     
+        Amb to T2                                     473   1.00  (13) DISP    1586   31950                     
+        Amb to T3                                     473   1.00  (13) DISP    1586   31950                     
+        Sus. + W4                     567      48           1.00  (12)  OCC    4267   25560                     
+        Sus. + W5                     567      29           1.00  (12)  OCC    4204   25560                     
+        Sus. + W6                     567      44           1.00  (12)  OCC    4252   25560                     
+ 
+ A09    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    521                   1.00  (11) SUST    3952   21300                     
+        TR:Amb to T1                                  486   1.00  (13) DISP    1629   31950                     
+        Amb to T1                                     486   1.00  (13) DISP    1629   31950                     
+        Amb to T2                                     486   1.00  (13) DISP    1629   31950                     
+        Amb to T3                                     486   1.00  (13) DISP    1629   31950                     
+        Sus. + W4                     521      28           1.00  (12)  OCC    4047   25560                     
+        Sus. + W5                     521      18           1.00  (12)  OCC    4013   25560                     
+        Sus. + W6                     521      28           1.00  (12)  OCC    4044   25560                     
+ 
+ A07 F+ Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    307                   1.00  (11) SUST    3234   21300                     
+        TR:Amb to T1                                   29   1.00  (13) DISP      98   31950                     
+        Amb to T1                                      29   1.00  (13) DISP      98   31950                     
+        Amb to T2                                      29   1.00  (13) DISP      98   31950                     
+        Amb to T3                                      29   1.00  (13) DISP      98   31950                     
+        Sus. + W4                     307      16           1.00  (12)  OCC    3287   25560                     
+        Sus. + W5                     307      10           1.00  (12)  OCC    3269   25560                     
+        Sus. + W6                     307      15           1.00  (12)  OCC    3286   25560                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  40
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A07 N- Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    249                   1.00  (11) SUST    3040   21300                     
+        TR:Amb to T1                                   28   1.00  (13) DISP      96   31950                     
+        Amb to T1                                      28   1.00  (13) DISP      96   31950                     
+        Amb to T2                                      28   1.00  (13) DISP      96   31950                     
+        Amb to T3                                      28   1.00  (13) DISP      96   31950                     
+        Sus. + W4                     249      19           1.00  (12)  OCC    3103   25560                     
+        Sus. + W5                     249      12           1.00  (12)  OCC    3080   25560                     
+        Sus. + W6                     249      17           1.00  (12)  OCC    3099   25560                     
+ 
+ A06    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    225                   1.00  (11) SUST    2957   21300                     
+        TR:Amb to T1                                   26   1.00  (13) DISP      88   31950                     
+        Amb to T1                                      26   1.00  (13) DISP      88   31950                     
+        Amb to T2                                      26   1.00  (13) DISP      88   31950                     
+        Amb to T3                                      26   1.00  (13) DISP      88   31950                     
+        Sus. + W4                     225      18           1.00  (12)  OCC    3019   25560                     
+        Sus. + W5                     225      11           1.00  (12)  OCC    2996   25560                     
+        Sus. + W6                     225      17           1.00  (12)  OCC    3015   25560                     
+ 
+ A05 F+ Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    200                   1.00  (11) SUST    2873   21300                     
+        TR:Amb to T1                                   47   1.00  (13) DISP     158   31950                     
+        Amb to T1                                      47   1.00  (13) DISP     158   31950                     
+        Amb to T2                                      47   1.00  (13) DISP     158   31950                     
+        Amb to T3                                      47   1.00  (13) DISP     158   31950                     
+        Sus. + W4                     200      13           1.00  (12)  OCC    2917   25560                     
+        Sus. + W5                     200       8           1.00  (12)  OCC    2901   25560                     
+        Sus. + W6                     200      12           1.00  (12)  OCC    2915   25560                     
+ 
+ A05 F- Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    200                   4.40  (11) SUST    4415   21300                     
+        TR:Amb to T1                                   47   4.40  (13) DISP     697   31950                     
+        Amb to T1                                      47   4.40  (13) DISP     697   31950                     
+        Amb to T2                                      47   4.40  (13) DISP     697   31950                     
+        Amb to T3                                      47   4.40  (13) DISP     697   31950                     
+        Sus. + W4                     200      13           4.40  (12)  OCC    4558   25560                     
+        Sus. + W5                     200       8           4.40  (12)  OCC    4506   25560                     
+        Sus. + W6                     200      12           4.40  (12)  OCC    4551   25560                     
+ 
+ A05 N- Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    247                   1.00  (11) SUST    3034   21300                     
+        TR:Amb to T1                                   50   1.00  (13) DISP     166   31950                     
+        Amb to T1                                      50   1.00  (13) DISP     166   31950                     
+        Amb to T2                                      50   1.00  (13) DISP     166   31950                     
+        Amb to T3                                      50   1.00  (13) DISP     166   31950                     
+        Sus. + W4                     247      24           1.00  (12)  OCC    3113   25560                     
+        Sus. + W5                     247      15           1.00  (12)  OCC    3084   25560                     
+        Sus. + W6                     247      22           1.00  (12)  OCC    3109   25560                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  41
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A04    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    245                   1.00  (11) SUST    3026   21300                     
+        TR:Amb to T1                                   47   1.00  (13) DISP     156   31950                     
+        Amb to T1                                      47   1.00  (13) DISP     156   31950                     
+        Amb to T2                                      47   1.00  (13) DISP     156   31950                     
+        Amb to T3                                      47   1.00  (13) DISP     156   31950                     
+        Sus. + W4                     245      30           1.00  (12)  OCC    3129   25560                     
+        Sus. + W5                     245      20           1.00  (12)  OCC    3092   25560                     
+        Sus. + W6                     245      29           1.00  (12)  OCC    3125   25560                     
+ 
+ A03    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    211                   1.00  (11) SUST    2913   21300                     
+        TR:Amb to T1                                    6   1.00  (13) DISP      21   31950                     
+        Amb to T1                                       6   1.00  (13) DISP      21   31950                     
+        Amb to T2                                       6   1.00  (13) DISP      21   31950                     
+        Amb to T3                                       6   1.00  (13) DISP      21   31950                     
+        Sus. + W4                     211      66           1.00  (12)  OCC    3135   25560                     
+        Sus. + W5                     211      49           1.00  (12)  OCC    3079   25560                     
+        Sus. + W6                     211      74           1.00  (12)  OCC    3162   25560                     
+ 
+ A02 F+ Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    189                   1.00  (11) SUST    2838   21300                     
+        TR:Amb to T1                                   41   1.00  (13) DISP     136   31950                     
+        Amb to T1                                      41   1.00  (13) DISP     136   31950                     
+        Amb to T2                                      41   1.00  (13) DISP     136   31950                     
+        Amb to T3                                      41   1.00  (13) DISP     136   31950                     
+        Sus. + W4                     189      15           1.00  (12)  OCC    2889   25560                     
+        Sus. + W5                     189      10           1.00  (12)  OCC    2872   25560                     
+        Sus. + W6                     189      15           1.00  (12)  OCC    2889   25560                     
+ 
+ A02 F- Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    189                   4.40  (11) SUST    4298   21300                     
+        TR:Amb to T1                                   41   4.40  (13) DISP     600   31950                     
+        Amb to T1                                      41   4.40  (13) DISP     600   31950                     
+        Amb to T2                                      41   4.40  (13) DISP     600   31950                     
+        Amb to T3                                      41   4.40  (13) DISP     600   31950                     
+        Sus. + W4                     189      15           4.40  (12)  OCC    4467   25560                     
+        Sus. + W5                     189      10           4.40  (12)  OCC    4411   25560                     
+        Sus. + W6                     189      15           4.40  (12)  OCC    4468   25560                     
+ 
+ A02 N+ Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    201                   4.40  (11) SUST    4426   21300                     
+        TR:Amb to T1                                   38   4.40  (13) DISP     560   31950                     
+        Amb to T1                                      38   4.40  (13) DISP     560   31950                     
+        Amb to T2                                      38   4.40  (13) DISP     560   31950                     
+        Amb to T3                                      38   4.40  (13) DISP     560   31950                     
+        Sus. + W4                     201      25           4.40  (12)  OCC    4705   25560                     
+        Sus. + W5                     201      17           4.40  (12)  OCC    4620   25560                     
+        Sus. + W6                     201      26           4.40  (12)  OCC    4716   25560                     
+ 
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  42
+----------------------------------------------------------------------------------------------------------------
+
+                              ASME B31.1 (2004)  CODE COMPLIANCE                                                
+                        (Moments in ft-lb  )             (Stress in psi     )                                   
+ Point     Load                      Ma      Mb      Mc            Eq. Load   Code    Code                      
+ name   combination                (Sus.)  (Occ.)  (Exp.)  S.I.F   no. type  Stress  Allow.                     
+ ------ ----------------------    ------- ------- ------- ------- ---- ----  ------  ------                     
+ A02 N- Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    201                   1.00  (11) SUST    2877   21300                     
+        TR:Amb to T1                                   38   1.00  (13) DISP     127   31950                     
+        Amb to T1                                      38   1.00  (13) DISP     127   31950                     
+        Amb to T2                                      38   1.00  (13) DISP     127   31950                     
+        Amb to T3                                      38   1.00  (13) DISP     127   31950                     
+        Sus. + W4                     201      25           1.00  (12)  OCC    2961   25560                     
+        Sus. + W5                     201      17           1.00  (12)  OCC    2935   25560                     
+        Sus. + W6                     201      26           1.00  (12)  OCC    2965   25560                     
+ 
+ A10    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    223                   1.00  (11) SUST    2951   21300                     
+        TR:Amb to T1                                   17   1.00  (13) DISP      57   31950                     
+        Amb to T1                                      17   1.00  (13) DISP      57   31950                     
+        Amb to T2                                      17   1.00  (13) DISP      57   31950                     
+        Amb to T3                                      17   1.00  (13) DISP      57   31950                     
+        Sus. + W4                     223      24           1.00  (12)  OCC    3031   25560                     
+        Sus. + W5                     223      17           1.00  (12)  OCC    3007   25560                     
+        Sus. + W6                     223      25           1.00  (12)  OCC    3035   25560                     
+ 
+ A01    Max P                                                     ( 3) HOOP    4999   21300                     
+        GR + Max P                    181                   1.00  (11) SUST    2812   21300                     
+        TR:Amb to T1                                   26   1.00  (13) DISP      87   31950                     
+        Amb to T1                                      26   1.00  (13) DISP      87   31950                     
+        Amb to T2                                      26   1.00  (13) DISP      87   31950                     
+        Amb to T3                                      26   1.00  (13) DISP      87   31950                     
+        Sus. + W4                     181      24           1.00  (12)  OCC    2891   25560                     
+        Sus. + W5                     181      17           1.00  (12)  OCC    2867   25560                     
+        Sus. + W6                     181      25           1.00  (12)  OCC    2895   25560                     
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  43
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+ Maximum displacements (in)                                                     
+ ---------------------------                                                    
+ 
+          Maximum X :     0.015      Point : A03        Load Comb.: Gravity                                     
+          Maximum Y :    -0.152      Point : A02 F      Load Comb.: Gravity                                     
+          Maximum Z :     0.014      Point : A07 N      Load Comb.: Thermal 1                                   
+          Max. total:     0.153      Point : A03        Load Comb.: Gravity                                     
+ 
+ Maximum rotations (deg)                                                        
+ -----------------------                                                        
+ 
+          Maximum X :     0.060      Point : A07 N      Load Comb.: Gravity                                     
+          Maximum Y :     0.023      Point : A05 N      Load Comb.: Gravity                                     
+          Maximum Z :    -0.115      Point : A01 M      Load Comb.: Gravity                                     
+          Max. total:     0.123      Point : A06        Load Comb.: Gravity                                     
+ 
+ 
+ 
+ Maximum restraint forces (lb)                                                  
+ ------------------------------                                                 
+ 
+          Maximum X :       255      Point : B01        Load Comb.: Thermal 1                                   
+          Maximum Y :      -577      Point : A00        Load Comb.: Gravity                                     
+          Maximum Z :      -236      Point : A09        Load Comb.: Thermal 1                                   
+          Max. total:       577      Point : A00        Load Comb.: Gravity                                     
+ 
+ Maximum restraint moments (ft-lb)                                              
+ ----------------------------------                                             
+ 
+          Maximum X :       471      Point : A09        Load Comb.: Gravity                                     
+          Maximum Y :      -483      Point : A09        Load Comb.: Thermal 1                                   
+          Maximum Z :     -2408      Point : A00        Load Comb.: Gravity                                     
+          Max. total:      2412      Point : A00        Load Comb.: Gravity                                     
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  44
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+ Maximum pipe forces (lb)                                                       
+ -------------------------                                                      
+ 
+          Maximum X :       255      Point : A08        Load Comb.: Thermal 1                                   
+          Maximum Y :       577      Point : A00        Load Comb.: Gravity                                     
+          Maximum Z :      -236      Point : A08        Load Comb.: Thermal 1                                   
+          Max. total:       577      Point : A00        Load Comb.: Gravity                                     
+ 
+ Maximum pipe moments (ft-lb)                                                   
+ -----------------------------                                                  
+ 
+          Maximum X :       471      Point : A09        Load Comb.: Gravity                                     
+          Maximum Y :       492      Point : A08        Load Comb.: Thermal 1                                   
+          Maximum Z :      2408      Point : A00        Load Comb.: Gravity                                     
+          Max. total:      2412      Point : A00        Load Comb.: Gravity                                     
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  45
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+     Maximum sustained stress                                                   
+ 
+                              Point            : A00                            
+                              Stress    psi    : 10296                          
+                              Allowable psi    : 21300                          
+                              Ratio            : 0.48                           
+                              Load combination : GR + Max P                     
+ 
+     Maximum displacement stress                                                
+ 
+                              Point            : A08                            
+                              Stress    psi    : 5342                           
+                              Allowable psi    : 31950                          
+                              Ratio            : 0.17                           
+                              Load combination : Max Range                      
+ 
+     Maximum occasional stress                                                  
+ 
+                              Point            : A00                            
+                              Stress    psi    : 10379                          
+                              Allowable psi    : 25560                          
+                              Ratio            : 0.41                           
+                              Load combination : Sus. + W6                      
+ 
+     Maximum hoop stress                                                        
+ 
+                              Point            : A00                            
+                              Stress    psi    : 4999                           
+                              Allowable psi    : 21300                          
+                              Ratio            : 0.23                           
+                              Load combination : Max P                          
+
+----------------------------------------------------------------------------------------------------------------
+B31-1                                                                                                           
+11/17/2016 LOADCASES AND COMBINATIONS                             BENTLEY                                       
+12:06 PM                                                          AutoPIPE Nuclear 11.00.00.12   RESULT PAGE  46
+----------------------------------------------------------------------------------------------------------------
+
+                                                                                                                
+                            R E S U L T    S U M M A R Y                                                        
+                            ----------------------------                                                        
+                                                                                                                
+                                                                                                                
+ 
+     Maximum sustained stress ratio                                             
+ 
+                              Point            : A00                            
+                              Stress    psi    : 10296                          
+                              Allowable psi    : 21300                          
+                              Ratio            : 0.48                           
+                              Load combination : GR + Max P                     
+ 
+     Maximum displacement stress ratio                                          
+ 
+                              Point            : A08                            
+                              Stress    psi    : 5342                           
+                              Allowable psi    : 31950                          
+                              Ratio            : 0.17                           
+                              Load combination : Max Range                      
+ 
+     Maximum occasional stress ratio                                            
+ 
+                              Point            : A00                            
+                              Stress    psi    : 10379                          
+                              Allowable psi    : 25560                          
+                              Ratio            : 0.41                           
+                              Load combination : Sus. + W6                      
+ 
+     Maximum hoop stress ratio                                                  
+ 
+                              Point            : A00                            
+                              Stress    psi    : 4999                           
+                              Allowable psi    : 21300                          
+                              Ratio            : 0.23                           
+                              Load combination : Max P                          
+ 
+ 
+ 
+     * * * The system satisfies ASME B31.1 (2004) code requirements * * *       
+     * * * for the selected options                                 * * *       
+

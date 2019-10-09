@@ -1,0 +1,55 @@
+---------------------------------------------------------------------------------------------------------------------------
+
+                              C A E S A R   R I G I D   C O M P O N E N T S   I M P O R T                                  
+
+---------------------------------------------------------------------------------------------------------------------------
+
+ Selected Standard : B16-47 2006 & B16-5 2009
+
+ Selected Type     : All
+
+ Selected Rating   : All
+
+ NPS Tolerance     :  5.0 %
+
+ Length Tolerance  : 10.0 %
+
+ From      To        Standard        Pipe OD   Actual NPS  Actual Len     Actual    Type          Lib.       Comments      
+                                                Lib. NPS    Lib. Len      Weight                 Rating*                   
+                                      (in)        (in)       (inch)        (lb)                                              
+ ------  ------  -----------------  ---------  ----------  -----------  ---------- ----------  ----------  ----------------
+    927     930  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+    907     910  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+    917     920  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+    937     940  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+    947     950  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+    957     960  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+    967     970  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+    977     980  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+   1927    1930  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+   1907    1910  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+   1917    1920  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+   1937    1940  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+   1947    1950  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+   1957    1960  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+   1967    1970  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+   1977    1980  B16-5 2009             6.625       6.000        6.750     165.000  Weldneck      1500     Mapped to Flange
+                                                    6.000        6.750  
+
+   * Library flange rating is the rating value of matching flange record from flange dimension library.
+     Rating of flanges in imported AutoPIPE model may be different and is dependent on piping code of the model.

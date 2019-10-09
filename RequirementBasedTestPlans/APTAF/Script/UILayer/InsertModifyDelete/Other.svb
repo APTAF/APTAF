@@ -1,0 +1,130 @@
+﻿'USEUNIT DatabaseFunctions
+'USEUNIT tabInsert
+'USEUNIT Main
+'
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "DistributedLoads" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         DistributedLoads table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     9/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub DistributedLoads (objNameMapping, objRow, strOpenDialog, strHotKey)
+
+'''''''''''''''Delete
+Set objNameMapping = Aliases.autopipe
+'''''''''''''''''''
+
+Set dlgDistributedLoads = objNameMapping.dlgDistributedLoads
+
+Dim drpLoadCombineWith : drpLoadCombineWith ="*"&objRow.Item("drpLoadCombineWith")&"*"
+Dim intForcesAtX : intForcesAtX = objRow.Item("intForcesAtX")
+Dim intForcesAtY : intForcesAtY = objRow.Item("intForcesAtY")
+Dim intForcesAtZ : intForcesAtZ = objRow.Item("intForcesAtZ")
+Dim intForcesAtPoint2X : intForcesAtPoint2X = objRow.Item("intForcesAtPoint2X")
+Dim intForcesAtPoint2Y : intForcesAtPoint2Y = objRow.Item("intForcesAtPoint2Y")
+Dim intForcesAtPoint2Z : intForcesAtPoint2Z = objRow.Item("intForcesAtPoint2Z")
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ Select Case strOpenDialog
+        Case "Shortcut"
+            'aqutils.Delay(600)
+            objNameMapping.wndAutoPIPE.Keys(strHotkey)
+        Case "Ribbon"
+            ' Ribbon is not accessable 
+    End Select
+    aqUtils.Delay(2000)
+     
+    '''' drpLoadCombineWith
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If(drpLoadCombineWith <> "*NA*") Then
+    dlgDistributedLoads.drpdwnLoadCombineWith.ClickItem(drpLoadCombineWith)
+    dlgDistributedLoads.drpdwnLoadCombineWith.Keys("[Tab]")
+        Log.Message("Entered in the drpLoadCombineWith field")
+    End If
+End If
+
+'''' intForcesAtX 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If (intForcesAtX  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDistributedLoads", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDistributedLoads.fldForcesAtX.Keys(intForcesAtX)
+          dlgDistributedLoads.fldForcesAtX.Keys("[Tab]")
+          Log.Message("Entered  intForcesAtX in the field")
+        End If
+    End If 
+End If
+
+'''' intForcesAtY 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If (intForcesAtY  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDistributedLoads", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDistributedLoads.fldForcesAtY.Keys(intForcesAtY)
+          dlgDistributedLoads.fldForcesAtY.Keys("[Tab]")
+          Log.Message("Entered  intForcesAtY in the field")
+        End If
+    End If 
+End If
+
+
+''' intForcesAtZ 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If (intForcesAtZ  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDistributedLoads", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDistributedLoads.fldForcesAtZ.Keys(intForcesAtZ)
+          dlgDistributedLoads.fldForcesAtZ.Keys("[Tab]")
+          Log.Message("Entered  fldForcesAtZ in the field")
+        End If
+    End If 
+End If
+
+
+''' intForcesAtPoint2X 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If (intForcesAtPoint2X  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDistributedLoads", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDistributedLoads.fldForcesAtPoint2X.Keys(intForcesAtPoint2X)
+          dlgDistributedLoads.fldForcesAtPoint2X.Keys("[Tab]")
+          Log.Message("Entered  intForcesAtPoint2X in the field")
+        End If
+    End If 
+End If
+
+
+'''' intForcesAtPoint2Y 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If (intForcesAtPoint2Y  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDistributedLoads", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDistributedLoads.fldForcesAtPoint2Y.Keys(intForcesAtPoint2Y)
+          dlgDistributedLoads.fldForcesAtPoint2Y.Keys("[Tab]")
+          Log.Message("Entered  intForcesAtPoint2Y in the field")
+        End If
+    End If 
+End If
+
+'''' intForcesAtPoint2Z 
+If(objNameMapping.WaitAliasChild("dlgError", 60).WaitProperty("Exists", false, 10)) AND (objNameMapping.WaitAliasChild("dlgWarning", 60).WaitProperty("Exists", false, 10)) Then
+  If (intForcesAtPoint2Z  <> "NA") Then
+        'Write to "Name Of Point" field
+        If(objNameMapping.WaitAliasChild("dlgDistributedLoads", 60000).WaitProperty("Exists", true, 10)) Then
+          dlgDistributedLoads.fldForcesAtPoint2Z.Keys(intForcesAtPoint2Z)
+          dlgDistributedLoads.fldForcesAtPoint2Z.Keys("[Tab]")
+          Log.Message("Entered  fldForcesAtPoint2Z in the field")
+        End If
+    End If 
+End If
+
+aqUtils.Delay(100)
+dlgDistributedLoads.btnOK.Click()
+
+End Sub

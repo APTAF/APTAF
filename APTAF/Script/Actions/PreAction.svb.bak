@@ -1,0 +1,221 @@
+﻿'USEUNIT tabInsert
+'USEUNIT tabModify
+'USEUNIT Main
+'USEUNIT UIEngine
+''''''''''''''''''''''''' TEMPLATE '''''''''''''''''''''''''''''''''''''''''
+'Case "dlgZZZ"
+'      Call ZZZ(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+'      
+'Function ZZZ(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+'  AppendLogFolder("Pre-Test Actions")
+'    Select Case strVerificationType   
+'     Case "dialogvalidation"    
+'        Log.Message("No Pre-Test Validation Action performed")
+'     Case else
+'        Log.Message("No Pre-Test Action Performed")     
+'     End Select
+'     PopLogFolder
+' End Function
+''''''''''''''''''''''''' TEMPLATE '''''''''''''''''''''''''''''''''''''''''
+Function Main(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  Select Case strDlgNameMap
+    Case "dlgOpen"
+      Call Open(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   Case "dlgPipeProperties"
+      Call PipeProperties(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   Case "dlgOutOfRoundness"
+      Call OutOfRoundness(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   Case "dlgExport"
+      Call Export(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  Case "dlgValve"
+      Call Valve(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  Case "dlgGrossDiscontinuity"
+      Call GrossDiscontinuity(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   
+'    'SaveAs
+    'Bend,Flange,FlexibleJoint,Nozzle,Reducer,Run,Segment,Tee,Valve
+    'OperatingPT,RigidOptionsOverRange
+    'Anchor,Support,JointTypeAndUserSIF,AdditionalWeight,ConcentratedForce,ImposedDisplacement,HydrodynamicData,CutShort,UserWeldEfficiencyFactor,EarthquakeScaleFactor
+    '--continued--ReferencePoint,
+    'Beam
+    Case Else
+      AppendLogFolder("Pre-Test Actions")
+      Select Case strVerificationType         
+        'CASE VALIDATION 
+         Case "dialogvalidation"
+            Log.Message("No Pre-Test Validation Action performed")
+        'CASE  ACTION
+         Case Else 
+            Log.Message("No Pre-Test Action Performed")
+     End Select
+    PopLogFolder     
+  End Select 
+End Function
+
+
+''''''''''''''''''''''''' Open '''''''''''''''''''''''''
+Function Open(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Pre-Test Actions")
+ Select Case strVerificationType
+     Case "dialogvalidation"     
+       Log.Message("No Pre-test Validation action performed")    
+     Case else   
+'        Dim btnSaveYesNo : btnSaveYesNo  = objData.Item("btnSaveYesNo")
+'          If(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10))Then
+'            IF(((btnSaveYesNo <>"NA") OR (btnSaveYesNo <>"" ))) Then
+'              Select Case btnSaveYesNo
+'                Case "Yes"
+'                    objNameMapping.dlgConfirm.btnYes.Click()
+'                    Log.Message("'Save existing Model changes 'Confirm Dialog YES button click ")
+'                Case "No"
+'                    objNameMapping.dlgConfirm.btnNO.Click()
+'                    Log.Message("'Save existing Model changes 'Confirm Dialog NO button click ")
+'                Case "Cancel"
+'                    objNameMapping.dlgConfirm.btnCancel.Click()
+'                    Log.Message("'Save existing Model changes 'Confirm Dialog CANCEL button click ")
+'              End Select
+'            Else 
+'              MsgBox "Enter valid value in 'btnSaveYesNo' attribute of INPUT DB"
+'              Runner.Stop
+'            End IF
+'        End IF              
+   End select
+   PopLogFolder
+End Function
+'''''''''''''''''''''''''Piping Components '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''Valve '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Function Valve(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Pre-Test Actions")
+   Select Case strHotKey
+   Case "IV"
+      Select Case strVerificationType   
+         Case "dialogvalidation"    
+            Log.Message("No Pre-test Validation action performed")  
+         Case else
+            Log.Message("No Pre-Test Action Performed")  
+       End Select  
+   Case "MV","DV"
+      Select Case strVerificationType   
+         Case "dialogvalidation"    
+           objNameMapping.wndAutoPIPE.Keys("[Left]")
+           objNameMapping.wndAutoPIPE.Keys(strHotKey)
+         Case else
+              objNameMapping.wndAutoPIPE.Keys("[Left]") 
+              objNameMapping.wndAutoPIPE.Keys(strHotKey)         
+       End Select
+   End Select
+ PopLogFolder
+ End Function
+''''''''''''''''''''''''' Xtra Data '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+Function OutOfRoundness(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   AppendLogFolder("Pre-Test Actions")
+    Select Case strVerificationType         
+     Case "dialogvalidation"
+          Log.Message("No Pre-test Validation action performed")             
+      'CASE  ACTION
+     Case Else 
+         If(objNameMapping.WaitAliasChild("dlgConfirm", 600).WaitProperty("Exists", true, 10))Then
+           objNameMapping.dlgConfirm.btnOK.Click()
+         End If
+    End Select
+   PopLogFolder
+End Function
+'''''''''''''''''''''''''Gross Discontinuity '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Function GrossDiscontinuity(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Pre-Test Actions")
+   Select Case strHotKey
+   Case "I04"
+      Select Case strVerificationType   
+         Case "dialogvalidation"    
+            Log.Message("No Pre-test Validation action performed")  
+         Case else
+            Log.Message("No Pre-Test Action Performed")  
+       End Select  
+   Case "M04"
+      Select Case strVerificationType   
+         Case "dialogvalidation"    
+         Log.Message("No Pre-test Validation action performed") 
+           
+         Case else
+              objNameMapping.wndAutoPIPE.Keys("[Left]") 
+              objNameMapping.wndAutoPIPE.Keys(strHotKey)         
+       End Select
+   End Select
+ PopLogFolder
+ End Function
+
+'''''''''''''''''''''''' Properties '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Function PipeProperties(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+  AppendLogFolder("Pre-Test Actions")
+   Select Case strHotKey
+   Case "IP"
+ Select Case strVerificationType
+     Case "dialogvalidation"  
+     Log.Message("Pre-Test: Pipe Identifier selected")   
+         If (objNameMapping.WaitAliasChild("dlgPipeModify", 40).WaitProperty("Exists", true, 10)) THEN
+      '
+         Dim PipeIdentifier: PipeIdentifier = ObjData.Item("cmbstrPipeIdentifier")
+         PipeIdentifier = "*" & PipeIdentifier & "*" 
+           objNameMapping.dlgPipeModify.drpdwnPipeIdentifier.ClickItem(PipeIdentifier) 
+          objNameMapping.dlgPipeModify.btnOK.Click()
+       
+         End If
+         Log.Message("Pre-Test: Pipe Identifier selected " & PipeIdentifier  )
+         
+     Case else   
+          Log.Message("No Pre-Test Action Performed")   
+   End select
+    Case "MP"
+        Select Case strVerificationType
+     Case "dialogvalidation"     
+         If (objNameMapping.WaitAliasChild("dlgPipeModify", 40).WaitProperty("Exists", true, 10)) THEN
+      '
+            Dim PipeIdentifier3: PipeIdentifier3 = ObjData.Item("cmbstrPipeIdentifier")
+            if(PipeIdentifier3 <> "NA") then
+              PipeIdentifier3 = "*" & PipeIdentifier3 & "*" 
+              objNameMapping.dlgPipeModify.drpdwnPipeIdentifier.ClickItem(PipeIdentifier3) 
+            Else
+              PipeIdentifier3 = ObjData.Item("strPipeIdentifier")
+               PipeIdentifier3 = "*" & PipeIdentifier3 & "*" 
+              objNameMapping.dlgPipeModify.drpdwnPipeIdentifier.ClickItem(PipeIdentifier3) 
+            End If
+          objNameMapping.dlgPipeModify.btnOK.Click()
+     
+       
+         End If
+         
+
+      Case else   
+           If (objNameMapping.WaitAliasChild("dlgPipeModify", 40).WaitProperty("Exists", true, 10)) THEN
+      '
+                 Dim PipeIdentifier2: PipeIdentifier2 = ObjData.Item("strPipeIdentifier")
+                 PipeIdentifier2 = "*" & PipeIdentifier2 & "*" 
+                   objNameMapping.dlgPipeModify.drpdwnPipeIdentifier.ClickItem(PipeIdentifier2) 
+                  objNameMapping.dlgPipeModify.btnOK.Click()
+          End  If  
+   End select
+   End Select
+
+   
+   PopLogFolder
+End Function
+''''''''''''''''''''''''' Export '''''''''''''''''''''''''''''''''''''''''
+Function Export(strDlgNameMap,objData, strVerificationType, objNameMapping,strHotKey)
+   AppendLogFolder("Pre-Test Actions")
+    Select Case strVerificationType         
+     Case "dialogvalidation"
+       'CASE  ACTION
+     Case Else 
+     
+     If(objNameMapping.WaitAliasChild("dlgConfirm", 5000).WaitProperty("Exists", true, 10)) Then
+        Aliases.autopipe.dlgConfirm.btnOK.Click()
+        Log.Message("Confirm dialog: Database(*.dat) already exists. Button Yes pressed")
+     End If
+
+
+   
+    End Select
+   PopLogFolder
+End Function
+

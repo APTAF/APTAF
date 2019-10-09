@@ -1,0 +1,183 @@
+﻿'USEUNIT Main
+'USEUNIT DatabaseFunctions
+'USEUNIT tabView
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ISOView" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ISOView table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     8/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub ISOView (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+
+Set ObjNameMapping = Aliases.autopipe
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+   set dlgISOView = objNameMapping.dlgISOView
+   Dim cmbboxIsoDirection :cmbboxIsoDirection = "*"&objRow.Item("cmbboxIsoDirection")&"*"
+    aqUtils.Delay(2000)
+  
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select
+  
+   '''' cmbboxCombination
+if(cmbboxIsoDirection <> "*NA*") Then
+if(NameMapping.Sys.autopipe.dlgISOView.cmbboxIsoDirection.Exists) Then
+If(NameMapping.Sys.autopipe.dlgISOView.cmbboxIsoDirection.Enabled) Then
+
+    dlgISOView.cmbboxIsoDirection.click()
+    objNameMapping.lstItems.ClickItem(cmbboxIsoDirection) 
+'    if(NameMapping.Sys.autopipe.dlgWarning.Exists) Then
+'    objNameMapping.dlgWarning.Close()
+    end If
+    end If
+   End If
+    'end if 
+    
+    
+    aqUtils.Delay(2000)
+dlgISOView.btnOK.Click()
+End Sub
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ISOView" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ISOView table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     8/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub ViewVector (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+
+Set ObjNameMapping = Aliases.autopipe
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+   set dlgViewVector = objNameMapping.dlgViewVector
+   Dim cmbboxViewDirection :cmbboxViewDirection = "*"&objRow.Item("cmbboxViewDirection")&"*"
+   Dim intX : intX = objRow.Item("intX")
+   Dim intY : intX = objRow.Item("intY")
+   Dim intZ : intX = objRow.Item("intZ")
+    aqUtils.Delay(2000)
+  
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select
+
+  
+   '''' cmbboxViewDirection
+if(cmbboxViewDirection <> "*NA*") Then
+if(NameMapping.Sys.autopipe.dlgViewVector.cmbboxViewDirection.Exists) Then
+If(NameMapping.Sys.autopipe.dlgViewVector.cmbboxViewDirection.Enabled) Then
+
+    dlgViewVector.cmbboxViewDirection.click()
+    objNameMapping.lstItems.ClickItem(cmbboxViewDirection) 
+'    if(NameMapping.Sys.autopipe.dlgWarning.Exists) Then
+'    objNameMapping.dlgWarning.Close()
+    end If
+    end If
+   End If
+    'end if 
+    
+    
+  ''''''''''''''''''intX
+    if(intX <> "NA") then
+        'Write to  field
+        If(NameMapping.Sys.autopipe.dlgViewVector.Exists) Then
+          if(NameMapping.Sys.autopipe.dlgViewVector.fldX.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+    
+          dlgViewVector.fldX.Keys(intX)
+         
+          Log.Message("Entered in the intX field")
+        End If
+    End If
+    End If
+    
+    ''''''''''''''''''intX
+    if(intY <> "NA") then
+        'Write to  field
+        If(NameMapping.Sys.autopipe.dlgViewVector.Exists) Then
+          if(NameMapping.Sys.autopipe.dlgViewVector.fldY.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+    
+          dlgViewVector.fldX.Keys(intY)
+         
+          Log.Message("Entered in the intY field")
+        End If
+    End If
+    End If
+     
+    ''''''''''''''''''intX
+    if(intZ <> "NA") then
+        'Write to  field
+        If(NameMapping.Sys.autopipe.dlgViewVector.Exists) Then
+          if(NameMapping.Sys.autopipe.dlgViewVector.fldZ.Enabled) Then
+       '' If(objNameMapping.WaitAliasChild("dlgWarning", 6000).WaitProperty("Exists", true, 10)) Then
+    
+          dlgViewVector.fldZ.Keys(intZ)
+         
+          Log.Message("Entered in the intZ field")
+        End If
+    End If
+    End If
+    aqUtils.Delay(2000)
+    dlgViewVector.btnOK.Click()
+  End Sub
+  
+  '''''''''''''''''''''''''''''''''''''''''''''
+  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'------------------------------------------------------------------------------------**/
+' Summary: This function allows for use of the "ViewTypes" dialog   
+' Remarks:
+' Parameters:
+'           intDbTestRow:   Input Test Row to use</param>
+'           objNameMapping: TestComplete name mapping for the app.
+'           objRow:         ISOView table row object
+'           strOpenDialog:  By shortcut key or by Ribbon click 
+' Author:   Bismah Khalid 
+' Date:     8/2018
+'/*--------------+---------------+---------------+---------------+---------------+------*/
+
+Sub ViewTypes (ObjNameMapping, objRow, strOpenDialog, strHotKey)
+
+
+Set ObjNameMapping = Aliases.autopipe
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+  
+    aqUtils.Delay(2000)
+  
+  Select Case strOpenDialog
+    Case "Shortcut"
+            'aqutils.Delay(200)
+            objNameMapping.wndAutoPIPE.Keys(strHotKey)        
+    Case "Ribbon"
+    ' Ribbon is not accessable 
+  End Select
+  
+  End Sub

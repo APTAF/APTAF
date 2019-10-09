@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Common" />
+		<folder name="Database">
+			<child name="Database" key="{4616F94A-7C65-4D5D-87A1-046A1CE27C7C}" path="Database.svb" />
+		</folder>
+	</children>
+</Root>
